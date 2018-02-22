@@ -14,7 +14,7 @@ public:
 	void pause();
 	void close();
 private:
-	Mix_Chunk *chunck_ = nullptr;
+	//Mix_Chunk *chunck_ = nullptr;
 };
 
 #endif /* SOUNDEFFECT_H_ */
