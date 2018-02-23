@@ -80,5 +80,8 @@
     <ClInclude Include="ComponentContainer.h">
       <Filter>Arquitectura\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Arquitectura\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

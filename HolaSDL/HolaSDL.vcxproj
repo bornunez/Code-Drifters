@@ -30,6 +30,7 @@
     <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
