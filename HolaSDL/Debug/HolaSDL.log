@@ -1,9 +1,3 @@
-﻿  GameObject.cpp
-  Generando código...
-  Compilando...
-  GameStateMachine.cpp
-  GameState.cpp
-  Component.cpp
-  Generando código...
-  HolaSDL.vcxproj -> C:\Users\Miniman\Desktop\Cosas de la uni\Proyecto\Code-Drifters\bin\HolaSDLDebug.exe
-  HolaSDL.vcxproj -> C:\Users\Miniman\Desktop\Cosas de la uni\Proyecto\Code-Drifters\bin\HolaSDLDebug.pdb (Full PDB)
+﻿  main.cpp
+  HolaSDL.vcxproj -> C:\Users\Aramis\Documents\Proyectos\SDL\Code-Drifters\bin\HolaSDLDebug.exe
+  HolaSDL.vcxproj -> C:\Users\Aramis\Documents\Proyectos\SDL\Code-Drifters\bin\HolaSDLDebug.pdb (Full PDB)
