@@ -1,6 +1,8 @@
-﻿  Game.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
+﻿  Camera.cpp
+  Generando código...
+  Omitiendo... (no se detectaron cambios relevantes)
   main.cpp
-  HolaSDL.vcxproj -> C:\hlocal\Code-Drifters\bin\HolaSDLDebug.exe
-  HolaSDL.vcxproj -> C:\hlocal\Code-Drifters\bin\HolaSDLDebug.pdb (Partial PDB)
+  Room.cpp
+  Game.cpp
+  DungeonGenerator.cpp
+  HolaSDL.vcxproj -> C:\Users\Aramis\Documents\Proyectos\SDL\Code-Drifters\bin\HolaSDLDebug.exe

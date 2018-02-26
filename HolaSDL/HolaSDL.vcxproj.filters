@@ -71,9 +71,12 @@
       <Filter>Map\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="PlayState.cpp">
-      <Filter>MainCharacter\Archivos de código fuente</Filter>
+      <Filter>Arquitectura\Source Code Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
+      <Filter>Arquitectura\Source Code Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter.cpp">
       <Filter>MainCharacter\Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
@@ -118,9 +121,12 @@
       <Filter>Map\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="PlayState.h">
-      <Filter>MainCharacter\Archivos de encabezado</Filter>
+      <Filter>Arquitectura\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
+      <Filter>Arquitectura\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter.h">
       <Filter>MainCharacter\Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

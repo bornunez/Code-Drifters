@@ -21,6 +21,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />

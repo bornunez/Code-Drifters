@@ -3,15 +3,16 @@
 #include <string>
 #include "Room.h"
 #include "Texture.h"
+#include "Game.h"
 using namespace std;
 class DungeonGenerator
 {
 public:
-	DungeonGenerator(int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY);
+	DungeonGenerator(Game* game,int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY);
 	~DungeonGenerator();
 	void CreateMap();
 	void Run();
-	SDL_Renderer* getRenderer();
+
 private:
 	void ClearMap();
 	vector<Room*> FindDeadEnds();
@@ -29,20 +30,19 @@ private:
 	void render();
 
 	void LoadTextures();
-	void Init();
 	int winY = 50;
 	int winX = 50;
 	int winWidth = 800;
 	int winHeight = 600;
-	SDL_Window* window;
-	SDL_Renderer* renderer;
+
+	
 	SDL_Rect size_;
 
 	int mapWidth_;
 	int mapHeight_;
 	int maxRooms_;
 	int roomsLeft_;
-
+	Game* game_;
 	vector<Room*> visitedRooms_;
 	vector<Room*> unvisitedRooms_;
 	vector<vector<Room*>> Dungeon_;
