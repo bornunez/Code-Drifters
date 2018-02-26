@@ -28,16 +28,25 @@ void GameStateMachine::pushState(GameState* ge)
 
 
 
-GameState* GameStateMachine::popState()
+void GameStateMachine::popState()
 {
 	GameState* gs = stateStack.top();
 	stateStack.pop();
-	return gs;
+	garbage.push(gs);
 }
 
 void GameStateMachine::changeState(GameState* ge)
 {
-	GameState* gs = popState();
-	delete gs;
+	popState();
 	pushState(ge);
+}
+
+void GameStateMachine::cleanGarbage() 
+{
+	GameState* aux= garbage.front();
+	garbage.pop();
+	if (aux != nullptr) 
+	{
+		delete aux;
+	}
 }

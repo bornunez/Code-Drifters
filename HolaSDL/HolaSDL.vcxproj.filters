@@ -70,6 +70,12 @@
     <ClCompile Include="Room.cpp">
       <Filter>Map\Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>MainCharacter\Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>MainCharacter\Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -110,6 +116,12 @@
     </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Map\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>MainCharacter\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>MainCharacter\Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
