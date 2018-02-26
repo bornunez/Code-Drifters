@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de código fuente">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Archivos de recursos">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -22,11 +14,28 @@
     <Filter Include="Arquitectura\Source Code Files">
       <UniqueIdentifier>{c9a91a17-7957-4bab-95f5-ce65455c5e3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MainCharacter">
+      <UniqueIdentifier>{4b5d84dc-3792-4a78-8944-1f1870891989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainCharacter\Archivos de código fuente">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="MainCharacter\Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{e609344e-c472-46b7-a21c-ecbd31aebaac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map\Archivos de código fuente">
+      <UniqueIdentifier>{6a0e52b7-42f6-4ca9-b008-6a3cf9e46886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map\Archivos de encabezado">
+      <UniqueIdentifier>{7b2274d8-6ea9-42a1-8e07-798a5708942f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Arquitectura\Source Code Files</Filter>
     </ClCompile>
@@ -50,6 +59,16 @@
     </ClCompile>
     <ClCompile Include="ComponentContainer.cpp">
       <Filter>Arquitectura\Source Code Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>MainCharacter\Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="DungeonGenerator.cpp">
+      <Filter>Map\Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Map\Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +101,15 @@
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Arquitectura\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>MainCharacter\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="DungeonGenerator.h">
+      <Filter>Map\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Map\Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
