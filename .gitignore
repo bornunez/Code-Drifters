@@ -2,6 +2,3 @@
 .vs/
 #ignorar la carpeta debug y otros archivos
 HolaSDL/Debug/
-#bin/HolaSDLDebug.exe
-#bin/HolaSDLDebug.ilk
-#bin/HolaSDLDebug.pdb
