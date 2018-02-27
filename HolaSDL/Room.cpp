@@ -207,3 +207,5 @@ void Room::setVisited(bool visited) {
 void Room::setSpecial(string special) {
 	special_ = special;
 }
+
+//-------------------------------------------------------------------------------------

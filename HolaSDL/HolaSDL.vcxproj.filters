@@ -8,12 +8,6 @@
     <Filter Include="Arquitectura">
       <UniqueIdentifier>{45a0107a-000a-4918-998e-3b5fc3c7643f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Arquitectura\Header Files">
-      <UniqueIdentifier>{4d98806b-e8c0-4a4f-a4e4-64773c578ecc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquitectura\Source Code Files">
-      <UniqueIdentifier>{c9a91a17-7957-4bab-95f5-ce65455c5e3c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MainCharacter">
       <UniqueIdentifier>{4b5d84dc-3792-4a78-8944-1f1870891989}</UniqueIdentifier>
     </Filter>
@@ -34,31 +28,37 @@
     <Filter Include="Map\Archivos de encabezado">
       <UniqueIdentifier>{7b2274d8-6ea9-42a1-8e07-798a5708942f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquitectura\Archivos de encabezado">
+      <UniqueIdentifier>{4d98806b-e8c0-4a4f-a4e4-64773c578ecc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquitectura\Archivos de código fuente">
+      <UniqueIdentifier>{c9a91a17-7957-4bab-95f5-ce65455c5e3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="GameStateMachine.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Vector2D.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Font.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="ComponentContainer.cpp">
-      <Filter>Arquitectura\Source Code Files</Filter>
+      <Filter>Arquitectura\Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>MainCharacter\Archivos de código fuente</Filter>
@@ -73,34 +73,31 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="GameStateMachine.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="sdl_includes.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
-      <Filter>Arquitectura\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ComponentContainer.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Arquitectura\Header Files</Filter>
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>MainCharacter\Archivos de encabezado</Filter>
@@ -110,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Map\Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Arquitectura\Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

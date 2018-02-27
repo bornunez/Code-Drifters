@@ -2,9 +2,8 @@
 #include <string>
 #include "Texture.h"
 #include "GameObject.h"
-
-
 using namespace std;
+
 class DungeonGenerator;
 class Room
 {

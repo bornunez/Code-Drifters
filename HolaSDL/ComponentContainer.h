@@ -6,7 +6,6 @@
 class ComponentContainer
 {
 protected:
-	std::list<Component*> components;
 public:
 	ComponentContainer();
 	~ComponentContainer();
@@ -20,6 +19,7 @@ public:
 	virtual void render();
 	virtual void handleEvents(SDL_Event& e);
 private:
+	std::list<Component*> components;
 	std::queue<Component*> garbage;
 	void cleanGarbage();
 };

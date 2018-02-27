@@ -12,6 +12,7 @@ protected:
 	Texture * texture = NULL; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
 	bool active = true;
+
 public:
 
 	GameObject();

@@ -22,13 +22,15 @@ GameObject::~GameObject()
 
 void GameObject::update()
 {
-	
+	ComponentContainer::update();
 }
 
 void GameObject::render()
 {
+	ComponentContainer::render();
 }
 
 void GameObject::handleEvents(SDL_Event & e)
 {
+	ComponentContainer::handleEvents(e);
 }

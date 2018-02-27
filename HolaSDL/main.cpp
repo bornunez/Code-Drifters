@@ -1,10 +1,13 @@
 #include <math.h>
-#include <iostream>
+#include <SDL.h>
 #include "DungeonGenerator.h"
+#include <iostream>
 
 using namespace std;
 
-int main(int ac, char** av) {
-	
+int main(int argc, char** arv)
+{
 	return 0;
 }
+
+
