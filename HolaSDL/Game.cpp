@@ -2,6 +2,11 @@
 
 
 
+DungeonGenerator * Game::getLevel()
+{
+	return level;
+}
+
 MainCharacter * Game::getCharacter()
 {
 	return mainCharacter;
@@ -15,8 +20,20 @@ Game::Game()
 
 	window = SDL_CreateWindow("Haro I de Saboya", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	camera = new Camera(this);
-	mainCharacter = new MainCharacter(this);
+
+	int roomNumber = 20;
+	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
+
+	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
+	camera = new Camera(this);	
+	mainCharacter = new MainCharacter(this, 100,100,50,50);
+	level->CreateMap();
+	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
+	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
+
+
+
+
 	
 	if (renderer == nullptr)//Si hay errores activa el flag
 	{
@@ -54,7 +71,7 @@ void Game::run()
 	while (!exit) 
 	{
 		SDL_RenderClear(getRenderer());
-		mainCharacter->render();
+		camera->render();
 		handleEvents();
 		SDL_RenderPresent(getRenderer());
 	}

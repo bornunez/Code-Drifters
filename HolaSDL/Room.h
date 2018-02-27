@@ -2,18 +2,15 @@
 #include <string>
 #include "Texture.h"
 #include "GameObject.h"
-using namespace std;
 
-class DungeonGenerator;
-#include "Game.h"
-
+class Game;
 using namespace std;
 
 class Room
 {
 public:
 
-	Room();
+	Room(Game* game);
 	Room(Game* game, SDL_Rect rect);
 	~Room();
 	void loadTexture();
@@ -35,20 +32,22 @@ public:
 	void setDownDoor(bool downDoor);
 	void setVisited(bool visited);
 	void setSpecial(string special);
+	void addCharacter(GameObject* o);
+
 
 private:
-	string filename_;
-	SDL_Rect rect_;
-	Game* game_;
+	string filename;
+	SDL_Rect rect;
+	Game* game;
 	Texture* texture;
-	vector<GameObject*> characters_;//Todos los elementos que aparecen en pantalla
-	int x_;
-	int y_;
-	bool upDoor_;
-	bool rightDoor_;
-	bool downDoor_;
-	bool leftDoor_;
-	bool visited_;
-	string special_;//Boss, chest, or shop	
+	vector<GameObject*> characters;//Todos los elementos que aparecen en pantalla
+	int x;
+	int y;
+	bool upDoor;
+	bool rightDoor;
+	bool downDoor;
+	bool leftDoor;
+	bool visited;
+	string special;//Boss, chest, or shop	
 };
 

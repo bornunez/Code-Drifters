@@ -1,6 +1,7 @@
 #include "DungeonGenerator.h"
 #include <ctime>
 
+
 /*Generador de mazmorras
 Descripción del algoritmo:
 Se usa una matriz para contener salas cuadradas con cuatro puertas posibles
@@ -61,6 +62,14 @@ void DungeonGenerator::Run() {//Carga las texturas y las renderiza
 	while (true) {
 		render();
 	}
+}
+Room * DungeonGenerator::getRoom(int x, int y)
+{
+	return Dungeon_[y][x];
+}
+Room * DungeonGenerator::getFirstRoom()
+{
+	return visitedRooms_[0];
 }
 //----------------------------------------------------------------------------------------------------------------
 void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la mazmorra
