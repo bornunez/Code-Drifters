@@ -1,5 +1,5 @@
 #ignorar el .vs
-/.vs/
+.vs/
 #ignorar la carpeta debug y otros archivos
 HolaSDL/Debug/
 #bin/HolaSDLDebug.exe
