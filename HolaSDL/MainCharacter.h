@@ -5,7 +5,8 @@ class MainCharacter :public GameObject
 {
 	
 public:
-	MainCharacter();
+	MainCharacter(Game* game);
 	~MainCharacter();
+	void render();
 };
 

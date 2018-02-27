@@ -2,7 +2,7 @@
 #include "sdl_includes.h"
 #include "GameStateMachine.h"
 #include "Camera.h"
-
+#include "MainCharacter.h"
 
 using namespace std;
 class Game
@@ -18,9 +18,12 @@ private:
 	const int winWidth = 1280;
 	const int winHeight = 720;
 	GameStateMachine* stateMachine;
+	MainCharacter* mainCharacter;
 public:
-	bool exit = false;
 
+
+	MainCharacter * getCharacter();
+	bool exit = false;
 	Game();
 	~Game();
 	SDL_Renderer* getRenderer();

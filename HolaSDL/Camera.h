@@ -5,15 +5,15 @@
 #include "GameObject.h"
 #include "Transform.h"
 
-class Camera :	public GameObject
+class Camera :	public GameObject 
 {
 private:
 
 public:
 
 	bool isInsideCamera(Transform* t);
-	//Camera(Game* game);	
-	Camera();
+	Camera(Game* game);	
+	
 	~Camera();
 	virtual void update();
 	virtual void render();

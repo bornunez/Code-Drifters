@@ -2,6 +2,11 @@
 
 
 
+MainCharacter * Game::getCharacter()
+{
+	return mainCharacter;
+}
+
 Game::Game()
 {
 	winX = winY = 50;
@@ -10,7 +15,8 @@ Game::Game()
 
 	window = SDL_CreateWindow("Haro I de Saboya", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	//camera = new Camera(this);
+	camera = new Camera(this);
+	mainCharacter = new MainCharacter(this);
 	
 	if (renderer == nullptr)//Si hay errores activa el flag
 	{
@@ -47,7 +53,10 @@ void Game::run()
 {
 	while (!exit) 
 	{
+		SDL_RenderClear(getRenderer());
+		mainCharacter->render();
 		handleEvents();
+		SDL_RenderPresent(getRenderer());
 	}
 }
 
