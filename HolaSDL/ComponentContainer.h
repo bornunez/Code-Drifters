@@ -11,6 +11,8 @@ public:
 	~ComponentContainer();
 	void addComponent(Component* c);
 	void removeComponent(Component* c);
+	template <class T>
+	T* removeComponent();
 	bool hasComponent(Component* c);
 	template <class T>
 	T* GetComponent();
@@ -23,6 +25,15 @@ private:
 	std::queue<Component*> garbage;
 	void cleanGarbage();
 };
+
+template<class T>
+inline T * ComponentContainer::removeComponent()
+{
+	Component* c = GetComponent<T>();
+	if (c) {
+		removeComponent(c);
+	}
+}
 
 ///<summary>Devuelve un puntero al componente de tipo T. Si no tiene se devolver nullptr</summary>
 template<class T>
