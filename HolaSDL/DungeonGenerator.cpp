@@ -38,30 +38,12 @@ using namespace std;
 
 
 
-DungeonGenerator::DungeonGenerator(int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY) :
-	mapWidth_(mapWidth), mapHeight_(mapHeight), maxRooms_(maxRooms)
+DungeonGenerator::DungeonGenerator(Game* game, int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY) : 
+	game_(game),mapWidth_(mapWidth), mapHeight_(mapHeight), maxRooms_(maxRooms)
 {
-	srand(time(NULL));
-	SDL_Init(SDL_INIT_EVERYTHING);
-
-	size_.h = sizeY;
-	size_.w = sizeX;
-
-	window = SDL_CreateWindow("DungeonGenerator", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
-
 }
 DungeonGenerator::~DungeonGenerator()
 {
-	for (int i = 0; i < mapHeight_; i++) {
-		for (int j = 0; j < mapWidth_; j++) {
-			delete Dungeon_[i][j];
-		}
-	}
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 }
 void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas abiertas, si la mazmorra es válida entonces asigna las salas especiales
 {
@@ -91,7 +73,7 @@ void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la 
 	for (int i = 0; i < mapHeight_; i++) {
 		Dungeon_[i].resize(mapWidth_);
 		for (int j = 0; j < mapWidth_; j++) {
-			Dungeon_[i][j] = new Room(this, size_);
+			Dungeon_[i][j] = new Room(game_, size_);
 			Dungeon_[i][j]->setX(j);
 			Dungeon_[i][j]->setY(i);
 			Dungeon_[i][j]->setUpDoor(false);
@@ -306,12 +288,6 @@ vector<string> DungeonGenerator::CheckDirections(int x, int y)//Comprueba las di
 //-------------------------------------------------------------------------------------------------------------------
 void DungeonGenerator::render()//Hace el render de cada una de las salas
 {
-	SDL_RenderClear(renderer);
-	for (int i = 0; i < visitedRooms_.size(); i++)
-	{
-		visitedRooms_[i]->render();
-	}
-	SDL_RenderPresent(renderer);
 }
 void DungeonGenerator::LoadTextures() {//Cada sala carga su textura correspondiente
 	for (int i = 0; i < visitedRooms_.size(); i++)
@@ -337,7 +313,4 @@ bool DungeonGenerator::CellInsideBounds(int x, int y)//Determina si la posición 
 	{
 		return true;
 	}
-}
-SDL_Renderer* DungeonGenerator::getRenderer() {
-	return renderer;
 }

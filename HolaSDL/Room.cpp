@@ -1,12 +1,12 @@
 #include "Room.h"
-#include "DungeonGenerator.h"
+
 
 
 
 Room::Room()
 {
 }
-Room::Room(DungeonGenerator* game, SDL_Rect rect) :game_(game), rect_(rect) {
+Room::Room(Game* game, SDL_Rect rect) :game_(game), rect_(rect) {
 	texture = new Texture();
 
 }
@@ -132,24 +132,17 @@ void Room::loadTexture() {
 }
 void Room::render() {
 	/*
-
 	for (Recorre los tiles de la sala) {//Pinta la sala
 		if (...) {//Si está dentro de la sala
 			tile->render();
 		}
 	}
-	for (GameObject* o : characters_) {//Pinta los gameObjects
-		if (o->getTransform()->position.getX() + o->getTransform()->width / 2 >= cameraX - cameraW / 2) {//Si no se sale por la izquierda
-			if (o->getTransform()->position.getX() - o->getTransform()->width/2 <= cameraX + cameraW/2) {//Si no se sale por la derecha
-				if (o->getTransform()->position.getY() - o->getTransform()->height / 2 <= cameraY + cameraH / 2) {//Si no se sale por abajo
-					if (o->getTransform()->position.getY() + o->getTransform()->height / 2 >= cameraY - cameraH / 2) {//Si no se sale por arriba
-						o->render();
-					}
-				}
-			}
-		}
-	}	
 	*/
+	for (GameObject* o : characters_) {
+		if (game_->getCamera()->isInsideCamera(o->getTransform())) {
+			o->render();
+		}
+	}
 }
 //-----------------------------------------------------------------------------------------------
 int Room::getX()

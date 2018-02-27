@@ -3,10 +3,12 @@
 
 
 
+/*Camera::Camera(Game* game): game_(game)
+{
+}*/
 Camera::Camera()
 {
 }
-
 
 Camera::~Camera()
 {
@@ -18,14 +20,19 @@ void Camera::update()
 
 void Camera::render()
 {
-	getCurrentRoom(currentRoomX_, currentRoomY_)->render();//Pinta la sala
+	//getCurrentRoom(currentRoomX_, currentRoomY_)->render();//Pinta la sala
 	//GUI->render();//Pinta el GUI al final
 }
-void Camera::setCurrentRoom(int posX, int posY) {
-	currentRoomX_ = posX;
-	currentRoomY_ = posY;
-}
-Room * Camera::getCurrentRoom(int posX, int posY)
+
+bool Camera::isInsideCamera(Transform* t)
 {
-	return Dungeon_[posY][posX];
+	if (t->position.getX() + t->width / 2 >= transform.position.getX() - transform.width / 2 &&		//Si no se sale por la izquierda
+			t->position.getX() - t->width / 2 <= transform.position.getX() + transform.width / 2 && //Si no se sale por la derecha
+				t->position.getY() - t->height / 2 <= transform.position.getY() + transform.height / 2 &&  //Si no se sale por abajo
+					t->position.getY() + t->height / 2 >= transform.position.getY() - transform.height / 2)//Si no se sale por arriba
+	{
+		return true;
+	}
+	else return false;
 }
+

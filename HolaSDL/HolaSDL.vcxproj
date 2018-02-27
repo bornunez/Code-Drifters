@@ -16,10 +16,13 @@
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Font.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainCharacter.cpp" />
+    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Vector2D.cpp" />
@@ -30,9 +33,12 @@
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="MainCharacter.h" />
+    <ClInclude Include="PlayState.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="Texture.h" />
@@ -42,7 +48,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>
     <RootNamespace>HolaSDL</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

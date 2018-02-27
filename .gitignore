@@ -1,0 +1,4 @@
+#ignorar el .vs
+/.vs/
+#ignorar la carpeta debug
+/HolaSDL/Debug/

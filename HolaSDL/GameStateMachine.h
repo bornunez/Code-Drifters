@@ -2,6 +2,7 @@
 #pragma once
 #include "sdl_includes.h"
 #include <stack>
+#include <queue>
 #include "GameState.h"
 
 class GameStateMachine
@@ -9,13 +10,15 @@ class GameStateMachine
 
 private:
 	stack<GameState*>stateStack;
+	queue<GameState*>garbage;
 
 public:
 	GameStateMachine();
 	~GameStateMachine();
-
 	GameState* currentState();
 	void pushState(GameState* ge);
 	void changeState(GameState* ge);
-	GameState* popState();
+	void popState();
+
+	void cleanGarbage();
 };

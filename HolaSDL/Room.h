@@ -5,12 +5,16 @@
 using namespace std;
 
 class DungeonGenerator;
+#include "Game.h"
+
+using namespace std;
+
 class Room
 {
 public:
 
 	Room();
-	Room(DungeonGenerator* game, SDL_Rect rect);
+	Room(Game* game, SDL_Rect rect);
 	~Room();
 	void loadTexture();
 	void render();
@@ -35,7 +39,7 @@ public:
 private:
 	string filename_;
 	SDL_Rect rect_;
-	DungeonGenerator* game_;
+	Game* game_;
 	Texture* texture;
 	vector<GameObject*> characters_;//Todos los elementos que aparecen en pantalla
 	int x_;
