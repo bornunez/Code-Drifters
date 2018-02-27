@@ -4,11 +4,13 @@
 #include "Texture.h"
 #include "Transform.h"
 
+class Game;
 
 class GameObject : public ComponentContainer
 {
 protected:
 	
+	Game * game = NULL;
 	Texture * texture = NULL; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
 	bool active = true;
@@ -16,8 +18,8 @@ protected:
 public:
 
 	GameObject();
-	GameObject(Texture* tex, Transform t, bool active = true);
-	GameObject(Texture* tex, Vector2D position, bool active = true);
+	GameObject(Game* game, Texture* tex, Transform t, bool active = true);
+	GameObject(Game* game, Texture* tex, Vector2D position, bool active = true);
 	~GameObject();
 
 	//Ciclo del Objeto

@@ -2,6 +2,8 @@
 #include "sdl_includes.h"
 #include "GameStateMachine.h"
 #include "Camera.h"
+
+
 using namespace std;
 class Game
 {
