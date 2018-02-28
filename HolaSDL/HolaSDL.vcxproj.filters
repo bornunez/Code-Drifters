@@ -2,141 +2,128 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainCharacter.cpp" />
+    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Component.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Mapa\Archivos de código</Filter>
-    </ClCompile>
-    <ClCompile Include="ComponentContainer.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="Font.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="GameStateMachine.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponent.cpp">
+      <Filter>Arquitectura</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentContainer.cpp">
+      <Filter>Arquitectura</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderComponent.cpp">
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateComponent.cpp">
+      <Filter>Arquitectura</Filter>
     </ClCompile>
     <ClCompile Include="Vector2D.cpp">
-      <Filter>Arquitectura\Archivos de código fuente</Filter>
+      <Filter>Arquitectura</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Mapa</Filter>
     </ClCompile>
     <ClCompile Include="DungeonGenerator.cpp">
-      <Filter>Mapa\Archivos de código</Filter>
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelParser.cpp">
+      <Filter>Mapa</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
-      <Filter>Mapa\Archivos de código</Filter>
+      <Filter>Mapa</Filter>
     </ClCompile>
-    <ClCompile Include="MainCharacter.cpp">
-      <Filter>Personaje\Archivos de código fuente</Filter>
+    <ClCompile Include="MCMovementComponent.cpp">
+      <Filter>Prota</Filter>
     </ClCompile>
-    <ClCompile Include="PlayState.cpp">
-      <Filter>Estados\Source code files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelParser.cpp" />
-    <ClCompile Include="RenderComponent.cpp" />
-    <ClCompile Include="UpdateComponent.cpp" />
-    <ClCompile Include="InputComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sdl_includes.h" />
+    <ClInclude Include="MainCharacter.h" />
+    <ClInclude Include="MCMovementComponent.h" />
+    <ClInclude Include="PlayState.h" />
     <ClInclude Include="Component.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Mapa\Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ComponentContainer.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="Font.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="GameStateMachine.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="InputComponent.h">
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentContainer.h">
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderComponent.h">
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="sdl_includes.h">
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateComponent.h">
+      <Filter>Arquitectura</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
-      <Filter>Arquitectura\Archivos de encabezado</Filter>
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Mapa</Filter>
     </ClInclude>
     <ClInclude Include="DungeonGenerator.h">
-      <Filter>Mapa\Archivos de encabezado</Filter>
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelParser.h">
+      <Filter>Mapa</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Mapa\Archivos de encabezado</Filter>
+      <Filter>Mapa</Filter>
     </ClInclude>
-    <ClInclude Include="MainCharacter.h">
-      <Filter>Personaje\Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayState.h">
-      <Filter>Estados\Header files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelParser.h" />
-    <ClInclude Include="RenderComponent.h" />
-    <ClInclude Include="UpdateComponent.h" />
-    <ClInclude Include="InputComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
-      <UniqueIdentifier>{fb78afd9-aff0-41e7-b00c-ebd557e5c95d}</UniqueIdentifier>
+      <UniqueIdentifier>{d6a3efa5-81e5-4def-8aca-aad6f8cf1dc2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Mapa">
-      <UniqueIdentifier>{47568e28-c141-4c09-bce4-96833b5b8b36}</UniqueIdentifier>
+      <UniqueIdentifier>{c3c49edb-2ae4-47d9-816d-a8ea1bc97adb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Personaje">
-      <UniqueIdentifier>{9a5143ed-02b1-484e-bf5d-8e981990bdf9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquitectura\Archivos de código fuente">
-      <UniqueIdentifier>{c43832ff-2b87-4eb0-9864-c76a0a3e8580}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquitectura\Archivos de encabezado">
-      <UniqueIdentifier>{83a09515-452a-4d05-97c2-8abae51255fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mapa\Archivos de código">
-      <UniqueIdentifier>{06295bba-a543-4456-9a19-fb349d93c7e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Personaje\Archivos de encabezado">
-      <UniqueIdentifier>{0626b6a7-5167-4918-b085-239718307367}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Personaje\Archivos de código fuente">
-      <UniqueIdentifier>{10ad6df7-2a86-4671-92bd-7db7547fffc9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mapa\Archivos de encabezado">
-      <UniqueIdentifier>{afd9dce1-d0cb-4a01-a0ed-4af79914ed7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Estados">
-      <UniqueIdentifier>{370a46ea-29f6-4832-a806-ddb453bab1bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Estados\Header files">
-      <UniqueIdentifier>{aea6c2a7-93e3-434d-9053-f75e7556d9ef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Estados\Source code files">
-      <UniqueIdentifier>{ceb75859-407a-4051-af76-4780e70ec057}</UniqueIdentifier>
+    <Filter Include="Prota">
+      <UniqueIdentifier>{73d54556-1d40-4a4a-82ae-d40a64738879}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -3,7 +3,7 @@
 #include <string>
 #include "Room.h"
 #include "Texture.h"
-#include "Game.h"
+
 using namespace std;
 class DungeonGenerator
 {
@@ -12,6 +12,9 @@ public:
 	~DungeonGenerator();
 	void CreateMap();
 	void Run();
+
+	Room* getRoom(int x, int y);
+	Room* getFirstRoom();
 
 private:
 	void ClearMap();

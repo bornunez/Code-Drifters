@@ -1,12 +1,12 @@
 #include "Room.h"
+#include "Game.h"
 
 
 
-
-Room::Room()
+Room::Room(Game* game)
 {
 }
-Room::Room(Game* game, SDL_Rect rect) :game_(game), rect_(rect) {
+Room::Room(Game* game, SDL_Rect rect) :game(game), rect(rect) {
 	texture = new Texture();
 
 }
@@ -15,122 +15,123 @@ Room::~Room()
 	delete texture;
 }
 void Room::loadTexture() {
-	rect_.x = x_ * rect_.w;
-	rect_.y = y_ * rect_.h;
-	if (upDoor_ && downDoor_ && leftDoor_ && rightDoor_)//UDLR
+	rect.x = x * rect.w;
+	rect.y = y * rect.h;
+	if (upDoor && downDoor && leftDoor && rightDoor)//UDLR
 	{
-		filename_ = "..\\images\\roomUDLR.png";
+		filename = "..\\images\\roomUDLR.png";
 	}
-	else if (upDoor_ && downDoor_ && leftDoor_)//UDL
+	else if (upDoor && downDoor && leftDoor)//UDL
 	{
-		filename_ = "..\\images\\roomUDL.png";
+		filename = "..\\images\\roomUDL.png";
 	}
-	else if (upDoor_ && downDoor_ && rightDoor_)//UDR
+	else if (upDoor && downDoor && rightDoor)//UDR
 	{
-		filename_ = "..\\images\\roomUDR.png";
+		filename = "..\\images\\roomUDR.png";
 	}
-	else if (upDoor_ && leftDoor_ && rightDoor_)//ULR
+	else if (upDoor && leftDoor && rightDoor)//ULR
 	{
-		filename_ = "..\\images\\roomULR.png";
+		filename = "..\\images\\roomULR.png";
 	}
-	else if (upDoor_ && downDoor_)//UD
+	else if (upDoor && downDoor)//UD
 	{
-		filename_ = "..\\images\\roomUD.png";
+		filename = "..\\images\\roomUD.png";
 	}
-	else if (upDoor_ && leftDoor_)//UL
+	else if (upDoor && leftDoor)//UL
 	{
-		filename_ = "..\\images\\roomUL.png";
+		filename = "..\\images\\roomUL.png";
 
 	}
-	else if (upDoor_ && rightDoor_)//UR
+	else if (upDoor && rightDoor)//UR
 	{
-		filename_ = "..\\images\\roomUR.png";
+		filename = "..\\images\\roomUR.png";
 	}
 
-	else if (downDoor_ && leftDoor_ && rightDoor_)//DLR
+	else if (downDoor && leftDoor && rightDoor)//DLR
 	{
-		filename_ = "..\\images\\roomDLR.png";
+		filename = "..\\images\\roomDLR.png";
 	}
-	else if (downDoor_ && leftDoor_)//DL
+	else if (downDoor && leftDoor)//DL
 	{
-		filename_ = "..\\images\\roomDL.png";
+		filename = "..\\images\\roomDL.png";
 	}
-	else if (downDoor_ && rightDoor_)//DR
+	else if (downDoor && rightDoor)//DR
 	{
-		filename_ = "..\\images\\roomDR.png";
+		filename = "..\\images\\roomDR.png";
 	}
-	else if (leftDoor_ && rightDoor_)//LR
+	else if (leftDoor && rightDoor)//LR
 	{
-		filename_ = "..\\images\\roomLR.png";
+		filename = "..\\images\\roomLR.png";
 	}
-	else if (upDoor_)//U
+	else if (upDoor)//U
 	{
-		if (special_ == "Boss") {
-			filename_ = "..\\images\\roomBossU.png";
+		if (special == "Boss") {
+			filename = "..\\images\\roomBossU.png";
 		}
-		else if (special_ == "Chest") {
-			filename_ = "..\\images\\roomChestU.png";
+		else if (special == "Chest") {
+			filename = "..\\images\\roomChestU.png";
 		}
-		else if (special_ == "Shop") {
-			filename_ = "..\\images\\roomShopU.png";
+		else if (special == "Shop") {
+			filename = "..\\images\\roomShopU.png";
 		}
 		else {
-			filename_ = "..\\images\\roomU.png";
+			filename = "..\\images\\roomU.png";
 		}
 	}
-	else if (downDoor_)//D
+	else if (downDoor)//D
 	{
-		if (special_ == "Boss") {
-			filename_ = "..\\images\\roomBossD.png";
+		if (special == "Boss") {
+			filename = "..\\images\\roomBossD.png";
 		}
-		else if (special_ == "Chest") {
-			filename_ = "..\\images\\roomChestD.png";
+		else if (special == "Chest") {
+			filename = "..\\images\\roomChestD.png";
 		}
-		else if (special_ == "Shop") {
-			filename_ = "..\\images\\roomShopD.png";
+		else if (special == "Shop") {
+			filename = "..\\images\\roomShopD.png";
 		}
-		else if (special_ == "FirstRoom") {
-			filename_ = "..\\images\\firstRoom.png";
+		else if (special == "FirstRoom") {
+			filename = "..\\images\\firstRoom.png";
 		}
 		else {
-			filename_ = "..\\images\\roomD.png";
+			filename = "..\\images\\roomD.png";
 		}
 	}
-	else if (leftDoor_)//L
+	else if (leftDoor)//L
 	{
-		if (special_ == "Boss") {
-			filename_ = "..\\images\\roomL.png";
+		if (special == "Boss") {
+			filename = "..\\images\\roomL.png";
 		}
-		else if (special_ == "Chest") {
-			filename_ = "..\\images\\roomChestL.png";
+		else if (special == "Chest") {
+			filename = "..\\images\\roomChestL.png";
 		}
-		else if (special_ == "Shop") {
-			filename_ = "..\\images\\roomShopL.png";
+		else if (special == "Shop") {
+			filename = "..\\images\\roomShopL.png";
 		}
 		else {
-			filename_ = "..\\images\\roomL.png";
-		}
-
-	}
-	else if (rightDoor_)//R
-	{
-		if (special_ == "Boss") {
-			filename_ = "..\\images\\roomBossR.png";
-		}
-		else if (special_ == "Chest") {
-			filename_ = "..\\images\\roomChestR.png";
-		}
-		else if (special_ == "Shop") {
-			filename_ = "..\\images\\roomShopR.png";
-		}
-		else {
-			filename_ = "..\\images\\roomR.png";
+			filename = "..\\images\\roomL.png";
 		}
 
 	}
-	texture->loadFromImg(game_->getRenderer(), filename_);
+	else if (rightDoor)//R
+	{
+		if (special == "Boss") {
+			filename = "..\\images\\roomBossR.png";
+		}
+		else if (special == "Chest") {
+			filename = "..\\images\\roomChestR.png";
+		}
+		else if (special == "Shop") {
+			filename = "..\\images\\roomShopR.png";
+		}
+		else {
+			filename = "..\\images\\roomR.png";
+		}
+
+	}
+	texture->loadFromImg(game->getRenderer(), filename);
 }
 void Room::render() {
+
 	/*
 	for (Recorre los tiles de la sala) {//Pinta la sala
 		if (...) {//Si está dentro de la sala
@@ -138,8 +139,8 @@ void Room::render() {
 		}
 	}
 	*/
-	for (GameObject* o : characters_) {
-		if (game_->getCamera()->isInsideCamera(o->getTransform())) {
+	for (GameObject* o : characters) {
+		if (game->getCamera()->isInsideCamera(o->getTransform())) {
 			o->render();
 		}
 	}
@@ -147,58 +148,63 @@ void Room::render() {
 //-----------------------------------------------------------------------------------------------
 int Room::getX()
 {
-	return x_;
+	return x;
 }
 int Room::getY()
 {
-	return y_;
+	return y;
 }
 bool Room::getUpDoor()
 {
-	return upDoor_;
+	return upDoor;
 }
 bool Room::getRightDoor()
 {
-	return rightDoor_;
+	return rightDoor;
 }
 bool Room::getLeftDoor()
 {
-	return leftDoor_;
+	return leftDoor;
 }
 bool Room::getDownDoor()
 {
-	return downDoor_;
+	return downDoor;
 }
 bool Room::getVisited()
 {
-	return visited_;
+	return visited;
 }
 string Room::getSpecial() {
-	return special_;
+	return special;
 }
-void Room::setX(int x) {
-	x_ = x;
+void Room::setX(int X) {
+	x = X;
 }
-void Room::setY(int y) {
-	y_ = y;
+void Room::setY(int Y) {
+	y = Y;
 }
-void Room::setUpDoor(bool upDoor) {
-	upDoor_ = upDoor;
+void Room::setUpDoor(bool UpDoor) {
+	upDoor = UpDoor;
 }
-void Room::setRightDoor(bool rightDoor) {
-	rightDoor_ = rightDoor;
+void Room::setRightDoor(bool RightDoor) {
+	rightDoor = RightDoor;
 }
-void Room::setLeftDoor(bool leftDoor) {
-	leftDoor_ = leftDoor;
+void Room::setLeftDoor(bool LeftDoor) {
+	leftDoor = LeftDoor;
 }
-void Room::setDownDoor(bool downDoor) {
-	downDoor_ = downDoor;
+void Room::setDownDoor(bool DownDoor) {
+	downDoor = DownDoor;
 }
-void Room::setVisited(bool visited) {
-	visited_ = visited;
+void Room::setVisited(bool Visited) {
+	visited = Visited;
 }
-void Room::setSpecial(string special) {
-	special_ = special;
+void Room::setSpecial(string Special) {
+	special = Special;
+}
+
+void Room::addCharacter(GameObject * o)
+{
+	characters.push_back(o);
 }
 
 //-------------------------------------------------------------------------------------
