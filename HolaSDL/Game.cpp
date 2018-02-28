@@ -28,6 +28,7 @@ Game::Game()
 	camera = new Camera(this);	
 	mainCharacter = new MainCharacter(this, 100,100,50,50);
 	mainCharacterMovement = new MCMovementComponent(SDLK_w, SDLK_d, SDLK_a, SDLK_s);
+	
 	mainCharacter->addComponent(mainCharacterMovement);
 	level->CreateMap();
 	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala

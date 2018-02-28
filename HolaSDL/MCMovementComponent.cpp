@@ -2,10 +2,15 @@
 #include "GameObject.h"
 
 
-void MCMovementComponent::handleInput(SDL_Event & e)
+MCMovementComponent::MCMovementComponent(SDL_Keycode up, SDL_Keycode right, SDL_Keycode down, SDL_Keycode left) :
+	upKey(up), rightKey(right), downKey(down), leftKey(left)
+{
+}
+void MCMovementComponent::handleEvents(SDL_Event & e)
 {
 	//Vector2D velocity = gameObject->getVelocity();
-	Vector2D velocity = gameObject->getTransform()->velocity;
+	
+	Vector2D velocity = getGameObject()->getTransform()->velocity;
 	
 	if (e.type == SDL_KEYDOWN) {
 		if (e.key.keysym.sym == upKey) {
@@ -25,10 +30,6 @@ void MCMovementComponent::handleInput(SDL_Event & e)
 	getGameObject()->getTransform()->velocity = velocity;
 }
 
-MCMovementComponent::MCMovementComponent(SDL_Keycode up, SDL_Keycode right, SDL_Keycode down, SDL_Keycode left) :
-	upKey(up), rightKey(right), downKey(down), leftKey(left)
-{
-}
 
 
 MCMovementComponent::~MCMovementComponent()
