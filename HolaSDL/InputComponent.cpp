@@ -4,6 +4,7 @@
 
 InputComponent::InputComponent()
 {
+	type = InputC;
 }
 
 

@@ -3,7 +3,7 @@
 
 
 
-
+//Personaje principal
 
 MainCharacter::MainCharacter(Game* game, Transform t) : GameObject(game)
 {

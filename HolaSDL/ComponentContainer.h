@@ -13,7 +13,7 @@
 class ComponentContainer
 {
 protected:
-	int NUMCOMP = 4;
+	int NUMCOMP = ItemC - RenderC;
 public:
 	ComponentContainer();
 	~ComponentContainer();
@@ -28,6 +28,7 @@ public:
 	bool hasComponent(ComponentType type);
 
 	//Para borrar un componente vamos a definir tres modos de borrarlo:  
+
 	//Primero, si tenemos el puntero al componente a borrar
 	void removeComponent(Component* c);
 	//Segundo, si sabemos que clase de componente es
@@ -47,9 +48,8 @@ public:
 	//El primero manda un mensaje a todos los componentes
 	void sendMessage(std::string msg);
 	//El segundo manda un mensaje a un grupo de componentes de un tipo
-
-
 	void sendMessage(std::string msg, ComponentType type);
+
 	virtual void update();
 	virtual void render();
 	virtual void handleEvents(SDL_Event& e);
