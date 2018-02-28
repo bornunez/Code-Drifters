@@ -44,9 +44,16 @@
     <ClCompile Include="PlayState.cpp">
       <Filter>Estados\Source code files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Personaje\Archivos de código fuente</Filter>
     </ClCompile>
+=======
+    <ClCompile Include="LevelParser.cpp" />
+    <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="UpdateComponent.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdl_includes.h" />
@@ -95,9 +102,16 @@
     <ClInclude Include="PlayState.h">
       <Filter>Estados\Header files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Personaje\Archivos de encabezado</Filter>
     </ClInclude>
+=======
+    <ClInclude Include="LevelParser.h" />
+    <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="UpdateComponent.h" />
+    <ClInclude Include="InputComponent.h" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">

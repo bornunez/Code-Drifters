@@ -4,60 +4,78 @@
 
 ComponentContainer::ComponentContainer()
 {
-	components.clear();
+	//Inicializamos el array
+	components = new std::list<Component*>[NUMCOMP];
 }
 
 
 ComponentContainer::~ComponentContainer()
 {
 	cleanGarbage();
-	for (Component* c : components)
-		delete c;
+	for (int i = 0; i < NUMCOMP; i++) {
+		for (Component* c : components[i]) {
+			delete c;
+		}
+	}
 }
+
 
 void ComponentContainer::addComponent(Component * c)
 {
-	components.push_back(c);
+	components[c->getType()].push_back(c);
 }
 
+///<summary> Elimina la insancia del componente c !Ojo, hace falta tener puntero a c. Si no se tiene usar los otros metodos remove</summary>
 void ComponentContainer::removeComponent(Component * c)
 {
 	garbage.push(c);
 }
 
+///<summary> Indica si el objeto tiene una instancia del componente c
 bool ComponentContainer::hasComponent(Component * c)
 {
-	std::list<Component*>::iterator it = components.begin();
-	while (it != components.end() && *it != c)
+
+	std::list<Component*>::iterator it = components[c->getType()].begin();
+	while (it != components[c->getType()].end() && *it != c)
 		it++;
-	return it != components.end();
+	return it != components[c->getType()].end();
 }
 
 ///<summary>Manda un mensaje a todos los componentes del objeto</summary>
 void ComponentContainer::sendMessage(std::string msg)
 {
-	for (Component* c : components) {
+	for (int i = 0; i < NUMCOMP;i++) {
+		for (Component* c : components[i]) {
+			c->recieveMessage(msg);
+		}
+	}
+}
+
+///<summary> Manda un mensaje al grupo de componentes de tipo <para> type </para> </summary>
+void ComponentContainer::sendMessage(std::string msg, ComponentType type)
+{
+	for (Component* c : components[type]) {
 		c->recieveMessage(msg);
 	}
 }
 
 void ComponentContainer::update()
 {
-	for (Component* c : components)
-		c->update();
+	for (Component* c : components[UpdateC])
+		dynamic_cast<UpdateComponent*>(c)->update();
 	cleanGarbage();
 }
 
 void ComponentContainer::render()
 {
-	for (Component* c : components)
-		c->render();
+	for (Component* c : components[RenderC])
+		dynamic_cast<RenderComponent*>(c)->render();
 }
 
 void ComponentContainer::handleEvents(SDL_Event & e)
 {
-	for (Component* c : components)
-		c->handleInput(e);
+	for (Component* c : components[InputC])
+		dynamic_cast<InputComponent*>(c)->handleEvents(e);
 	cleanGarbage();
 }
 
@@ -68,6 +86,6 @@ void ComponentContainer::cleanGarbage()
 	{
 		Component* aux = garbage.front();
 		garbage.pop();
-		components.remove(aux);
+		components[aux->getType()].remove(aux);
 	}
 }
