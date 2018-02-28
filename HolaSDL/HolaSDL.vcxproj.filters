@@ -44,6 +44,7 @@
     <ClCompile Include="PlayState.cpp">
       <Filter>Estados\Source code files</Filter>
     </ClCompile>
+    <ClCompile Include="LevelParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdl_includes.h" />
@@ -92,6 +93,7 @@
     <ClInclude Include="PlayState.h">
       <Filter>Estados\Header files</Filter>
     </ClInclude>
+    <ClInclude Include="LevelParser.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">

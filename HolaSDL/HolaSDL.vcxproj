@@ -20,6 +20,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="LevelParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="PlayState.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="LevelParser.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="Room.h" />
