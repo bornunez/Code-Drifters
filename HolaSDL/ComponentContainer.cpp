@@ -51,13 +51,13 @@ void ComponentContainer::update()
 void ComponentContainer::render()
 {
 	for (Component* c : components)
-		c->update();
+		c->render();
 }
 
 void ComponentContainer::handleEvents(SDL_Event & e)
 {
 	for (Component* c : components)
-		c->update();
+		c->handleInput(e);
 	cleanGarbage();
 }
 

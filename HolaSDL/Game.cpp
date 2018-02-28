@@ -27,6 +27,8 @@ Game::Game()
 	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
 	camera = new Camera(this);	
 	mainCharacter = new MainCharacter(this, 100,100,50,50);
+	mainCharacterMovement = new MCMovementComponent(SDLK_w, SDLK_d, SDLK_a, SDLK_s);
+	mainCharacter->addComponent(mainCharacterMovement);
 	level->CreateMap();
 	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
@@ -70,10 +72,11 @@ void Game::run()
 {
 	while (!exit) 
 	{
-		SDL_RenderClear(getRenderer());
-		camera->render();
+		SDL_RenderClear(getRenderer());//Provisional en lugar del render
+		camera->render();//" "
+		SDL_RenderPresent(getRenderer());// " "
+		mainCharacter->handleEvents(event);
 		handleEvents();
-		SDL_RenderPresent(getRenderer());
 	}
 }
 

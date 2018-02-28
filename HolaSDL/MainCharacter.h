@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-
+#include "MCMovementComponent.h"
 class MainCharacter :public GameObject
 {
 private:

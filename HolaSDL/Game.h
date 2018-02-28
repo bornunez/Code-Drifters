@@ -20,6 +20,7 @@ private:
 	const int winHeight = 720;
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
+	MCMovementComponent* mainCharacterMovement;
 public:
 
 	DungeonGenerator * getLevel();

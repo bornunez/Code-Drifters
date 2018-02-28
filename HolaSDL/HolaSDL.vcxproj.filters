@@ -44,6 +44,9 @@
     <ClCompile Include="PlayState.cpp">
       <Filter>Estados\Source code files</Filter>
     </ClCompile>
+    <ClCompile Include="MCMovementComponent.cpp">
+      <Filter>Personaje\Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdl_includes.h" />
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>Estados\Header files</Filter>
+    </ClInclude>
+    <ClInclude Include="MCMovementComponent.h">
+      <Filter>Personaje\Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
