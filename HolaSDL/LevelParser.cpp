@@ -11,6 +11,6 @@ LevelParser::~LevelParser()
 {
 }
 
-void LevelParser::loadLevel()
+void LevelParser::loadLevel(std::string fileName)
 {
 }

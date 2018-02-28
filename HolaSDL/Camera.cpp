@@ -13,7 +13,7 @@ Camera::Camera()
 Camera::~Camera()
 {
 }
-
+/*
 void Camera::update()
 {
 }
@@ -23,7 +23,7 @@ void Camera::render()
 	//getCurrentRoom(currentRoomX_, currentRoomY_)->render();//Pinta la sala
 	//GUI->render();//Pinta el GUI al final
 }
-
+*/
 bool Camera::isInsideCamera(Transform* t)
 {
 	if (t->position.getX() + t->width / 2 >= transform.position.getX() - transform.width / 2 &&		//Si no se sale por la izquierda

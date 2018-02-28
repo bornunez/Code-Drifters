@@ -45,6 +45,9 @@
       <Filter>Estados\Source code files</Filter>
     </ClCompile>
     <ClCompile Include="LevelParser.cpp" />
+    <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="UpdateComponent.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sdl_includes.h" />
@@ -94,6 +97,9 @@
       <Filter>Estados\Header files</Filter>
     </ClInclude>
     <ClInclude Include="LevelParser.h" />
+    <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="UpdateComponent.h" />
+    <ClInclude Include="InputComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
