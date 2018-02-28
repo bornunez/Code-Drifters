@@ -27,7 +27,7 @@ Game::Game()
 	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
 	camera = new Camera(this);	
 	mainCharacter = new MainCharacter(this, 100,100,50,50);
-	mainCharacterMovement = new MCMovementComponent(SDLK_w, SDLK_d, SDLK_a, SDLK_s);
+	mainCharacterMovement = new MCMovementComponent(mainCharacter,SDLK_w, SDLK_d, SDLK_s, SDLK_a);
 	
 	mainCharacter->addComponent(mainCharacterMovement);
 	level->CreateMap();
@@ -76,8 +76,8 @@ void Game::run()
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
 		camera->render();//" "
 		SDL_RenderPresent(getRenderer());// " "
-		mainCharacter->handleEvents(event);
 		handleEvents();
+		
 	}
 }
 
@@ -92,6 +92,7 @@ void Game::handleEvents()
 
 		else
 		{
+			mainCharacter->handleEvents(event);
 			//stateMachine->currentState()->handleEvent(event);
 		}
 	}

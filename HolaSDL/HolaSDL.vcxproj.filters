@@ -2,117 +2,127 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainCharacter.cpp" />
-    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Component.cpp">
-      <Filter>Arquitectura</Filter>
-    </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Arquitectura</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Arquitectura</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Arquitectura</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Arquitectura</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateMachine.cpp">
-      <Filter>Arquitectura</Filter>
-    </ClCompile>
-    <ClCompile Include="InputComponent.cpp">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="ComponentContainer.cpp">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="InputComponent.cpp">
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="RenderComponent.cpp">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="UpdateComponent.cpp">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="Vector2D.cpp">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="DungeonGenerator.cpp">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="LevelParser.cpp">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="Room.cpp">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="MCMovementComponent.cpp">
-      <Filter>Prota</Filter>
+      <Filter>Prota\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainCharacter.h" />
-    <ClInclude Include="MCMovementComponent.h" />
-    <ClInclude Include="PlayState.h" />
     <ClInclude Include="Component.h">
-      <Filter>Arquitectura</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Arquitectura</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Arquitectura</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Arquitectura</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Arquitectura</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateMachine.h">
-      <Filter>Arquitectura</Filter>
-    </ClInclude>
-    <ClInclude Include="InputComponent.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="ComponentContainer.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateMachine.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="InputComponent.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="RenderComponent.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="sdl_includes.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="UpdateComponent.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Vector2D.h">
-      <Filter>Arquitectura</Filter>
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="DungeonGenerator.h">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="LevelParser.h">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="Room.h">
-      <Filter>Mapa</Filter>
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCMovementComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +134,24 @@
     </Filter>
     <Filter Include="Prota">
       <UniqueIdentifier>{73d54556-1d40-4a4a-82ae-d40a64738879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquitectura\Header">
+      <UniqueIdentifier>{d160a5bb-2692-49e0-a1d1-d1b48f238a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquitectura\Source">
+      <UniqueIdentifier>{1039041e-96ed-479a-b122-76beacf77bf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mapa\Source">
+      <UniqueIdentifier>{7b0095c0-e107-4391-828d-f95c624d4ed8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mapa\Header">
+      <UniqueIdentifier>{c259f58e-56e1-42d9-a2c7-0baa4e8f5957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prota\Header">
+      <UniqueIdentifier>{b129da87-196b-4ed7-8430-90fc747c3671}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prota\Source">
+      <UniqueIdentifier>{409cd437-ee28-466b-a1bc-3c0a6660a2f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

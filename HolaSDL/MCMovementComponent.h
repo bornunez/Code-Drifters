@@ -13,7 +13,7 @@ public:
 	void render() {};
 	void handleEvents(SDL_Event& e);
 	void recieveMessage(std::string msg) {};
-	MCMovementComponent(SDL_Keycode up, SDL_Keycode right, SDL_Keycode down, SDL_Keycode left);
+	MCMovementComponent(GameObject* o, SDL_Keycode up, SDL_Keycode right, SDL_Keycode down, SDL_Keycode left);
 	virtual ~MCMovementComponent();
 };
 
