@@ -54,7 +54,7 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="PlayState.cpp">
-      <Filter>Prota\Source</Filter>
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Prota\Source</Filter>
@@ -115,14 +115,14 @@
     <ClInclude Include="Room.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MCMovementComponent.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
     <ClInclude Include="MainCharacter.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCMovementComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

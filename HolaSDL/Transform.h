@@ -5,6 +5,7 @@ struct Transform
 {
 	Vector2D position;
 	Vector2D rotation;
-	Vector2D velocity;	
+	Vector2D velocity;
+	Vector2D direction;
 	SDL_Rect body;
 };
