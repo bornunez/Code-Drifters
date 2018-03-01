@@ -6,8 +6,9 @@
 Room::Room(Game* game)
 {
 }
+
 Room::Room(Game* game, SDL_Rect rect) :game(game), rect(rect) {
-	texture = new Texture();
+	texture = new Texture(game->getRenderer());
 
 }
 Room::~Room()
@@ -128,7 +129,7 @@ void Room::loadTexture() {
 		}
 
 	}
-	texture->loadFromImg(game->getRenderer(), filename);
+	texture->loadFromImg(filename);
 }
 void Room::render() {
 

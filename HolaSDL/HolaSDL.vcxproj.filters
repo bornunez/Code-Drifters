@@ -59,7 +59,15 @@
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="CameraMovementComponent.cpp" />
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMovementComponent.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -125,7 +133,15 @@
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="CameraMovementComponent.h" />
+    <ClInclude Include="Bullet.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraMovementComponent.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
