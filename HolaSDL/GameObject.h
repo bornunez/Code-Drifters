@@ -30,6 +30,7 @@ public:
 	//Gets y sets
 	bool isActive() { return active; }
 	bool setActive(bool active) { this->active = active; }
+	Game* getGame() { return game; }
 	Transform* getTransform() { return &transform; }
 	Texture* getTexture() { return texture; }
 };

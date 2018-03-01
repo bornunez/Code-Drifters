@@ -25,7 +25,9 @@ MainCharacter::~MainCharacter()
 {
 }
 void MainCharacter::render(){
-	SDL_Rect rect RECT(transform.position.getX(),transform.position.getY(),transform.body.w,transform.body.h);
+	float auxX = transform.position.getX() - getGame()->getCamera()->getTransform()->position.getX();	
+	float auxY = transform.position.getY() - getGame()->getCamera()->getTransform()->position.getY();
+	SDL_Rect rect RECT(auxX,auxY,transform.body.w,transform.body.h);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
 	SDL_RenderFillRect(game->getRenderer(), &rect);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));	

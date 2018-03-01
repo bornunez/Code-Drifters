@@ -18,15 +18,17 @@ Game::Game()
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	SDL_ShowCursor(SDL_DISABLE);
-	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	int roomNumber = 20;
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
 
 	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
-	camera = new Camera(this);	
 	mainCharacter = new MainCharacter(this, 100,100,50,50);
+	camera = new Camera(this);
+	CameraMovementComponent* cameraMovement = new CameraMovementComponent(camera, mainCharacter);
+	camera->addComponent(cameraMovement);
 	mainCharacter->setMaxVelocity(1);	
 	mainCharacterMovement = new MCMovementComponent(mainCharacter, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A);	
 	mainCharacter->addComponent(mainCharacterMovement);
@@ -75,9 +77,14 @@ void Game::run()
 	{
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
 		camera->render();//" "
+		SDL_Rect rect RECT(700 - getCamera()->getTransform()->position.getX(), 700 - getCamera()->getTransform()->position.getY(), 100, 100);
+		SDL_SetRenderDrawColor(getRenderer(), COLOR(0x00ffffff));
+		SDL_RenderFillRect(getRenderer(), &rect);
+		SDL_SetRenderDrawColor(getRenderer(), COLOR(0x000000ff));
 		SDL_RenderPresent(getRenderer());// " "
 		handleEvents();
 		mainCharacter->update();//Provisional en lugar del update
+		camera->update();
 		
 	}
 }

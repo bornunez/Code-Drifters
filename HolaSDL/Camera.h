@@ -15,7 +15,5 @@ public:
 	Camera(Game* game);
 
 	~Camera();
-
-	virtual void update();
 	virtual void render();
 };

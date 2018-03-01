@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "MainCharacter.h"
 #include "DungeonGenerator.h"
+#include "CameraMovementComponent.h"
 
 using namespace std;
 class Game
@@ -16,8 +17,10 @@ private:
 	bool error = false;//Flag para errores
 	SDL_Event event;
 	int winX, winY;
-	const int winWidth = 1920;
-	const int winHeight = 1080;
+	const int winWidth = 1020;
+	const int winHeight = 720;
+	const int worldWidth = 10000;
+	const int worldHeight = 10000;
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
 	MCMovementComponent* mainCharacterMovement;

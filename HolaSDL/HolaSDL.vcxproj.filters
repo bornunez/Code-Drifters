@@ -59,6 +59,7 @@
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="CameraMovementComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -124,6 +125,7 @@
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+    <ClInclude Include="CameraMovementComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">

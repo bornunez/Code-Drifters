@@ -63,4 +63,5 @@ void MCMovementComponent::update()
 	getGameObject()->getTransform()->velocity.setX(velocity.getX()*direction.getX());//Asigna la velocidad al personaje
 	getGameObject()->getTransform()->velocity.setY(velocity.getY()*direction.getY());		
 	getGameObject()->getTransform()->position.set(getGameObject()->getTransform()->position + getGameObject()->getTransform()->velocity);
+
 }
