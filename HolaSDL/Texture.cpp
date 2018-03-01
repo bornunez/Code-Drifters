@@ -1,18 +1,14 @@
 #include "Texture.h"
 
-Texture::Texture() :
-		texture_(nullptr), width_(0), height_(0) {
+Texture::Texture(SDL_Renderer* renderer) :  renderer(renderer), width(0), height(0) {
 }
 
-Texture::Texture(SDL_Renderer* renderer, std::string fileName) :
-		texture_(nullptr), width_(0), height_(0) {
-	loadFromImg(renderer, fileName);
+Texture::Texture(SDL_Renderer* renderer, string fileName, uint numRows, uint numCols) : renderer(renderer) {
+	loadFromImg(fileName, numRows, numCols);
 }
 
-Texture::Texture(SDL_Renderer* renderer, std::string text, const Font& font,
-		const SDL_Color color) :
-		texture_(nullptr), width_(0), height_(0) {
-	loadFromText(renderer, text, font, color);
+Texture::Texture(SDL_Renderer* renderer, string text, const Font& font, const SDL_Color color) : renderer(renderer), texture(nullptr), width(0), height(0) {
+	loadFromText(text, font, color);
 }
 
 Texture::~Texture() {
@@ -20,79 +16,79 @@ Texture::~Texture() {
 }
 
 int Texture::getWidth() {
-	return width_;
+	return width;
 }
 
 int Texture::getHeight() {
-	return height_;
+	return height;
 }
 
+
 void Texture::close() {
-	if (texture_ != nullptr) {
-		SDL_DestroyTexture(texture_); // delete current texture
-		texture_ = nullptr;
-		width_ = 0;
-		height_ = 0;
+	if (texture != nullptr) {
+		SDL_DestroyTexture(texture); // delete current texture
+		texture = nullptr;
+		width = 0;
+		height = 0;
 	}
 }
 
-bool Texture::loadFromImg(SDL_Renderer* renderer, std::string fileName) {
+bool Texture::loadFromImg(string fileName, uint numRows, uint numCols) {
 	SDL_Surface* surface = IMG_Load(fileName.c_str());
 	if (surface != nullptr) {
 		close(); // destroy current texture
-		texture_ = SDL_CreateTextureFromSurface(renderer, surface);
-		if (texture_ != nullptr) {
-			width_ = surface->w;
-			height_ = surface->h;
+		texture = SDL_CreateTextureFromSurface(renderer, surface);
+		if (texture != nullptr) {
+			width = surface->w;
+			height = surface->h;
+			frameWidth = width / numCols;
+			frameHeight = height / numRows;
+
 		}
 		SDL_FreeSurface(surface);
 	}
-	return texture_ != nullptr;
+	return texture != nullptr;
 }
 
-bool Texture::loadFromText(SDL_Renderer* renderer, std::string text,
-		const Font& font, const SDL_Color color) {
+bool Texture::loadFromText(std::string text, const Font& font, const SDL_Color color) {
 	SDL_Surface* textSurface = font.renderText(text, color);
 	if (textSurface != nullptr) {
 		close();
-		texture_ = SDL_CreateTextureFromSurface(renderer, textSurface);
-		if (texture_ != nullptr) {
-			width_ = textSurface->w;
-			height_ = textSurface->h;
+		texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+		if (texture != nullptr) {
+			width = textSurface->w;
+			height = textSurface->h;
 		}
 		SDL_FreeSurface(textSurface);
 	}
-	return texture_ != nullptr;
+	return texture != nullptr;
 }
 
-void Texture::render(SDL_Renderer* renderer, int x, int y) const {
+void Texture::render(int x, int y) const {
 	SDL_Rect dest;
 	dest.x = x;
 	dest.y = y;
-	dest.w = width_;
-	dest.h = height_;
-	render(renderer, dest);
+	dest.w = width;
+	dest.h = height;
+	render(dest);
 }
 
-void Texture::render(SDL_Renderer* renderer, const SDL_Rect& dest,
-		SDL_Rect* clip) const {
-	if (texture_) {
-		SDL_Rect default_clip = { 0, 0, width_, height_ };
+void Texture::render(const SDL_Rect& dest, SDL_Rect* clip) const {
+	if (texture) {
+		SDL_Rect default_clip = { 0, 0, width, height };
 		if (clip == nullptr) {
 			clip = &default_clip;
 		}
-		SDL_RenderCopy(renderer, texture_, clip, &dest);
+		SDL_RenderCopy(renderer, texture, clip, &dest);
 	}
 }
 
-void Texture::render(SDL_Renderer* renderer, const SDL_Rect& dest, double angle,
-		SDL_Rect* clip) const {
-	if (texture_) {
-		SDL_Rect default_clip = { 0, 0, width_, height_ };
+void Texture::render(const SDL_Rect& dest, double angle, SDL_Rect* clip) const {
+	if (texture) {
+		SDL_Rect default_clip = { 0, 0, width, height };
 		if (clip == nullptr) {
 			clip = &default_clip;
 		}
-		SDL_RenderCopyEx(renderer, texture_, clip, &dest, angle, nullptr,
-				SDL_FLIP_NONE);
+		SDL_RenderCopyEx(renderer, texture, clip, &dest, angle, nullptr, SDL_FLIP_NONE);
 	}
 }
