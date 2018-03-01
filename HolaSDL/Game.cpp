@@ -17,8 +17,8 @@ Game::Game()
 	winX = winY = 50;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
-
-	window = SDL_CreateWindow("Haro I de Saboya", winX, winY, winWidth, winHeight, SDL_WINDOW_SHOWN);
+	SDL_ShowCursor(SDL_DISABLE);
+	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
 	int roomNumber = 20;
@@ -86,6 +86,11 @@ void Game::handleEvents()
 {
 	while (SDL_PollEvent(&event) && !exit) {
 
+		if (event.type == SDL_KEYDOWN) {
+			if (event.key.keysym.sym == SDLK_ESCAPE) {
+				exit = true;
+			}
+		}
 		if (event.type == SDL_QUIT)
 		{
 			exit = true;

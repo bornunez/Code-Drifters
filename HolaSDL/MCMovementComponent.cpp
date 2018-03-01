@@ -58,7 +58,9 @@ void MCMovementComponent::update()
 	if (velocity.getY() > maxVelocity) {
 		velocity.setY(maxVelocity);
 	}
+	direction.normalize();
+	getGameObject()->getTransform()->direction = direction;//Asigna la dirección	
 	getGameObject()->getTransform()->velocity.setX(velocity.getX()*direction.getX());//Asigna la velocidad al personaje
-	getGameObject()->getTransform()->velocity.setY(velocity.getY()*direction.getY());
+	getGameObject()->getTransform()->velocity.setY(velocity.getY()*direction.getY());		
 	getGameObject()->getTransform()->position.set(getGameObject()->getTransform()->position + getGameObject()->getTransform()->velocity);
 }

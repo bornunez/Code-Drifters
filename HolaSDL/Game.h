@@ -16,8 +16,8 @@ private:
 	bool error = false;//Flag para errores
 	SDL_Event event;
 	int winX, winY;
-	const int winWidth = 1280;
-	const int winHeight = 720;
+	const int winWidth = 1920;
+	const int winHeight = 1080;
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
 	MCMovementComponent* mainCharacterMovement;
