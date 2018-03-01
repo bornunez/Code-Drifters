@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+
 #include "MCMovementComponent.h"
 class MainCharacter :public GameObject
 {
@@ -8,6 +9,7 @@ private:
 	int currentRoomY;
 	float HP;
 	float velocity;
+	float maxVelocity;
 	float meleeDamage;
 	bool activeHook;
 	bool firingGun;
@@ -27,8 +29,9 @@ public:
 	void setMaxBullets(int bullets);
 	float getMeleeDamage();
 	void setMeleeDamage(float dmg);
-	void setVelocity(float vel);
+	void setMaxVelocity(float vel);
 	float getVelocity();
+	float getMaxVelocity();
 	float getHP();
 	void substractHP(int damage);
 	int getCurrentRoomX();

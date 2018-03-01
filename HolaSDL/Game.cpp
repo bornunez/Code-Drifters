@@ -27,8 +27,8 @@ Game::Game()
 	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
 	camera = new Camera(this);	
 	mainCharacter = new MainCharacter(this, 100,100,50,50);
-	mainCharacterMovement = new MCMovementComponent(SDLK_w, SDLK_d, SDLK_a, SDLK_s);
-	
+	mainCharacter->setMaxVelocity(1);	
+	mainCharacterMovement = new MCMovementComponent(mainCharacter, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A);	
 	mainCharacter->addComponent(mainCharacterMovement);
 	level->CreateMap();
 	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
@@ -76,8 +76,9 @@ void Game::run()
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
 		camera->render();//" "
 		SDL_RenderPresent(getRenderer());// " "
-		mainCharacter->handleEvents(event);
 		handleEvents();
+		mainCharacter->update();//Provisional en lugar del update
+		
 	}
 }
 
@@ -92,6 +93,7 @@ void Game::handleEvents()
 
 		else
 		{
+			mainCharacter->handleEvents(event);
 			//stateMachine->currentState()->handleEvent(event);
 		}
 	}

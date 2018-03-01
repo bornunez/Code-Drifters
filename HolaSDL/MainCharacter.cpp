@@ -19,7 +19,6 @@ MainCharacter::MainCharacter(Game* game, int x, int y, int w, int h) : GameObjec
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
-
 }
 
 MainCharacter::~MainCharacter()
@@ -57,13 +56,17 @@ void MainCharacter::setMeleeDamage(float dmg)
 {
 	meleeDamage = dmg;
 }
-void MainCharacter::setVelocity(float vel)
+void MainCharacter::setMaxVelocity(float vel)
 {
-	velocity = vel;
+	maxVelocity = vel;
 }
 float MainCharacter::getVelocity()
 {
 	return velocity;
+}
+float MainCharacter::getMaxVelocity()
+{
+	return maxVelocity;
 }
 float MainCharacter::getHP()
 {
