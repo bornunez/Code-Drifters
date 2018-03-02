@@ -18,10 +18,11 @@ private:
 	bool error = false;//Flag para errores
 	SDL_Event event;
 	int winX, winY;
+	bool fullScreen;
 	const int winWidth = 1020;
 	const int winHeight = 720;
-	const int worldWidth = 10000;
-	const int worldHeight = 10000;
+	const int worldWidth = 100000;
+	const int worldHeight = 100000;
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
 	MCMovementComponent* mainCharacterMovement;
@@ -40,6 +41,8 @@ public:
 	Camera* getCamera();
 	void run();
 	void handleEvents();
+	const int getWorldWidth() { return worldWidth; }
+	const int getWorldHeight() { return worldHeight; }
 	int getWinW();
 	int getWinH();
 };
