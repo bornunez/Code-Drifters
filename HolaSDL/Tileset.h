@@ -15,7 +15,7 @@ private:
 	int margin = 0;
 public:
 	Tileset(std::string src);
-	~Tileset();
+	~Tileset() {};
 
 	SDL_Rect getTileRect(int tileID);
 	Texture* getTexture() { return tilesetImg; }
