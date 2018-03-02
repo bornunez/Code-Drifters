@@ -36,6 +36,11 @@ Game::Game()
 	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
 
+	//Enemy (test)
+	enemy = new Enemy(this, mainCharacter, 50, 50, 20, 20);
+	enemyChaseComponent = new ChaseComponent(enemy, mainCharacter, 0.1);
+	enemy->addComponent(enemyChaseComponent);
+	level->getFirstRoom()->addCharacter(enemy);
 
 
 
@@ -84,6 +89,7 @@ void Game::run()
 		SDL_RenderPresent(getRenderer());// " "
 		handleEvents();
 		mainCharacter->update();//Provisional en lugar del update
+		enemy->update();
 		camera->update();
 		
 	}

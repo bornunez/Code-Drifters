@@ -5,6 +5,7 @@
 #include "MainCharacter.h"
 #include "DungeonGenerator.h"
 #include "CameraMovementComponent.h"
+#include "Enemy.h"
 
 using namespace std;
 class Game
@@ -24,6 +25,10 @@ private:
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
 	MCMovementComponent* mainCharacterMovement;
+
+	Enemy* enemy;
+	ChaseComponent* enemyChaseComponent;
+
 public:
 
 	DungeonGenerator * getLevel();
