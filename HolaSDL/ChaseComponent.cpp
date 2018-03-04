@@ -1,3 +1,4 @@
+#pragma once
 #include "ChaseComponent.h"
 #include "GameObject.h"
 

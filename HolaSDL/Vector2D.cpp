@@ -1,3 +1,4 @@
+#pragma once
 #include "Vector2D.h"
 #include <math.h>
 #include <assert.h>

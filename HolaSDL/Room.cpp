@@ -1,6 +1,7 @@
+#pragma once
 #include "Room.h"
 #include "Game.h"
-
+#include "Camera.h"
 
 
 Room::Room(Game* game)

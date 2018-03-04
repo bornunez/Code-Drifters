@@ -1,5 +1,6 @@
 #pragma once
-#include "GameObject.h"
+#include "InputComponent.h"
+#include "Vector2D.h"
 
 class MCMovementComponent : public InputComponent
 {

@@ -1,4 +1,8 @@
+#pragma once
+#include "MouseIcon.h"
+#include "Texture.h"
 #include "Game.h"
+
 
 MouseIcon::MouseIcon(Game* game, string iconFileName){
 	this->game = game;

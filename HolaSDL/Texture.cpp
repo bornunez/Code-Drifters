@@ -1,3 +1,4 @@
+#pragma once
 #include "Texture.h"
 
 Texture::Texture(SDL_Renderer* renderer) :  renderer(renderer), width(0), height(0) {

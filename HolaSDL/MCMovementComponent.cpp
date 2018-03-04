@@ -1,4 +1,6 @@
+#pragma once
 #include "MCMovementComponent.h"
+#include "GameObject.h"
 #include "MainCharacter.h"
 #include <iostream>
 

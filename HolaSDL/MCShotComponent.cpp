@@ -1,5 +1,8 @@
+#pragma once
 #include "MCShotComponent.h"
 #include "Bullet.h"
+#include "ResourceManager.h"
+#include "Game.h"
 
 
 void MCMovementComponent::handleEvents(SDL_Event & e)
@@ -16,18 +19,14 @@ void MCMovementComponent::handleEvents(SDL_Event & e)
 		this->getGameObject()->getTransform()->position - aux;
 		//Se le pasa el vector
 
-
-	/*	Transform bulletTransform = { this->getGameObject()->getTransform()->position }
-		{
-			Vector2D position;
-			Vector2D rotation;
-			Vector2D velocity;
-			Vector2D direction;
-			SDL_Rect body;
-		};*/
+		//Ver si manejar transform como punteros mejor
+		Transform bulletTransform = (*this->getGameObject()->getTransform());
+		bulletTransform.direction = this->getGameObject()->getTransform()->position - aux;
 		//Pasarle el transform
 
-		new Bullet(this->getGameObject()->getGame());
+
+		new Bullet(this->getGameObject()->getGame(), this->getGameObject()->getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
+	
 	}
 
 

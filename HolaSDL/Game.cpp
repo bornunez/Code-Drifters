@@ -1,6 +1,17 @@
+#pragma once
 #include "Game.h"
-
-
+#include "GameStateMachine.h"
+#include "Camera.h"
+#include "MainCharacter.h"
+#include "DungeonGenerator.h"
+#include "CameraMovementComponent.h"
+#include "Enemy.h"
+#include "ResourceManager.h"
+#include "MouseIcon.h"
+#include "MCMovementComponent.h"
+#include "DungeonGenerator.h"
+#include "Room.h"
+#include "ChaseComponent.h"
 
 DungeonGenerator * Game::getLevel()
 {

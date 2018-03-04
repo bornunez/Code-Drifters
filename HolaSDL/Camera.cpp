@@ -1,7 +1,9 @@
+#pragma once
 #include "Camera.h"
 #include "Game.h"
-
-
+#include "MainCharacter.h"
+#include "DungeonGenerator.h"
+#include "Room.h"
 
 Camera::Camera(Game* game) : GameObject(game)
 {

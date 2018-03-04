@@ -1,6 +1,7 @@
+#pragma once
 #include "CameraMovementComponent.h"
 #include "MainCharacter.h"
-
+#include "GameObject.h"
 
 
 CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject* MCharacter )

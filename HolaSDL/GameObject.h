@@ -1,10 +1,9 @@
 #pragma once
-#include "sdl_includes.h"
-#include "ComponentContainer.h"
-#include "Texture.h"
-#include "Transform.h"
 
+#include "ComponentContainer.h"
+#include "Transform.h"
 class Game;
+class Texture;
 
 class GameObject : public ComponentContainer
 {

@@ -1,13 +1,16 @@
 #pragma once
 #include "sdl_includes.h"
-#include "GameStateMachine.h"
-#include "Camera.h"
-#include "MainCharacter.h"
-#include "DungeonGenerator.h"
-#include "CameraMovementComponent.h"
-#include "Enemy.h"
-#include "ResourceManager.h"
-#include "MouseIcon.h"
+
+class MouseIcon;
+class ResourceManager;
+class Enemy;
+class MainCharacter;
+class DungeonGenerator;
+class CameraMovementComponent;
+class ChaseComponent;
+class MCMovementComponent;
+class GameStateMachine;
+class Camera;
 
 using namespace std;
 class Game

@@ -1,10 +1,10 @@
 #pragma once
 #include "GameObject.h"
-#include "MainCharacter.h"
-#include "ChaseComponent.h"
 
+class MainCharacter;
+class Game;
 
-class Enemy :public GameObject
+class Enemy : public GameObject
 {
 
 private:

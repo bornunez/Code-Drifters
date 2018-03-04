@@ -1,7 +1,6 @@
 #pragma once
 #include "UpdateComponent.h"
-class CameraMovementComponent :
-	public UpdateComponent
+class CameraMovementComponent : public UpdateComponent
 {
 private:
 	GameObject * mainCharacter;

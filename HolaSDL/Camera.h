@@ -1,9 +1,8 @@
 #pragma once
 #include <vector>
 #include "sdl_includes.h"
-
 #include "GameObject.h"
-#include "Transform.h"
+#include <iostream>
 
 class Camera : public GameObject
 {

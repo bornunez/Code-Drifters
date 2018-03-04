@@ -1,6 +1,9 @@
+#pragma once
 #include "Enemy.h"
 #include "Game.h"
-
+#include "Camera.h"
+#include "Transform.h"
+#include "MainCharacter.h"
 
 Enemy::Enemy(Game* game, MainCharacter* mc, Transform t) : GameObject(game)
 {

@@ -1,6 +1,10 @@
 #pragma once
+#include "sdl_includes.h"
+#include <string>
 
+class Texture;
 class Game;
+using namespace std;
 
 class MouseIcon {
 

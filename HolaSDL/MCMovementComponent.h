@@ -1,8 +1,8 @@
 #pragma once
 #include "UpdateComponent.h"
 #include "Vector2D.h"
-class MCMovementComponent :
-	public UpdateComponent
+
+class MCMovementComponent : public UpdateComponent
 {
 private:
 	SDL_Keycode downKey;

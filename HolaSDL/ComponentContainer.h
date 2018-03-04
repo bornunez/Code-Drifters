@@ -6,8 +6,7 @@
 #include "UpdateComponent.h"
 #include "RenderComponent.h"
 #include "InputComponent.h"
-#include "sdl_includes.h"
-#include <iostream>
+
 
 
 class ComponentContainer

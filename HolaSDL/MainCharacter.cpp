@@ -1,7 +1,8 @@
+#pragma once
 #include "MainCharacter.h"
 #include "Game.h"
-
-
+#include "Camera.h"
+#include "MCMovementComponent.h"
 
 //Personaje principal
 

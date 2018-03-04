@@ -13,7 +13,7 @@ typedef struct {
 	int numCols;
 } TextureAtributes;
 
-enum TextureName {Bullet};
+enum TextureName {BulletSprite};
 
 using namespace std;
 class ResourceManager
