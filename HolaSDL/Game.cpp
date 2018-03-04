@@ -20,7 +20,7 @@ Game::Game()
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-
+	resourceManager = new ResourceManager(this->getRenderer());
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
 

@@ -77,6 +77,9 @@
     <ClCompile Include="MouseIcon.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MCShotComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -159,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="MouseIcon.h">
       <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCShotComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
