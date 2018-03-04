@@ -10,7 +10,7 @@ typedef unsigned int uint;
 class Texture {
 public:
 	Texture(SDL_Renderer* renderer);
-	Texture(SDL_Renderer* renderer, string fileName, uint numRows, uint numCols);				//Carga una textura 
+	Texture(SDL_Renderer* renderer, string fileName, uint numRows = 1, uint numCols = 1);				//Carga una textura 
 	Texture(SDL_Renderer* renderer, string text, const Font& font, const SDL_Color color);		//Carga una textura de texto
 	virtual ~Texture();
 

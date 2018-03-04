@@ -74,6 +74,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Enemies\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MouseIcon.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -153,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseIcon.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

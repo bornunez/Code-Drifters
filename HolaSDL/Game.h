@@ -6,6 +6,7 @@
 #include "DungeonGenerator.h"
 #include "CameraMovementComponent.h"
 #include "Enemy.h"
+#include "MouseIcon.h"
 
 using namespace std;
 class Game
@@ -26,6 +27,7 @@ private:
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
 	MCMovementComponent* mainCharacterMovement;
+	MouseIcon* mouseIcon;
 
 	Enemy* enemy;
 	ChaseComponent* enemyChaseComponent;
@@ -34,6 +36,7 @@ public:
 
 	DungeonGenerator * getLevel();
 	MainCharacter * getCharacter();
+
 	bool exit = false;
 	Game();
 	~Game();

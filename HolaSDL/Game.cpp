@@ -21,6 +21,9 @@ Game::Game()
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+	//Mouse Icon, maybe en playstate
+	mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
+
 	int roomNumber = 20;
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
 
@@ -82,6 +85,7 @@ void Game::run()
 	{
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
 		camera->render();//" "
+		this->mouseIcon->drawIcon(event);
 		SDL_Rect rect RECT(700 - getCamera()->getTransform()->position.getX(), 700 - getCamera()->getTransform()->position.getY(), 100, 100);
 		SDL_SetRenderDrawColor(getRenderer(), COLOR(0x00ffffff));
 		SDL_RenderFillRect(getRenderer(), &rect);
@@ -91,7 +95,6 @@ void Game::run()
 		mainCharacter->update();//Provisional en lugar del update
 		enemy->update();
 		camera->update();
-		
 	}
 }
 
