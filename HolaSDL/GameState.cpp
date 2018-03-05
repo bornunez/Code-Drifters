@@ -15,10 +15,6 @@ void GameState::cleanGarbage()
 	}
 }
 
-GameState::GameState()
-{
-}
-
 
 GameState::~GameState()
 {

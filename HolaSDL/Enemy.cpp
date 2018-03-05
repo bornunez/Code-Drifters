@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "Transform.h"
 #include "MainCharacter.h"
+#include "ChaseComponent.h"
 
 Enemy::Enemy(Game* game, MainCharacter* mc, Transform t) : GameObject(game)
 {
@@ -13,6 +14,7 @@ Enemy::Enemy(Game* game, MainCharacter* mc, Transform t) : GameObject(game)
 	transform.body.w = t.body.w;
 	transform.body.h = t.body.h;
 
+	this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
 }
 Enemy::Enemy(Game* game, MainCharacter* mc, int x, int y, int w, int h) : GameObject(game)
 {

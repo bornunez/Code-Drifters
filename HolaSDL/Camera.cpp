@@ -4,13 +4,19 @@
 #include "MainCharacter.h"
 #include "DungeonGenerator.h"
 #include "Room.h"
+#include "CameraMovementComponent.h"
+#include "PlayState.h"
 
-Camera::Camera(Game* game) : GameObject(game)
+Camera::Camera(Game* game, PlayState* playState) : GameObject(game)
 {
 	transform.position.setX(0);
 	transform.position.setY(0);
 	transform.body.w = game->getWinW();
 	transform.body.h = game->getWinH();
+
+	this->playState = playState;
+	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, playState->getMainCharacter());
+	this->addComponent(cameraMovement);
 }
 
 Camera::~Camera()

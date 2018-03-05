@@ -13,6 +13,7 @@ MainCharacter::MainCharacter(Game* game, Transform t) : GameObject(game)
 	transform.body.w = t.body.w;
 	transform.body.h = t.body.h;
 	
+
 }
 MainCharacter::MainCharacter(Game* game, int x, int y, int w, int h) : GameObject(game)
 {
@@ -20,6 +21,9 @@ MainCharacter::MainCharacter(Game* game, int x, int y, int w, int h) : GameObjec
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
+
+	setMaxVelocity(0.5);
+	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 }
 
 MainCharacter::~MainCharacter()
