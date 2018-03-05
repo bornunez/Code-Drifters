@@ -1,11 +1,11 @@
 #pragma once
 #include "CameraMovementComponent.h"
 #include "MainCharacter.h"
-<<<<<<< HEAD
+
 #include "GameObject.h"
-=======
+
 #include "Game.h"
->>>>>>> master
+
 
 
 CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject* MCharacter )
