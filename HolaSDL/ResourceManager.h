@@ -20,7 +20,7 @@ class ResourceManager
 {
 
 private:
-	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES] { { "bullet.png", 4, 14 } };			//Esto ira a xml
+	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES] { { "bullet.png", 1, 1 } };			//Esto ira a xml
 	//Array que contiene punteros a todas las texturas del juego.
 	Texture* textures[NUM_TEXTURES];
 
