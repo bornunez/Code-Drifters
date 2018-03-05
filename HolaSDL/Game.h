@@ -27,8 +27,8 @@ private:
 	bool fullScreen;
 	const int winWidth = 1020;
 	const int winHeight = 720;
-	const int worldWidth = 100000;
-	const int worldHeight = 100000;
+	const int worldWidth = 5000;
+	const int worldHeight = 5000;
 	GameStateMachine* stateMachine;
 	MainCharacter* mainCharacter;
 	MCMovementComponent* mainCharacterMovement;
