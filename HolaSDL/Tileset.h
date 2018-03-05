@@ -26,3 +26,9 @@ public:
 	int getTileSize() { return tileSize; }
 };
 
+struct Tile {
+	int x;
+	int y;
+	int tileID;
+};
+

@@ -2,6 +2,7 @@
 #include <vector>
 #include "Layer.h"
 #include "tinyxml2.h"
+#include "LevelParser.h"
 
 using namespace tinyxml2;
 
@@ -11,10 +12,11 @@ private:
 	std::vector<Layer*> layers;
 	string filename;
 
-	void parseLevel();
-public:
+	friend class LevelParser;
 	Map(string filename);
+public:
 	~Map();
-
+	void update();
+	void render();
 };
 

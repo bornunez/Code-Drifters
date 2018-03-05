@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int ac, char** av) {
 
-	Map map("mapa");
+	Map* mapa = new Map("./mapa.tmx");
 
 	Game* game = new Game();
 	game->run();

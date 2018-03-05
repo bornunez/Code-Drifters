@@ -5,10 +5,10 @@
 using namespace std;
 class Layer
 {
-private:
-	vector<vector<GameObject*>> tiles;
 public:
 	Layer();
 	~Layer();
+	virtual void update() = 0;
+	virtual void render() = 0;
 };
 

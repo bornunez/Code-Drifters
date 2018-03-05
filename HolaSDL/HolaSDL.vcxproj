@@ -31,7 +31,9 @@
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
+    <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
@@ -56,6 +58,7 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UpdateComponent.h" />

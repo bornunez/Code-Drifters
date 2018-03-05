@@ -59,9 +59,19 @@
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Layer.cpp" />
-    <ClCompile Include="Tileset.cpp" />
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Tileset.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -115,9 +125,6 @@
     <ClInclude Include="LevelParser.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Mapa\Header</Filter>
-    </ClInclude>
     <ClInclude Include="MainCharacter.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -127,9 +134,19 @@
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Layer.h" />
-    <ClInclude Include="Tileset.h" />
+    <ClInclude Include="Room.h">
+      <Filter>Mapa\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Tileset.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TileLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
