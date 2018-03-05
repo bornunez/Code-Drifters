@@ -11,6 +11,7 @@ class ChaseComponent;
 class MCMovementComponent;
 class GameStateMachine;
 class Camera;
+class Boss;
 
 using namespace std;
 class Game
@@ -34,6 +35,7 @@ private:
 	MCMovementComponent* mainCharacterMovement;
 	MouseIcon* mouseIcon;
 
+	Boss* boss;
 	Enemy* enemy;
 	ChaseComponent* enemyChaseComponent;
 

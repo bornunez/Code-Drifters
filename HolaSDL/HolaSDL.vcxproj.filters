@@ -80,6 +80,9 @@
     <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Bosses\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -166,6 +169,9 @@
     <ClInclude Include="MCShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Bosses\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
@@ -203,6 +209,15 @@
     </Filter>
     <Filter Include="Enemies\Source">
       <UniqueIdentifier>{162c0ced-db2b-47e4-9481-ff4fd3fa2237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses">
+      <UniqueIdentifier>{78e78340-fc8a-42de-a43b-d25a9104b98b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\Header">
+      <UniqueIdentifier>{7c755425-06de-40db-8128-f92f25497227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\Source">
+      <UniqueIdentifier>{261dc816-7901-4197-8305-e2c3f691b604}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

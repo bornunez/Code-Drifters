@@ -12,6 +12,7 @@
 #include "DungeonGenerator.h"
 #include "Room.h"
 #include "ChaseComponent.h"
+#include "Boss.h"
 
 DungeonGenerator * Game::getLevel()
 {
@@ -55,7 +56,8 @@ Game::Game()
 	enemyChaseComponent = new ChaseComponent(enemy, mainCharacter, 0.1);
 	enemy->addComponent(enemyChaseComponent);
 	level->getFirstRoom()->addCharacter(enemy);
-
+	boss = new Boss(this, mainCharacter, 400, 400, 100, 100);
+	level->getFirstRoom()->addCharacter(boss);
 
 
 	
@@ -106,6 +108,7 @@ void Game::run()
 		mainCharacter->update();//Provisional en lugar del update
 		enemy->update();
 		camera->update();
+		boss->update();
 	}
 }
 
