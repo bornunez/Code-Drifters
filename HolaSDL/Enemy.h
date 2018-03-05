@@ -7,7 +7,7 @@ class Game;
 class Enemy : public GameObject
 {
 
-private:
+protected:
 	int life;
 	int contactDamage;
 	GameObject* mainCharacter;
@@ -19,7 +19,6 @@ public:
 	Enemy(Game* game, MainCharacter* mc, Transform t);
 	Enemy(Game* game, MainCharacter* mc, int x, int y, int w, int h);
 	~Enemy();
-	void render();
 
 	GameObject* getMC();
 

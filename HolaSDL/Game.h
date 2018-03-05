@@ -3,11 +3,10 @@
 
 class MouseIcon;
 class ResourceManager;
-class Enemy;
+class ExampleEnemy;
 class MainCharacter;
 class DungeonGenerator;
 class CameraMovementComponent;
-class ChaseComponent;
 class MCMovementComponent;
 class GameStateMachine;
 class Camera;
@@ -34,8 +33,8 @@ private:
 	MCMovementComponent* mainCharacterMovement;
 	MouseIcon* mouseIcon;
 
-	Enemy* enemy;
-	ChaseComponent* enemyChaseComponent;
+	ExampleEnemy* enemy;
+	
 
 public:
 

@@ -5,13 +5,13 @@
 #include "MainCharacter.h"
 #include "DungeonGenerator.h"
 #include "CameraMovementComponent.h"
-#include "Enemy.h"
+#include "ExampleEnemy.h"
 #include "ResourceManager.h"
 #include "MouseIcon.h"
 #include "MCMovementComponent.h"
 #include "DungeonGenerator.h"
 #include "Room.h"
-#include "ChaseComponent.h"
+
 
 DungeonGenerator * Game::getLevel()
 {
@@ -51,9 +51,7 @@ Game::Game()
 	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
 
 	//Enemy (test)
-	enemy = new Enemy(this, mainCharacter, 50, 50, 20, 20);
-	enemyChaseComponent = new ChaseComponent(enemy, mainCharacter, 0.1);
-	enemy->addComponent(enemyChaseComponent);
+	enemy = new ExampleEnemy(this, mainCharacter, 50, 50, 20, 20);
 	level->getFirstRoom()->addCharacter(enemy);
 
 
