@@ -29,7 +29,7 @@ Game::Game()
 	camera = new Camera(this);
 	CameraMovementComponent* cameraMovement = new CameraMovementComponent(camera, mainCharacter);
 	camera->addComponent(cameraMovement);
-	mainCharacter->setMaxVelocity(1);	
+	mainCharacter->setMaxVelocity(0.5);	
 	mainCharacterMovement = new MCMovementComponent(mainCharacter, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A);	
 	mainCharacter->addComponent(mainCharacterMovement);
 	level->CreateMap();

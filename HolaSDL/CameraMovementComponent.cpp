@@ -1,6 +1,6 @@
 #include "CameraMovementComponent.h"
 #include "MainCharacter.h"
-
+#include "Game.h"
 
 
 CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject* MCharacter )
@@ -26,11 +26,11 @@ void CameraMovementComponent::update()
 	if (gameObject->getTransform()->position.getY() < 0) {
 		gameObject->getTransform()->position.setY(0);
 	}
-	if (gameObject->getTransform()->position.getX() > 1000) {
-		gameObject->getTransform()->position.setX(1000);
+	if (gameObject->getTransform()->position.getX() > gameObject->getGame()->getWorldWidth()) {
+		gameObject->getTransform()->position.setX(gameObject->getGame()->getWorldWidth());
 	}
-	if (gameObject->getTransform()->position.getY() > 1000) {
-		gameObject->getTransform()->position.setY(1000);
+	if (gameObject->getTransform()->position.getY() > gameObject->getGame()->getWorldHeight()) {
+		gameObject->getTransform()->position.setY(gameObject->getGame()->getWorldHeight());
 	}
 }
 
