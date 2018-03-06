@@ -20,6 +20,13 @@ GameObject::GameObject(Game* game, Texture * tex, Vector2D position, float bodyH
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
 }
 
+GameObject::GameObject(Game* game, Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active) : texture(tex), active(active) {
+	this->game = game;
+	transform.position.setX(x); transform.position.setY(y);
+	transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
+	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
+}
+
 GameObject::~GameObject()
 {
 }

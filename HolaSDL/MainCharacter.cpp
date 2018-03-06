@@ -3,31 +3,31 @@
 #include "Game.h"
 #include "Camera.h"
 #include "MCMovementComponent.h"
+#include "PlayState.h"
 
 //Personaje principal
 
-MainCharacter::MainCharacter(Game* game, Transform t) : GameObject(game)
-{
-	transform.position.setX(t.position.getX());
-	transform.position.setY(t.position.getY());
-	transform.body.w = t.body.w;
-	transform.body.h = t.body.h;
-	
-}
-MainCharacter::MainCharacter(Game* game, int x, int y, int w, int h) : GameObject(game)
+
+
+
+MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, int x, int y, int w, int h) 
+	: PlayStateObject(playState, game, tex, x, y, w, h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
+
+	setMaxVelocity(0.5);
+	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 }
 
 MainCharacter::~MainCharacter()
 {
 }
 void MainCharacter::render(){
-	float auxX = transform.position.getX() - getGame()->getCamera()->getTransform()->position.getX();	
-	float auxY = transform.position.getY() - getGame()->getCamera()->getTransform()->position.getY();
+	float auxX = transform.position.getX() - getPlayState()->getCamera()->getTransform()->position.getX();	
+	float auxY = transform.position.getY() - getPlayState()->getCamera()->getTransform()->position.getY();
 	SDL_Rect rect RECT(auxX,auxY,transform.body.w,transform.body.h);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
 	SDL_RenderFillRect(game->getRenderer(), &rect);

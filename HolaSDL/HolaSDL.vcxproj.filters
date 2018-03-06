@@ -94,6 +94,9 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="miniz.c" />
+    <ClCompile Include="PlayStateObject.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -189,6 +192,9 @@
     </ClInclude>
     <ClInclude Include="Room.h">
       <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateObject.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
