@@ -97,6 +97,9 @@
     <ClCompile Include="PlayStateObject.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="GunnerComponent.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -193,8 +196,13 @@
     <ClInclude Include="Room.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="PlayStateObject.h">
-      <Filter>Arquitectura\Header</Filter>
+    <ClInclude Include="Base64.h" />
+    <ClInclude Include="miniz.h" />
+    <ClInclude Include="GunnerComponent.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleEnemy.h">
+      <Filter>Enemies\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

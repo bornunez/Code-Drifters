@@ -25,6 +25,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="GunnerComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LevelParser.cpp" />
@@ -63,6 +64,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LevelParser.h" />

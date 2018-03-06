@@ -11,7 +11,6 @@
 #include "MCMovementComponent.h"
 #include "DungeonGenerator.h"
 #include "Room.h"
-#include "ChaseComponent.h"
 #include "LevelParser.h"
 #include "Map.h"
 #include "PlayState.h"
