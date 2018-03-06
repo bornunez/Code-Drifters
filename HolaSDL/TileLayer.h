@@ -6,14 +6,13 @@ class TileLayer :
 	public Layer
 {
 private:
-private:
 	int cols;
 	int rows;
 	int tileSize;
-	std::vector<std::vector<int>> tileIDs;
-	Tileset* tileSet;
+	std::vector<std::vector<int>> tileIDs; //Aqui almacenamos la informacion del mapa
+	Tileset* tileSet; //Y aqui el tileset
 public:
-	TileLayer(int tileSize,Tileset* tileset);
+	TileLayer(Tileset* tileset,int cols, int rows, int tileSize);
 	~TileLayer();
 	void seTileIDs(vector<vector<int>> tileID) { tileIDs = tileID; }
 	virtual void update();

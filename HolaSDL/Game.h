@@ -11,6 +11,8 @@ class ChaseComponent;
 class MCMovementComponent;
 class GameStateMachine;
 class Camera;
+class Map;
+class LevelParser;
 
 using namespace std;
 class Game
@@ -37,11 +39,13 @@ private:
 	Enemy* enemy;
 	ChaseComponent* enemyChaseComponent;
 
+	LevelParser* levP;
+	Map* map;
+
 public:
 
 	DungeonGenerator * getLevel();
 	MainCharacter * getCharacter();
-
 	bool exit = false;
 	Game();
 	~Game();

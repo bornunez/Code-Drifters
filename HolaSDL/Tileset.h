@@ -3,12 +3,15 @@
 #include <string>
 #include <vector>
 #include "sdl_includes.h"
+#include "tinyxml2.h"
+using namespace tinyxml2;
 class Tileset
 {
 private:
 	Texture * tilesetImg = NULL;
-	std::string srcFile;
+	std::string name;
 	int firstGid = 0;
+	int tileCount = 0;
 	int rows = 0;
 	int cols = 0;
 	int tileSize = 0;
@@ -16,7 +19,7 @@ private:
 	int margin = 0;
 	std::vector<SDL_Rect> tileRects;
 public:
-	Tileset(std::string src);
+	Tileset(Texture* tileImg,XMLElement* root);
 	~Tileset() {};
 
 	SDL_Rect setTileRect(int tileID);

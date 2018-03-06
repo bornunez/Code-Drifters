@@ -12,15 +12,12 @@ using namespace std;
 class LevelParser
 {
 private:
-	void parseTileset(XMLElement* tilesetRoot, Tileset* tileset);
-	void parseTileLayer(XMLElement* tileElement, vector<Layer*>* layers,Tileset* tileset);
-	int tileSize;
-	int width;
-	int height;
+	Game * game;
+	void parseTileLayer(XMLElement* root,XMLElement* tileElement, Map* map,Tileset* tileset);
 public:
-	LevelParser();
+	LevelParser(Game* game) : game(game) {}
 	~LevelParser();
-	Map* parseLevel(string levelFile, Tileset* tileset);
+	Map* parseLevel(string levelFile);
 
 };
 

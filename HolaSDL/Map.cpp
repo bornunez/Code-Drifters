@@ -1,5 +1,5 @@
 #include "Map.h"
-
+#include "Layer.h"
 
 
 void Map::parseLevel()
@@ -8,7 +8,7 @@ void Map::parseLevel()
 }
 
 
-Map::Map(string filename) : filename(filename)
+Map::Map(string filename, Tileset* ts) : filename(filename), tileset(ts)
 {
 	
 }

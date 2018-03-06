@@ -2,8 +2,16 @@
 
 
 
-Tileset::Tileset(std::string src) : srcFile(src)
+Tileset::Tileset(Texture* tileImg, XMLElement* root) : tilesetImg(tileImg)
 {
+	name = root->Attribute("name");
+	tileSize = atoi( root->Attribute("tilewidth"));
+	spacing = atoi(root->Attribute("spacing"));
+	margin = atoi(root->Attribute("margin"));
+	tileCount = atoi(root->Attribute("tilecount"));
+	cols = atoi(root->Attribute("columns"));
+	rows = tileCount / cols;
+
 	for (int i = 0; i < rows*cols; i++) {
 		tileRects.push_back(setTileRect(i));
 	}

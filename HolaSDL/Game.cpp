@@ -12,6 +12,8 @@
 #include "DungeonGenerator.h"
 #include "Room.h"
 #include "ChaseComponent.h"
+#include "LevelParser.h"
+#include "Map.h"
 
 DungeonGenerator * Game::getLevel()
 {
@@ -56,7 +58,8 @@ Game::Game()
 	enemy->addComponent(enemyChaseComponent);
 	level->getFirstRoom()->addCharacter(enemy);
 
-
+	levP = new LevelParser(this);
+	map = levP->parseLevel("../levels/mapa.tmx");
 
 	
 	if (renderer == nullptr)//Si hay errores activa el flag
@@ -95,6 +98,7 @@ void Game::run()
 	while (!exit) 
 	{
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
+		map->render();
 		camera->render();//" "
 		this->mouseIcon->drawIcon(event);
 		SDL_Rect rect RECT(700 - getCamera()->getTransform()->position.getX(), 700 - getCamera()->getTransform()->position.getY(), 100, 100);
