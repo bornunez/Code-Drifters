@@ -21,7 +21,6 @@ void PlayState::render()
 {
 	SDL_RenderClear(this->getGame()->getRenderer());
 	camera->render();
-	SDL_RenderPresent(this->getGame()->getRenderer());
 }
 
 void PlayState::handleEvent(SDL_Event & e)

@@ -76,7 +76,8 @@ void Game::run()
 		stateMachine->currentState()->update();
 		stateMachine->currentState()->render();
 		handleEvents();
-		this->mouseIcon->drawIcon(event);		
+		this->mouseIcon->drawIcon(event);
+		SDL_RenderPresent(this->getRenderer());
 	}
 }
 

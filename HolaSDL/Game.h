@@ -43,7 +43,6 @@ public:
 	SDL_Renderer* getRenderer();
 	ResourceManager* getResourceManager() { return resourceManager; }
 	LevelParser* getLvlParser() { return levP; }
-	Camera* getCamera();
 	void run();
 	void handleEvents();
 	const int getWorldWidth() const { return worldWidth; }
