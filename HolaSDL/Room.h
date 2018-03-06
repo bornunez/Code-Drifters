@@ -4,6 +4,7 @@
 #include "GameObject.h"
 
 class Game;
+class Map;
 using namespace std;
 
 class Room
@@ -40,6 +41,7 @@ private:
 	SDL_Rect rect;
 	Game* game;
 	Texture* texture;
+	Map* map;
 	vector<GameObject*> characters;//Todos los elementos que aparecen en pantalla
 	int x;
 	int y;

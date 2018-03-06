@@ -14,18 +14,19 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 	int tileSize = atoi(root->Attribute("tilewidth"));
 	int width = atoi(root->Attribute("width"));
 	int height = atoi(root->Attribute("height"));
-	TileLayer* tileLayer = new TileLayer(tileset,width,height,tileSize);
+	string name = tileElement->Attribute("name");
+	TileLayer* tileLayer = new TileLayer(tileset,name,width,height,tileSize);
 	//Vector de los datos de tiles
 	vector<vector<int>> data;
 	string decodedID;
 	//Nodo donde estaguardado el mapa
 	XMLElement* dataNode = tileElement->FirstChildElement("data");
 
-	for (XMLNode* e = dataNode->FirstChild(); e != NULL; e = e->NextSibling())
+	for (XMLNode* e = dataNode->FirstChild(); e != nullptr; e = e->NextSibling())
 	{
 		XMLText* text = e->ToText();
 		std::string t = text->Value();
-		//Quitar los espacios ( Lee la linea con espacios incluidos)
+		//Quitar los espacios ( Lee la linea con espacios incluidos) Esto es un hack
 		string nt;
 		for (int i = 0; i<t.length(); i++) {
 			if (t[i] != '\n' &&t[i] && t[i] != ' ') {
@@ -77,7 +78,7 @@ Map * LevelParser::parseLevel(string levelFile)
 	XMLElement* root = doc.FirstChildElement();
 
 	//Ahora cargamos las tileLayer
-	for (XMLElement* e = root->FirstChildElement(); e != NULL; e = e->NextSiblingElement()) {
+	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if(e->Value() == string("layer"))
 			parseTileLayer(root,e, map,game->getResourceManager()->getCurrTileset());
 	}

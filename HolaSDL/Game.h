@@ -40,7 +40,6 @@ private:
 	ChaseComponent* enemyChaseComponent;
 
 	LevelParser* levP;
-	Map* map;
 
 public:
 
@@ -51,11 +50,12 @@ public:
 	~Game();
 	SDL_Renderer* getRenderer();
 	ResourceManager* getResourceManager() { return resourceManager; }
+	LevelParser* getLvlParser() { return levP; }
 	Camera* getCamera();
 	void run();
 	void handleEvents();
-	const int getWorldWidth() { return worldWidth; }
-	const int getWorldHeight() { return worldHeight; }
+	const int getWorldWidth() const { return worldWidth; }
+	const int getWorldHeight() const { return worldHeight; }
 	int getWinW();
 	int getWinH();
 };

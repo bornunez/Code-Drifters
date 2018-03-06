@@ -1,6 +1,6 @@
 #include "TileLayer.h"
 
-TileLayer::TileLayer(Tileset * tileset, int cols, int rows, int tileSize) : tileSet(tileset), cols(cols), rows(rows), tileSize(tileSize)
+TileLayer::TileLayer(Tileset * tileset,string name, int cols, int rows, int tileSize) : tileSet(tileset),name(name), cols(cols), rows(rows), tileSize(tileSize)
 {
 }
 

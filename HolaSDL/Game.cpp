@@ -27,13 +27,15 @@ MainCharacter * Game::getCharacter()
 
 Game::Game()
 {
-	winX = winY = 50;
+	winX = winY = 100;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	resourceManager = new ResourceManager(this->getRenderer());
+	//Creamos el levelParser
+	levP = new LevelParser(this);
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
 
@@ -58,8 +60,8 @@ Game::Game()
 	enemy->addComponent(enemyChaseComponent);
 	level->getFirstRoom()->addCharacter(enemy);
 
-	levP = new LevelParser(this);
-	map = levP->parseLevel("../levels/mapa.tmx");
+
+	
 
 	
 	if (renderer == nullptr)//Si hay errores activa el flag
@@ -98,7 +100,6 @@ void Game::run()
 	while (!exit) 
 	{
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
-		map->render();
 		camera->render();//" "
 		this->mouseIcon->drawIcon(event);
 		SDL_Rect rect RECT(700 - getCamera()->getTransform()->position.getX(), 700 - getCamera()->getTransform()->position.getY(), 100, 100);

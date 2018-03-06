@@ -2,15 +2,18 @@
 #include "Room.h"
 #include "Game.h"
 #include "Camera.h"
+#include "Map.h"
+#include "LevelParser.h"
 
 
 Room::Room(Game* game)
 {
+
 }
 
 Room::Room(Game* game, SDL_Rect rect) :game(game), rect(rect) {
 	texture = new Texture(game->getRenderer());
-
+	
 }
 Room::~Room()
 {
@@ -19,6 +22,7 @@ Room::~Room()
 void Room::loadTexture() {
 	rect.x = x * rect.w;
 	rect.y = y * rect.h;
+	/*
 	if (upDoor && downDoor && leftDoor && rightDoor)//UDLR
 	{
 		filename = "..\\images\\roomUDLR.png";
@@ -130,7 +134,9 @@ void Room::loadTexture() {
 		}
 
 	}
-	texture->loadFromImg(filename);
+	texture->loadFromImg(filename);*/
+string level = (rand() * 10 % 2) ? "../levels/mapa.tmx" : "../levels/mapa2.tmx";
+	map = game->getLvlParser()->parseLevel(level);
 }
 void Room::render() {
 
@@ -141,6 +147,8 @@ void Room::render() {
 		}
 	}
 	*/
+	map->render();
+
 	for (GameObject* o : characters) {
 		if (game->getCamera()->isInsideCamera(o->getTransform())) {
 			o->render();

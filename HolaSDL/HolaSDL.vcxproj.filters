@@ -156,9 +156,6 @@
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Mapa\Source</Filter>
-    </ClInclude>
     <ClInclude Include="Layer.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
@@ -192,6 +189,9 @@
     </ClInclude>
     <ClInclude Include="Base64.h" />
     <ClInclude Include="miniz.h" />
+    <ClInclude Include="Room.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
