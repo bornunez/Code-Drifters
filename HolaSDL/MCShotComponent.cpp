@@ -44,7 +44,6 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 		
 		auxBullet->addComponent(new MCBulletComponent(auxBullet,0.001));
 		auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-		dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->addSceneObject(auxBullet);
 		int currentX = dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getMainCharacter()->getCurrentRoomX();
 		int currentY = dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getMainCharacter()->getCurrentRoomY();
 		dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getLevel()->getRoom(currentX,currentY)->addCharacter(auxBullet);
