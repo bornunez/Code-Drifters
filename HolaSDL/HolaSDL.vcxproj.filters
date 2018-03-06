@@ -100,6 +100,10 @@
     <ClCompile Include="GunnerComponent.cpp">
       <Filter>Enemies\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ExampleEnemy.cpp" />
+    <ClCompile Include="Timer.cpp">
+      <Filter>Utilities\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -204,6 +208,10 @@
     <ClInclude Include="ExampleEnemy.h">
       <Filter>Enemies\Header</Filter>
     </ClInclude>
+    <ClInclude Include="PlayStateObject.h" />
+    <ClInclude Include="Timer.h">
+      <Filter>Utilities\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
@@ -241,6 +249,15 @@
     </Filter>
     <Filter Include="Enemies\Source">
       <UniqueIdentifier>{162c0ced-db2b-47e4-9481-ff4fd3fa2237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{a8822e49-395c-425f-bf3f-0071cba6adba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Header">
+      <UniqueIdentifier>{b3c75f2f-ce7f-498c-b41e-f4584e9f8655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\Source">
+      <UniqueIdentifier>{b8cc603b-1835-42d9-868b-ee1218cb876a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
