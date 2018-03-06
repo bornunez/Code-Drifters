@@ -31,9 +31,13 @@ void PlayState::handleEvent(SDL_Event & e)
 void PlayState::update()
 {
 	for (GameObject* o : sceneObjects) {
-		o->update();
-	}
+		o->update();		
+	}	
+}
 
+void PlayState::addSceneObject(GameObject* o)
+{
+	sceneObjects.push_back(o);
 }
 
 void PlayState::loadState()

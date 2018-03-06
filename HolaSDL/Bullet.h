@@ -1,13 +1,13 @@
 #pragma once
-#include "GameObject.h"
+#include "PlayStateObject.h"
 
 
-class Bullet : public GameObject
+class Bullet : public PlayStateObject
 {
 private:
 
 public:
-	Bullet(Game* game, Texture* tex, Transform t, bool active) : GameObject(game, tex, t, active) {};
-
+	Bullet(PlayState* playState, Game* game, Texture* tex, Transform t, bool active);
+	~Bullet();
 
 };

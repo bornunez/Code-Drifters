@@ -32,6 +32,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MCBulletComponent.cpp" />
+    <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCMovementComponent.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="miniz.c" />
@@ -70,6 +72,8 @@
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MCBulletComponent.h" />
+    <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCMovementComponent.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="miniz.h" />

@@ -2,11 +2,14 @@
 #include "InputComponent.h"
 #include "Vector2D.h"
 
-class MCMovementComponent : public InputComponent
+class MCShotComponent : public InputComponent
 {
 private:
 	Vector2D aux;
 public:
-	virtual void handleEvents(SDL_Event & e);
+	MCShotComponent(GameObject* o);
+	void handleEvents(SDL_Event & e);
+	void recieveMessage(std::string msg) {};
+	virtual ~MCShotComponent();
 
 };

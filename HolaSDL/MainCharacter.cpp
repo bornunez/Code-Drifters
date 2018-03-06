@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "MCMovementComponent.h"
 #include "PlayState.h"
+#include "MCShotComponent.h"
 
 //Personaje principal
 
@@ -20,6 +21,7 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 
 	setMaxVelocity(0.5);
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
+	addComponent(new MCShotComponent(this));
 }
 
 MainCharacter::~MainCharacter()
