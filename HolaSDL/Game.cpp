@@ -11,6 +11,9 @@
 #include "MCMovementComponent.h"
 #include "DungeonGenerator.h"
 #include "Room.h"
+#include "ChaseComponent.h"
+#include "LevelParser.h"
+#include "Map.h"
 
 
 DungeonGenerator * Game::getLevel()
@@ -38,7 +41,7 @@ Game::Game()
 	int roomNumber = 20;
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
 
-	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
+	//Esto deberï¿½a ir en el playState, estï¿½ puesto de prueba. Crea un personaje y una cï¿½mara, le asigna una sala al personaje
 	mainCharacter = new MainCharacter(this, 100,100,50,50);
 	camera = new Camera(this);
 	CameraMovementComponent* cameraMovement = new CameraMovementComponent(camera, mainCharacter);
@@ -47,14 +50,15 @@ Game::Game()
 	mainCharacterMovement = new MCMovementComponent(mainCharacter, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A);	
 	mainCharacter->addComponent(mainCharacterMovement);
 	level->CreateMap();
-	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
-	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
+	level->getFirstRoom()->addCharacter(mainCharacter);//Se aï¿½ade el personaje a la primera sala
+	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posiciï¿½n de la primera sala
 
 	//Enemy (test)
 	enemy = new ExampleEnemy(this, mainCharacter, 50, 50, 20, 20);
 	level->getFirstRoom()->addCharacter(enemy);
 
-
+	levP = new LevelParser(this);
+	map = levP->parseLevel("../levels/mapa.tmx");
 
 	
 	if (renderer == nullptr)//Si hay errores activa el flag
@@ -93,6 +97,7 @@ void Game::run()
 	while (!exit) 
 	{
 		SDL_RenderClear(getRenderer());//Provisional en lugar del render
+		map->render();
 		camera->render();//" "
 		this->mouseIcon->drawIcon(event);
 		SDL_Rect rect RECT(700 - getCamera()->getTransform()->position.getX(), 700 - getCamera()->getTransform()->position.getY(), 100, 100);

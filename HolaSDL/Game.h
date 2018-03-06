@@ -10,6 +10,8 @@ class CameraMovementComponent;
 class MCMovementComponent;
 class GameStateMachine;
 class Camera;
+class Map;
+class LevelParser;
 
 using namespace std;
 class Game
@@ -36,11 +38,13 @@ private:
 	ExampleEnemy* enemy;
 	
 
+	LevelParser* levP;
+	Map* map;
+
 public:
 
 	DungeonGenerator * getLevel();
 	MainCharacter * getCharacter();
-
 	bool exit = false;
 	Game();
 	~Game();
