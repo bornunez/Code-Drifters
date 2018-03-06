@@ -83,6 +83,9 @@
     <ClCompile Include="Boss.cpp">
       <Filter>Bosses\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Bosses\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -170,6 +173,9 @@
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
+      <Filter>Bosses\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
       <Filter>Bosses\Header</Filter>
     </ClInclude>
   </ItemGroup>

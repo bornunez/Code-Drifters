@@ -37,6 +37,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
@@ -67,6 +68,7 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="Vector2D.h" />

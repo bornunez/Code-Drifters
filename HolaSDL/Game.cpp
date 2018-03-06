@@ -56,7 +56,7 @@ Game::Game()
 	enemyChaseComponent = new ChaseComponent(enemy, mainCharacter, 0.1);
 	enemy->addComponent(enemyChaseComponent);
 	level->getFirstRoom()->addCharacter(enemy);
-	boss = new Boss(this, mainCharacter, 400, 400, 100, 100);
+	boss = new Boss(this, mainCharacter, 400, 100, 100, 100);
 	level->getFirstRoom()->addCharacter(boss);
 
 
