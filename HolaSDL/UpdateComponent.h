@@ -1,7 +1,6 @@
 #pragma once
 #include "Component.h"
-class UpdateComponent :
-	public Component
+class UpdateComponent : public Component
 {
 public:
 	UpdateComponent();

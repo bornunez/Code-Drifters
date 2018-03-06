@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include <string>
-#include "Room.h"
-#include "Texture.h"
+#include "sdl_includes.h"
+class Room;
+class Game;
 
 using namespace std;
 class DungeonGenerator

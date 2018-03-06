@@ -11,10 +11,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CameraMovementComponent.cpp" />
+    <ClCompile Include="ChaseComponent.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -27,8 +31,11 @@
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MCMovementComponent.cpp" />
+    <ClCompile Include="MCShotComponent.cpp" />
+    <ClCompile Include="MouseIcon.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileLayer.cpp" />
@@ -38,10 +45,14 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraMovementComponent.h" />
+    <ClInclude Include="ChaseComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DungeonGenerator.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -53,8 +64,11 @@
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MCMovementComponent.h" />
+    <ClInclude Include="MCShotComponent.h" />
+    <ClInclude Include="MouseIcon.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="Texture.h" />

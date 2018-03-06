@@ -72,6 +72,27 @@
       <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="TileLayer.cpp" />
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMovementComponent.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ChaseComponent.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseIcon.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCShotComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -147,6 +168,27 @@
       <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="TileLayer.h" />
+    <ClInclude Include="Bullet.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraMovementComponent.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaseComponent.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseIcon.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCShotComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
@@ -175,6 +217,15 @@
     </Filter>
     <Filter Include="Prota\Source">
       <UniqueIdentifier>{409cd437-ee28-466b-a1bc-3c0a6660a2f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies">
+      <UniqueIdentifier>{63306fae-f726-4ebb-b058-c033b3d161e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\Header">
+      <UniqueIdentifier>{325a7307-5faa-4477-bc5d-ddbc70a2c193}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemies\Source">
+      <UniqueIdentifier>{162c0ced-db2b-47e4-9481-ff4fd3fa2237}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

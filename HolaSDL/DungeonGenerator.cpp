@@ -1,4 +1,6 @@
+#pragma once
 #include "DungeonGenerator.h"
+#include "Room.h"
 #include <ctime>
 
 

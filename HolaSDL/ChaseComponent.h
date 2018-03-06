@@ -1,18 +1,22 @@
 #pragma once
-#include "Component.h"
-#include "GameObject.h"
+#include "UpdateComponent.h"
+#include "Vector2D.h"
 
-class ChaseComponent :public Component
+class ChaseComponent :
+	public UpdateComponent
 {
 public:
-	ChaseComponent();
-	~ChaseComponent();
 	void update();
+	void recieveMessage(std::string msg) {};
+	ChaseComponent(GameObject* o, GameObject* target, float vel);
+	virtual ~ChaseComponent();
 
 private:
-	Vector2D position;
-	Vector2D target;
-	Vector2D velocity;
-	double angle;
+	Vector2D chaserPosition;
+	Vector2D targetPosition;
+	Vector2D chaserVelocity;
+	GameObject* targetObject;
+	float velocity;
+	float angle;
 };
 

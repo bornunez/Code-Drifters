@@ -1,3 +1,4 @@
+#pragma once
 #include "LevelParser.h"
 #include "Map.h"
 

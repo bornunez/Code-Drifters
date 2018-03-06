@@ -1,7 +1,9 @@
+#pragma once
 #include "Camera.h"
 #include "Game.h"
-
-
+#include "MainCharacter.h"
+#include "DungeonGenerator.h"
+#include "Room.h"
 
 Camera::Camera(Game* game) : GameObject(game)
 {
@@ -15,15 +17,13 @@ Camera::~Camera()
 {
 }
 
-void Camera::update()
-{
-}
 
 void Camera::render()
 {
 	int auxX = game->getCharacter()->getCurrentRoomX();
 	int auxY = game->getCharacter()->getCurrentRoomY();
 	game->getLevel()->getRoom(auxX, auxY)->render();
+
 	//GUI->render();//Pinta el GUI al final
 }
 
