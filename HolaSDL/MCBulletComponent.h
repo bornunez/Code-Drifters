@@ -5,7 +5,6 @@ class MCBulletComponent :
 	public UpdateComponent
 {
 private: 
-	Vector2D direction;
 	Vector2D velocity;
 public:
 	void update();

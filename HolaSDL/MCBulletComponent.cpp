@@ -6,15 +6,14 @@
 MCBulletComponent::MCBulletComponent(GameObject* o, float maxVelocity)
 {
 	gameObject = o;
-	type = UpdateC;
-	velocity.set(maxVelocity, maxVelocity);
-	direction.set(gameObject->getTransform()->direction.getX(), gameObject->getTransform()->direction.getY());
+	type = UpdateC;	
+	velocity.set(maxVelocity,maxVelocity);
 }
 void MCBulletComponent::update()
 {
 	
-	getGameObject()->getTransform()->velocity.setX(velocity.getX()*direction.getX());//Asigna la velocidad al personaje
-	getGameObject()->getTransform()->velocity.setY(velocity.getY()*direction.getY());
+	getGameObject()->getTransform()->velocity.setX(velocity.getX()*getGameObject()->getTransform()->direction.getX());//Asigna la velocidad al personaje
+	getGameObject()->getTransform()->velocity.setY(velocity.getY()*getGameObject()->getTransform()->direction.getY());
 	getGameObject()->getTransform()->position.set(getGameObject()->getTransform()->position + getGameObject()->getTransform()->velocity);
 }
 
