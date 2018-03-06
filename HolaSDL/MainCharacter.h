@@ -1,7 +1,8 @@
 #pragma once
-#include "GameObject.h"
+#include "PlayStateObject.h"
+class PlayState;
 
-class MainCharacter : public GameObject
+class MainCharacter : public PlayStateObject
 {
 private:
 	int currentRoomX;
@@ -17,8 +18,9 @@ private:
 	int currentBullets;
 
 public:
-	MainCharacter(Game* game, Transform t);
-	MainCharacter(Game* game, int x, int y, int w, int h);
+
+	MainCharacter(PlayState* playState, Game* game, Texture* tex, int x, int y, int w, int h);
+
 	~MainCharacter();
 	void render();
 

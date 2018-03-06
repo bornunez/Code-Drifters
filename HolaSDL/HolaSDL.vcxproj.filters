@@ -80,6 +80,9 @@
     <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="PlayStateObject.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -165,6 +168,9 @@
     </ClInclude>
     <ClInclude Include="MCShotComponent.h">
       <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateObject.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

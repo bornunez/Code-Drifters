@@ -1,19 +1,27 @@
 #pragma once
 #include "GameState.h"
 #include "sdl_includes.h"
+#include <list>
 
 class Camera;
 class Game;
 class MainCharacter;
 class DungeonGenerator;
+class Enemy;
 
+using namespace std;
 class PlayState : public GameState
 {
 private:
 	Camera * camera;
 	MainCharacter* mainCharacter;
-	DungeonGenerator* dungeonGenerator;
+	DungeonGenerator* level;
 
+	list<GameObject*> sceneObjects;
+
+
+	//enemigo temporal
+	Enemy* enemy;
 	void loadState();
 public:
 	PlayState(Game* g);
@@ -23,6 +31,7 @@ public:
 	virtual void handleEvent(SDL_Event& e);
 	virtual void update();
 
-	DungeonGenerator* getDungeonGenerator() { return this->dungeonGenerator; }
+	DungeonGenerator* getLevel() { return this->level; }
+	Camera* getCamera() { return this->camera; }
 };
 

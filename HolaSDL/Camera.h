@@ -1,15 +1,15 @@
 #pragma once
 #include <vector>
 #include "sdl_includes.h"
-#include "GameObject.h"
+#include "PlayStateObject.h"
 #include <iostream>
 
 class PlayState;
 
-class Camera : public GameObject
+class Camera : public PlayStateObject
 {
 private:
-	PlayState * playState;
+
 public:
 
 	bool isInsideCamera(Transform* t);

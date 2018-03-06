@@ -19,8 +19,7 @@ class Game
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
-	Camera* camera;
-	DungeonGenerator* level;
+	//Camera* camera;
 	ResourceManager* resourceManager;
 	bool error = false;//Flag para errores
 	SDL_Event event;
@@ -31,25 +30,15 @@ private:
 	const int worldWidth = 5000;
 	const int worldHeight = 5000;
 	GameStateMachine* stateMachine;
-	MainCharacter* mainCharacter;
-	MCMovementComponent* mainCharacterMovement;
 	MouseIcon* mouseIcon;
 	PlayState* playState;
 
-	Enemy* enemy;
-	ChaseComponent* enemyChaseComponent;
-
 public:
-
-	DungeonGenerator * getLevel();
-	MainCharacter * getCharacter();
-
 	bool exit = false;
 	Game();
 	~Game();
 	SDL_Renderer* getRenderer();
 	ResourceManager* getResourceManager() { return resourceManager; }
-	Camera* getCamera();
 	void run();
 	void handleEvents();
 	const int getWorldWidth() { return worldWidth; }

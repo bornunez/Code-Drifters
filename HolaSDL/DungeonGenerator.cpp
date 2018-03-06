@@ -41,8 +41,8 @@ using namespace std;
 
 
 
-DungeonGenerator::DungeonGenerator(Game* game, int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY) : 
-	game_(game),mapWidth_(mapWidth), mapHeight_(mapHeight), maxRooms_(maxRooms)
+DungeonGenerator::DungeonGenerator(PlayState* playState, int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY) : 
+	playState(playState),mapWidth_(mapWidth), mapHeight_(mapHeight), maxRooms_(maxRooms)
 {
 }
 DungeonGenerator::~DungeonGenerator()
@@ -84,7 +84,7 @@ void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la 
 	for (int i = 0; i < mapHeight_; i++) {
 		Dungeon_[i].resize(mapWidth_);
 		for (int j = 0; j < mapWidth_; j++) {
-			Dungeon_[i][j] = new Room(game_, size_);
+			Dungeon_[i][j] = new Room(playState);
 			Dungeon_[i][j]->setX(j);
 			Dungeon_[i][j]->setY(i);
 			Dungeon_[i][j]->setUpDoor(false);

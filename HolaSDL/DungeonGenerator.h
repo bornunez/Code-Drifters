@@ -3,12 +3,13 @@
 #include "sdl_includes.h"
 class Room;
 class Game;
+class PlayState;
 
 using namespace std;
 class DungeonGenerator
 {
 public:
-	DungeonGenerator(Game* game,int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY);
+	DungeonGenerator(PlayState* playState, int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY);
 	~DungeonGenerator();
 	void CreateMap();
 	void Run();
@@ -45,7 +46,7 @@ private:
 	int mapHeight_;
 	int maxRooms_;
 	int roomsLeft_;
-	Game* game_;
+	PlayState* playState;
 	vector<Room*> visitedRooms_;
 	vector<Room*> unvisitedRooms_;
 	vector<vector<Room*>> Dungeon_;

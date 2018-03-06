@@ -7,14 +7,13 @@
 #include "CameraMovementComponent.h"
 #include "PlayState.h"
 
-Camera::Camera(Game* game, PlayState* playState) : GameObject(game)
+Camera::Camera(Game* game, PlayState* playState) : PlayStateObject(playState, game)
 {
 	transform.position.setX(0);
 	transform.position.setY(0);
 	transform.body.w = game->getWinW();
 	transform.body.h = game->getWinH();
 
-	this->playState = playState;
 	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, playState->getMainCharacter());
 	this->addComponent(cameraMovement);
 }
@@ -26,9 +25,9 @@ Camera::~Camera()
 
 void Camera::render()
 {
-	int auxX = game->getCharacter()->getCurrentRoomX();
-	int auxY = game->getCharacter()->getCurrentRoomY();
-	game->getLevel()->getRoom(auxX, auxY)->render();
+	int auxX = getPlayState()->getMainCharacter()->getCurrentRoomX();
+	int auxY = getPlayState()->getMainCharacter()->getCurrentRoomY();
+	getPlayState()->getLevel()->getRoom(auxX, auxY)->render();
 
 	//GUI->render();//Pinta el GUI al final
 }

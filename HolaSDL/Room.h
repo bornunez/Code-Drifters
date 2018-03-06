@@ -1,17 +1,19 @@
 #pragma once
 #include <string>
-#include "Texture.h"
-#include "GameObject.h"
+#include <vector>
 
-class Game;
+class PlayState;
+class GameObject;
+class Texture;
+
+
 using namespace std;
 
 class Room
 {
 public:
 
-	Room(Game* game);
-	Room(Game* game, SDL_Rect rect);
+	Room(PlayState* playState);
 	~Room();
 	void loadTexture();
 	void render();
@@ -37,8 +39,7 @@ public:
 
 private:
 	string filename;
-	SDL_Rect rect;
-	Game* game;
+	PlayState* playState;
 	Texture* texture;
 	vector<GameObject*> characters;//Todos los elementos que aparecen en pantalla
 	int x;
