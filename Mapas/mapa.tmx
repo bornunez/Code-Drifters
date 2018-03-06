@@ -1,32 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="1">
- <tileset firstgid="1" source="tile.tsx"/>
+ <tileset firstgid="1" source="Tileset/tile.tsx"/>
  <layer name="suelo" width="10" height="10">
-  <data encoding="csv">
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16,
-16,16,16,16,16,16,16,16,16,16
-</data>
+  <data encoding="base64" compression="zlib">
+   eJwTYGBgEBjFgwYDAPBMBkE=
+  </data>
  </layer>
  <layer name="Capa de Patrones 1" width="10" height="10">
-  <data encoding="csv">
-13,4,4,4,4,1,4,4,4,14,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-19,0,0,0,0,0,0,0,0,18,
-15,5,5,5,5,5,5,5,5,12
-</data>
+  <data encoding="base64" compression="zlib">
+   eJzjZWBgYEHDjGh8PiAWZiAMhEbV4VTHD8SsBDAPEAMARTsBpA==
+  </data>
  </layer>
 </map>

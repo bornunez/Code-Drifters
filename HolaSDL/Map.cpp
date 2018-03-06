@@ -4,19 +4,13 @@
 
 void Map::parseLevel()
 {
-	
-	XMLDocument levelDocument;
-	levelDocument.LoadFile( "mapa.tmx");
-	cout << levelDocument.FirstChildElement("map")->FirstChildElement("layer")->FirstChildElement("data") << endl;
-	XMLElement* map = levelDocument.FirstChildElement("map");
-	cout << map->Attribute("width");
 
 }
 
 
 Map::Map(string filename) : filename(filename)
 {
-	parseLevel();
+	
 }
 
 Map::~Map()

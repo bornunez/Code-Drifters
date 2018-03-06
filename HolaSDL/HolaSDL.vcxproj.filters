@@ -72,6 +72,7 @@
       <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="TileLayer.cpp" />
+    <ClCompile Include="miniz.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -147,6 +148,8 @@
       <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="TileLayer.h" />
+    <ClInclude Include="Base64.h" />
+    <ClInclude Include="miniz.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
