@@ -93,6 +93,7 @@
     <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="miniz.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -189,6 +190,8 @@
     <ClInclude Include="MCShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Base64.h" />
+    <ClInclude Include="miniz.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">

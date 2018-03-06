@@ -1,6 +1,7 @@
 #pragma once
 #include "Texture.h"
 #include <string>
+#include <vector>
 #include "sdl_includes.h"
 class Tileset
 {
@@ -13,11 +14,13 @@ private:
 	int tileSize = 0;
 	int spacing = 0;
 	int margin = 0;
+	std::vector<SDL_Rect> tileRects;
 public:
 	Tileset(std::string src);
 	~Tileset() {};
 
-	SDL_Rect getTileRect(int tileID);
+	SDL_Rect setTileRect(int tileID);
+	SDL_Rect* getTileRect(int tileID);
 	Texture* getTexture() { return tilesetImg; }
 	void load();
 	int getFirstGid() { return firstGid; }
