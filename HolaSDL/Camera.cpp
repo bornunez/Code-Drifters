@@ -48,6 +48,6 @@ bool Camera::isInsideCamera(Transform* t)
 	{
 		return true;
 	}
-	return false;
+	return true;
 }
 

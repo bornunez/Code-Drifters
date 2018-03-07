@@ -44,6 +44,7 @@ void PlayState::loadState()
 	camera = new Camera(this->getGame(), this);
 
 	mainCharacter = new MainCharacter(this, getGame(), nullptr, 100, 100, 50, 50);
+	camera->load();
 
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
 	level->CreateMap();
@@ -59,5 +60,4 @@ void PlayState::loadState()
 
 
 
-	camera->load();
 }

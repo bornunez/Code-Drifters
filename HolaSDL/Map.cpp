@@ -26,5 +26,5 @@ void Map::update()
 void Map::render()
 {
 	for (Layer* l : layers)
-		l->render();
+		l->render(camera);
 }

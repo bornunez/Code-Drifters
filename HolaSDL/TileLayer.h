@@ -18,7 +18,7 @@ public:
 	~TileLayer();
 	void seTileIDs(vector<vector<int>> tileID) { tileIDs = tileID; }
 	virtual void update();
-	virtual void render();
+	virtual void render(Camera* camera);
 	int getScale() { return scale; }
 };
 

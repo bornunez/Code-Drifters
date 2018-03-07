@@ -133,7 +133,8 @@ void Room::loadTexture() {
 //
 //	}
 ////	texture->loadFromImg(filename);*/
-string level = (rand() * 10 % 2) ? "../levels/mapa.tmx" : "../levels/mapa2.tmx";
+int rnd = rand() % 2 +1;
+string level = (rnd % 2)  ? "../levels/mapa.tmx" : "../levels/mapa2.tmx";
 	map = LevelParser::parseLevel(level,playState->getGame(),playState->getCamera());
 }
 void Room::render() {
