@@ -22,6 +22,12 @@ void Timer::update()
 	TimeSinceTimerCreation = (float(SDL_GetTicks()) - initTime)/1000;
 }
 
+void Timer::restart()
+{
+	TimeSinceTimerCreation = 0;
+	initTime = SDL_GetTicks();
+}
+
 void Timer::Ticks()
 {
 	tick_Time = SDL_GetTicks();

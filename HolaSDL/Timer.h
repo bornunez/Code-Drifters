@@ -6,6 +6,7 @@ public:
 	float TimeSinceTimerCreation = 0;
 	float TimeSinceGameInit = 0;
 	void update();
+	void restart();
 	Timer();
 	~Timer();
 

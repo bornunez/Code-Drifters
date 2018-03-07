@@ -23,7 +23,7 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCShotComponent(this));
 	setCurrentBullets(4);
-	setReloadTime(4000);
+	setReloadTime(4);
 	setMaxBullets(4);
 }
 

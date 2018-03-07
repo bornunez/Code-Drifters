@@ -16,7 +16,7 @@ MCShotComponent::MCShotComponent(GameObject * o)
 {
 	gameObject = o;
 	type = InputC;
-
+	lastReloadTime = new Timer();
 }
 
 MCShotComponent::~MCShotComponent()
@@ -28,20 +28,18 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 	int currentBullets = dynamic_cast<MainCharacter*>(gameObject)->getCurrentBullets();
 	int reloadTime = dynamic_cast<MainCharacter*>(gameObject)->getReloadTime();//Tiempo para que se recargue una bala
 	int maxBullets = dynamic_cast<MainCharacter*>(gameObject)->getMaxBullets();
+	lastReloadTime->update();
 
 	if (currentBullets == maxBullets) {//Si el cargador está al máximo la recarga se mantiene en pausa
-		lastReloadTime = SDL_GetTicks();
+		lastReloadTime->restart();
 	}
-
-	if (SDL_GetTicks() - lastReloadTime > reloadTime) {//Si el tiempo desde la última recarga supera al tiempo de recarga del personaje
-		int maxBullets = dynamic_cast<MainCharacter*>(gameObject)->getMaxBullets();
+	if (lastReloadTime->TimeSinceTimerCreation > reloadTime) {//Si el tiempo desde la última recarga supera al tiempo de recarga del personaje
 		if (currentBullets < maxBullets) {//Suma una bala si el cargador no está lleno
 			currentBullets++;
 			dynamic_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
-			lastReloadTime = SDL_GetTicks();//Reinicia el tiempo desde la última recarga
+			lastReloadTime->restart();//Reinicia el tiempo desde la última recarga
 		}
 	}
-
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
 		if (currentBullets > 0) {//Si tiene balas en el cargador dispara
 			int mouseX, mouseY;
