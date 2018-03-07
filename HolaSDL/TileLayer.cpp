@@ -19,7 +19,7 @@ void TileLayer::render()
 			int tileID = tileIDs[i][j];
 			if (tileID > 0) {
 				SDL_Rect destRect;
-				destRect.h = destRect.w = tileSize * 3;
+				destRect.h = destRect.w = tileSize * scale;
 				destRect.x = j * destRect.w;
 				destRect.y = i * destRect.w;
 

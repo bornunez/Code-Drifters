@@ -4,6 +4,7 @@
 #include "Base64.h"
 #include "miniz.h"
 #include "Game.h"
+#include "PlayState.h"
 #include "ResourceManager.h"
 
 
@@ -68,9 +69,9 @@ LevelParser::~LevelParser()
 {
 }
 
-Map * LevelParser::parseLevel(string levelFile)
+Map * LevelParser::parseLevel(string levelFile,Game* game,Camera* camera)
 {
-	Map* map = new Map(levelFile,game->getResourceManager()->getCurrTileset());
+	Map* map = new Map(levelFile,game->getResourceManager()->getCurrTileset(),camera);
 	//Carga y lectura del mapa
 	XMLDocument doc;
 	doc.LoadFile(levelFile.c_str());

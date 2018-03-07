@@ -25,7 +25,7 @@ Game::Game()
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	resourceManager = new ResourceManager(this->getRenderer());
 	//Creamos el levelParser
-	levP = new LevelParser(this);
+
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
 
@@ -41,8 +41,10 @@ Game::Game()
 	{
 		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
-		stateMachine->pushState(new PlayState(this));
+		PlayState* ps = new PlayState(this);
+		stateMachine->pushState(ps);
 		//Mouse Icon, maybe en playstate
+		levP = new LevelParser();
 		mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
 
 		//Este int no se que pinta aqui

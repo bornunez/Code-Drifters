@@ -4,6 +4,7 @@
 #include "LevelParser.h"
 class Map;
 class Layer;
+class Camera;
 using namespace tinyxml2;
 
 class Map
@@ -12,10 +13,11 @@ private:
 	std::vector<Layer*> layers;
 	string filename;
 	Tileset* tileset;
-
-	friend class LevelParser;
+	Camera* camera;
 	void parseLevel();
-	Map(string filename,Tileset* ts);
+
+	Map(string filename,Tileset* ts,Camera* camera);
+	friend class LevelParser;
 public:
 	~Map();
 	void update();

@@ -6,18 +6,18 @@
 #include "TileLayer.h"
 #include <vector>
 class Map;
+class Camera;
 
 using namespace tinyxml2;
 using namespace std;
 class LevelParser
 {
 private:
-	Game * game;
-	void parseTileLayer(XMLElement* root,XMLElement* tileElement, Map* map,Tileset* tileset);
+	static void parseTileLayer(XMLElement* root,XMLElement* tileElement, Map* map,Tileset* tileset);
 public:
-	LevelParser(Game* game) : game(game) {}
+	LevelParser()  {}
 	~LevelParser();
-	Map* parseLevel(string levelFile);
+	static Map* parseLevel(string levelFile,Game* game,Camera* camera);
 
 };
 

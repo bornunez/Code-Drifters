@@ -14,7 +14,7 @@ public:
 
 	bool isInsideCamera(Transform* t);
 	Camera(Game* game, PlayState* playState);
-
+	void load();
 	~Camera();
 	virtual void render();
 };

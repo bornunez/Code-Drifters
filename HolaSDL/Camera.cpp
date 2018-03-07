@@ -9,12 +9,18 @@
 
 Camera::Camera(Game* game, PlayState* playState) : PlayStateObject(playState, game)
 {
+
+	
+}
+
+void Camera::load()
+{
 	transform.position.setX(0);
 	transform.position.setY(0);
 	transform.body.w = game->getWinW();
 	transform.body.h = game->getWinH();
 
-	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, playState->getMainCharacter());
+	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, getPlayState()->getMainCharacter());
 	this->addComponent(cameraMovement);
 }
 
@@ -34,6 +40,7 @@ void Camera::render()
 
 bool Camera::isInsideCamera(Transform* t)
 {
+	
 	if (t->position.getX() + t->body.w >= transform.position.getX() &&		//Si no se sale por la izquierda
 		t->position.getX() - t->body.w / 2 <= transform.position.getX() + transform.body.w && //Si no se sale por la derecha
 		t->position.getY() <= transform.position.getY() + transform.body.h &&  //Si no se sale por abajo
@@ -41,6 +48,6 @@ bool Camera::isInsideCamera(Transform* t)
 	{
 		return true;
 	}
-	else return false;
+	return false;
 }
 

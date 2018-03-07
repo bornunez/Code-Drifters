@@ -8,9 +8,9 @@ void Map::parseLevel()
 }
 
 
-Map::Map(string filename, Tileset* ts) : filename(filename), tileset(ts)
+Map::Map(string filename, Tileset* ts, Camera* camera) : filename(filename), tileset(ts),camera(camera)
 {
-	
+		
 }
 
 Map::~Map()

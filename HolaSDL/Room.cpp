@@ -134,7 +134,7 @@ void Room::loadTexture() {
 //	}
 ////	texture->loadFromImg(filename);*/
 string level = (rand() * 10 % 2) ? "../levels/mapa.tmx" : "../levels/mapa2.tmx";
-	map = playState->getGame()->getLvlParser()->parseLevel(level);
+	map = LevelParser::parseLevel(level,playState->getGame(),playState->getCamera());
 }
 void Room::render() {
 

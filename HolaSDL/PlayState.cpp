@@ -38,6 +38,7 @@ void PlayState::update()
 
 void PlayState::loadState()
 {
+	camera = new Camera(this->getGame(), this);
 
 	mainCharacter = new MainCharacter(this, getGame(), nullptr, 100, 100, 50, 50);
 
@@ -53,9 +54,10 @@ void PlayState::loadState()
 	
 	level->getFirstRoom()->addCharacter(enemy);
 
-	camera = new Camera(this->getGame(), this);
 
 	sceneObjects.push_back(mainCharacter);
 	sceneObjects.push_back(camera);
 	sceneObjects.push_back(enemy);			//TEMPORAL
+
+	camera->load();
 }
