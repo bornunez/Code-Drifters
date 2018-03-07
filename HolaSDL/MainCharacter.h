@@ -18,6 +18,8 @@ private:
 	bool attacking;
 	int maxBullets;
 	int currentBullets;
+	int reloadTime;
+	Vector2D gunPosition;//Posición de donde sale la bala
 
 public:
 
@@ -27,18 +29,24 @@ public:
 	void render();
 
 	//Getters & Setters
-	void addCurrentBullets(int num);
+	void setCurrentBullets(int num);
 	int getCurrentBullets();
 	void setMaxBullets(int bullets);
+	int getMaxBullets();
 	float getMeleeDamage();
 	void setMeleeDamage(float dmg);
 	void setMaxVelocity(float vel);
 	float getVelocity();
 	float getMaxVelocity();
 	float getHP();
+	Vector2D getGunPosition();
+	void setGunPosition(Vector2D pos);
 	void substractHP(int damage);
 	int getCurrentRoomX();
 	int getCurrentRoomY();
 	void changeCurrentRoom(int x, int y);
+	int getReloadTime();
+	void setReloadTime(int miliseconds);
 };
+
 
