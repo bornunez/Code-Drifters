@@ -6,11 +6,12 @@
 #include "Map.h"
 #include "LevelParser.h"
 #include "ResourceManager.h"
+#include <ctime>
 
 using namespace std;
 
 int main(int ac, char** av) {
-
+	srand((unsigned)time(NULL));
 	
 
 	Game* game = new Game();

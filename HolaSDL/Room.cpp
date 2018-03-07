@@ -7,7 +7,7 @@
 #include "Texture.h"
 #include "Map.h"
 #include "LevelParser.h"
-
+#include <ctime>
 
 
 Room::Room(PlayState* playState) : playState(playState) {
@@ -133,8 +133,13 @@ void Room::loadTexture() {
 //
 //	}
 ////	texture->loadFromImg(filename);*/
-int rnd = rand() % 2 +1;
-string level = (rnd % 2)  ? "../levels/mapa.tmx" : "../levels/mapa2.tmx";
+	
+	int rnd = rand() % 2;
+	cout << rnd<<endl;
+	string level;
+	if ((rnd % 2 > 0))
+		level = "../levels/mapa.tmx";
+	else level = "../levels/mapa2.tmx";
 	map = LevelParser::parseLevel(level,playState->getGame(),playState->getCamera());
 }
 void Room::render() {

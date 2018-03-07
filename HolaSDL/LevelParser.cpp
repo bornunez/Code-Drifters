@@ -36,10 +36,10 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 		}
 		t = nt;
 		//Aqui ya esta el texto cortado y listo para decodificar
-		cout << t << endl;
+		///cout << t << endl;
 		//Decodificamos el mapa
 		macaron::Base64::Decode(t,decodedID);
-		cout << decodedID << endl;
+		///cout << decodedID << endl;
 		//Y descomprimimos
 		uLongf numGids = width * height * sizeof(int);
 		std::vector<unsigned> gids(numGids);
