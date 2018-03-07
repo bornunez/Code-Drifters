@@ -36,7 +36,7 @@ public:
 	void setVisited(bool visited);
 	void setSpecial(string special);
 	void addCharacter(GameObject* o);
-
+	void update();
 
 private:
 	string filename;

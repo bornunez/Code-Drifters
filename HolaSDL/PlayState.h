@@ -17,7 +17,6 @@ private:
 	MainCharacter* mainCharacter;
 	DungeonGenerator* level;
 
-	list<GameObject*> sceneObjects;
 
 
 	//enemigo temporal
@@ -30,7 +29,7 @@ public:
 	virtual void render();
 	virtual void handleEvent(SDL_Event& e);
 	virtual void update();
-
+	void addRoomObject(GameObject* o);	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
 };

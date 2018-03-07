@@ -153,6 +153,13 @@ void Room::render() {
 		}
 	}
 }
+
+void Room::update()
+{
+	for (GameObject* o : characters) {
+		o->update();		
+	}
+}
 //-----------------------------------------------------------------------------------------------
 int Room::getX()
 {
@@ -214,5 +221,7 @@ void Room::addCharacter(GameObject * o)
 {
 	characters.push_back(o);
 }
+
+
 
 //-------------------------------------------------------------------------------------

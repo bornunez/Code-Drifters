@@ -32,6 +32,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MCBulletComponent.cpp" />
+    <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCMovementComponent.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="miniz.c" />
@@ -44,6 +46,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="Vector2D.cpp" />
@@ -70,6 +73,8 @@
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MCBulletComponent.h" />
+    <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCMovementComponent.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="miniz.h" />
@@ -83,6 +88,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="Vector2D.h" />
@@ -90,6 +96,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>
     <RootNamespace>HolaSDL</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

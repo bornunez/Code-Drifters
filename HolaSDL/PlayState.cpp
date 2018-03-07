@@ -30,10 +30,13 @@ void PlayState::handleEvent(SDL_Event & e)
 
 void PlayState::update()
 {
-	for (GameObject* o : sceneObjects) {
-		o->update();
-	}
+	camera->update();
+	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
+}
 
+void PlayState::addRoomObject(GameObject* o)
+{
+	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(o);	
 }
 
 void PlayState::loadState()
@@ -44,20 +47,17 @@ void PlayState::loadState()
 
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
 	level->CreateMap();
-	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
+	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 
 	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
 
-
+	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(mainCharacter);
 	//Enemy (test)
 	enemy = new Enemy(this, this->getGame(), mainCharacter, 50, 50, 20, 20);
 	
 	level->getFirstRoom()->addCharacter(enemy);
 
 
-	sceneObjects.push_back(mainCharacter);
-	sceneObjects.push_back(camera);
-	sceneObjects.push_back(enemy);			//TEMPORAL
 
 	camera->load();
 }

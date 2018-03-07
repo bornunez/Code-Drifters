@@ -100,6 +100,13 @@
     <ClCompile Include="GunnerComponent.cpp">
       <Filter>Enemies\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ExampleEnemy.cpp" />
+    <ClCompile Include="MCBulletComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCBulletRenderComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -203,6 +210,13 @@
     </ClInclude>
     <ClInclude Include="ExampleEnemy.h">
       <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateObject.h" />
+    <ClInclude Include="MCBulletComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBulletRenderComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
