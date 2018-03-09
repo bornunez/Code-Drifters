@@ -9,10 +9,10 @@ private:
 	PlayState * playState = NULL;
 
 public:
-	PlayStateObject(PlayState* playState, Game* game);
-	PlayStateObject(PlayState* playState, Game* game, Texture* tex, Transform t, bool active);
-	PlayStateObject(PlayState* playState, Game* game, Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active);
-	PlayStateObject(PlayState* playState, Game* game, Texture* tex, int x, int y, int bodyHeight, int bodyWidth, bool active = true);
+	PlayStateObject(PlayState* playState);
+	PlayStateObject(PlayState* playState, Texture* tex, Transform t, bool active);
+	PlayStateObject(PlayState* playState, Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active);
+	PlayStateObject(PlayState* playState, Texture* tex, int x, int y, int bodyHeight, int bodyWidth, bool active = true);
 
 	PlayState * getPlayState(){ return playState; };
 };

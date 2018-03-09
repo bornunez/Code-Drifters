@@ -3,10 +3,6 @@
 #include "GameObject.h"
 
 
-Component::Component()
-{
-}
-
 
 Component::~Component()
 {

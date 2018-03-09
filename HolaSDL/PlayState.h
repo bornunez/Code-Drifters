@@ -23,7 +23,7 @@ private:
 	Enemy* enemy;
 	void loadState();
 public:
-	PlayState(Game* g);
+	PlayState();
 	~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	virtual void render();

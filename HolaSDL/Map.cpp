@@ -28,3 +28,11 @@ void Map::render()
 	for (Layer* l : layers)
 		l->render(camera);
 }
+
+Layer * Map::GetLayer(string LayerID)
+{
+	for (Layer* l : layers) {
+		if (l->getLayerID() == LayerID)
+			return l;
+	}
+}

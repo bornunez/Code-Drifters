@@ -2,26 +2,26 @@
 #include "GameObject.h"
 #include "Game.h"
 
-GameObject::GameObject(Game* game)
+GameObject::GameObject()
 {
-	this->game = game;
+	this->game = Game::getGame();
 }
 
-GameObject::GameObject(Game* game, Texture * tex, Transform t, bool active): texture(tex), active(active)
+GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), active(active)
 {
-	this->game = game;
+	this->game = Game::getGame();
 	transform = t;
 }
 
-GameObject::GameObject(Game* game, Texture * tex, Vector2D position, float bodyHeight, float bodyWidth, bool active): texture(tex), active(active)
+GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float bodyWidth, bool active): texture(tex), active(active)
 {
-	this->game = game;
+	this->game = Game::getGame();
 	transform.position = position; transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
 }
 
-GameObject::GameObject(Game* game, Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active) : texture(tex), active(active) {
-	this->game = game;
+GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active) : texture(tex), active(active) {
+	this->game = Game::getGame();
 	transform.position.setX(x); transform.position.setY(y);
 	transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;

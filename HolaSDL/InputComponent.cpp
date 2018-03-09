@@ -3,7 +3,7 @@
 
 
 
-InputComponent::InputComponent()
+InputComponent::InputComponent(GameObject* o): Component(o)
 {
 	type = InputC;
 }

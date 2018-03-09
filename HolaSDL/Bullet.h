@@ -7,7 +7,7 @@ class Bullet : public PlayStateObject
 private:
 
 public:
-	Bullet(PlayState* playState, Game* game, Texture* tex, Transform t, bool active);
+	Bullet(PlayState* playState, Texture* tex, Transform t, bool active);
 	~Bullet();
 
 };

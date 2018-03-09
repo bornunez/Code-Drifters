@@ -15,44 +15,11 @@
 #include "Map.h"
 #include "PlayState.h"
 
+Game* Game::game = nullptr;
 Game::Game()
 {
-	winX = winY = 100;
-	SDL_Init(SDL_INIT_EVERYTHING);
-	TTF_Init();
-	SDL_ShowCursor(SDL_DISABLE);
-	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	resourceManager = new ResourceManager(this->getRenderer());
-	//Creamos el levelParser
+	
 
-	//Mouse Icon, maybe en playstate
-	mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
-
-
-	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
-
-
-	if (renderer == nullptr)//Si hay errores activa el flag
-	{
-		error = true;
-	}
-	else
-	{
-		resourceManager = new ResourceManager(this->getRenderer());
-		stateMachine = new GameStateMachine();
-		PlayState* ps = new PlayState(this);
-		stateMachine->pushState(ps);
-		//Mouse Icon, maybe en playstate
-		levP = new LevelParser();
-		mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
-
-		//Este int no se que pinta aqui
-		int roomNumber = 20;
-		//MainMenuState* mm = new MainMenuState(this);
-		//stateMachine->pushState(mm);
-
-	}
 }
 Game::~Game()
 {
@@ -71,10 +38,46 @@ SDL_Renderer * Game::getRenderer()
 
 void Game::run()
 {
+	winX = winY = 100;
+	SDL_Init(SDL_INIT_EVERYTHING);
+	TTF_Init();
+	SDL_ShowCursor(SDL_DISABLE);
+	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
+	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	resourceManager = new ResourceManager(this->getRenderer());
+	//Creamos el levelParser
+
+	//Mouse Icon, maybe en playstate
+	mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
+
+
+	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
+
+
+	if (renderer == nullptr)//Si hay errores activa el flag
+	{
+		error = true;
+	}
+	else
+	{
+		resourceManager = new ResourceManager(this->getRenderer());
+		stateMachine = new GameStateMachine();
+		PlayState* ps = new PlayState();
+		stateMachine->pushState(ps);
+		//Mouse Icon, maybe en playstate
+		levP = new LevelParser();
+		mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
+
+		//Este int no se que pinta aqui
+		int roomNumber = 20;
+		//MainMenuState* mm = new MainMenuState(this);
+		//stateMachine->pushState(mm);
+
+	}
+
 	while (!exit) 
 	{
-		//Provisional en lugar del render
-	
+		//Provisional en lugar del render	
 		stateMachine->currentState()->update();
 		stateMachine->currentState()->render();
 		handleEvents();
@@ -120,5 +123,12 @@ int Game::getWinW() {//Pide el ancho de la ventana
 }
 int Game::getWinH() {//Pide la altura de la altura
 	return winHeight;
+}
+
+Game * Game::getGame()
+{
+	if (!game)
+		game = new Game();
+	return game;
 }
 

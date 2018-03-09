@@ -7,7 +7,7 @@
 #include "CameraMovementComponent.h"
 #include "PlayState.h"
 
-Camera::Camera(Game* game, PlayState* playState) : PlayStateObject(playState, game)
+Camera::Camera(Game* game, PlayState* playState) : PlayStateObject(playState)
 {
 
 	

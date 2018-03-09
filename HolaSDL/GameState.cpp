@@ -1,5 +1,6 @@
 #pragma once
 #include "GameState.h"
+#include "Game.h"
 
 
 void GameState::cleanGarbage()
@@ -15,6 +16,11 @@ void GameState::cleanGarbage()
 	}
 }
 
+
+GameState::GameState()
+{
+	game = Game::getGame();
+}
 
 GameState::~GameState()
 {

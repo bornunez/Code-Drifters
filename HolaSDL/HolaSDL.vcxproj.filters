@@ -53,9 +53,6 @@
     <ClCompile Include="MainCharacter.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="PlayState.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
@@ -71,7 +68,6 @@
     <ClCompile Include="Tileset.cpp">
       <Filter>Mapa\Source</Filter>
     </ClCompile>
-    <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Bullet.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
@@ -93,19 +89,38 @@
     <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="miniz.c" />
     <ClCompile Include="PlayStateObject.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="GunnerComponent.cpp">
       <Filter>Enemies\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ExampleEnemy.cpp" />
     <ClCompile Include="MCBulletComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="MCBulletRenderComponent.cpp">
       <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="miniz.c">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLayer.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleEnemy.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SkeletonRenderer.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Estados\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -163,9 +178,6 @@
     <ClInclude Include="MainCharacter.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="PlayState.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -178,7 +190,6 @@
     <ClInclude Include="Tileset.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Bullet.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -203,20 +214,41 @@
     <ClInclude Include="Room.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Base64.h" />
-    <ClInclude Include="miniz.h" />
     <ClInclude Include="GunnerComponent.h">
       <Filter>Enemies\Header</Filter>
     </ClInclude>
     <ClInclude Include="ExampleEnemy.h">
       <Filter>Enemies\Header</Filter>
     </ClInclude>
-    <ClInclude Include="PlayStateObject.h" />
     <ClInclude Include="MCBulletComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="MCBulletRenderComponent.h">
       <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="miniz.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Base64.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TileLayer.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonRenderer.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateObject.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Estados\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -255,6 +287,15 @@
     </Filter>
     <Filter Include="Enemies\Source">
       <UniqueIdentifier>{162c0ced-db2b-47e4-9481-ff4fd3fa2237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Estados">
+      <UniqueIdentifier>{f73b6591-7561-4f88-b03c-30ec67f8fc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Estados\Header">
+      <UniqueIdentifier>{581a85ba-0091-4328-8f1c-67505734c4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Estados\Source">
+      <UniqueIdentifier>{4126242c-351c-42da-96e0-c3d2791e1783}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #include "TileLayer.h"
 #include "Camera.h"
 
-TileLayer::TileLayer(Tileset * tileset,string name, int cols, int rows, int tileSize) : tileSet(tileset),name(name), cols(cols), rows(rows), tileSize(tileSize)
+TileLayer::TileLayer(Tileset * tileset,string name, int cols, int rows, int tileSize) :Layer(name), tileSet(tileset), cols(cols), rows(rows), tileSize(tileSize)
 {
 }
 

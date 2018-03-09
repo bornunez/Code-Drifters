@@ -14,6 +14,7 @@ class LevelParser
 {
 private:
 	static void parseTileLayer(XMLElement* root,XMLElement* tileElement, Map* map,Tileset* tileset);
+	static void parseSpawners(XMLElement* root, XMLElement* spawnersElements, Map* map);
 public:
 	LevelParser()  {}
 	~LevelParser();

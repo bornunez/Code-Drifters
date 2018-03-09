@@ -3,7 +3,7 @@
 
 
 
-UpdateComponent::UpdateComponent()
+UpdateComponent::UpdateComponent(GameObject* o) : Component(o)
 {
 	type = UpdateC;
 }

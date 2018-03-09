@@ -26,7 +26,7 @@ public:
 	bool getDownDoor();
 	bool getVisited();
 	string getSpecial();
-
+	Map* getMap() { return map; }
 	void setX(int x);
 	void setY(int y);
 	void setUpDoor(bool upDoor);

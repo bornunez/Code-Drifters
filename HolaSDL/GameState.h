@@ -17,7 +17,7 @@ protected:
 	Game* game;
 	void cleanGarbage();
 public:
-	GameState(Game* g) : game(g) {};
+	GameState();
 	virtual ~GameState();
 	virtual void update() = 0;
 	virtual void render() = 0;

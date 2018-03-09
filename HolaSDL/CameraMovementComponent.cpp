@@ -6,11 +6,9 @@
 
 
 
-CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject* MCharacter )
+CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject* MCharacter ) : UpdateComponent(camera)
 {
-	gameObject = camera;
 	mainCharacter = MCharacter;
-	type = UpdateC;
 }
 
 void CameraMovementComponent::update()
@@ -29,11 +27,11 @@ void CameraMovementComponent::update()
 	if (gameObject->getTransform()->position.getY() < 0) {
 		gameObject->getTransform()->position.setY(0);
 	}
-	if (gameObject->getTransform()->position.getX() > gameObject->getGame()->getWorldWidth()) {
-		gameObject->getTransform()->position.setX(gameObject->getGame()->getWorldWidth());
+	if (gameObject->getTransform()->position.getX() > Game::getGame()->getWorldWidth()) {
+		gameObject->getTransform()->position.setX(Game::getGame()->getWorldWidth());
 	}
-	if (gameObject->getTransform()->position.getY() > gameObject->getGame()->getWorldHeight()) {
-		gameObject->getTransform()->position.setY(gameObject->getGame()->getWorldHeight());
+	if (gameObject->getTransform()->position.getY() > Game::getGame()->getWorldHeight()) {
+		gameObject->getTransform()->position.setY(Game::getGame()->getWorldHeight());
 	}
 }
 

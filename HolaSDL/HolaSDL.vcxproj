@@ -15,6 +15,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
+    <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
@@ -43,6 +44,7 @@
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
@@ -57,6 +59,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
+    <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DungeonGenerator.h" />
@@ -85,6 +88,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
+    <ClInclude Include="SkeletonRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />

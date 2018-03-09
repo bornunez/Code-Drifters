@@ -3,10 +3,8 @@
 #include "GameObject.h"
 #include <cmath>
 
-GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float vel, float dist)
+GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float vel, float dist) : UpdateComponent(o)
 {
-	gameObject = o;
-	type = UpdateC;
 	targetObject = target;
 	velocity = vel;
 	distancia = dist;
