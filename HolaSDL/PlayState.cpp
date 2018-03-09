@@ -7,7 +7,7 @@
 #include "Enemy.h"
 #include "Room.h"
 
-PlayState::PlayState(Game* g):GameState (g)
+PlayState::PlayState():GameState ()
 {
 	loadState();
 }
@@ -43,7 +43,7 @@ void PlayState::loadState()
 {
 	camera = new Camera(this->getGame(), this);
 
-	mainCharacter = new MainCharacter(this, getGame(), nullptr, 100, 100, 50, 50);
+	mainCharacter = new MainCharacter(this, getGame(), nullptr,200, 200, 50, 50);
 	camera->load();
 
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);

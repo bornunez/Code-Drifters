@@ -5,7 +5,7 @@ class InputComponent :
 {
 public:
 	virtual void handleEvents(SDL_Event & e) = 0;
-	InputComponent();
+	InputComponent(GameObject * o);
 	~InputComponent();
 };
 

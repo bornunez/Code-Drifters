@@ -12,10 +12,8 @@
 #include "DungeonGenerator.h"
 #include "Camera.h"
 #include <iostream>
-MCShotComponent::MCShotComponent(GameObject * o)
+MCShotComponent::MCShotComponent(GameObject * o) : InputComponent(o)
 {
-	gameObject = o;
-	type = InputC;
 	lastReloadTime = new Timer();
 }
 
@@ -65,7 +63,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			bulletTransform.direction.normalize();//Halla el vector de dirección 
 
 												  //Crea la bala y le pasa el transform
-			Bullet* auxBullet = new Bullet(dynamic_cast<PlayStateObject*>(gameObject)->getPlayState(), this->getGameObject()->getGame(), this->getGameObject()->getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
+			Bullet* auxBullet = new Bullet(dynamic_cast<PlayStateObject*>(gameObject)->getPlayState(), Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));

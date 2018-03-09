@@ -2,11 +2,6 @@
 
 
 
-Layer::Layer()
-{
-}
-
-
 Layer::~Layer()
 {
 }

@@ -4,8 +4,8 @@
 #include "Game.h"
 
 
-MouseIcon::MouseIcon(Game* game, string iconFileName){
-	this->game = game;
+MouseIcon::MouseIcon(string iconFileName){
+	this->game = Game::getGame();
 	this->texture = new Texture(game->getRenderer(), iconFileName);
 }
 

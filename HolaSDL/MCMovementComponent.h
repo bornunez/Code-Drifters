@@ -5,10 +5,12 @@
 class MCMovementComponent : public UpdateComponent
 {
 private:
+	bool debug = false;
 	SDL_Keycode downKey;
 	SDL_Keycode upKey;
 	SDL_Keycode rightKey;
 	SDL_Keycode leftKey;
+	SDL_Keycode debugKey = SDL_SCANCODE_SPACE;
 	float maxVelocity;
 	Vector2D velocity;
 	Vector2D direction;

@@ -7,6 +7,15 @@ class Layer;
 class Camera;
 using namespace tinyxml2;
 
+class Spawner {
+	int x;
+	int y;
+	string enemy;
+	void spawn() {
+
+	}
+};
+
 class Map
 {
 private:
@@ -25,5 +34,6 @@ public:
 	vector<Layer*>* getLayers() { return &layers; }
 	Tileset* getTileset() { return tileset; }
 	void addLayer(Layer* layer) { layers.push_back(layer); }
+	Layer * GetLayer(string LayerID);
 };
 

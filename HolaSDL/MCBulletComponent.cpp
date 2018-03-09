@@ -3,10 +3,8 @@
 
 
 
-MCBulletComponent::MCBulletComponent(GameObject* o, float maxVelocity)
+MCBulletComponent::MCBulletComponent(GameObject* o, float maxVelocity) : UpdateComponent(o)
 {
-	gameObject = o;
-	type = UpdateC;	
 	velocity.set(maxVelocity,maxVelocity);
 }
 void MCBulletComponent::update()

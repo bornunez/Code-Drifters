@@ -14,8 +14,8 @@ int main(int ac, char** av) {
 	srand((unsigned)time(NULL));
 	
 
-	Game* game = new Game();
-	game->run();
+	Game::getGame()->run();
+	//game->run();
 	return 0;
 }
 

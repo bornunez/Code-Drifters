@@ -16,7 +16,7 @@ private:
 	
 
 public:
-	MouseIcon(Game* game, string iconFileName);
+	MouseIcon(string iconFileName);
 	//Dibuja el icono del mouse teniendo en cuenta la x y la y que recibe por el evento de movimiento
 	void drawIcon(SDL_Event & e);
 };

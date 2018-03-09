@@ -10,17 +10,17 @@ class GameObject : public ComponentContainer
 {
 protected:
 	
-	Game * game = NULL;
-	Texture * texture = NULL; //Puntero a la textura
+	Game * game = nullptr;
+	Texture * texture = nullptr; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
 	bool active = true;
 
 public:
 
-	GameObject(Game* game);
-	GameObject(Game* game, Texture* tex, Transform t, bool active = true);
-	GameObject(Game* game, Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active = true);
-	GameObject(Game* game, Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active = true);
+	GameObject();
+	GameObject(Texture* tex, Transform t, bool active = true);
+	GameObject(Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active = true);
+	GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active = true);
 	~GameObject();
 
 	//Ciclo del Objeto
@@ -31,7 +31,6 @@ public:
 	//Gets y sets
 	bool isActive() { return active; }
 	bool setActive(bool active) { this->active = active; }
-	Game* getGame() { return game; }
 	Transform* getTransform() { return &transform; }
 	Texture* getTexture() { return texture; }
 };

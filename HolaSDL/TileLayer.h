@@ -6,7 +6,6 @@ class TileLayer :
 	public Layer
 {
 private:
-	string name;
 	int cols;
 	int rows;
 	int tileSize;
@@ -20,5 +19,7 @@ public:
 	virtual void update();
 	virtual void render(Camera* camera);
 	int getScale() { return scale; }
+	std::vector<std::vector<int>> getTileIDs() { return tileIDs; }
+	int getTileSize() { return tileSize; }
 };
 

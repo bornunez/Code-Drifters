@@ -7,7 +7,7 @@
 #include "ChaseComponent.h"
 #include "PlayState.h"
 
-Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t) : PlayStateObject(playState, game)
+Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t) : PlayStateObject(playState)
 {
 	this->mainCharacter = mc;
 	this->playState = playState;
@@ -19,7 +19,7 @@ Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t) :
 
 	this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
 }
-Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h) : PlayStateObject(playState, game)
+Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h) : PlayStateObject(playState)
 {
 	mainCharacter = mc;
 	this->playState = playState;

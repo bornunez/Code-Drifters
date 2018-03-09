@@ -5,6 +5,7 @@
 #include "MCMovementComponent.h"
 #include "PlayState.h"
 #include "MCShotComponent.h"
+#include "SkeletonRenderer.h"
 
 //Personaje principal
 
@@ -12,7 +13,7 @@
 
 
 MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, int x, int y, int w, int h)
-	: PlayStateObject(playState, game, tex, x, y, w, h)
+	: PlayStateObject(playState, tex, x, y, w, h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
@@ -22,6 +23,7 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 	setMaxVelocity(0.5);
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCShotComponent(this));
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
@@ -37,6 +39,7 @@ void MainCharacter::render() {
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
 	SDL_RenderFillRect(game->getRenderer(), &rect);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));
+	GameObject::render();
 }
 
 //Getters & Setters

@@ -3,10 +3,8 @@
 #include "GameObject.h"
 
 
-ChaseComponent::ChaseComponent(GameObject* o, GameObject* target, float vel)
+ChaseComponent::ChaseComponent(GameObject* o, GameObject* target, float vel) : UpdateComponent(o)
 {
-	gameObject = o;
-	type = UpdateC;
 	targetObject = target;
 	velocity = vel;
 

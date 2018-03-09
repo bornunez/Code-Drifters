@@ -5,7 +5,7 @@ class RenderComponent :
 {
 public:
 	virtual void render() = 0;
-	RenderComponent();
+	RenderComponent(GameObject* o);
 	~RenderComponent();
 };
 

@@ -3,7 +3,7 @@
 
 
 
-RenderComponent::RenderComponent()
+RenderComponent::RenderComponent(GameObject* o) : Component(o)
 {
 	type = RenderC;
 }

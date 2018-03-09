@@ -18,6 +18,8 @@ using namespace std;
 class Game
 {
 private:
+	static Game* game;
+
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	//Camera* camera;
@@ -36,10 +38,12 @@ private:
 
 	LevelParser* levP;
 
-public:
-	bool exit = false;
+
 	Game();
 	~Game();
+
+public:
+	bool exit = false;
 	SDL_Renderer* getRenderer();
 	ResourceManager* getResourceManager() { return resourceManager; }
 	LevelParser* getLvlParser() { return levP; }
@@ -49,5 +53,6 @@ public:
 	const int getWorldHeight() const { return worldHeight; }
 	int getWinW();
 	int getWinH();
+	static Game* getGame();
 };
 

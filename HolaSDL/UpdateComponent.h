@@ -3,7 +3,7 @@
 class UpdateComponent : public Component
 {
 public:
-	UpdateComponent();
+	UpdateComponent(GameObject * o);
 	~UpdateComponent(); // argghhhhh
 	virtual void update() = 0;
 };

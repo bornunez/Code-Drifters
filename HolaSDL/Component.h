@@ -14,7 +14,7 @@ public:
 	virtual void recieveMessage(std::string msg) = 0;
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }
-	Component();
+	Component(GameObject* o) : gameObject(o) {};
 	~Component();
 };
 
