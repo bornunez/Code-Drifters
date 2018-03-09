@@ -3,45 +3,47 @@
 #include "Game.h"
 #include "Camera.h"
 #include "MCMovementComponent.h"
+#include "PlayState.h"
+#include "MCShotComponent.h"
 
 //Personaje principal
 
-MainCharacter::MainCharacter(Game* game, Transform t) : GameObject(game)
-{
-	transform.position.setX(t.position.getX());
-	transform.position.setY(t.position.getY());
-	transform.body.w = t.body.w;
-	transform.body.h = t.body.h;
-	
-}
-MainCharacter::MainCharacter(Game* game, int x, int y, int w, int h) : GameObject(game)
+
+
+
+MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, int x, int y, int w, int h)
+	: PlayStateObject(playState, game, tex, x, y, w, h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
+
+	setMaxVelocity(0.5);
+	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
+	addComponent(new MCShotComponent(this));
+	setCurrentBullets(4);
+	setReloadTime(4);
+	setMaxBullets(4);
 }
 
 MainCharacter::~MainCharacter()
 {
 }
-void MainCharacter::render(){
-	float auxX = transform.position.getX() - getGame()->getCamera()->getTransform()->position.getX();	
-	float auxY = transform.position.getY() - getGame()->getCamera()->getTransform()->position.getY();
-	SDL_Rect rect RECT(auxX,auxY,transform.body.w,transform.body.h);
+void MainCharacter::render() {
+	float auxX = transform.position.getX() - getPlayState()->getCamera()->getTransform()->position.getX();
+	float auxY = transform.position.getY() - getPlayState()->getCamera()->getTransform()->position.getY();
+	SDL_Rect rect RECT(auxX, auxY, transform.body.w, transform.body.h);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
 	SDL_RenderFillRect(game->getRenderer(), &rect);
-	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));	
+	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));
 }
 
 //Getters & Setters
 
-void MainCharacter::addCurrentBullets(int num)
+void MainCharacter::setCurrentBullets(int num)
 {
-	currentBullets += num;
-	if (currentBullets > maxBullets) {
-		currentBullets = maxBullets;
-	}
+	currentBullets = num;
 }
 int MainCharacter::getCurrentBullets()
 {
@@ -49,7 +51,11 @@ int MainCharacter::getCurrentBullets()
 }
 void MainCharacter::setMaxBullets(int bullets)
 {
-	maxBullets=bullets;
+	maxBullets = bullets;
+}
+int MainCharacter::getMaxBullets()
+{
+	return maxBullets;
 }
 float MainCharacter::getMeleeDamage()
 {
@@ -75,9 +81,17 @@ float MainCharacter::getHP()
 {
 	return HP;
 }
+Vector2D MainCharacter::getGunPosition()
+{
+	return gunPosition;
+}
+void MainCharacter::setGunPosition(Vector2D pos)
+{
+	gunPosition = pos;
+}
 void MainCharacter::substractHP(int damage)
 {
-	HP-=damage;
+	HP -= damage;
 }
 int MainCharacter::getCurrentRoomX()
 {
@@ -93,4 +107,14 @@ void MainCharacter::changeCurrentRoom(int x, int y)
 {
 	currentRoomX = x;
 	currentRoomY = y;
+}
+
+int MainCharacter::getReloadTime()
+{
+	return reloadTime;
+}
+
+void MainCharacter::setReloadTime(int miliseconds)
+{
+	reloadTime = miliseconds;
 }

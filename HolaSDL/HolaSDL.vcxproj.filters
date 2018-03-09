@@ -59,6 +59,19 @@
     <ClCompile Include="MCMovementComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Tileset.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Bullet.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
@@ -80,11 +93,27 @@
     <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Boss.cpp">
       <Filter>Bosses\Source</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Bosses\Source</Filter>
+=======
+    <ClCompile Include="miniz.c" />
+    <ClCompile Include="PlayStateObject.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GunnerComponent.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleEnemy.cpp" />
+    <ClCompile Include="MCBulletComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCBulletRenderComponent.cpp">
+      <Filter>Prota\Source</Filter>
+>>>>>>> master
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,9 +168,6 @@
     <ClInclude Include="LevelParser.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Mapa\Header</Filter>
-    </ClInclude>
     <ClInclude Include="MainCharacter.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -151,6 +177,16 @@
     <ClInclude Include="MCMovementComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Layer.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Tileset.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Bullet.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -172,11 +208,31 @@
     <ClInclude Include="MCShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Boss.h">
       <Filter>Bosses\Header</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Bosses\Header</Filter>
+=======
+    <ClInclude Include="Room.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Base64.h" />
+    <ClInclude Include="miniz.h" />
+    <ClInclude Include="GunnerComponent.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleEnemy.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayStateObject.h" />
+    <ClInclude Include="MCBulletComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCBulletRenderComponent.h">
+      <Filter>Prota\Header</Filter>
+>>>>>>> master
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

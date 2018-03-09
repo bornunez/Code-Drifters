@@ -4,7 +4,7 @@ class UpdateComponent : public Component
 {
 public:
 	UpdateComponent();
-	~UpdateComponent();
+	~UpdateComponent(); // argghhhhh
 	virtual void update() = 0;
 };
 

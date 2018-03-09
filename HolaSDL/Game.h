@@ -3,15 +3,20 @@
 
 class MouseIcon;
 class ResourceManager;
-class Enemy;
+class ExampleEnemy;
 class MainCharacter;
 class DungeonGenerator;
 class CameraMovementComponent;
-class ChaseComponent;
 class MCMovementComponent;
 class GameStateMachine;
 class Camera;
+<<<<<<< HEAD
 class Boss;
+=======
+class Map;
+class LevelParser;
+class PlayState;
+>>>>>>> master
 
 using namespace std;
 class Game
@@ -19,8 +24,7 @@ class Game
 private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
-	Camera* camera;
-	DungeonGenerator* level;
+	//Camera* camera;
 	ResourceManager* resourceManager;
 	bool error = false;//Flag para errores
 	SDL_Event event;
@@ -31,29 +35,28 @@ private:
 	const int worldWidth = 5000;
 	const int worldHeight = 5000;
 	GameStateMachine* stateMachine;
-	MainCharacter* mainCharacter;
-	MCMovementComponent* mainCharacterMovement;
 	MouseIcon* mouseIcon;
+	PlayState* playState;
 
+<<<<<<< HEAD
 	Boss* boss;
 	Enemy* enemy;
 	ChaseComponent* enemyChaseComponent;
+=======
+	LevelParser* levP;
+>>>>>>> master
 
 public:
-
-	DungeonGenerator * getLevel();
-	MainCharacter * getCharacter();
-
 	bool exit = false;
 	Game();
 	~Game();
 	SDL_Renderer* getRenderer();
 	ResourceManager* getResourceManager() { return resourceManager; }
-	Camera* getCamera();
+	LevelParser* getLvlParser() { return levP; }
 	void run();
 	void handleEvents();
-	const int getWorldWidth() { return worldWidth; }
-	const int getWorldHeight() { return worldHeight; }
+	const int getWorldWidth() const { return worldWidth; }
+	const int getWorldHeight() const { return worldHeight; }
 	int getWinW();
 	int getWinH();
 };

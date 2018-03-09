@@ -5,12 +5,13 @@
 #include "MainCharacter.h"
 #include "DungeonGenerator.h"
 #include "CameraMovementComponent.h"
-#include "Enemy.h"
+#include "ExampleEnemy.h"
 #include "ResourceManager.h"
 #include "MouseIcon.h"
 #include "MCMovementComponent.h"
 #include "DungeonGenerator.h"
 #include "Room.h"
+<<<<<<< HEAD
 #include "ChaseComponent.h"
 #include "Boss.h"
 
@@ -23,34 +24,28 @@ MainCharacter * Game::getCharacter()
 {
 	return mainCharacter;
 }
+=======
+#include "LevelParser.h"
+#include "Map.h"
+#include "PlayState.h"
+>>>>>>> master
 
 Game::Game()
 {
-	winX = winY = 50;
+	winX = winY = 100;
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	resourceManager = new ResourceManager(this->getRenderer());
+	//Creamos el levelParser
+
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
 
-	int roomNumber = 20;
-	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
 
-	//Esto debería ir en el playState, está puesto de prueba. Crea un personaje y una cámara, le asigna una sala al personaje
-	mainCharacter = new MainCharacter(this, 100,100,50,50);
-	camera = new Camera(this);
-	CameraMovementComponent* cameraMovement = new CameraMovementComponent(camera, mainCharacter);
-	camera->addComponent(cameraMovement);
-	mainCharacter->setMaxVelocity(0.5);	
-	mainCharacterMovement = new MCMovementComponent(mainCharacter, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A);	
-	mainCharacter->addComponent(mainCharacterMovement);
-	level->CreateMap();
-	level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
-	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
-
+<<<<<<< HEAD
 	//Enemy (test)
 	enemy = new Enemy(this, mainCharacter, 50, 50, 20, 20);
 	enemyChaseComponent = new ChaseComponent(enemy, mainCharacter, 0.1);
@@ -58,16 +53,27 @@ Game::Game()
 	level->getFirstRoom()->addCharacter(enemy);
 	boss = new Boss(this, mainCharacter, 400, 100, 100, 100);
 	level->getFirstRoom()->addCharacter(boss);
+=======
+	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
+>>>>>>> master
 
-	
 	if (renderer == nullptr)//Si hay errores activa el flag
 	{
 		error = true;
 	}
 	else
 	{
+		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
+		PlayState* ps = new PlayState(this);
+		stateMachine->pushState(ps);
+		//Mouse Icon, maybe en playstate
+		levP = new LevelParser();
+		mouseIcon = new MouseIcon(this, "..\\images\\mouseIcon.png");
+
+		//Este int no se que pinta aqui
+		int roomNumber = 20;
 		//MainMenuState* mm = new MainMenuState(this);
 		//stateMachine->pushState(mm);
 
@@ -87,28 +93,25 @@ SDL_Renderer * Game::getRenderer()
 	return renderer;
 }
 
-Camera * Game::getCamera()
-{
-	return camera;
-}
 
 void Game::run()
 {
 	while (!exit) 
 	{
-		SDL_RenderClear(getRenderer());//Provisional en lugar del render
-		camera->render();//" "
-		this->mouseIcon->drawIcon(event);
-		SDL_Rect rect RECT(700 - getCamera()->getTransform()->position.getX(), 700 - getCamera()->getTransform()->position.getY(), 100, 100);
-		SDL_SetRenderDrawColor(getRenderer(), COLOR(0x00ffffff));
-		SDL_RenderFillRect(getRenderer(), &rect);
-		SDL_SetRenderDrawColor(getRenderer(), COLOR(0x000000ff));
-		SDL_RenderPresent(getRenderer());// " "
+		//Provisional en lugar del render
+	
+		stateMachine->currentState()->update();
+		stateMachine->currentState()->render();
 		handleEvents();
+<<<<<<< HEAD
 		mainCharacter->update();//Provisional en lugar del update
 		enemy->update();
 		camera->update();
 		boss->update();
+=======
+		this->mouseIcon->drawIcon(event);
+		SDL_RenderPresent(this->getRenderer());
+>>>>>>> master
 	}
 }
 
@@ -139,8 +142,7 @@ void Game::handleEvents()
 
 		else
 		{
-			mainCharacter->handleEvents(event);
-			//stateMachine->currentState()->handleEvent(event);
+			stateMachine->currentState()->handleEvent(event);
 		}
 	}
 }

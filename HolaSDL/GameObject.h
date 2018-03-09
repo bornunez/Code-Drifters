@@ -4,6 +4,7 @@
 #include "Transform.h"
 class Game;
 class Texture;
+class PlayState;
 
 class GameObject : public ComponentContainer
 {
@@ -19,6 +20,7 @@ public:
 	GameObject(Game* game);
 	GameObject(Game* game, Texture* tex, Transform t, bool active = true);
 	GameObject(Game* game, Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active = true);
+	GameObject(Game* game, Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active = true);
 	~GameObject();
 
 	//Ciclo del Objeto

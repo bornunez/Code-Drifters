@@ -1,23 +1,24 @@
 #pragma once
-#include "GameObject.h"
+#include "PlayStateObject.h"
 
 class MainCharacter;
 class Game;
+class PlayState;
 
-class Enemy : public GameObject
+class Enemy : public PlayStateObject
 {
-
 private:
 	int life;
 	int contactDamage;
 	GameObject* mainCharacter;
+	PlayState* playState;
 
 	void receiveDamage(int damage);
 	void onDestroy();
 
 public:
-	Enemy(Game* game, MainCharacter* mc, Transform t);
-	Enemy(Game* game, MainCharacter* mc, int x, int y, int w, int h);
+	Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t);
+	Enemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h);
 	~Enemy();
 	void render();
 
