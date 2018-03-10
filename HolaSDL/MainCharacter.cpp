@@ -22,6 +22,7 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 	transform.body.w = w;
 	transform.body.h = h;
 
+	texture = Game::getGame()->getResourceManager()->getTexture(TestSpritesheet);
 	setMaxVelocity(0.5);
 	addComponent(new MCAnimationComponent(this));
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
@@ -30,7 +31,7 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
-	texture =Game::getGame()->getResourceManager()->getTexture(TestSpritesheet);
+	
 	
 }
 

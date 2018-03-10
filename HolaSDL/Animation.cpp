@@ -2,7 +2,7 @@
 
 
 
-Animation::Animation(GameObject* o,AnimationID id, int totalFrames, bool loop, float time, int frameWidth, int framwHeight)
+Animation::Animation(GameObject* o, int totalFrames, bool loop, float time, int frameWidth, int framwHeight)
 {
 	gameObject = o;
 	this->time = time;
@@ -19,12 +19,11 @@ Animation::~Animation()
 {
 }
 
-void Animation::loopedAnimation()
+void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelve al primer frame
 {
 	
 	if (lastFrame->TimeSinceTimerCreation > time) {
 		lastFrame->restart();
-		//animFrames[currentFrame]->render();
 		currentFrame++;
 		if (currentFrame >= animFrames.size()) {
 			currentFrame = 0;
@@ -33,11 +32,10 @@ void Animation::loopedAnimation()
 	animFrames[currentFrame]->render();
 }
 
-void Animation::normalAnimation()
+void Animation::normalAnimation()//El último frame se mantiene
 {
 	if (lastFrame->TimeSinceTimerCreation > time) {
 		lastFrame->restart();
-		//animFrames[currentFrame]->render();
 		currentFrame++;
 		if (currentFrame >= animFrames.size()) {
 			currentFrame = animFrames.size()-1;
@@ -46,7 +44,8 @@ void Animation::normalAnimation()
 	animFrames[currentFrame]->render();
 }
 
-void Animation::loadAnimation(int firstRow, int lastRow, int col)
+
+void Animation::loadAnimation(int firstRow, int lastRow, int col)//Carga animaciones que no varían en tamaño
 {
 	for (int i = firstRow; i < lastRow; i++) {
 		SDL_Rect* aux = new SDL_Rect();
@@ -55,16 +54,11 @@ void Animation::loadAnimation(int firstRow, int lastRow, int col)
 		aux->x = frameW * firstRow;
 		aux->y = frameH * col;
 		aux->x = frameW * i;
-		addAnimationFrame(aux, gameObject->getTransform()->body);
+		addAnimationFrame(aux, gameObject->getTransform()->body);		
 	}
 }
 
-void Animation::startAnimation()
-{
-	currentFrame = 0;
-}
-
-void Animation::runAnimation()
+void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loop o no
 {
 	lastFrame->update();
 	if (loop) {
@@ -75,12 +69,12 @@ void Animation::runAnimation()
 	}
 }
 
-void Animation::setTime(int tim)
+void Animation::setTime(int tim)//Cambia el tiempo entre frames
 {
 	time = tim;
 }
 
-void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect)
+void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect)//Añade un frame a la animación
 {
 	AnimationFrame* aux = new AnimationFrame(gameObject,srcRect,destRect);
 	animFrames.push_back(aux);
