@@ -7,7 +7,7 @@ class PlayState;
 
 class Enemy : public PlayStateObject
 {
-private:
+protected:
 	int life;
 	int contactDamage;
 	GameObject* mainCharacter;
