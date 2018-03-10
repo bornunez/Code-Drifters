@@ -26,7 +26,7 @@ public:
 	MainCharacter(PlayState* playState, Game* game, Texture* tex, int x, int y, int w, int h);
 
 	~MainCharacter();
-	void render();
+	//void render();
 
 	//Getters & Setters
 	void setCurrentBullets(int num);

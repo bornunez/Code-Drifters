@@ -6,7 +6,9 @@
 #include "PlayState.h"
 #include "MCShotComponent.h"
 #include "SkeletonRenderer.h"
-
+#include "Texture.h"
+#include "MCAnimationComponent.h"
+#include "ResourceManager.h"
 //Personaje principal
 
 
@@ -21,26 +23,29 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 	transform.body.h = h;
 
 	setMaxVelocity(0.5);
+	addComponent(new MCAnimationComponent(this));
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCShotComponent(this));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
+	texture =Game::getGame()->getResourceManager()->getTexture(TestSpritesheet);
+	
 }
 
 MainCharacter::~MainCharacter()
 {
 }
-void MainCharacter::render() {
-	float auxX = transform.position.getX() - getPlayState()->getCamera()->getTransform()->position.getX();
-	float auxY = transform.position.getY() - getPlayState()->getCamera()->getTransform()->position.getY();
-	SDL_Rect rect RECT(auxX, auxY, transform.body.w, transform.body.h);
-	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
-	SDL_RenderFillRect(game->getRenderer(), &rect);
-	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));
-	GameObject::render();
-}
+//void MainCharacter::render() {
+//	float auxX = transform.position.getX() - getPlayState()->getCamera()->getTransform()->position.getX();
+//	float auxY = transform.position.getY() - getPlayState()->getCamera()->getTransform()->position.getY();
+//	SDL_Rect rect RECT(auxX, auxY, transform.body.w, transform.body.h);
+//	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
+//	SDL_RenderFillRect(game->getRenderer(), &rect);
+//	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));
+//	GameObject::render();
+//}
 
 //Getters & Setters
 

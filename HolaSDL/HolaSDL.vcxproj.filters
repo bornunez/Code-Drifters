@@ -122,6 +122,11 @@
     <ClCompile Include="PlayState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
+    <ClCompile Include="AnimationFrame.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="MCAnimationComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -250,6 +255,11 @@
     <ClInclude Include="PlayState.h">
       <Filter>Estados\Header</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationFrame.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="MCAnimationComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">
