@@ -32,6 +32,7 @@ private:
 	const int winHeight = 720;
 	const int worldWidth = 5000;
 	const int worldHeight = 5000;
+	int level;
 	GameStateMachine* stateMachine;
 	MouseIcon* mouseIcon;
 	PlayState* playState;
@@ -53,6 +54,7 @@ public:
 	const int getWorldHeight() const { return worldHeight; }
 	int getWinW();
 	int getWinH();
+	int getLvl() { return level; }
 	static Game* getGame();
 };
 

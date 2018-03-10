@@ -20,6 +20,7 @@
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="ExampleEnemy.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -64,6 +65,7 @@
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="ExampleEnemy.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="Game.h" />

@@ -54,9 +54,8 @@ void PlayState::loadState()
 
 	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(mainCharacter);
 	//Enemy (test)
-	enemy = new Enemy(this, this->getGame(), mainCharacter, 50, 50, 20, 20);
 	
-	level->getFirstRoom()->addCharacter(enemy);
+	//level->getFirstRoom()->addCharacter(enemy);
 
 
 
