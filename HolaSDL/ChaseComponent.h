@@ -12,9 +12,6 @@ public:
 	virtual ~ChaseComponent();
 
 private:
-	Vector2D chaserPosition;
-	Vector2D targetPosition;
-	Vector2D chaserVelocity;
 	GameObject* targetObject;
 	float velocity;
 	float angle;

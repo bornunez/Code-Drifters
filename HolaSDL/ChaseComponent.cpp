@@ -17,41 +17,23 @@ ChaseComponent::~ChaseComponent()
 
 void ChaseComponent::update() {
 	
+	//Obtienes transfroms de enemigo y objetivo (por limpieza)
+	Transform* chaserT = gameObject->getTransform();
+	Transform* targetT = targetObject->getTransform();
 
-	
-	//Obtienes velocidad y posicion del enemigo
-	chaserPosition = getGameObject()->getTransform()->position;
+	Vector2D auxVel;
 
-	targetPosition = targetObject->getTransform()->position;
-	//vectro entre enemigo y jugador
-	chaserVelocity.set(targetPosition - chaserPosition);
+	//vectorentre enemigo y objetivo
+	auxVel.set(targetT->position - chaserT->position);
+
 	//se normaliza y se multiplica por la magnitud de la velocidad
-	chaserVelocity.normalize();
+	auxVel.normalize();
+	auxVel = auxVel * velocity;
 
-	chaserVelocity = chaserVelocity * velocity;
-
-	//se asigna la velocidad del enemigo
-	getGameObject()->getTransform()->velocity.set(chaserVelocity);
-	
-	getGameObject()->getTransform()->position.set(getGameObject()->getTransform()->position + getGameObject()->getTransform()->velocity);
+	//se asigna la velocidad del enemigo y se actualiza la posicion
+	chaserT->velocity.set(auxVel);
+	chaserT->position.set(chaserT->position + chaserT->velocity);
 
 	
-	
 
-	//version chusta con 8 direcciones
-	/*chaserPosition = getGameObject()->getTransform()->position;
-	targetPosition = targetObject->getTransform()->position;
-	if (chaserPosition.getX() > targetPosition.getX()) {
-		chaserVelocity.setX(-velocity);
-	}
-	else chaserVelocity.setX(velocity);
-
-	if (chaserPosition.getY() > targetPosition.getY()) {
-		chaserVelocity.setY(-velocity);
-	}
-	else chaserVelocity.setY(velocity);
-
-	getGameObject()->getTransform()->position.set(chaserPosition + chaserVelocity);
-	
-	*/
 }

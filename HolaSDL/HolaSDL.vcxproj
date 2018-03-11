@@ -26,7 +26,10 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="GunnerBulletComponent.cpp" />
+    <ClCompile Include="GunnerBulletRenderComponent.cpp" />
     <ClCompile Include="GunnerComponent.cpp" />
+    <ClCompile Include="GunnerShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LevelParser.cpp" />
@@ -70,7 +73,10 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="GunnerBulletComponent.h" />
+    <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
+    <ClInclude Include="GunnerShotComponent.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LevelParser.h" />

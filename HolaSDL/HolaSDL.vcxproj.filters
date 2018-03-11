@@ -122,6 +122,15 @@
     <ClCompile Include="PlayState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
+    <ClCompile Include="GunnerShotComponent.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GunnerBulletRenderComponent.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GunnerBulletComponent.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -249,6 +258,15 @@
     </ClInclude>
     <ClInclude Include="PlayState.h">
       <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GunnerShotComponent.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GunnerBulletRenderComponent.h">
+      <Filter>Enemies\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GunnerBulletComponent.h">
+      <Filter>Enemies\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #include "ExampleEnemy.h"
 #include "ChaseComponent.h"
 #include "GunnerComponent.h"
+#include "GunnerShotComponent.h"
 #include "Game.h"
 #include "Enemy.h"
 #include "Camera.h"
@@ -19,7 +20,12 @@ ExampleEnemy::ExampleEnemy(PlayState* playState, Game* game, MainCharacter* mc, 
 	Enemy(playState, game, mc, x, y, w, h)
 {
 
-	addComponent(new ChaseComponent(this, getMC(), 0.1));
+	//Chaser
+	//addComponent(new ChaseComponent(this, getMC(), 0.1));
+
+	//Gunner
+	addComponent(new GunnerComponent(this, getMC(), 0.1, 300));
+	addComponent(new GunnerShotComponent(this, getMC(), 0.1, 300));
 }
 
 
