@@ -54,8 +54,13 @@ void Animation::loadAnimation(int firstRow, int lastRow, int col)//Carga animaci
 		aux->x = frameW * firstRow;
 		aux->y = frameH * col;
 		aux->x = frameW * i;
-		addAnimationFrame(aux, gameObject->getTransform()->body);		
+		addAnimationFrame(aux, gameObject->getTransform()->body);
 	}
+}
+
+void Animation::updateBoxes()
+{
+
 }
 
 void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loop o no

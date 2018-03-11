@@ -24,10 +24,12 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 
 	texture = Game::getGame()->getResourceManager()->getTexture(TestSpritesheet);
 	setMaxVelocity(0.5);
-	addComponent(new MCAnimationComponent(this));
+	createAnimations();
+
+	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCShotComponent(this));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
@@ -38,15 +40,41 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 MainCharacter::~MainCharacter()
 {
 }
-//void MainCharacter::render() {
-//	float auxX = transform.position.getX() - getPlayState()->getCamera()->getTransform()->position.getX();
-//	float auxY = transform.position.getY() - getPlayState()->getCamera()->getTransform()->position.getY();
-//	SDL_Rect rect RECT(auxX, auxY, transform.body.w, transform.body.h);
-//	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff00ffff));
-//	SDL_RenderFillRect(game->getRenderer(), &rect);
-//	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));
-//	GameObject::render();
-//}
+//Animations
+void MainCharacter::createAnimations()
+{
+	walkLeft = new Animation(this, 8, true, 1, 108, 140);
+	walkLeft->loadAnimation(0, 7, 1);
+	for (int i = 0; i<walkLeft->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = transform.body.w-10;
+		aux.h = transform.body.h-10;
+		walkLeft->getFrame(i)->setHitbox(aux,5,5);
+	}
+	SDL_Rect aux;
+	aux.x = transform.position.getX();
+	aux.y = transform.position.getY();
+	aux.w = transform.body.w - 30;
+	aux.h = transform.body.h - 30;
+	walkLeft->getFrame(3)->setHurtbox(aux, -40);
+
+	walkRight = new Animation(this, 8, true, 0.05, 108, 140);
+	walkRight->loadAnimation(0, 7, 0);
+	for (int i = 0; i<walkRight->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = transform.body.w;
+		aux.h = transform.body.h;
+		walkRight->getFrame(i)->setHitbox(aux);
+	}
+
+	animations.emplace("WALK_LEFT", walkLeft);
+	animations.emplace("WALK_RIGHT", walkRight);
+}
+
 
 //Getters & Setters
 

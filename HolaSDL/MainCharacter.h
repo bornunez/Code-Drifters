@@ -1,6 +1,7 @@
 #pragma once
 #include "PlayStateObject.h"
-
+#include "Animation.h"
+#include <map>
 class PlayState;
 
 
@@ -20,13 +21,19 @@ private:
 	int currentBullets;
 	int reloadTime;
 	Vector2D gunPosition;//Posición de donde sale la bala
+	std::map<const char*, Animation*> animations;
+	Animation* currentAnimation;
+	Animation* walkLeft;
+	Animation* walkRight;
 
 public:
 
 	MainCharacter(PlayState* playState, Game* game, Texture* tex, int x, int y, int w, int h);
 
 	~MainCharacter();
-	//void render();
+	
+	//Animations
+	void createAnimations();
 
 	//Getters & Setters
 	void setCurrentBullets(int num);
