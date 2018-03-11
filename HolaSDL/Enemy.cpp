@@ -4,7 +4,6 @@
 #include "Camera.h"
 #include "Transform.h"
 #include "MainCharacter.h"
-#include "ChaseComponent.h"
 #include "PlayState.h"
 
 Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t) : PlayStateObject(playState)
