@@ -38,10 +38,12 @@ void AnimationFrame::render()
 	gameObject->getTexture()->render(destRect,srcRect);	
 }
 
-void AnimationFrame::updateBoxPosition()
+void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes respecto al personaje
 {
-	hitbox.x = destRect.x + hitboxOffsetX;
-	hitbox.y = destRect.y + hitboxOffsetY;
-	hurtbox.x = destRect.x + hurtboxOffsetX;
-	hurtbox.y = destRect.y + hurtboxOffsetY;
+	hitbox.x = gameObject->getTransform()->position.getX() + hitboxOffsetX;
+	hitbox.y = gameObject->getTransform()->position.getY() + hitboxOffsetY;
+
+	hurtbox.x = gameObject->getTransform()->position.getX() + hurtboxOffsetX;
+	hurtbox.y = gameObject->getTransform()->position.getY() + hurtboxOffsetY;
+
 }

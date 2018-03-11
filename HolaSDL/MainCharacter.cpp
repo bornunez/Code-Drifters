@@ -25,8 +25,8 @@ MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, 
 	texture = Game::getGame()->getResourceManager()->getTexture(TestSpritesheet);
 	setMaxVelocity(0.5);
 	createAnimations();
-
-	addComponent(new MCAnimationComponent(this, animations));
+	animComp = new MCAnimationComponent(this, animations);
+	addComponent(animComp);
 	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCShotComponent(this));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
@@ -43,7 +43,7 @@ MainCharacter::~MainCharacter()
 //Animations
 void MainCharacter::createAnimations()
 {
-	walkLeft = new Animation(this, 8, true, 1, 108, 140);
+	walkLeft = new Animation(this, 8, true, 0.05, 108, 140);
 	walkLeft->loadAnimation(0, 7, 1);
 	for (int i = 0; i<walkLeft->getNumberOfFrames(); i++) {
 		SDL_Rect aux;
@@ -51,14 +51,14 @@ void MainCharacter::createAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w-10;
 		aux.h = transform.body.h-10;
-		walkLeft->getFrame(i)->setHitbox(aux,5,5);
+		walkLeft->getFrame(i)->setHurtbox(aux,5,20);
 	}
 	SDL_Rect aux;
 	aux.x = transform.position.getX();
 	aux.y = transform.position.getY();
 	aux.w = transform.body.w - 30;
 	aux.h = transform.body.h - 30;
-	walkLeft->getFrame(3)->setHurtbox(aux, -40);
+	walkLeft->getFrame(3)->setHitbox(aux, -40);
 
 	walkRight = new Animation(this, 8, true, 0.05, 108, 140);
 	walkRight->loadAnimation(0, 7, 0);
@@ -68,11 +68,14 @@ void MainCharacter::createAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w;
 		aux.h = transform.body.h;
-		walkRight->getFrame(i)->setHitbox(aux);
+		walkRight->getFrame(i)->setHurtbox(aux);
 	}
 
 	animations.emplace("WALK_LEFT", walkLeft);
 	animations.emplace("WALK_RIGHT", walkRight);
+}
+Animation* MainCharacter::getCurrentAnimation() {
+	return animComp->getCurrentAnimation();
 }
 
 

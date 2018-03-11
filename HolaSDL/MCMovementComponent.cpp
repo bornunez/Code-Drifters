@@ -70,10 +70,9 @@ void MCMovementComponent::update()
 
 //#############################################################################################################
 
-
 	Transform* t = gameObject->getTransform();
 
-	Transform auxT =*t;
+	Transform auxT = *t;
 
 	direction.normalize();
 	auxT.direction = direction;//Asigna la dirección	

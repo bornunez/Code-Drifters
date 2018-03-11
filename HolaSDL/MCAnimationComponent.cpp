@@ -1,6 +1,9 @@
 #include "MCAnimationComponent.h"
 #include "AnimationFrame.h"
 #include "Game.h"
+#include "PlayStateObject.h"
+#include "PlayState.h"
+#include "Camera.h"
 MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
@@ -41,8 +44,8 @@ void MCAnimationComponent::debugBoxes()
 
 void MCAnimationComponent::debugHitbox()
 {
-	int hitboxX = currentAnimation->getCurrentFrame()->getHitbox().x;
-	int hitboxY = currentAnimation->getCurrentFrame()->getHitbox().y;
+	int hitboxX = currentAnimation->getCurrentFrame()->getHitbox().x - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getX();
+	int hitboxY = currentAnimation->getCurrentFrame()->getHitbox().y - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getY();
 	int hitboxW = currentAnimation->getCurrentFrame()->getHitbox().w;
 	int hitboxH = currentAnimation->getCurrentFrame()->getHitbox().h;
 	Vector2D hlu(-currentAnimation->getCurrentFrame()->getHitbox().w / 2, -currentAnimation->getCurrentFrame()->getHitbox().h / 2);
@@ -50,7 +53,7 @@ void MCAnimationComponent::debugHitbox()
 	Vector2D hrb(currentAnimation->getCurrentFrame()->getHitbox().w / 2, currentAnimation->getCurrentFrame()->getHitbox().h / 2);
 	Vector2D hlb(-currentAnimation->getCurrentFrame()->getHitbox().w / 2, currentAnimation->getCurrentFrame()->getHitbox().h / 2);
 
-	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0x00ff00ff));//Dibuja las líneas del hitbox en verde
+	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibuja las líneas del hitbox en verde
 	SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlu.getX() + hitboxX + hitboxW / 2, hlu.getY() + hitboxY + hitboxH / 2, hru.getX() + hitboxX + hitboxW / 2,
 		hru.getY() + hitboxY + hitboxH / 2);
 	SDL_RenderDrawLine(Game::getGame()->getRenderer(), hru.getX() + hitboxX + hitboxW / 2, hru.getY() + hitboxY + hitboxH / 2, hrb.getX() + hitboxX + hitboxW / 2,
@@ -63,8 +66,8 @@ void MCAnimationComponent::debugHitbox()
 
 void MCAnimationComponent::debugHurtbox()
 {
-	int hurtboxX = currentAnimation->getCurrentFrame()->getHurtbox().x;
-	int hurtboxY = currentAnimation->getCurrentFrame()->getHurtbox().y;
+	int hurtboxX = currentAnimation->getCurrentFrame()->getHurtbox().x - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getX();
+	int hurtboxY = currentAnimation->getCurrentFrame()->getHurtbox().y - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getY();
 	int hurtboxW = currentAnimation->getCurrentFrame()->getHurtbox().w;
 	int hurtboxH = currentAnimation->getCurrentFrame()->getHurtbox().h;
 	Vector2D hlu(-currentAnimation->getCurrentFrame()->getHurtbox().w / 2, -currentAnimation->getCurrentFrame()->getHurtbox().h / 2);
@@ -72,7 +75,7 @@ void MCAnimationComponent::debugHurtbox()
 	Vector2D hrb(currentAnimation->getCurrentFrame()->getHurtbox().w / 2, currentAnimation->getCurrentFrame()->getHurtbox().h / 2);
 	Vector2D hlb(-currentAnimation->getCurrentFrame()->getHurtbox().w / 2, currentAnimation->getCurrentFrame()->getHurtbox().h / 2);
 
-	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibuja las líneas del hurtbox en rojo
+	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0x00ff00ff));//Dibuja las líneas del hurtbox en rojo
 	SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlu.getX() + hurtboxX + hurtboxW / 2, hlu.getY() + hurtboxY + hurtboxH / 2, hru.getX() + hurtboxX + hurtboxW / 2,
 		hru.getY() + hurtboxY + hurtboxH / 2);
 	SDL_RenderDrawLine(Game::getGame()->getRenderer(), hru.getX() + hurtboxX + hurtboxW / 2, hru.getY() + hurtboxY + hurtboxH / 2, hrb.getX() + hurtboxX + hurtboxW / 2,

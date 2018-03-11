@@ -18,8 +18,8 @@ Timer::~Timer()
 void Timer::update()
 {
 	Ticks();
-	TimeSinceGameInit = float(SDL_GetTicks())/1000.0;
-	TimeSinceTimerCreation = (float(SDL_GetTicks()) - initTime)/1000.0;
+	TimeSinceGameInit = float(SDL_GetTicks())/1000;
+	TimeSinceTimerCreation = (float(SDL_GetTicks()) - initTime)/1000;
 }
 
 void Timer::restart()
@@ -31,6 +31,6 @@ void Timer::restart()
 void Timer::Ticks()
 {
 	tick_Time = SDL_GetTicks();
-	DeltaTime = (tick_Time - lastTickTime)/1000.0;
+	DeltaTime = (tick_Time - lastTickTime)/1000;
 	lastTickTime = tick_Time;
 }

@@ -125,8 +125,12 @@
     <ClCompile Include="AnimationFrame.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="MCAnimationComponent.cpp" />
+    <ClCompile Include="MCAnimationComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -258,8 +262,12 @@
     <ClInclude Include="AnimationFrame.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h" />
-    <ClInclude Include="MCAnimationComponent.h" />
+    <ClInclude Include="MCAnimationComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Arquitectura">

@@ -57,10 +57,14 @@ void Animation::loadAnimation(int firstRow, int lastRow, int col)//Carga animaci
 		addAnimationFrame(aux, gameObject->getTransform()->body);
 	}
 }
-
-void Animation::updateBoxes()
-{
-
+//Carga frames individuales, se usa cuando tienen tamaños distintos
+void Animation::loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect) {
+	SDL_Rect* aux = new SDL_Rect();
+	aux->h = frameHeight;
+	aux->w = frameWidth;
+	aux->x = frameWidth * srcRow;
+	aux->y = frameHeight * srcCol;
+	addAnimationFrame(aux, destRect);
 }
 
 void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loop o no

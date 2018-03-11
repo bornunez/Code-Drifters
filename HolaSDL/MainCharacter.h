@@ -3,7 +3,7 @@
 #include "Animation.h"
 #include <map>
 class PlayState;
-
+class MCAnimationComponent;
 
 class MainCharacter : public PlayStateObject
 {
@@ -22,9 +22,10 @@ private:
 	int reloadTime;
 	Vector2D gunPosition;//Posición de donde sale la bala
 	std::map<const char*, Animation*> animations;
-	Animation* currentAnimation;
+	MCAnimationComponent* animComp;//Se necesita para poder obtener un puntero a la animación actual
 	Animation* walkLeft;
 	Animation* walkRight;
+
 
 public:
 
@@ -34,6 +35,7 @@ public:
 	
 	//Animations
 	void createAnimations();
+	Animation* getCurrentAnimation();
 
 	//Getters & Setters
 	void setCurrentBullets(int num);

@@ -14,6 +14,7 @@ public:
 	void debugBoxes();
 	void debugHitbox();
 	void debugHurtbox();
+	Animation* getCurrentAnimation() { return currentAnimation; };
 
 private:
 	std::map<const char*, Animation*> animations;

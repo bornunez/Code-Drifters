@@ -13,7 +13,7 @@ public:
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };
 	int getNumberOfFrames() { return animFrames.size(); };
 	void loadAnimation(int firstRow, int lastRow, int col);
-	void updateBoxes();
+	void loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect);
 	void runAnimation();
 	void setTime(int tim);
 	void addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect);
@@ -28,6 +28,7 @@ private:
 	int frameW;
 	int frameH;
 	Timer* lastFrame;
+
 	std::vector<AnimationFrame*> animFrames;
 };
 
