@@ -52,6 +52,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
@@ -100,6 +101,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="UpdateComponent.h" />

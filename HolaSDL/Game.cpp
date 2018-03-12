@@ -14,6 +14,7 @@
 #include "LevelParser.h"
 #include "Map.h"
 #include "PlayState.h"
+#include "Time.h"
 
 Game* Game::game = nullptr;
 Game::Game()
@@ -60,6 +61,7 @@ void Game::run()
 	}
 	else
 	{
+		Time::getInstance()->Ticks();
 		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
 		PlayState* ps = new PlayState();

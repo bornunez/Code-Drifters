@@ -30,9 +30,6 @@
     <ClCompile Include="Texture.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
     <ClCompile Include="tinyxml2.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
@@ -132,6 +129,12 @@
     <ClCompile Include="MouseIcon.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PlayStateObject.h" />
@@ -166,9 +169,6 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
@@ -269,6 +269,12 @@
     </ClInclude>
     <ClInclude Include="MouseIcon.h">
       <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
