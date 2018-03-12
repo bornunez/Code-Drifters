@@ -28,6 +28,7 @@ void Timer::restart()
 	initTime = SDL_GetTicks();
 }
 
+
 void Timer::Ticks()
 {
 	tick_Time = SDL_GetTicks();

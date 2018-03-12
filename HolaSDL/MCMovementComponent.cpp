@@ -6,6 +6,7 @@
 #include "CollisionHandler.h"
 #include "Room.h"
 #include "Map.h"
+#include "Timer.h"
 #include "PlayState.h"
 #include "DungeonGenerator.h"
 using namespace std;

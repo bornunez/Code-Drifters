@@ -5,7 +5,7 @@ class PlayState;
 
 class PlayStateObject : public GameObject
 {
-private:
+protected:
 	PlayState * playState = NULL;
 
 public:

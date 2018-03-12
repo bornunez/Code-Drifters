@@ -5,34 +5,38 @@
 #include "Transform.h"
 #include "MainCharacter.h"
 #include "PlayState.h"
+#include "EnemyManager.h"
 
-Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t) : PlayStateObject(playState)
+Enemy::Enemy(PlayState* playState, MainCharacter* mc) : PlayStateObject(playState)
 {
 	this->mainCharacter = mc;
-	this->playState = playState;
-
-	transform.position.setX(t.position.getX());
-	transform.position.setY(t.position.getY());
-	transform.body.w = t.body.w;
-	transform.body.h = t.body.h;
-
-}
-Enemy::Enemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h) : PlayStateObject(playState)
-{
-	mainCharacter = mc;
-	this->playState = playState;
-
-	transform.position.setX(x);
-	transform.position.setY(y);
-	transform.body.w = w;
-	transform.body.h = h;
+	//this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
 }
 
 Enemy::~Enemy()
 {
 }
 
+void Enemy::spawn(int x, int y)
+{
+	//Lo spawneamos en la posicion que digan
+	transform.position.setX(x); transform.position.setY(y);
+	transform.body.x = x; transform.body.y = y;
+	//Y ponemos sus valores por defecto
+	EnemyParams params = EnemyManager::getInstance()->getParams(type);
+	life = params.life; 
+	speed = params.speed;
+	meleeDmg = params.meleDmg; rangedDmg = params.rangedDmg ;
+	minDrop = params.minDrop; maxDrop = params.maxDrop;
+
+}
+
 void Enemy::render() {}
+
+void Enemy::update()
+{
+	PlayStateObject::update();
+}
 
 GameObject* Enemy::getMC() {
 	return mainCharacter;

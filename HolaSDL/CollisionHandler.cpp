@@ -17,6 +17,11 @@ bool CollisionHandler::Collide(Transform * A, Transform * B)
 
 bool CollisionHandler::Collide(Transform * A, TileLayer * tileLayer)
 {
+	return -Collide(A->body, tileLayer);
+}
+
+bool CollisionHandler::Collide(SDL_Rect A, TileLayer * tileLayer)
+{
 	vector<vector<int>> idLayer = tileLayer->getTileIDs();
 	int tileSize = tileLayer->getTileSize(); int scale = tileLayer->getScale();
 
@@ -29,9 +34,7 @@ bool CollisionHandler::Collide(Transform * A, TileLayer * tileLayer)
 				destRect.x = j * destRect.w;
 				destRect.y = i * destRect.w;
 				//Vemos si colisiona el prota con el bloque
-				if (RectCollide(A->body, destRect)) {
-					//cout << "Colisioooon" << endl;
-					A->velocity.set({ 0,0 });
+				if (RectCollide(A, destRect)) {
 					return true;
 				}
 			}
