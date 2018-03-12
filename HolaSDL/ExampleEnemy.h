@@ -4,7 +4,7 @@
 class ExampleEnemy : public Enemy
 {
 public:
-	ExampleEnemy(PlayState* playState, MainCharacter* mc);
+	ExampleEnemy(MainCharacter* mc);
 
 	~ExampleEnemy();
 

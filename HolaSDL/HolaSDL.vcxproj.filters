@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PlayStateObject.cpp" />
     <ClCompile Include="ChaseComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
@@ -137,7 +136,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PlayStateObject.h" />
     <ClInclude Include="ChaseComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>

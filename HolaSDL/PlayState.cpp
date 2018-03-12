@@ -7,11 +7,19 @@
 #include "ExampleEnemy.h"
 #include "Room.h"
 
+PlayState* PlayState::instance = nullptr;
+
 PlayState::PlayState():GameState ()
 {
-	loadState();
 }
 
+
+PlayState * PlayState::getInstance()
+{
+	if (instance == nullptr)
+		instance = new PlayState();
+	return instance;
+}
 
 PlayState::~PlayState()
 {
@@ -41,9 +49,9 @@ void PlayState::addRoomObject(GameObject* o)
 
 void PlayState::loadState()
 {
-	camera = new Camera(this->getGame(), this);
+	camera = new Camera();
 
-	mainCharacter = new MainCharacter(this, getGame(), nullptr,200, 200, 50, 50);
+	mainCharacter = new MainCharacter(nullptr,200*Game::getGame()->getScale(), 200 * Game::getGame()->getScale(), 50, 50);
 	camera->load();
 
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);

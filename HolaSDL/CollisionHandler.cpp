@@ -1,6 +1,7 @@
 #include "CollisionHandler.h"
 #include "Transform.h"
 #include "TileLayer.h"
+#include "Game.h"
 #include <vector>
 
 using namespace std;
@@ -23,7 +24,7 @@ bool CollisionHandler::Collide(Transform * A, TileLayer * tileLayer)
 bool CollisionHandler::Collide(SDL_Rect A, TileLayer * tileLayer)
 {
 	vector<vector<int>> idLayer = tileLayer->getTileIDs();
-	int tileSize = tileLayer->getTileSize(); int scale = tileLayer->getScale();
+	int tileSize = tileLayer->getTileSize(); int scale = Game::getGame()->getScale();
 
 	for (int i = 0; i < idLayer.size(); i++) {
 		for (int j = 0; j < idLayer[i].size(); j++) {

@@ -5,9 +5,10 @@
 #include "Transform.h"
 #include "MainCharacter.h"
 #include "PlayState.h"
+#include "GameObject.h"
 #include "EnemyManager.h"
 
-Enemy::Enemy(PlayState* playState, MainCharacter* mc) : PlayStateObject(playState)
+Enemy::Enemy(MainCharacter* mc) : GameObject()
 {
 	this->mainCharacter = mc;
 	//this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
@@ -35,7 +36,7 @@ void Enemy::render() {}
 
 void Enemy::update()
 {
-	PlayStateObject::update();
+	GameObject::update();
 }
 
 GameObject* Enemy::getMC() {

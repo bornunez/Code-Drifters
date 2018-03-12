@@ -6,7 +6,6 @@
 #include "Bullet.h"
 #include "ResourceManager.h"
 #include "Game.h"
-#include "PlayStateObject.h"
 #include "PlayState.h"
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
@@ -46,14 +45,14 @@ void GunnerComponent::shoot(){
 			bulletTransform.direction = (targetObject->getTransform()->position - getGameObject()->getTransform()->position);
 			bulletTransform.direction.normalize();
 			bulletTransform.body.w = bulletTransform.body.h = 10;
-			Bullet* auxBullet = new Bullet(dynamic_cast<PlayStateObject*>(gameObject)->getPlayState(), Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
+			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
 			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
 
 			//Añade la bala a los objetos de la sala actual
-			dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getLevel()->getRoom(currentX, currentY)->addCharacter(auxBullet);
+			PlayState::getInstance()->getLevel()->getRoom(currentX, currentY)->addCharacter(auxBullet);
 
 			hadisparaoxd = true;
 	}

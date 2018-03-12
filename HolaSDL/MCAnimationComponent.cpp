@@ -1,7 +1,6 @@
 #include "MCAnimationComponent.h"
 #include "AnimationFrame.h"
 #include "Game.h"
-#include "PlayStateObject.h"
 #include "PlayState.h"
 #include "Camera.h"
 MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
@@ -44,8 +43,8 @@ void MCAnimationComponent::debugBoxes()
 
 void MCAnimationComponent::debugHitbox()
 {
-	int hitboxX = currentAnimation->getCurrentFrame()->getHitbox().x - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getX();
-	int hitboxY = currentAnimation->getCurrentFrame()->getHitbox().y - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getY();
+	int hitboxX = currentAnimation->getCurrentFrame()->getHitbox().x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
+	int hitboxY = currentAnimation->getCurrentFrame()->getHitbox().y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
 	int hitboxW = currentAnimation->getCurrentFrame()->getHitbox().w;
 	int hitboxH = currentAnimation->getCurrentFrame()->getHitbox().h;
 	Vector2D hlu(-currentAnimation->getCurrentFrame()->getHitbox().w / 2, -currentAnimation->getCurrentFrame()->getHitbox().h / 2);
@@ -66,8 +65,8 @@ void MCAnimationComponent::debugHitbox()
 
 void MCAnimationComponent::debugHurtbox()
 {
-	int hurtboxX = currentAnimation->getCurrentFrame()->getHurtbox().x - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getX();
-	int hurtboxY = currentAnimation->getCurrentFrame()->getHurtbox().y - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getY();
+	int hurtboxX = currentAnimation->getCurrentFrame()->getHurtbox().x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
+	int hurtboxY = currentAnimation->getCurrentFrame()->getHurtbox().y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
 	int hurtboxW = currentAnimation->getCurrentFrame()->getHurtbox().w;
 	int hurtboxH = currentAnimation->getCurrentFrame()->getHurtbox().h;
 	Vector2D hlu(-currentAnimation->getCurrentFrame()->getHurtbox().w / 2, -currentAnimation->getCurrentFrame()->getHurtbox().h / 2);

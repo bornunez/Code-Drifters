@@ -1,12 +1,12 @@
 #pragma once
-#include "PlayStateObject.h"
+#include "GameObject.h"
 
 class MainCharacter;
 class Game;
 class PlayState;
 enum EnemyType;
 
-class Enemy : public PlayStateObject
+class Enemy : public GameObject
 {
 protected:
 //################## ATRIBUTOS COMUNES ####################
@@ -26,7 +26,7 @@ protected:
 	void onDestroy();
 
 	friend class EnemyManager;
-	Enemy(PlayState* playState, MainCharacter* mc);
+	Enemy(MainCharacter* mc);
 public:
 	~Enemy();
 	virtual void spawn(int x, int y);

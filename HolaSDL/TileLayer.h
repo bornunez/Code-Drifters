@@ -9,7 +9,6 @@ private:
 	int cols;
 	int rows;
 	int tileSize;
-	int scale = 3;
 	std::vector<std::vector<int>> tileIDs; //Aqui almacenamos la informacion del mapa
 	Tileset* tileSet; //Y aqui el tileset
 public:
@@ -18,7 +17,6 @@ public:
 	void seTileIDs(vector<vector<int>> tileID) { tileIDs = tileID; }
 	virtual void update();
 	virtual void render(Camera* camera);
-	int getScale() { return scale; }
 	std::vector<std::vector<int>> getTileIDs() { return tileIDs; }
 	int getTileSize() { return tileSize; }
 };

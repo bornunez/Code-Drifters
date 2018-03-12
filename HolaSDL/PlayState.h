@@ -17,13 +17,15 @@ private:
 	MainCharacter* mainCharacter;
 	DungeonGenerator* level;
 
+	static PlayState* instance;
 
 
 	//enemigo temporal
 	ExampleEnemy* enemy;
-	void loadState();
-public:
 	PlayState();
+public:
+	void loadState();
+	static PlayState* getInstance();
 	~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	virtual void render();

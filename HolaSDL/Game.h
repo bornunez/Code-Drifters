@@ -20,16 +20,20 @@ class Game
 private:
 	static Game* game;
 
+	//Cosas de SDL
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	//Camera* camera;
 	ResourceManager* resourceManager;
 	bool error = false;//Flag para errores
 	SDL_Event event;
+	//Info de ventana
 	int winX, winY;
 	bool fullScreen;
 	const int winWidth = 1020;
 	const int winHeight = 720;
+	//Info del juego
+	const int scale = 5;
 	const int worldWidth = 5000;
 	const int worldHeight = 5000;
 	int level;
@@ -50,8 +54,11 @@ public:
 	LevelParser* getLvlParser() { return levP; }
 	void run();
 	void handleEvents();
+
+	//Gets y sets
 	const int getWorldWidth() const { return worldWidth; }
 	const int getWorldHeight() const { return worldHeight; }
+	int getScale() const { return scale; };
 	int getWinW();
 	int getWinH();
 	int getLvl() { return level; }

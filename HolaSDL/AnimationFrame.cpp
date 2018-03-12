@@ -1,7 +1,6 @@
 #include "AnimationFrame.h"
 #include "GameObject.h"
 #include "Texture.h"
-#include "PlayStateObject.h"
 #include "Camera.h"
 #include "PlayState.h"
 AnimationFrame::AnimationFrame(GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect)
@@ -32,8 +31,8 @@ void AnimationFrame::setHitbox(SDL_Rect rect, int hitboxOffsetX, int hitboxOffse
 
 void AnimationFrame::render()
 {
-	destRect.x = gameObject->getTransform()->position.getX() - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getX();
-	destRect.y = gameObject->getTransform()->position.getY() - dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getCamera()->getTransform()->position.getY();
+	destRect.x = gameObject->getTransform()->position.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
+	destRect.y = gameObject->getTransform()->position.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
 	updateBoxPosition();
 	gameObject->getTexture()->render(destRect,srcRect);	
 }

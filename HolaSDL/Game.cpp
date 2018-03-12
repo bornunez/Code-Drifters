@@ -64,8 +64,9 @@ void Game::run()
 		Time::getInstance()->Ticks();
 		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
-		PlayState* ps = new PlayState();
-		stateMachine->pushState(ps);
+		playState = PlayState::getInstance();
+		playState->loadState();
+		stateMachine->pushState(playState);
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
 		mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");

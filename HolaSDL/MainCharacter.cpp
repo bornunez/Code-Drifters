@@ -14,8 +14,8 @@
 
 
 
-MainCharacter::MainCharacter(PlayState * playState, Game * game, Texture * tex, int x, int y, int w, int h)
-	: PlayStateObject(playState, tex, x, y, w, h)
+MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
+	: GameObject(tex, x, y, w, h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);

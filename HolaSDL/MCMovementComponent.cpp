@@ -85,7 +85,7 @@ void MCMovementComponent::update()
 	//Colisionamos
 	MainCharacter* mc = dynamic_cast<MainCharacter*>(gameObject);
 	int currRoomX = mc->getCurrentRoomX(); int currRoomY = mc->getCurrentRoomY();
-	Room* currRoom = mc->getPlayState()->getLevel()->getRoom(currRoomX, currRoomY);
+	Room* currRoom = PlayState::getInstance()->getLevel()->getRoom(currRoomX, currRoomY);
 	TileLayer* tl = dynamic_cast<TileLayer*>(currRoom->getMap()->GetLayer("Paredes"));
 	if (tl != nullptr) {
 		if (CollisionHandler::Collide(&auxT, tl)) {

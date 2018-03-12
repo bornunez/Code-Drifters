@@ -3,7 +3,6 @@
 #include "Bullet.h"
 #include "ResourceManager.h"
 #include "Game.h"
-#include "PlayStateObject.h"
 #include "PlayState.h"
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
@@ -11,6 +10,7 @@
 #include "Room.h"
 #include "DungeonGenerator.h"
 #include "Camera.h"
+#include "PlayState.h"
 #include <iostream>
 MCShotComponent::MCShotComponent(GameObject * o) : InputComponent(o)
 {
@@ -58,20 +58,20 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 			Vector2D displayPosition;//Posición del personaje relativa a la cámara
 			displayPosition = (gunPosition
-				- dynamic_cast<MainCharacter*>(getGameObject())->getPlayState()->getCamera()->getTransform()->position);
+				- PlayState::getInstance()->getCamera()->getTransform()->position);
 			bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
 			bulletTransform.direction.normalize();//Halla el vector de dirección 
 
 												  //Crea la bala y le pasa el transform
-			Bullet* auxBullet = new Bullet(dynamic_cast<PlayStateObject*>(gameObject)->getPlayState(), Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
+			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
 			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-			int currentX = dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getMainCharacter()->getCurrentRoomX();
-			int currentY = dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getMainCharacter()->getCurrentRoomY();
+			int currentX = PlayState::getInstance()->getMainCharacter()->getCurrentRoomX();
+			int currentY = PlayState::getInstance()->getMainCharacter()->getCurrentRoomY();
 			//Añade la bala a los objetos de la sala actual
-			dynamic_cast<PlayStateObject*>(gameObject)->getPlayState()->getLevel()->getRoom(currentX, currentY)->addCharacter(auxBullet);
+			PlayState::getInstance()->getLevel()->getRoom(currentX, currentY)->addCharacter(auxBullet);
 
 			currentBullets--;//Le resta balas al personaje
 			dynamic_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);

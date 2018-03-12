@@ -1,11 +1,10 @@
 #pragma once
-#include "PlayStateObject.h"
 #include "Animation.h"
 #include <map>
 class PlayState;
 class MCAnimationComponent;
 
-class MainCharacter : public PlayStateObject
+class MainCharacter : public GameObject
 {
 private:
 	int currentRoomX;
@@ -29,7 +28,7 @@ private:
 
 public:
 
-	MainCharacter(PlayState* playState, Game* game, Texture* tex, int x, int y, int w, int h);
+	MainCharacter(Texture* tex, int x, int y, int w, int h);
 
 	~MainCharacter();
 	
