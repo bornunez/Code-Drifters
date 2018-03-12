@@ -10,7 +10,6 @@ class Enemy : public PlayStateObject
 {
 protected:
 //################## ATRIBUTOS COMUNES ####################
-
 	int life;
 	int meleeDmg; int rangedDmg;
 	int speed; //Velocidad de movimiento

@@ -16,31 +16,30 @@ ChaseComponent::~ChaseComponent()
 }
 
 void ChaseComponent::update() {
-	/*esto requiere un arreglo bastante importante,
-	basicamente intento de version chula con angulos y tal
+	
+
 	
 	//Obtienes velocidad y posicion del enemigo
 	chaserPosition = getGameObject()->getTransform()->position;
-	chaserVelocity.set(velocity, velocity);
-	chaserVelocity.normalize();
+
 	targetPosition = targetObject->getTransform()->position;
-	//angulo entre enemigo y jugador
-	//rotas velocidad enemigo
-	angle = chaserPosition.angle(targetPosition);
-	chaserVelocity.rotate(angle);
+	//vectro entre enemigo y jugador
+	chaserVelocity.set(targetPosition - chaserPosition);
 	//se normaliza y se multiplica por la magnitud de la velocidad
 	chaserVelocity.normalize();
-	chaserVelocity*velocity;
+
+	chaserVelocity = chaserVelocity * velocity;
+
 	//se asigna la velocidad del enemigo
 	getGameObject()->getTransform()->velocity.set(chaserVelocity);
 	
-	getGameObject()->getTransform()->position.set(chaserPosition + chaserVelocity);
+	getGameObject()->getTransform()->position.set(getGameObject()->getTransform()->position + getGameObject()->getTransform()->velocity);
 
-	cout << getGameObject()->getTransform()->position;
-	*/
+	
+	
 
 	//version chusta con 8 direcciones
-	chaserPosition = getGameObject()->getTransform()->position;
+	/*chaserPosition = getGameObject()->getTransform()->position;
 	targetPosition = targetObject->getTransform()->position;
 	if (chaserPosition.getX() > targetPosition.getX()) {
 		chaserVelocity.setX(-velocity);
@@ -54,5 +53,5 @@ void ChaseComponent::update() {
 
 	getGameObject()->getTransform()->position.set(chaserPosition + chaserVelocity);
 	
-
+	*/
 }
