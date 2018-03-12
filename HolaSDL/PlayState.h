@@ -7,7 +7,7 @@ class Camera;
 class Game;
 class MainCharacter;
 class DungeonGenerator;
-class Enemy;
+class ExampleEnemy;
 
 using namespace std;
 class PlayState : public GameState
@@ -20,7 +20,7 @@ private:
 
 
 	//enemigo temporal
-	Enemy* enemy;
+	ExampleEnemy* enemy;
 	void loadState();
 public:
 	PlayState();

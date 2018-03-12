@@ -131,6 +131,9 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Enemies\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -267,6 +270,9 @@
     </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Arquitectura\Header</Filter>
+    </ClCompile>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemies\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
