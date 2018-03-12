@@ -2,18 +2,13 @@
 class Timer
 {
 public:
-	float DeltaTime = 0;
-	float TimeSinceTimerCreation = 0;
-	float TimeSinceGameInit = 0;
-	void update();
-	void restart();
 	Timer();
 	~Timer();
+	float TimeSinceGameInit = 0;
+	float TimeSinceTimerCreation = 0;
+	void update();
+	void restart();
 
 private:
-	float initTime=0;
-	float lastTickTime = 0;
-	float tick_Time = 0;
-	void Ticks();
+	float initTime = 0;
 };
-
