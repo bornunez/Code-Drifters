@@ -2,12 +2,11 @@
 
 
 
-Animation::Animation(GameObject* o, int totalFrames, bool loop, float time, int frameWidth, int framwHeight)
+Animation::Animation(GameObject* o, bool loop, float time, int frameWidth, int framwHeight)
 {
 	gameObject = o;
 	this->time = time;
 	this->loop = loop;
-	this->totalFrames = totalFrames;
 	frameW = frameWidth;
 	frameH = framwHeight;
 	currentFrame = 0;

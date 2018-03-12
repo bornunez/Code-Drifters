@@ -7,7 +7,7 @@
 class Animation
 {
 public:
-	Animation(GameObject* o, int totalFrames, bool loop, float time, int frameWidth, int frameHeight);
+	Animation(GameObject* o,  bool loop, float time, int frameWidth, int frameHeight);
 	virtual ~Animation();
 	AnimationFrame* getCurrentFrame() { return animFrames[currentFrame]; };
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };
@@ -24,7 +24,6 @@ private:
 	void normalAnimation();
 	int currentFrame;
 	float time;	
-	int totalFrames;
 	int frameW;
 	int frameH;
 	Timer* lastFrame;

@@ -43,7 +43,7 @@ MainCharacter::~MainCharacter()
 //Animations
 void MainCharacter::createAnimations()
 {
-	walkLeft = new Animation(this, 8, true, 0.05, 108, 140);
+	walkLeft = new Animation(this, true, 0.05, 108, 140);
 	walkLeft->loadAnimation(0, 7, 1);
 	for (int i = 0; i<walkLeft->getNumberOfFrames(); i++) {
 		SDL_Rect aux;
@@ -60,7 +60,7 @@ void MainCharacter::createAnimations()
 	aux.h = transform.body.h - 30;
 	walkLeft->getFrame(3)->setHitbox(aux, -40);
 
-	walkRight = new Animation(this, 8, true, 0.05, 108, 140);
+	walkRight = new Animation(this, true, 0.05, 108, 140);
 	walkRight->loadAnimation(0, 7, 0);
 	for (int i = 0; i<walkRight->getNumberOfFrames(); i++) {
 		SDL_Rect aux;
