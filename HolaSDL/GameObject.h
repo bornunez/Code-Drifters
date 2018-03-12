@@ -14,7 +14,6 @@ protected:
 	Texture * texture = nullptr; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
 	bool active = true;
-
 public:
 
 	GameObject();
@@ -33,5 +32,6 @@ public:
 	bool setActive(bool active) { this->active = active; }
 	Transform* getTransform() { return &transform; }
 	Texture* getTexture() { return texture; }
+
 };
 

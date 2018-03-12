@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 1;
+const int NUM_TEXTURES = 2;
 const int NUM_TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels\\";
@@ -16,14 +16,14 @@ typedef struct {
 	int numCols;
 } TextureAtributes;
 
-enum TextureName {BulletSprite};
+enum TextureName {BulletSprite,TestSpritesheet};
 
 using namespace std;
 class ResourceManager
 {
 
 private:
-	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES] { { "bullet.png", 1, 1 } };			//Esto ira a xml
+	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ { "bullet.png", 1, 1 }, {"testSpritesheet.png",7,2} };			//Esto ira a xml
 	//Array que contiene punteros a todas las texturas del juego.
 	Texture* textures[NUM_TEXTURES];
 	//Vector de tilesets

@@ -16,7 +16,7 @@ MCMovementComponent::MCMovementComponent(GameObject* o, SDL_Scancode up, SDL_Sca
 	UpdateComponent(o), upKey(up), rightKey(right), downKey(down), leftKey(left)
 {
 	acceleration = 0.05;//Aceleración de la velocidad
-	reductionFactor = 0.5;//Aceleración de frenado
+	reductionFactor = 0.05;//Aceleración de frenado
 	maxVelocity = dynamic_cast<MainCharacter*>(gameObject)->getMaxVelocity();//La velocidad máxima es la del personaje
 	velocity.set(0, 0);
 	direction.set(0, 1);//Empieza mirando hacia abajo
@@ -38,11 +38,13 @@ void MCMovementComponent::update()
 	{
 		direction.setX(-1);
 		velocity.setX(velocity.getX() + acceleration);
+		gameObject->sendMessage("WALK_LEFT");
 	}
 	else if (keystate[rightKey])
 	{
 		direction.setX(1);
 		velocity.setX(velocity.getX() + acceleration);
+		gameObject->sendMessage("WALK_RIGHT");
 	}
 	else {//Si no se mueve en horizontal entonces frena
 		velocity.setX(velocity.getX()*reductionFactor);
@@ -69,10 +71,9 @@ void MCMovementComponent::update()
 
 //#############################################################################################################
 
-
 	Transform* t = gameObject->getTransform();
 
-	Transform auxT =*t;
+	Transform auxT = *t;
 
 	direction.normalize();
 	auxT.direction = direction;//Asigna la dirección	

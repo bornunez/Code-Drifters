@@ -42,6 +42,28 @@ bool CollisionHandler::Collide(SDL_Rect A, TileLayer * tileLayer)
 	}
 	return false;
 }
+bool CollisionHandler::Collide(SDL_Rect A,TileLayer * tileLayer)
+{
+	vector<vector<int>> idLayer = tileLayer->getTileIDs();
+	int tileSize = tileLayer->getTileSize(); int scale = tileLayer->getScale();
+
+	for (int i = 0; i < idLayer.size(); i++) {
+		for (int j = 0; j < idLayer[i].size(); j++) {
+			if (idLayer[i][j] != 0) {
+				//El rect del bloque, con coordenadas de mundo real
+				SDL_Rect destRect;
+				destRect.h = destRect.w = tileSize * scale;
+				destRect.x = j * destRect.w;
+				destRect.y = i * destRect.w;
+				//Vemos si colisiona el prota con el bloque
+				if (RectCollide(A, destRect)) {					
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
 
 CollisionHandler::CollisionHandler()
 {

@@ -3,7 +3,6 @@
 #include "Transform.h"
 #include "GameObject.h"
 #include "Game.h"
-
 SkeletonRendered::SkeletonRendered(GameObject* o,GameObject* camera) : RenderComponent(o),	color_({ COLOR(0xffffffff) }), camera(camera)
 {
 }
