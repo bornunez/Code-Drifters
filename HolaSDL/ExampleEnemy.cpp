@@ -8,19 +8,13 @@
 
 
 
-ExampleEnemy::ExampleEnemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t) :
-	Enemy(playState, game, mc, t)
+ExampleEnemy::ExampleEnemy(PlayState* playState, MainCharacter* mc) :
+	Enemy(playState, mc)
 {
 	
 	addComponent(new ChaseComponent(this, getMC(), 0.1));
 }
 
-ExampleEnemy::ExampleEnemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h) :
-	Enemy(playState, game, mc, x, y, w, h)
-{
-
-	addComponent(new ChaseComponent(this, getMC(), 0.1));
-}
 
 
 ExampleEnemy::~ExampleEnemy()
