@@ -47,10 +47,17 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			aux.setX(p.x);
 			aux.setY(p.y);//Posición del cursor en pantalla
 
-			Vector2D gunPosition = dynamic_cast<MainCharacter*>(gameObject)->getGunPosition();//Posición de donde sale la bala
 
 																							  //cout << gunPosition << endl;
 
+
+
+			//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
+			Vector2D gunPosition;
+			gunPosition.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
+			gunPosition.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
+			dynamic_cast<MainCharacter*>(gameObject)->setGunPosition(gunPosition);
+			
 			Transform bulletTransform;
 			bulletTransform.position = gunPosition;
 			bulletTransform.body.w = bulletTransform.body.h = 10;

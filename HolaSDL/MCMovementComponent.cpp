@@ -12,11 +12,9 @@
 using namespace std;
 
 
-MCMovementComponent::MCMovementComponent(GameObject* o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left) :
-	UpdateComponent(o), upKey(up), rightKey(right), downKey(down), leftKey(left)
+MCMovementComponent::MCMovementComponent(GameObject* o) :
+	UpdateComponent(o)
 {
-	acceleration = 0.05;//Aceleración de la velocidad
-	reductionFactor = 0.05;//Aceleración de frenado
 	maxVelocity = dynamic_cast<MainCharacter*>(gameObject)->getMaxVelocity();//La velocidad máxima es la del personaje
 	velocity.set(0, 0);
 	direction.set(0, 1);//Empieza mirando hacia abajo
@@ -28,52 +26,9 @@ MCMovementComponent::~MCMovementComponent()
 }
 void MCMovementComponent::update()
 {
-	const Uint8* keystate = SDL_GetKeyboardState(NULL);
-
-	SDL_PumpEvents();
-	//continuous-response keys
-//#############################################################################################################
-	debug = keystate[debugKey];
-	if (keystate[leftKey])
-	{
-		direction.setX(-1);
-		velocity.setX(velocity.getX() + acceleration);
-		gameObject->sendMessage("RUN_LEFT");
-	}
-	else if (keystate[rightKey])
-	{
-		direction.setX(1);
-		velocity.setX(velocity.getX() + acceleration);
-		gameObject->sendMessage("RUN_RIGHT");
-	}
-	else {//Si no se mueve en horizontal entonces frena
-		velocity.setX(velocity.getX()*reductionFactor);
-	}
-	if (keystate[upKey])
-	{
-		direction.setY(-1);
-		velocity.setY(velocity.getY() + acceleration);
-		gameObject->sendMessage("RUN_TOP");
-	}
-	else if (keystate[downKey])
-	{
-		direction.setY(1);
-		velocity.setY(velocity.getY() + acceleration);
-		gameObject->sendMessage("RUN_BOT");
-	}
-	else {//Si no se mueve en vertical frena
-		velocity.setY(velocity.getY()*reductionFactor);
-	}
-	if (velocity.getX() > maxVelocity) {//Nunca se puede superar la velocidad máxima
-		velocity.setX(maxVelocity);
-	}
-	if (velocity.getY() > maxVelocity) {
-		velocity.setY(maxVelocity);
-	}
-
-//#############################################################################################################
-
 	Transform* t = gameObject->getTransform();
+	velocity.set(t->velocity);
+	direction.set(t->direction);
 
 	Transform auxT = *t;
 
@@ -97,14 +52,10 @@ void MCMovementComponent::update()
 	}
 	*t = auxT;
 
+	const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
-	
-
-	//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
-	Vector2D gunPosition;
-	gunPosition.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-	gunPosition.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
-	dynamic_cast<MainCharacter*>(gameObject)->setGunPosition(gunPosition);
+	SDL_PumpEvents();
+	debug = keystate[debugKey];
 	
 	if (debug) {
 		system("cls");
@@ -112,5 +63,6 @@ void MCMovementComponent::update()
 		cout << "Velocity: [ X: " << t->velocity.getX() << " ,Y: " << t->velocity.getY() << " ]" << endl;
 		cout << "Direction: [ X: " << t->direction.getX() << " ,Y: " << t->direction.getY() << " ]" << endl;
 		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
+
 	}
 }

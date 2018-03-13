@@ -40,6 +40,7 @@
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCMovementComponent.cpp" />
+    <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="miniz.c" />
     <ClCompile Include="MouseIcon.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCMovementComponent.h" />
+    <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="miniz.h" />
     <ClInclude Include="MouseIcon.h" />

@@ -134,6 +134,7 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MCMovementInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -274,6 +275,7 @@
     <ClInclude Include="Timer.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="MCMovementInput.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

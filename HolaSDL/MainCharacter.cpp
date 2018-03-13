@@ -9,6 +9,7 @@
 #include "Texture.h"
 #include "MCAnimationComponent.h"
 #include "ResourceManager.h"
+#include "MCMovementInput.h"
 //Personaje principal
 
 
@@ -19,15 +20,16 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
-	transform.body.w = w;
-	transform.body.h = h;
+	transform.body.w = 64;
+	transform.body.h = 64;
 
 	texture = Game::getGame()->getResourceManager()->getTexture(ProtaRun);
-	setMaxVelocity(0.5);
+	setMaxVelocity(1);
 	createAnimations();
 	animComp = new MCAnimationComponent(this, animations);
 	addComponent(animComp);
-	addComponent(new MCMovementComponent(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
+	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
+	addComponent(new MCMovementComponent(this));
 	addComponent(new MCShotComponent(this));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);
@@ -49,9 +51,9 @@ void MainCharacter::createAnimations()
 		SDL_Rect aux;
 		aux.x = transform.position.getX();
 		aux.y = transform.position.getY();
-		aux.w = 30;
+		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runLeft->getFrame(i)->setHurtbox(aux, 10);
+		runLeft->getFrame(i)->setHurtbox(aux, 16);
 	}
 
 	runRight = new Animation(this, true, 0.05, 32, 32);
@@ -60,9 +62,9 @@ void MainCharacter::createAnimations()
 		SDL_Rect aux;
 		aux.x = transform.position.getX();
 		aux.y = transform.position.getY();
-		aux.w = 30;
+		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runRight->getFrame(i)->setHurtbox(aux, 10);
+		runRight->getFrame(i)->setHurtbox(aux, 16);
 	}
 
 	runBot = new Animation(this, true, 0.05, 32, 32);
@@ -71,9 +73,9 @@ void MainCharacter::createAnimations()
 		SDL_Rect aux;
 		aux.x = transform.position.getX();
 		aux.y = transform.position.getY();
-		aux.w = 30;
+		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runBot->getFrame(i)->setHurtbox(aux, 10);
+		runBot->getFrame(i)->setHurtbox(aux, 16);
 	}
 
 	runTop = new Animation(this, true, 0.05, 32, 32);
@@ -84,7 +86,7 @@ void MainCharacter::createAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runTop->getFrame(i)->setHurtbox(aux, 12);
+		runTop->getFrame(i)->setHurtbox(aux, 16);
 	}
 	animations.emplace("RUN_LEFT", runLeft);
 	animations.emplace("RUN_RIGHT", runRight);
