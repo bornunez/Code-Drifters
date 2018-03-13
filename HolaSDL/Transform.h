@@ -8,4 +8,5 @@ struct Transform
 	Vector2D velocity;
 	Vector2D direction;
 	SDL_Rect body;
+	double speed;
 };

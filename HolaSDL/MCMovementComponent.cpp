@@ -7,6 +7,7 @@
 #include "Room.h"
 #include "Map.h"
 #include "Timer.h"
+#include "Time.h"
 #include "PlayState.h"
 #include "DungeonGenerator.h"
 using namespace std;
@@ -28,6 +29,7 @@ MCMovementComponent::~MCMovementComponent()
 }
 void MCMovementComponent::update()
 {
+	Transform* t = gameObject->getTransform();
 	const Uint8* keystate = SDL_GetKeyboardState(NULL);
 
 	SDL_PumpEvents();
@@ -36,43 +38,45 @@ void MCMovementComponent::update()
 	debug = keystate[debugKey];
 	if (keystate[leftKey])
 	{
-		direction.setX(-1);
-		velocity.setX(velocity.getX() + acceleration);
+		t->direction.setX(-1);
+		t->velocity.setX(-1);
 		gameObject->sendMessage("WALK_LEFT");
 	}
 	else if (keystate[rightKey])
 	{
-		direction.setX(1);
-		velocity.setX(velocity.getX() + acceleration);
+		t->direction.setX(1);
+		t->velocity.setX(1);
 		gameObject->sendMessage("WALK_RIGHT");
 	}
 	else {//Si no se mueve en horizontal entonces frena
-		velocity.setX(velocity.getX()*reductionFactor);
+		t->velocity.setX(0);
 	}
 	if (keystate[upKey])
 	{
-		direction.setY(-1);
-		velocity.setY(velocity.getY() + acceleration);
+		t->direction.setY(-1);
+		t->velocity.setY(-1);
 	}
 	else if (keystate[downKey])
 	{
-		direction.setY(1);
-		velocity.setY(velocity.getY() + acceleration);
+		t->direction.setY(1);
+		t->velocity.setY(1);
 	}
 	else {//Si no se mueve en vertical frena
-		velocity.setY(velocity.getY()*reductionFactor);
+		t->velocity.setY(0);
 	}
+	/*
 	if (velocity.getX() > maxVelocity) {//Nunca se puede superar la velocidad máxima
 		velocity.setX(maxVelocity);
 	}
 	if (velocity.getY() > maxVelocity) {
 		velocity.setY(maxVelocity);
 	}
-
+	*/
+	t->velocity.normalize();
 //#############################################################################################################
 
-	Transform* t = gameObject->getTransform();
-
+	
+	/*
 	Transform auxT = *t;
 
 	direction.normalize();
@@ -94,7 +98,7 @@ void MCMovementComponent::update()
 		}
 	}
 	*t = auxT;
-
+	*/
 
 	
 
@@ -110,5 +114,6 @@ void MCMovementComponent::update()
 		cout << "Velocity: [ X: " << t->velocity.getX() << " ,Y: " << t->velocity.getY() << " ]" << endl;
 		cout << "Direction: [ X: " << t->direction.getX() << " ,Y: " << t->direction.getY() << " ]" << endl;
 		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
+		cout << "DeltaTime: [ " << Time::getInstance()->DeltaTime << " ]" << endl;
 	}
 }
