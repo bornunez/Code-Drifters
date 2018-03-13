@@ -6,7 +6,7 @@
 MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
-	Play("WALK_LEFT");
+	Play("RUN_LEFT");
 }
 
 
@@ -14,11 +14,17 @@ MCAnimationComponent::~MCAnimationComponent()
 {
 }
 void MCAnimationComponent::recieveMessage(std::string msg) {
-	if (msg == "WALK_LEFT") {
-		Play("WALK_LEFT");
+	if (msg == "RUN_LEFT") {
+		Play("RUN_LEFT");
 	}
-	else if(msg == "WALK_RIGHT") {
-		Play("WALK_RIGHT");
+	else if (msg == "RUN_RIGHT") {
+		Play("RUN_RIGHT");
+	}
+	else if (msg == "RUN_TOP") {
+		Play("RUN_TOP");
+	}
+	else if (msg == "RUN_BOT") {
+		Play("RUN_BOT");
 	}
 }
 void MCAnimationComponent::render()

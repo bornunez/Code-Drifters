@@ -38,13 +38,13 @@ void MCMovementComponent::update()
 	{
 		direction.setX(-1);
 		velocity.setX(velocity.getX() + acceleration);
-		gameObject->sendMessage("WALK_LEFT");
+		gameObject->sendMessage("RUN_LEFT");
 	}
 	else if (keystate[rightKey])
 	{
 		direction.setX(1);
 		velocity.setX(velocity.getX() + acceleration);
-		gameObject->sendMessage("WALK_RIGHT");
+		gameObject->sendMessage("RUN_RIGHT");
 	}
 	else {//Si no se mueve en horizontal entonces frena
 		velocity.setX(velocity.getX()*reductionFactor);
@@ -53,11 +53,13 @@ void MCMovementComponent::update()
 	{
 		direction.setY(-1);
 		velocity.setY(velocity.getY() + acceleration);
+		gameObject->sendMessage("RUN_TOP");
 	}
 	else if (keystate[downKey])
 	{
 		direction.setY(1);
 		velocity.setY(velocity.getY() + acceleration);
+		gameObject->sendMessage("RUN_BOT");
 	}
 	else {//Si no se mueve en vertical frena
 		velocity.setY(velocity.getY()*reductionFactor);

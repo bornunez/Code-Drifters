@@ -22,7 +22,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.body.w = w;
 	transform.body.h = h;
 
-	texture = Game::getGame()->getResourceManager()->getTexture(TestSpritesheet);
+	texture = Game::getGame()->getResourceManager()->getTexture(ProtaRun);
 	setMaxVelocity(0.5);
 	createAnimations();
 	animComp = new MCAnimationComponent(this, animations);
@@ -43,36 +43,53 @@ MainCharacter::~MainCharacter()
 //Animations
 void MainCharacter::createAnimations()
 {
-	walkLeft = new Animation(this, true, 0.05, 108, 140);
-	walkLeft->loadAnimation(0, 7, 1);
-	for (int i = 0; i<walkLeft->getNumberOfFrames(); i++) {
+	runLeft = new Animation(this, true, 0.05, 32, 32);
+	runLeft->loadAnimation(0, 12, 2);
+	for (int i = 0; i<runLeft->getNumberOfFrames(); i++) {
 		SDL_Rect aux;
 		aux.x = transform.position.getX();
 		aux.y = transform.position.getY();
-		aux.w = transform.body.w-10;
-		aux.h = transform.body.h-10;
-		walkLeft->getFrame(i)->setHurtbox(aux,5,20);
-	}
-	SDL_Rect aux;
-	aux.x = transform.position.getX();
-	aux.y = transform.position.getY();
-	aux.w = transform.body.w - 30;
-	aux.h = transform.body.h - 30;
-	walkLeft->getFrame(3)->setHitbox(aux, -40);
-
-	walkRight = new Animation(this, true, 0.05, 108, 140);
-	walkRight->loadAnimation(0, 7, 0);
-	for (int i = 0; i<walkRight->getNumberOfFrames(); i++) {
-		SDL_Rect aux;
-		aux.x = transform.position.getX();
-		aux.y = transform.position.getY();
-		aux.w = transform.body.w;
+		aux.w = 30;
 		aux.h = transform.body.h;
-		walkRight->getFrame(i)->setHurtbox(aux);
+		runLeft->getFrame(i)->setHurtbox(aux, 10);
 	}
 
-	animations.emplace("WALK_LEFT", walkLeft);
-	animations.emplace("WALK_RIGHT", walkRight);
+	runRight = new Animation(this, true, 0.05, 32, 32);
+	runRight->loadAnimation(0, 12, 1);
+	for (int i = 0; i<runRight->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = 30;
+		aux.h = transform.body.h;
+		runRight->getFrame(i)->setHurtbox(aux, 10);
+	}
+
+	runBot = new Animation(this, true, 0.05, 32, 32);
+	runBot->loadAnimation(0, 12, 0);
+	for (int i = 0; i<runBot->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = 30;
+		aux.h = transform.body.h;
+		runBot->getFrame(i)->setHurtbox(aux, 10);
+	}
+
+	runTop = new Animation(this, true, 0.05, 32, 32);
+	runTop->loadAnimation(0, 12, 3);
+	for (int i = 0; i<runTop->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = transform.body.w / 2;
+		aux.h = transform.body.h;
+		runTop->getFrame(i)->setHurtbox(aux, 12);
+	}
+	animations.emplace("RUN_LEFT", runLeft);
+	animations.emplace("RUN_RIGHT", runRight);
+	animations.emplace("RUN_BOT", runBot);
+	animations.emplace("RUN_TOP", runTop);
 }
 Animation* MainCharacter::getCurrentAnimation() {
 	return animComp->getCurrentAnimation();

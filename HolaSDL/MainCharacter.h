@@ -22,8 +22,11 @@ private:
 	Vector2D gunPosition;//Posición de donde sale la bala
 	std::map<const char*, Animation*> animations;
 	MCAnimationComponent* animComp;//Se necesita para poder obtener un puntero a la animación actual
-	Animation* walkLeft;
-	Animation* walkRight;
+	Animation* runLeft;
+	Animation* runRight;
+	Animation* runTop;
+	Animation* runBot;
+
 
 
 public:
