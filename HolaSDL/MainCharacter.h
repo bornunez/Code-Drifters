@@ -3,7 +3,7 @@
 #include <map>
 class PlayState;
 class MCAnimationComponent;
-
+enum ActionState { Idle, Run, Attack, Shoot, Hook, Hurt, Heal };
 class MainCharacter : public GameObject
 {
 private:
@@ -16,6 +16,7 @@ private:
 	bool activeHook;
 	bool firingGun;
 	bool attacking;
+	ActionState actionState = Idle;
 	int maxBullets;
 	int currentBullets;
 	int reloadTime;
@@ -26,6 +27,10 @@ private:
 	Animation* runRight;
 	Animation* runTop;
 	Animation* runBot;
+	Animation* idleLeft;
+	Animation* idleRight;
+	Animation* idleTop;
+	Animation* idleBot;
 
 
 
@@ -36,7 +41,8 @@ public:
 	~MainCharacter();
 	
 	//Animations
-	void createAnimations();
+	void createRunAnimations();
+	void createIdleAnimation();
 	Animation* getCurrentAnimation();
 
 	//Getters & Setters
@@ -58,6 +64,8 @@ public:
 	void changeCurrentRoom(int x, int y);
 	int getReloadTime();
 	void setReloadTime(int miliseconds);
+	void setActionState(ActionState actionState) { this->actionState = actionState; };
+	ActionState getActionState() { return actionState; };
 };
 
 
