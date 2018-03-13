@@ -36,7 +36,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCMovementComponent(this));
 	addComponent(new BasicMovement(this, "Paredes"));
 	addComponent(new MCShotComponent(this));
-	//addComponent(new SkeletonRendered(this, playState->getCamera()));
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
@@ -103,17 +103,27 @@ void MainCharacter::createRunAnimations()
 }
 void MainCharacter::createIdleAnimation()
 {
+	SDL_Rect idleHurtBox;
+	idleHurtBox.x = transform.position.getX();
+	idleHurtBox.y = transform.position.getY();
+	idleHurtBox.w = transform.body.w / 2;
+	idleHurtBox.h = transform.body.h;
+
 	idleTop = new Animation(this, false, 5, 32, 32);
 	idleTop->loadAnimation(1, 2, 0);
+	idleTop->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
 
 	idleBot = new Animation(this, false, 5, 32, 32);
 	idleBot->loadAnimation(0, 1, 0);
+	idleBot->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
 
 	idleRight = new Animation(this, false, 5, 32, 32);
 	idleRight->loadAnimation(2, 3, 0);
+	idleRight->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
 
 	idleLeft = new Animation(this, false, 5, 32, 32);
 	idleLeft->loadAnimation(3, 4, 0);
+	idleLeft->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
 
 	animations.emplace("IDLE_LEFT", idleLeft);
 	animations.emplace("IDLE_RIGHT", idleRight);
