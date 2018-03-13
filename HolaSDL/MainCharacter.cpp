@@ -58,7 +58,7 @@ void MainCharacter::createRunAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runLeft->getFrame(i)->setHurtbox(aux, 16);
+		runLeft->getFrame(i)->addHurtbox(aux, transform.body.w / 4);
 	}
 
 	runRight = new Animation(this, true, 0.05, 32, 32);
@@ -69,7 +69,7 @@ void MainCharacter::createRunAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runRight->getFrame(i)->setHurtbox(aux, 16);
+		runRight->getFrame(i)->addHurtbox(aux, transform.body.w / 4);
 	}
 
 	runBot = new Animation(this, true, 0.05, 32, 32);
@@ -80,7 +80,7 @@ void MainCharacter::createRunAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runBot->getFrame(i)->setHurtbox(aux, 16);
+		runBot->getFrame(i)->addHurtbox(aux, transform.body.w / 4);
 	}
 
 	runTop = new Animation(this, true, 0.05, 32, 32);
@@ -91,7 +91,7 @@ void MainCharacter::createRunAnimations()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h;
-		runTop->getFrame(i)->setHurtbox(aux, 16);
+		runTop->getFrame(i)->addHurtbox(aux, transform.body.w / 4);
 	}
 
 	animations.emplace("RUN_LEFT", runLeft);
@@ -111,19 +111,19 @@ void MainCharacter::createIdleAnimation()
 
 	idleTop = new Animation(this, false, 5, 32, 32);
 	idleTop->loadAnimation(1, 2, 0);
-	idleTop->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
+	idleTop->getFrame(0)->addHurtbox(idleHurtBox, transform.body.w / 4);
 
 	idleBot = new Animation(this, false, 5, 32, 32);
 	idleBot->loadAnimation(0, 1, 0);
-	idleBot->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
+	idleBot->getFrame(0)->addHurtbox(idleHurtBox, transform.body.w / 4);	
 
 	idleRight = new Animation(this, false, 5, 32, 32);
 	idleRight->loadAnimation(2, 3, 0);
-	idleRight->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
+	idleRight->getFrame(0)->addHurtbox(idleHurtBox, transform.body.w / 4);
 
 	idleLeft = new Animation(this, false, 5, 32, 32);
 	idleLeft->loadAnimation(3, 4, 0);
-	idleLeft->getFrame(0)->setHurtbox(idleHurtBox, transform.body.w / 4);
+	idleLeft->getFrame(0)->addHurtbox(idleHurtBox, transform.body.w / 4);
 
 	animations.emplace("IDLE_LEFT", idleLeft);
 	animations.emplace("IDLE_RIGHT", idleRight);
