@@ -8,6 +8,7 @@ class Game;
 class MainCharacter;
 class DungeonGenerator;
 class ExampleEnemy;
+class Boss;
 
 using namespace std;
 class PlayState : public GameState
@@ -16,6 +17,7 @@ private:
 	Camera * camera;
 	MainCharacter* mainCharacter;
 	DungeonGenerator* level;
+	Boss* boss;
 
 	static PlayState* instance;
 

@@ -5,7 +5,7 @@
 #include "Timer.h"
 #include "Time.h"
 
-Boss::Boss(Game* game, Transform t) : GameObject(game)
+Boss::Boss(Transform t) : GameObject()
 {
 	Time = new Timer();
 	transform.position.setX(t.position.getX());
@@ -14,8 +14,12 @@ Boss::Boss(Game* game, Transform t) : GameObject(game)
 	cout << posInic;
 }
 
-Boss::Boss(Game* game, MainCharacter* prot, int x, int y, int w, int h) : GameObject(game)
+Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : GameObject()
 {
+	rend = new RenderBoss(this);
+	addComponent(rend);
+	updat = new UpdateBoss(this);
+	addComponent(updat);
 	Time = new Timer();
 	transform.position.setX(x);
 	transform.position.setY(y);
@@ -75,7 +79,6 @@ void Boss::fase2()
 void Boss::update()
 {
 	Time->update();
-	render();
 	if (Time->TimeSinceTimerCreation< tiempoFase1)
 	{
 		fase1();
@@ -90,10 +93,12 @@ void Boss::update()
 
 void Boss::render()
 {
-	float auxX = transform.position.getX() - getGame()->getCamera()->getTransform()->position.getX();
+	rend->render();
+	/*float auxX = transform.position.getX() - getGame()->getCamera()->getTransform()->position.getX();
 	float auxY = transform.position.getY() - getGame()->getCamera()->getTransform()->position.getY();
 	SDL_Rect rect RECT(auxX, auxY, transform.body.w, transform.body.h);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0xff000fff));
 	SDL_RenderFillRect(game->getRenderer(), &rect);
 	SDL_SetRenderDrawColor(game->getRenderer(), COLOR(0x000000ff));
+	*/
 }

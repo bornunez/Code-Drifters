@@ -6,6 +6,7 @@
 #include "DungeonGenerator.h"
 #include "ExampleEnemy.h"
 #include "Room.h"
+#include "Boss.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -65,7 +66,9 @@ void PlayState::loadState()
 //	enemy = new ExampleEnemy(this, this->getGame(), mainCharacter, 50, 50, 20, 20);
 	
 	//level->getFirstRoom()->addCharacter(enemy);
-
+	boss = new Boss(mainCharacter, 200, 200, 200, 200);
+	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(boss);
+	//gameObjects.push_back(boss);
 
 
 }

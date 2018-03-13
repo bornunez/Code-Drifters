@@ -1,7 +1,8 @@
 #pragma once
 #include "GameObject.h"
 #include <vector>
-
+#include "RenderBoss.h"
+#include "UpdateBoss.h"
 class MainCharacter;
 class Timer;
 
@@ -19,13 +20,15 @@ public:
 	void fase1();
 	void fase2();
 	void update();
-	Boss(Game* game, Transform t);
-	Boss(Game* game, MainCharacter* prota, int x, int y, int w, int h);
+	Boss(Transform t);
+	Boss(MainCharacter* prota, int x, int y, int w, int h);
 	~Boss();
 	void render();
 private:
 	Vector2D posInic;
 	Timer* Time;
 	MainCharacter* prota;
+	RenderBoss* rend;
+	UpdateBoss* updat;
 };
 
