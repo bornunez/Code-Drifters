@@ -63,5 +63,7 @@ public:
 	int getWinH();
 	int getLvl() { return level; }
 	static Game* getGame();
+
+	void startGame();
 };
 

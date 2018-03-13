@@ -136,6 +136,10 @@
     </ClCompile>
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -278,6 +282,10 @@
     </ClInclude>
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="MCMovementInput.h" />
+    <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
