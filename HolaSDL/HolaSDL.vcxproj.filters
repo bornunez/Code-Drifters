@@ -135,6 +135,10 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="MCMovementInput.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -276,6 +280,10 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="MCMovementInput.h" />
+    <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
