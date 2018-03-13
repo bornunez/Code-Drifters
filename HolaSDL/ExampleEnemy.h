@@ -8,7 +8,6 @@ public:
 
 	~ExampleEnemy();
 
-	void render();
 
 };
 
