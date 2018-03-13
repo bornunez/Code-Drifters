@@ -27,6 +27,9 @@ void MCMovementInput::update()
 		velocity.setX(-1);
 		gameObject->sendMessage("RUN_LEFT");
 		mc->setActionState(Run);
+		if (!keystate[upKey] && !keystate[downKey]) {
+			direction.setY(0);
+		}
 	}
 	else if (keystate[rightKey])
 	{
@@ -34,10 +37,13 @@ void MCMovementInput::update()
 		velocity.setX(1);
 		gameObject->sendMessage("RUN_RIGHT");
 		mc->setActionState(Run);
+		if (!keystate[upKey] && !keystate[downKey]) {
+			direction.setY(0);
+		}
 	}
 	else {//Si no se mueve en horizontal entonces frena
 		velocity.setX(0);
-		direction.setX(0);
+		
 	}
 	if (keystate[upKey])
 	{
@@ -45,6 +51,9 @@ void MCMovementInput::update()
 		velocity.setY(-1);
 		gameObject->sendMessage("RUN_TOP");
 		mc->setActionState(Run);
+		if (!keystate[leftKey] && !keystate[rightKey]) {
+			direction.setX(0);
+		}
 	}
 	else if (keystate[downKey])
 	{
@@ -52,10 +61,13 @@ void MCMovementInput::update()
 		velocity.setY(1);
 		gameObject->sendMessage("RUN_BOT");
 		mc->setActionState(Run);
+		if (!keystate[leftKey] && !keystate[rightKey]) {
+			direction.setX(0);
+		}
 	}
 	else {//Si no se mueve en vertical frena
 		velocity.setY(0);
-		direction.setX(0);
+		
 	}
 	if (velocity.getX() == 0 && velocity.getY() == 0) {
 		mc->setActionState(Idle);
