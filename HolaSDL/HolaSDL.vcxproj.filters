@@ -135,6 +135,9 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="MCMovementInput.cpp" />
+    <ClCompile Include="Boss.cpp">
+      <Filter>Bosses\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -276,6 +279,9 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="MCMovementInput.h" />
+    <ClInclude Include="Boss.h">
+      <Filter>Bosses\.h</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -331,6 +337,15 @@
     </Filter>
     <Filter Include="InputComponent">
       <UniqueIdentifier>{6a08dab7-dae4-430a-ae35-f0c2fc06348e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses">
+      <UniqueIdentifier>{74d69435-dd25-4e53-950b-8bb36d1c49af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\.h">
+      <UniqueIdentifier>{40d981e6-9c31-4e0d-8f5d-1853ba17422b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\.cpp">
+      <UniqueIdentifier>{853360cf-4165-4e5a-bfd1-ee3a3e4c4a72}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
