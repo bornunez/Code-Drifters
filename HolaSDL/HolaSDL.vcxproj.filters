@@ -135,6 +135,7 @@
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
     <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="MCMovementInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -276,6 +277,7 @@
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
     <ClInclude Include="BasicMovement.h" />
+    <ClInclude Include="MCMovementInput.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

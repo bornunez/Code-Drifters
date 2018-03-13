@@ -61,7 +61,6 @@ void Game::run()
 	}
 	else
 	{
-		Time::getInstance()->Ticks();
 		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
 		playState = PlayState::getInstance();
@@ -80,6 +79,7 @@ void Game::run()
 
 	while (!exit) 
 	{
+		Time::getInstance()->Ticks();
 		//Provisional en lugar del render	
 		stateMachine->currentState()->update();
 		stateMachine->currentState()->render();

@@ -12,7 +12,7 @@ public:
 	AnimationFrame* getCurrentFrame() { return animFrames[currentFrame]; };
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };
 	int getNumberOfFrames() { return animFrames.size(); };
-	void loadAnimation(int firstRow, int lastRow, int col);
+	void loadAnimation(int firstCol, int lastCol, int row);
 	void loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect);
 	void runAnimation();
 	void setTime(int tim);

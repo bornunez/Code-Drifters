@@ -44,14 +44,14 @@ void Animation::normalAnimation()//El último frame se mantiene
 }
 
 
-void Animation::loadAnimation(int firstRow, int lastRow, int col)//Carga animaciones que no varían en tamaño
+void Animation::loadAnimation(int firstCol, int lastCol, int row)//Carga animaciones que no varían en tamaño
 {
-	for (int i = firstRow; i < lastRow; i++) {
+	for (int i = firstCol; i < lastCol; i++) {
 		SDL_Rect* aux = new SDL_Rect();
 		aux->h = frameH;
 		aux->w = frameW;
-		aux->x = frameW * firstRow;
-		aux->y = frameH * col;
+		aux->x = frameW * firstCol;
+		aux->y = frameH * row;
 		aux->x = frameW * i;
 		addAnimationFrame(aux, gameObject->getTransform()->body);
 	}

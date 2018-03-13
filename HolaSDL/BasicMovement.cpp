@@ -35,7 +35,8 @@ void BasicMovement::update()
 	Transform auxT = *t;
 
 	//Movemos al personaje y a su body
-	auxT.position.set(auxT.position + auxT.velocity * auxT.speed * Time::getInstance()->DeltaTime);
+	//cout << "DeltaTime: [ " << Time::getInstance()->DeltaTime << " ]" << endl;
+	auxT.position.set(auxT.position + auxT.velocity * auxT.speed * (Time::getInstance()->DeltaTime));
 	auxT.body.x = auxT.position.getX(); auxT.body.y = auxT.position.getY();
 
 	//Colisionamos
