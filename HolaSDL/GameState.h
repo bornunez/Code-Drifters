@@ -19,9 +19,9 @@ protected:
 public:
 	GameState();
 	virtual ~GameState();
-	virtual void update() = 0;
-	virtual void render() = 0;
-	virtual void handleEvent(SDL_Event& e) = 0;
+	virtual void update();
+	virtual void render();
+	virtual void handleEvent(SDL_Event& e);
 	void addGameObject(GameObject* go);
 	Game* getGame() { return this->game; }
 	void removeGameObject(GameObject* go);

@@ -1,28 +1,38 @@
 #pragma once
-#include "PlayStateObject.h"
+#include "GameObject.h"
 
 class MainCharacter;
 class Game;
 class PlayState;
+enum EnemyType;
 
-class Enemy : public PlayStateObject
+class Enemy : public GameObject
 {
 protected:
+//################## ATRIBUTOS COMUNES ####################
 	int life;
-	int contactDamage;
+	int meleeDmg; int rangedDmg;
+	int minDrop; int maxDrop; //Drop de dinero
 	GameObject* mainCharacter;
-	PlayState* playState;
 
+//#########################################################
+
+	//Cosas que definen los hijos
+	EnemyType type;
+
+	//Metodos auxiliares
 	void receiveDamage(int damage);
 	void onDestroy();
 
+	friend class EnemyManager;
+	Enemy(MainCharacter* mc);
 public:
-	Enemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t);
-	Enemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h);
 	~Enemy();
-	void render();
-
+	virtual void spawn(int x, int y);
+	virtual void render();
+	virtual void update();
 	GameObject* getMC();
+	EnemyType getType() { return type; }
 
 
 };

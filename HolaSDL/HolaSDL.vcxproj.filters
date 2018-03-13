@@ -2,34 +2,34 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ChaseComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ComponentContainer.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="GameStateMachine.cpp">
+    <ClCompile Include="Font.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="InputComponent.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="miniz.c">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
     <ClCompile Include="RenderComponent.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
     <ClCompile Include="Texture.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="UpdateComponent.cpp">
@@ -38,62 +38,77 @@
     <ClCompile Include="Vector2D.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="SkeletonRenderer.cpp">
+      <Filter>RenderComponents</Filter>
+    </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Mapa\Source</Filter>
+      <Filter>RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyManager.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleEnemy.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GunnerComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="DungeonGenerator.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
       <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="LevelParser.cpp">
       <Filter>Mapa\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
     <ClCompile Include="Room.cpp">
       <Filter>Mapa\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MainCharacter.cpp">
-      <Filter>Prota\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MCMovementComponent.cpp">
-      <Filter>Prota\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="tinyxml2.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Layer.cpp">
-      <Filter>Mapa\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="TileLayer.cpp">
       <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="Tileset.cpp">
       <Filter>Mapa\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Prota\Source</Filter>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
+    <ClCompile Include="AnimationFrame.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentContainer.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="CameraMovementComponent.cpp">
-      <Filter>Mapa\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ChaseComponent.cpp">
-      <Filter>Enemies\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Enemies\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MouseIcon.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="PlayStateObject.cpp">
-      <Filter>Arquitectura\Source</Filter>
+    <ClCompile Include="MainCharacter.cpp">
+      <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="GunnerComponent.cpp">
-      <Filter>Enemies\Source</Filter>
+    <ClCompile Include="MCAnimationComponent.cpp">
+      <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="MCBulletComponent.cpp">
       <Filter>Prota\Source</Filter>
@@ -101,25 +116,28 @@
     <ClCompile Include="MCBulletRenderComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MCMovementComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCShotComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseIcon.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionHandler.cpp">
-      <Filter>Arquitectura\Source</Filter>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
-    <ClCompile Include="miniz.c">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="TileLayer.cpp">
-      <Filter>Mapa\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="ExampleEnemy.cpp">
-      <Filter>Enemies\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="SkeletonRenderer.cpp">
-      <Filter>Prota\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayState.cpp">
+    <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="MCMovementInput.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="MainMenuState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
     <ClCompile Include="GunnerShotComponent.cpp">
@@ -133,31 +151,31 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ChaseComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentContainer.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
+    <ClInclude Include="Base64.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="GameStateMachine.h">
+    <ClInclude Include="Font.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="InputComponent.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="miniz.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
     <ClInclude Include="RenderComponent.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="sdl_includes.h">
@@ -175,59 +193,77 @@
     <ClInclude Include="Vector2D.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="SkeletonRenderer.h">
+      <Filter>RenderComponents</Filter>
+    </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Mapa\Header</Filter>
+      <Filter>RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateMachine.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleEnemy.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GunnerComponent.h">
+      <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="DungeonGenerator.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Layer.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="LevelParser.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MainCharacter.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MCMovementComponent.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Layer.h">
+    <ClInclude Include="Map.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="Room.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TileLayer.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="Tileset.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Prota\Header</Filter>
+    <ClInclude Include="Animation.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
+    <ClInclude Include="AnimationFrame.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentContainer.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="CameraMovementComponent.h">
-      <Filter>Mapa\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="ChaseComponent.h">
-      <Filter>Enemies\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Enemies\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MouseIcon.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MCShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h">
-      <Filter>Mapa\Header</Filter>
+    <ClInclude Include="MainCharacter.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="GunnerComponent.h">
-      <Filter>Enemies\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="ExampleEnemy.h">
-      <Filter>Enemies\Header</Filter>
+    <ClInclude Include="MCAnimationComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="MCBulletComponent.h">
       <Filter>Prota\Header</Filter>
@@ -235,28 +271,28 @@
     <ClInclude Include="MCBulletRenderComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+    <ClInclude Include="MCMovementComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCShotComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseIcon.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="miniz.h">
-      <Filter>Arquitectura\Header</Filter>
+    <ClInclude Include="Bullet.h">
+      <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Base64.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionHandler.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="TileLayer.h">
-      <Filter>Mapa\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="SkeletonRenderer.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayStateObject.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayState.h">
+    <ClInclude Include="BasicMovement.h" />
+    <ClInclude Include="MCMovementInput.h" />
+    <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="MainMenuState.h">
       <Filter>Estados\Header</Filter>
     </ClInclude>
     <ClInclude Include="GunnerShotComponent.h">
@@ -270,50 +306,65 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Prota">
+      <UniqueIdentifier>{2bf338b6-a71c-4872-9a27-85efde50556a}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Arquitectura">
-      <UniqueIdentifier>{d6a3efa5-81e5-4def-8aca-aad6f8cf1dc2}</UniqueIdentifier>
+      <UniqueIdentifier>{eee09b53-4fec-4fa1-9af7-ee0c7281989b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Mapa">
-      <UniqueIdentifier>{c3c49edb-2ae4-47d9-816d-a8ea1bc97adb}</UniqueIdentifier>
+      <UniqueIdentifier>{44da0b59-eaa2-4b69-8c48-0da8293f93e8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Prota">
-      <UniqueIdentifier>{73d54556-1d40-4a4a-82ae-d40a64738879}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquitectura\Header">
-      <UniqueIdentifier>{d160a5bb-2692-49e0-a1d1-d1b48f238a0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Arquitectura\Source">
-      <UniqueIdentifier>{1039041e-96ed-479a-b122-76beacf77bf8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mapa\Source">
-      <UniqueIdentifier>{7b0095c0-e107-4391-828d-f95c624d4ed8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mapa\Header">
-      <UniqueIdentifier>{c259f58e-56e1-42d9-a2c7-0baa4e8f5957}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Prota\Header">
-      <UniqueIdentifier>{b129da87-196b-4ed7-8430-90fc747c3671}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Prota\Source">
-      <UniqueIdentifier>{409cd437-ee28-466b-a1bc-3c0a6660a2f1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemies">
-      <UniqueIdentifier>{63306fae-f726-4ebb-b058-c033b3d161e6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemies\Header">
-      <UniqueIdentifier>{325a7307-5faa-4477-bc5d-ddbc70a2c193}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Enemies\Source">
-      <UniqueIdentifier>{162c0ced-db2b-47e4-9481-ff4fd3fa2237}</UniqueIdentifier>
+    <Filter Include="Enemigos">
+      <UniqueIdentifier>{d634fabc-49d8-49dd-900f-66fad4913184}</UniqueIdentifier>
     </Filter>
     <Filter Include="Estados">
-      <UniqueIdentifier>{f73b6591-7561-4f88-b03c-30ec67f8fc4d}</UniqueIdentifier>
+      <UniqueIdentifier>{7bd1a841-7433-46d2-9279-33332284e74f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquitectura\Header">
+      <UniqueIdentifier>{8ac4a3cc-cb17-4b7e-a3b8-075a221e95fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arquitectura\Source">
+      <UniqueIdentifier>{3212bad3-e130-4e45-a4b9-747fedee4bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mapa\Header">
+      <UniqueIdentifier>{165c4cfb-2dcf-4170-a889-faae72ae7b04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mapa\Source">
+      <UniqueIdentifier>{bcaa9c05-8de1-4ca5-a831-1f7637af8d79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemigos\Header">
+      <UniqueIdentifier>{e3d0fea9-9f6c-4a92-89a7-bdbe202e5d05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enemigos\Source">
+      <UniqueIdentifier>{2c5fd701-abce-4e0f-9bc8-1fee64400b88}</UniqueIdentifier>
     </Filter>
     <Filter Include="Estados\Header">
-      <UniqueIdentifier>{581a85ba-0091-4328-8f1c-67505734c4f0}</UniqueIdentifier>
+      <UniqueIdentifier>{ae2d223a-6863-40dc-a8e7-87ad371a856a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prota\Header">
+      <UniqueIdentifier>{0f24dd3d-dc31-436c-86d2-c3c0f2fe4a6d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Estados\Source">
-      <UniqueIdentifier>{4126242c-351c-42da-96e0-c3d2791e1783}</UniqueIdentifier>
+      <UniqueIdentifier>{e5fb76a0-9203-4b19-8536-b26a448883d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Prota\Source">
+      <UniqueIdentifier>{19d51594-024d-4264-80f1-a35db2b99d8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RenderComponents">
+      <UniqueIdentifier>{30f3e76e-08d6-4bb8-a697-2a98f3c34493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateComponent">
+      <UniqueIdentifier>{f0619cc3-84dd-4bf9-832c-ca937ab87577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InputComponent">
+      <UniqueIdentifier>{6a08dab7-dae4-430a-ae35-f0c2fc06348e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateComponent\Header">
+      <UniqueIdentifier>{b37120dd-9de4-4261-8fa8-bb440823e0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateComponent\Source">
+      <UniqueIdentifier>{02283190-f1b0-4da4-b556-715e1491664a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

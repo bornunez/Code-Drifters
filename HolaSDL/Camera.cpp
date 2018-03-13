@@ -5,12 +5,11 @@
 #include "DungeonGenerator.h"
 #include "Room.h"
 #include "CameraMovementComponent.h"
+#include "GameObject.h"
 #include "PlayState.h"
 
-Camera::Camera(Game* game, PlayState* playState) : PlayStateObject(playState)
+Camera::Camera() : GameObject()
 {
-
-	
 }
 
 void Camera::load()
@@ -20,7 +19,7 @@ void Camera::load()
 	transform.body.w = game->getWinW();
 	transform.body.h = game->getWinH();
 
-	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, getPlayState()->getMainCharacter());
+	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, PlayState::getInstance()->getMainCharacter());
 	this->addComponent(cameraMovement);
 }
 
@@ -31,9 +30,9 @@ Camera::~Camera()
 
 void Camera::render()
 {
-	int auxX = getPlayState()->getMainCharacter()->getCurrentRoomX();
-	int auxY = getPlayState()->getMainCharacter()->getCurrentRoomY();
-	getPlayState()->getLevel()->getRoom(auxX, auxY)->render();
+	int auxX = playState->getMainCharacter()->getCurrentRoomX();
+	int auxY = playState->getMainCharacter()->getCurrentRoomY();
+	playState->getLevel()->getRoom(auxX, auxY)->render();
 
 	//GUI->render();//Pinta el GUI al final
 }

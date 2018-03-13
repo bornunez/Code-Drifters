@@ -3,6 +3,16 @@
 #include "GameObject.h"
 #include <cmath>
 
+#include "Bullet.h"
+#include "ResourceManager.h"
+#include "Game.h"
+#include "PlayState.h"
+#include "MCBulletComponent.h"
+#include "MCBulletRenderComponent.h"
+#include "Room.h"
+#include "DungeonGenerator.h"
+#include "Camera.h"
+#include "MainCharacter.h"
 
 
 GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float vel, float dist) : UpdateComponent(o)
@@ -23,9 +33,25 @@ void GunnerComponent::update() {
 
 	Transform* gunnerT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
+			Transform bulletTransform;
+			bulletTransform.position.set(X, Y);
+			bulletTransform.direction = (targetObject->getTransform()->position - getGameObject()->getTransform()->position);
+			bulletTransform.direction.normalize();
+			bulletTransform.body.w = bulletTransform.body.h = 10;
+			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
 
 	if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
 		getGameObject()->getTransform()->velocity.set(0.0, 0.0);
+			//Le a�ade los componentes de f�sicas y render
+			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
+			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
+
+			//A�ade la bala a los objetos de la sala actual
+			PlayState::getInstance()->addGameObject(auxBullet);
+
+			hadisparaoxd = true;
+	}
+	
 }
 
 

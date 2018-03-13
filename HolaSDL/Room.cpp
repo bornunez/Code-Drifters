@@ -152,19 +152,11 @@ void Room::render() {
 	}
 	*/
 	map->render();
-
-	for (GameObject* o : characters) {
-		if (this->playState->getCamera()->isInsideCamera(o->getTransform())) {
-			o->render();
-		}
-	}
 }
 
 void Room::update()
 {
-	for (GameObject* o : characters) {
-		o->update();		
-	}
+
 }
 //-----------------------------------------------------------------------------------------------
 int Room::getX()
@@ -221,11 +213,6 @@ void Room::setVisited(bool Visited) {
 }
 void Room::setSpecial(string Special) {
 	special = Special;
-}
-
-void Room::addCharacter(GameObject * o)
-{
-	characters.push_back(o);
 }
 
 

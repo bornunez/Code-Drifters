@@ -1,5 +1,6 @@
 #include "TileLayer.h"
 #include "Camera.h"
+#include "Game.h"
 
 TileLayer::TileLayer(Tileset * tileset,string name, int cols, int rows, int tileSize) :Layer(name), tileSet(tileset), cols(cols), rows(rows), tileSize(tileSize)
 {
@@ -20,7 +21,7 @@ void TileLayer::render(Camera* camera)
 			int tileID = tileIDs[i][j];
 			if (tileID > 0) {
 				SDL_Rect destRect;
-				destRect.h = destRect.w = tileSize * scale;
+				destRect.h = destRect.w = tileSize * Game::getGame()->getScale();
 				destRect.x = j * destRect.w - camera->getTransform()->position.getX();
 				destRect.y = i * destRect.w - camera->getTransform()->position.getY();
 

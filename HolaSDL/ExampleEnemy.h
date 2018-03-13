@@ -4,8 +4,7 @@
 class ExampleEnemy : public Enemy
 {
 public:
-	ExampleEnemy(PlayState* playState, Game* game, MainCharacter* mc, Transform t);
-	ExampleEnemy(PlayState* playState, Game* game, MainCharacter* mc, int x, int y, int w, int h);
+	ExampleEnemy(MainCharacter* mc);
 
 	~ExampleEnemy();
 

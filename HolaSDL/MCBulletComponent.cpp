@@ -9,10 +9,10 @@ MCBulletComponent::MCBulletComponent(GameObject* o, float maxVelocity) : UpdateC
 }
 void MCBulletComponent::update()
 {
-	
-	getGameObject()->getTransform()->velocity.setX(velocity.getX()*getGameObject()->getTransform()->direction.getX());//Asigna la velocidad al personaje
-	getGameObject()->getTransform()->velocity.setY(velocity.getY()*getGameObject()->getTransform()->direction.getY());
-	getGameObject()->getTransform()->position.set(getGameObject()->getTransform()->position + getGameObject()->getTransform()->velocity);
+	Transform* t = gameObject->getTransform();
+	t->velocity.setX(velocity.getX()*t->direction.getX());//Asigna la velocidad al personaje
+	t->velocity.setY(velocity.getY()*t->direction.getY());
+	t->position.set(t->position + t->velocity);
 }
 
 
