@@ -15,8 +15,6 @@ private:
 	float maxVelocity;
 	Vector2D velocity;
 	Vector2D direction;
-	float reductionFactor;
-	float acceleration;
 	bool keyPressed;
 public:
 	MCMovementInput(GameObject* o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left);

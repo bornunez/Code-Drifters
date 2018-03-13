@@ -14,6 +14,7 @@
 #include "LevelParser.h"
 #include "Map.h"
 #include "PlayState.h"
+#include "MainMenuState.h"
 #include "Time.h"
 
 Game* Game::game = nullptr;
@@ -61,12 +62,13 @@ void Game::run()
 	}
 	else
 	{
-		Time::getInstance()->Ticks();
 		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
 		playState = PlayState::getInstance();
-		playState->loadState();
-		stateMachine->pushState(playState);
+		//playState->loadState();
+		//stateMachine->pushState(playState);
+		MainMenuState* mm = new MainMenuState();
+		stateMachine->pushState(mm);
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
 		mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
@@ -80,6 +82,7 @@ void Game::run()
 
 	while (!exit) 
 	{
+		Time::getInstance()->Ticks();
 		//Provisional en lugar del render	
 		stateMachine->currentState()->update();
 		stateMachine->currentState()->render();
@@ -133,5 +136,11 @@ Game * Game::getGame()
 	if (!game)
 		game = new Game();
 	return game;
+}
+
+void Game::startGame()
+{
+	stateMachine->pushState(playState);
+	playState->loadState();
 }
 

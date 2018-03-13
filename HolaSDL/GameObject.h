@@ -14,6 +14,7 @@ protected:
 	PlayState* playState = nullptr;
 	Texture * texture = nullptr; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
+	
 	bool active = true;
 public:
 

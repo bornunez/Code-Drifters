@@ -47,11 +47,17 @@ void PlayState::addRoomObject(GameObject* o)
 	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(o);	
 }
 
+Room* PlayState::getCurrentRoom()
+{
+	int currRoomX =this->mainCharacter->getCurrentRoomX(); int currRoomY = this->mainCharacter->getCurrentRoomY();
+	return this->getLevel()->getRoom(currRoomX, currRoomY);
+}
+
 void PlayState::loadState()
 {
 	camera = new Camera();
 
-	mainCharacter = new MainCharacter(nullptr,200*Game::getGame()->getScale(), 200 * Game::getGame()->getScale(), 50, 50);
+	mainCharacter = new MainCharacter(nullptr,200*Game::getGame()->getScale(), 100 * Game::getGame()->getScale(), 50, 50);
 	camera->load();
 
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);

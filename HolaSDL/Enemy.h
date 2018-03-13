@@ -12,7 +12,6 @@ protected:
 //################## ATRIBUTOS COMUNES ####################
 	int life;
 	int meleeDmg; int rangedDmg;
-	int speed; //Velocidad de movimiento
 	int minDrop; int maxDrop; //Drop de dinero
 	GameObject* mainCharacter;
 

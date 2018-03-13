@@ -44,9 +44,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>RenderComponents</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>UpdateComponent</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
@@ -134,7 +131,15 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -184,9 +189,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>RenderComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>UpdateComponent</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Estados\Header</Filter>
@@ -275,7 +277,15 @@
     <ClInclude Include="Timer.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="MCMovementInput.h" />
+    <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -331,6 +341,12 @@
     </Filter>
     <Filter Include="InputComponent">
       <UniqueIdentifier>{6a08dab7-dae4-430a-ae35-f0c2fc06348e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateComponent\Header">
+      <UniqueIdentifier>{b37120dd-9de4-4261-8fa8-bb440823e0a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UpdateComponent\Source">
+      <UniqueIdentifier>{02283190-f1b0-4da4-b556-715e1491664a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationFrame.cpp" />
+    <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="LevelParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MCAnimationComponent.cpp" />
     <ClCompile Include="MCBulletComponent.cpp" />
@@ -42,6 +44,7 @@
     <ClCompile Include="MCMovementComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="miniz.c" />
     <ClCompile Include="MouseIcon.cpp" />
     <ClCompile Include="PlayState.cpp" />
@@ -61,6 +64,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationFrame.h" />
+    <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />
     <ClInclude Include="Camera.h" />
@@ -83,6 +87,7 @@
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="MainCharacter.h" />
+    <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MCAnimationComponent.h" />
     <ClInclude Include="MCBulletComponent.h" />
@@ -90,6 +95,7 @@
     <ClInclude Include="MCMovementComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
+    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="miniz.h" />
     <ClInclude Include="MouseIcon.h" />
     <ClInclude Include="PlayState.h" />

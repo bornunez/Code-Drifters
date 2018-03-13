@@ -8,6 +8,7 @@ class Game;
 class MainCharacter;
 class DungeonGenerator;
 class ExampleEnemy;
+class Room;
 
 using namespace std;
 class PlayState : public GameState
@@ -16,6 +17,7 @@ private:
 	Camera * camera;
 	MainCharacter* mainCharacter;
 	DungeonGenerator* level;
+	Room* currentRoom;
 
 	static PlayState* instance;
 
@@ -34,5 +36,6 @@ public:
 	void addRoomObject(GameObject* o);	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
+	Room* getCurrentRoom();
 };
 

@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "MCMovementComponent.h"
 #include "PlayState.h"
+#include "BasicMovement.h"
 #include "MCShotComponent.h"
 #include "SkeletonRenderer.h"
 #include "Texture.h"
@@ -24,12 +25,14 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.body.h = 64;
 
 	texture = Game::getGame()->getResourceManager()->getTexture(ProtaRun);
-	setMaxVelocity(1);
+	transform.speed = 500;
+	//setMaxVelocity(0.5);
 	createAnimations();
 	animComp = new MCAnimationComponent(this, animations);
 	addComponent(animComp);
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCMovementComponent(this));
+	addComponent(new BasicMovement(this, "Paredes"));
 	addComponent(new MCShotComponent(this));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);

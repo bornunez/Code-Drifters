@@ -26,7 +26,7 @@ void Enemy::spawn(int x, int y)
 	//Y ponemos sus valores por defecto
 	EnemyParams params = EnemyManager::getInstance()->getParams(type);
 	life = params.life; 
-	speed = params.speed;
+	transform.speed = params.speed;
 	meleeDmg = params.meleDmg; rangedDmg = params.rangedDmg ;
 	minDrop = params.minDrop; maxDrop = params.maxDrop;
 
