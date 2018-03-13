@@ -20,18 +20,21 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
-	transform.body.w = 64;
-	transform.body.h = 64;
+	transform.body.w = w;
+	transform.body.h = h;
 
-	texture = Game::getGame()->getResourceManager()->getTexture(ProtaRun);
+	texture = Game::getGame()->getResourceManager()->getTexture(ProtaRun);	
+	createRunAnimations();
+
+	texture = Game::getGame()->getResourceManager()->getTexture(ProtaIdle);
+	createIdleAnimation();
 	setMaxVelocity(1);
-	createAnimations();
 	animComp = new MCAnimationComponent(this, animations);
 	addComponent(animComp);
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCMovementComponent(this));
 	addComponent(new MCShotComponent(this));
-	//addComponent(new SkeletonRendered(this, playState->getCamera()));
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
@@ -43,7 +46,7 @@ MainCharacter::~MainCharacter()
 {
 }
 //Animations
-void MainCharacter::createAnimations()
+void MainCharacter::createRunAnimations()
 {
 	runLeft = new Animation(this, true, 0.05, 32, 32);
 	runLeft->loadAnimation(0, 12, 2);
@@ -88,10 +91,32 @@ void MainCharacter::createAnimations()
 		aux.h = transform.body.h;
 		runTop->getFrame(i)->setHurtbox(aux, 16);
 	}
+
 	animations.emplace("RUN_LEFT", runLeft);
 	animations.emplace("RUN_RIGHT", runRight);
 	animations.emplace("RUN_BOT", runBot);
 	animations.emplace("RUN_TOP", runTop);
+
+
+}
+void MainCharacter::createIdleAnimation()
+{
+	idleTop = new Animation(this, false, 5, 32, 32);
+	idleTop->loadAnimation(1, 2, 0);
+
+	idleBot = new Animation(this, false, 5, 32, 32);
+	idleBot->loadAnimation(0, 1, 0);
+
+	idleRight = new Animation(this, false, 5, 32, 32);
+	idleRight->loadAnimation(2, 3, 0);
+
+	idleLeft = new Animation(this, false, 5, 32, 32);
+	idleLeft->loadAnimation(3, 4, 0);
+
+	animations.emplace("IDLE_LEFT", idleLeft);
+	animations.emplace("IDLE_RIGHT", idleRight);
+	animations.emplace("IDLE_BOT", idleBot);
+	animations.emplace("IDLE_TOP", idleTop);
 }
 Animation* MainCharacter::getCurrentAnimation() {
 	return animComp->getCurrentAnimation();

@@ -26,6 +26,12 @@ private:
 	Animation* runRight;
 	Animation* runTop;
 	Animation* runBot;
+	Animation* idleTop;
+	Animation* idleBot;
+	Animation* idleRight;
+	Animation* idleLeft;
+
+
 
 
 
@@ -36,7 +42,8 @@ public:
 	~MainCharacter();
 	
 	//Animations
-	void createAnimations();
+	void createRunAnimations();
+	void createIdleAnimation();
 	Animation* getCurrentAnimation();
 
 	//Getters & Setters

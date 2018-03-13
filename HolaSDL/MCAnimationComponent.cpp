@@ -6,7 +6,7 @@
 MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
-	Play("RUN_LEFT");
+	Play("IDLE_BOT");
 }
 
 
