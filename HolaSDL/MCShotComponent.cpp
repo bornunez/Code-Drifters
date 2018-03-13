@@ -4,6 +4,7 @@
 #include "ResourceManager.h"
 #include "Game.h"
 #include "PlayState.h"
+#include "GameState.h"
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
 #include "MainCharacter.h"
@@ -78,10 +79,10 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			int currentX = PlayState::getInstance()->getMainCharacter()->getCurrentRoomX();
 			int currentY = PlayState::getInstance()->getMainCharacter()->getCurrentRoomY();
 			//Añade la bala a los objetos de la sala actual
-			PlayState::getInstance()->getLevel()->getRoom(currentX, currentY)->addCharacter(auxBullet);
+			PlayState::getInstance()->addGameObject(auxBullet);
 
 			currentBullets--;//Le resta balas al personaje
-			dynamic_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
+			static_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
 		}
 	}
 

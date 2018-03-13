@@ -35,7 +35,6 @@ public:
 	void setDownDoor(bool downDoor);
 	void setVisited(bool visited);
 	void setSpecial(string special);
-	void addCharacter(GameObject* o);
 	void update();
 
 private:
@@ -43,7 +42,6 @@ private:
 	PlayState* playState;
 	Texture* texture;
 	Map* map;
-	vector<GameObject*> characters;//Todos los elementos que aparecen en pantalla
 	int x;
 	int y;
 	bool upDoor;

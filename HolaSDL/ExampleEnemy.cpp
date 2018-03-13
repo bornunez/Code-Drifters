@@ -7,11 +7,12 @@
 #include "PlayState.h"
 #include "GameObject.h"
 #include "ComponentContainer.h"
+#include "EnemyManager.h"
 
 
 ExampleEnemy::ExampleEnemy(MainCharacter* mc) :	Enemy(mc)
 {
-	
+	type = Stalker;
 	this->addComponent(new ChaseComponent(this, getMC(), 0.1));
 }
 

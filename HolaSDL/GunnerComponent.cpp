@@ -52,7 +52,7 @@ void GunnerComponent::shoot(){
 			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
 
 			//Añade la bala a los objetos de la sala actual
-			PlayState::getInstance()->getLevel()->getRoom(currentX, currentY)->addCharacter(auxBullet);
+			PlayState::getInstance()->addGameObject(auxBullet);
 
 			hadisparaoxd = true;
 	}

@@ -44,7 +44,7 @@ void BasicMovement::update()
 	bool collision = false;
 	vector<string>::iterator it;
 	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
-		TileLayer* tl = dynamic_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
+		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
 		if (tl != nullptr) {
 			if (CollisionHandler::Collide(&auxT, tl)) {
 				t->velocity.set(0, 0);

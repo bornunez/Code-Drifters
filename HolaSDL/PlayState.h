@@ -30,10 +30,9 @@ public:
 	static PlayState* getInstance();
 	~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
-	virtual void render();
-	virtual void handleEvent(SDL_Event& e);
-	virtual void update();
-	void addRoomObject(GameObject* o);	
+	void render();
+	void handleEvent(SDL_Event& e);
+	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
 	Room* getCurrentRoom();

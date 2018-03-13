@@ -1,5 +1,6 @@
 #pragma once
 #include "PlayState.h"
+#include "GameState.h"
 #include "Camera.h"
 #include "Game.h"
 #include "MainCharacter.h"
@@ -29,23 +30,22 @@ void PlayState::render()
 {
 	SDL_RenderClear(this->getGame()->getRenderer());
 	camera->render();
+	GameState::render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
 {
-	mainCharacter->handleEvents(e);
+	GameState::handleEvent(e);
+	//mainCharacter->handleEvents(e);
 }
 
 void PlayState::update()
 {
+	GameState::update();
 	camera->update();
-	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
+	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 }
 
-void PlayState::addRoomObject(GameObject* o)
-{
-	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(o);	
-}
 
 Room* PlayState::getCurrentRoom()
 {
@@ -66,7 +66,7 @@ void PlayState::loadState()
 
 	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
 
-	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(mainCharacter);
+	addGameObject(mainCharacter);
 	//Enemy (test)
 //	enemy = new ExampleEnemy(this, this->getGame(), mainCharacter, 50, 50, 20, 20);
 	

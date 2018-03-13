@@ -26,6 +26,27 @@ GameState::~GameState()
 {
 }
 
+void GameState::update()
+{
+	for (GameObject* o : gameObjects) {
+		o->update();
+	}
+}
+
+void GameState::render()
+{
+	for (GameObject* o : gameObjects) {
+		o->render();
+	}
+}
+
+void GameState::handleEvent(SDL_Event & e)
+{
+	for (GameObject* o : gameObjects) {
+		o->handleEvents(e);
+	}
+}
+
 void GameState::addGameObject(GameObject * go)
 {
 	gameObjects.push_back(go);
