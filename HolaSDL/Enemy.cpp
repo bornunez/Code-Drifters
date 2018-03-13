@@ -11,6 +11,7 @@
 Enemy::Enemy(MainCharacter* mc) : GameObject()
 {
 	this->mainCharacter = mc;
+	transform.position.set(10, 10);
 	//this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
 }
 
@@ -23,6 +24,7 @@ void Enemy::spawn(int x, int y)
 	//Lo spawneamos en la posicion que digan
 	transform.position.setX(x); transform.position.setY(y);
 	transform.body.x = x; transform.body.y = y;
+
 	//Y ponemos sus valores por defecto
 	EnemyParams params = EnemyManager::getInstance()->getParams(type);
 	life = params.life; 
@@ -32,7 +34,9 @@ void Enemy::spawn(int x, int y)
 
 }
 
-void Enemy::render() {}
+void Enemy::render() {
+	GameObject::render();
+}
 
 void Enemy::update()
 {
