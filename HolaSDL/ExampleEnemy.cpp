@@ -15,16 +15,13 @@ ExampleEnemy::ExampleEnemy(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
 	this->addComponent(new ChaseComponent(this, getMC(), 0.1));
-}
-
-
-	//Chaser
-	//addComponent(new ChaseComponent(this, getMC(), 0.1));
 
 	//Gunner
-	addComponent(new GunnerComponent(this, getMC(), 0.1, 300));
-	addComponent(new GunnerShotComponent(this, getMC(), 0.1, 300));
+	//this->addComponent(new GunnerComponent(this, getMC(), 0.1, 300));
+	//this->addComponent(new GunnerShotComponent(this, getMC(), 0.1, 300));
 }
+
+
 
 ExampleEnemy::~ExampleEnemy()
 {

@@ -33,28 +33,11 @@ void GunnerComponent::update() {
 
 	Transform* gunnerT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
-			Transform bulletTransform;
-			bulletTransform.position.set(X, Y);
-			bulletTransform.direction = (targetObject->getTransform()->position - getGameObject()->getTransform()->position);
-			bulletTransform.direction.normalize();
-			bulletTransform.body.w = bulletTransform.body.h = 10;
-			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
 
 	if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
-		getGameObject()->getTransform()->velocity.set(0.0, 0.0);
-			//Le a�ade los componentes de f�sicas y render
-			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
-			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-
-			//A�ade la bala a los objetos de la sala actual
-			PlayState::getInstance()->addGameObject(auxBullet);
-
-			hadisparaoxd = true;
+		gameObject->getTransform()->velocity.set(0.0, 0.0);
 	}
 	
-}
-
-
 	//Regular chase
 	else {
 		Vector2D auxVel;
@@ -69,24 +52,25 @@ void GunnerComponent::update() {
 		//se asigna la velocidad del enemigo y se actualiza la posicion
 		gunnerT->velocity.set(auxVel);
 	}
-
-
-
 	/* horizontal chase
 	else {
-		if (abs(targetT->position.getX() - gunnerT->position.getX()) > abs(targetT->position.getY() - gunnerT->position.getY())) {
-			if (gunnerT->position.getX() > targetT->position.getX()) {
-				gunnerT->velocity.setX(-velocity);
-			}
-			else gunnerT->velocity.setX(velocity);
-		}
-		else {
-			if (gunnerT->position.getY() > targetT->position.getY()) {
-				gunnerT->velocity.setY(-velocity);	
-			}
-			else gunnerT->velocity.setY(velocity);
-		}
+	if (abs(targetT->position.getX() - gunnerT->position.getX()) > abs(targetT->position.getY() - gunnerT->position.getY())) {
+	if (gunnerT->position.getX() > targetT->position.getX()) {
+	gunnerT->velocity.setX(-velocity);
+	}
+	else gunnerT->velocity.setX(velocity);
+	}
+	else {
+	if (gunnerT->position.getY() > targetT->position.getY()) {
+	gunnerT->velocity.setY(-velocity);
+	}
+	else gunnerT->velocity.setY(velocity);
+	}
 	}
 	*/
 	gunnerT->position.set(gunnerT->position + gunnerT->velocity);
 }
+
+
+	
+

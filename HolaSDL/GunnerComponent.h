@@ -18,5 +18,4 @@ private:
 	float velocity;
 	float distancia;
 
-
 };
