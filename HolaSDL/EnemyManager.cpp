@@ -56,7 +56,7 @@ EnemyManager::~EnemyManager()
 //Get Singleton instance
 EnemyManager * EnemyManager::getInstance()
 {
-	if (instance = nullptr)
+	if (instance == nullptr)
 		instance = new EnemyManager();
 	return instance;
 }

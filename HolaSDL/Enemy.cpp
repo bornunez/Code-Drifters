@@ -32,7 +32,9 @@ void Enemy::spawn(int x, int y)
 
 }
 
-void Enemy::render() {}
+void Enemy::render() {
+	GameObject::render();
+}
 
 void Enemy::update()
 {

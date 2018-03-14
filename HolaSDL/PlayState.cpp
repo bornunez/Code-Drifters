@@ -57,7 +57,7 @@ void PlayState::loadState()
 {
 	camera = new Camera();
 
-	mainCharacter = new MainCharacter(nullptr,200*Game::getGame()->getScale(), 100 * Game::getGame()->getScale(), 50, 50);
+	mainCharacter = new MainCharacter(nullptr,32*3*Game::getGame()->getScale(), 32*3 * Game::getGame()->getScale(), 50, 50);
 	camera->load();
 
 	level = new DungeonGenerator(this, 20, 20, 20, 50, 50);
