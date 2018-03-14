@@ -36,3 +36,15 @@ Layer * Map::GetLayer(string LayerID)
 			return l;
 	}
 }
+
+void Map::spawn()
+{
+	for (Spawner* s : spawners) {
+		s->spawn();
+	}
+}
+
+Spawner::Spawner(int x, int y, EnemyType eType,bool active) : x(x), y(y), enemy(eType), active(active)
+{
+
+}

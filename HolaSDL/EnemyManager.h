@@ -5,6 +5,7 @@
 using namespace std;
 class Enemy;
 class MainCharacter;
+class Spawner;
 
 enum EnemyType{Stalker, Gunner, Ninja};
 struct EnemyParams {
@@ -17,7 +18,8 @@ struct EnemyParams {
 class EnemyManager
 {
 private:
-	const int nEnemies = Ninja - Stalker;
+	//const int nEnemies = Ninja - Stalker;
+	const int nEnemies = 1;
 	//Singleton things
 	EnemyManager();
 	static EnemyManager* instance;
@@ -43,6 +45,7 @@ public:
 
 	//Spawnea un tipo de enemigo en unas X, Y dadas
 	void spawn(int x, int y, EnemyType eType);
+	void spawn(Spawner* spawner);
 	//Desactiva un enemigo
 	void kill(Enemy* enemy);
 	//Inicializar el Manager. Llamar al principio

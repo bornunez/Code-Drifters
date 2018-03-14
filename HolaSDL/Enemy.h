@@ -4,6 +4,7 @@
 class MainCharacter;
 class Game;
 class PlayState;
+class Spawner;
 enum EnemyType;
 
 class Enemy : public GameObject
@@ -14,8 +15,10 @@ protected:
 	int meleeDmg; int rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
 	GameObject* mainCharacter;
-
 //#########################################################
+
+	//Necesario para el ciclo de salas
+	Spawner* spawner = nullptr;
 
 	//Cosas que definen los hijos
 	EnemyType type;
@@ -28,7 +31,7 @@ protected:
 	Enemy(MainCharacter* mc);
 public:
 	~Enemy();
-	virtual void spawn(int x, int y);
+	virtual void spawn(int x, int y,Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
 	GameObject* getMC();

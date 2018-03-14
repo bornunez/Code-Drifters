@@ -15,18 +15,18 @@ AnimationFrame::~AnimationFrame()
 {
 }
 
-void AnimationFrame::setHurtbox(SDL_Rect rect, int hurtboxOffsetX , int hurtboxOffsetY )
+void AnimationFrame::addHurtbox(SDL_Rect rect, int offsetX, int offsetY)
 {
-	hurtbox = rect;
-	this->hurtboxOffsetX = hurtboxOffsetX;
-	this->hurtboxOffsetY = hurtboxOffsetY;
+	hurtboxes.push_back(rect);
+	pair<int, int> aux = { offsetX,offsetY };
+	hurtboxOffset.push_back(aux);
 }
 
-void AnimationFrame::setHitbox(SDL_Rect rect, int hitboxOffsetX, int hitboxOffsetY)
+void AnimationFrame::addHitbox(SDL_Rect rect, int offsetX, int offsetY)
 {
-	hitbox = rect;
-	this->hitboxOffsetX = hitboxOffsetX;
-	this->hitboxOffsetY = hitboxOffsetY;
+	hitboxes.push_back(rect);
+	pair<int, int> aux = { offsetX,offsetY };
+	hitboxOffset.push_back(aux);
 }
 
 void AnimationFrame::render()
@@ -39,10 +39,14 @@ void AnimationFrame::render()
 
 void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes respecto al personaje
 {
-	hitbox.x = gameObject->getTransform()->position.getX() + hitboxOffsetX;
-	hitbox.y = gameObject->getTransform()->position.getY() + hitboxOffsetY;
-
-	hurtbox.x = gameObject->getTransform()->position.getX() + hurtboxOffsetX;
-	hurtbox.y = gameObject->getTransform()->position.getY() + hurtboxOffsetY;
+	Transform* t = gameObject->getTransform();
+	for (int i = 0; i < hitboxes.size(); i++) {		
+		hitboxes[i].x = t->position.getX() + hitboxOffset[i].first;//Le suma a su posición actual el offset que le corresponde
+		hitboxes[i].y = t->position.getY() + hitboxOffset[i].second;
+	}
+	for (int i = 0; i < hurtboxes.size(); i++) {
+		hurtboxes[i].x = t->position.getX() + hurtboxOffset[i].first;
+		hurtboxes[i].y = t->position.getY() + hurtboxOffset[i].second;
+	}
 
 }

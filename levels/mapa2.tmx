@@ -26,7 +26,7 @@
   <object id="4" name="asdsd" type="sadasd" gid="1" x="288" y="96" width="32" height="32">
    <properties>
     <property name="Ranged" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
