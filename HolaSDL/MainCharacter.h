@@ -31,7 +31,13 @@ private:
 	Animation* idleRight;
 	Animation* idleTop;
 	Animation* idleBot;
-
+	Animation* attackLeft1;
+	Animation* attackLeft2;
+	Animation* attackLeft3;
+	Animation* attackRight1;
+	Animation* attackRight2;
+	Animation* attackRight3;
+	
 
 
 public:
@@ -43,6 +49,7 @@ public:
 	//Animations
 	void createRunAnimations();
 	void createIdleAnimation();
+	void createLeftAttackAnimation();
 	Animation* getCurrentAnimation();
 
 	//Getters & Setters

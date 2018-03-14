@@ -5,7 +5,7 @@ class GameObject;
 class AnimationFrame
 {
 public:
-	AnimationFrame(GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect);
+	AnimationFrame(GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX=0, int frameOffsetY=0);
 	~AnimationFrame();
 	void addHurtbox(SDL_Rect rect, int offsetX=0, int offsetY=0);
 	void addHitbox(SDL_Rect rect, int offsetX=0, int offsetY=0);
@@ -21,5 +21,8 @@ private:
 	std::vector<SDL_Rect> hitboxes;
 	std::vector<std::pair<int, int>> hurtboxOffset;//Vector que contiene los offset de las hurtboxes	
 	std::vector<std::pair<int, int>> hitboxOffset;
+	
+	int frameOffsetX;
+	int frameOffsetY;
 };
 

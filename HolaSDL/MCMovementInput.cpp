@@ -29,7 +29,7 @@ void MCMovementInput::update()
 		mc->setActionState(Run);
 		if (!keystate[upKey] && !keystate[downKey]) {
 			direction.setY(0);
-		}
+		}		
 	}
 	else if (keystate[rightKey])
 	{
@@ -69,7 +69,7 @@ void MCMovementInput::update()
 		velocity.setY(0);
 		
 	}
-	if (velocity.getX() == 0 && velocity.getY() == 0) {
+	if (velocity.getX() == 0 && velocity.getY() == 0 && mc->getActionState()!=Attack) {
 		mc->setActionState(Idle);
 	}
 	if (!keystate[upKey] && !keystate[downKey] && !keystate[rightKey] && !keystate[leftKey] && mc->getActionState()==Idle) {

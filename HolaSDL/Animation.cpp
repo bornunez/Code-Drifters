@@ -1,5 +1,5 @@
 #include "Animation.h"
-
+#include "Game.h"
 
 
 Animation::Animation(GameObject* o, bool loop, float time, int frameWidth, int framwHeight)
@@ -33,18 +33,24 @@ void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelv
 
 void Animation::normalAnimation()//El último frame se mantiene
 {
-	if (lastFrame->TimeSinceTimerCreation > time) {
-		lastFrame->restart();
-		currentFrame++;
-		if (currentFrame >= animFrames.size()) {
-			currentFrame = animFrames.size()-1;
+	if (!finish) {
+
+		if (lastFrame->TimeSinceTimerCreation > time) {
+			lastFrame->restart();
+			currentFrame++;
+			if (currentFrame >= animFrames.size()) {
+				finish = true;
+				currentFrame = 0;
+			}
 		}
 	}
+
+	
 	animFrames[currentFrame]->render();
 }
 
 
-void Animation::loadAnimation(int firstCol, int lastCol, int row)//Carga animaciones que no varían en tamaño
+void Animation::loadAnimation(int firstCol, int lastCol, int row, int xOffset, int yOffset)//Carga animaciones que no varían en tamaño
 {
 	for (int i = firstCol; i < lastCol; i++) {
 		SDL_Rect* aux = new SDL_Rect();
@@ -53,7 +59,13 @@ void Animation::loadAnimation(int firstCol, int lastCol, int row)//Carga animaci
 		aux->x = frameW * firstCol;
 		aux->y = frameH * row;
 		aux->x = frameW * i;
-		addAnimationFrame(aux, gameObject->getTransform()->body);
+		SDL_Rect destRec;
+		destRec.x = gameObject->getTransform()->body.x + xOffset;
+		destRec.y = gameObject->getTransform()->body.y + yOffset;
+		destRec.w = frameW * Game::getGame()->getScale();
+		destRec.h = frameH * Game::getGame()->getScale();
+		addAnimationFrame(aux, destRec, xOffset, yOffset);
+
 	}
 }
 //Carga frames individuales, se usa cuando tienen tamaños distintos
@@ -77,13 +89,18 @@ void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loo
 	}
 }
 
+bool Animation::isFinished()//Determina si la animación ha terminado
+{
+	return finish;
+}
+
 void Animation::setTime(int tim)//Cambia el tiempo entre frames
 {
 	time = tim;
 }
 
-void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect)//Añade un frame a la animación
-{
-	AnimationFrame* aux = new AnimationFrame(gameObject,srcRect,destRect);
+void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset)//Añade un frame a la animación
+{	
+	AnimationFrame* aux = new AnimationFrame(gameObject,srcRect,destRect, xOffset, yOffset);
 	animFrames.push_back(aux);
 }
