@@ -137,7 +137,7 @@ void Room::loadTexture() {
 	int rnd = rand() % 2;
 	cout << rnd<<endl;
 	string level;
-	if ((rnd % 2 > 0))
+	if (false && (rnd % 2 > 0))
 		level = "../levels/mapa.tmx";
 	else level = "../levels/mapa2.tmx";
 	map = LevelParser::parseLevel(level,playState->getGame(),playState->getCamera());
@@ -213,6 +213,11 @@ void Room::setVisited(bool Visited) {
 }
 void Room::setSpecial(string Special) {
 	special = Special;
+}
+
+void Room::spawn()
+{
+	map->spawn();
 }
 
 

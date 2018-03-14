@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "ExampleEnemy.h"
 #include "MainCharacter.h"
+#include "Map.h"
 
 
 EnemyManager* EnemyManager::instance = nullptr;
@@ -90,6 +91,18 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 		
 }
 
+void EnemyManager::spawn(Spawner * spawner)
+{
+	//Primero miramos por si hay un enemigo
+	Enemy* e = getInactiveEnemy(spawner->getEnemy());
+	//Si no lo hay creamos una instancia nueva
+	if (e == nullptr)
+		createEnemy(spawner->getEnemy());
+	//Lo spawneamos y lo añadimos a la lista de activos
+	e->spawn(spawner->getX(),spawner->getY(),spawner);
+	actives.push_back(e);
+}
+
 void EnemyManager::kill(Enemy * enemy)
 {
 	//Vamos a buscar el enemigo
@@ -108,9 +121,11 @@ void EnemyManager::init(MainCharacter* mainCharacter)
 {
 	mc = mainCharacter;
 	for (int i = 0; i < nEnemies; i++) {
-		for (int j = 0; i < 5; i++) {
+		for (int j = 0; j < 5; j++) {
 			//Creamos n enemigos de cada tipo
-			inactives.push_back(createEnemy((EnemyType)i));
+			Enemy* e = createEnemy((EnemyType)i);
+			if(e!=nullptr)
+				inactives.push_back(e);
 		}
 	}
 }

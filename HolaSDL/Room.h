@@ -35,6 +35,7 @@ public:
 	void setDownDoor(bool downDoor);
 	void setVisited(bool visited);
 	void setSpecial(string special);
+	void spawn();
 	void update();
 
 private:

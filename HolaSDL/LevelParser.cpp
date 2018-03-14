@@ -6,6 +6,7 @@
 #include "Game.h"
 #include "PlayState.h"
 #include "ResourceManager.h"
+#include "EnemyManager.h"
 
 
 void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, Tileset* tileset)
@@ -64,6 +65,46 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 	}
 }
 
+void LevelParser::parseSpawners(XMLElement * root, XMLElement * spawnersElements, Map * map)
+{
+	//Nodo donde estaguardado el mapa
+	for (XMLElement* e = spawnersElements->FirstChildElement();	e != nullptr; e = e->NextSiblingElement()) {
+		//Leemos los atributos 
+		int width = atoi(e->Attribute("width"));
+		int height = atoi(e->Attribute("height"));
+		int x = atoi(e->Attribute("x"));
+		int y = atoi(e->Attribute("y"));
+		//Ahora leemos las propiedades 
+		vector<string> enemyTypes;
+		XMLElement* propElement = e->FirstChildElement("properties");
+		//Por cada propiedad, si su valor es true, añadimos el enemigo al vector
+		for (XMLElement* p = propElement->FirstChildElement(); p != nullptr; p = p->NextSiblingElement()) {
+			if (p->Attribute("value") == string("true"))
+				enemyTypes.push_back(p->Attribute("name"));
+		}
+		//Ahora cogemos un enemigo aleatorio
+		if (enemyTypes.size() > 0) {
+			int randEnemy = rand() % enemyTypes.size();
+			//Lo parseamos
+			EnemyType eType = parseEnemyTypes(enemyTypes[randEnemy]);
+			Spawner* spawner = new Spawner(x*Game::getGame()->getScale(), y*Game::getGame()->getScale(), eType);
+			map->addSpawn(spawner);
+		}
+	}
+
+}
+
+EnemyType LevelParser::parseEnemyTypes(string enemyType)
+{
+	EnemyType eType;
+	//Iba a hacer un switch, peeeero no se puede de un string, asi que hacer aqui un if/else mazo tocho
+	if (enemyType == "Stalker")
+		eType = Stalker;
+	else if (enemyType == "Ninja")
+		eType = Ninja;
+	return eType;
+}
+
 
 LevelParser::~LevelParser()
 {
@@ -82,6 +123,10 @@ Map * LevelParser::parseLevel(string levelFile,Game* game,Camera* camera)
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if(e->Value() == string("layer"))
 			parseTileLayer(root,e, map,game->getResourceManager()->getCurrTileset());
+		if (e->Value() == string("objectgroup")) {
+			if (e->Attribute("name") == string("Spawners"))
+				parseSpawners(root, e,map);
+		}
 	}
 	//XMLElement* mapa = levelDocument.FirstChildElement("map");
 	//cout << mapa->Attribute("width");
