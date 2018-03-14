@@ -4,6 +4,7 @@
 
 using namespace std;
 class Enemy;
+class MainCharacter;
 
 enum EnemyType{Stalker, Gunner, Ninja};
 struct EnemyParams {
@@ -30,6 +31,8 @@ private:
 	Enemy* createEnemy(EnemyType eType);
 	Enemy* getInactiveEnemy(EnemyType eType);
 
+	MainCharacter* mc;
+
 public:
 	~EnemyManager();
 	static EnemyManager* getInstance();
@@ -43,7 +46,7 @@ public:
 	//Desactiva un enemigo
 	void kill(Enemy* enemy);
 	//Inicializar el Manager. Llamar al principio
-	void init();
+	void init(MainCharacter* mainCharacter);
 
 };
 

@@ -16,14 +16,14 @@ typedef struct {
 	int numCols;
 } TextureAtributes;
 
-enum TextureName {BulletSprite,ProtaRun};
+enum TextureName {BulletSprite,ProtaAnimation};
 
 using namespace std;
 class ResourceManager
 {
 
 private:
-	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ { "bullet.png", 1, 1 },{ "RunAnimation.png",12,4 } };			//Esto ira a xml
+	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ { "bullet.png", 1, 1 },{ "ProtaAnimation.png",12,5 } };			//Esto ira a xml
 	//Array que contiene punteros a todas las texturas del juego.
 	Texture* textures[NUM_TEXTURES];
 	//Vector de tilesets

@@ -1,26 +1,25 @@
 #pragma once
 #include "sdl_includes.h"
+#include <vector>
 class GameObject;
 class AnimationFrame
 {
 public:
 	AnimationFrame(GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect);
 	~AnimationFrame();
-	void setHurtbox(SDL_Rect rect, int hurtboxOffsetX = 0, int hurtboxOffsetY = 0);
-	void setHitbox(SDL_Rect rect,int hitboxOffsetX=0, int hitboxOffsetY=0);
-	SDL_Rect getHurtbox() {	return hurtbox;	};
-	SDL_Rect getHitbox() { return hitbox; };
+	void addHurtbox(SDL_Rect rect, int offsetX=0, int offsetY=0);
+	void addHitbox(SDL_Rect rect, int offsetX=0, int offsetY=0);
+	std::vector<SDL_Rect> getHurtboxes() {	return hurtboxes;};
+	std::vector<SDL_Rect> getHitboxes() { return hitboxes; };
 	void render();
 	void updateBoxPosition();
 private:
 	GameObject * gameObject;
 	SDL_Rect* srcRect;
 	SDL_Rect destRect;
-	SDL_Rect hurtbox;
-	SDL_Rect hitbox;
-	int hitboxOffsetX;//La diferencia entre la posición del sprite y posición de su hitbox
-	int hitboxOffsetY;
-	int hurtboxOffsetX;
-	int hurtboxOffsetY;
+	std::vector<SDL_Rect> hurtboxes;
+	std::vector<SDL_Rect> hitboxes;
+	std::vector<std::pair<int, int>> hurtboxOffset;//Vector que contiene los offset de las hurtboxes	
+	std::vector<std::pair<int, int>> hitboxOffset;
 };
 

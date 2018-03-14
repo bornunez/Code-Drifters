@@ -1,5 +1,7 @@
 #include "EnemyManager.h"
 #include "Enemy.h"
+#include "ExampleEnemy.h"
+#include "MainCharacter.h"
 
 
 EnemyManager* EnemyManager::instance = nullptr;
@@ -15,7 +17,7 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	switch (eType)
 	{
 	case Stalker:
-		//e = new Stalker(...));
+		e = new ExampleEnemy(mc);
 		break;
 	case Gunner:
 		//e = new Gunner(...));
@@ -102,8 +104,9 @@ void EnemyManager::kill(Enemy * enemy)
 	inactives.push_back(enemy);
 }
 
-void EnemyManager::init()
+void EnemyManager::init(MainCharacter* mainCharacter)
 {
+	mc = mainCharacter;
 	for (int i = 0; i < nEnemies; i++) {
 		for (int j = 0; i < 5; i++) {
 			//Creamos n enemigos de cada tipo

@@ -7,6 +7,7 @@
 #include "DungeonGenerator.h"
 #include "ExampleEnemy.h"
 #include "Room.h"
+#include "EnemyManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -31,6 +32,7 @@ void PlayState::render()
 	SDL_RenderClear(this->getGame()->getRenderer());
 	camera->render();
 	GameState::render();
+	EnemyManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -43,7 +45,9 @@ void PlayState::update()
 {
 	GameState::update();
 	camera->update();
+	EnemyManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
+	//cout << enemy->getTransform()->position;
 }
 
 
@@ -55,6 +59,8 @@ Room* PlayState::getCurrentRoom()
 
 void PlayState::loadState()
 {
+	
+
 	camera = new Camera();
 
 	mainCharacter = new MainCharacter(nullptr,32*3*Game::getGame()->getScale(), 32*3 * Game::getGame()->getScale(), 50, 50);
@@ -67,9 +73,14 @@ void PlayState::loadState()
 	mainCharacter->changeCurrentRoom(level->getFirstRoom()->getX(), level->getFirstRoom()->getY());//Se le asigna la posición de la primera sala
 
 	addGameObject(mainCharacter);
+
+	EnemyManager::getInstance()->init(mainCharacter);
+
 	//Enemy (test)
-//	enemy = new ExampleEnemy(this, this->getGame(), mainCharacter, 50, 50, 20, 20);
-	
+	EnemyManager::getInstance()->spawn(300, 800, Stalker);
+
+
+
 	//level->getFirstRoom()->addCharacter(enemy);
 
 
