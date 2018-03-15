@@ -31,6 +31,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="EnemyGunner.cpp" />
     <ClCompile Include="GunnerBulletComponent.cpp" />
     <ClCompile Include="GunnerBulletRenderComponent.cpp" />
     <ClCompile Include="GunnerComponent.cpp" />
@@ -56,6 +57,7 @@
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
+    <ClCompile Include="EnemyStalker.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
@@ -87,6 +89,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="EnemyGunner.h" />
     <ClInclude Include="GunnerBulletComponent.h" />
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
@@ -112,6 +115,7 @@
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="SkeletonRenderer.h" />
+    <ClInclude Include="EnemyStalker.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />

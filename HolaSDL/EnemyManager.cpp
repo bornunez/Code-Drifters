@@ -1,6 +1,8 @@
 #include "EnemyManager.h"
 #include "Enemy.h"
 #include "ExampleEnemy.h"
+#include "EnemyStalker.h"
+#include "EnemyGunner.h"
 #include "MainCharacter.h"
 #include "Map.h"
 
@@ -18,10 +20,10 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	switch (eType)
 	{
 	case Stalker:
-		e = new ExampleEnemy(mc);
+		e = new EnemyStalker(mc);
 		break;
 	case Gunner:
-		//e = new Gunner(...));
+		e = new EnemyGunner(mc);
 		break;
 	case Ninja:
 		//e = new Ninja(...));

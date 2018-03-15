@@ -79,7 +79,9 @@ void PlayState::loadState()
 	EnemyManager::getInstance()->init(mainCharacter);
 
 	//Enemy (test)
-	//EnemyManager::getInstance()->spawn(300, 800, Stalker);
+//	EnemyManager::getInstance()->spawn(300, 800, Stalker);
+
+//	EnemyManager::getInstance()->spawn(300, 800, Gunner);
 
 
 

@@ -152,6 +152,12 @@
     <ClCompile Include="ExampleRender.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyStalker.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyGunner.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -308,6 +314,12 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="ExampleRender.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyStalker.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyGunner.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
   </ItemGroup>

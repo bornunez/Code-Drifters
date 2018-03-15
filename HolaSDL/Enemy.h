@@ -31,7 +31,7 @@ protected:
 	Enemy(MainCharacter* mc);
 public:
 	~Enemy();
-	virtual void spawn(int x, int y,Spawner* spawner = nullptr);
+	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
 	GameObject* getMC();
