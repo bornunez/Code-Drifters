@@ -86,7 +86,7 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 	Enemy* e = getInactiveEnemy(eType);
 	//Si no lo hay creamos una instancia nueva
 	if (e == nullptr)
-		createEnemy(eType);
+		e = createEnemy(eType);
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->spawn(x, y);
 	actives.push_back(e);
@@ -99,7 +99,7 @@ void EnemyManager::spawn(Spawner * spawner)
 	Enemy* e = getInactiveEnemy(spawner->getEnemy());
 	//Si no lo hay creamos una instancia nueva
 	if (e == nullptr)
-		createEnemy(spawner->getEnemy());
+		e = createEnemy(spawner->getEnemy());
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
 	actives.push_back(e);

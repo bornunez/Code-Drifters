@@ -100,6 +100,8 @@ EnemyType LevelParser::parseEnemyTypes(string enemyType)
 	//Iba a hacer un switch, peeeero no se puede de un string, asi que hacer aqui un if/else mazo tocho
 	if (enemyType == "Stalker")
 		eType = Stalker;
+	else if (enemyType == "Gunner")
+		eType = Gunner;
 	else if (enemyType == "Ninja")
 		eType = Ninja;
 	return eType;
