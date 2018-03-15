@@ -24,7 +24,6 @@ MCShotComponent::~MCShotComponent()
 
 void MCShotComponent::handleEvents(SDL_Event & e)
 {
-	
 	int currentBullets = dynamic_cast<MainCharacter*>(gameObject)->getCurrentBullets();
 	int reloadTime = dynamic_cast<MainCharacter*>(gameObject)->getReloadTime();//Tiempo para que se recargue una bala
 	int maxBullets = dynamic_cast<MainCharacter*>(gameObject)->getMaxBullets();

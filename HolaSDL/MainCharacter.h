@@ -50,6 +50,7 @@ public:
 	void createRunAnimations();
 	void createIdleAnimation();
 	void createLeftAttackAnimation();
+	void createRightAttackAnimation();
 	Animation* getCurrentAnimation();
 
 	//Getters & Setters

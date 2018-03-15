@@ -25,7 +25,6 @@ void MCMovementInput::update()
 	{
 		direction.setX(-1);
 		velocity.setX(-1);
-		gameObject->sendMessage("RUN_LEFT");
 		mc->setActionState(Run);
 		if (!keystate[upKey] && !keystate[downKey]) {
 			direction.setY(0);
@@ -35,7 +34,6 @@ void MCMovementInput::update()
 	{
 		direction.setX(1);
 		velocity.setX(1);
-		gameObject->sendMessage("RUN_RIGHT");
 		mc->setActionState(Run);
 		if (!keystate[upKey] && !keystate[downKey]) {
 			direction.setY(0);
@@ -49,7 +47,6 @@ void MCMovementInput::update()
 	{
 		direction.setY(-1);
 		velocity.setY(-1);
-		gameObject->sendMessage("RUN_TOP");
 		mc->setActionState(Run);
 		if (!keystate[leftKey] && !keystate[rightKey]) {
 			direction.setX(0);
@@ -59,7 +56,6 @@ void MCMovementInput::update()
 	{
 		direction.setY(1);
 		velocity.setY(1);
-		gameObject->sendMessage("RUN_BOT");
 		mc->setActionState(Run);
 		if (!keystate[leftKey] && !keystate[rightKey]) {
 			direction.setX(0);
@@ -84,6 +80,24 @@ void MCMovementInput::update()
 		}
 		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
 			gameObject->sendMessage("IDLE_TOP");
+		}
+	}
+	else if(mc->getActionState() == Run){
+		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
+			
+				gameObject->sendMessage("RUN_RIGHT");
+		}
+		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
+			
+				gameObject->sendMessage("RUN_LEFT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
+			
+				gameObject->sendMessage("RUN_BOT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
+			
+				gameObject->sendMessage("RUN_TOP");
 		}
 	}
 

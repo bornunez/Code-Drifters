@@ -15,7 +15,7 @@ public:
 	void loadAnimation(int firstCol, int lastCol, int row, int xOffset=0, int yOffset=0);
 	void loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect);
 	void runAnimation();
-	void startAnimation() { finish = false; };
+	void startAnimation();
 	bool isFinished();
 	void setTime(int tim);
 	void addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset=0, int yOffset=0);

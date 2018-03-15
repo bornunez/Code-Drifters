@@ -27,7 +27,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	createRunAnimations();
 	createIdleAnimation();
 	createLeftAttackAnimation();
-
+	createRightAttackAnimation();
 	transform.speed = 500;
 	//setMaxVelocity(0.5);
 
@@ -144,7 +144,7 @@ void MainCharacter::createLeftAttackAnimation()
 		aux.y = transform.position.getY();
 		aux.w = transform.body.w / 2;
 		aux.h = transform.body.h/1.2;
-		attackLeft1->getFrame(i)->addHurtbox(aux, transform.body.w / 2, transform.body.h/7);
+		attackLeft1->getFrame(i)->addHurtbox(aux, transform.body.w /2, transform.body.h/7);
 	}
 	//Frame 1 Hitbox0
 	SDL_Rect aux;
@@ -205,7 +205,7 @@ void MainCharacter::createLeftAttackAnimation()
 
 
 	//ATTACKLEFT 3
-	attackLeft3 = new Animation(this, true, 3, 54, 40);
+	attackLeft3 = new Animation(this, true, 0.05, 54, 40);
 	attackLeft3->loadAnimation(0, 13, 9, -transform.body.w / 2);
 	//Creación de hurtboxes
 	for (int i = 0; i<attackLeft3->getNumberOfFrames(); i++) {
@@ -239,6 +239,108 @@ void MainCharacter::createLeftAttackAnimation()
 	animations.emplace("ATTACK1_LEFT", attackLeft1);
 	animations.emplace("ATTACK2_LEFT", attackLeft2);
 	animations.emplace("ATTACK3_LEFT", attackLeft3);
+}
+void MainCharacter::createRightAttackAnimation()
+{
+	//ATTACKRIGHT 1
+	attackRight1 = new Animation(this, true, 0.05, 54, 40);
+	attackRight1->loadAnimation(0, 8, 4);
+	//Creación de hurtboxes
+	for (int i = 0; i<attackRight1->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = transform.body.w / 2;
+		aux.h = transform.body.h / 1.2;
+		attackRight1->getFrame(i)->addHurtbox(aux, transform.body.w / 4, transform.body.h / 7);
+	}
+	//Frame 1 Hitbox0
+	SDL_Rect aux;
+	aux.x = transform.position.getX();
+	aux.y = transform.position.getY();
+	aux.w = transform.body.w / 2;
+	aux.h = transform.body.h / 3;
+	attackRight1->getFrame(1)->addHitbox(aux, transform.body.w/4 , transform.body.h / 1.5);
+	//Frame 1 Hitbox1
+	aux.w = transform.body.w / 1.2;
+	aux.h = transform.body.h / 1.1;
+	attackRight1->getFrame(1)->addHitbox(aux, transform.body.w / 1.5, transform.body.h / 10);
+	//Frame 2 Hitbox0
+	aux.w = transform.body.w / 1.2;
+	aux.h = transform.body.h / 2.75;
+	attackRight1->getFrame(2)->addHitbox(aux, transform.body.w / 2, transform.body.h / 1.5);
+
+	//ATTACKRIGHT 2
+	attackRight2 = new Animation(this, true, 0.05, 54, 40);
+	attackRight2->loadAnimation(0, 11, 5);
+	//Creación de hurtboxes
+	for (int i = 0; i<attackRight2->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = transform.body.w / 2;
+		aux.h = transform.body.h / 1.2;
+		attackRight2->getFrame(i)->addHurtbox(aux, transform.body.w / 4, transform.body.h / 7);
+	}
+	//Frame 1 Hitbox0
+	aux.x = transform.position.getX();
+	aux.y = transform.position.getY();
+	aux.w = transform.body.w / 2;
+	aux.h = transform.body.h / 1.1;
+	attackRight2->getFrame(1)->addHitbox(aux, transform.body.w/2);
+	//Frame 1 Hitbox1
+	aux.w = transform.body.w / 4;
+	aux.h = transform.body.h / 1.4;
+	attackRight2->getFrame(1)->addHitbox(aux, transform.body.w, transform.body.h / 10);
+	//Frame 1 Hitbox2
+	aux.w = transform.body.w / 4.5;
+	aux.h = transform.body.h / 1.7;
+	attackRight2->getFrame(1)->addHitbox(aux, transform.body.w*1.3, transform.body.h / 4.5);
+	//Frame 2 Hitbox0
+	aux.w = transform.body.w*1.2;
+	aux.h = transform.body.h / 3;
+	attackRight2->getFrame(2)->addHitbox(aux, transform.body.w/4, transform.body.h / 20);
+	//Frame 3 Hitbox0
+	aux.w = transform.body.w*1.2;
+	aux.h = transform.body.h / 7;
+	attackRight2->getFrame(3)->addHitbox(aux, transform.body.w / 4, transform.body.h / 20);
+
+
+
+	//ATTACKRIGHT 3
+	attackRight3 = new Animation(this, true, 0.05, 54, 40);
+	attackRight3->loadAnimation(0, 13, 6);
+	//Creación de hurtboxes
+	for (int i = 0; i<attackRight3->getNumberOfFrames(); i++) {
+		SDL_Rect aux;
+		aux.x = transform.position.getX();
+		aux.y = transform.position.getY();
+		aux.w = transform.body.w / 1.5;
+		aux.h = transform.body.h / 1.3;
+		attackRight3->getFrame(i)->addHurtbox(aux, transform.body.w / 4, transform.body.h / 6);
+	}
+	//Frame 1 Hitbox0
+	aux.x = transform.position.getX();
+	aux.y = transform.position.getY();
+	aux.w = transform.body.w / 2;
+	aux.h = transform.body.h / 1;
+	attackRight3->getFrame(1)->addHitbox(aux, transform.body.w/2);
+	//Frame 1 Hitbox1
+	aux.w = transform.body.w / 4;
+	aux.h = transform.body.h / 1.2;
+	attackRight3->getFrame(1)->addHitbox(aux, transform.body.w , transform.body.h / 9);
+	////Frame 1 Hitbox2
+	aux.w = transform.body.w / 7;
+	aux.h = transform.body.h / 1.8;
+	attackRight3->getFrame(1)->addHitbox(aux, transform.body.w*1.25, transform.body.h / 4);
+	//Frame 2 Hitbox0
+	aux.w = transform.body.w / 1.5;
+	aux.h = transform.body.h / 4;
+	attackRight3->getFrame(2)->addHitbox(aux, transform.body.w/1.5, transform.body.h / 1.3);
+
+	animations.emplace("ATTACK1_RIGHT", attackRight1);
+	animations.emplace("ATTACK2_RIGHT", attackRight2);
+	animations.emplace("ATTACK3_RIGHT", attackRight3);
 }
 Animation* MainCharacter::getCurrentAnimation() {
 	return animComp->getCurrentAnimation();

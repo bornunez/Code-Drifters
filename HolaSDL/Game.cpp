@@ -51,8 +51,7 @@ void Game::run()
 
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
-
-
+	
 	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
 

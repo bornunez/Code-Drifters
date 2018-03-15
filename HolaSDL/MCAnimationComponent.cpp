@@ -38,28 +38,42 @@ void MCAnimationComponent::recieveMessage(std::string msg) {
 	else if (msg == "IDLE_BOT") {
 		Play("IDLE_BOT");
 	}
-	else if (msg == "ATTACK1_LEFT") {
+	else if (msg == "ATTACK1_LEFT") {//En las animaciones de ataque, estas se reinician para empezar en el frame 0
 		Play("ATTACK1_LEFT");
+		currentAnimation->startAnimation();
 	}
 	else if (msg == "ATTACK2_LEFT") {
 		Play("ATTACK2_LEFT");
+		currentAnimation->startAnimation();
 	}
 	else if (msg == "ATTACK3_LEFT") {
 		Play("ATTACK3_LEFT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK1_RIGHT") {
+		Play("ATTACK1_RIGHT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK2_RIGHT") {
+		Play("ATTACK2_RIGHT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK3_RIGHT") {
+		Play("ATTACK3_RIGHT");
+		currentAnimation->startAnimation();
 	}
 }
-void MCAnimationComponent::render()
+void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tiene que haber asignada una animación para que se vea en pantalla)
 {
-
 	currentAnimation->runAnimation();
 	debugBoxes();
 }
 
 
 
-void MCAnimationComponent::Play(const char * animName)
-{
-	currentAnimation = animations[animName];
+void MCAnimationComponent::Play(const char * animName)//Cambia la animación actual que se renderiza
+{		
+	currentAnimation = animations[animName];	
 }
 
 void MCAnimationComponent::debugBoxes()

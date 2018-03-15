@@ -33,7 +33,7 @@ private:
 	const int winWidth = 1020;
 	const int winHeight = 720;
 	//Info del juego
-	const int scale = 3;
+	const int scale=2;
 	const int worldWidth = 5000;
 	const int worldHeight = 5000;
 	int level;

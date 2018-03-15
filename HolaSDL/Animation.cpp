@@ -89,6 +89,12 @@ void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loo
 	}
 }
 
+void Animation::startAnimation()
+{
+	finish = false;
+	currentFrame = 0;
+}
+
 bool Animation::isFinished()//Determina si la animación ha terminado
 {
 	return finish;
