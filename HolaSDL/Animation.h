@@ -2,12 +2,16 @@
 #include "Texture.h"
 #include "AnimationFrame.h"
 #include "Timer.h"
+
 #include <vector>
 #include "GameObject.h"
+class TileLayer;
+class Layer;
+class Tileset;
 class Animation
 {
 public:
-	Animation(GameObject* o,  bool loop, float time, int frameWidth, int frameHeight);
+	Animation(Tileset* tileset, GameObject* o, int w, int h, bool loop = true, float time = 1 );
 	virtual ~Animation();
 	AnimationFrame* getCurrentFrame() { return animFrames[currentFrame]; };
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };
@@ -19,7 +23,11 @@ public:
 	bool isFinished();
 	void setTime(int tim);
 	void addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset=0, int yOffset=0);
+	void setLayer(TileLayer* lay);
+	TileLayer* getLayer() { return layer; };
 private:
+	TileLayer* layer;
+	Tileset* tileSet;
 	GameObject * gameObject;
 	bool finish = false;;
 	bool loop;

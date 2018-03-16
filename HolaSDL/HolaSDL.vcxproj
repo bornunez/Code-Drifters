@@ -13,6 +13,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationFrame.cpp" />
+    <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -70,6 +71,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationFrame.h" />
+    <ClInclude Include="AnimationParser.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />

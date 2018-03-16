@@ -47,10 +47,10 @@ public:
 	~MainCharacter();
 	
 	//Animations
-	void createRunAnimations();
-	void createIdleAnimation();
-	void createLeftAttackAnimation();
-	void createRightAttackAnimation();
+	//void createRunAnimations();
+	//void createIdleAnimation();
+	//void createLeftAttackAnimation();
+	//void createRightAttackAnimation();
 	Animation* getCurrentAnimation();
 
 	//Getters & Setters

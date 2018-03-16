@@ -19,5 +19,7 @@ public:
 	virtual void render(Camera* camera);
 	std::vector<std::vector<int>> getTileIDs() { return tileIDs; }
 	int getTileSize() { return tileSize; }
+	int getCols() { return cols; }
+	int getRows() { return rows; }
 };
 

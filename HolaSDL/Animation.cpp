@@ -1,14 +1,15 @@
 #include "Animation.h"
 #include "Game.h"
-
-
-Animation::Animation(GameObject* o, bool loop, float time, int frameWidth, int framwHeight)
+#include "TileLayer.h"
+#include "Tileset.h"
+Animation::Animation(Tileset* tileset,  GameObject* o, int w, int h, bool loop, float time)
 {
+	frameW = w;
+	frameH = h;
+	tileSet = tileset;
 	gameObject = o;
 	this->time = time;
 	this->loop = loop;
-	frameW = frameWidth;
-	frameH = framwHeight;
 	currentFrame = 0;
 	lastFrame = new Timer();
 }
@@ -107,6 +108,34 @@ void Animation::setTime(int tim)//Cambia el tiempo entre frames
 
 void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset)//Añade un frame a la animación
 {	
-	AnimationFrame* aux = new AnimationFrame(gameObject,srcRect,destRect, xOffset, yOffset);
+	AnimationFrame* aux = new AnimationFrame(tileSet, gameObject,srcRect,destRect, xOffset, yOffset);
 	animFrames.push_back(aux);
+}
+
+void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asignar los animationFrame
+{
+	layer = lay;
+	std::vector<std::vector<int>> tileIDs = layer->getTileIDs();
+	for (int i = 0; i < layer->getRows(); i++) {
+		for (int j = 0; j < layer->getCols(); j++) {
+			int tileID = tileIDs[i][j];
+			if (tileID > 0) {
+
+				SDL_Rect* srcRect = tileSet->getTileRect(tileID - 1);
+				SDL_Rect destRec;
+				destRec.x = gameObject->getTransform()->body.x;
+				destRec.y = gameObject->getTransform()->body.y;
+				destRec.w = frameW;
+				destRec.h = frameH;
+				addAnimationFrame(srcRect, destRec);
+				/*SDL_Rect destRect;
+				destRect.h = destRect.w = tileSize * Game::getGame()->getScale();
+				destRect.x = j * destRect.w - camera->getTransform()->position.getX();
+				destRect.y = i * destRect.w - camera->getTransform()->position.getY();
+
+				SDL_Rect* srcRect = tileSet->getTileRect(tileID - 1);
+				tileSet->getTexture()->render(destRect, srcRect);*/
+			}
+		}
+	}
 }

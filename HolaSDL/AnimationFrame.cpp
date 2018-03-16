@@ -3,8 +3,10 @@
 #include "Texture.h"
 #include "Camera.h"
 #include "PlayState.h"
-AnimationFrame::AnimationFrame(GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX, int frameOffsetY)
+#include "Tileset.h"
+AnimationFrame::AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX, int frameOffsetY)
 {
+	tileSet = tileset;
 	gameObject = o;
 	this->srcRect = srcRect;
 	this->destRect = destRect;
@@ -37,7 +39,8 @@ void AnimationFrame::render()
 	destRect.x = gameObject->getTransform()->position.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX() + frameOffsetX;
 	destRect.y = gameObject->getTransform()->position.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY() + frameOffsetY;
 	updateBoxPosition();
-	gameObject->getTexture()->render(destRect,srcRect);	
+	tileSet->getTexture()->render(destRect, srcRect);
+	//gameObject->getTexture()->render(destRect,srcRect);	
 }
 
 void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes respecto al personaje

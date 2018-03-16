@@ -12,6 +12,7 @@ ResourceManager::ResourceManager(SDL_Renderer* renderer)
 	this->renderer = renderer;
 	loadTextures();
 	loadTilesets();
+	loadProtaTileset();
 }
 
 ResourceManager::~ResourceManager()
@@ -40,4 +41,17 @@ void ResourceManager::loadTilesets()
 		tilesets.push_back(new Tileset(tileTex, root));
 	}
 	currentTileset = tilesets[0];
+}
+
+void ResourceManager::loadProtaTileset()
+{
+	string filename = protaTilesetName;
+	XMLDocument doc;
+	doc.LoadFile((PROTATILESET_PATH + filename).c_str());
+	//Raiz del tileset
+	XMLElement* root = doc.FirstChildElement();
+	string imageSrc = root->FirstChildElement("image")->Attribute("source");
+	Texture* tileTex = new Texture(renderer, PROTATILESET_PATH + imageSrc);
+	//Y cargamos el tileset
+	protaTileset = new Tileset(tileTex, root);
 }
