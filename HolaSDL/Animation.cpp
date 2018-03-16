@@ -128,7 +128,7 @@ void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asig
 				destRec.y = gameObject->getTransform()->body.y;
 				destRec.w = frameW;
 				destRec.h = frameH;
-				addAnimationFrame(srcRect, destRec);				
+				addAnimationFrame(srcRect, destRec, offsetX,offsetY);				
 			}
 		}
 	}

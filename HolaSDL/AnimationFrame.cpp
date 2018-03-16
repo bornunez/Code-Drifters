@@ -45,7 +45,6 @@ void AnimationFrame::render()
 		+ frameOffsetY ;
 	updateBoxPosition();
 	tileSet->getTexture()->render(destRect, srcRect);
-	//gameObject->getTexture()->render(destRect,srcRect);	
 }
 
 void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes respecto al personaje

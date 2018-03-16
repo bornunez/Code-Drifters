@@ -11,7 +11,7 @@ class Tileset;
 class Animation
 {
 public:
-	Animation(Tileset* tileset, GameObject* o, int tileSize, int offsetx, int offsety, bool loop = true, float time = 0.05 );
+	Animation(Tileset* tileset, GameObject* o, int tileSize, int offsetx=0, int offsety=0, bool loop = true, float time = 0.05 );
 	virtual ~Animation();
 	AnimationFrame* getCurrentFrame() { return animFrames[currentFrame]; };
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };

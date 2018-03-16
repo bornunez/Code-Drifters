@@ -21,6 +21,6 @@ private:
 	static void parseAnimationLayer(string animationName, XMLElement* root, XMLElement* animationElement, Animation* anim, Tileset* tileset);
 	static void parseHitbox(string animationName, XMLElement* root, XMLElement* hitboxElements, Animation* anim);
 public:
-	static Animation* parseAnimation(string animationFile, string animationName, GameObject* o, bool loop=true, float time=0.05);
+	static Animation* parseAnimation(string animationFile, string animationName, GameObject* o, int offsetX=0, int offsetY=0,bool loop=true, float time=0.05);
 };
 
