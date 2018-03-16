@@ -2,6 +2,10 @@
 <map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="17" height="17" tilewidth="64" tileheight="64" infinite="0" nextobjectid="34">
  <tileset firstgid="1" source="ProtaAnimation.tsx"/>
  <layer name="IdleBot" width="17" height="17" locked="1">
+  <properties>
+   <property name="offsetX" type="int" value="0"/>
+   <property name="offsetY" type="int" value="0"/>
+  </properties>
   <data encoding="base64" compression="zlib">
    eJxjZBgFo2AUjIKBAwAJCAAC
   </data>
@@ -36,9 +40,68 @@
    eJxjYBg+wASITYHYDIjNgdgCiC2B2AqIrYHYBohtgdgOiO0HyI2jYBSMAlQAAM1zArM=
   </data>
  </layer>
+ <layer name="AttackRight3" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJztztsNACAIwEDG9omgDm63MFGa3H9FoldLyCioaOhQDBgcEwv7ymX0ewdn/AZn
+  </data>
+ </layer>
+ <layer name="AttackRight2" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgxGkA3EGEGcCcRYQZwNxDhDnAnEeEOcDcQEQFw6UA0fBKKASAAA17wSl
+  </data>
+ </layer>
  <layer name="AttackRight1" width="17" height="17" locked="1">
+  <properties>
+   <property name="offsetX" type="int" value="20"/>
+   <property name="offsetY" type="int" value="0"/>
+  </properties>
   <data encoding="base64" compression="zlib">
    eJxjYBgF1AZhQBwOxBFAHAnEUUAcDcQxQBw7gO4aBaNgMAIAx2wCzQ==
+  </data>
+ </layer>
+ <layer name="AttackLeft1" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA36ATiLiDuBuIeIO4F4j4g7gfiCQPorlEwfAAARgoEZQ==
+  </data>
+ </layer>
+ <layer name="AttackLeft2" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJztzskNADAIxED6LyEngRQaNxHxWUvzt5lSf2voGJhY2HAcBBK36E/V9gD/iwbW
+  </data>
+ </layer>
+ <layer name="AttackLeft3" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNACAQxMDrvxXe420P10ACwVqa3GZK/V9AREJGQYWjoWNgYmG/2VQXHeFBCP4=
+  </data>
+ </layer>
+ <layer name="AttackTopRight1" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BkgD1AvBeI9wHxfiA+AMQHgfgQEB8eOGeNeAAAOjsF/Q==
+  </data>
+ </layer>
+ <layer name="AttackTopRight2" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUEAvOAvE5ID4PxBeA+CIQXwLiy0B8ZQDdNZQBAFBsBoU=
+  </data>
+ </layer>
+ <layer name="AttackTopRight3" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AU0BPcA+L7QPwAiB8C8SMgfgzET4D46cA5a8AAAB5dBw0=
+  </data>
+ </layer>
+ <layer name="AttackTopLeft1" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDDXwHog/APFHIP4ExJ+B+AsQfwXibwPoLnIAAKP/B5U=
+  </data>
+ </layer>
+ <layer name="AttackTopLeft2" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjEjACERAzATEzEDMAsSsQMwGxOyM9HMGABT8ACU=
+  </data>
+ </layer>
+ <layer name="AttackTopLeft3" width="17" height="17" locked="1">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALygCAjA4MQEAsDsQgQiwKxGBCLA7EEI3FmAAAoHACt
   </data>
  </layer>
  <layer name="RunBot" width="17" height="17" locked="1">

@@ -2,10 +2,12 @@
 #include "Game.h"
 #include "TileLayer.h"
 #include "Tileset.h"
-Animation::Animation(Tileset* tileset,  GameObject* o, int w, int h, bool loop, float time)
+Animation::Animation(Tileset* tileset,  GameObject* o, int tileSize, int offsetx, int offsety, bool loop, float time)
 {
-	frameW = w;
-	frameH = h;
+	offsetX = offsetx;
+	offsetY = offsety;
+	frameW = tileSize;
+	frameH = tileSize;
 	tileSet = tileset;
 	gameObject = o;
 	this->time = time;
@@ -120,21 +122,13 @@ void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asig
 		for (int j = 0; j < layer->getCols(); j++) {
 			int tileID = tileIDs[i][j];
 			if (tileID > 0) {
-
 				SDL_Rect* srcRect = tileSet->getTileRect(tileID - 1);
 				SDL_Rect destRec;
 				destRec.x = gameObject->getTransform()->body.x;
 				destRec.y = gameObject->getTransform()->body.y;
 				destRec.w = frameW;
 				destRec.h = frameH;
-				addAnimationFrame(srcRect, destRec);
-				/*SDL_Rect destRect;
-				destRect.h = destRect.w = tileSize * Game::getGame()->getScale();
-				destRect.x = j * destRect.w - camera->getTransform()->position.getX();
-				destRect.y = i * destRect.w - camera->getTransform()->position.getY();
-
-				SDL_Rect* srcRect = tileSet->getTileRect(tileID - 1);
-				tileSet->getTexture()->render(destRect, srcRect);*/
+				addAnimationFrame(srcRect, destRec);				
 			}
 		}
 	}

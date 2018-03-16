@@ -62,6 +62,30 @@ void MCAnimationComponent::recieveMessage(std::string msg) {
 		Play("ATTACK3_RIGHT");
 		currentAnimation->startAnimation();
 	}
+	else if (msg == "ATTACK1_TOPLEFT") {//En las animaciones de ataque, estas se reinician para empezar en el frame 0
+		Play("ATTACK1_TOPLEFT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK2_TOPLEFT") {
+		Play("ATTACK2_TOPLEFT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK3_TOPLEFT") {
+		Play("ATTACK3_TOPLEFT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK1_TOPRIGHT") {
+		Play("ATTACK1_TOPRIGHT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK2_TOPRIGHT") {
+		Play("ATTACK2_TOPRIGHT");
+		currentAnimation->startAnimation();
+	}
+	else if (msg == "ATTACK3_TOPRIGHT") {
+		Play("ATTACK3_TOPRIGHT");
+		currentAnimation->startAnimation();
+	}
 }
 void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tiene que haber asignada una animación para que se vea en pantalla)
 {

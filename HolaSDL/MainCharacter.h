@@ -37,6 +37,12 @@ private:
 	Animation* attackRight1;
 	Animation* attackRight2;
 	Animation* attackRight3;
+	Animation* attackTopLeft1;
+	Animation* attackTopLeft2;
+	Animation* attackTopLeft3;
+	Animation* attackTopRight1;
+	Animation* attackTopRight2;
+	Animation* attackTopRight3;
 	
 
 
@@ -51,6 +57,7 @@ public:
 	//void createIdleAnimation();
 	//void createLeftAttackAnimation();
 	//void createRightAttackAnimation();
+	void loadAnimations();
 	Animation* getCurrentAnimation();
 
 	//Getters & Setters

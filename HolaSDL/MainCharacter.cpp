@@ -24,27 +24,9 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
-	//texture = Game::getGame()->getResourceManager()->getTexture(ProtaAnimation);
-	idleBot = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "IdleBot", this,0,0,0, w, h);
-	idleTop = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "IdleTop", this, 0, 1, 1, w, h);
-	idleRight = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "IdleRight", this, 0, 2, 2, w, h);
-	idleLeft = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "IdleLeft", this, 0, 3, 3, w, h);
 
-	runBot = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "RunBot", this, 1, 0, 11, w, h);
-	runTop = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "RunTop", this, 2, 0, 11, w, h);	
-	runRight = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "RunRight", this, 3, 0, 11, w, h);	
-	runLeft = AnimationParser::parseAnimation("../Animations/Protagonist/tileset/ProtaAnimation.tmx", "RunLeft", this, 4, 0, 11, w, h);
-	
+	loadAnimations();
 
-	animations.emplace("IDLE_BOT", idleBot);
-	animations.emplace("IDLE_TOP", idleTop);
-	animations.emplace("IDLE_RIGHT", idleRight);
-	animations.emplace("IDLE_LEFT", idleLeft);
-
-	animations.emplace("RUN_BOT", runBot);
-	animations.emplace("RUN_TOP", runTop);
-	animations.emplace("RUN_RIGHT", runRight);
-	animations.emplace("RUN_LEFT", runLeft);
 	transform.speed = 500;
 	//setMaxVelocity(0.5);
 
@@ -65,6 +47,62 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 MainCharacter::~MainCharacter()
 {
+}
+void MainCharacter::loadAnimations()
+{
+
+	string animationPath = "../Animations/Protagonist/tileset/ProtaAnimation.tmx";
+	idleBot = AnimationParser::parseAnimation(animationPath, "IdleBot", this);
+	idleTop = AnimationParser::parseAnimation(animationPath, "IdleTop", this);
+	idleRight = AnimationParser::parseAnimation(animationPath, "IdleRight", this);
+	idleLeft = AnimationParser::parseAnimation(animationPath, "IdleLeft", this);
+
+	animations.emplace("IDLE_BOT", idleBot);
+	animations.emplace("IDLE_TOP", idleTop);
+	animations.emplace("IDLE_RIGHT", idleRight);
+	animations.emplace("IDLE_LEFT", idleLeft);
+
+	runBot = AnimationParser::parseAnimation(animationPath, "RunBot", this);
+	runTop = AnimationParser::parseAnimation(animationPath, "RunTop", this);
+	runRight = AnimationParser::parseAnimation(animationPath, "RunRight", this);
+	runLeft = AnimationParser::parseAnimation(animationPath, "RunLeft", this);
+
+	animations.emplace("RUN_BOT", runBot);
+	animations.emplace("RUN_TOP", runTop);
+	animations.emplace("RUN_RIGHT", runRight);
+	animations.emplace("RUN_LEFT", runLeft);
+
+	attackRight1 = AnimationParser::parseAnimation(animationPath, "AttackRight1", this);
+	attackRight2 = AnimationParser::parseAnimation(animationPath, "AttackRight2", this);
+	attackRight3 = AnimationParser::parseAnimation(animationPath, "AttackRight3", this);
+
+	animations.emplace("ATTACK1_RIGHT", attackRight1);
+	animations.emplace("ATTACK2_RIGHT", attackRight2);
+	animations.emplace("ATTACK3_RIGHT", attackRight3);
+
+	attackLeft1 = AnimationParser::parseAnimation(animationPath, "AttackLeft1", this);
+	attackLeft2 = AnimationParser::parseAnimation(animationPath, "AttackLeft2", this);
+	attackLeft3 = AnimationParser::parseAnimation(animationPath, "AttackLeft3", this);
+
+	animations.emplace("ATTACK1_LEFT", attackLeft1);
+	animations.emplace("ATTACK2_LEFT", attackLeft2);
+	animations.emplace("ATTACK3_LEFT", attackLeft3);
+
+	attackTopLeft1 = AnimationParser::parseAnimation(animationPath, "AttackTopLeft1", this);
+	attackTopLeft2  = AnimationParser::parseAnimation(animationPath, "AttackTopLeft2", this);
+	attackTopLeft3 = AnimationParser::parseAnimation(animationPath, "AttackTopLeft3", this);
+
+	animations.emplace("ATTACK1_TOPLEFT", attackTopLeft1);
+	animations.emplace("ATTACK2_TOPLEFT", attackTopLeft2);
+	animations.emplace("ATTACK3_TOPLEFT", attackTopLeft3);
+
+	attackTopRight1  = AnimationParser::parseAnimation(animationPath, "AttackTopRight1", this);
+	attackTopRight2 = AnimationParser::parseAnimation(animationPath, "AttackTopRight2", this);
+	attackTopRight3 = AnimationParser::parseAnimation(animationPath, "AttackTopRight3", this);
+
+	animations.emplace("ATTACK1_TOPRIGHT", attackTopRight1);
+	animations.emplace("ATTACK2_TOPRIGHT", attackTopRight2);
+	animations.emplace("ATTACK3_TOPRIGHT", attackTopRight3);
 }
 //Animations
 //void MainCharacter::createRunAnimations()

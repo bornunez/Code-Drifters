@@ -24,6 +24,23 @@ MCShotComponent::~MCShotComponent()
 
 void MCShotComponent::handleEvents(SDL_Event & e)
 {
+
+	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
+	if (e.key.keysym.sym == SDLK_h && e.type == SDL_KEYDOWN) {
+		gameObject->sendMessage("ATTACK1_TOPRIGHT");
+		mc->setActionState(Attack);
+
+	}
+	if (e.key.keysym.sym == SDLK_j && e.type == SDL_KEYDOWN) {
+		gameObject->sendMessage("ATTACK2_TOPRIGHT");
+		mc->setActionState(Attack);
+
+	}
+	if (e.key.keysym.sym == SDLK_k && e.type == SDL_KEYDOWN) {
+		gameObject->sendMessage("ATTACK3_TOPRIGHT");
+		mc->setActionState(Attack);
+
+	}
 	int currentBullets = dynamic_cast<MainCharacter*>(gameObject)->getCurrentBullets();
 	int reloadTime = dynamic_cast<MainCharacter*>(gameObject)->getReloadTime();//Tiempo para que se recargue una bala
 	int maxBullets = dynamic_cast<MainCharacter*>(gameObject)->getMaxBullets();

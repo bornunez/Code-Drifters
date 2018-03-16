@@ -36,8 +36,13 @@ void AnimationFrame::addHitbox(SDL_Rect rect, int offsetX, int offsetY)
 
 void AnimationFrame::render()
 {
-	destRect.x = gameObject->getTransform()->position.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX() + frameOffsetX;
-	destRect.y = gameObject->getTransform()->position.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY() + frameOffsetY;
+	//Coloca el sprite correctamente
+	destRect.x = gameObject->getTransform()->position.getX() - gameObject->getTransform()->body.w / 2 -
+		PlayState::getInstance()->getCamera()->getTransform()->position.getX() 
+		+ frameOffsetX;
+	destRect.y = gameObject->getTransform()->position.getY() - gameObject->getTransform()->body.h / 2 
+		- PlayState::getInstance()->getCamera()->getTransform()->position.getY()
+		+ frameOffsetY ;
 	updateBoxPosition();
 	tileSet->getTexture()->render(destRect, srcRect);
 	//gameObject->getTexture()->render(destRect,srcRect);	

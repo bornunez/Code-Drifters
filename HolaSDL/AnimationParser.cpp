@@ -79,15 +79,16 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 {
 }
 
-Animation * AnimationParser::parseAnimation(string animationFile, string animationName, GameObject * o, int row, int firstCol, int lastCol, int w, int h, bool loop, float time)
+Animation * AnimationParser::parseAnimation(string animationFile, string animationName, GameObject * o, bool loop, float time)
 {
-	Animation* anim = new Animation(Game::getGame()->getResourceManager()->getProtaTileset(), o, w, h,loop,time);
+	
 	//Carga y lectura del mapa
 	XMLDocument doc;
 	doc.LoadFile(animationFile.c_str());
 	//Raiz del mapa
 	XMLElement* root = doc.FirstChildElement();
-
+	int tileSize = atoi(root->Attribute("tilewidth"));
+	Animation* anim = new Animation(Game::getGame()->getResourceManager()->getProtaTileset(), o, tileSize*Game::getGame()->getScale(), loop, time);
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if (e->Value() == string("layer"))
