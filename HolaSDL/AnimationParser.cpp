@@ -26,7 +26,7 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 	//Vector de los datos de tiles
 	vector<vector<int>> data;
 	string decodedID;
-	//Nodo donde estaguardado el mapa
+		//Nodo donde estaguardado el mapa
 	XMLElement* dataNode = animationElement->FirstChildElement("data");
 
 	for (XMLNode* e = dataNode->FirstChild(); e != nullptr; e = e->NextSibling())//Esto hay que pasarlo a While

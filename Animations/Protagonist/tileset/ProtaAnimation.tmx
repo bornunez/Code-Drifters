@@ -50,7 +50,7 @@
    eJxjYBgFgxGkA3EGEGcCcRYQZwNxDhDnAnEeEOcDcQEQFw6UA0fBKKASAAA17wSl
   </data>
  </layer>
- <layer name="AttackRight1" width="17" height="17" locked="1">
+ <layer name="AttackRight1" width="17" height="17">
   <properties>
    <property name="offsetX" type="int" value="20"/>
    <property name="offsetY" type="int" value="0"/>
