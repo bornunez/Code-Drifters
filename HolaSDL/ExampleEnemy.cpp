@@ -17,7 +17,8 @@ ExampleEnemy::ExampleEnemy(MainCharacter* mc) :	Enemy(mc)
 	type = Stalker;
 	transform.body.w = transform.body.h = 30;
 	this->addComponent(new ExampleRender(this));
-	this->addComponent(new ChaseComponent(this, getMC(), 0.1));
+	this->addComponent(new ChaseComponent(this, getMC()));
+	
 
 	//Gunner
 	//this->addComponent(new GunnerComponent(this, getMC(), 0.1, 300));

@@ -12,16 +12,16 @@
 #include "Tileset.h"
 #include "ResourceManager.h"
 #include "AnimationParser.h"
+#include "BasicMovement.h"
 
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w = transform.body.h = 30;
+	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	this->addComponent(new ExampleRender(this));
-	this->addComponent(new ChaseComponent(this, getMC(), 0.1));
-	addComponent(new StalkerAnimationComponent(this, animations));
-	
+	this->addComponent(new ChaseComponent(this, getMC()));
+	this->addComponent(new BasicMovement(this, "Paredes"));
+	this->addComponent(new StalkerAnimationComponent(this, animations));
 }
 
 

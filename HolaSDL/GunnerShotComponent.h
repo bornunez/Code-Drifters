@@ -7,7 +7,7 @@ class GunnerShotComponent :	public UpdateComponent
 {
 public:
 	void update();
-	GunnerShotComponent(GameObject* o, GameObject* target, float vel, float dist);
+	GunnerShotComponent(GameObject* o, GameObject* target, float dist, float delay);
 	~GunnerShotComponent();
 	void recieveMessage(std::string msg) {};
 
@@ -15,8 +15,9 @@ private:
 	GameObject* targetObject;
 	Timer* lastShotTime;
 	float distance;
-	float velocity;
+	float shotDelay;
+
 	void shoot();
-	bool hadisparaoxd = false;
+
 };
 

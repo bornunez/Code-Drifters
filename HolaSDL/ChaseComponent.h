@@ -8,7 +8,7 @@ class ChaseComponent :
 public:
 	void update();
 	void recieveMessage(std::string msg) {};
-	ChaseComponent(GameObject* o, GameObject* target, float vel);
+	ChaseComponent(GameObject* o, GameObject* target);
 	virtual ~ChaseComponent();
 
 private:

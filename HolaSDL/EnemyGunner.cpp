@@ -13,17 +13,19 @@
 #include "GunnerAnimationComponent.h"
 #include "Tileset.h"
 #include "ResourceManager.h"
+#include "BasicMovement.h"
 
 
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w = transform.body.h = 30;
+	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	//this->addComponent(new ExampleRender(this));
-	this->addComponent(new GunnerComponent(this, getMC(), 0.1, 300));
-	this->addComponent(new GunnerShotComponent(this, getMC(), 0.1, 300));
+	this->addComponent(new GunnerComponent(this, getMC(), 400));
+	this->addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
+	this->addComponent(new BasicMovement(this, "Paredes"));
 	addComponent(new GunnerAnimationComponent(this, animations));
+	
 }
 
 

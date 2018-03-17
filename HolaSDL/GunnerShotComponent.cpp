@@ -11,12 +11,12 @@
 
 
 
-GunnerShotComponent::GunnerShotComponent(GameObject* o, GameObject* target, float vel, float dist) 
+GunnerShotComponent::GunnerShotComponent(GameObject* o, GameObject* target, float dist, float delay) 
 	: UpdateComponent(o)
 {
 	targetObject = target;
 	distance = dist;
-	velocity = vel;
+	shotDelay = delay;
 
 	lastShotTime = new Timer();
 
@@ -28,11 +28,12 @@ GunnerShotComponent::~GunnerShotComponent()
 
 
 void GunnerShotComponent::shoot() {
-	int shotDelay = 3;
+	Transform* gunnerT = gameObject->getTransform();
+	Transform* targetT = targetObject->getTransform();
 
-	if (lastShotTime->TimeSinceTimerCreation > shotDelay && !hadisparaoxd) {
-		Transform* gunnerT = gameObject->getTransform();
-		Transform* targetT = targetObject->getTransform();
+	if (lastShotTime->TimeSinceTimerCreation > shotDelay && 
+		(abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distance) {
+		
 		lastShotTime->restart();
 
 		int currentX = dynamic_cast<MainCharacter*>(targetObject)->getCurrentRoomX(); //esto requiere arreglo
@@ -53,8 +54,6 @@ void GunnerShotComponent::shoot() {
 
 		//Añade la bala a los objetos de la sala actual
 		PlayState::getInstance()->addGameObject(auxBullet);
-
-		hadisparaoxd = true;
 	}
 
 }

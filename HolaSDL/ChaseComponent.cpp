@@ -3,10 +3,10 @@
 #include "GameObject.h"
 
 
-ChaseComponent::ChaseComponent(GameObject* o, GameObject* target, float vel) : UpdateComponent(o)
+ChaseComponent::ChaseComponent(GameObject* o, GameObject* target) : UpdateComponent(o)
 {
 	targetObject = target;
-	velocity = vel;
+	
 
 }
 
@@ -26,13 +26,13 @@ void ChaseComponent::update() {
 	//vectorentre enemigo y objetivo
 	auxVel.set(targetT->position - chaserT->position);
 
-	//se normaliza y se multiplica por la magnitud de la velocidad
+	//se normaliza 
 	auxVel.normalize();
-	auxVel = auxVel * velocity;
+	
 
-	//se asigna la velocidad del enemigo y se actualiza la posicion
+	//se asigna la velocidad del enemigo 
 	chaserT->velocity.set(auxVel);
-	chaserT->position.set(chaserT->position + chaserT->velocity);
+	
 
 	
 

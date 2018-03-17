@@ -15,10 +15,9 @@
 #include "MainCharacter.h"
 
 
-GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float vel, float dist) : UpdateComponent(o)
+GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float dist) : UpdateComponent(o)
 {
 	targetObject = target;
-	velocity = vel;
 	distancia = dist;
 
 }
@@ -47,7 +46,6 @@ void GunnerComponent::update() {
 
 		//se normaliza y se multiplica por la magnitud de la velocidad
 		auxVel.normalize();
-		auxVel = auxVel * velocity;
 
 		//se asigna la velocidad del enemigo y se actualiza la posicion
 		gunnerT->velocity.set(auxVel);
@@ -68,7 +66,6 @@ void GunnerComponent::update() {
 	}
 	}
 	*/
-	gunnerT->position.set(gunnerT->position + gunnerT->velocity);
 }
 
 
