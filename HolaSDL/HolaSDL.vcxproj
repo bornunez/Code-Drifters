@@ -61,6 +61,7 @@
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="EnemyStalker.cpp" />
+    <ClCompile Include="StalkerAnimationComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="sdl_includes.h" />
     <ClInclude Include="SkeletonRenderer.h" />
     <ClInclude Include="EnemyStalker.h" />
+    <ClInclude Include="StalkerAnimationComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />

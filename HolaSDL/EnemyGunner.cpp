@@ -35,7 +35,7 @@ EnemyGunner::~EnemyGunner()
 
 void EnemyGunner::loadAnimations()
 {
-	string animationPath = "../Animations/Enemies/Gunner.tmx";
+	string animationPath = "../Animations/Enemies/GunnerAnimation.tmx";
 	Tileset* tileset = Game::getGame()->getResourceManager()->getEnemyTileset(0);
 	Animation* runBot = AnimationParser::parseAnimation(tileset,animationPath, "RunBot", this);
 	Animation* runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this);

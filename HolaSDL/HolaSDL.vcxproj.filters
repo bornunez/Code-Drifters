@@ -165,6 +165,7 @@
     <ClCompile Include="GunnerAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="StalkerAnimationComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -336,6 +337,7 @@
     <ClInclude Include="GunnerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
+    <ClInclude Include="StalkerAnimationComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
