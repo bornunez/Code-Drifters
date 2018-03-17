@@ -66,3 +66,13 @@ void GameObject::updateDisplayPosition()
 	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX());
 	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY());
 }
+
+Animation * GameObject::getCurrentAnimation()
+{
+	return currentAnimation;
+}
+
+void GameObject::changeCurrentAnimation(const char * animName)
+{
+	currentAnimation = animations[animName];
+}

@@ -10,9 +10,5 @@ public:
 
 	~EnemyStalker();
 	void loadAnimations();
-private:
-	std::map<const char*, Animation*> animations;
-	StalkerAnimationComponent* animComp;//Se necesita para poder obtener un puntero a la animación actual
-
 };
 

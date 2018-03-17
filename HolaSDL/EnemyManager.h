@@ -50,6 +50,6 @@ public:
 	void kill(Enemy* enemy);
 	//Inicializar el Manager. Llamar al principio
 	void init(MainCharacter* mainCharacter);
-
+	list<Enemy*> getActiveEnemies() { return actives; };
 };
 

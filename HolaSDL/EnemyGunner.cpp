@@ -23,8 +23,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	//this->addComponent(new ExampleRender(this));
 	this->addComponent(new GunnerComponent(this, getMC(), 0.1, 300));
 	this->addComponent(new GunnerShotComponent(this, getMC(), 0.1, 300));
-	animComp = new GunnerAnimationComponent(this, animations);
-	addComponent(animComp);
+	addComponent(new GunnerAnimationComponent(this, animations));
 }
 
 
@@ -47,4 +46,5 @@ void EnemyGunner::loadAnimations()
 	animations.emplace("RUN_RIGHT", runRight);
 	animations.emplace("RUN_LEFT", runLeft);
 }
+
 

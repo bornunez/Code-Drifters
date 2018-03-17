@@ -2,6 +2,8 @@
 
 #include "ComponentContainer.h"
 #include "Transform.h"
+#include <map>
+class Animation;
 class Game;
 class Texture;
 class PlayState;
@@ -17,6 +19,9 @@ protected:
 	Vector2D centerPosition;//Centro del objeto
 	Vector2D displayPosition;//Posición respecto a la cámara
 	
+
+	std::map<const char*, Animation*> animations;//Animaciones que contiene
+	Animation* currentAnimation;
 	bool active = true;
 public:
 
@@ -41,6 +46,8 @@ public:
 	Texture* getTexture() { return texture; }
 	Vector2D getCenterPos() { return centerPosition; }
 	Vector2D getDisplayPos() { return displayPosition; }
+	Animation* getCurrentAnimation();
+	void changeCurrentAnimation(const char * animName);
 
 };
 

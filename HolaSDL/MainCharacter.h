@@ -21,34 +21,8 @@ private:
 	int currentBullets;
 	int reloadTime;
 	Vector2D gunPosition;//Posición de donde sale la bala
-	std::map<const char*, Animation*> animations;
-	MCAnimationComponent* animComp;//Se necesita para poder obtener un puntero a la animación actual
-	Animation* runLeft;
-	Animation* runRight;
-	Animation* runTop;
-	Animation* runBot;
-	Animation* idleLeft;
-	Animation* idleRight;
-	Animation* idleTop;
-	Animation* idleBot;
-	Animation* attackLeft1;
-	Animation* attackLeft2;
-	Animation* attackLeft3;
-	Animation* attackRight1;
-	Animation* attackRight2;
-	Animation* attackRight3;
-	Animation* attackTopLeft1;
-	Animation* attackTopLeft2;
-	Animation* attackTopLeft3;
-	Animation* attackTopRight1;
-	Animation* attackTopRight2;
-	Animation* attackTopRight3;
-	Animation* attackBotLeft1;
-	Animation* attackBotLeft2;
-	Animation* attackBotLeft3;
-	Animation* attackBotRight1;
-	Animation* attackBotRight2;
-	Animation* attackBotRight3;
+	
+	
 	
 
 
@@ -59,12 +33,8 @@ public:
 	~MainCharacter();
 	
 	//Animations
-	//void createRunAnimations();
-	//void createIdleAnimation();
-	//void createLeftAttackAnimation();
-	//void createRightAttackAnimation();
 	void loadAnimations();
-	Animation* getCurrentAnimation();
+	
 
 	//Getters & Setters
 	void setCurrentBullets(int num);

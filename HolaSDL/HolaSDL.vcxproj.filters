@@ -166,6 +166,7 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="StalkerAnimationComponent.cpp" />
+    <ClCompile Include="MCCollisionComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -338,6 +339,7 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="StalkerAnimationComponent.h" />
+    <ClInclude Include="MCCollisionComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -10,10 +10,5 @@ public:
 
 	~EnemyGunner();
 	void loadAnimations();
-
-private:
-	std::map<const char*, Animation*> animations;
-	GunnerAnimationComponent* animComp;//Se necesita para poder obtener un puntero a la animación actual
-
 };
 

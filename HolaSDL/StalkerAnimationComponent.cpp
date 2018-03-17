@@ -8,7 +8,7 @@
 StalkerAnimationComponent::StalkerAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
-	Play("RUN");
+	gameObject->changeCurrentAnimation("RUN");
 }
 
 
@@ -18,17 +18,17 @@ StalkerAnimationComponent::~StalkerAnimationComponent()
 
 void StalkerAnimationComponent::render()
 {
-	currentAnimation->runAnimation();
+	gameObject->getCurrentAnimation()->runAnimation();
 	debugBoxes();
 }
 
 void StalkerAnimationComponent::recieveMessage(std::string msg)
 {
 	if (msg == "RUN") {
-		Play("RUN");
+		gameObject->changeCurrentAnimation("RUN");
 	}
 	else if (msg == "RUN") {
-		Play("RUN");
+		gameObject->changeCurrentAnimation("RUN");
 	}
 }
 
@@ -42,11 +42,11 @@ void StalkerAnimationComponent::debugHitbox(string box)
 {
 	vector<SDL_Rect> boxes;
 	if (box == "Hitbox") {
-		boxes = currentAnimation->getCurrentFrame()->getHitboxes();
+		boxes = gameObject->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
 		SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibuja las líneas del hitbox en rojo
 	}
 	else {
-		boxes = currentAnimation->getCurrentFrame()->getHurtboxes();
+		boxes = gameObject->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
 		SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0x00ff00ff));//Dibuja las líneas del hurtbox en verde
 	}
 	for (int i = 0; i < boxes.size(); i++) {
@@ -70,9 +70,4 @@ void StalkerAnimationComponent::debugHitbox(string box)
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlb.getX() + boxX + boxW / 2, hlb.getY() + boxY + boxH / 2, hlu.getX() + boxX + boxW / 2,
 			hlu.getY() + boxY + boxH / 2);
 	}
-}
-
-void StalkerAnimationComponent::Play(const char * animName)
-{
-	currentAnimation = animations[animName];
 }

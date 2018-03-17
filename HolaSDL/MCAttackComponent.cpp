@@ -11,7 +11,10 @@
 #include "DungeonGenerator.h"
 #include "Camera.h"
 #include "PlayState.h"
+#include "EnemyManager.h"
 #include <iostream>
+#include "EnemyGunner.h"
+#include "CollisionHandler.h"
 MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 {
 	attackCD = new Timer();

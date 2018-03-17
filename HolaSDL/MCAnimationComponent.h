@@ -10,14 +10,10 @@ public:
 	void render();
 	void recieveMessage(std::string msg);
 	virtual ~MCAnimationComponent();	
-	void Play(const char* animName);
 	void debugBoxes();
 	void debugHitbox(string box);
-
-	Animation* getCurrentAnimation() { return currentAnimation; };
-
 private:
 	std::map<const char*, Animation*> animations;
-	Animation* currentAnimation;
+	
 };
 

@@ -20,8 +20,7 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	loadAnimations();
 	this->addComponent(new ExampleRender(this));
 	this->addComponent(new ChaseComponent(this, getMC(), 0.1));
-	animComp = new StalkerAnimationComponent(this, animations);
-	addComponent(animComp);
+	addComponent(new StalkerAnimationComponent(this, animations));
 	
 }
 

@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "MainCharacter.h"
 #include "Time.h"
+#include "EnemyManager.h"
 MCMovementInput::MCMovementInput(GameObject * o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left): 
 	UpdateComponent (o), upKey(up), rightKey(right), downKey(down), leftKey(left)
 {
@@ -113,5 +114,5 @@ void MCMovementInput::update()
 		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
 		cout << "CenterPosition: [ X: " << gameObject->getCenterPos().getX() << " ,Y: " << gameObject->getCenterPos().getY() << " ]" << endl;
 		cout << "DisplayPosition: [ X: " << gameObject->getDisplayPos().getX() << " ,Y: " << gameObject->getDisplayPos().getY() << " ]" << endl;
-	}
+	}	
 }
