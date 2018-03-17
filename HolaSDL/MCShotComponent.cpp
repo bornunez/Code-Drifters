@@ -27,17 +27,17 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
 	if (e.key.keysym.sym == SDLK_h && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK1_RIGHT");
+		gameObject->sendMessage("ATTACK1_BOTLEFT");
 		mc->setActionState(Attack);
 
 	}
 	if (e.key.keysym.sym == SDLK_j && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK2_TOPRIGHT");
+		gameObject->sendMessage("ATTACK2_BOTLEFT");
 		mc->setActionState(Attack);
 
 	}
 	if (e.key.keysym.sym == SDLK_k && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK3_TOPRIGHT");
+		gameObject->sendMessage("ATTACK3_BOTLEFT");
 		mc->setActionState(Attack);
 
 	}
