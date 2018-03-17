@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "PlayState.h"
 #include "Camera.h"
+#include "MainCharacter.h"
 MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
@@ -114,6 +115,7 @@ void MCAnimationComponent::recieveMessage(std::string msg) {
 }
 void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tiene que haber asignada una animación para que se vea en pantalla)
 {
+	handleAnimationStates();
 	gameObject->getCurrentAnimation()->runAnimation();
 	debugBoxes();
 }
@@ -156,5 +158,46 @@ void MCAnimationComponent::debugHitbox(string box)
 			hlb.getY() + boxY + boxH / 2);
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlb.getX() + boxX + boxW / 2, hlb.getY() + boxY + boxH / 2, hlu.getX() + boxX + boxW / 2,
 			hlu.getY() + boxY + boxH / 2);
+	}
+}
+
+void MCAnimationComponent::handleAnimationStates()
+{
+	//IDLE POSITIONS
+	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
+	if (gameObject->getCurrentAnimation()->isFinished() || mc->getActionState() == Idle) {
+		Vector2D direction = gameObject->getTransform()->direction;
+		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
+			gameObject->changeCurrentAnimation("IDLE_RIGHT");
+		}
+		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
+			gameObject->changeCurrentAnimation("IDLE_LEFT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
+			gameObject->changeCurrentAnimation("IDLE_BOT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
+			gameObject->changeCurrentAnimation("IDLE_TOP");
+		}
+	}
+	//RUN POSITIONS
+	if (mc->getActionState() == Run) {
+		Vector2D direction = gameObject->getTransform()->direction;
+		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
+
+			gameObject->sendMessage("RUN_RIGHT");
+		}
+		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
+
+			gameObject->sendMessage("RUN_LEFT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
+
+			gameObject->sendMessage("RUN_BOT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
+
+			gameObject->sendMessage("RUN_TOP");
+		}
 	}
 }

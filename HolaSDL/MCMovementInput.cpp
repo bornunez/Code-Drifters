@@ -66,42 +66,10 @@ void MCMovementInput::update()
 		velocity.setY(0);
 		
 	}
+	
 	if (velocity.getX() == 0 && velocity.getY() == 0 && mc->getActionState()!=Attack) {
 		mc->setActionState(Idle);
 	}
-	if (!keystate[upKey] && !keystate[downKey] && !keystate[rightKey] && !keystate[leftKey] && mc->getActionState()==Idle) {
-		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
-			gameObject->sendMessage("IDLE_RIGHT");
-		}
-		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
-			gameObject->sendMessage("IDLE_LEFT");
-		}
-		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
-			gameObject->sendMessage("IDLE_BOT");
-		}
-		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
-			gameObject->sendMessage("IDLE_TOP");
-		}
-	}
-	else if(mc->getActionState() == Run){
-		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
-			
-				gameObject->sendMessage("RUN_RIGHT");
-		}
-		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
-			
-				gameObject->sendMessage("RUN_LEFT");
-		}
-		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
-			
-				gameObject->sendMessage("RUN_BOT");
-		}
-		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
-			
-				gameObject->sendMessage("RUN_TOP");
-		}
-	}
-
 	Transform* t = gameObject->getTransform();
 	velocity.normalize();
 	t->velocity.set(velocity);
