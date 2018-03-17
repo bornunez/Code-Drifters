@@ -6,6 +6,7 @@
 #include "PlayState.h"
 #include "BasicMovement.h"
 #include "MCShotComponent.h"
+#include "MCAttackComponent.h"
 #include "SkeletonRenderer.h"
 #include "Texture.h"
 #include "MCAnimationComponent.h"
@@ -35,6 +36,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCMovementComponent(this));
 	addComponent(new BasicMovement(this, "Paredes"));
 	addComponent(new MCShotComponent(this));
+	addComponent(new MCAttackComponent(this));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));
 	animComp = new MCAnimationComponent(this, animations);
 	addComponent(animComp);

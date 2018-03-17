@@ -159,6 +159,9 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="AnimationParser.cpp" />
+    <ClCompile Include="MCAttackComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -324,6 +327,9 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="AnimationParser.h" />
+    <ClInclude Include="MCAttackComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
