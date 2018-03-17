@@ -126,60 +126,41 @@ void MCAnimationComponent::Play(const char * animName)//Cambia la animación actu
 
 void MCAnimationComponent::debugBoxes()
 {
-	debugHitbox();
-	debugHurtbox();
+	debugHitbox("Hitbox");
+	debugHitbox("Hurtbox");
+	
 }
 
-void MCAnimationComponent::debugHitbox()
+void MCAnimationComponent::debugHitbox(string box)
 {
-	vector<SDL_Rect> hitboxes = currentAnimation->getCurrentFrame()->getHitboxes();
-	for (int i = 0; i < hitboxes.size(); i++) {
-		int hitboxX = hitboxes[i].x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
-		int hitboxY = hitboxes[i].y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
-		int hitboxW = hitboxes[i].w;
-		int hitboxH = hitboxes[i].h;
-		Vector2D hlu(-hitboxW / 2, -hitboxH / 2);
-		Vector2D hru(hitboxW / 2, -hitboxH / 2);
-		Vector2D hrb(hitboxW / 2, hitboxH / 2);
-		Vector2D hlb(-hitboxW / 2, hitboxH / 2);
-
+	vector<SDL_Rect> boxes;
+	if (box == "Hitbox") {
+		boxes = currentAnimation->getCurrentFrame()->getHitboxes();
 		SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibuja las líneas del hitbox en rojo
-
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlu.getX() + hitboxX + hitboxW / 2, hlu.getY() + hitboxY + hitboxH / 2, hru.getX() + hitboxX + hitboxW / 2,
-			hru.getY() + hitboxY + hitboxH / 2);
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hru.getX() + hitboxX + hitboxW / 2, hru.getY() + hitboxY + hitboxH / 2, hrb.getX() + hitboxX + hitboxW / 2,
-			hrb.getY() + hitboxY + hitboxH / 2);
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hrb.getX() + hitboxX + hitboxW / 2, hrb.getY() + hitboxY + hitboxH / 2, hlb.getX() + hitboxX + hitboxW / 2,
-			hlb.getY() + hitboxY + hitboxH / 2);
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlb.getX() + hitboxX + hitboxW / 2, hlb.getY() + hitboxY + hitboxH / 2, hlu.getX() + hitboxX + hitboxW / 2,
-			hlu.getY() + hitboxY + hitboxH / 2);
 	}
-}
-
-void MCAnimationComponent::debugHurtbox()
-{
-	vector<SDL_Rect> hurtboxes = currentAnimation->getCurrentFrame()->getHurtboxes();
-	for (int i = 0; i < hurtboxes.size(); i++) {
-		int hurtboxX = hurtboxes[i].x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
-		int hurtboxY = hurtboxes[i].y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
-		int hurtboxW = hurtboxes[i].w;
-		int hurtboxH = hurtboxes[i].h;
-		Vector2D hlu(-hurtboxW / 2, -hurtboxH / 2);
-		Vector2D hru(hurtboxW / 2, -hurtboxH / 2);
-		Vector2D hrb(hurtboxW / 2, hurtboxH / 2);
-		Vector2D hlb(-hurtboxW / 2, hurtboxH / 2);
-
+	else {
+		boxes = currentAnimation->getCurrentFrame()->getHurtboxes();
 		SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0x00ff00ff));//Dibuja las líneas del hurtbox en verde
-
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlu.getX() + hurtboxX + hurtboxW / 2, hlu.getY() + hurtboxY + hurtboxH / 2, hru.getX() + hurtboxX + hurtboxW / 2,
-			hru.getY() + hurtboxY + hurtboxH / 2);
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hru.getX() + hurtboxX + hurtboxW / 2, hru.getY() + hurtboxY + hurtboxH / 2, hrb.getX() + hurtboxX + hurtboxW / 2,
-			hrb.getY() + hurtboxY + hurtboxH / 2);
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hrb.getX() + hurtboxX + hurtboxW / 2, hrb.getY() + hurtboxY + hurtboxH / 2, hlb.getX() + hurtboxX + hurtboxW / 2,
-			hlb.getY() + hurtboxY + hurtboxH / 2);
-		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlb.getX() + hurtboxX + hurtboxW / 2, hlb.getY() + hurtboxY + hurtboxH / 2, hlu.getX() + hurtboxX + hurtboxW / 2,
-			hlu.getY() + hurtboxY + hurtboxH / 2);
 	}
+	for (int i = 0; i < boxes.size(); i++) {
+		int boxX = boxes[i].x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
+		int boxY = boxes[i].y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
+		int boxW = boxes[i].w;
+		int boxH = boxes[i].h;
+		Vector2D hlu(-boxW / 2, -boxH / 2);
+		Vector2D hru(boxW / 2, -boxH / 2);
+		Vector2D hrb(boxW / 2, boxH / 2);
+		Vector2D hlb(-boxW / 2, boxH / 2);
 
+		
+
+		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlu.getX() + boxX + boxW / 2, hlu.getY() + boxY + boxH / 2, hru.getX() + boxX + boxW / 2,
+			hru.getY() + boxY + boxH / 2);
+		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hru.getX() + boxX + boxW / 2, hru.getY() + boxY + boxH / 2, hrb.getX() + boxX + boxW / 2,
+			hrb.getY() + boxY + boxH / 2);
+		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hrb.getX() + boxX + boxW / 2, hrb.getY() + boxY + boxH / 2, hlb.getX() + boxX + boxW / 2,
+			hlb.getY() + boxY + boxH / 2);
+		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlb.getX() + boxX + boxW / 2, hlb.getY() + boxY + boxH / 2, hlu.getX() + boxX + boxW / 2,
+			hlu.getY() + boxY + boxH / 2);
+	}
 }
-

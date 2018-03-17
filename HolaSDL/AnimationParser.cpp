@@ -103,6 +103,10 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 		else if (type == "Hurtbox") {
 			anim->getFrame(frame)->addHurtbox(box,offsetx,offsety);
 		}
+		else if (type == "Hithurtbox") {
+			anim->getFrame(frame)->addHurtbox(box, offsetx, offsety);
+			anim->getFrame(frame)->addHitbox(box, offsetx, offsety);
+		}
 		
 		
 		//Ahora leemos las propiedades 
@@ -124,7 +128,7 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 	}
 }
 
-Animation * AnimationParser::parseAnimation(string animationFile, string animationName, GameObject * o, int offsetX, int offsetY,bool loop, float time )
+Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFile, string animationName, GameObject * o, int offsetX, int offsetY,bool loop, float time )
 {
 	
 	//Carga y lectura del mapa
@@ -133,7 +137,7 @@ Animation * AnimationParser::parseAnimation(string animationFile, string animati
 	//Raiz del mapa
 	XMLElement* root = doc.FirstChildElement();
 	int tileSize = atoi(root->Attribute("tilewidth"));
-	Animation* anim = new Animation(Game::getGame()->getResourceManager()->getProtaTileset(), o, tileSize*Game::getGame()->getScale(), offsetX, offsetY, loop, time);
+	Animation* anim = new Animation(tileset, o, tileSize*Game::getGame()->getScale(), offsetX, offsetY, loop, time);
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if (e->Value() == string("layer"))

@@ -33,6 +33,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="EnemyGunner.cpp" />
+    <ClCompile Include="GunnerAnimationComponent.cpp" />
     <ClCompile Include="GunnerBulletComponent.cpp" />
     <ClCompile Include="GunnerBulletRenderComponent.cpp" />
     <ClCompile Include="GunnerComponent.cpp" />
@@ -93,6 +94,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="EnemyGunner.h" />
+    <ClInclude Include="GunnerAnimationComponent.h" />
     <ClInclude Include="GunnerBulletComponent.h" />
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
