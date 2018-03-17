@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "PlayState.h"
 #include "Tileset.h"
+#include "Game.h"
 AnimationFrame::AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX, int frameOffsetY)
 {
 	tileSet = tileset;

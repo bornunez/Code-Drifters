@@ -72,7 +72,7 @@ void MainCharacter::loadAnimations()
 	animations.emplace("RUN_RIGHT", runRight);
 	animations.emplace("RUN_LEFT", runLeft);
 
-	attackRight1 = AnimationParser::parseAnimation(animationPath, "AttackRight1", this, 10*Game::getGame()->getScale());
+	attackRight1 = AnimationParser::parseAnimation(animationPath, "AttackRight1", this, 10*Game::getGame()->getScale(),0,true,1);
 	attackRight2 = AnimationParser::parseAnimation(animationPath, "AttackRight2", this, 10 * Game::getGame()->getScale());
 	attackRight3 = AnimationParser::parseAnimation(animationPath, "AttackRight3", this, 10 * Game::getGame()->getScale());
 

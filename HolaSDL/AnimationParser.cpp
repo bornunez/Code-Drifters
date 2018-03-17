@@ -76,8 +76,52 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 	}
 }
 
-void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLElement * hitboxElements, Animation * anim)
+void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLElement * hitboxElements, Animation * anim, GameObject* o, int offsetX, int offsetY)
 {
+	//Nodo donde estaguardado el mapa
+	for (XMLElement* e = hitboxElements->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
+		//Leemos los atributos 
+		int width = atoi(e->Attribute("width"));
+		int height = atoi(e->Attribute("height"));
+		int x = atoi(e->Attribute("x"));
+		int y = atoi(e->Attribute("y"));
+		int frame = atoi(e->Attribute("type"));
+		string type = string(e->Attribute("name"));
+		
+		SDL_Rect box;
+		box.w = width * Game::getGame()->getScale();
+		box.h = height * Game::getGame()->getScale();
+		box.x = x;
+		box.y = y;
+		
+		//El offset del hitbox respecto al sprite
+		int offsetx = ((x) % 64)* Game::getGame()->getScale() - o->getTransform()->body.w / 2 + offsetX;
+		int offsety = ((y) % 64)* Game::getGame()->getScale() - o->getTransform()->body.h / 2 + offsetY;
+		if (type == "Hitbox") {
+			anim->getFrame(frame)->addHitbox(box,offsetx,offsety);
+		}
+		else if (type == "Hurtbox") {
+			anim->getFrame(frame)->addHurtbox(box,offsetx,offsety);
+		}
+		
+		
+		//Ahora leemos las propiedades 
+		//vector<string> enemyTypes;
+		//XMLElement* propElement = e->FirstChildElement("properties");
+		////Por cada propiedad, si su valor es true, añadimos el enemigo al vector
+		//for (XMLElement* p = propElement->FirstChildElement(); p != nullptr; p = p->NextSiblingElement()) {
+		//	if (p->Attribute("value") == string("true"))
+		//		enemyTypes.push_back(p->Attribute("name"));
+		//}
+		////Ahora cogemos un enemigo aleatorio
+		//if (enemyTypes.size() > 0) {
+		//	int randEnemy = rand() % enemyTypes.size();
+		//	//Lo parseamos
+		//	EnemyType eType = parseEnemyTypes(enemyTypes[randEnemy]);
+		//	Spawner* spawner = new Spawner(x*Game::getGame()->getScale(), y*Game::getGame()->getScale(), eType);
+		//	map->addSpawn(spawner);
+		//}
+	}
 }
 
 Animation * AnimationParser::parseAnimation(string animationFile, string animationName, GameObject * o, int offsetX, int offsetY,bool loop, float time )
@@ -95,9 +139,12 @@ Animation * AnimationParser::parseAnimation(string animationFile, string animati
 		if (e->Value() == string("layer"))
 			/*parseTileLayer(root, e, anim, game->getResourceManager()->getCurrTileset());*/
 			parseAnimationLayer(animationName,root, e, anim, Game::getGame()->getResourceManager()->getProtaTileset());
-		/*if (e->Value() == string("objectgroup")) {
-			parseHitbox(animationName, root, e, anim);
-		}*/
+		if (e->Value() == string("objectgroup")) {
+			string name = e->Attribute("name");
+			if (name == animationName) {
+				parseHitbox(animationName, root, e, anim, o, offsetX, offsetY);
+			}
+		}
 	}
 	//XMLElement* mapa = levelDocument.FirstChildElement("map");
 	//cout << mapa->Attribute("width");

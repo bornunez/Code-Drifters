@@ -27,7 +27,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
 	if (e.key.keysym.sym == SDLK_h && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK1_TOPRIGHT");
+		gameObject->sendMessage("ATTACK1_RIGHT");
 		mc->setActionState(Attack);
 
 	}
