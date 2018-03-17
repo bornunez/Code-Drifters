@@ -12,6 +12,7 @@ public:
 	virtual ~MCAnimationComponent();	
 	void debugBoxes();
 	void debugHitbox(string box);
+	void handleAnimationStates();
 private:
 	std::map<const char*, Animation*> animations;
 	

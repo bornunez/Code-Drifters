@@ -16,8 +16,6 @@ public:
 	AnimationFrame* getCurrentFrame() { return animFrames[currentFrame]; };
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };
 	int getNumberOfFrames() { return animFrames.size(); };
-	void loadAnimation(int firstCol, int lastCol, int row, int xOffset=0, int yOffset=0);
-	void loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect);
 	void runAnimation();
 	void startAnimation();
 	bool isFinished();

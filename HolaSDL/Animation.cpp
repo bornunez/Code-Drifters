@@ -52,35 +52,6 @@ void Animation::normalAnimation()//El último frame se mantiene
 	animFrames[currentFrame]->render();
 }
 
-
-void Animation::loadAnimation(int firstCol, int lastCol, int row, int xOffset, int yOffset)//Carga animaciones que no varían en tamaño
-{
-	for (int i = firstCol; i < lastCol; i++) {
-		SDL_Rect* aux = new SDL_Rect();
-		aux->h = frameH;
-		aux->w = frameW;
-		aux->x = frameW * firstCol;
-		aux->y = frameH * row;
-		aux->x = frameW * i;
-		SDL_Rect destRec;
-		destRec.x = gameObject->getTransform()->body.x + xOffset;
-		destRec.y = gameObject->getTransform()->body.y + yOffset;
-		destRec.w = frameW * Game::getGame()->getScale();
-		destRec.h = frameH * Game::getGame()->getScale();
-		addAnimationFrame(aux, destRec, xOffset, yOffset);
-
-	}
-}
-//Carga frames individuales, se usa cuando tienen tamaños distintos
-void Animation::loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect) {
-	SDL_Rect* aux = new SDL_Rect();
-	aux->h = frameHeight;
-	aux->w = frameWidth;
-	aux->x = frameWidth * srcRow;
-	aux->y = frameHeight * srcCol;
-	addAnimationFrame(aux, destRect);
-}
-
 void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loop o no
 {
 	lastFrame->update();
