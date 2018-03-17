@@ -103,6 +103,22 @@ void MainCharacter::loadAnimations()
 	animations.emplace("ATTACK1_TOPRIGHT", attackTopRight1);
 	animations.emplace("ATTACK2_TOPRIGHT", attackTopRight2);
 	animations.emplace("ATTACK3_TOPRIGHT", attackTopRight3);
+
+	attackBotRight1 = AnimationParser::parseAnimation(animationPath, "AttackBotRight1", this);
+	attackBotRight2 = AnimationParser::parseAnimation(animationPath, "AttackBotRight2", this);
+	attackBotRight3 = AnimationParser::parseAnimation(animationPath, "AttackBotRight3", this);
+
+	animations.emplace("ATTACK1_BOTRIGHT", attackBotRight1);
+	animations.emplace("ATTACK2_BOTRIGHT", attackBotRight2);
+	animations.emplace("ATTACK3_BOTRIGHT", attackBotRight3);
+
+	attackBotLeft1 = AnimationParser::parseAnimation(animationPath, "AttackBotLeft1", this, 0);
+	attackBotLeft2 = AnimationParser::parseAnimation(animationPath, "AttackBotLeft2", this, 0);
+	attackBotLeft3 = AnimationParser::parseAnimation(animationPath, "AttackBotLeft3", this, 0);
+
+	animations.emplace("ATTACK1_BOTLEFT", attackBotLeft1);
+	animations.emplace("ATTACK2_BOTLEFT", attackBotLeft2);
+	animations.emplace("ATTACK3_BOTLEFT", attackBotLeft3);
 }
 //Animations
 //void MainCharacter::createRunAnimations()

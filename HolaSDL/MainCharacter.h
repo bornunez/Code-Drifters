@@ -43,6 +43,12 @@ private:
 	Animation* attackTopRight1;
 	Animation* attackTopRight2;
 	Animation* attackTopRight3;
+	Animation* attackBotLeft1;
+	Animation* attackBotLeft2;
+	Animation* attackBotLeft3;
+	Animation* attackBotRight1;
+	Animation* attackBotRight2;
+	Animation* attackBotRight3;
 	
 
 
