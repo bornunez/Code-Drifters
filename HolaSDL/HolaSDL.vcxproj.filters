@@ -165,8 +165,13 @@
     <ClCompile Include="GunnerAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="StalkerAnimationComponent.cpp" />
     <ClCompile Include="MCCollisionComponent.cpp" />
+    <ClCompile Include="StalkerAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageableEnemyComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -338,8 +343,13 @@
     <ClInclude Include="GunnerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="StalkerAnimationComponent.h" />
     <ClInclude Include="MCCollisionComponent.h" />
+    <ClInclude Include="StalkerAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageableEnemyComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

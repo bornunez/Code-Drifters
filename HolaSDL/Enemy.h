@@ -24,12 +24,14 @@ protected:
 	EnemyType type;
 
 	//Metodos auxiliares
-	void receiveDamage(int damage);
+	
 	void onDestroy();
 
 	friend class EnemyManager;
 	Enemy(MainCharacter* mc);
+	
 public:
+	void receiveDamage(int damage);
 	~Enemy();
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();

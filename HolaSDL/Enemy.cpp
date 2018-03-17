@@ -49,8 +49,10 @@ GameObject* Enemy::getMC() {
 }
 
 
+
 void Enemy::receiveDamage(int damage) {
 	life -= damage;
+	cout << "Vida enemigo: " << life << '\n';
 	if (life <= 0) {
 		onDestroy();
 	}
@@ -61,5 +63,6 @@ void Enemy::onDestroy() {
 	if(spawner != nullptr)
 		spawner->setActive(false);
 	//droppear dinero etc
-	EnemyManager::getInstance()->kill(this);
+	//esto falla locuelos->>> EnemyManager::getInstance()->kill(this);
 }
+

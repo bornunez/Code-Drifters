@@ -22,6 +22,7 @@
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
+    <ClCompile Include="DamageableEnemyComponent.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
@@ -85,6 +86,7 @@
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
+    <ClInclude Include="DamageableEnemyComponent.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />

@@ -14,6 +14,7 @@
 #include "Tileset.h"
 #include "ResourceManager.h"
 #include "BasicMovement.h"
+#include "DamageableEnemyComponent.h"
 
 
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
@@ -24,6 +25,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new GunnerComponent(this, getMC(), 400));
 	this->addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	this->addComponent(new BasicMovement(this, "Paredes"));
+	this->addComponent(new DamageableEnemyComponent(this));
 	addComponent(new GunnerAnimationComponent(this, animations));
 	
 }
