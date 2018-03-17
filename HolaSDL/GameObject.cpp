@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "PlayState.h"
 #include "Game.h"
+#include "Camera.h"
 
 GameObject::GameObject()
 {
@@ -30,6 +31,7 @@ GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight
 	transform.position.setX(x); transform.position.setY(y);
 	transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
+	
 }
 
 GameObject::~GameObject()
@@ -39,6 +41,8 @@ GameObject::~GameObject()
 void GameObject::update()
 {
 	ComponentContainer::update();
+	updateCenterPosition();
+	updateDisplayPosition();
 }
 
 void GameObject::render()
@@ -49,4 +53,16 @@ void GameObject::render()
 void GameObject::handleEvents(SDL_Event & e)
 {
 	ComponentContainer::handleEvents(e);
+}
+
+void GameObject::updateCenterPosition()
+{
+	centerPosition.setX(transform.position.getX() + transform.body.w / 2);
+	centerPosition.setY(transform.position.getY() + transform.body.h / 2);
+}
+
+void GameObject::updateDisplayPosition()
+{
+	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX());
+	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY());
 }

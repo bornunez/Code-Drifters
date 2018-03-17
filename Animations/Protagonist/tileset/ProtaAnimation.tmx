@@ -301,7 +301,7 @@
   <object id="455" name="Hurtbox" type="7" x="473.773" y="1299.73" width="11.3636" height="24.1818"/>
   <object id="518" name="Hitbox" type="1" x="76.5" y="1315" width="41.75" height="15.375"/>
   <object id="519" name="Hitbox" type="1" x="81.3125" y="1330.63" width="31.5" height="5.5"/>
-  <object id="520" name="HItbox" type="1" x="86.5625" y="1336.5" width="21.125" height="4.8125"/>
+  <object id="520" name="Hitbox" type="1" x="86.5625" y="1336.5" width="21.125" height="4.8125"/>
   <object id="521" name="Hitbox" type="1" x="105.25" y="1298.81" width="11.875" height="16"/>
   <object id="522" name="Hitbox" type="2" x="162.818" y="1295.64" width="13.4545" height="31.3636"/>
   <object id="523" name="Hitbox" type="2" x="150.5" y="1320.06" width="19.25" height="11.6875"/>

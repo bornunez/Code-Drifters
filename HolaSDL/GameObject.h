@@ -14,6 +14,8 @@ protected:
 	PlayState* playState = nullptr;
 	Texture * texture = nullptr; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
+	Vector2D centerPosition;//Centro del objeto
+	Vector2D displayPosition;//Posición respecto a la cámara
 	
 	bool active = true;
 public:
@@ -29,11 +31,16 @@ public:
 	virtual void render();
 	virtual void handleEvents(SDL_Event& e);
 
+	void updateCenterPosition();
+	void updateDisplayPosition();
+
 	//Gets y sets
 	bool isActive() { return active; }
 	bool setActive(bool active) { this->active = active; }
 	Transform* getTransform() { return &transform; }
 	Texture* getTexture() { return texture; }
+	Vector2D getCenterPos() { return centerPosition; }
+	Vector2D getDisplayPos() { return displayPosition; }
 
 };
 
