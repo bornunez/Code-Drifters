@@ -22,6 +22,15 @@ MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
+	attackCD->update();
+	if ((attackCD->TimeSinceTimerCreation >= 0.75 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
+		(attackCD->TimeSinceTimerCreation >= 1)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
+
+		attackCD->restart();
+		comboAttack = First;
+		static_cast<MainCharacter*>(gameObject)->setActionState(Idle);		//La animacion vuelve a idle
+	}
+
 
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
 		int mouseX, mouseY;
@@ -42,15 +51,18 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		if (angle < 0)
 			angle += 360;
 
-		mc->setActionState(Attack);
+		//attackCD->update();
 
-		attackCD->update();
-
-
-		if(attackCD->TimeSinceTimerCreation >= 1) {
+		if (comboAttack == First)
 			attackCD->restart();
-			comboAttack = First;
-		}
+
+		
+
+
+		//if(attackCD->TimeSinceTimerCreation >= 1) {
+	//		attackCD->restart();
+		//	comboAttack = First;
+	//	}
 		//	else if (attackCD->TimeSinceTimerCreation >= 1 && comboAttack == First) {					//Si el tiempo ha superado el maximo el timer del combo vuelve a 0
 		//	attackCD->restart();
 		//	comboAttack = First;
@@ -58,6 +70,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 
 		if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
+			mc->setActionState(Attack);
 			if (angle > 210 && angle <= 270) {
 				gameObject->sendMessage("ATTACK1_TOPLEFT");
 				gameObject->getTransform()->direction.set(0, -1);
@@ -85,6 +98,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			comboAttack = Second;
 		}
 		else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
+			mc->setActionState(Attack);
 			if (angle > 210 && angle <= 270) {
 				gameObject->sendMessage("ATTACK2_TOPLEFT");
 				gameObject->getTransform()->direction.set(0, -1);
@@ -112,6 +126,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			comboAttack = Third;
 		}
 		else if (attackCD->TimeSinceTimerCreation >= 0.75 && comboAttack == Third) {
+			mc->setActionState(Attack);
 			if (angle > 210 && angle <= 270) {
 				gameObject->sendMessage("ATTACK3_TOPLEFT");
 				gameObject->getTransform()->direction.set(0, -1);
