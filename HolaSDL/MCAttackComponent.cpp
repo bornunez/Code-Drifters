@@ -44,29 +44,100 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 		mc->setActionState(Attack);
 
-		if (angle > 210 && angle <= 270) {
-			gameObject->sendMessage("ATTACK1_TOPLEFT");
-			gameObject->getTransform()->direction.set(0, -1);
-		}		
-		else if (angle > 270 && angle < 330) {
-			gameObject->sendMessage("ATTACK1_TOPRIGHT");
-			gameObject->getTransform()->direction.set(0, -1);
+		attackCD->update();
+
+
+		if(attackCD->TimeSinceTimerCreation >= 1) {
+			attackCD->restart();
+			comboAttack = First;
 		}
-		else if (angle > 150 && angle < 210) {
-			gameObject->sendMessage("ATTACK1_LEFT");
-			gameObject->getTransform()->direction.set(-1, 0);
+		//	else if (attackCD->TimeSinceTimerCreation >= 1 && comboAttack == First) {					//Si el tiempo ha superado el maximo el timer del combo vuelve a 0
+		//	attackCD->restart();
+		//	comboAttack = First;
+		//	}
+
+
+		if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
+			if (angle > 210 && angle <= 270) {
+				gameObject->sendMessage("ATTACK1_TOPLEFT");
+				gameObject->getTransform()->direction.set(0, -1);
+			}
+			else if (angle > 270 && angle < 330) {
+				gameObject->sendMessage("ATTACK1_TOPRIGHT");
+				gameObject->getTransform()->direction.set(0, -1);
+			}
+			else if (angle > 150 && angle < 210) {
+				gameObject->sendMessage("ATTACK1_LEFT");
+				gameObject->getTransform()->direction.set(-1, 0);
+			}
+			else if (angle >= 90 && angle < 150) {
+				gameObject->sendMessage("ATTACK1_BOTLEFT");
+				gameObject->getTransform()->direction.set(0, 1);
+			}
+			else if (angle > 30 && angle < 90) {
+				gameObject->sendMessage("ATTACK1_BOTRIGHT");
+				gameObject->getTransform()->direction.set(0, 1);
+			}
+			else {
+				gameObject->sendMessage("ATTACK1_RIGHT");
+				gameObject->getTransform()->direction.set(1, 0);
+			}
+			comboAttack = Second;
 		}
-		else if (angle >= 90 && angle < 150) {
-			gameObject->sendMessage("ATTACK1_BOTLEFT");
-			gameObject->getTransform()->direction.set(0, 1);
+		else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
+			if (angle > 210 && angle <= 270) {
+				gameObject->sendMessage("ATTACK2_TOPLEFT");
+				gameObject->getTransform()->direction.set(0, -1);
+			}
+			else if (angle > 270 && angle < 330) {
+				gameObject->sendMessage("ATTACK2_TOPRIGHT");
+				gameObject->getTransform()->direction.set(0, -1);
+			}
+			else if (angle > 150 && angle < 210) {
+				gameObject->sendMessage("ATTACK2_LEFT");
+				gameObject->getTransform()->direction.set(-1, 0);
+			}
+			else if (angle >= 90 && angle < 150) {
+				gameObject->sendMessage("ATTACK2_BOTLEFT");
+				gameObject->getTransform()->direction.set(0, 1);
+			}
+			else if (angle > 30 && angle < 90) {
+				gameObject->sendMessage("ATTACK2_BOTRIGHT");
+				gameObject->getTransform()->direction.set(0, 1);
+			}
+			else {
+				gameObject->sendMessage("ATTACK2_RIGHT");
+				gameObject->getTransform()->direction.set(1, 0);
+			}
+			comboAttack = Third;
 		}
-		else if (angle > 30 && angle < 90) {
-			gameObject->sendMessage("ATTACK1_BOTRIGHT");
-			gameObject->getTransform()->direction.set(0, 1);
-		}
-		else {
-			gameObject->sendMessage("ATTACK1_RIGHT");
-			gameObject->getTransform()->direction.set(1, 0);
+		else if (attackCD->TimeSinceTimerCreation >= 0.75 && comboAttack == Third) {
+			if (angle > 210 && angle <= 270) {
+				gameObject->sendMessage("ATTACK3_TOPLEFT");
+				gameObject->getTransform()->direction.set(0, -1);
+			}
+			else if (angle > 270 && angle < 330) {
+				gameObject->sendMessage("ATTACK3_TOPRIGHT");
+				gameObject->getTransform()->direction.set(0, -1);
+			}
+			else if (angle > 150 && angle < 210) {
+				gameObject->sendMessage("ATTACK3_LEFT");
+				gameObject->getTransform()->direction.set(-1, 0);
+			}
+			else if (angle >= 90 && angle < 150) {
+				gameObject->sendMessage("ATTACK3_BOTLEFT");
+				gameObject->getTransform()->direction.set(0, 1);
+			}
+			else if (angle > 30 && angle < 90) {
+				gameObject->sendMessage("ATTACK3_BOTRIGHT");
+				gameObject->getTransform()->direction.set(0, 1);
+			}
+			else {
+				gameObject->sendMessage("ATTACK3_RIGHT");
+				gameObject->getTransform()->direction.set(1, 0);
+			}
+			comboAttack = CD;
+			attackCD->restart();
 		}
 	}
 }
