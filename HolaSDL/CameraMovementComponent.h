@@ -8,6 +8,6 @@ public:
 	void update();
 	CameraMovementComponent(GameObject* camera, GameObject* mainCharacter);
 	~CameraMovementComponent();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 };
 

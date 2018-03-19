@@ -47,7 +47,7 @@ void ComponentContainer::sendMessage(std::string msg)
 {
 	for (int i = 0; i < NUMCOMP;i++) {
 		for (Component* c : components[i]) {
-			c->recieveMessage(msg);
+			c->receiveMessage(msg);
 		}
 	}
 }
@@ -56,7 +56,7 @@ void ComponentContainer::sendMessage(std::string msg)
 void ComponentContainer::sendMessage(std::string msg, ComponentType type)
 {
 	for (Component* c : components[type]) {
-		c->recieveMessage(msg);
+		c->receiveMessage(msg);
 	}
 }
 

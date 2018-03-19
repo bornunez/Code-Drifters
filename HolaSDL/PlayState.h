@@ -35,6 +35,5 @@ public:
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
-	Room* getCurrentRoom();
 };
 

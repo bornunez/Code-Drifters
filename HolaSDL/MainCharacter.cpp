@@ -25,6 +25,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
+	transform.body.x = x; transform.body.y = y;
 	transform.body.w = w;
 	transform.body.h = h;
 
@@ -200,21 +201,6 @@ void MainCharacter::setGunPosition(Vector2D pos)
 void MainCharacter::substractHP(int damage)
 {
 	HP -= damage;
-}
-int MainCharacter::getCurrentRoomX()
-{
-	return currentRoomX;
-}
-
-int MainCharacter::getCurrentRoomY()
-{
-	return currentRoomY;
-}
-
-void MainCharacter::changeCurrentRoom(int x, int y)
-{
-	currentRoomX = x;
-	currentRoomY = y;
 }
 
 int MainCharacter::getReloadTime()

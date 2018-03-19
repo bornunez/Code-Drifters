@@ -43,6 +43,7 @@
     <ClCompile Include="GunnerShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="LevelParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainCharacter.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="AnimationParser.h" />
     <ClInclude Include="BasicInvincibleComponent.h" />
     <ClInclude Include="BasicMovement.h" />
+    <ClInclude Include="BasicObject.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />
@@ -107,8 +109,10 @@
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
+    <ClInclude Include="Managers.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Layer.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="MainMenuState.h" />

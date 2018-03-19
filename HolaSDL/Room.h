@@ -14,9 +14,9 @@ class Room
 {
 public:
 
-	Room(PlayState* playState);
+	Room();
 	~Room();
-	void loadTexture();
+	void load();
 	void render();
 	int getX();
 	int getY();
@@ -35,13 +35,12 @@ public:
 	void setDownDoor(bool downDoor);
 	void setVisited(bool visited);
 	void setSpecial(string special);
+	bool isVoid() { return voidRoom; }
 	void spawn();
 	void update();
 
 private:
 	string filename;
-	PlayState* playState;
-	Texture* texture;
 	Map* map;
 	int x;
 	int y;
@@ -50,6 +49,7 @@ private:
 	bool downDoor;
 	bool leftDoor;
 	bool visited;
-	string special;//Boss, chest, or shop	
+	bool voidRoom;
+	string special;//Boss, chest, or shop
 };
 

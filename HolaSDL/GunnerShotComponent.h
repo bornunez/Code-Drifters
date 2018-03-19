@@ -9,7 +9,7 @@ public:
 	void update();
 	GunnerShotComponent(GameObject* o, GameObject* target, float dist, float delay);
 	~GunnerShotComponent();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 
 private:
 	GameObject* targetObject;

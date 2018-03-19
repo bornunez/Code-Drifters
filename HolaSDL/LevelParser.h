@@ -19,7 +19,7 @@ private:
 public:
 	LevelParser()  {}
 	~LevelParser();
-	static Map* parseLevel(string levelFile,Game* game,Camera* camera);
+	static Map* parseLevel(string levelFile);
 
 };
 

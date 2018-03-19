@@ -36,11 +36,6 @@ void GunnerShotComponent::shoot() {
 		
 		lastShotTime->restart();
 
-		int currentX = dynamic_cast<MainCharacter*>(targetObject)->getCurrentRoomX(); //esto requiere arreglo
-		int currentY = dynamic_cast<MainCharacter*>(targetObject)->getCurrentRoomY();
-
-
-
 		Transform bulletT;
 		bulletT.position.set(gunnerT->position.getX(), gunnerT->position.getY());
 		bulletT.direction = (targetT->position - gunnerT->position);

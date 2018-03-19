@@ -22,7 +22,7 @@ void StalkerAnimationComponent::render()
 	
 }
 
-void StalkerAnimationComponent::recieveMessage(std::string msg)
+void StalkerAnimationComponent::receiveMessage(std::string msg)
 {
 	if (msg == "RUN") {
 		gameObject->changeCurrentAnimation("RUN");

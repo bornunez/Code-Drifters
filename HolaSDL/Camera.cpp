@@ -28,15 +28,6 @@ Camera::~Camera()
 }
 
 
-void Camera::render()
-{
-	int auxX = playState->getMainCharacter()->getCurrentRoomX();
-	int auxY = playState->getMainCharacter()->getCurrentRoomY();
-	playState->getLevel()->getRoom(auxX, auxY)->render();
-
-	//GUI->render();//Pinta el GUI al final
-}
-
 bool Camera::isInsideCamera(Transform* t)
 {
 	

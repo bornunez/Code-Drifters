@@ -180,6 +180,7 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="BasicInvincibleComponent.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -366,6 +367,13 @@
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="BasicInvincibleComponent.h" />
+    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="Managers.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicObject.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -427,6 +435,9 @@
     </Filter>
     <Filter Include="UpdateComponent\Source">
       <UniqueIdentifier>{02283190-f1b0-4da4-b556-715e1491664a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes">
+      <UniqueIdentifier>{9c305cca-d9ed-4957-b6d3-519345f05685}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

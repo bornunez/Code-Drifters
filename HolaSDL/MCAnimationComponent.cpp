@@ -14,7 +14,7 @@ MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, 
 MCAnimationComponent::~MCAnimationComponent()
 {
 }
-void MCAnimationComponent::recieveMessage(std::string msg) {
+void MCAnimationComponent::receiveMessage(std::string msg) {
 		if (msg == "ATTACK1_LEFT") {//En las animaciones de ataque, estas se reinician para empezar en el frame 0
 			gameObject->changeCurrentAnimation("ATTACK1_LEFT");
 			gameObject->getCurrentAnimation()->startAnimation();

@@ -22,7 +22,7 @@ void GunnerAnimationComponent::render()
 
 }
 
-void GunnerAnimationComponent::recieveMessage(std::string msg)
+void GunnerAnimationComponent::receiveMessage(std::string msg)
 {
 	if (msg == "RUN_LEFT") {
 		gameObject->changeCurrentAnimation("RUN_LEFT");

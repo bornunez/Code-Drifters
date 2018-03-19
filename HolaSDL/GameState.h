@@ -23,6 +23,5 @@ public:
 	virtual void render();
 	virtual void handleEvent(SDL_Event& e);
 	void addGameObject(GameObject* go);
-	Game* getGame() { return this->game; }
 	void removeGameObject(GameObject* go);
 };

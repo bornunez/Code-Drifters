@@ -2,7 +2,7 @@
 #include "GameObject.h"
 #include "MainCharacter.h"
 #include "Time.h"
-#include "EnemyManager.h"
+#include "Managers.h"
 MCMovementInput::MCMovementInput(GameObject * o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left): 
 	UpdateComponent (o), upKey(up), rightKey(right), downKey(down), leftKey(left)
 {
@@ -21,7 +21,9 @@ void MCMovementInput::update()
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
 	SDL_PumpEvents();
 	//continuous-response keys
-	debug = keystate[debugKey];
+	if (keystate[debugKey]) {
+		debug = true;
+	}
 
 	if (mc->getActionState() == Attack) {
 		velocity.setX(0);
@@ -83,12 +85,14 @@ void MCMovementInput::update()
 	t->velocity.set(velocity);
 	t->direction.set(direction);
 	if (debug) {
+
+		/*
 		system("cls");
 		cout << "Player info: \nPosition: [ X: " << t->position.getX() << " ,Y: " << t->position.getY() << " ]" << endl;
 		cout << "Velocity: [ X: " << t->velocity.getX() << " ,Y: " << t->velocity.getY() << " ]" << endl;
 		cout << "Direction: [ X: " << t->direction.getX() << " ,Y: " << t->direction.getY() << " ]" << endl;
 		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
 		cout << "CenterPosition: [ X: " << gameObject->getCenterPos().getX() << " ,Y: " << gameObject->getCenterPos().getY() << " ]" << endl;
-		cout << "DisplayPosition: [ X: " << gameObject->getDisplayPos().getX() << " ,Y: " << gameObject->getDisplayPos().getY() << " ]" << endl;
+		cout << "DisplayPosition: [ X: " << gameObject->getDisplayPos().getX() << " ,Y: " << gameObject->getDisplayPos().getY() << " ]" << endl;*/
 	}	
 }

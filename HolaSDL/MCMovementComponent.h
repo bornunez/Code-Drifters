@@ -14,7 +14,7 @@ private:
 	bool keyPressed;
 public:
 	void update();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	MCMovementComponent(GameObject* o);
 	virtual ~MCMovementComponent();
 };

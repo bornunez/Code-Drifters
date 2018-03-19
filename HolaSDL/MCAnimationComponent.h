@@ -8,7 +8,7 @@ class MCAnimationComponent :
 public:
 	MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim);
 	void render();
-	void recieveMessage(std::string msg);
+	void receiveMessage(std::string msg);
 	virtual ~MCAnimationComponent();	
 	
 	void handleAnimationStates();

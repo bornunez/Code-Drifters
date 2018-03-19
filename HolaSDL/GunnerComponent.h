@@ -7,7 +7,7 @@ class GunnerComponent :
 {
 public:
 	void update();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	GunnerComponent(GameObject* o, GameObject* target, float dist);
 	virtual ~GunnerComponent();
 

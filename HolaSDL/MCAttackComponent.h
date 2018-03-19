@@ -14,7 +14,7 @@ public:
 
 	MCAttackComponent(GameObject* o);
 	void handleEvents(SDL_Event & e);
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	virtual ~MCAttackComponent();
 
 };

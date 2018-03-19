@@ -5,7 +5,7 @@ class MCBulletRenderComponent :
 {
 public:
 	void render();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	MCBulletRenderComponent(GameObject* o);
 	virtual ~MCBulletRenderComponent();
 };

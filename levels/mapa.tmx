@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="1">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="5">
  <tileset firstgid="1" source="Tileset/tile.tsx"/>
  <layer name="Suelo" width="10" height="10">
   <data encoding="base64" compression="zlib">
@@ -11,6 +11,32 @@
    eJxjYCAesJMpN9wBNcMFABeoAB0=
   </data>
  </layer>
+ <objectgroup name="Spawners">
+  <object id="1" name="Spawn" gid="7" x="192" y="128" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="2" name="Spawn" gid="7" x="64" y="128" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3" name="Spawn" gid="7" x="64" y="224" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="4" name="Spawn" gid="7" x="192" y="224" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
  <layer name="Paredes" width="10" height="10">
   <data encoding="base64" compression="zlib">
    eJzjZWBgYEHCIgwQwIUkxgfEwgyEgRAJ6kQIqoK4gVjASYQaDgbq+4NYdfxAzEoA8wAxAC+nAXk=

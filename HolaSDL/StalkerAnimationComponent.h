@@ -9,7 +9,7 @@ public:
 	StalkerAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim);
 	virtual ~StalkerAnimationComponent();
 	void render();
-	void recieveMessage(std::string msg);
+	void receiveMessage(std::string msg);
 private:
 	std::map<const char*, Animation*> animations;
 	

@@ -13,6 +13,8 @@
 #include "Camera.h"
 #include "PlayState.h"
 #include <iostream>
+#include "Managers.h"
+
 MCShotComponent::MCShotComponent(GameObject * o) : InputComponent(o)
 {
 	lastReloadTime = new Timer();
@@ -40,6 +42,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 		}
 	}
 	if (e.button.button == SDL_BUTTON_RIGHT && e.type == SDL_MOUSEBUTTONDOWN) {
+		LevelManager::getInstance()->changeRoom(Down);
 		if (currentBullets > 0) {//Si tiene balas en el cargador dispara
 			int mouseX, mouseY;
 			SDL_Point p;
@@ -76,8 +79,6 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
 			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-			int currentX = PlayState::getInstance()->getMainCharacter()->getCurrentRoomX();
-			int currentY = PlayState::getInstance()->getMainCharacter()->getCurrentRoomY();
 			//Añade la bala a los objetos de la sala actual
 			PlayState::getInstance()->addGameObject(auxBullet);
 

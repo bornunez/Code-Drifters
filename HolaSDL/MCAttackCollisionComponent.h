@@ -7,7 +7,7 @@ public:
 	MCAttackCollisionComponent(GameObject* o);
 	virtual ~MCAttackCollisionComponent();
 	void checkCollision();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	void update();
 };
 

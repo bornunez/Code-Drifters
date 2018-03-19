@@ -7,8 +7,6 @@ enum ActionState { Idle, Run, Attack, Shoot, Hook, Hurt, Heal };
 class MainCharacter : public GameObject
 {
 private:
-	int currentRoomX;
-	int currentRoomY;
 	float HP;
 	float velocity;
 	float maxVelocity;
@@ -54,9 +52,6 @@ public:
 	Vector2D getGunPosition();
 	void setGunPosition(Vector2D pos);
 	void substractHP(int damage);
-	int getCurrentRoomX();
-	int getCurrentRoomY();
-	void changeCurrentRoom(int x, int y);
 	int getReloadTime();
 	void setReloadTime(int miliseconds);
 	void setActionState(ActionState actionState) { this->actionState = actionState; };

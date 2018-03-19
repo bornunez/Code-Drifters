@@ -11,6 +11,6 @@ public:
 	BasicInvincibleComponent(GameObject* o, float invincibleTime);
 	virtual ~BasicInvincibleComponent();
 	void update();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 };
 

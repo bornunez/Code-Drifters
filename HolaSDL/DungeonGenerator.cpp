@@ -41,8 +41,8 @@ using namespace std;
 
 
 
-DungeonGenerator::DungeonGenerator(PlayState* playState, int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY) : 
-	playState(playState),mapWidth_(mapWidth), mapHeight_(mapHeight), maxRooms_(maxRooms)
+DungeonGenerator::DungeonGenerator(int mapWidth, int mapHeight, int maxRooms) : 
+	mapWidth_(mapWidth), mapHeight_(mapHeight),maxRooms_(maxRooms)
 {
 }
 DungeonGenerator::~DungeonGenerator()
@@ -58,12 +58,7 @@ void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas 
 		deadEnds_ = FindDeadEnds();
 	} while (deadEnds_.size() < 3);//Si se crea un mapa circular no valido, entonces se genera otro mapa
 	CreateSpecialRooms();
-	LoadTextures();
-}
-void DungeonGenerator::Run() {//Carga las texturas y las renderiza
-	while (true) {
-		render();
-	}
+	load();
 }
 Room * DungeonGenerator::getRoom(int x, int y)
 {
@@ -84,7 +79,7 @@ void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la 
 	for (int i = 0; i < mapHeight_; i++) {
 		Dungeon_[i].resize(mapWidth_);
 		for (int j = 0; j < mapWidth_; j++) {
-			Dungeon_[i][j] = new Room(playState);
+			Dungeon_[i][j] = new Room();
 			Dungeon_[i][j]->setX(j);
 			Dungeon_[i][j]->setY(i);
 			Dungeon_[i][j]->setUpDoor(false);
@@ -302,15 +297,12 @@ vector<string> DungeonGenerator::CheckDirections(int x, int y)//Comprueba las di
 	}
 	return posibleDirections_;
 }
-//-------------------------------------------------------------------------------------------------------------------
-void DungeonGenerator::render()//Hace el render de cada una de las salas
-{
-}
-void DungeonGenerator::LoadTextures() {//Cada sala carga su textura correspondiente
+
+void DungeonGenerator::load() {//Cada sala carga su textura correspondiente
 	//for (int i = 0; i < visitedRooms_.size(); i++)
 	for(auto & vr : visitedRooms_)
 	{
-		vr->loadTexture();
+		vr->load();
 		//system("cls");
 		//cout << "Loading rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
 	}

@@ -7,6 +7,7 @@
 #include "TileLayer.h"
 #include "Map.h"
 #include "Time.h"
+#include "Managers.h"
 
 
 BasicMovement::BasicMovement(GameObject * o) : UpdateComponent(o)
@@ -40,7 +41,7 @@ void BasicMovement::update()
 	auxT.body.x = auxT.position.getX(); auxT.body.y = auxT.position.getY();
 
 	//Colisionamos
-	Room* currRoom = PlayState::getInstance()->getCurrentRoom();
+	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;
 	vector<string>::iterator it;
 	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
