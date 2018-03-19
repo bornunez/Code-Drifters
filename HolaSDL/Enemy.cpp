@@ -64,12 +64,12 @@ void Enemy::knockBack()
 //	}
 //}
 
-
+}
 void Enemy::onDestroy() {
 	//Si tenemos un spawner asignado, nos destruimos
 	if(spawner != nullptr)
 		spawner->setActive(false);
 	//droppear dinero etc
-	//esto falla locuelos->>> EnemyManager::getInstance()->kill(this);
+	 EnemyManager::getInstance()->kill(this);
 }
 
