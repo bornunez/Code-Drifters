@@ -1,11 +1,11 @@
 #pragma once
 #include "UpdateComponent.h"
-class MCCollisionComponent :
+class MCAttackCollisionComponent :
 	public UpdateComponent
 {
 public:
-	MCCollisionComponent(GameObject* o);
-	virtual ~MCCollisionComponent();
+	MCAttackCollisionComponent(GameObject* o);
+	virtual ~MCAttackCollisionComponent();
 	void checkCollision();
 	void recieveMessage(std::string msg) {};
 	void update();

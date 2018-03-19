@@ -172,13 +172,14 @@
     <ClCompile Include="AnimationParser.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MCCollisionComponent.cpp">
-      <Filter>Prota\Source</Filter>
-    </ClCompile>
     <ClCompile Include="MCMovementInput.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="BoxRenderer.cpp" />
+    <ClCompile Include="MCAttackCollisionComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicInvincibleComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -357,13 +358,14 @@
     <ClInclude Include="AnimationParser.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MCCollisionComponent.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
     <ClInclude Include="MCMovementInput.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="BoxRenderer.h" />
+    <ClInclude Include="MCAttackCollisionComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicInvincibleComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -16,7 +16,7 @@
 #include "BasicMovement.h"
 #include "DamageableEnemyComponent.h"
 #include "BoxRenderer.h"
-
+#include "BasicInvincibleComponent.h"
 
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
@@ -30,7 +30,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new DamageableEnemyComponent(this));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new GunnerAnimationComponent(this, animations));
-	
+	addComponent(new BasicInvincibleComponent(this, 0.2));
 }
 
 

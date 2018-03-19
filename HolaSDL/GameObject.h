@@ -23,6 +23,7 @@ protected:
 	std::map<const char*, Animation*> animations;//Animaciones que contiene
 	Animation* currentAnimation;
 	bool active = true;
+	bool invincible = false;
 public:
 
 	GameObject();
@@ -48,6 +49,7 @@ public:
 	Vector2D getDisplayPos() { return displayPosition; }
 	Animation* getCurrentAnimation();
 	void changeCurrentAnimation(const char * animName);
-
+	bool getInvincibility() { return invincible; }
+	void setInvincibility(bool state) { invincible = state; }
 };
 

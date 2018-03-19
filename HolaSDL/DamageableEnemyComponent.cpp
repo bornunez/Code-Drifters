@@ -16,5 +16,6 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 void DamageableEnemyComponent::recieveMessage(std::string msg) {
 	if (msg == "NORMAL_ATTACK") {
 		enemy->receiveDamage("NORMAL_ATTACK");
+		enemy->setInvincibility(true);
 	}
 }

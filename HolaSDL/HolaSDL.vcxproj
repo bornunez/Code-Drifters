@@ -14,6 +14,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationFrame.cpp" />
     <ClCompile Include="AnimationParser.cpp" />
+    <ClCompile Include="BasicInvincibleComponent.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -51,7 +52,7 @@
     <ClCompile Include="MCAttackComponent.cpp" />
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
-    <ClCompile Include="MCCollisionComponent.cpp" />
+    <ClCompile Include="MCAttackCollisionComponent.cpp" />
     <ClCompile Include="MCMovementComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
@@ -78,6 +79,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationFrame.h" />
     <ClInclude Include="AnimationParser.h" />
+    <ClInclude Include="BasicInvincibleComponent.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
@@ -115,7 +117,7 @@
     <ClInclude Include="MCAttackComponent.h" />
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
-    <ClInclude Include="MCCollisionComponent.h" />
+    <ClInclude Include="MCAttackCollisionComponent.h" />
     <ClInclude Include="MCMovementComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />

@@ -12,7 +12,7 @@
 #include "MCAnimationComponent.h"
 #include "ResourceManager.h"
 #include "MCMovementInput.h"
-#include "MCCollisionComponent.h"
+#include "MCAttackCollisionComponent.h"
 #include "AnimationParser.h"
 #include "BoxRenderer.h"
 //Personaje principal
@@ -40,7 +40,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	addComponent(new MCCollisionComponent(this));
+	addComponent(new MCAttackCollisionComponent(this));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	setCurrentBullets(4);
