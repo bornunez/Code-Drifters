@@ -9,7 +9,7 @@ class ChargeComponent :
 public:
 	void update();
 	void recieveMessage(std::string msg) {};
-	ChargeComponent(GameObject* o, float delay, float time, float velMultiplier);
+	ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
 	virtual ~ChargeComponent();
 
 private:
@@ -20,4 +20,5 @@ private:
 	float velocityMult;
 	float angle;
 	float chargeTime;
+	Vector2D auxVel;
 };
