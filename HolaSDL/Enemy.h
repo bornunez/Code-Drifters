@@ -32,14 +32,17 @@ protected:
 	
 public:
 	/*void receiveDamage(int damage);*/
-	void receiveDamage(std::string attackType);
+	
 	~Enemy();
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
 	GameObject* getMC();
 	EnemyType getType() { return type; }
-
+	void knockBack();
+	int getDefense() { return defense; };
+	int getLife() { return life; }
+	void setLife(int life) { this->life = life; };
 
 };
 

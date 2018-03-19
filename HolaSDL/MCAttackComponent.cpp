@@ -23,8 +23,8 @@ MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
 	attackCD->update();
-	if ((attackCD->TimeSinceTimerCreation >= 0.75 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
-		(attackCD->TimeSinceTimerCreation >= 1)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
+	if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
+		(attackCD->TimeSinceTimerCreation >= 0.75)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
 
 		attackCD->restart();
 		comboAttack = First;
@@ -125,7 +125,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}
 			comboAttack = Third;
 		}
-		else if (attackCD->TimeSinceTimerCreation >= 0.75 && comboAttack == Third) {
+		else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
 			mc->setActionState(Attack);
 			if (angle > 210 && angle <= 270) {
 				gameObject->sendMessage("ATTACK3_TOPLEFT");
