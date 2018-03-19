@@ -1,0 +1,43 @@
+Para meter animaciones se necesita un spritesheet cuyas celdas midan 64x64, el tamaño del body
+del gameObjects a insertar será la mitad, es decir 32x32. Si queremos un gameObject con otras dimensiones,
+el tamaño de las celdas del spritesheet deberá ser proporcionado. Ej (body = 50x50, spritesheet = 100x100)
+
+************EN TILED******************
+
+Para el lector de animaciones se usa Tiled, para crear una nueva animación es necesario crear una capa nueva
+EJ "RUNLEFT", y si se le van a meter hitbox hay que crear una capa de objetos con el mismo nombre.
+Para importar el tilesheet hay que añadir una capa de patrones con margin y spacing = 0. 
+(Puede ocurrir que el .tsx no incluya en su código los valores margin="0" spacing="0", en este caso
+hay que introducirlos a mano o dará errores de compilación).
+
+Cada capa de animación debe tener únicamente, en orden, y en la misma fila los frames que la componen.
+Para colocar boxes, en la capa de objetos correspondiente, usar sobre el mapa la herramienta de crear rectángulos
+y colocarlos sobre la parte del frame que queremos que se pinte la box. 
+Una vez colocada, en nombre debéis poner "Hitbox" , "Hurtbox" o "Hithurtbox" dependiendo de lo que queráis.
+Y en tipo hay que escribir el frame de la animación a la que pertenece.
+EJ: queremos colocar una hitbox en el frame 0 de una animación. 
+Esta hitbox deberá tener de nombre "Hitbox" y en type "0".
+
+
+************EN VISUAL******************
+
+En el resource manager deberéis indicar el nombre del tsx que se va a leer, y aseguraos de que que se va a cargar
+correctamente. 
+En la clase del gameObject que va a contener las animaciones, tenéis que llamar al Animation Parser para cargar las
+animaciones. EJ:
+Animation*attackRight1 = AnimationParser::parseAnimation(tileset, animationPath, "AttackRight1", this, 10*Game::getGame()->getScale(),0,false);
+
+El primer parámetro es el tileset cargada del resourceManager Tileset* tileset = Game::getGame()->getResourceManager()->getProtaTileset();
+El segundo es la ruta que lleva hasta el archivo tmx string animationPath = "../Animations/Protagonist/tileset/ProtaAnimation.tmx";
+
+El tercer es el nombre de la capa que le habéis puesto en Tiled.
+El cuarto es el gameObject al que se le asignará la animación.
+El quinto es el offsetX que tiene la animación respecto al centro de su sprite.
+El sexto es el offsetY.
+El séptimo es un booleano que indica si se ejecuta en loop o no.
+Y el octavo es el tiempo que pasa entre cada frame de la animación, que por defecto es 0.05.
+
+Por último tendréis que añadirlo al diccionario que lleva el propio gameObject.
+animations.emplace("ATTACK1_RIGHT", attackRight1);
+
+Para manejar la transición tendréis que manejar un RenderComponent que reciba mensajes que 

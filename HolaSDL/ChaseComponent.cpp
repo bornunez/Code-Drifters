@@ -37,3 +37,4 @@ void ChaseComponent::update() {
 	
 
 }
+

@@ -8,7 +8,6 @@
 #include "ExampleEnemy.h"
 #include "ResourceManager.h"
 #include "MouseIcon.h"
-#include "MCMovementComponent.h"
 #include "DungeonGenerator.h"
 #include "Room.h"
 #include "LevelParser.h"

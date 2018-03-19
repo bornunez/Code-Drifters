@@ -2,7 +2,6 @@
 #include "MainCharacter.h"
 #include "Game.h"
 #include "Camera.h"
-#include "MCMovementComponent.h"
 #include "PlayState.h"
 #include "BasicMovement.h"
 #include "MCShotComponent.h"
@@ -36,7 +35,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
-	addComponent(new MCMovementComponent(this));
 	addComponent(new BasicMovement(this, "Paredes"));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));

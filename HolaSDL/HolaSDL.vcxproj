@@ -20,6 +20,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
+    <ClCompile Include="ChargeComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -54,7 +55,6 @@
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCAttackCollisionComponent.cpp" />
-    <ClCompile Include="MCMovementComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -88,6 +88,7 @@
     <ClInclude Include="Base64.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />
+    <ClInclude Include="ChargeComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Component.h" />
@@ -122,7 +123,6 @@
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCAttackCollisionComponent.h" />
-    <ClInclude Include="MCMovementComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />

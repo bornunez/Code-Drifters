@@ -144,21 +144,22 @@ void MCAnimationComponent::handleAnimationStates()
 	//RUN POSITIONS
 	if (mc->getActionState() == Run) {
 		Vector2D direction = gameObject->getTransform()->direction;
-		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
-
-			gameObject->sendMessage("RUN_RIGHT");
-		}
-		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
-
-			gameObject->sendMessage("RUN_LEFT");
-		}
-		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
+		
+		if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
 
 			gameObject->sendMessage("RUN_BOT");
 		}
 		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
 
 			gameObject->sendMessage("RUN_TOP");
+		}
+		else if (direction.getX() == 1) {//Derecha
+
+			gameObject->sendMessage("RUN_RIGHT");
+		}
+		else if (direction.getX() == -1) {//Izquierda
+
+			gameObject->sendMessage("RUN_LEFT");
 		}
 	}
 }
