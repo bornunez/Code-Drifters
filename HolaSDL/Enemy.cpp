@@ -6,7 +6,7 @@
 #include "MainCharacter.h"
 #include "PlayState.h"
 #include "GameObject.h"
-#include "EnemyManager.h"
+#include "Managers.h"
 #include "Map.h"
 
 Enemy::Enemy(MainCharacter* mc) : GameObject()
@@ -27,7 +27,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	transform.body.x = x; transform.body.y = y;
 
 	//Y ponemos sus valores por defecto
-	EnemyParams params = EnemyManager::getInstance()->getParams(type);
+	EnemyParams params = GameManager::getInstance()->getEnemyManager()->getParams(type);
 	life = params.life; 
 	transform.speed = params.speed;
 	meleeDmg = params.meleDmg; rangedDmg = params.rangedDmg ;
@@ -61,5 +61,5 @@ void Enemy::onDestroy() {
 	if(spawner != nullptr)
 		spawner->setActive(false);
 	//droppear dinero etc
-	EnemyManager::getInstance()->kill(this);
+	GameManager::getInstance()->getEnemyManager()->kill(this);
 }

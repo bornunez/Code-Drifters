@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "PlayState.h"
 #include "Camera.h"
+#include "Managers.h"
 MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
@@ -72,8 +73,8 @@ void MCAnimationComponent::debugHitbox()
 {
 	vector<SDL_Rect> hitboxes = currentAnimation->getCurrentFrame()->getHitboxes();
 	for (int i = 0; i < hitboxes.size(); i++) {
-		int hitboxX = hitboxes[i].x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
-		int hitboxY = hitboxes[i].y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
+		int hitboxX = hitboxes[i].x - playState->getCamera()->getTransform()->position.getX();
+		int hitboxY = hitboxes[i].y - playState->getCamera()->getTransform()->position.getY();
 		int hitboxW = hitboxes[i].w;
 		int hitboxH = hitboxes[i].h;
 		Vector2D hlu(-hitboxW / 2, -hitboxH / 2);
@@ -96,10 +97,11 @@ void MCAnimationComponent::debugHitbox()
 
 void MCAnimationComponent::debugHurtbox()
 {
+
 	vector<SDL_Rect> hurtboxes = currentAnimation->getCurrentFrame()->getHurtboxes();
 	for (int i = 0; i < hurtboxes.size(); i++) {
-		int hurtboxX = hurtboxes[i].x - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
-		int hurtboxY = hurtboxes[i].y - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
+		int hurtboxX = hurtboxes[i].x - playState->getCamera()->getTransform()->position.getX();
+		int hurtboxY = hurtboxes[i].y - playState->getCamera()->getTransform()->position.getY();
 		int hurtboxW = hurtboxes[i].w;
 		int hurtboxH = hurtboxes[i].h;
 		Vector2D hlu(-hurtboxW / 2, -hurtboxH / 2);

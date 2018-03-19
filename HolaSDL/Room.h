@@ -14,7 +14,7 @@ class Room
 {
 public:
 
-	Room(PlayState* playState);
+	Room();
 	~Room();
 	void loadTexture();
 	void render();
@@ -40,7 +40,7 @@ public:
 
 private:
 	string filename;
-	PlayState* playState;
+	//PlayState* playState;
 	Texture* texture;
 	Map* map;
 	int x;

@@ -5,8 +5,7 @@
 #include "miniz.h"
 #include "Game.h"
 #include "PlayState.h"
-#include "ResourceManager.h"
-#include "EnemyManager.h"
+#include "Managers.h"
 
 
 void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, Tileset* tileset)
@@ -100,6 +99,8 @@ EnemyType LevelParser::parseEnemyTypes(string enemyType)
 	//Iba a hacer un switch, peeeero no se puede de un string, asi que hacer aqui un if/else mazo tocho
 	if (enemyType == "Stalker")
 		eType = Stalker;
+	else if (enemyType == "Ranged")
+		eType = Ranged;
 	else if (enemyType == "Ninja")
 		eType = Ninja;
 	return eType;
@@ -110,9 +111,10 @@ LevelParser::~LevelParser()
 {
 }
 
-Map * LevelParser::parseLevel(string levelFile,Game* game,Camera* camera)
+Map * LevelParser::parseLevel(string levelFile)
 {
-	Map* map = new Map(levelFile,game->getResourceManager()->getCurrTileset(),camera);
+	Game* game = Game::getGame();
+	Map* map = new Map(levelFile,GameManager::getInstance()->getResourceManager()->getCurrTileset());
 	//Carga y lectura del mapa
 	XMLDocument doc;
 	doc.LoadFile(levelFile.c_str());
@@ -122,7 +124,7 @@ Map * LevelParser::parseLevel(string levelFile,Game* game,Camera* camera)
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if(e->Value() == string("layer"))
-			parseTileLayer(root,e, map,game->getResourceManager()->getCurrTileset());
+			parseTileLayer(root,e, map, GameManager::getInstance()->getResourceManager()->getCurrTileset());
 		if (e->Value() == string("objectgroup")) {
 			if (e->Attribute("name") == string("Spawners"))
 				parseSpawners(root, e,map);

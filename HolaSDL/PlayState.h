@@ -16,18 +16,17 @@ class PlayState : public GameState
 private:
 	Camera * camera;
 	MainCharacter* mainCharacter;
+	Game* game;
 	DungeonGenerator* level;
 	Room* currentRoom;
-
-	static PlayState* instance;
+	GameManager* gameManager;
 
 
 	//enemigo temporal
 	ExampleEnemy* enemy;
-	PlayState();
 public:
+	PlayState();
 	void loadState();
-	static PlayState* getInstance();
 	~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	void render();
@@ -35,6 +34,5 @@ public:
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
-	Room* getCurrentRoom();
 };
 

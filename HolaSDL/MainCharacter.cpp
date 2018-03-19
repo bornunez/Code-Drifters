@@ -23,7 +23,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
-	texture = Game::getGame()->getResourceManager()->getTexture(ProtaAnimation);
+	texture = GameManager::getInstance()->getResourceManager()->getTexture(ProtaAnimation);
 	createRunAnimations();
 	createIdleAnimation();
 	createLeftAttackAnimation();
@@ -36,7 +36,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCMovementComponent(this));
 	addComponent(new BasicMovement(this, "Paredes"));
 	addComponent(new MCShotComponent(this));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	addComponent(new SkeletonRendered(this));
 	animComp = new MCAnimationComponent(this, animations);
 	addComponent(animComp);
 	setCurrentBullets(4);
@@ -299,22 +299,6 @@ void MainCharacter::substractHP(int damage)
 {
 	HP -= damage;
 }
-int MainCharacter::getCurrentRoomX()
-{
-	return currentRoomX;
-}
-
-int MainCharacter::getCurrentRoomY()
-{
-	return currentRoomY;
-}
-
-void MainCharacter::changeCurrentRoom(int x, int y)
-{
-	currentRoomX = x;
-	currentRoomY = y;
-}
-
 int MainCharacter::getReloadTime()
 {
 	return reloadTime;

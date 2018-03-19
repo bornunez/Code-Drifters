@@ -10,8 +10,8 @@
 #include <ctime>
 
 
-Room::Room(PlayState* playState) : playState(playState) {
-	texture = new Texture(this->playState->getGame()->getRenderer());
+Room::Room() {
+	//texture = new Texture(this->playState->getGame()->getRenderer());
 		
 
 }
@@ -137,10 +137,10 @@ void Room::loadTexture() {
 	int rnd = rand() % 2;
 	cout << rnd<<endl;
 	string level;
-	if (false && (rnd % 2 > 0))
+	if ((rnd % 2 > 0))
 		level = "../levels/mapa.tmx";
 	else level = "../levels/mapa2.tmx";
-	map = LevelParser::parseLevel(level,playState->getGame(),playState->getCamera());
+	map = LevelParser::parseLevel(level);
 }
 void Room::render() {
 

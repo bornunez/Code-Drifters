@@ -4,9 +4,6 @@
 #include "MainCharacter.h"
 #include "Map.h"
 
-
-EnemyManager* EnemyManager::instance = nullptr;
-
 EnemyManager::EnemyManager()
 {
 }
@@ -20,7 +17,7 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	case Stalker:
 		e = new ExampleEnemy(mc);
 		break;
-	case Gunner:
+	case Ranged:
 		//e = new Gunner(...));
 		break;
 	case Ninja:
@@ -54,14 +51,6 @@ EnemyManager::~EnemyManager()
 		kill(e);
 	for (Enemy* e : inactives)
 		inactives.remove(e);
-}
-
-//Get Singleton instance
-EnemyManager * EnemyManager::getInstance()
-{
-	if (instance == nullptr)
-		instance = new EnemyManager();
-	return instance;
 }
 
 void EnemyManager::update()

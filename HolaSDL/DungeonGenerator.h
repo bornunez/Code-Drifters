@@ -9,10 +9,9 @@ using namespace std;
 class DungeonGenerator
 {
 public:
-	DungeonGenerator(PlayState* playState, int mapWidth, int mapHeight, int maxRooms, int sizeX, int sizeY);
+	DungeonGenerator(int mapWidth, int mapHeight, int maxRooms);
 	~DungeonGenerator();
 	void CreateMap();
-	void Run();
 
 	Room* getRoom(int x, int y);
 	Room* getFirstRoom();
@@ -34,13 +33,6 @@ private:
 	void render();
 
 	void LoadTextures();
-	int winY = 50;
-	int winX = 50;
-	int winWidth = 800;
-	int winHeight = 600;
-
-	
-	SDL_Rect size_;
 
 	int mapWidth_;
 	int mapHeight_;

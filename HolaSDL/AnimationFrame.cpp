@@ -34,8 +34,8 @@ void AnimationFrame::addHitbox(SDL_Rect rect, int offsetX, int offsetY)
 
 void AnimationFrame::render()
 {
-	destRect.x = gameObject->getTransform()->position.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX() + frameOffsetX;
-	destRect.y = gameObject->getTransform()->position.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY() + frameOffsetY;
+	destRect.x = gameObject->getTransform()->position.getX() - GameManager::getInstance()->getPlayState()->getCamera()->getTransform()->position.getX() + frameOffsetX;
+	destRect.y = gameObject->getTransform()->position.getY() - GameManager::getInstance()->getPlayState()->getCamera()->getTransform()->position.getY() + frameOffsetY;
 	updateBoxPosition();
 	gameObject->getTexture()->render(destRect,srcRect);	
 }

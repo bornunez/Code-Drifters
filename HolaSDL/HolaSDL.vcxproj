@@ -21,6 +21,7 @@
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="ExampleRender.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
@@ -42,6 +44,7 @@
     <ClCompile Include="MainCharacter.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="MCAnimationComponent.cpp" />
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
@@ -77,6 +80,7 @@
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyManager.h" />
@@ -84,6 +88,7 @@
     <ClInclude Include="ExampleRender.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
@@ -91,12 +96,14 @@
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
+    <ClInclude Include="Managers.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LevelParser.h" />
     <ClInclude Include="MainCharacter.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="MCAnimationComponent.h" />
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />

@@ -3,19 +3,18 @@
 #include "Transform.h"
 #include "GameObject.h"
 #include "Game.h"
-SkeletonRendered::SkeletonRendered(GameObject* o,GameObject* camera) : RenderComponent(o),	color_({ COLOR(0xffffffff) }), camera(camera)
+#include "Camera.h"
+SkeletonRendered::SkeletonRendered(GameObject* o ,SDL_Color color) : RenderComponent(o)
 {
 }
 
-SkeletonRendered::SkeletonRendered(SDL_Color color, GameObject* o) : RenderComponent(o), color_(color)
-{
-}
 
 SkeletonRendered::~SkeletonRendered() {
 }
 
 void SkeletonRendered::render() {
 
+	Camera* camera = GameManager::getInstance()->getCamera();
 	SDL_Renderer* renderer = Game::getGame()->getRenderer();
 	Transform* t = gameObject->getTransform();
 	// the rotation angle of the object wrt to

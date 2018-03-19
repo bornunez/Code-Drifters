@@ -1,6 +1,8 @@
 #include "Map.h"
 #include "Layer.h"
-
+#include "GameManager.h"
+#include "PlayState.h"
+#include "Managers.h"
 
 void Map::parseLevel()
 {
@@ -8,9 +10,9 @@ void Map::parseLevel()
 }
 
 
-Map::Map(string filename, Tileset* ts, Camera* camera) : filename(filename), tileset(ts),camera(camera)
+Map::Map(string filename, Tileset* ts) : filename(filename), tileset(ts)
 {
-		
+	camera = GameManager::getInstance()->getCamera();
 }
 
 Map::~Map()
@@ -21,6 +23,7 @@ void Map::update()
 {
 	for (Layer* l : layers)
 		l->update();
+
 }
 
 void Map::render()

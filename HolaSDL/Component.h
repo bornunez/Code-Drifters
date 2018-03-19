@@ -1,5 +1,6 @@
 #pragma once
 #include "sdl_includes.h"
+#include "Managers.h"
 #include <string>
 
 class GameObject;
@@ -9,12 +10,13 @@ class Component
 {
 protected: 
 	GameObject* gameObject;
+	PlayState* playState;
 	ComponentType type;
 public:
 	virtual void recieveMessage(std::string msg) = 0;
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }
-	Component(GameObject* o) : gameObject(o) {};
+	Component(GameObject* o) : gameObject(o),playState(GameManager::getInstance()->getPlayState()) {};
 	~Component();
 };
 

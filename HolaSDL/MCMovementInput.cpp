@@ -92,10 +92,15 @@ void MCMovementInput::update()
 	t->velocity.set(velocity);
 	t->direction.set(direction);
 	if (debug) {
+		/*
 		system("cls");
 		cout << "Player info: \nPosition: [ X: " << t->position.getX() << " ,Y: " << t->position.getY() << " ]" << endl;
 		cout << "Velocity: [ X: " << t->velocity.getX() << " ,Y: " << t->velocity.getY() << " ]" << endl;
 		cout << "Direction: [ X: " << t->direction.getX() << " ,Y: " << t->direction.getY() << " ]" << endl;
-		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
+		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;*/
+		Room* aux = GameManager::getInstance()->getMapManager()->getLeftRoom();
+		if (aux) {
+			GameManager::getInstance()->getMapManager()->changeRoom(aux);
+		}
 	}
 }

@@ -18,8 +18,8 @@ void Camera::load()
 	transform.position.setY(0);
 	transform.body.w = game->getWinW();
 	transform.body.h = game->getWinH();
-
-	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, PlayState::getInstance()->getMainCharacter());
+	
+	CameraMovementComponent* cameraMovement = new CameraMovementComponent(this, playState->getMainCharacter());
 	this->addComponent(cameraMovement);
 }
 
@@ -30,10 +30,11 @@ Camera::~Camera()
 
 void Camera::render()
 {
+	/*
 	int auxX = playState->getMainCharacter()->getCurrentRoomX();
 	int auxY = playState->getMainCharacter()->getCurrentRoomY();
 	playState->getLevel()->getRoom(auxX, auxY)->render();
-
+	*/
 	//GUI->render();//Pinta el GUI al final
 }
 

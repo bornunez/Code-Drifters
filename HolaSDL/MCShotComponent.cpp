@@ -1,7 +1,7 @@
 #pragma once
 #include "MCShotComponent.h"
 #include "Bullet.h"
-#include "ResourceManager.h"
+#include "Managers.h"
 #include "Game.h"
 #include "PlayState.h"
 #include "GameState.h"
@@ -67,20 +67,18 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 			Vector2D displayPosition;//Posición del personaje relativa a la cámara
 			displayPosition = (gunPosition
-				- PlayState::getInstance()->getCamera()->getTransform()->position);
+				- playState->getCamera()->getTransform()->position);
 			bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
 			bulletTransform.direction.normalize();//Halla el vector de dirección 
 
 												  //Crea la bala y le pasa el transform
-			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
+			Bullet* auxBullet = new Bullet(GameManager::getInstance()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
 			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-			int currentX = PlayState::getInstance()->getMainCharacter()->getCurrentRoomX();
-			int currentY = PlayState::getInstance()->getMainCharacter()->getCurrentRoomY();
 			//Añade la bala a los objetos de la sala actual
-			PlayState::getInstance()->addGameObject(auxBullet);
+			playState->addGameObject(auxBullet);
 
 			currentBullets--;//Le resta balas al personaje
 			static_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);

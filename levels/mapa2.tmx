@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="5">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="10" tilewidth="32" tileheight="32" nextobjectid="10">
  <tileset firstgid="1" source="Tileset/tile.tsx"/>
  <layer name="Suelo" width="20" height="10">
   <data encoding="base64" compression="zlib">
@@ -26,9 +26,15 @@
   <object id="4" name="asdsd" type="sadasd" gid="1" x="288" y="96" width="32" height="32">
    <properties>
     <property name="Ranged" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="Entradas" offsetx="3.33333" offsety="6.66667">
+  <object id="9" name="Left" gid="3" x="65.3333" y="100.667" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Salidas" offsetx="552" offsety="7.33333">
+  <object id="5" name="Right" x="38.6667" y="62" width="28" height="40"/>
  </objectgroup>
  <layer name="Techo" width="20" height="10">
   <data encoding="base64" compression="zlib">

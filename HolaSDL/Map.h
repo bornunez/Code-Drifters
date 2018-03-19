@@ -6,6 +6,7 @@
 class Map;
 class Layer;
 class Camera;
+class Door;
 using namespace tinyxml2;
 
 class Spawner {
@@ -26,9 +27,11 @@ public:
 
 	//Llamar para spawnear un enemigo en la posicion del spawner
 	void spawn() {
-		EnemyManager::getInstance()->spawn(this);
+		GameManager::getInstance()->getEnemyManager()->spawn(this);
 	}
 };
+
+
 
 class Map
 {
@@ -36,12 +39,13 @@ private:
 	//Capas de objetos / tiles
 	std::vector<Layer*> layers;
 	std::vector<Spawner*> spawners;
+	std::vector<Door*> doors;
 	string filename;
 	Tileset* tileset;
 	Camera* camera;
 	void parseLevel();
 
-	Map(string filename,Tileset* ts,Camera* camera);
+	Map(string filename,Tileset* ts);
 	friend class LevelParser;
 public:
 	~Map();
