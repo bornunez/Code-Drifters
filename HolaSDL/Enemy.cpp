@@ -64,7 +64,6 @@ void Enemy::knockBack()
 //	}
 //}
 
-}
 void Enemy::onDestroy() {
 	//Si tenemos un spawner asignado, nos destruimos
 	if(spawner != nullptr)
