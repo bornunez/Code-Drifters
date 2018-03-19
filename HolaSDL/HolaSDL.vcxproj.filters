@@ -135,7 +135,6 @@
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
     <ClCompile Include="BasicMovement.cpp" />
-    <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MainMenuState.cpp">
       <Filter>Estados\Source</Filter>
@@ -158,20 +157,28 @@
     <ClCompile Include="EnemyGunner.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="MCAttackComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="GunnerAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MCCollisionComponent.cpp" />
     <ClCompile Include="StalkerAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="DamageableEnemyComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="AnimationParser.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCCollisionComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCMovementInput.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -313,7 +320,6 @@
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
     <ClInclude Include="BasicMovement.h" />
-    <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MainMenuState.h">
       <Filter>Estados\Header</Filter>
@@ -336,20 +342,28 @@
     <ClInclude Include="EnemyGunner.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationParser.h" />
     <ClInclude Include="MCAttackComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="GunnerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MCCollisionComponent.h" />
     <ClInclude Include="StalkerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="DamageableEnemyComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
+    <ClInclude Include="AnimationParser.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCCollisionComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCMovementInput.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

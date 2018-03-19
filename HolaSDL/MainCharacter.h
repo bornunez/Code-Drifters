@@ -12,7 +12,8 @@ private:
 	float HP;
 	float velocity;
 	float maxVelocity;
-	float meleeDamage;
+	float normalAttackDamage;
+	float chargedAttackDamage;
 	bool activeHook;
 	bool firingGun;
 	bool attacking;
@@ -41,8 +42,11 @@ public:
 	int getCurrentBullets();
 	void setMaxBullets(int bullets);
 	int getMaxBullets();
-	float getMeleeDamage();
-	void setMeleeDamage(float dmg);
+	float getNormalAttackDamage();//Devuelve el daño que hace el ataque normal
+	void setNormalAttackDamage(float dmg);//Cambia el daño que hace el ataque normal
+	float getChargedAttackDamage();//Devuelve el daño que hace el ataque normal
+	void setChargedAttackDamage(float dmg);//Cambia el daño que hace el ataque normal
+	float getAttackDamage(std::string attackType);//Según el ataque que sea, devuelve su daño
 	void setMaxVelocity(float vel);
 	float getVelocity();
 	float getMaxVelocity();

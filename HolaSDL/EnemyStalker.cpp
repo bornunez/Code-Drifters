@@ -13,7 +13,7 @@
 #include "ResourceManager.h"
 #include "AnimationParser.h"
 #include "BasicMovement.h"
-
+#include "BoxRenderer.h"
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
@@ -22,6 +22,7 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new ChaseComponent(this, getMC()));
 	this->addComponent(new BasicMovement(this, "Paredes"));
 	this->addComponent(new StalkerAnimationComponent(this, animations));
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 }
 
 

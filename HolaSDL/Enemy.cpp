@@ -50,7 +50,17 @@ GameObject* Enemy::getMC() {
 
 
 
-void Enemy::receiveDamage(int damage) {
+//void Enemy::receiveDamage(int damage) {
+//	life -= damage;
+//	cout << "Vida enemigo: " << life << '\n';
+//	if (life <= 0) {
+//		onDestroy();
+//	}
+//}
+
+void Enemy::receiveDamage(string attackType) {
+	MainCharacter* mc = static_cast<MainCharacter*>(mainCharacter);
+	float damage = mc->getAttackDamage(attackType) - defense;//El daño se calcula restando el ataque del jugador con la defensa del enemigo
 	life -= damage;
 	cout << "Vida enemigo: " << life << '\n';
 	if (life <= 0) {

@@ -14,7 +14,7 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 }
 
 void DamageableEnemyComponent::recieveMessage(std::string msg) {
-	if (msg == "Damage") {
-		enemy->receiveDamage(10);
+	if (msg == "NORMAL_ATTACK") {
+		enemy->receiveDamage("NORMAL_ATTACK");
 	}
 }

@@ -15,6 +15,7 @@
 #include "ResourceManager.h"
 #include "BasicMovement.h"
 #include "DamageableEnemyComponent.h"
+#include "BoxRenderer.h"
 
 
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
@@ -22,10 +23,12 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	type = Stalker;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
+	defense = 30;
 	this->addComponent(new GunnerComponent(this, getMC(), 400));
 	this->addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	this->addComponent(new BasicMovement(this, "Paredes"));
 	this->addComponent(new DamageableEnemyComponent(this));
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new GunnerAnimationComponent(this, animations));
 	
 }

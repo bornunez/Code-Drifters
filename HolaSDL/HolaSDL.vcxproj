@@ -15,6 +15,7 @@
     <ClCompile Include="AnimationFrame.cpp" />
     <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
@@ -78,6 +79,7 @@
     <ClInclude Include="AnimationFrame.h" />
     <ClInclude Include="AnimationParser.h" />
     <ClInclude Include="BasicMovement.h" />
+    <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />
     <ClInclude Include="Camera.h" />

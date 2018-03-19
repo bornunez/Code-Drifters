@@ -14,6 +14,7 @@
 #include "MCMovementInput.h"
 #include "MCCollisionComponent.h"
 #include "AnimationParser.h"
+#include "BoxRenderer.h"
 //Personaje principal
 
 
@@ -41,9 +42,11 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new MCCollisionComponent(this));
 	addComponent(new MCAnimationComponent(this, animations));
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
+	normalAttackDamage = 50;
 	
 	
 }
@@ -142,13 +145,33 @@ int MainCharacter::getMaxBullets()
 {
 	return maxBullets;
 }
-float MainCharacter::getMeleeDamage()
+float MainCharacter::getNormalAttackDamage()
 {
-	return meleeDamage;
+	return normalAttackDamage;
 }
-void MainCharacter::setMeleeDamage(float dmg)
+void MainCharacter::setNormalAttackDamage(float dmg)
 {
-	meleeDamage = dmg;
+	normalAttackDamage = dmg;
+}
+float MainCharacter::getChargedAttackDamage()
+{
+	return chargedAttackDamage;
+}
+void MainCharacter::setChargedAttackDamage(float dmg)
+{
+	chargedAttackDamage = dmg;
+}
+float MainCharacter::getAttackDamage(string attackType)
+{
+	if (attackType == "NORMAL_ATTACK") {
+		return getNormalAttackDamage();
+	}
+	else if (attackType == "CHARGED_ATTACK") {
+		return getChargedAttackDamage();
+	}
+	else {
+		return 0.0f;
+	}
 }
 void MainCharacter::setMaxVelocity(float vel)
 {

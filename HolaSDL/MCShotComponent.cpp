@@ -24,23 +24,6 @@ MCShotComponent::~MCShotComponent()
 
 void MCShotComponent::handleEvents(SDL_Event & e)
 {
-
-	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-	if (e.key.keysym.sym == SDLK_h && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK1_BOTLEFT");
-		mc->setActionState(Attack);
-
-	}
-	if (e.key.keysym.sym == SDLK_j && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK2_BOTLEFT");
-		mc->setActionState(Attack);
-
-	}
-	if (e.key.keysym.sym == SDLK_k && e.type == SDL_KEYDOWN) {
-		gameObject->sendMessage("ATTACK3_BOTLEFT");
-		mc->setActionState(Attack);
-
-	}
 	int currentBullets = dynamic_cast<MainCharacter*>(gameObject)->getCurrentBullets();
 	int reloadTime = dynamic_cast<MainCharacter*>(gameObject)->getReloadTime();//Tiempo para que se recargue una bala
 	int maxBullets = dynamic_cast<MainCharacter*>(gameObject)->getMaxBullets();
@@ -56,7 +39,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			lastReloadTime->restart();//Reinicia el tiempo desde la última recarga
 		}
 	}
-	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
+	if (e.button.button == SDL_BUTTON_RIGHT && e.type == SDL_MOUSEBUTTONDOWN) {
 		if (currentBullets > 0) {//Si tiene balas en el cargador dispara
 			int mouseX, mouseY;
 			SDL_Point p;

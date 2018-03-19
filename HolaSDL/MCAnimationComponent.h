@@ -10,8 +10,7 @@ public:
 	void render();
 	void recieveMessage(std::string msg);
 	virtual ~MCAnimationComponent();	
-	void debugBoxes();
-	void debugHitbox(string box);
+	
 	void handleAnimationStates();
 private:
 	std::map<const char*, Animation*> animations;

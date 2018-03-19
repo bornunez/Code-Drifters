@@ -28,7 +28,7 @@ void MCCollisionComponent::checkCollision()
 			int j = 0;
 			while (!hit && j < hitboxes.size()) {
 				if (CollisionHandler::RectCollide(enemyHurtboxes[i], hitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
-					e->sendMessage("Damage");
+					e->sendMessage("NORMAL_ATTACK");
 					hit = true;
 				}
 				j++;
