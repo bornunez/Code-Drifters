@@ -66,7 +66,7 @@ void PlayState::loadState()
 //	enemy = new ExampleEnemy(this, this->getGame(), mainCharacter, 50, 50, 20, 20);
 	
 	//level->getFirstRoom()->addCharacter(enemy);
-	boss = new Boss(mainCharacter, 200, 200, 200, 200);
+	boss = new Boss(mainCharacter, 800, 800, 200, 200);
 	level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->addCharacter(boss);
 	//gameObjects.push_back(boss);
 

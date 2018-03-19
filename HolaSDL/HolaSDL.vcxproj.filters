@@ -144,6 +144,9 @@
     <ClCompile Include="UpdateBoss.cpp">
       <Filter>Bosses\.cpp</Filter>
     </ClCompile>
+    <ClCompile Include="MasterBoss.cpp">
+      <Filter>Bosses\.cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -292,6 +295,9 @@
       <Filter>Bosses\.h</Filter>
     </ClInclude>
     <ClInclude Include="UpdateBoss.h">
+      <Filter>Bosses\.h</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterBoss.h">
       <Filter>Bosses\.h</Filter>
     </ClInclude>
   </ItemGroup>
