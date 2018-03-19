@@ -54,7 +54,6 @@
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCAttackCollisionComponent.cpp" />
-    <ClCompile Include="MCMovementComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -120,7 +119,6 @@
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCAttackCollisionComponent.h" />
-    <ClInclude Include="MCMovementComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />

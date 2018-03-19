@@ -22,7 +22,7 @@ void MCMovementInput::update()
 	SDL_PumpEvents();
 	//continuous-response keys
 	debug = keystate[debugKey];
-
+	Transform* t = gameObject->getTransform();
 	if (mc->getActionState() == Attack) {
 		velocity.setX(0);
 		velocity.setY(0);
@@ -30,20 +30,20 @@ void MCMovementInput::update()
 	else {
 		if (keystate[leftKey])
 		{
-			direction.setX(-1);
+			t->direction.setX(-1);
 			velocity.setX(-1);
 			mc->setActionState(Run);
 			if (!keystate[upKey] && !keystate[downKey]) {
-				direction.setY(0);
+				t->direction.setY(0);
 			}
 		}
 		else if (keystate[rightKey])
 		{
-			direction.setX(1);
+			t->direction.setX(1);
 			velocity.setX(1);
 			mc->setActionState(Run);
 			if (!keystate[upKey] && !keystate[downKey]) {
-				direction.setY(0);
+				t->direction.setY(0);
 			}
 		}
 		else {//Si no se mueve en horizontal entonces frena
@@ -52,20 +52,20 @@ void MCMovementInput::update()
 		}
 		if (keystate[upKey])
 		{
-			direction.setY(-1);
+			t->direction.setY(-1);
 			velocity.setY(-1);
 			mc->setActionState(Run);
 			if (!keystate[leftKey] && !keystate[rightKey]) {
-				direction.setX(0);
+				t->direction.setX(0);
 			}
 		}
 		else if (keystate[downKey])
 		{
-			direction.setY(1);
+			t->direction.setY(1);
 			velocity.setY(1);
 			mc->setActionState(Run);
 			if (!keystate[leftKey] && !keystate[rightKey]) {
-				direction.setX(0);
+				t->direction.setX(0);
 			}
 		}
 		else {//Si no se mueve en vertical frena
@@ -78,10 +78,9 @@ void MCMovementInput::update()
 	}
 	
 	
-	Transform* t = gameObject->getTransform();
+	
 	velocity.normalize();
 	t->velocity.set(velocity);
-	t->direction.set(direction);
 	if (debug) {
 		system("cls");
 		cout << "Player info: \nPosition: [ X: " << t->position.getX() << " ,Y: " << t->position.getY() << " ]" << endl;
