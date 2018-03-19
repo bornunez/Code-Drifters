@@ -20,6 +20,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
+    <ClCompile Include="ChargeComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -86,6 +87,7 @@
     <ClInclude Include="Base64.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />
+    <ClInclude Include="ChargeComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="Component.h" />

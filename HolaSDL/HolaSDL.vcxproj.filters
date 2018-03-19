@@ -180,6 +180,9 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="BasicInvincibleComponent.cpp" />
+    <ClCompile Include="ChargeComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -366,6 +369,9 @@
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="BasicInvincibleComponent.h" />
+    <ClInclude Include="ChargeComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

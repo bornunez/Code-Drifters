@@ -13,7 +13,6 @@ public:
 
 private:
 	GameObject* targetObject;
-	float velocity;
 	float angle;
 };
 
