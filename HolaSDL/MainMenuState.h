@@ -22,6 +22,8 @@ public:
 	virtual void handleEvent(SDL_Event& e);
 	virtual void update();
 	virtual void render();
+
+	//Metodos callback
 	static void playState(Game* game);
 	static void exitGame(Game* game);
 };

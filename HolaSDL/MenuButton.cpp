@@ -1,11 +1,10 @@
 #include "MenuButton.h"
-#include "Game.h"
+#include "ButtonRenderer.h"
 
 
-MenuButton::MenuButton(Texture* t, SDL_Rect r, CallBackOnClick* cb)
+MenuButton::MenuButton(Texture* normal, Texture* cursorOn, Texture* click, SDL_Rect r, CallBackOnClick* cb)
 {
-	texture = t;
-	rect = r;
+	ButtonRenderer br= new ButtonRenderer(normal, cursorOn, click, r)
 	callback = cb;
 }
 

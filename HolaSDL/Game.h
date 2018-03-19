@@ -52,7 +52,7 @@ public:
 	SDL_Renderer* getRenderer();
 	ResourceManager* getResourceManager() { return resourceManager; }
 	LevelParser* getLvlParser() { return levP; }
-	void run();
+	void run();//Bucle principal
 	void handleEvents();
 
 	//Gets y sets
@@ -62,8 +62,8 @@ public:
 	int getWinW();
 	int getWinH();
 	int getLvl() { return level; }
-	static Game* getGame();
-
-	void startGame();
+	
+	//Cambios de estados
+	void startGame(); //Mete PlayState
 };
 

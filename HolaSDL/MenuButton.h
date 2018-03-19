@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "Texture.h"
+class ButtonRenderer;
 class MenuButton : public GameObject
 {
 private:
@@ -10,7 +11,7 @@ private:
 	CallBackOnClick* callback;
 	SDL_Point mouse;
 public:
-	MenuButton(Texture* t, SDL_Rect r, CallBackOnClick* cb);
+	MenuButton(Texture* normal, Texture* cursorOn, Texture* click, SDL_Rect r, CallBackOnClick* cb);
 	~MenuButton();
 	void render();
 	void handleEvents(SDL_Event& e);

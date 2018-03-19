@@ -7,6 +7,7 @@ MainMenuState::MainMenuState()
 	playButtonTex = new Texture(game->getRenderer(), "..\\images\\playbutton.png", 1,1);
 	exitButtonTex = new Texture(game->getRenderer(), "..\\images\\exitbutton.png", 1, 1);
 	
+	
 	ebPos.h = pbPos.h = 100;
 	ebPos.w = pbPos.w = 400;
 	ebPos.x = pbPos.x = 200;
