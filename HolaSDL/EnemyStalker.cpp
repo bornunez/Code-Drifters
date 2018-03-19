@@ -14,6 +14,9 @@
 #include "AnimationParser.h"
 #include "BasicMovement.h"
 #include "BoxRenderer.h"
+#include "DamageableEnemyComponent.h"
+#include "BasicInvincibleComponent.h"
+
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
@@ -22,6 +25,8 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new ChaseComponent(this, getMC()));
 	this->addComponent(new BasicMovement(this, "Paredes"));
 	this->addComponent(new StalkerAnimationComponent(this, animations));
+	this->addComponent(new DamageableEnemyComponent(this, getMC()));
+	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 }
 

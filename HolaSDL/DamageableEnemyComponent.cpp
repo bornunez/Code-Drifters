@@ -27,8 +27,7 @@ void DamageableEnemyComponent::receiveDamage(std::string attackType)
 	int life = enemy->getLife();
 	life -= damage;
 	enemy->setLife(life);
-	cout << "Vida enemigo: " << life << '\n';
 	if (life <= 0) {
-		//onDestroy();
+		enemy->onDestroy();
 	}
 }

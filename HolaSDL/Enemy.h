@@ -25,7 +25,7 @@ protected:
 
 	//Metodos auxiliares
 	
-	void onDestroy();
+	
 
 	friend class EnemyManager;
 	Enemy(MainCharacter* mc);
@@ -37,6 +37,7 @@ public:
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
+	void onDestroy();
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();
