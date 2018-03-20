@@ -53,18 +53,17 @@ void LevelManager::changeRoom(RoomDirection dir)
 		//Pedimos la sala de la direccion
 		Room* room = getRoom(dir);
 		if (!room->isVoid()) {
-			//SI hay sala, la cambiamos
+			//Si hay sala, la cambiamos
 			currentRoom = room;
 			roomX += directions[dir].x;
 			roomY += directions[dir].y;
-			std::cout << "Cambio de direccion" << std::endl;
+			//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
+			//Antes de Spawnear, despawneamos los que hubiera
+			EnemyManager::getInstance()->killAll();
 			room->spawn();
 			room->setExplored(true);
 		}
-		else
-			std::cout << "Abajo no hay sala!" << std::endl;
 	}
-	std::cout << "No hay puerta" << endl;
 }
 
 

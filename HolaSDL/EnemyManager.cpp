@@ -119,6 +119,16 @@ void EnemyManager::kill(Enemy * enemy)
 	inactives.push_back(enemy);
 }
 
+void EnemyManager::killAll()
+{
+	list<Enemy*>::iterator it;
+	while (!actives.empty())
+	{
+		it = actives.begin();
+		kill(*it);
+	}
+}
+
 void EnemyManager::init(MainCharacter* mainCharacter)
 {
 	mc = mainCharacter;

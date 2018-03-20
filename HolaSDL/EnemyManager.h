@@ -48,6 +48,7 @@ public:
 	void spawn(Spawner* spawner);
 	//Desactiva un enemigo
 	void kill(Enemy* enemy);
+	void killAll();
 	//Inicializar el Manager. Llamar al principio
 	void init(MainCharacter* mainCharacter);
 	list<Enemy*> getActiveEnemies() { return actives; };
