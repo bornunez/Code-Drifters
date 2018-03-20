@@ -20,7 +20,7 @@
 #include "KnockbackComponent.h"
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
-	type = Stalker;
+	type = Gunner;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
 	defense = 30;
