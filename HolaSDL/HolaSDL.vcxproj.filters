@@ -180,6 +180,11 @@
     <ClCompile Include="ChargeComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Minimap.cpp" />
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelExplorer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -363,13 +368,18 @@
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="BasicInvincibleComponent.h" />
-    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="Managers.h">
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="BasicObject.h">
       <Filter>Includes</Filter>
     </ClInclude>
+    <ClInclude Include="ChargeComponent.h" />
+    <ClInclude Include="Minimap.h" />
+    <ClInclude Include="LevelManager.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelExplorer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

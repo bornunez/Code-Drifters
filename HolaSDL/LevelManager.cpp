@@ -48,22 +48,52 @@ void LevelManager::changeRoom(int x, int y)
 
 void LevelManager::changeRoom(RoomDirection dir)
 {
-	Room* room = getRoom(dir);
-	if (!room->isVoid()) {
-		currentRoom = room;
-		roomX += directions[dir].x;
-		roomY += directions[dir].y;
-		std::cout << "Cambio de direccion" << std::endl;
-		room->spawn();
+	bool canMove = getDoor(dir);
+	if (canMove) {
+		//Pedimos la sala de la direccion
+		Room* room = getRoom(dir);
+		if (!room->isVoid()) {
+			//SI hay sala, la cambiamos
+			currentRoom = room;
+			roomX += directions[dir].x;
+			roomY += directions[dir].y;
+			std::cout << "Cambio de direccion" << std::endl;
+			room->spawn();
+			room->setExplored(true);
+		}
+		else
+			std::cout << "Abajo no hay sala!" << std::endl;
 	}
-	else 
-		std::cout << "Abajo no hay sala!" << std::endl;
+	std::cout << "No hay puerta" << endl;
 }
 
 
 void LevelManager::render()
 {
 	currentRoom->render();
+}
+
+bool LevelManager::getDoor(RoomDirection dir)
+{
+	bool door = false;
+	switch (dir)
+	{
+	case Up:
+		door = currentRoom->getUpDoor();
+		break;
+	case Right:
+		door = currentRoom->getRightDoor();
+		break;
+	case Down:
+		door = currentRoom->getDownDoor();
+		break;
+	case Left:
+		door = currentRoom->getLeftDoor();
+		break;
+	default:
+		break;
+	}
+	return door;
 }
 
 void LevelManager::init()
@@ -82,6 +112,7 @@ void LevelManager::newMap()
 	firstRoom = dungeon->getFirstRoom();
 	currentRoom = firstRoom;
 	roomX = currentRoom->getX(); roomY = currentRoom->getY();
+	currentRoom->setExplored(true);
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 }
 

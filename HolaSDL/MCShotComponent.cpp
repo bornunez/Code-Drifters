@@ -42,7 +42,6 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 		}
 	}
 	if (e.button.button == SDL_BUTTON_RIGHT && e.type == SDL_MOUSEBUTTONDOWN) {
-		LevelManager::getInstance()->changeRoom(Down);
 		if (currentBullets > 0) {//Si tiene balas en el cargador dispara
 			int mouseX, mouseY;
 			SDL_Point p;

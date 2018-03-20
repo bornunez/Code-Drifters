@@ -8,6 +8,7 @@ enum ComponentType{RenderC,InputC,UpdateC,ItemC};
 template<class T>
 class Message {
 public:
+	Message(std::string msg, T params) : msg(msg), params(params) {}
 	std::string msg;
 	T params;
 };
@@ -18,7 +19,7 @@ protected:
 	GameObject* gameObject;
 	ComponentType type;
 public:
-	virtual void receiveMessage(std::string msg) = 0;
+	virtual void receiveMessage(std::string msg) {};
 	virtual void receiveMessage(Message<int> msg) {}
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }

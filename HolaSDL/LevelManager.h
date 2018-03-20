@@ -32,6 +32,7 @@ private:
 public:
 	static LevelManager * getInstance();
 
+	DungeonGenerator* getLevel() { return dungeon; }
 	Room* getCurrentRoom() { return currentRoom; }
 	Room* getFirstRoom() { return firstRoom; }
  
@@ -42,6 +43,8 @@ public:
 	void changeRoom(int x, int y);
 	void changeRoom(RoomDirection dir);
 	void render();
+
+	bool getDoor(RoomDirection dir);
 
 	//Metodos de control
 	void init();

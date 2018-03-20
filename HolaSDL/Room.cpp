@@ -12,6 +12,7 @@
 
 Room::Room() {
 	voidRoom = true;
+	explored = false;
 }
 
 Room::~Room()

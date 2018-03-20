@@ -36,6 +36,8 @@ public:
 	void setVisited(bool visited);
 	void setSpecial(string special);
 	bool isVoid() { return voidRoom; }
+	bool isExplored() { return explored; }
+	void setExplored(bool explored) { this->explored = explored; }
 	void spawn();
 	void update();
 
@@ -48,8 +50,9 @@ private:
 	bool rightDoor;
 	bool downDoor;
 	bool leftDoor;
-	bool visited;
-	bool voidRoom;
+	bool visited; //Indica si el generador la ha visitado
+	bool voidRoom; //Indica que la sala se ha creado
+	bool explored; //Indica si el jugador ha visitado la sala
 	string special;//Boss, chest, or shop
 };
 

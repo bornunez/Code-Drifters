@@ -6,6 +6,7 @@
 #include "Animation.h"
 #include "PlayState.h"
 #include "Camera.h"
+#include "Component.h"
 BoxRenderer::BoxRenderer(GameObject* o, GameObject* camera) : RenderComponent(o), camera(camera)
 {
 }
@@ -57,5 +58,7 @@ void BoxRenderer::debugHitbox(string box)
 			hlb.getY() + boxY + boxH / 2);
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), hlb.getX() + boxX + boxW / 2, hlb.getY() + boxY + boxH / 2, hlu.getX() + boxX + boxW / 2,
 			hlu.getY() + boxY + boxH / 2);
+		Message<int> msg("asd", 1);
+		gameObject->sendMessage<int>(msg);
 	}
 }

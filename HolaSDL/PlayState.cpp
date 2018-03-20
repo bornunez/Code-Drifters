@@ -8,6 +8,7 @@
 #include "ExampleEnemy.h"
 #include "Room.h"
 #include "Managers.h"
+#include "Minimap.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -34,6 +35,7 @@ void PlayState::render()
 	LevelManager::getInstance()->render();
 	GameState::render();
 	EnemyManager::getInstance()->render();
+	minimap->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -58,7 +60,9 @@ void PlayState::loadState()
 
 	//IMPORTANTE: Crear primero la camara. El mapa la requiere
 	LevelManager::getInstance()->init();
-	
+	int mMapW = Game::getGame()->getWinW() / 5;
+	int mMapH = Game::getGame()->getWinW() / 5;
+	minimap = new Minimap(mMapW, mMapH, mMapW / 5, mMapH / 5);
 
 	mainCharacter = new MainCharacter(nullptr,32*3*Game::getGame()->getScale(), 32*3 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
 

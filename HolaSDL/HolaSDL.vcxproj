@@ -44,6 +44,7 @@
     <ClCompile Include="GunnerShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="LevelParser.cpp" />
     <ClCompile Include="main.cpp" />
@@ -58,6 +59,7 @@
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="Minimap.cpp" />
     <ClCompile Include="miniz.c" />
     <ClCompile Include="MouseIcon.cpp" />
     <ClCompile Include="PlayState.cpp" />
@@ -110,6 +112,7 @@
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
+    <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="Managers.h" />
     <ClInclude Include="InputComponent.h" />
     <ClInclude Include="Layer.h" />
@@ -126,6 +129,7 @@
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="Minimap.h" />
     <ClInclude Include="miniz.h" />
     <ClInclude Include="MouseIcon.h" />
     <ClInclude Include="PlayState.h" />

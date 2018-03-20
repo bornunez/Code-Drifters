@@ -13,6 +13,9 @@ public:
 	~DungeonGenerator();
 	void CreateMap();
 
+	int getLevelWidth() { return mapWidth_; }
+	int getLevelHeight() { return mapHeight_; }
+
 	Room* getRoom(int x, int y);
 	Room* getFirstRoom();
 

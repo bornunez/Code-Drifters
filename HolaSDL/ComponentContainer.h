@@ -145,7 +145,7 @@ inline void ComponentContainer::sendMessage(Message<T> message)
 {
 	for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
-			c->receiveMessage(message, params);
+			c->receiveMessage(message);
 		}
 	}
 }
