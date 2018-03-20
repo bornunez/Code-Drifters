@@ -5,7 +5,7 @@
 #include "EnemyGunner.h"
 #include "CollisionHandler.h"
 #include "MainCharacter.h"
-
+#include <vector>
 
 MCAttackCollisionComponent::MCAttackCollisionComponent(GameObject* o) : UpdateComponent (o)
 {
@@ -24,12 +24,15 @@ void MCAttackCollisionComponent::checkCollision()
 			vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
 			vector<SDL_Rect> hitboxes = static_cast<MainCharacter*>(gameObject)->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
 			bool hit = false;
-			int i = 0;
+			uint i = 0;
 			while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo
-				int j = 0;
+				uint j = 0;
 				while (!hit && j < hitboxes.size()) {
 					if (CollisionHandler::RectCollide(enemyHurtboxes[i], hitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
-						e->sendMessage("NORMAL_ATTACK");						
+						Vector2D empuje = Vector2D(gameObject->getTransform()->direction.getX(), gameObject->getTransform()->direction.getY());
+						empuje.normalize();
+						Message<Vector2D> msg("NORMAL_ATTACK", empuje);
+						e->sendMessage(msg);						
 						hit = true;
 					}
 					j++;

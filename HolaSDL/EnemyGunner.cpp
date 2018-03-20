@@ -17,7 +17,7 @@
 #include "DamageableEnemyComponent.h"
 #include "BoxRenderer.h"
 #include "BasicInvincibleComponent.h"
-
+#include "KnockbackComponent.h"
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
@@ -26,6 +26,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	defense = 30;
 	this->addComponent(new GunnerComponent(this, getMC(), 400));
 	this->addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
+	addComponent(new KnockbackComponent(this,5000, "Paredes"));
 	this->addComponent(new BasicMovement(this, "Paredes"));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));

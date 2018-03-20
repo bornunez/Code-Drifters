@@ -10,6 +10,7 @@ public:
 	DamageableEnemyComponent(Enemy* o, GameObject* mc);
 	~DamageableEnemyComponent();
 	void receiveMessage(std::string msg);
+	void receiveMessage(Message<Vector2D> msg);
 	void update(){}
 	void receiveDamage(std::string attackType);
 private:

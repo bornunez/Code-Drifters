@@ -73,11 +73,11 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			mc->setActionState(Attack);
 			if (angle > 210 && angle <= 270) {
 				gameObject->sendMessage("ATTACK1_TOPLEFT");
-				gameObject->getTransform()->direction.set(0, -1);
+				gameObject->getTransform()->direction.set(-1, -1);
 			}
 			else if (angle > 270 && angle < 330) {
 				gameObject->sendMessage("ATTACK1_TOPRIGHT");
-				gameObject->getTransform()->direction.set(0, -1);
+				gameObject->getTransform()->direction.set(1, -1);
 			}
 			else if (angle > 150 && angle < 210) {
 				gameObject->sendMessage("ATTACK1_LEFT");
@@ -85,11 +85,11 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}
 			else if (angle >= 90 && angle < 150) {
 				gameObject->sendMessage("ATTACK1_BOTLEFT");
-				gameObject->getTransform()->direction.set(0, 1);
+				gameObject->getTransform()->direction.set(-1, 1);
 			}
 			else if (angle > 30 && angle < 90) {
 				gameObject->sendMessage("ATTACK1_BOTRIGHT");
-				gameObject->getTransform()->direction.set(0, 1);
+				gameObject->getTransform()->direction.set(1, 1);
 			}
 			else {
 				gameObject->sendMessage("ATTACK1_RIGHT");

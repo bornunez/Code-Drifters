@@ -185,6 +185,7 @@
       <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="LevelExplorer.cpp" />
+    <ClCompile Include="KnockbackComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -380,6 +381,7 @@
       <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="LevelExplorer.h" />
+    <ClInclude Include="KnockbackComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -1,7 +1,7 @@
 #pragma once
 #include "sdl_includes.h"
 #include <string>
-
+#include "Vector2D.h"
 class GameObject;
 enum ComponentType{RenderC,InputC,UpdateC,ItemC};
 
@@ -21,6 +21,7 @@ protected:
 public:
 	virtual void receiveMessage(std::string msg) {};
 	virtual void receiveMessage(Message<int> msg) {}
+	virtual void receiveMessage(Message<Vector2D> msg) {}
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }
 	Component(GameObject* o) : gameObject(o) {};

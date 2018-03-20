@@ -43,6 +43,7 @@
     <ClCompile Include="GunnerComponent.cpp" />
     <ClCompile Include="GunnerShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="LevelManager.cpp" />
@@ -112,6 +113,7 @@
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
+    <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="Managers.h" />
     <ClInclude Include="InputComponent.h" />

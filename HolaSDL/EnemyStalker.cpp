@@ -17,6 +17,7 @@
 #include "DamageableEnemyComponent.h"
 #include "BasicInvincibleComponent.h"
 #include "ChargeComponent.h"
+#include "KnockbackComponent.h"
 
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
@@ -24,6 +25,7 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
 	this->addComponent(new ChaseComponent(this, getMC()));
+	addComponent(new KnockbackComponent(this, 10000, "Paredes"));
 	this->addComponent(new BasicMovement(this, "Paredes"));
 	this->addComponent(new StalkerAnimationComponent(this, animations));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
