@@ -2,8 +2,7 @@
 #include "UpdateComponent.h"
 #include "Vector2D.h"
 
-class ChaseComponent :
-	public UpdateComponent
+class ChaseComponent : virtual public UpdateComponent
 {
 public:
 	void update();

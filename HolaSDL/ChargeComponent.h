@@ -3,8 +3,7 @@
 #include "Vector2D.h"
 #include "Timer.h"
 
-class ChargeComponent :
-	public UpdateComponent
+class ChargeComponent : virtual public UpdateComponent
 {
 public:
 	void update();

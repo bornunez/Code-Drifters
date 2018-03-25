@@ -186,6 +186,7 @@
     </ClCompile>
     <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
+    <ClCompile Include="StalkerComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -382,6 +383,7 @@
     </ClInclude>
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="KnockbackComponent.h" />
+    <ClInclude Include="StalkerComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

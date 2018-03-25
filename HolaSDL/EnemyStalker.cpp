@@ -1,5 +1,5 @@
+#pragma once
 #include "EnemyStalker.h"
-#include "ChaseComponent.h"
 #include "ExampleRender.h"
 #include "Game.h"
 #include "Enemy.h"
@@ -16,24 +16,28 @@
 #include "BoxRenderer.h"
 #include "DamageableEnemyComponent.h"
 #include "BasicInvincibleComponent.h"
-#include "ChargeComponent.h"
 #include "KnockbackComponent.h"
+#include "StalkerComponent.h"
+//#include "ChargeComponent.h"
+//#include "ChaseComponent.h"
+
+
 
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	this->addComponent(new ChaseComponent(this, getMC()));
+	//this->addComponent(new ChaseComponent(this, getMC()));
+	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	addComponent(new KnockbackComponent(this, 10000, "Paredes"));
 	this->addComponent(new BasicMovement(this, "Paredes"));
 	this->addComponent(new StalkerAnimationComponent(this, animations));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
-	this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
+	this->addComponent(new StalkerComponent(this, getMC(), 2, 1, 2));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 }
-
 
 
 EnemyStalker::~EnemyStalker()
