@@ -21,6 +21,7 @@ protected:
 public:
 	virtual void receiveMessage(std::string msg) {};
 	virtual void receiveMessage(Message<int> msg) {}
+	virtual void receiveMessage(Message<float> msg) {}
 	virtual void receiveMessage(Message<Vector2D> msg) {}
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }

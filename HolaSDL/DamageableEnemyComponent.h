@@ -9,10 +9,9 @@ class DamageableEnemyComponent : public UpdateComponent
 public:
 	DamageableEnemyComponent(Enemy* o, GameObject* mc);
 	~DamageableEnemyComponent();
-	void receiveMessage(std::string msg);
-	void receiveMessage(Message<Vector2D> msg);
+	void receiveMessage(Message<float> msg);
 	void update(){}
-	void receiveDamage(std::string attackType);
+	void receiveDamage(std::string attackType, float damage);
 private:
 	Enemy* enemy;
 	MainCharacter* mc;

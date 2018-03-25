@@ -131,7 +131,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
-    <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MainMenuState.cpp">
       <Filter>Estados\Source</Filter>
@@ -172,11 +171,9 @@
     <ClCompile Include="MCMovementInput.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="MCAttackCollisionComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="BasicInvincibleComponent.cpp" />
     <ClCompile Include="ChargeComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
@@ -185,8 +182,21 @@
       <Filter>Mapa\Source</Filter>
     </ClCompile>
     <ClCompile Include="LevelExplorer.cpp" />
-    <ClCompile Include="KnockbackComponent.cpp" />
-    <ClCompile Include="StalkerComponent.cpp" />
+    <ClCompile Include="BasicInvincibleComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicMovement.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxRenderer.cpp">
+      <Filter>RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="KnockbackComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StalkerComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -324,7 +334,6 @@
     <ClInclude Include="Bullet.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
-    <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MainMenuState.h">
       <Filter>Estados\Header</Filter>
@@ -365,25 +374,38 @@
     <ClInclude Include="MCMovementInput.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="MCAttackCollisionComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="BasicInvincibleComponent.h" />
     <ClInclude Include="Managers.h">
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="BasicObject.h">
       <Filter>Includes</Filter>
     </ClInclude>
-    <ClInclude Include="ChargeComponent.h" />
     <ClInclude Include="Minimap.h" />
     <ClInclude Include="LevelManager.h">
       <Filter>Mapa\Header</Filter>
     </ClInclude>
     <ClInclude Include="LevelExplorer.h" />
-    <ClInclude Include="KnockbackComponent.h" />
-    <ClInclude Include="StalkerComponent.h" />
+    <ClInclude Include="BasicInvincibleComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicMovement.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxRenderer.h">
+      <Filter>RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="KnockbackComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StalkerComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

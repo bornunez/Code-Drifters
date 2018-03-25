@@ -11,8 +11,8 @@ class Enemy : public GameObject
 {
 protected:
 //################## ATRIBUTOS COMUNES ####################
-	int life; int defense;
-	int meleeDmg; int rangedDmg;
+	float life; float defense;
+	float meleeDmg; float rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
 	GameObject* mainCharacter;
 //#########################################################
@@ -41,8 +41,8 @@ public:
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();
-	int getDefense() { return defense; };
-	int getLife() { return life; }
+	float getDefense() { return defense; };
+	float getLife() { return life; }
 	void setLife(int life) { this->life = life; };
 
 };

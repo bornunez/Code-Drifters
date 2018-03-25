@@ -14,24 +14,17 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 {
 }
 
-void DamageableEnemyComponent::receiveMessage(std::string msg) {
-	if (msg == "NORMAL_ATTACK") {
-		receiveDamage("NORMAL_ATTACK");
-		gameObject->setInvincibility(true);
-	}
-}
-
-void DamageableEnemyComponent::receiveMessage(Message<Vector2D> msg)
+void DamageableEnemyComponent::receiveMessage(Message<float> msg)
 {
 	if (msg.msg == "NORMAL_ATTACK") {
-		receiveDamage("NORMAL_ATTACK");
+		receiveDamage("NORMAL_ATTACK", msg.params);
 		gameObject->setInvincibility(true);
 	}
 }
 
-void DamageableEnemyComponent::receiveDamage(std::string attackType)
+void DamageableEnemyComponent::receiveDamage(std::string attackType, float damage)
 {	
-	float damage = mc->getAttackDamage(attackType) - enemy->getDefense();//El daño se calcula restando el ataque del jugador con la defensa del enemigo
+	float dmg = damage - enemy->getDefense();//El daño se calcula restando el ataque del jugador con la defensa del enemigo
 	int life = enemy->getLife();
 	life -= damage;
 	enemy->setLife(life);
