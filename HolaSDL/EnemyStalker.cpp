@@ -28,11 +28,12 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	type = Stalker;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
+	facing = LEFT;
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	addComponent(new KnockbackComponent(this, 10000, "Paredes"));
 	this->addComponent(new BasicMovement(this, "Paredes"));
-	this->addComponent(new StalkerAnimationComponent(this, animations));
+	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
 	this->addComponent(new StalkerComponent(this, getMC(), 2, 1, 2));
 	addComponent(new BasicInvincibleComponent(this, 0.2));

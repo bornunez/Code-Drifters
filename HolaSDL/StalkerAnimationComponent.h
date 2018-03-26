@@ -6,12 +6,13 @@ class StalkerAnimationComponent :
 	public RenderComponent
 {
 public:
-	StalkerAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim);
+	StalkerAnimationComponent(GameObject* o, GameObject* target, std::map<const char*, Animation*> anim);
 	virtual ~StalkerAnimationComponent();
 	void render();
 	void receiveMessage(std::string msg);
 	void handleAnimation();
 private:
+	GameObject * target;
 	std::map<const char*, Animation*> animations;
 	
 };

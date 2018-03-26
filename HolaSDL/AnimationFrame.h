@@ -17,6 +17,12 @@ public:
 	void addGunPosition(Vector2D gunPos, int offsetX=0, int offsetY=0);
 	void render(SDL_RendererFlip flip);
 	void updateBoxPosition();
+	std::vector<std::pair<int, int>> getHurtboxOffset() {return hurtboxOffset;};
+	std::vector<std::pair<int, int>> getHitboxOffset() { return hitboxOffset; };
+	std::pair<int, int> getGunPosOffset() { return gunPosOffset; };
+	void setHurtboxOffset(int boxIndex, std::pair<int, int> par) { hurtboxOffset[boxIndex] = par; }
+	void setHitboxOffset(int boxIndex, std::pair<int, int> par) { hitboxOffset[boxIndex] = par; }
+	void setGunPosOffset(std::pair<int, int> par) { gunPosOffset = par; }
 private:
 	Tileset * tileSet;
 	GameObject * gameObject;
