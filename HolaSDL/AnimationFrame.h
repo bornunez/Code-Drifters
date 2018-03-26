@@ -15,7 +15,7 @@ public:
 	std::vector<SDL_Rect> getHitboxes() { return hitboxes; };
 	Vector2D getGunPosition() { return gunPosition; };
 	void addGunPosition(Vector2D gunPos, int offsetX=0, int offsetY=0);
-	void render();
+	void render(SDL_RendererFlip flip);
 	void updateBoxPosition();
 private:
 	Tileset * tileSet;

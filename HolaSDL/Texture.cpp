@@ -74,13 +74,13 @@ void Texture::render(int x, int y) const {
 	render(dest);
 }
 
-void Texture::render(const SDL_Rect& dest, SDL_Rect* clip) const {
+void Texture::render(const SDL_Rect& dest, SDL_Rect* clip, SDL_RendererFlip flip) const {
 	if (texture) {
 		SDL_Rect default_clip = { 0, 0, width, height };
 		if (clip == nullptr) {
 			clip = &default_clip;
 		}
-		SDL_RenderCopy(renderer, texture, clip, &dest);
+		SDL_RenderCopyEx(renderer, texture, clip, &dest, NULL, NULL, flip);
 	}
 }
 

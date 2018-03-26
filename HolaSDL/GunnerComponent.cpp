@@ -56,7 +56,7 @@ void GunnerComponent::update() {
 			auxVel.normalize();
 
 			//se asigna la velocidad del enemigo y se actualiza la posicion
-			gunnerT->velocity.set(auxVel);
+			gunnerT->velocity.set(auxVel*20);
 			
 		
 	}

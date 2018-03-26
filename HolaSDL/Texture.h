@@ -19,7 +19,7 @@ public:
 	bool loadFromImg(string filename, uint numRows = 1, uint numCols = 1);
 	bool loadFromText(string texto, Font const& font, SDL_Color color = { 0, 0, 0, 255 });
 	void render(int x, int y) const;
-	void render(SDL_Rect const& dest, SDL_Rect* clip = nullptr) const;
+	void render(SDL_Rect const& dest, SDL_Rect* clip = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 	void render(SDL_Rect const& dest, double angle, SDL_Rect* clip = nullptr) const;
 	void close();
 

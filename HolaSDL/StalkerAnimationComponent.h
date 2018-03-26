@@ -10,6 +10,7 @@ public:
 	virtual ~StalkerAnimationComponent();
 	void render();
 	void receiveMessage(std::string msg);
+	void handleAnimation();
 private:
 	std::map<const char*, Animation*> animations;
 	

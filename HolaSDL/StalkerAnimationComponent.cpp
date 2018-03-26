@@ -18,6 +18,7 @@ StalkerAnimationComponent::~StalkerAnimationComponent()
 
 void StalkerAnimationComponent::render()
 {
+	handleAnimation();
 	gameObject->getCurrentAnimation()->runAnimation();
 	
 }
@@ -29,5 +30,12 @@ void StalkerAnimationComponent::receiveMessage(std::string msg)
 	}
 	else if (msg == "RUN") {
 		gameObject->changeCurrentAnimation("RUN");
+	}
+}
+
+void StalkerAnimationComponent::handleAnimation()
+{
+	if (gameObject->getTransform()->velocity.getX() > 0) {
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 	}
 }

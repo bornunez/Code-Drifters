@@ -24,7 +24,7 @@ public:
 	void setLayer(TileLayer* lay);
 	TileLayer* getLayer() { return layer; };
 	string getName() { return name; };
-	
+	void setFlip(SDL_RendererFlip flip);
 private:
 	TileLayer* layer;
 	Tileset* tileSet;
@@ -41,6 +41,7 @@ private:
 	int offsetY;
 	Timer* lastFrame;
 	string name;
+	SDL_RendererFlip flip = SDL_FLIP_NONE;
 	std::vector<AnimationFrame*> animFrames;
 };
 

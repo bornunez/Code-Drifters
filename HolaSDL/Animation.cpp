@@ -32,7 +32,7 @@ void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelv
 			currentFrame = 0;
 		}
 	}
-	animFrames[currentFrame]->render();
+	animFrames[currentFrame]->render(flip);
 }
 
 void Animation::normalAnimation()//El último frame se mantiene
@@ -50,7 +50,7 @@ void Animation::normalAnimation()//El último frame se mantiene
 	}
 
 	
-	animFrames[currentFrame]->render();
+	animFrames[currentFrame]->render(flip);
 }
 
 void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loop o no
@@ -104,4 +104,9 @@ void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asig
 			}
 		}
 	}
+}
+
+void Animation::setFlip(SDL_RendererFlip flip)
+{
+	this->flip = flip;
 }

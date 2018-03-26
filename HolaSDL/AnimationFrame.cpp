@@ -41,7 +41,7 @@ void AnimationFrame::addGunPosition(Vector2D gunPos, int offsetX, int offsetY)
 	gunPosOffset = { offsetX,offsetY };
 }
 
-void AnimationFrame::render()
+void AnimationFrame::render(SDL_RendererFlip flip)
 {
 	//Coloca el sprite correctamente
 	destRect.x = gameObject->getTransform()->position.getX() - gameObject->getTransform()->body.w / 2 -
@@ -51,7 +51,7 @@ void AnimationFrame::render()
 		- PlayState::getInstance()->getCamera()->getTransform()->position.getY()
 		+ frameOffsetY ;
 	updateBoxPosition();
-	tileSet->getTexture()->render(destRect, srcRect);
+	tileSet->getTexture()->render(destRect, srcRect,flip);
 }
 
 void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes respecto al personaje
