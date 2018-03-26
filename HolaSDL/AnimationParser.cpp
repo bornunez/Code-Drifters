@@ -107,7 +107,12 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 			anim->getFrame(frame)->addHurtbox(box, offsetx, offsety);
 			anim->getFrame(frame)->addHitbox(box, offsetx, offsety);
 		}
-		
+		else if(type == "GunPosition"){
+			Vector2D gunPos;
+			gunPos.setX(x);
+			gunPos.setY(y);
+			anim->getFrame(frame)->addGunPosition(gunPos,offsetx,offsety);
+		}
 		
 		//Ahora leemos las propiedades 
 		//vector<string> enemyTypes;

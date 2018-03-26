@@ -12,5 +12,6 @@ private:
 	GameObject * camera;
 	void debugBoxes();
 	void debugHitbox(std::string box);
+	void debugGunPosition();
 };
 

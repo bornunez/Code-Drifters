@@ -24,7 +24,7 @@ void BoxRenderer::debugBoxes()
 {
 	debugHitbox("Hitbox");
 	debugHitbox("Hurtbox");
-
+	debugGunPosition();
 }
 
 void BoxRenderer::debugHitbox(string box)
@@ -60,4 +60,15 @@ void BoxRenderer::debugHitbox(string box)
 			hlu.getY() + boxY + boxH / 2);
 		
 	}
+}
+
+void BoxRenderer::debugGunPosition()
+{
+
+	
+	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0x0000ffff));//Dibuja el punto en azul
+	Vector2D gunPos = gameObject->getCurrentAnimation()->getCurrentFrame()->getGunPosition();	
+	int PX = gunPos.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
+	int PY = gunPos.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
+	SDL_RenderDrawPoint(Game::getGame()->getRenderer(), PX, PY);
 }

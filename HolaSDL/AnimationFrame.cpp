@@ -35,6 +35,12 @@ void AnimationFrame::addHitbox(SDL_Rect rect, int offsetX, int offsetY)
 	hitboxOffset.push_back(aux);
 }
 
+void AnimationFrame::addGunPosition(Vector2D gunPos, int offsetX, int offsetY)
+{
+	gunPosition = gunPos;
+	gunPosOffset = { offsetX,offsetY };
+}
+
 void AnimationFrame::render()
 {
 	//Coloca el sprite correctamente
@@ -59,5 +65,6 @@ void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes res
 		hurtboxes[i].x = t->position.getX() + hurtboxOffset[i].first;
 		hurtboxes[i].y = t->position.getY() + hurtboxOffset[i].second;
 	}
-
+	gunPosition.setX(t->position.getX() + gunPosOffset.first);
+	gunPosition.setY(t->position.getY() + gunPosOffset.second);
 }

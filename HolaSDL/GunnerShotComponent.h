@@ -11,14 +11,14 @@ public:
 	~GunnerShotComponent();
 	void receiveMessage(std::string msg) {};
 	void handleAnimation();
-
+	void updateGunPosition();
 private:
 	GameObject* targetObject;
 	Timer* lastShotTime;
 	Timer* shotAnimationTime;
 	float distance;
 	float shotDelay;
-
+	Vector2D gunPosition;
 	void shoot();
 
 };

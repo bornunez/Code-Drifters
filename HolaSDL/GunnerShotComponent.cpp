@@ -115,6 +115,13 @@ void GunnerShotComponent::handleAnimation()
 
 }
 
+void GunnerShotComponent::updateGunPosition()
+{
+	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
+	Vector2D aux = eg->getCurrentAnimation()->getCurrentFrame()->getGunPosition();
+	gunPosition = aux;
+}
+
 
 void GunnerShotComponent::shoot() {
 	Transform* gunnerT = gameObject->getTransform();
@@ -124,9 +131,9 @@ void GunnerShotComponent::shoot() {
 		(abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distance) {
 		if (eg->currentState == IDLE) {
 			lastShotTime->restart();
-
+			updateGunPosition();
 			Transform bulletT;
-			bulletT.position.set(gunnerT->position.getX(), gunnerT->position.getY());
+			bulletT.position.set(gunPosition.getX(), gunPosition.getY());
 			bulletT.direction = (targetT->position - gunnerT->position);
 			bulletT.direction.normalize();
 			bulletT.body.w = bulletT.body.h = 10;
