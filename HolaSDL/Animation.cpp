@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "TileLayer.h"
 #include "Tileset.h"
-Animation::Animation(Tileset* tileset,  GameObject* o, int tileSize, int offsetx, int offsety, bool loop, float time)
+Animation::Animation(string animationName, Tileset* tileset,  GameObject* o, int tileSize, int offsetx, int offsety, bool loop, float time)
 {
 	offsetX = offsetx;
 	offsetY = offsety;
@@ -12,6 +12,7 @@ Animation::Animation(Tileset* tileset,  GameObject* o, int tileSize, int offsetx
 	gameObject = o;
 	this->time = time;
 	this->loop = loop;
+	name = animationName;
 	currentFrame = 0;
 	lastFrame = new Timer();
 }

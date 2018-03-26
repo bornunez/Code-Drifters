@@ -18,6 +18,7 @@ protected:
 	Transform transform; //Informacion del objeto en el mundo
 	Vector2D centerPosition;//Centro del objeto
 	Vector2D displayPosition;//Posición respecto a la cámara
+	Vector2D displayCenterPosition;//Centro del objeto respecto a la cámara
 	
 
 	std::map<const char*, Animation*> animations;//Animaciones que contiene
@@ -39,6 +40,7 @@ public:
 
 	void updateCenterPosition();
 	void updateDisplayPosition();
+	void updateDisplayCenterPosition();
 
 	//Gets y sets
 	bool isActive() { return active; }
@@ -47,6 +49,7 @@ public:
 	Texture* getTexture() { return texture; }
 	Vector2D getCenterPos() { return centerPosition; }
 	Vector2D getDisplayPos() { return displayPosition; }
+	Vector2D getDisplayCenterPos() { return displayCenterPosition; }
 	Animation* getCurrentAnimation();
 	void changeCurrentAnimation(const char * animName);
 	bool getInvincibility() { return invincible; }

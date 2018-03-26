@@ -137,7 +137,7 @@ Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFi
 	//Raiz del mapa
 	XMLElement* root = doc.FirstChildElement();
 	int tileSize = atoi(root->Attribute("tilewidth"));
-	Animation* anim = new Animation(tileset, o, tileSize*Game::getGame()->getScale(), offsetX, offsetY, loop, time);
+	Animation* anim = new Animation(animationName, tileset, o, tileSize*Game::getGame()->getScale(), offsetX, offsetY, loop, time);
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if (e->Value() == string("layer"))

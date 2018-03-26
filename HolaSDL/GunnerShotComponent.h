@@ -10,10 +10,12 @@ public:
 	GunnerShotComponent(GameObject* o, GameObject* target, float dist, float delay);
 	~GunnerShotComponent();
 	void receiveMessage(std::string msg) {};
+	void handleAnimation();
 
 private:
 	GameObject* targetObject;
 	Timer* lastShotTime;
+	Timer* shotAnimationTime;
 	float distance;
 	float shotDelay;
 

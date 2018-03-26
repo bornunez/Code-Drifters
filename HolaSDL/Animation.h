@@ -11,7 +11,7 @@ class Tileset;
 class Animation
 {
 public:
-	Animation(Tileset* tileset, GameObject* o, int tileSize, int offsetx=0, int offsety=0, bool loop = true, float time = 0.05 );
+	Animation(string animationName, Tileset* tileset, GameObject* o, int tileSize, int offsetx=0, int offsety=0, bool loop = true, float time = 0.05 );
 	virtual ~Animation();
 	AnimationFrame* getCurrentFrame() { return animFrames[currentFrame]; };
 	AnimationFrame* getFrame(uint num) { return animFrames[num]; };
@@ -23,6 +23,7 @@ public:
 	void addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset=0, int yOffset=0);
 	void setLayer(TileLayer* lay);
 	TileLayer* getLayer() { return layer; };
+	string getName() { return name; };
 	
 private:
 	TileLayer* layer;
@@ -39,7 +40,7 @@ private:
 	int offsetX;
 	int offsetY;
 	Timer* lastFrame;
-
+	string name;
 	std::vector<AnimationFrame*> animFrames;
 };
 

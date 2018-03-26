@@ -3,6 +3,7 @@
 #include<map>
 #include "Animation.h"
 class GunnerAnimationComponent;
+enum GunnerState{IDLE, RUN, SHOOT};
 class EnemyGunner : public Enemy
 {
 public:
@@ -10,5 +11,6 @@ public:
 
 	~EnemyGunner();
 	void loadAnimations();
+	GunnerState currentState;
 };
 

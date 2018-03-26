@@ -43,6 +43,7 @@ void GameObject::update()
 	ComponentContainer::update();
 	updateCenterPosition();
 	updateDisplayPosition();
+	updateDisplayCenterPosition();
 }
 
 void GameObject::render()
@@ -65,6 +66,12 @@ void GameObject::updateDisplayPosition()
 {
 	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX());
 	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY());
+}
+
+void GameObject::updateDisplayCenterPosition()
+{
+	displayCenterPosition.setX(displayPosition.getX() + transform.body.w / 2);
+	displayCenterPosition.setY(displayPosition.getY() + transform.body.h / 2);
 }
 
 Animation * GameObject::getCurrentAnimation()
