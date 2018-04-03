@@ -61,7 +61,7 @@ void ChargeComponent::update() {
 			chaserT->speed = chaserT->speed / velocityMult;
 
 			//Si lo pones a true carga mas de una vez, en false solo una
-			//charging = false;
+			charging = false;
 		}
 	}
 

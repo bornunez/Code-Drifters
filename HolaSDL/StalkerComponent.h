@@ -5,6 +5,7 @@ class StalkerComponent : public ChaseComponent, public ChargeComponent
 {
 private:
 	bool charge = false;
+	bool hasCharged = false;
 	Timer* timer;
 
 public:
