@@ -5,6 +5,8 @@
 
 using namespace tinyxml2;
 
+//Inicializacion de instance
+ResourceManager* ResourceManager::instance = nullptr;
 
 //Ver si declararle un renderer propio o usar el de game
 ResourceManager::ResourceManager(SDL_Renderer* renderer)
@@ -14,6 +16,12 @@ ResourceManager::ResourceManager(SDL_Renderer* renderer)
 	loadTilesets();
 	loadProtaTileset();
 	loadEnemyTilesets();
+}
+
+void ResourceManager::createInstance(SDL_Renderer * renderer)
+{
+	if (instance == nullptr)	
+		instance = new ResourceManager(renderer);
 }
 
 ResourceManager::~ResourceManager()

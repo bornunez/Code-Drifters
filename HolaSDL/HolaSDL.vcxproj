@@ -23,6 +23,7 @@
     <ClCompile Include="ChargeComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="CollisionsManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DamageableEnemyComponent.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="ChargeComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
     <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="CollisionsManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DamageableEnemyComponent.h" />

@@ -197,6 +197,9 @@
     <ClCompile Include="StalkerComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionsManager.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -405,6 +408,9 @@
     </ClInclude>
     <ClInclude Include="ChargeComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionsManager.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

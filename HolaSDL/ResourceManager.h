@@ -39,6 +39,7 @@ private:
 	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx" };
 	vector<Tileset*> enemyTilesets;
 	SDL_Renderer* renderer;
+	static ResourceManager* instance;
 
 	void loadTextures();
 	void loadTilesets();
@@ -46,6 +47,9 @@ private:
 	void loadEnemyTilesets();
 public:
 	ResourceManager(SDL_Renderer* renderer);
+	static ResourceManager* getInstance() { return instance; }
+	static void createInstance(SDL_Renderer* renderer);
+
 	~ResourceManager();
 	Texture * getTexture(int numTexture) { return textures[numTexture]; };
 	Tileset* getCurrTileset() { return currentTileset; };
@@ -53,3 +57,4 @@ public:
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset];
 	}
 };
+
