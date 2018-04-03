@@ -15,6 +15,7 @@
 #include "AnimationParser.h"
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
+#include "DoorsCollision.h"
 //Personaje principal
 
 
@@ -44,6 +45,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
+	addComponent(new DoorsCollision(this));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);

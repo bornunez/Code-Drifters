@@ -10,7 +10,9 @@ void Map::parseLevel()
 
 Map::Map(string filename, Tileset* ts, Camera* camera) : filename(filename), tileset(ts),camera(camera)
 {
-		
+	//Inicializamos el vector para poder acceder a el
+	for (int i = 0; i < 4; i++)
+		doors.push_back(nullptr);
 }
 
 Map::~Map()

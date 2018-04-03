@@ -3,6 +3,7 @@
 #include "tinyxml2.h"
 #include "LevelParser.h"
 #include "EnemyManager.h"
+#include "Door.h"
 class Map;
 class Layer;
 class Camera;
@@ -30,12 +31,14 @@ public:
 	}
 };
 
+
 class Map
 {
 private:
 	//Capas de objetos / tiles
 	std::vector<Layer*> layers;
 	std::vector<Spawner*> spawners;
+	std::vector<Door*> doors;
 	string filename;
 	Tileset* tileset;
 	Camera* camera;
@@ -51,7 +54,10 @@ public:
 	Tileset* getTileset() { return tileset; }
 	void addLayer(Layer* layer) { layers.push_back(layer); }
 	void addSpawn(Spawner* spawn) { spawners.push_back(spawn); }
+	void addDoor(Door* door, Direction dir) { doors[dir] = door; }
 	Layer * GetLayer(string LayerID);
+	Door* getDoor(Direction door) { return doors[door]; }
+	vector<Door*> getDoors() { return doors; }
 	void spawn();
 };
 

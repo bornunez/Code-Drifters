@@ -31,7 +31,7 @@ private:
 	//Array que contiene punteros a todas las texturas del juego.
 	Texture* textures[NUM_TEXTURES];
 	//Vector de tilesets
-	const string tilesetNames[NUM_TILESET]{ "tile.tsx" };	
+	const string tilesetNames[NUM_TILESET]{ "tileset16.tsx" };
 	vector<Tileset*> tilesets;
 	Tileset* currentTileset;
 	const string protaTilesetName = "ProtaAnimation.tsx";
@@ -50,6 +50,6 @@ public:
 	Texture * getTexture(int numTexture) { return textures[numTexture]; };
 	Tileset* getCurrTileset() { return currentTileset; };
 	Tileset* getProtaTileset() { return protaTileset; };
-	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset];
-	}
+	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
+	string getLevelPath() { return LEVEL_PATH; };
 };
