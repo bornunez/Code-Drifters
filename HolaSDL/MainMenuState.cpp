@@ -6,6 +6,8 @@ MainMenuState::MainMenuState()
 {
 	playButtonTex = new Texture(game->getRenderer(), "..\\images\\playbutton.png", 1,1);
 	exitButtonTex = new Texture(game->getRenderer(), "..\\images\\exitbutton.png", 1, 1);
+	loadButtonTex = new Texture(game->getRenderer(), "..\\images\\loadbutton.png", 1, 1);
+	resumeButtonTex = new Texture(game->getRenderer(), "..\\images\\resumebutton.png", 1, 1);
 	
 	
 	ebPos.h = pbPos.h = 100;
@@ -14,8 +16,8 @@ MainMenuState::MainMenuState()
 	pbPos.y = 350;
 	ebPos.y = 475;
 
-	start = new MenuButton(playButtonTex, pbPos, playState);
-	exit = new MenuButton(exitButtonTex, ebPos, exitGame);
+	start = new MenuButton(playButtonTex,loadButtonTex, resumeButtonTex, pbPos, playState);
+	exit = new MenuButton(exitButtonTex, loadButtonTex, resumeButtonTex, ebPos, exitGame);
 
 	gameObjects.push_back(start);
 	gameObjects.push_back(exit);
@@ -29,7 +31,7 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::handleEvent(SDL_Event & e)
 {
-	if (e.type == SDL_MOUSEBUTTONDOWN)
+	if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
 	{
 		for (GameObject* o : gameObjects)
 		{

@@ -19,7 +19,7 @@
 Game* Game::game = nullptr;
 Game::Game()
 {
-	
+
 
 }
 Game::~Game()
@@ -50,7 +50,7 @@ void Game::run()
 
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
-	
+
 	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
 
@@ -78,7 +78,7 @@ void Game::run()
 
 	}
 
-	while (!exit) 
+	while (!exit)
 	{
 		Time::getInstance()->Ticks();
 		//Provisional en lugar del render	
@@ -99,10 +99,10 @@ void Game::handleEvents()
 				exit = true;
 			}
 			else if (event.key.keysym.sym == SDLK_F11) {
-				
+
 				if (fullScreen) {
 					fullScreen = false;
-					SDL_SetWindowFullscreen(window, SDL_FALSE);					
+					SDL_SetWindowFullscreen(window, SDL_FALSE);
 				}
 				else {
 					fullScreen = true;
@@ -141,4 +141,3 @@ void Game::startGame()
 	stateMachine->pushState(playState);
 	playState->loadState();
 }
-

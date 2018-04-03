@@ -12,10 +12,10 @@ private:
 	SDL_Rect rect;
 	ButtonState current;
 public:
-	ButtonRenderer(GameObject* o, Texture* normal, Texture* cursorOn, Texture* click);
+	ButtonRenderer(GameObject* o, Texture* normal, Texture* cursorOn, Texture* click, SDL_Rect r);
 	~ButtonRenderer();
 
-	void recieveMessage(std::string msg);
+	virtual void recieveMessage(std::string msg);
 	void render();
 };
 

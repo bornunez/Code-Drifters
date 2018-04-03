@@ -11,6 +11,8 @@ private:
 
 	Texture* playButtonTex;
 	Texture* exitButtonTex;
+	Texture* loadButtonTex;
+	Texture* resumeButtonTex;
 
 	SDL_Rect pbPos;
 	SDL_Rect ebPos;
