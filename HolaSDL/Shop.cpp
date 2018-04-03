@@ -1,0 +1,81 @@
+#include "Shop.h"
+
+
+
+Shop::Shop(SDL_Renderer* re)
+{
+	rend = re;
+	//lecture of different trees from file
+	for (int i = 0; i < 3; i++) {
+		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + ".txt", rend, "..\\Arbol\\Textures\\"+ to_string(i+1) +".png");
+		fondos_[i] = new Texture();
+	}
+	//lecture of textures
+	if (!LoadTextures());
+	
+	right_tree.w = left_tree.w = 200;
+	right_tree.h = left_tree.h = 400;
+	central_tree.w = 350; 
+	central_tree.h = 500;
+
+	right_tree.y = left_tree.y = 100;
+	central_tree.y = 50;
+
+	left_tree.x = 50;
+	central_tree.x = left_tree.x + left_tree.w - 25;
+	right_tree.x = central_tree.x + central_tree.w-25;
+
+	/*SDL_Rect aux;
+	aux.w = aux.h = 75;
+	aux.x = 50;
+	aux.y = 300;
+	Left = new Button(aux, GoLeft, "..\\images\\background1.png", rend);
+	aux.x = 650;
+	Right = new Button(aux, GoRight, "..\\images\\background1.png", rend);-*/
+}
+
+bool Shop::LoadTextures() {
+	if (!fondos_[0]->loadText("..\\Arbol\\Izquierdo.png", 1, 1, rend)) return false;
+	if (!fondos_[1]->loadText("..\\Arbol\\Central.png", 1, 1, rend))return false;
+	if (!fondos_[2]->loadText("..\\Arbol\\Derecho.png", 1, 1, rend))return false;
+	else return true;
+}
+
+Shop::~Shop()
+{
+}
+
+void Shop::update() {
+
+}
+
+void Shop::render() {
+	//render of the left and right rectangles
+	fondos_[(actual_tree + 1) % 3]->Render(right_tree, rend);
+	fondos_[(actual_tree + 2) % 3]->Render(left_tree, rend);
+
+	//render of left and right tree, in the assigned rectangle
+	Skills_[(actual_tree + 1) % 3]->render(right_tree, 25, right_tree.w);
+	Skills_[(actual_tree + 2) % 3]->render(left_tree, 25, left_tree.w);
+
+
+	//render of the central tree, so it is above the two others
+	fondos_[actual_tree]->Render(central_tree, rend);
+	Skills_[actual_tree]->render(central_tree, 55, central_tree.w);
+}
+
+void Shop::HandleEvents(SDL_Event& e) {
+	if (e.type == SDL_KEYDOWN) {
+		if (e.key.keysym.sym == SDLK_RIGHT) {
+			GoRight();
+			//cout << actual_tree << endl;
+		}
+		else if (e.key.keysym.sym == SDLK_LEFT) {
+			GoLeft();
+			//cout << actual_tree << endl;
+		}
+	}
+	//Left_->HandleEvents(e);
+	//Right_->HandleEvents(e);
+	Skills_[actual_tree]->HandleEvents(e);
+}
