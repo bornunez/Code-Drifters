@@ -62,6 +62,5 @@ void ChargeComponent::update() {
 			charging = false;
 		}
 	}
-	
 
 }

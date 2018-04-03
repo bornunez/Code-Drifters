@@ -21,16 +21,17 @@ void StalkerAnimationComponent::render()
 {
 	handleAnimation();
 	gameObject->getCurrentAnimation()->runAnimation();
-	
 }
 
 void StalkerAnimationComponent::receiveMessage(std::string msg)
 {
 	if (msg == "RUN") {
 		gameObject->changeCurrentAnimation("RUN");
+		gameObject->getCurrentAnimation()->startAnimation();
 	}
-	else if (msg == "RUN") {
-		gameObject->changeCurrentAnimation("RUN");
+	else if (msg == "ATTACK") {
+		gameObject->changeCurrentAnimation("ATTACK");
+		gameObject->getCurrentAnimation()->startAnimation();
 	}
 }
 
@@ -38,7 +39,7 @@ void StalkerAnimationComponent::handleAnimation()
 {
 	EnemyStalker* es = static_cast<EnemyStalker*>(gameObject);
 	
-	if (gameObject->getCenterPos().getX() <= target->getCenterPos().getX() && es->facing==LEFT) {//Si está mirando a la izquierda gira
+	if (gameObject->getCenterPos().getX() <= target->getCenterPos().getX() && es->facing == LEFT) {		//Si está mirando a la izquierda gira
 		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 		es->facing = RIGHT;
 	}

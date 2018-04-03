@@ -5,12 +5,6 @@
 
 class ChargeComponent : virtual public UpdateComponent
 {
-public:
-	void update();
-	void receiveMessage(std::string msg) {};
-	ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
-	virtual ~ChargeComponent();
-
 private:
 	bool charging = false;
 	Timer* timer;
@@ -20,4 +14,13 @@ private:
 	float angle;
 	float chargeTime;
 	Vector2D auxVel;
+
+public:
+	void update();
+	void receiveMessage(std::string msg) {};
+	ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
+	virtual ~ChargeComponent();
+
+protected:
+	void resetTimer() { this->timer->restart(); }
 };
