@@ -39,11 +39,11 @@ void StalkerAnimationComponent::handleAnimation()
 {
 	EnemyStalker* es = static_cast<EnemyStalker*>(gameObject);
 	
-	if (gameObject->getCenterPos().getX() <= target->getCenterPos().getX() && es->facing == LEFT) {		//Si está mirando a la izquierda gira
+	if (gameObject->getCenterPos().getX() + 10 <= target->getCenterPos().getX() && es->facing == LEFT) {		//Si está mirando a la izquierda gira
 		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 		es->facing = RIGHT;
 	}
-	else if (gameObject->getCenterPos().getX() > target->getCenterPos().getX() && es->facing == RIGHT) {
+	else if (gameObject->getCenterPos().getX() - 10 > target->getCenterPos().getX() && es->facing == RIGHT) {
 		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
 		es->facing = LEFT;
 	}
