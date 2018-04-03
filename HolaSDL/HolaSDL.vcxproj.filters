@@ -116,9 +116,6 @@
     <ClCompile Include="MCBulletRenderComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MCMovementComponent.cpp">
-      <Filter>Prota\Source</Filter>
-    </ClCompile>
     <ClCompile Include="MCShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
@@ -134,8 +131,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
-    <ClCompile Include="BasicMovement.cpp" />
-    <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MainMenuState.cpp">
       <Filter>Estados\Source</Filter>
@@ -158,7 +153,50 @@
     <ClCompile Include="EnemyGunner.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationParser.cpp" />
+    <ClCompile Include="MCAttackComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GunnerAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StalkerAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageableEnemyComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationParser.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCMovementInput.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCAttackCollisionComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargeComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Minimap.cpp" />
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Mapa\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelExplorer.cpp" />
+    <ClCompile Include="BasicInvincibleComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicMovement.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxRenderer.cpp">
+      <Filter>RenderComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="KnockbackComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StalkerComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -281,9 +319,6 @@
     <ClInclude Include="MCBulletRenderComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MCMovementComponent.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
     <ClInclude Include="MCShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -299,8 +334,6 @@
     <ClInclude Include="Bullet.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
-    <ClInclude Include="BasicMovement.h" />
-    <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MainMenuState.h">
       <Filter>Estados\Header</Filter>
@@ -323,7 +356,56 @@
     <ClInclude Include="EnemyGunner.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationParser.h" />
+    <ClInclude Include="MCAttackComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GunnerAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StalkerAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageableEnemyComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationParser.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCMovementInput.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCAttackCollisionComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Managers.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicObject.h">
+      <Filter>Includes</Filter>
+    </ClInclude>
+    <ClInclude Include="Minimap.h" />
+    <ClInclude Include="LevelManager.h">
+      <Filter>Mapa\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelExplorer.h" />
+    <ClInclude Include="BasicInvincibleComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicMovement.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxRenderer.h">
+      <Filter>RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="KnockbackComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="StalkerComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargeComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -385,6 +467,9 @@
     </Filter>
     <Filter Include="UpdateComponent\Source">
       <UniqueIdentifier>{02283190-f1b0-4da4-b556-715e1491664a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes">
+      <UniqueIdentifier>{9c305cca-d9ed-4957-b6d3-519345f05685}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

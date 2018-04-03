@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "TileLayer.h"
 #include "Tileset.h"
-Animation::Animation(Tileset* tileset,  GameObject* o, int tileSize, int offsetx, int offsety, bool loop, float time)
+Animation::Animation(string animationName, Tileset* tileset,  GameObject* o, int tileSize, int offsetx, int offsety, bool loop, float time)
 {
 	offsetX = offsetx;
 	offsetY = offsety;
@@ -12,6 +12,7 @@ Animation::Animation(Tileset* tileset,  GameObject* o, int tileSize, int offsetx
 	gameObject = o;
 	this->time = time;
 	this->loop = loop;
+	name = animationName;
 	currentFrame = 0;
 	lastFrame = new Timer();
 }
@@ -31,7 +32,7 @@ void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelv
 			currentFrame = 0;
 		}
 	}
-	animFrames[currentFrame]->render();
+	animFrames[currentFrame]->render(flip);
 }
 
 void Animation::normalAnimation()//El último frame se mantiene
@@ -49,36 +50,7 @@ void Animation::normalAnimation()//El último frame se mantiene
 	}
 
 	
-	animFrames[currentFrame]->render();
-}
-
-
-void Animation::loadAnimation(int firstCol, int lastCol, int row, int xOffset, int yOffset)//Carga animaciones que no varían en tamaño
-{
-	for (int i = firstCol; i < lastCol; i++) {
-		SDL_Rect* aux = new SDL_Rect();
-		aux->h = frameH;
-		aux->w = frameW;
-		aux->x = frameW * firstCol;
-		aux->y = frameH * row;
-		aux->x = frameW * i;
-		SDL_Rect destRec;
-		destRec.x = gameObject->getTransform()->body.x + xOffset;
-		destRec.y = gameObject->getTransform()->body.y + yOffset;
-		destRec.w = frameW * Game::getGame()->getScale();
-		destRec.h = frameH * Game::getGame()->getScale();
-		addAnimationFrame(aux, destRec, xOffset, yOffset);
-
-	}
-}
-//Carga frames individuales, se usa cuando tienen tamaños distintos
-void Animation::loadAnimationFrame(int frameIndex, int srcRow, int srcCol, int frameWidth, int frameHeight, SDL_Rect destRect) {
-	SDL_Rect* aux = new SDL_Rect();
-	aux->h = frameHeight;
-	aux->w = frameWidth;
-	aux->x = frameWidth * srcRow;
-	aux->y = frameHeight * srcCol;
-	addAnimationFrame(aux, destRect);
+	animFrames[currentFrame]->render(flip);
 }
 
 void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loop o no
@@ -128,8 +100,35 @@ void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asig
 				destRec.y = gameObject->getTransform()->body.y;
 				destRec.w = frameW;
 				destRec.h = frameH;
-				addAnimationFrame(srcRect, destRec);				
+				addAnimationFrame(srcRect, destRec, offsetX,offsetY);				
 			}
 		}
+	}
+}
+
+void Animation::setFlip(SDL_RendererFlip flip)//Rota el sprite y con él todas las boxes y puntos
+{
+	this->flip = flip;	
+	for (uint i = 0; i < animFrames.size(); i++) {
+		vector<std::pair<int,int>> hitboxOffset = animFrames[i]->getHitboxOffset();
+		vector<SDL_Rect> hitboxes = animFrames[i]->getHitboxes();
+		for (uint j = 0; j < hitboxOffset.size(); j++) {
+			std::pair<int, int> aux;
+			hitboxOffset[j].first = 96 - (hitboxOffset[j].first + hitboxes[j].w);//Desplaza de forma simétrica en x el punto
+			aux = { hitboxOffset[j].first , hitboxOffset[j].second };
+			animFrames[i]->setHitboxOffset(j, aux);
+		}
+		vector<std::pair<int, int>> hurtboxOffset = animFrames[i]->getHurtboxOffset();
+		vector<SDL_Rect> hurtboxes = animFrames[i]->getHurtboxes();
+		for (uint j = 0; j < hurtboxOffset.size(); j++) {
+			std::pair<int, int> aux;
+			hurtboxOffset[j].first = 96 - (hurtboxOffset[j].first + hurtboxes[j].w);//Desplaza de forma simétrica en x el punto
+			aux = { hurtboxOffset[j].first , hurtboxOffset[j].second };
+			animFrames[i]->setHurtboxOffset(j, aux);
+		}
+		std::pair<int, int> gunPosOffset = animFrames[i]->getGunPosOffset();
+		Vector2D gunPos = animFrames[i]->getGunPosition();
+		gunPosOffset.first = 96 - (gunPosOffset.first);
+		animFrames[i]->setGunPosOffset({ gunPosOffset.first, gunPosOffset.second });
 	}
 }

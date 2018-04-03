@@ -48,7 +48,7 @@ void MainMenuState::update()
 
 void MainMenuState::render()
 {
-	SDL_RenderClear(this->getGame()->getRenderer());
+	SDL_RenderClear(Game::getGame()->getRenderer());
 	for (GameObject* o : gameObjects) 
 	{
 		o->render();

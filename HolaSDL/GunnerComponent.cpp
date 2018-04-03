@@ -13,12 +13,11 @@
 #include "DungeonGenerator.h"
 #include "Camera.h"
 #include "MainCharacter.h"
+#include"EnemyGunner.h"
 
-
-GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float vel, float dist) : UpdateComponent(o)
+GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float dist) : UpdateComponent(o)
 {
 	targetObject = target;
-	velocity = vel;
 	distancia = dist;
 
 }
@@ -33,24 +32,33 @@ void GunnerComponent::update() {
 
 	Transform* gunnerT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
+	
+	EnemyGunner* eg=static_cast<EnemyGunner*>(gameObject);
+
 
 	if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
-		gameObject->getTransform()->velocity.set(0.0, 0.0);
+		
+
+			gameObject->getTransform()->velocity.set(0.0, 0.0);
+		
+
+		
 	}
 	
 	//Regular chase
 	else {
-		Vector2D auxVel;
+			Vector2D auxVel;
 
-		//vectorentre enemigo y objetivo
-		auxVel.set(targetT->position - gunnerT->position);
+			//vectorentre enemigo y objetivo
+			auxVel.set(targetT->position - gunnerT->position);
 
-		//se normaliza y se multiplica por la magnitud de la velocidad
-		auxVel.normalize();
-		auxVel = auxVel * velocity;
+			//se normaliza y se multiplica por la magnitud de la velocidad
+			auxVel.normalize();
 
-		//se asigna la velocidad del enemigo y se actualiza la posicion
-		gunnerT->velocity.set(auxVel);
+			//se asigna la velocidad del enemigo y se actualiza la posicion
+			gunnerT->velocity.set(auxVel*20);
+			
+		
 	}
 	/* horizontal chase
 	else {
@@ -68,8 +76,8 @@ void GunnerComponent::update() {
 	}
 	}
 	*/
-	gunnerT->position.set(gunnerT->position + gunnerT->velocity);
 }
+
 
 
 	

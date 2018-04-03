@@ -48,6 +48,10 @@ public:
 	void sendMessage(std::string msg);
 	//El segundo manda un mensaje a un grupo de componentes de un tipo
 	void sendMessage(std::string msg, ComponentType type);
+	template <class T>
+	void sendMessage(Message<T> message);
+	template <class T>
+	void sendMessage(Message<T> message, ComponentType type);
 
 	virtual void update();
 	virtual void render();
@@ -84,7 +88,7 @@ inline T * ComponentContainer::removeComponent()
 {
 	//Intentamos encontrar el componente, en cuyo caso lo borraremos
 	Component* c = GetComponent<T>();
-	if (c !=nullptr)
+	if (c != nullptr)
 		removeComponent(c);
 	else
 		std::cout << "No se ha encontrado el componente a borrar";
@@ -108,7 +112,7 @@ inline T * ComponentContainer::GetComponent()
 {
 	bool find = false; int i = 0;
 	//Vamos a ver todas las listas del array de componentes
-	while(!find && i < NUMCOMP) {
+	while (!find && i < NUMCOMP) {
 
 		//Dentro de cada lista, la vamos a recorrer para encontrarlo
 		std::list<Component*>::iterator it = components[i].begin();
@@ -135,4 +139,22 @@ inline T * ComponentContainer::GetComponent(ComponentType type)
 	return it != components[type].end() ? *it : nullptr;
 }
 
+
+template<class T>
+inline void ComponentContainer::sendMessage(Message<T> message)
+{
+	for (int i = 0; i < NUMCOMP; i++) {
+		for (Component* c : components[i]) {
+			c->receiveMessage(message);
+		}
+	}
+}
+
+template<class T>
+inline void ComponentContainer::sendMessage(Message<T> message, ComponentType type)
+{
+	for (Component* c : components[type]) {
+		c->receiveMessage(message, params);
+	}
+}
 //-----------------------------------------------------------------------------------------

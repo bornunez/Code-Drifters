@@ -13,6 +13,7 @@ ResourceManager::ResourceManager(SDL_Renderer* renderer)
 	loadTextures();
 	loadTilesets();
 	loadProtaTileset();
+	loadEnemyTilesets();
 }
 
 ResourceManager::~ResourceManager()
@@ -54,4 +55,20 @@ void ResourceManager::loadProtaTileset()
 	Texture* tileTex = new Texture(renderer, PROTATILESET_PATH + imageSrc);
 	//Y cargamos el tileset
 	protaTileset = new Tileset(tileTex, root);
+}
+
+void ResourceManager::loadEnemyTilesets()
+{
+	for (int i = 0; i < NUM_ENEMYTILESET; i++) {
+		string filename = enemyTilesetNames[i];
+		XMLDocument doc;
+		doc.LoadFile((ENEMY_PATH + filename).c_str());
+		//Raiz del tileset
+		XMLElement* root = doc.FirstChildElement();
+		string imageSrc = root->FirstChildElement("image")->Attribute("source");
+		Texture* tileTex = new Texture(renderer, ENEMY_PATH + imageSrc);
+		//Y cargamos el tileset
+		enemyTilesets.push_back(new Tileset(tileTex, root));
+	}
+	currentTileset = tilesets[0];
 }

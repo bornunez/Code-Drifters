@@ -15,6 +15,6 @@ public:
 	BasicMovement(GameObject * o, vector<string> collisionsL);
 	virtual ~BasicMovement();
 	void update();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 };
 

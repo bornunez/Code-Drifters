@@ -4,6 +4,7 @@
 #include "Camera.h"
 #include "PlayState.h"
 #include "Tileset.h"
+#include "Game.h"
 AnimationFrame::AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX, int frameOffsetY)
 {
 	tileSet = tileset;
@@ -34,7 +35,13 @@ void AnimationFrame::addHitbox(SDL_Rect rect, int offsetX, int offsetY)
 	hitboxOffset.push_back(aux);
 }
 
-void AnimationFrame::render()
+void AnimationFrame::addGunPosition(Vector2D gunPos, int offsetX, int offsetY)
+{
+	gunPosition = gunPos;
+	gunPosOffset = { offsetX,offsetY };
+}
+
+void AnimationFrame::render(SDL_RendererFlip flip)
 {
 	//Coloca el sprite correctamente
 	destRect.x = gameObject->getTransform()->position.getX() - gameObject->getTransform()->body.w / 2 -
@@ -44,8 +51,7 @@ void AnimationFrame::render()
 		- PlayState::getInstance()->getCamera()->getTransform()->position.getY()
 		+ frameOffsetY ;
 	updateBoxPosition();
-	tileSet->getTexture()->render(destRect, srcRect);
-	//gameObject->getTexture()->render(destRect,srcRect);	
+	tileSet->getTexture()->render(destRect, srcRect,flip);
 }
 
 void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes respecto al personaje
@@ -59,5 +65,6 @@ void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes res
 		hurtboxes[i].x = t->position.getX() + hurtboxOffset[i].first;
 		hurtboxes[i].y = t->position.getY() + hurtboxOffset[i].second;
 	}
-
+	gunPosition.setX(t->position.getX() + gunPosOffset.first);
+	gunPosition.setY(t->position.getY() + gunPosOffset.second);
 }

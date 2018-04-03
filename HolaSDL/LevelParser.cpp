@@ -112,9 +112,12 @@ LevelParser::~LevelParser()
 {
 }
 
-Map * LevelParser::parseLevel(string levelFile,Game* game,Camera* camera)
+Map * LevelParser::parseLevel(string levelFile)
 {
-	Map* map = new Map(levelFile,game->getResourceManager()->getCurrTileset(),camera);
+	Game* game = Game::getGame();
+	if (PlayState::getInstance()->getCamera() == nullptr)
+		cout << "Haciendo mapa sin camara definida";
+	Map* map = new Map(levelFile,game->getResourceManager()->getCurrTileset(), PlayState::getInstance()->getCamera());
 	//Carga y lectura del mapa
 	XMLDocument doc;
 	doc.LoadFile(levelFile.c_str());

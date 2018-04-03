@@ -48,18 +48,27 @@ GameObject* Enemy::getMC() {
 	return mainCharacter;
 }
 
+void Enemy::knockBack()
+{
+	MainCharacter* mc = static_cast<MainCharacter*>(mainCharacter);
 
-void Enemy::receiveDamage(int damage) {
-	life -= damage;
-	if (life <= 0) {
-		onDestroy();
-	}
 }
+
+
+
+//void Enemy::receiveDamage(int damage) {
+//	life -= damage;
+//	cout << "Vida enemigo: " << life << '\n';
+//	if (life <= 0) {
+//		onDestroy();
+//	}
+//}
 
 void Enemy::onDestroy() {
 	//Si tenemos un spawner asignado, nos destruimos
 	if(spawner != nullptr)
 		spawner->setActive(false);
 	//droppear dinero etc
-	EnemyManager::getInstance()->kill(this);
+	 EnemyManager::getInstance()->kill(this);
 }
+

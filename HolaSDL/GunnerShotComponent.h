@@ -7,16 +7,19 @@ class GunnerShotComponent :	public UpdateComponent
 {
 public:
 	void update();
-	GunnerShotComponent(GameObject* o, GameObject* target, float vel, float dist);
+	GunnerShotComponent(GameObject* o, GameObject* target, float dist, float delay);
 	~GunnerShotComponent();
-	void recieveMessage(std::string msg) {};
-
+	void receiveMessage(std::string msg) {};
+	void handleAnimation();
+	void updateGunPosition();
 private:
 	GameObject* targetObject;
 	Timer* lastShotTime;
+	Timer* shotAnimationTime;
 	float distance;
-	float velocity;
+	float shotDelay;
+	Vector2D gunPosition;
 	void shoot();
-	bool hadisparaoxd = false;
+
 };
 

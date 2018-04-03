@@ -14,9 +14,9 @@ class Room
 {
 public:
 
-	Room(PlayState* playState);
+	Room();
 	~Room();
-	void loadTexture();
+	void load();
 	void render();
 	int getX();
 	int getY();
@@ -35,13 +35,14 @@ public:
 	void setDownDoor(bool downDoor);
 	void setVisited(bool visited);
 	void setSpecial(string special);
+	bool isVoid() { return voidRoom; }
+	bool isExplored() { return explored; }
+	void setExplored(bool explored) { this->explored = explored; }
 	void spawn();
 	void update();
 
 private:
 	string filename;
-	PlayState* playState;
-	Texture* texture;
 	Map* map;
 	int x;
 	int y;
@@ -49,7 +50,9 @@ private:
 	bool rightDoor;
 	bool downDoor;
 	bool leftDoor;
-	bool visited;
-	string special;//Boss, chest, or shop	
+	bool visited; //Indica si el generador la ha visitado
+	bool voidRoom; //Indica que la sala se ha creado
+	bool explored; //Indica si el jugador ha visitado la sala
+	string special;//Boss, chest, or shop
 };
 

@@ -5,7 +5,7 @@ class GunnerBulletRenderComponent :
 {
 public:
 	void render();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	GunnerBulletRenderComponent(GameObject* o);
 	virtual ~GunnerBulletRenderComponent();
 };

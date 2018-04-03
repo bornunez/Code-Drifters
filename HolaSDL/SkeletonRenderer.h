@@ -9,7 +9,7 @@ public:
 	SkeletonRendered(SDL_Color color,GameObject* o);
 	virtual ~SkeletonRendered();
 	void render();
-	virtual void recieveMessage(std::string msg) {};
+	virtual void receiveMessage(std::string msg) {};
 private:
 	SDL_Color color_;
 	GameObject* camera;

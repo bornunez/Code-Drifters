@@ -9,6 +9,7 @@ class MainCharacter;
 class DungeonGenerator;
 class ExampleEnemy;
 class Room;
+class Minimap;
 
 using namespace std;
 class PlayState : public GameState
@@ -18,6 +19,7 @@ private:
 	MainCharacter* mainCharacter;
 	DungeonGenerator* level;
 	Room* currentRoom;
+	Minimap* minimap;
 
 	static PlayState* instance;
 
@@ -35,6 +37,5 @@ public:
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
-	Room* getCurrentRoom();
 };
 

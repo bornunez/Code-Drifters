@@ -7,9 +7,11 @@ class Tileset;
 const int NUM_TEXTURES = 1;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
+const int NUM_ENEMYTILESET = 2;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels\\";
 const string TILESET_PATH = "..\\levels\\tileset\\";
+const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
 // Estructura para las texturas
 typedef struct {
@@ -34,16 +36,20 @@ private:
 	Tileset* currentTileset;
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
+	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx" };
+	vector<Tileset*> enemyTilesets;
 	SDL_Renderer* renderer;
 
 	void loadTextures();
 	void loadTilesets();
 	void loadProtaTileset();
-
+	void loadEnemyTilesets();
 public:
 	ResourceManager(SDL_Renderer* renderer);
 	~ResourceManager();
 	Texture * getTexture(int numTexture) { return textures[numTexture]; };
 	Tileset* getCurrTileset() { return currentTileset; };
 	Tileset* getProtaTileset() { return protaTileset; };
+	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset];
+	}
 };

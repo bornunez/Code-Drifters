@@ -1,6 +1,6 @@
 #pragma once
 #include "GameObject.h"
-
+#include <string>
 class MainCharacter;
 class Game;
 class PlayState;
@@ -11,8 +11,8 @@ class Enemy : public GameObject
 {
 protected:
 //################## ATRIBUTOS COMUNES ####################
-	int life;
-	int meleeDmg; int rangedDmg;
+	float life; float defense;
+	float meleeDmg; float rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
 	GameObject* mainCharacter;
 //#########################################################
@@ -24,19 +24,26 @@ protected:
 	EnemyType type;
 
 	//Metodos auxiliares
-	void receiveDamage(int damage);
-	void onDestroy();
+	
+	
 
 	friend class EnemyManager;
 	Enemy(MainCharacter* mc);
+	
 public:
+	/*void receiveDamage(int damage);*/
+	
 	~Enemy();
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
+	void onDestroy();
 	GameObject* getMC();
 	EnemyType getType() { return type; }
-
+	void knockBack();
+	float getDefense() { return defense; };
+	float getLife() { return life; }
+	void setLife(int life) { this->life = life; };
 
 };
 

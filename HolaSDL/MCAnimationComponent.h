@@ -8,16 +8,12 @@ class MCAnimationComponent :
 public:
 	MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim);
 	void render();
-	void recieveMessage(std::string msg);
+	void receiveMessage(std::string msg);
 	virtual ~MCAnimationComponent();	
-	void Play(const char* animName);
-	void debugBoxes();
-	void debugHitbox();
-	void debugHurtbox();
-	Animation* getCurrentAnimation() { return currentAnimation; };
-
+	
+	void handleAnimationStates();
 private:
 	std::map<const char*, Animation*> animations;
-	Animation* currentAnimation;
+	
 };
 

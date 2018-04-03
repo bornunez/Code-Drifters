@@ -16,5 +16,4 @@ public:
 	Camera();
 	void load();
 	~Camera();
-	virtual void render();
 };

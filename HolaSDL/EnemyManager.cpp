@@ -112,11 +112,21 @@ void EnemyManager::kill(Enemy * enemy)
 	while (it != actives.end() && (*it!= enemy))
 		it++;
 	//Si lo encontramos, lo quitamos de la lista de activos
-	if (it != inactives.end()) {
+	if (it != actives.end()) {
 		actives.erase(it);
 	}
 	//Y lo movemos a la lista de inactivos
 	inactives.push_back(enemy);
+}
+
+void EnemyManager::killAll()
+{
+	list<Enemy*>::iterator it;
+	while (!actives.empty())
+	{
+		it = actives.begin();
+		kill(*it);
+	}
 }
 
 void EnemyManager::init(MainCharacter* mainCharacter)

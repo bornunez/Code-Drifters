@@ -5,7 +5,7 @@ class ExampleRender :
 {
 public:
 	void render();
-	void recieveMessage(std::string msg) {};
+	void receiveMessage(std::string msg) {};
 	ExampleRender(GameObject* o);
 	virtual ~ExampleRender();
 };

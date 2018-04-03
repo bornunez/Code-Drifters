@@ -40,7 +40,8 @@ Layer * Map::GetLayer(string LayerID)
 void Map::spawn()
 {
 	for (Spawner* s : spawners) {
-		s->spawn();
+		if(s->isActive())
+			s->spawn();
 	}
 }
 
