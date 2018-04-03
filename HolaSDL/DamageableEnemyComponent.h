@@ -9,7 +9,7 @@ class DamageableEnemyComponent : virtual public UpdateComponent
 public:
 	DamageableEnemyComponent(Enemy* o, GameObject* mc);
 	~DamageableEnemyComponent();
-	void receiveMessage(Message<float> msg);
+	void receiveMessage(Message* msg);
 	void update(){}
 	void receiveDamage(std::string attackType, float damage);
 private:

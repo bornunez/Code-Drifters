@@ -13,7 +13,7 @@ public:
 	void update();
 	void knockback(Vector2D direction);
 	virtual ~KnockbackComponent();
-	virtual void receiveMessage(Message<Vector2D> msg);
+	virtual void receiveMessage(Message* msg);
 private:
 	int force;
 	vector<string> collisionsLayer;

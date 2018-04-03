@@ -48,10 +48,8 @@ public:
 	void sendMessage(std::string msg);
 	//El segundo manda un mensaje a un grupo de componentes de un tipo
 	void sendMessage(std::string msg, ComponentType type);
-	template <class T>
-	void sendMessage(Message<T> message);
-	template <class T>
-	void sendMessage(Message<T> message, ComponentType type);
+	void sendMessage(Message* msg);
+	void sendMessage(Message* msg, ComponentType type);
 
 	virtual void update();
 	virtual void render();
@@ -140,21 +138,5 @@ inline T * ComponentContainer::GetComponent(ComponentType type)
 }
 
 
-template<class T>
-inline void ComponentContainer::sendMessage(Message<T> message)
-{
-	for (int i = 0; i < NUMCOMP; i++) {
-		for (Component* c : components[i]) {
-			c->receiveMessage(message);
-		}
-	}
-}
 
-template<class T>
-inline void ComponentContainer::sendMessage(Message<T> message, ComponentType type)
-{
-	for (Component* c : components[type]) {
-		c->receiveMessage(message, params);
-	}
-}
 //-----------------------------------------------------------------------------------------

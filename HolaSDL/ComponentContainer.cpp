@@ -60,6 +60,22 @@ void ComponentContainer::sendMessage(std::string msg, ComponentType type)
 	}
 }
 
+void ComponentContainer::sendMessage(Message * msg)
+{
+	for (int i = 0; i < NUMCOMP; i++) {
+		for (Component* c : components[i]) {
+			c->receiveMessage(msg);
+		}
+	}
+}
+
+void ComponentContainer::sendMessage(Message * msg, ComponentType type)
+{
+	for (Component* c : components[type]) {
+		c->receiveMessage(msg);
+	}
+}
+
 void ComponentContainer::update()
 {
 	for (Component* c : components[UpdateC])

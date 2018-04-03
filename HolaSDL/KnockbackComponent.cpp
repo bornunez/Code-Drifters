@@ -56,9 +56,9 @@ void KnockbackComponent::knockback(Vector2D direction)
 	if (!collision)
 		*t = auxT;
 }
-void KnockbackComponent::receiveMessage(Message<Vector2D> msg) {
-	if (msg.msg == "NORMAL_ATTACK") {
-		knockback(msg.params);
+void KnockbackComponent::receiveMessage(Message* msg) {
+	if (msg->id == KNOCK_BACK) {
+		knockback(static_cast<KnockbackMessage*>(msg)->knockback);
 	}
 }
 

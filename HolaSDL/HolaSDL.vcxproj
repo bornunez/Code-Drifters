@@ -141,6 +141,7 @@
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Minimap.h" />
     <ClInclude Include="miniz.h" />
     <ClInclude Include="MouseIcon.h" />

@@ -14,10 +14,10 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 {
 }
 
-void DamageableEnemyComponent::receiveMessage(Message<float> msg)
+void DamageableEnemyComponent::receiveMessage(Message* msg)
 {
-	if (msg.msg == "NORMAL_ATTACK") {
-		receiveDamage("NORMAL_ATTACK", msg.params);
+	if (msg->id == MC_ATTACK_DAMAGE) {
+		receiveDamage("NORMAL_ATTACK", static_cast<MCAttackDamage*>(msg)->damage);
 		gameObject->setInvincibility(true);
 	}
 }

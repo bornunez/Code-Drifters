@@ -31,11 +31,12 @@ void MCAttackCollisionComponent::checkCollision()
 					if (CollisionHandler::RectCollide(enemyHurtboxes[i], hitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 						Vector2D empuje = Vector2D(gameObject->getTransform()->direction.getX(), gameObject->getTransform()->direction.getY());
 						empuje.normalize();
-						Message<Vector2D> msg1("NORMAL_ATTACK", empuje);
-						e->sendMessage(msg1);		
+						KnockbackMessage msg1(empuje);
+						e->sendMessage(&msg1);		
 						float damage = static_cast<MainCharacter*>(gameObject)->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
-						Message<float> msg2("NORMAL_ATTACK", damage);
-						e->sendMessage(msg2);
+
+						MCAttackDamage msg2(damage);
+						e->sendMessage(&msg2);
 						hit = true;
 					}
 					j++;
