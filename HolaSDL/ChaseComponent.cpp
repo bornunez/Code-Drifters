@@ -32,9 +32,5 @@ void ChaseComponent::update() {
 
 	//se asigna la velocidad del enemigo 
 	chaserT->velocity.set(auxVel);
-	
-
-	
-
 }
 
