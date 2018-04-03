@@ -6,7 +6,7 @@
 #include "UpdateComponent.h"
 #include "RenderComponent.h"
 #include "InputComponent.h"
-
+#include "Message.h"
 
 
 class ComponentContainer
@@ -45,13 +45,9 @@ public:
 
 	//Dos tipos: 
 	//El primero manda un mensaje a todos los componentes
-	void sendMessage(std::string msg);
+	void sendMessage(Message* msg);
 	//El segundo manda un mensaje a un grupo de componentes de un tipo
-	void sendMessage(std::string msg, ComponentType type);
-	template <class T>
-	void sendMessage(Message<T> message);
-	template <class T>
-	void sendMessage(Message<T> message, ComponentType type);
+	void sendMessage(Message* msg, ComponentType type);
 
 	virtual void update();
 	virtual void render();
@@ -141,20 +137,20 @@ inline T * ComponentContainer::GetComponent(ComponentType type)
 
 
 template<class T>
-inline void ComponentContainer::sendMessage(Message<T> message)
+inline void ComponentContainer::Message(Message* msg)
 {
 	for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
-			c->receiveMessage(message);
+			c->receiveMessage(msg);
 		}
 	}
 }
 
 template<class T>
-inline void ComponentContainer::sendMessage(Message<T> message, ComponentType type)
+inline void ComponentContainer::sendMessage(Message* msg, ComponentType type)
 {
 	for (Component* c : components[type]) {
-		c->receiveMessage(message, params);
+		c->receiveMessage(msg, params);
 	}
 }
 //-----------------------------------------------------------------------------------------

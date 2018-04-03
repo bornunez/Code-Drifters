@@ -432,6 +432,9 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="TextureParser.h" />
+    <ClInclude Include="Message.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

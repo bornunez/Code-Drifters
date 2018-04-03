@@ -12,7 +12,7 @@ public:
 	StalkerComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
 	virtual ~StalkerComponent();
 	void update();
-	void receiveMessage(std::string msg) {};
+	void receiveMessage(Message* msg) {};
 	
 };
 

@@ -24,75 +24,78 @@ void GunnerAnimationComponent::render()
 
 }
 
-void GunnerAnimationComponent::receiveMessage(std::string msg)
+void GunnerAnimationComponent::receiveMessage(Message * msg)
 {
-	if (msg == "RUN_LEFT") {
-		gameObject->changeCurrentAnimation("RUN_LEFT");
-	}
-	else if (msg == "RUN_RIGHT") {
-		gameObject->changeCurrentAnimation("RUN_RIGHT");
-	}
-	else if (msg == "RUN_TOP") {
-		gameObject->changeCurrentAnimation("RUN_TOP");
-	}
-	else if (msg == "RUN_BOT") {
-		gameObject->changeCurrentAnimation("RUN_BOT");
-	}
-	else if (msg == "IDLE_LEFT") {
-		gameObject->changeCurrentAnimation("IDLE_LEFT");
-	}
-	else if (msg == "IDLE_RIGHT") {
-		gameObject->changeCurrentAnimation("IDLE_RIGHT");
-	}
-	else if (msg == "IDLE_TOP") {
-		gameObject->changeCurrentAnimation("IDLE_TOP");
-	}
-	else if (msg == "IDLE_BOT") {
-		gameObject->changeCurrentAnimation("IDLE_BOT");
-	}
-	else if (msg == "IDLE_TOPLEFT") {
-		gameObject->changeCurrentAnimation("IDLE_TOPLEFT");
-	}
-	else if (msg == "IDLE_BOTLEFT") {
-		gameObject->changeCurrentAnimation("IDLE_BOTLEFT");
-	}
-	else if (msg == "IDLE_TOPRIGHT") {
-		gameObject->changeCurrentAnimation("IDLE_TOPRIGHT");
-	}
-	else if (msg == "IDLE_BOTRIGHT") {
-		gameObject->changeCurrentAnimation("IDLE_BOTRIGHT");
-	}
-	else if (msg == "SHOT_LEFT") {
-		gameObject->changeCurrentAnimation("SHOT_LEFT");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_RIGHT") {
-		gameObject->changeCurrentAnimation("SHOT_RIGHT");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_TOP") {
-		gameObject->changeCurrentAnimation("SHOT_TOP");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_BOT") {
-		gameObject->changeCurrentAnimation("SHOT_BOT");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_TOPLEFT") {
-		gameObject->changeCurrentAnimation("SHOT_TOPLEFT");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_BOTLEFT") {
-		gameObject->changeCurrentAnimation("SHOT_BOTLEFT");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_TOPRIGHT") {
-		gameObject->changeCurrentAnimation("SHOT_TOPRIGHT");
-		gameObject->getCurrentAnimation()->startAnimation();
-	}
-	else if (msg == "SHOT_BOTRIGHT") {
-		gameObject->changeCurrentAnimation("SHOT_BOTRIGHT");
-		gameObject->getCurrentAnimation()->startAnimation();
+	switch(msg->id) {
+		case RUN_LEFT:
+			gameObject->changeCurrentAnimation("RUN_LEFT");
+			break;
+		case RUN_RIGHT:
+			gameObject->changeCurrentAnimation("RUN_RIGHT");
+			break;
+		case RUN_TOP:
+			gameObject->changeCurrentAnimation("RUN_TOP");
+			break;
+		case RUN_BOT:
+			gameObject->changeCurrentAnimation("RUN_BOT");
+			break;
+		case IDLE_LEFT:
+			gameObject->changeCurrentAnimation("IDLE_LEFT");
+			break;
+		case IDLE_RIGHT:
+			gameObject->changeCurrentAnimation("IDLE_RIGHT");
+			break;
+		case IDLE_TOP:
+			gameObject->changeCurrentAnimation("IDLE_TOP");
+			break;
+		case IDLE_BOT:
+			gameObject->changeCurrentAnimation("IDLE_BOT");
+			break;
+		case IDLE_TOPLEFT:
+			gameObject->changeCurrentAnimation("IDLE_TOPLEFT");
+			break;
+		case IDLE_BOTLEFT:
+			gameObject->changeCurrentAnimation("IDLE_BOTLEFT");
+			break;
+		case IDLE_TOPRIGHT:
+			gameObject->changeCurrentAnimation("IDLE_TOPRIGHT");
+			break;
+		case IDLE_BOTRIGHT:
+			gameObject->changeCurrentAnimation("IDLE_BOTRIGHT");
+			break;
+		case SHOT_LEFT:
+			gameObject->changeCurrentAnimation("SHOT_LEFT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_RIGHT:
+			gameObject->changeCurrentAnimation("SHOT_RIGHT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_TOP:
+			gameObject->changeCurrentAnimation("SHOT_TOP");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_BOT:
+			gameObject->changeCurrentAnimation("SHOT_BOT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_TOPLEFT:
+			gameObject->changeCurrentAnimation("SHOT_TOPLEFT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_BOTLEFT:
+			gameObject->changeCurrentAnimation("SHOT_BOTLEFT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_TOPRIGHT:
+			gameObject->changeCurrentAnimation("SHOT_TOPRIGHT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+		case SHOT_BOTRIGHT:
+			gameObject->changeCurrentAnimation("SHOT_BOTRIGHT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
+
 	}
 }
 
@@ -120,68 +123,80 @@ void GunnerAnimationComponent::handleAnimations()
 	if (eg->currentState == IDLE) {
 		if (angle > 297 && angle < 342) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_TOPRIGHT");
+				Message msg(IDLE_TOPRIGHT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(1, -1);
 		}
 		else if (angle > 252 && angle < 297) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_TOP");
+				Message msg(IDLE_TOP);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(0, -1);
 		}
 		else if (angle > 207 && angle <= 252) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_TOPLEFT");
+				Message msg(IDLE_TOPLEFT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(-1, -1);
 		}
 		else if (angle > 162 && angle < 207) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_LEFT");
+				Message msg(IDLE_LEFT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(-1, 0);
 		}
 		else if (angle >= 117 && angle < 162) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_BOTLEFT");
+				Message msg(IDLE_BOTLEFT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(-1, 1);
 		}
 		else if (angle > 72 && angle < 117) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_BOT");
+				Message msg(IDLE_BOT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(0, 1);
 		}
 		else if (angle > 27 && angle < 72) {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_BOTRIGHT");
+				Message msg(IDLE_BOTRIGHT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(1, 1);
 		}
 		else {
 			if (eg->currentState == IDLE) {
-				gameObject->sendMessage("IDLE_RIGHT");
+				Message msg(IDLE_RIGHT);
+				gameObject->sendMessage(&msg);
 			}
 				gameObject->getTransform()->direction.set(1, 0);
 		}
 	}
 	else if (eg->currentState == RUN) {
 		if (angle > 225 && angle < 315) {
-			gameObject->sendMessage("RUN_TOP");
+			Message msg(RUN_TOP);
+			gameObject->sendMessage(&msg);
 			gameObject->getTransform()->direction.set(0, -1);
 		}
 		else if (angle > 135 && angle < 225) {
-			gameObject->sendMessage("RUN_LEFT");
+			Message msg(RUN_LEFT);
+			gameObject->sendMessage(&msg);
 			gameObject->getTransform()->direction.set(-1, 0);
 		}
 		else if (angle > 45 && angle < 135) {
-			gameObject->sendMessage("RUN_BOT");
+			Message msg(RUN_BOT);
+			gameObject->sendMessage(&msg);
 			gameObject->getTransform()->direction.set(0, 1);
 		}
 		else {
-			gameObject->sendMessage("RUN_RIGHT");
+			Message msg(RUN_RIGHT);
+			gameObject->sendMessage(&msg);
 			gameObject->getTransform()->direction.set(1, 0);
 		}
 	}

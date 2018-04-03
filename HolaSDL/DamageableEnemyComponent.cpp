@@ -14,12 +14,12 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 {
 }
 
-void DamageableEnemyComponent::receiveMessage(Message<float> msg)
+void DamageableEnemyComponent::receiveMessage(Message * msg)
 {
-	if (msg.msg == "NORMAL_ATTACK") {
+	/*if (msg.msg == "NORMAL_ATTACK") {
 		receiveDamage("NORMAL_ATTACK", msg.params);
 		gameObject->setInvincibility(true);
-	}
+	}*/
 }
 
 void DamageableEnemyComponent::receiveDamage(std::string attackType, float damage)

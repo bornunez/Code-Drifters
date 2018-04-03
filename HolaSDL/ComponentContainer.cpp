@@ -43,7 +43,7 @@ bool ComponentContainer::hasComponent(Component * c)
 }
 
 ///<summary>Manda un mensaje a todos los componentes del objeto</summary>
-void ComponentContainer::sendMessage(std::string msg)
+void ComponentContainer::sendMessage(Message* msg)
 {
 	for (int i = 0; i < NUMCOMP;i++) {
 		for (Component* c : components[i]) {
@@ -53,7 +53,8 @@ void ComponentContainer::sendMessage(std::string msg)
 }
 
 ///<summary> Manda un mensaje al grupo de componentes de tipo <para> type </para> </summary>
-void ComponentContainer::sendMessage(std::string msg, ComponentType type)
+void ComponentContainer::
+Message(Message* msg, ComponentType type)
 {
 	for (Component* c : components[type]) {
 		c->receiveMessage(msg);

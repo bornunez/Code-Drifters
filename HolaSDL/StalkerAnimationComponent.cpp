@@ -23,13 +23,13 @@ void StalkerAnimationComponent::render()
 	gameObject->getCurrentAnimation()->runAnimation();
 }
 
-void StalkerAnimationComponent::receiveMessage(std::string msg)
+void StalkerAnimationComponent::receiveMessage(Message * msg)
 {
-	if (msg == "RUN") {
+	if (msg->id == STALKER_RUN) {
 		gameObject->changeCurrentAnimation("RUN");
 		gameObject->getCurrentAnimation()->startAnimation();
 	}
-	else if (msg == "ATTACK") {
+	else if (msg->id == STALKER_ATTACK) {
 		gameObject->changeCurrentAnimation("ATTACK");
 		gameObject->getCurrentAnimation()->startAnimation();
 	}

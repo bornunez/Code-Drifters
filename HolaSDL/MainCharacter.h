@@ -21,9 +21,6 @@ private:
 	int reloadTime;
 	Vector2D gunPosition;//Posición de donde sale la bala
 	
-	
-	
-
 
 public:
 
