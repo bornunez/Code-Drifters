@@ -73,6 +73,7 @@
     <ClCompile Include="StalkerAnimationComponent.cpp" />
     <ClCompile Include="StalkerComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureParser.cpp" />
     <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="Tileset.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="StalkerAnimationComponent.h" />
     <ClInclude Include="StalkerComponent.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextureParser.h" />
     <ClInclude Include="TileLayer.h" />
     <ClInclude Include="Tileset.h" />
     <ClInclude Include="Time.h" />

@@ -200,6 +200,7 @@
     <ClCompile Include="CollisionsManager.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="TextureParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -412,6 +413,7 @@
     <ClInclude Include="CollisionsManager.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="TextureParser.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
