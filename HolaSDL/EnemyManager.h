@@ -7,7 +7,7 @@ class Enemy;
 class MainCharacter;
 class Spawner;
 
-enum EnemyType{Stalker, Gunner, Ninja};
+enum EnemyType{Stalker, Gunner, Ninja, Charger};
 struct EnemyParams {
 	int life;
 	int speed;
@@ -24,7 +24,7 @@ private:
 	EnemyManager();
 	static EnemyManager* instance;
 	//Donde van a estar los datos por defecto de los enemigos (Lo suyo seria leerlo de un XML )
-	vector<EnemyParams> eParams = { {100,350,10,0,5,7},{75,10,5,10,7,8},{75,200,15,0,7,8} };
+	vector<EnemyParams> eParams = { {100,350,10,0,5,7},{75,10,5,10,7,8},{75,200,15,0,7,8},{10,100,10,0,8,10} };
 	//Donde van a estal almacenados todos los enemigos del juego
 	list<Enemy*> inactives;
 	list<Enemy*> actives;

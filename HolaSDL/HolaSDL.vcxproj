@@ -21,6 +21,8 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
     <ClCompile Include="ChargeComponent.cpp" />
+    <ClCompile Include="ChargerAnimationComponent.cpp" />
+    <ClCompile Include="ChargerComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="CollisionsManager.cpp" />
@@ -29,6 +31,7 @@
     <ClCompile Include="DamageableEnemyComponent.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyCharger.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="ExampleEnemy.cpp" />
     <ClCompile Include="ExampleRender.cpp" />
@@ -95,6 +98,8 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />
     <ClInclude Include="ChargeComponent.h" />
+    <ClInclude Include="ChargerAnimationComponent.h" />
+    <ClInclude Include="ChargerComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="CollisionsManager.h" />
@@ -103,6 +108,7 @@
     <ClInclude Include="DamageableEnemyComponent.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyCharger.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="ExampleEnemy.h" />
     <ClInclude Include="ExampleRender.h" />

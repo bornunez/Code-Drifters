@@ -3,6 +3,7 @@
 #include "ExampleEnemy.h"
 #include "EnemyStalker.h"
 #include "EnemyGunner.h"
+#include "EnemyCharger.h"
 #include "MainCharacter.h"
 #include "Map.h"
 

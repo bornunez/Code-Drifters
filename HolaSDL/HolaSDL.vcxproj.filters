@@ -197,6 +197,15 @@
     <ClCompile Include="StalkerComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ChargerComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyCharger.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ChargerAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
     <ClCompile Include="CollisionsManager.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
@@ -408,6 +417,15 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="ChargeComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargerComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyCharger.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="CollisionsManager.h">

@@ -4,7 +4,7 @@
 class MainCharacter;
 class Enemy;
 
-class DamageableEnemyComponent : public UpdateComponent
+class DamageableEnemyComponent : virtual public UpdateComponent
 {
 public:
 	DamageableEnemyComponent(Enemy* o, GameObject* mc);
