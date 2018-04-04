@@ -29,21 +29,24 @@ GameState::~GameState()
 void GameState::update()
 {
 	for (GameObject* o : gameObjects) {
-		o->update();
+		if (o->isActive())
+			o->update();
 	}
 }
 
 void GameState::render()
 {
 	for (GameObject* o : gameObjects) {
-		o->render();
+		if (o->isActive())
+			o->render();
 	}
 }
 
 void GameState::handleEvent(SDL_Event & e)
 {
 	for (GameObject* o : gameObjects) {
-		o->handleEvents(e);
+		if(o->isActive())
+			o->handleEvents(e);
 	}
 }
 

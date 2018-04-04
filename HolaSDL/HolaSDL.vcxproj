@@ -46,6 +46,8 @@
     <ClCompile Include="GunnerBulletRenderComponent.cpp" />
     <ClCompile Include="GunnerComponent.cpp" />
     <ClCompile Include="GunnerShotComponent.cpp" />
+    <ClCompile Include="Hook.cpp" />
+    <ClCompile Include="HookShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
@@ -61,6 +63,7 @@
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCAttackCollisionComponent.cpp" />
+    <ClCompile Include="MCHookInputComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -123,6 +126,8 @@
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
+    <ClInclude Include="Hook.h" />
+    <ClInclude Include="HookShotComponent.h" />
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="Managers.h" />
@@ -138,6 +143,7 @@
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCAttackCollisionComponent.h" />
+    <ClInclude Include="MCHookInputComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />

@@ -15,13 +15,14 @@
 #include "AnimationParser.h"
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
+#include "MCHookInputComponent.h"
 //Personaje principal
 
 
 
 
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
-	: GameObject(tex, x, y, w, h)
+	: GameObject(tex, x, y, w, h), hook(500)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
@@ -44,6 +45,9 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
+	hookShot = new HookShotComponent(this,&hook, 4000.0f);
+	addComponent(hookShot);
+	addComponent(new MCHookInputComponent(this));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
@@ -211,4 +215,9 @@ int MainCharacter::getReloadTime()
 void MainCharacter::setReloadTime(int miliseconds)
 {
 	reloadTime = miliseconds;
+}
+
+void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
+{
+	hookShot->shoot(originPos, hookDir);
 }

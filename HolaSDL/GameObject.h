@@ -44,7 +44,7 @@ public:
 
 	//Gets y sets
 	bool isActive() { return active; }
-	bool setActive(bool active) { this->active = active; }
+	void setActive(bool active) { this->active = active; }
 	Transform* getTransform() { return &transform; }
 	Texture* getTexture() { return texture; }
 	Vector2D getCenterPos() { return centerPosition; }

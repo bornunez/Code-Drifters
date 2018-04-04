@@ -210,6 +210,13 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="TextureParser.cpp" />
+    <ClCompile Include="Hook.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCHookInputComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HookShotComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -435,6 +442,13 @@
     <ClInclude Include="Message.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Hook.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCHookInputComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="HookShotComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
