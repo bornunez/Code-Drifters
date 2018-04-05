@@ -1,11 +1,12 @@
 #ifndef MESSAGE_H_
 #define MESSAGE_H_
-
 //USAR PARA MENSAJES CON ARGUMENTOS
 enum MessageId {
 	EXAMPLEMSG,
 	KNOCK_BACK,
-	MC_ATTACK_DAMAGE
+	MC_ATTACK_DAMAGE,
+	ENEMY_HOOKED,
+	WALL_HOOKED,
 };
 
 struct Message {
@@ -32,5 +33,10 @@ struct MCAttackDamage : Message {
 	MCAttackDamage(float dmg) : Message(MC_ATTACK_DAMAGE), damage(dmg) {}
 	float damage;
 };
+
+//struct HookedMessage : Message {
+//	HookedMessage(GameObject* o) : Message(ENEMY_HOOKED), gameObject(o){}
+//	GameObject* gameObject;
+//};
 
 #endif /* MESSAGE_H_ */

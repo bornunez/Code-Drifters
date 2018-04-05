@@ -16,6 +16,7 @@
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
 #include "MCHookInputComponent.h"
+#include "HookShotComponent.h"
 //Personaje principal
 
 
@@ -45,7 +46,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
-	hookShot = new HookShotComponent(this,&hook, 4000.0f);
+	hookShot = new HookShotComponent(this,&hook, 1000.0f);
 	addComponent(hookShot);
 	addComponent(new MCHookInputComponent(this));
 	setCurrentBullets(4);

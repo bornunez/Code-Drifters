@@ -3,7 +3,6 @@
 #include <string>
 #include "Vector2D.h"
 #include "Message.h"
-
 class GameObject;
 enum ComponentType{RenderC,InputC,UpdateC,ItemC};
 

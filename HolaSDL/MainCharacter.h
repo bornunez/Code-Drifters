@@ -2,7 +2,8 @@
 #include "Animation.h"
 #include <map>
 #include "Hook.h"
-#include "HookShotComponent.h"
+
+class HookShotComponent;
 class PlayState;
 class MCAnimationComponent;
 enum ActionState { Idle, Run, Attack, Shoot, Hooking, Hurt, Heal };
@@ -60,6 +61,7 @@ public:
 	ActionState getActionState() { return actionState; };
 	
 	//HOOK
+	Hook getHook() { return hook; }
 	void shootHook(Vector2D originPos, Vector2D hookDir);
 };
 

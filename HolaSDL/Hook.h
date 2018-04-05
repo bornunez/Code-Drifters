@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
-enum HookStatus { EXTEND, CONTRACT , STOP, GRAB};
+enum HookStatus { EXTEND, CONTRACT , STOP, MOVE_ENEMY, MOVE_MC};
 class Hook : public GameObject
 {
 private:

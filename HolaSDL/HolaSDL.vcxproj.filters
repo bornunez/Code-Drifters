@@ -216,7 +216,10 @@
     <ClCompile Include="MCHookInputComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="HookShotComponent.cpp" />
+    <ClCompile Include="HookShotComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HookCollisionComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -448,7 +451,10 @@
     <ClInclude Include="MCHookInputComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="HookShotComponent.h" />
+    <ClInclude Include="HookShotComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="HookCollisionComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
