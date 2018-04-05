@@ -220,6 +220,7 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="HookCollisionComponent.cpp" />
+    <ClCompile Include="HookAnimationComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -455,6 +456,7 @@
       <Filter>Prota\Header</Filter>
     </ClInclude>
     <ClInclude Include="HookCollisionComponent.h" />
+    <ClInclude Include="HookAnimationComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

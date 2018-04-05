@@ -15,13 +15,11 @@ private:
 	float maxVelocity;
 	float normalAttackDamage;
 	float chargedAttackDamage;
-	bool activeHook;
-	bool firingGun;
-	bool attacking;
 	ActionState actionState = Idle;
 	int maxBullets;
 	int currentBullets;
 	int reloadTime;
+	bool movable;
 	Vector2D gunPosition;//Posición de donde sale la bala
 	Hook hook;
 	
@@ -59,6 +57,8 @@ public:
 	void setReloadTime(int miliseconds);
 	void setActionState(ActionState actionState) { this->actionState = actionState; };
 	ActionState getActionState() { return actionState; };
+	bool canMove() { return movable; };
+	void setMovable(bool mov) { movable = mov; }
 	
 	//HOOK
 	Hook getHook() { return hook; }

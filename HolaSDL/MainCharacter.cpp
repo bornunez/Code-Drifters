@@ -17,6 +17,8 @@
 #include "LevelExplorer.h"
 #include "MCHookInputComponent.h"
 #include "HookShotComponent.h"
+#include "ExampleRender.h"
+#include "HookAnimationComponent.h"
 //Personaje principal
 
 
@@ -49,11 +51,12 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
 	addComponent(hookShot);
 	addComponent(new MCHookInputComponent(this));
+	addComponent(new HookAnimationComponent(&hook));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
 	normalAttackDamage = 50;
-	
+	movable = true;
 	
 }
 

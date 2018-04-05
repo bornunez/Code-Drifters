@@ -5,9 +5,9 @@
 Hook::Hook(float hookLength) : GameObject()
 {
 	this->hookLength = hookLength;
-	addComponent(new ExampleRender(this));
-	transform.body.w = 10;
-	transform.body.h = 10;
+	//addComponent(new ExampleRender(this));
+	transform.body.w = 20;
+	transform.body.h = 20;
 	hs = STOP;
 }
 

@@ -25,11 +25,11 @@ void MCMovementInput::update()
 		debug = true;
 	}
 	Transform* t = gameObject->getTransform();
-	if (mc->getActionState() == Attack || mc->getActionState() == Hooking) {
+	if (!mc->canMove()) {
 		velocity.setX(0);
 		velocity.setY(0);
 	}
-	else {
+	if(mc->canMove()){
 		if (keystate[leftKey])
 		{
 			t->direction.setX(-1);
@@ -74,12 +74,10 @@ void MCMovementInput::update()
 			velocity.setY(0);
 
 		}
-		if (velocity.getX() == 0 && velocity.getY() == 0 && (mc->getActionState() != Attack || mc->getActionState() != Hooking)) {
+		if (velocity.getX() == 0 && velocity.getY() == 0 && (mc->getActionState() != Attack && mc->getActionState() != Hooking)) {
 			mc->setActionState(Idle);
 		}
 	}
-	
-	
 	
 	velocity.normalize();
 	t->velocity.set(velocity);

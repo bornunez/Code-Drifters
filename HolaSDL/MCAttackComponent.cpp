@@ -22,13 +22,15 @@ MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
-	attackCD->update();
+	if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
+		attackCD->update();
 	if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
 		(attackCD->TimeSinceTimerCreation >= 0.75)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
 
 		attackCD->restart();
 		comboAttack = First;
 		static_cast<MainCharacter*>(gameObject)->setActionState(Idle);		//La animacion vuelve a idle
+		static_cast<MainCharacter*>(gameObject)->setMovable(true);		
 	}
 
 
@@ -38,6 +40,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		SDL_Rect r;
 		SDL_GetMouseState(&p.x, &p.y);
 		MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
+		mc->setMovable(false);
 
 		aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
 		aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);

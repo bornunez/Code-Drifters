@@ -20,8 +20,10 @@ private:
 	Hook * hook;
 	MainCharacter* mc;
 	GameObject* enemyHooked=nullptr;
+	vector<string> collisionsLayer;
 public:
 	void update();
+	void updateHookPos();
 	void receiveMessage(Message* msg);
 	void shoot(Vector2D originPos, Vector2D hookDir);
 	void extend();

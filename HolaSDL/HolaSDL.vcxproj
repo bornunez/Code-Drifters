@@ -47,6 +47,7 @@
     <ClCompile Include="GunnerComponent.cpp" />
     <ClCompile Include="GunnerShotComponent.cpp" />
     <ClCompile Include="Hook.cpp" />
+    <ClCompile Include="HookAnimationComponent.cpp" />
     <ClCompile Include="HookCollisionComponent.cpp" />
     <ClCompile Include="HookShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
     <ClInclude Include="Hook.h" />
+    <ClInclude Include="HookAnimationComponent.h" />
     <ClInclude Include="HookCollisionComponent.h" />
     <ClInclude Include="HookShotComponent.h" />
     <ClInclude Include="KnockbackComponent.h" />
