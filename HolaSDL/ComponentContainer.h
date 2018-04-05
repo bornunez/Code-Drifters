@@ -45,9 +45,9 @@ public:
 
 	//Dos tipos: 
 	//El primero manda un mensaje a todos los componentes
-	void sendMessage(std::string msg);
-	//El segundo manda un mensaje a un grupo de componentes de un tipo
-	void sendMessage(std::string msg, ComponentType type);
+	//void sendMessage(std::string msg);
+	////El segundo manda un mensaje a un grupo de componentes de un tipo
+	//void sendMessage(std::string msg, ComponentType type);
 	void sendMessage(Message* msg);
 	void sendMessage(Message* msg, ComponentType type);
 

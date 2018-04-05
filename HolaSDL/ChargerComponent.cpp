@@ -22,13 +22,15 @@ void ChargerComponent::update()
 	if (!charge && timer->TimeSinceTimerCreation >= 8.0) {
 		charge = true;
 		timer->restart();
-		ec->sendMessage("ATTACK");
+		Message msg(STALKER_ATTACK);
+		ec->sendMessage(&msg);
 		ChargeComponent::resetTimer();
 	}
 	else if (charge && timer->TimeSinceTimerCreation >= 3.0) {
 		charge = false;
 		timer->restart();
-		ec->sendMessage("RUN");
+		Message msg(STALKER_RUN);
+		ec->sendMessage(&msg);
 	}
 	
 	if (!charge) {

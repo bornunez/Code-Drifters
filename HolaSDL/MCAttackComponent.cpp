@@ -56,7 +56,6 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		if (comboAttack == First)
 			attackCD->restart();
 
-		
 
 
 		//if(attackCD->TimeSinceTimerCreation >= 1) {
@@ -68,92 +67,103 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		//	comboAttack = First;
 		//	}
 
+		Message msg(NO_ID);
 
 		if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
+			//Pasa el estado a atacando
 			mc->setActionState(Attack);
+
 			if (angle > 210 && angle <= 270) {
-				gameObject->sendMessage("ATTACK1_TOPLEFT");
+				msg.id = ATTACK1_TOPLEFT;
 				gameObject->getTransform()->direction.set(-1, -1);
 			}
 			else if (angle > 270 && angle < 330) {
-				gameObject->sendMessage("ATTACK1_TOPRIGHT");
+				msg.id = ATTACK1_TOPRIGHT;
 				gameObject->getTransform()->direction.set(1, -1);
 			}
 			else if (angle > 150 && angle < 210) {
-				gameObject->sendMessage("ATTACK1_LEFT");
+				msg.id = ATTACK1_LEFT;
 				gameObject->getTransform()->direction.set(-1, 0);
 			}
 			else if (angle >= 90 && angle < 150) {
-				gameObject->sendMessage("ATTACK1_BOTLEFT");
+				msg.id = ATTACK1_BOTLEFT;
 				gameObject->getTransform()->direction.set(-1, 1);
 			}
 			else if (angle > 30 && angle < 90) {
-				gameObject->sendMessage("ATTACK1_BOTRIGHT");
+				msg.id = ATTACK1_BOTRIGHT;
+				gameObject->sendMessage(&msg);
 				gameObject->getTransform()->direction.set(1, 1);
 			}
 			else {
-				gameObject->sendMessage("ATTACK1_RIGHT");
+				msg.id = ATTACK1_RIGHT;
 				gameObject->getTransform()->direction.set(1, 0);
 			}
 			comboAttack = Second;
 		}
 		else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
+			//Pasa el estado a atacando
 			mc->setActionState(Attack);
+
 			if (angle > 210 && angle <= 270) {
-				gameObject->sendMessage("ATTACK2_TOPLEFT");
+				msg.id = ATTACK2_TOPLEFT;
 				gameObject->getTransform()->direction.set(0, -1);
 			}
 			else if (angle > 270 && angle < 330) {
-				gameObject->sendMessage("ATTACK2_TOPRIGHT");
+				msg.id = ATTACK2_TOPRIGHT;
 				gameObject->getTransform()->direction.set(0, -1);
 			}
 			else if (angle > 150 && angle < 210) {
-				gameObject->sendMessage("ATTACK2_LEFT");
+				msg.id = ATTACK2_LEFT;
 				gameObject->getTransform()->direction.set(-1, 0);
 			}
 			else if (angle >= 90 && angle < 150) {
-				gameObject->sendMessage("ATTACK2_BOTLEFT");
+				msg.id = ATTACK2_BOTLEFT;
 				gameObject->getTransform()->direction.set(0, 1);
 			}
 			else if (angle > 30 && angle < 90) {
-				gameObject->sendMessage("ATTACK2_BOTRIGHT");
+				msg.id = ATTACK2_BOTRIGHT;
 				gameObject->getTransform()->direction.set(0, 1);
 			}
 			else {
-				gameObject->sendMessage("ATTACK2_RIGHT");
+				msg.id = ATTACK2_RIGHT;
 				gameObject->getTransform()->direction.set(1, 0);
 			}
 			comboAttack = Third;
 		}
 		else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
+			//Pasa el estado a atacando
 			mc->setActionState(Attack);
+
 			if (angle > 210 && angle <= 270) {
-				gameObject->sendMessage("ATTACK3_TOPLEFT");
+				msg.id = ATTACK3_TOPLEFT;
 				gameObject->getTransform()->direction.set(0, -1);
 			}
 			else if (angle > 270 && angle < 330) {
-				gameObject->sendMessage("ATTACK3_TOPRIGHT");
+				msg.id = ATTACK3_RIGHT;
 				gameObject->getTransform()->direction.set(0, -1);
 			}
 			else if (angle > 150 && angle < 210) {
-				gameObject->sendMessage("ATTACK3_LEFT");
+				msg.id = ATTACK3_LEFT;
 				gameObject->getTransform()->direction.set(-1, 0);
 			}
 			else if (angle >= 90 && angle < 150) {
-				gameObject->sendMessage("ATTACK3_BOTLEFT");
+				msg.id = ATTACK3_BOTLEFT;
 				gameObject->getTransform()->direction.set(0, 1);
 			}
 			else if (angle > 30 && angle < 90) {
-				gameObject->sendMessage("ATTACK3_BOTRIGHT");
+				msg.id = ATTACK3_BOTRIGHT;
 				gameObject->getTransform()->direction.set(0, 1);
 			}
 			else {
-				gameObject->sendMessage("ATTACK3_RIGHT");
+				msg.id = ATTACK3_RIGHT;
 				gameObject->getTransform()->direction.set(1, 0);
 			}
 			comboAttack = CD;
 			attackCD->restart();
 		}
+
+		//Se envia el mensaje 
+		gameObject->sendMessage(&msg);
 	}
 }
 

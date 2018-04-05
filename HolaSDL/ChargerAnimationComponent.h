@@ -2,14 +2,13 @@
 #include "RenderComponent.h"
 #include <map>
 #include "Animation.h"
-class ChargerAnimationComponent :
-	public RenderComponent
+class ChargerAnimationComponent : public RenderComponent
 {
 public:
 	ChargerAnimationComponent(GameObject* o, GameObject* target, std::map<const char*, Animation*> anim);
 	virtual ~ChargerAnimationComponent();
 	void render();
-	void receiveMessage(std::string msg);
+	void receiveMessage(Message* msg);
 	void handleAnimation();
 private:
 	GameObject * target;

@@ -12,7 +12,7 @@ public:
 	ChargerComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
 	virtual ~ChargerComponent();
 	void update();
-	void receiveMessage(std::string msg) {};
+	void receiveMessage(Message* msg) {};
 	
 };
 

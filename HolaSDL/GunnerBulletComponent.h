@@ -9,7 +9,7 @@ private:
 	Vector2D velocity;
 public:
 	void update();
-	void receiveMessage(std::string msg) {};
+	void receiveMessage(Message* msg) {};
 	GunnerBulletComponent(GameObject* o);
 	virtual ~GunnerBulletComponent();
 };

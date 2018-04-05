@@ -17,7 +17,6 @@ private:
 
 public:
 	void update();
-	void receiveMessage(std::string msg) {};
 	ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
 	virtual ~ChargeComponent();
 

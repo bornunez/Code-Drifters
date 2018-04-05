@@ -6,7 +6,7 @@ class ChaseComponent : virtual public UpdateComponent
 {
 public:
 	void update();
-	void receiveMessage(std::string msg) {};
+	void receiveMessage(Message* msg) {};
 	ChaseComponent(GameObject* o, GameObject* target);
 	virtual ~ChaseComponent();
 

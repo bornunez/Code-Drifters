@@ -13,7 +13,7 @@ protected:
 	GameObject* gameObject;
 	ComponentType type;
 public:
-	virtual void receiveMessage(std::string msg) {};
+	//virtual void receiveMessage(std::string msg) {};
 	virtual void receiveMessage(Message* msg) {}
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }

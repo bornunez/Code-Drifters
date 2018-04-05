@@ -42,23 +42,23 @@ bool ComponentContainer::hasComponent(Component * c)
 	return it != components[c->getType()].end();
 }
 
-///<summary>Manda un mensaje a todos los componentes del objeto</summary>
-void ComponentContainer::sendMessage(std::string msg)
-{
-	for (int i = 0; i < NUMCOMP;i++) {
-		for (Component* c : components[i]) {
-			c->receiveMessage(msg);
-		}
-	}
-}
-
-///<summary> Manda un mensaje al grupo de componentes de tipo <para> type </para> </summary>
-void ComponentContainer::sendMessage(std::string msg, ComponentType type)
-{
-	for (Component* c : components[type]) {
-		c->receiveMessage(msg);
-	}
-}
+/////<summary>Manda un mensaje a todos los componentes del objeto</summary>
+//void ComponentContainer::sendMessage(std::string msg)
+//{
+//	for (int i = 0; i < NUMCOMP;i++) {
+//		for (Component* c : components[i]) {
+//			c->receiveMessage(msg);
+//		}
+//	}
+//}
+//
+/////<summary> Manda un mensaje al grupo de componentes de tipo <para> type </para> </summary>
+//void ComponentContainer::sendMessage(std::string msg, ComponentType type)
+//{
+//	for (Component* c : components[type]) {
+//		c->receiveMessage(msg);
+//	}
+//}
 
 void ComponentContainer::sendMessage(Message * msg)
 {
