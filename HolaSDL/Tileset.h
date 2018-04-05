@@ -10,6 +10,7 @@ class Tileset
 private:
 	Texture * tilesetImg = NULL;
 	std::string name;
+	std::string path;
 	int firstGid = 0;
 	int tileCount = 0;
 	int rows = 0;
@@ -30,6 +31,9 @@ public:
 	int getRows() { return rows; }
 	int getCols() { return cols; }
 	int getTileSize() { return tileSize; }
+	int getTileCount() { return tileCount; }
+	string getPath() { return path; }
+	void setPath(string path) { this->path = path; }
 };
 
 struct Tile {

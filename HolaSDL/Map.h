@@ -40,24 +40,28 @@ private:
 	std::vector<Spawner*> spawners;
 	std::vector<Door*> doors;
 	string filename;
-	Tileset* tileset;
+	vector<Tileset*> tilesets;
+	vector<int> firstGids;
 	Camera* camera;
 	void parseLevel();
 
-	Map(string filename,Tileset* ts,Camera* camera);
+	Map(string filename,Camera* camera);
 	friend class LevelParser;
 public:
 	~Map();
 	void update();
 	void render();
 	vector<Layer*>* getLayers() { return &layers; }
-	Tileset* getTileset() { return tileset; }
+	vector<Tileset*> getTilesets() { return tilesets; }
 	void addLayer(Layer* layer) { layers.push_back(layer); }
 	void addSpawn(Spawner* spawn) { spawners.push_back(spawn); }
 	void addDoor(Door* door, Direction dir) { doors[dir] = door; }
 	Layer * GetLayer(string LayerID);
 	Door* getDoor(Direction door) { return doors[door]; }
 	vector<Door*> getDoors() { return doors; }
+	void setTilesets(vector<Tileset*> tileSets) { tilesets = tileSets; }
+	void setFirstGid(int gid) { firstGids.push_back(gid); }
+	vector<int >getFirstGid(){ return firstGids; }
 	void spawn();
 };
 

@@ -31,9 +31,7 @@ private:
 	//Array que contiene punteros a todas las texturas del juego.
 	Texture* textures[NUM_TEXTURES];
 	//Vector de tilesets
-	const string tilesetNames[NUM_TILESET]{ "tileset16.tsx" };
 	vector<Tileset*> tilesets;
-	Tileset* currentTileset;
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
 	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx" };
@@ -41,14 +39,14 @@ private:
 	SDL_Renderer* renderer;
 
 	void loadTextures();
-	void loadTilesets();
+	Tileset* loadTileset(string path);
 	void loadProtaTileset();
 	void loadEnemyTilesets();
 public:
 	ResourceManager(SDL_Renderer* renderer);
 	~ResourceManager();
 	Texture * getTexture(int numTexture) { return textures[numTexture]; };
-	Tileset* getCurrTileset() { return currentTileset; };
+	Tileset* getTileset(string path);
 	Tileset* getProtaTileset() { return protaTileset; };
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };

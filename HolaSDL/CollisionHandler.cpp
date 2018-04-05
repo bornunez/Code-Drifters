@@ -3,17 +3,18 @@
 #include "TileLayer.h"
 #include "Game.h"
 #include <vector>
+#include "GameObject.h"
 
 using namespace std;
 
 bool CollisionHandler::Collide(Transform * A, Transform * B)
 {
-	if (RectCollide(A->body, B->body)) {
-		A->velocity.set(0, 0);
-		B->velocity.set(0, 0);
-	}
+	return RectCollide(A->body, B->body);
+}
 
-	return false;
+bool CollisionHandler::Collide(GameObject * A, GameObject * B)
+{
+	return RectCollide(A->getTransform()->body, B->getTransform()->body);
 }
 
 bool CollisionHandler::Collide(Transform * A, TileLayer * tileLayer)

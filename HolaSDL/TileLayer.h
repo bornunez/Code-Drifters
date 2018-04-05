@@ -10,9 +10,10 @@ private:
 	int rows;
 	int tileSize;
 	std::vector<std::vector<int>> tileIDs; //Aqui almacenamos la informacion del mapa
-	Tileset* tileSet; //Y aqui el tileset
+	vector<Tileset*> tileSets; //Y aqui el tileset
+	vector<int> firstGids;
 public:
-	TileLayer(Tileset* tileset,string name,int cols, int rows, int tileSize);
+	TileLayer(vector<Tileset*> tileSets,string name,int cols, int rows, int tileSize);
 	~TileLayer();
 	void seTileIDs(vector<vector<int>> tileID) { tileIDs = tileID; }
 	virtual void update();
@@ -21,5 +22,6 @@ public:
 	int getTileSize() { return tileSize; }
 	int getCols() { return cols; }
 	int getRows() { return rows; }
+	void setFirstGid(vector<int> gids) { firstGids = gids; }
 };
 
