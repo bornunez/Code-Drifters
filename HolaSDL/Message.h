@@ -5,7 +5,8 @@
 enum MessageId {
 	EXAMPLEMSG,
 	KNOCK_BACK,
-	MC_ATTACK_DAMAGE
+	MC_ATTACK_DAMAGE,
+	BULLET_CREATED
 };
 
 struct Message {

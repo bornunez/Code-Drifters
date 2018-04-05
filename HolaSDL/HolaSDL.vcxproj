@@ -18,6 +18,7 @@
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
     <ClCompile Include="ChargeComponent.cpp" />
@@ -67,6 +68,8 @@
     <ClCompile Include="Minimap.cpp" />
     <ClCompile Include="miniz.c" />
     <ClCompile Include="MouseIcon.cpp" />
+    <ClCompile Include="Observable.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
@@ -96,6 +99,7 @@
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />
     <ClInclude Include="ChargeComponent.h" />
@@ -146,6 +150,8 @@
     <ClInclude Include="Minimap.h" />
     <ClInclude Include="miniz.h" />
     <ClInclude Include="MouseIcon.h" />
+    <ClInclude Include="Observable.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="RenderComponent.h" />

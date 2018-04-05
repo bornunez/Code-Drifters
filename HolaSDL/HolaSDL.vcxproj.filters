@@ -211,6 +211,15 @@
     </ClCompile>
     <ClCompile Include="TextureParser.cpp" />
     <ClCompile Include="Random.cpp" />
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Observable.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -437,6 +446,15 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Random.h" />
+    <ClInclude Include="BulletManager.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
