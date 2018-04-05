@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="13">
+ <tileset firstgid="1" source="Tileset/tile.tsx"/>
+ <layer name="Suelo" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJwTYGBgEEDCglAsQABTUx03kjpuHPqphYm1l5b+xacOAPzsBlE=
+  </data>
+ </layer>
+ <layer name="Decoracion" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAesJMpN9wBNcMFABeoAB0=
+  </data>
+ </layer>
+ <objectgroup name="Spawners">
+  <object id="1" name="Spawn" gid="7" x="192" y="128" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="2" name="Spawn" gid="7" x="64" y="128" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="3" name="Spawn" gid="7" x="64" y="224" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="4" name="Spawn" gid="7" x="192" y="224" width="32" height="32">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Puertas">
+  <object id="5" name="Left" x="0" y="124" width="16.5" height="76"/>
+  <object id="7" name="Up" x="119.5" y="0" width="79.5" height="12.5"/>
+  <object id="11" name="Right" x="303" y="121" width="15.5" height="77.5"/>
+  <object id="12" name="Down" x="123.5" y="301" width="77.5" height="19.5"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="6" name="Left" x="32" y="143.5" width="1.5" height="2"/>
+  <object id="8" name="Up" x="158" y="23" width="2" height="2"/>
+  <object id="9" name="Right" x="270.5" y="136" width="1.5" height="1.5"/>
+  <object id="10" name="Down" x="147.5" y="262" width="0.5" height="1"/>
+ </objectgroup>
+ <layer name="Paredes" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJzjZWBgYIFiEQYE4EIS5wNiYQbCQIgEdSIEVUHcQG3ASYQaDgbq+5cfiFmhGNkNHEjiPEAMABJrAU0=
+  </data>
+ </layer>
+</map>

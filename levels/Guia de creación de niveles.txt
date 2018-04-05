@@ -1,0 +1,13 @@
+Creación de salas:
+ -Crear Layer "Paredes", donde el jugador colisionará
+
+Crear Puertas:
+ -Crear capa de objetos "Puertas"
+ -Crear un rectangulo con el trigger, llamarlo "Door"
+ -Crear 
+ -Llamar a cada puerta "Left, Right, Up, Down" Respectivamente
+ -Guardar el mapa con nombre "U + R + D + L" + "_" + "X", del   siguente modo: 
+   -Si tiene puerta Left, añadimos L, si tiene Right, R, etc...; 
+   -X es el numero de sala. Es igual al numero de la anterior +1;
+
+ 

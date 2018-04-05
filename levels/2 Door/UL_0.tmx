@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="16" tileheight="16" nextobjectid="18">
+ <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
+ <layer name="Suelo" width="29" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztksEKgCAMhtfJGh4ipYfo/R+wBAORbf5SHQIH/8G57dumRP+xSdEX9bS7p0yt9lvMGWT6yu9yrquEzsMAzwv+pPXSXghleoFLCosV/83uYXrjHhVq5f6kXIvBRh7CRHuW3hqNl3z1O6Hco2MeyvHSzlpvx2T3hv6Bmi+xF3Af6F9L5wDMVfYYFabGteJCrrkpu4iNOhK3ZUhfw4YlOwFS7gPg
+  </data>
+ </layer>
+ <layer name="Decoracion" width="29" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztwQEBAAAAgiD/r25IQAEAfBsJEAAB
+  </data>
+ </layer>
+ <layer name="Aire" width="29" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztVEEOgCAM40kKXhT//y4xrsmyOCySeDA06QGF1o7NEAYG/oG5MH7kNQnXwk28W7B3egfxRuZUuJDn7LPJeVfzPTPncOXwsifiG1hfy9XZa+vq6TO+DGzNn3T1fb0FmxHQ99XapzUPT8vWRPcpg1ovQ8v63c2Tns2omIRYn+ezo2F9sf9pfuENZiHW7PxDp+d/McDjAF2WEmg=
+  </data>
+ </layer>
+ <layer name="Paredes" width="29" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAdqAKxGhasToZZ6Gaim4Fsly4Q66FhNQrshJmnj0fcFIjN0DCxdmLzE8w8czS1yOK2QGyHhom1E5ufYObZo6nFJQ4DekTaictP5ACzAbDTjkh1hMJrFIyCUTAKRsHQBQCE/wzv
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="5" name="Up" x="128" y="32" width="48" height="16"/>
+  <object id="9" name="Left" x="0" y="128" width="16" height="64"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="10" name="Up" gid="56" x="144" y="80" width="16" height="16"/>
+  <object id="12" name="Left" gid="56" x="32" y="160" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="1" name="Spawn" gid="64" x="256" y="112" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
