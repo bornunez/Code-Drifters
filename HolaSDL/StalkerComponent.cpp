@@ -20,7 +20,7 @@ void StalkerComponent::update()
 
 	if (!hasCharged) {
 		if (!charge && timer->TimeSinceTimerCreation >= 8.0) {
-d			charge = true;
+			charge = true;
 			timer->restart();
 			Message msg(STALKER_ATTACK);
 			es->sendMessage(&msg);
