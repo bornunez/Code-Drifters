@@ -8,6 +8,7 @@ GameObject::GameObject()
 {
 	this->game = Game::getGame();
 	this->playState = PlayState::getInstance();
+	movable = true;
 }
 
 GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), active(active)
@@ -15,6 +16,7 @@ GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), a
 	this->game = Game::getGame();
 	this->playState = PlayState::getInstance();
 	transform = t;
+	movable = true;
 }
 
 GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float bodyWidth, bool active): texture(tex), active(active)
@@ -23,6 +25,7 @@ GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float
 	this->playState = PlayState::getInstance();
 	transform.position = position; transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
+	movable = true;
 }
 
 GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active) : texture(tex), active(active) {
@@ -31,7 +34,7 @@ GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight
 	transform.position.setX(x); transform.position.setY(y);
 	transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
-	
+	movable = true;
 }
 
 GameObject::~GameObject()

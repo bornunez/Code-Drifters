@@ -35,127 +35,128 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		int mouseX, mouseY;
-		SDL_Point p;
-		SDL_Rect r;
-		SDL_GetMouseState(&p.x, &p.y);
-		MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-		mc->setMovable(false);
+		if (static_cast<MainCharacter*>(gameObject)->getActionState() != Hooking) {
+			int mouseX, mouseY;
+			SDL_Point p;
+			SDL_Rect r;
+			SDL_GetMouseState(&p.x, &p.y);
+			MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
+			mc->setMovable(false);
 
-		aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-		aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
+			aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
+			aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
 
-
-		Vector2D displayPosition;//Posición del personaje relativa a la cámara
-		displayPosition = aux - (PlayState::getInstance()->getCamera()->getTransform()->position);
+			Vector2D displayPosition;//Posición del personaje relativa a la cámara
+			displayPosition = aux - (PlayState::getInstance()->getCamera()->getTransform()->position);
 		
-		float angle = (atan2(p.y - displayPosition.getY() , p.x - displayPosition.getX())) ;			//Angulo entre el cursor y el jugador, en grados
-		angle = angle * 180 / M_PI;
-		if (angle < 0)
-			angle += 360;
+			float angle = (atan2(p.y - displayPosition.getY() , p.x - displayPosition.getX())) ;			//Angulo entre el cursor y el jugador, en grados
+			angle = angle * 180 / M_PI;
+			if (angle < 0)
+				angle += 360;
 
-		//attackCD->update();
-
-		if (comboAttack == First)
-			attackCD->restart();
-
-		
+			//attackCD->update();
 
 
-		//if(attackCD->TimeSinceTimerCreation >= 1) {
-	//		attackCD->restart();
-		//	comboAttack = First;
-	//	}
-		//	else if (attackCD->TimeSinceTimerCreation >= 1 && comboAttack == First) {					//Si el tiempo ha superado el maximo el timer del combo vuelve a 0
-		//	attackCD->restart();
-		//	comboAttack = First;
+
+
+			if (comboAttack == First)
+				attackCD->restart();
+			//if(attackCD->TimeSinceTimerCreation >= 1) {
+		//		attackCD->restart();
+			//	comboAttack = First;
 		//	}
+			//	else if (attackCD->TimeSinceTimerCreation >= 1 && comboAttack == First) {					//Si el tiempo ha superado el maximo el timer del combo vuelve a 0
+			//	attackCD->restart();
+			//	comboAttack = First;
+			//	}
 
 
-		if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
-			mc->setActionState(Attack);
-			if (angle > 210 && angle <= 270) {
-				gameObject->sendMessage("ATTACK1_TOPLEFT");
-				gameObject->getTransform()->direction.set(-1, -1);
+			if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
+				mc->setActionState(Attack);
+				if (angle > 210 && angle <= 270) {
+					gameObject->sendMessage("ATTACK1_TOPLEFT");
+					gameObject->getTransform()->direction.set(-1, -1);
+				}
+				else if (angle > 270 && angle < 330) {
+					gameObject->sendMessage("ATTACK1_TOPRIGHT");
+					gameObject->getTransform()->direction.set(1, -1);
+				}
+				else if (angle > 150 && angle < 210) {
+					gameObject->sendMessage("ATTACK1_LEFT");
+					gameObject->getTransform()->direction.set(-1, 0);
+				}
+				else if (angle >= 90 && angle < 150) {
+					gameObject->sendMessage("ATTACK1_BOTLEFT");
+					gameObject->getTransform()->direction.set(-1, 1);
+				}
+				else if (angle > 30 && angle < 90) {
+					gameObject->sendMessage("ATTACK1_BOTRIGHT");
+					gameObject->getTransform()->direction.set(1, 1);
+				}
+				else {
+					gameObject->sendMessage("ATTACK1_RIGHT");
+					gameObject->getTransform()->direction.set(1, 0);
+				}
+				comboAttack = Second;
 			}
-			else if (angle > 270 && angle < 330) {
-				gameObject->sendMessage("ATTACK1_TOPRIGHT");
-				gameObject->getTransform()->direction.set(1, -1);
+
+			else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
+				mc->setActionState(Attack);
+				if (angle > 210 && angle <= 270) {
+					gameObject->sendMessage("ATTACK2_TOPLEFT");
+					gameObject->getTransform()->direction.set(0, -1);
+				}
+				else if (angle > 270 && angle < 330) {
+					gameObject->sendMessage("ATTACK2_TOPRIGHT");
+					gameObject->getTransform()->direction.set(0, -1);
+				}
+				else if (angle > 150 && angle < 210) {
+					gameObject->sendMessage("ATTACK2_LEFT");
+					gameObject->getTransform()->direction.set(-1, 0);
+				}
+				else if (angle >= 90 && angle < 150) {
+					gameObject->sendMessage("ATTACK2_BOTLEFT");
+					gameObject->getTransform()->direction.set(0, 1);
+				}
+				else if (angle > 30 && angle < 90) {
+					gameObject->sendMessage("ATTACK2_BOTRIGHT");
+					gameObject->getTransform()->direction.set(0, 1);
+				}
+				else {
+					gameObject->sendMessage("ATTACK2_RIGHT");
+					gameObject->getTransform()->direction.set(1, 0);
+				}
+				comboAttack = Third;
 			}
-			else if (angle > 150 && angle < 210) {
-				gameObject->sendMessage("ATTACK1_LEFT");
-				gameObject->getTransform()->direction.set(-1, 0);
+			else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
+				mc->setActionState(Attack);
+				if (angle > 210 && angle <= 270) {
+					gameObject->sendMessage("ATTACK3_TOPLEFT");
+					gameObject->getTransform()->direction.set(0, -1);
+				}
+				else if (angle > 270 && angle < 330) {
+					gameObject->sendMessage("ATTACK3_TOPRIGHT");
+					gameObject->getTransform()->direction.set(0, -1);
+				}
+				else if (angle > 150 && angle < 210) {
+					gameObject->sendMessage("ATTACK3_LEFT");
+					gameObject->getTransform()->direction.set(-1, 0);
+				}
+				else if (angle >= 90 && angle < 150) {
+					gameObject->sendMessage("ATTACK3_BOTLEFT");
+					gameObject->getTransform()->direction.set(0, 1);
+				}
+				else if (angle > 30 && angle < 90) {
+					gameObject->sendMessage("ATTACK3_BOTRIGHT");
+					gameObject->getTransform()->direction.set(0, 1);
+				}
+				else {
+					gameObject->sendMessage("ATTACK3_RIGHT");
+					gameObject->getTransform()->direction.set(1, 0);
+				}
+				comboAttack = CD;
+				attackCD->restart();
 			}
-			else if (angle >= 90 && angle < 150) {
-				gameObject->sendMessage("ATTACK1_BOTLEFT");
-				gameObject->getTransform()->direction.set(-1, 1);
-			}
-			else if (angle > 30 && angle < 90) {
-				gameObject->sendMessage("ATTACK1_BOTRIGHT");
-				gameObject->getTransform()->direction.set(1, 1);
-			}
-			else {
-				gameObject->sendMessage("ATTACK1_RIGHT");
-				gameObject->getTransform()->direction.set(1, 0);
-			}
-			comboAttack = Second;
-		}
-		else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
-			mc->setActionState(Attack);
-			if (angle > 210 && angle <= 270) {
-				gameObject->sendMessage("ATTACK2_TOPLEFT");
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 270 && angle < 330) {
-				gameObject->sendMessage("ATTACK2_TOPRIGHT");
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 150 && angle < 210) {
-				gameObject->sendMessage("ATTACK2_LEFT");
-				gameObject->getTransform()->direction.set(-1, 0);
-			}
-			else if (angle >= 90 && angle < 150) {
-				gameObject->sendMessage("ATTACK2_BOTLEFT");
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else if (angle > 30 && angle < 90) {
-				gameObject->sendMessage("ATTACK2_BOTRIGHT");
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else {
-				gameObject->sendMessage("ATTACK2_RIGHT");
-				gameObject->getTransform()->direction.set(1, 0);
-			}
-			comboAttack = Third;
-		}
-		else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
-			mc->setActionState(Attack);
-			if (angle > 210 && angle <= 270) {
-				gameObject->sendMessage("ATTACK3_TOPLEFT");
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 270 && angle < 330) {
-				gameObject->sendMessage("ATTACK3_TOPRIGHT");
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 150 && angle < 210) {
-				gameObject->sendMessage("ATTACK3_LEFT");
-				gameObject->getTransform()->direction.set(-1, 0);
-			}
-			else if (angle >= 90 && angle < 150) {
-				gameObject->sendMessage("ATTACK3_BOTLEFT");
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else if (angle > 30 && angle < 90) {
-				gameObject->sendMessage("ATTACK3_BOTRIGHT");
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else {
-				gameObject->sendMessage("ATTACK3_RIGHT");
-				gameObject->getTransform()->direction.set(1, 0);
-			}
-			comboAttack = CD;
-			attackCD->restart();
 		}
 	}
 }

@@ -9,12 +9,14 @@
 #include "Map.h"
 #include "Managers.h"
 #include "Room.h"
+#include "BasicMovement.h"
 HookShotComponent::HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed) : UpdateComponent(static_cast<GameObject*>(h))
 {
 	h->setActive(false);
 	hook = h;
 	this->hookSpeed = hookSpeed;
 	this->mc = mc;
+	collisionsLayer.push_back("Paredes");
 }
 
 HookShotComponent::~HookShotComponent()
@@ -48,7 +50,6 @@ void HookShotComponent::update()
 			}
 		}		
 		else if (hook->getHookStatus() == CONTRACT) {
-			cout << "c" << endl;
 			if (hookSize.magnitude() > 10) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 			}
@@ -57,24 +58,23 @@ void HookShotComponent::update()
 			}
 		}
 		else if (hook->getHookStatus() == MOVE_ENEMY) {
-			cout << "e" << endl;
 			if (hookSize.magnitude() > 50) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 				moveEnemy();
 			}
 			else {
 				stop();
+				enemyHooked->setMovable(true);
 			}
 		}
-		//else if (hook->getHookStatus() == MOVE_MC) {
-		//	if (hookSize.magnitude() > 50) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
-		//		moveMC();
-		//	}
-		//	else {
-		//		hook->setHookStatus(STOP);
-		//		hook->setActive(false);
-		//	}
-		//}
+		else if (hook->getHookStatus() == MOVE_MC) {
+			if (hookSize.magnitude() > 50) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+				moveMC();
+			}
+			else {
+				stop();
+			}
+		}
 	}
 }
 
@@ -135,6 +135,7 @@ void HookShotComponent::stop()
 	mc->setActionState(Idle);
 	mc->setMovable(true);
 	
+	
 }
 
 void HookShotComponent::checkCollision()
@@ -150,6 +151,7 @@ void HookShotComponent::checkCollision()
 				if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
 					hook->setHookStatus(MOVE_ENEMY);
 					enemyHooked = e;
+					e->setMovable(false);
 				}
 				i++;
 			}
@@ -157,9 +159,9 @@ void HookShotComponent::checkCollision()
 	}
 
 	//Colisionamos
-	/*Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
+	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;
-	collisionsLayer.push_back("Paredes");
+	
 	vector<string>::iterator it;
 	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
 		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
@@ -169,7 +171,7 @@ void HookShotComponent::checkCollision()
 				hook->setHookStatus(MOVE_MC);
 			}
 		}
-	}*/
+	}
 }
 
 
