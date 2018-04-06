@@ -57,7 +57,7 @@ MainCharacter::~MainCharacter()
 }
 void MainCharacter::loadAnimations()
 {
-	Tileset* tileset = Game::getGame()->getResourceManager()->getProtaTileset();
+	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset();
 	string animationPath = "../Animations/Protagonist/tileset/ProtaAnimation.tmx";
 	Animation* idleBot = AnimationParser::parseAnimation(tileset, animationPath, "IdleBot", this);
 	Animation* idleTop = AnimationParser::parseAnimation(tileset, animationPath, "IdleTop", this);

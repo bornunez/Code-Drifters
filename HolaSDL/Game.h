@@ -24,7 +24,6 @@ private:
 	SDL_Window* window;
 	SDL_Renderer* renderer;
 	//Camera* camera;
-	ResourceManager* resourceManager;
 	bool error = false;//Flag para errores
 	SDL_Event event;
 	//Info de ventana
@@ -50,7 +49,6 @@ private:
 public:
 	bool exit = false;
 	SDL_Renderer* getRenderer();
-	ResourceManager* getResourceManager() { return resourceManager; }
 	LevelParser* getLvlParser() { return levP; }
 	void run();
 	void handleEvents();

@@ -45,7 +45,8 @@ void Game::run()
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	resourceManager = new ResourceManager(this->getRenderer());
+	ResourceManager::createInstance(this->getRenderer());
+
 	//Creamos el levelParser
 
 	//Mouse Icon, maybe en playstate
@@ -60,7 +61,6 @@ void Game::run()
 	}
 	else
 	{
-		resourceManager = new ResourceManager(this->getRenderer());
 		stateMachine = new GameStateMachine();
 		playState = PlayState::getInstance();
 		//playState->loadState();

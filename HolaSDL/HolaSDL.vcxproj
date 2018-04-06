@@ -75,6 +75,7 @@
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="SimpleAnimationComponent.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="EnemyStalker.cpp" />
     <ClCompile Include="StalkerAnimationComponent.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
+    <ClInclude Include="SimpleAnimationComponent.h" />
     <ClInclude Include="SkeletonRenderer.h" />
     <ClInclude Include="EnemyStalker.h" />
     <ClInclude Include="StalkerAnimationComponent.h" />

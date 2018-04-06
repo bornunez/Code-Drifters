@@ -220,6 +220,9 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleAnimationComponent.cpp">
+      <Filter>RenderComponents</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -454,6 +457,9 @@
     </ClInclude>
     <ClInclude Include="Observer.h">
       <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleAnimationComponent.h">
+      <Filter>RenderComponents</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

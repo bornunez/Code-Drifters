@@ -48,7 +48,7 @@ EnemyStalker::~EnemyStalker()
 void EnemyStalker::loadAnimations()
 {
 	string animationPath = "../Animations/Enemies/StalkerAnimation.tmx";
-	Tileset* tileset = Game::getGame()->getResourceManager()->getEnemyTileset(1);
+	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(1);
 	Animation* run = AnimationParser::parseAnimation(tileset, animationPath, "Run", this);
 	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Attack", this, 0, 0, false, 0.2);
 

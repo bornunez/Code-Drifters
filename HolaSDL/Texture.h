@@ -16,6 +16,10 @@ public:
 
 	int getWidth();
 	int getHeight();
+	int getFrameWidth();
+	int getFrameHeight();
+	int getNumCols();
+	int getNumRows();
 	bool loadFromImg(string filename, uint numRows = 1, uint numCols = 1);
 	bool loadFromText(string texto, Font const& font, SDL_Color color = { 0, 0, 0, 255 });
 	void render(int x, int y) const;

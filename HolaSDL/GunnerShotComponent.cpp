@@ -142,7 +142,7 @@ void GunnerShotComponent::shoot() {
 			bulletT.direction = (targetT->position - gunnerT->position);
 			bulletT.direction.normalize();
 			bulletT.body.w = bulletT.body.h = 10;
-			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletT, true);
+			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletT, true);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new GunnerBulletComponent(auxBullet));

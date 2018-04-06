@@ -24,6 +24,26 @@ int Texture::getHeight() {
 	return height;
 }
 
+int Texture::getFrameWidth()
+{
+	return frameWidth;
+}
+
+int Texture::getFrameHeight()
+{
+	return frameHeight;
+}
+
+int Texture::getNumCols()
+{
+	return width/frameWidth;
+}
+
+int Texture::getNumRows()
+{
+	return height / frameHeight;
+}
+
 
 void Texture::close() {
 	if (texture != nullptr) {

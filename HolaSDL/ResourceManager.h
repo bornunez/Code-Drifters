@@ -76,8 +76,9 @@ private:
 	void loadTilesets();
 	void loadProtaTileset();
 	void loadEnemyTilesets();
-public:
 	ResourceManager(SDL_Renderer* renderer);
+
+public:
 	static ResourceManager* getInstance() { return instance; }
 	static void createInstance(SDL_Renderer* renderer);
 

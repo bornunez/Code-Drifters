@@ -117,7 +117,7 @@ Map * LevelParser::parseLevel(string levelFile)
 	Game* game = Game::getGame();
 	if (PlayState::getInstance()->getCamera() == nullptr)
 		cout << "Haciendo mapa sin camara definida";
-	Map* map = new Map(levelFile,game->getResourceManager()->getCurrTileset(), PlayState::getInstance()->getCamera());
+	Map* map = new Map(levelFile, ResourceManager::getInstance()->getCurrTileset(), PlayState::getInstance()->getCamera());
 	//Carga y lectura del mapa
 	XMLDocument doc;
 	doc.LoadFile(levelFile.c_str());
@@ -127,7 +127,7 @@ Map * LevelParser::parseLevel(string levelFile)
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if(e->Value() == string("layer"))
-			parseTileLayer(root,e, map,game->getResourceManager()->getCurrTileset());
+			parseTileLayer(root,e, map, ResourceManager::getInstance()->getCurrTileset());
 		if (e->Value() == string("objectgroup")) {
 			if (e->Attribute("name") == string("Spawners"))
 				parseSpawners(root, e,map);

@@ -73,7 +73,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			bulletTransform.direction.normalize();//Halla el vector de dirección 
 
 												  //Crea la bala y le pasa el transform
-			Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
+			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
