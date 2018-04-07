@@ -50,7 +50,7 @@ void HookShotComponent::update()
 			}
 		}		
 		else if (hook->getHookStatus() == CONTRACT) {
-			if (hookSize.magnitude() > 10) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 			}
 			else {
@@ -58,7 +58,7 @@ void HookShotComponent::update()
 			}
 		}
 		else if (hook->getHookStatus() == MOVE_ENEMY) {
-			if (hookSize.magnitude() > 50) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 				moveEnemy();
 			}
@@ -68,7 +68,7 @@ void HookShotComponent::update()
 			}
 		}
 		else if (hook->getHookStatus() == MOVE_MC) {
-			if (hookSize.magnitude() > 50) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
 			}
 			else {
@@ -80,13 +80,12 @@ void HookShotComponent::update()
 
 void HookShotComponent::updateHookPos()
 {
-
 	mc->getHook().getTransform()->position.set(mc->getGunPosition());
 	hook->getTransform()->body.x = hook->getTransform()->position.getX();
 	hook->getTransform()->body.y = hook->getTransform()->position.getY();
 }
 
-void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)
+void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la dirección que va a tomar el gancho
 {
 	PlayState::getInstance()->addGameObject(hook);
 	hook->setActive(true);
@@ -96,36 +95,64 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)
 	hook->setHookStatus(EXTEND);
 	mc->setActionState(Hooking);
 	mc->setMovable(false);
+	
 }
 
-void HookShotComponent::extend()
+void HookShotComponent::extend()//Extiende el gancho en la dirección de disparo
 {
 	Transform* t = hook->getTransform();
 	t->position.set(t->position + t->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
 	t->body.x = t->position.getX(); t->body.y = t->position.getY();
 }
 
-void HookShotComponent::contract()
+void HookShotComponent::contract()//Retrae la punta del gancho
 {
 	Transform* t = hook->getTransform();
 	t->position.set(t->position - t->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
 	t->body.x = t->position.getX(); t->body.y = t->position.getY();
 }
 
-void HookShotComponent::moveEnemy()
+void HookShotComponent::moveEnemy()//Cambia la posición del enemigo según la posición del gancho
 {
-	enemyHooked->getTransform()->position.set(hook->getTransform()->position);
-	enemyHooked->getTransform()->body.x = enemyHooked->getTransform()->position.getX();
-	enemyHooked->getTransform()->body.y = enemyHooked->getTransform()->position.getY();
+	Transform* eT = enemyHooked->getTransform();
+	eT->position.setX(hook->getCenterPos().getX() - eT->body.w/2);//"Sujeta" el enemy por el centro de su cuerpo
+	eT->position.setY(hook->getCenterPos().getY() - eT->body.h/2);
+	eT->body.x = eT->position.getX();
+	eT->body.y = eT->position.getY();
 }
 
-void HookShotComponent::moveMC()
+void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hasta que llega o choca con una pared
 {
 	hook->setOriginPosition(hook->getOriginPosition() + hook->getTransform()->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
 
-	mc->getTransform()->position.set(hook->getOriginPosition());
-	mc->getTransform()->body.x = hook->getOriginPosition().getX();
-	mc->getTransform()->body.y = hook->getOriginPosition().getY();
+	Transform* mcT = mc->getTransform();
+
+	Transform auxT = *mcT;
+	auxT.position.setX(hook->getOriginPosition().getX() - auxT.body.w / 2);
+	auxT.position.setY(hook->getOriginPosition().getY() - auxT.body.h / 2);
+	auxT.body.x = auxT.position.getX();
+	auxT.body.y = auxT.position.getY();
+
+	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
+	bool collision = false;
+
+	vector<string>::iterator it;
+	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
+		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
+		if (tl != nullptr) {
+			if (CollisionHandler::Collide(&auxT, tl)) {
+				collision = true;
+			}
+		}
+	}
+	if (!collision) {
+		*mcT = auxT;
+	}
+	else {
+		hook->setHookStatus(CONTRACT);
+		contract();
+	}
+
 }
 
 void HookShotComponent::stop()
@@ -133,12 +160,10 @@ void HookShotComponent::stop()
 	hook->setHookStatus(STOP);
 	hook->setActive(false);
 	mc->setActionState(Idle);
-	mc->setMovable(true);
-	
-	
+	mc->setMovable(true);	
 }
 
-void HookShotComponent::checkCollision()
+void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con un enemigo y si choca contra la pared
 {
 	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 	SDL_Rect hookColl = hook->getTransform()->body;
