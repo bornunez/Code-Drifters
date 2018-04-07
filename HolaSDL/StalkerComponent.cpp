@@ -18,22 +18,21 @@ void StalkerComponent::update()
 
 	EnemyStalker* es = static_cast<EnemyStalker*>(gameObject);
 
-	if (!hasCharged) {
-		if (!charge && timer->TimeSinceTimerCreation >= 8.0) {
-			charge = true;
-			timer->restart();
-			Message msg(STALKER_ATTACK);
-			es->sendMessage(&msg);
-			ChargeComponent::resetTimer();
-		}
-		else if (charge && timer->TimeSinceTimerCreation >= 3.0) {
-			charge = false;
-			timer->restart();
-			Message msg(STALKER_RUN);
-			es->sendMessage(&msg);
-			hasCharged = true;
-		}
+	if (!charge && timer->TimeSinceTimerCreation >= 8.0) {
+		charge = true;
+		timer->restart();
+		Message msg(STALKER_ATTACK);
+		es->sendMessage(&msg);
+		ChargeComponent::resetTimer();
 	}
+	else if (charge && timer->TimeSinceTimerCreation >= 3.0) {
+		charge = false;
+		timer->restart();
+		Message msg(STALKER_RUN);
+		es->sendMessage(&msg);
+	
+	}
+	
 
 
 
