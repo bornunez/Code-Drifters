@@ -223,6 +223,12 @@
     <ClCompile Include="SimpleAnimationComponent.cpp">
       <Filter>RenderComponents</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyTurret.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TurretShotComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -460,6 +466,12 @@
     </ClInclude>
     <ClInclude Include="SimpleAnimationComponent.h">
       <Filter>RenderComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTurret.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TurretShotComponent.h">
+      <Filter>Enemigos\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
