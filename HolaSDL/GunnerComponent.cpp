@@ -2,16 +2,9 @@
 #include "GunnerComponent.h"
 #include "GameObject.h"
 #include <cmath>
-
 #include "Bullet.h"
-#include "ResourceManager.h"
-#include "Game.h"
-#include "PlayState.h"
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
-#include "Room.h"
-#include "DungeonGenerator.h"
-#include "Camera.h"
 #include "MainCharacter.h"
 #include"EnemyGunner.h"
 

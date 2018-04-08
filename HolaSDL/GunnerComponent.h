@@ -12,8 +12,6 @@ public:
 	virtual ~GunnerComponent();
 
 private:
-	Vector2D gunnerPosition;
-	Vector2D targetPosition;
 	GameObject* targetObject;
 	float velocity;
 	float distancia;
