@@ -71,11 +71,11 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 
 	Bullet* newBullet = nullptr;
 
-	if(bulletType == MCBullet)
-		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(MCBulletTex), true, bulletType);
+	if(bulletType == BulletType::MCBullet)
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(MCBullet), true, bulletType);
 	
-	else if(bulletType == GunnerBullet)
-		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBulletTex), true, bulletType);
+	else if(bulletType == BulletType::GunnerBullet)
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);
 
 	bullets.push_back(newBullet);
 	return newBullet;

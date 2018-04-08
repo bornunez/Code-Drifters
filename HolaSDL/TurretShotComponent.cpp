@@ -142,7 +142,7 @@ void TurretShotComponent::shoot() {
 			bulletT.direction.normalize();
 			bulletT.body.w = bulletT.body.h = 10;
 
-			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBulletTex), bulletT, true, TurretBullet);
+			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), bulletT, true, BulletType::TurretBullet);
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new GunnerBulletComponent(auxBullet));

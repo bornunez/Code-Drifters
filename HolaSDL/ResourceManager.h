@@ -21,7 +21,7 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureId { MCBulletTex, GunnerBulletTex, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton};
+enum TextureId { MCBullet, GunnerBullet, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
