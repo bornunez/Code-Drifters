@@ -36,6 +36,8 @@ GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight
 
 GameObject::~GameObject()
 {
+	
+	animations.clear();
 }
 
 void GameObject::update()

@@ -6,7 +6,7 @@
 #include "EnemyCharger.h"
 #include "MainCharacter.h"
 #include "Map.h"
-
+#include "PlayState.h"
 
 EnemyManager* EnemyManager::instance = nullptr;
 
@@ -56,7 +56,7 @@ EnemyManager::~EnemyManager()
 	for (Enemy* e : actives)
 		kill(e);
 	for (Enemy* e : inactives)
-		inactives.remove(e);
+		PlayState::getInstance()->removeGameObject(e);
 }
 
 //Get Singleton instance
@@ -104,6 +104,12 @@ void EnemyManager::spawn(Spawner * spawner)
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
 	actives.push_back(e);
+}
+void EnemyManager::ResetInstance()
+{
+	instance->killAll();
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
 }
 
 void EnemyManager::kill(Enemy * enemy)

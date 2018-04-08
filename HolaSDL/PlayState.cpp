@@ -27,6 +27,10 @@ PlayState * PlayState::getInstance()
 
 PlayState::~PlayState()
 {
+	/*delete minimap;
+	delete mainCharacter;
+	delete level;
+	delete currentRoom;*/
 }
 
 void PlayState::render()
@@ -51,6 +55,21 @@ void PlayState::update()
 	EnemyManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
+}
+
+void PlayState::endState()
+{
+	/*camera = nullptr;
+	mainCharacter = nullptr;
+	EnemyManager::getInstance()->killAll();
+	destroyAllGameObjects();*/
+}
+
+void PlayState::ResetInstance()
+{
+	instance->destroyAllGameObjects();
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
 }
 
 void PlayState::loadState()

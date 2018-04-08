@@ -15,6 +15,7 @@
 #include "PlayState.h"
 #include "MainMenuState.h"
 #include "Time.h"
+#include "LevelManager.h"
 
 Game* Game::game = nullptr;
 Game::Game()
@@ -62,7 +63,7 @@ void Game::run()
 	else
 	{
 		stateMachine = new GameStateMachine();
-		playState = PlayState::getInstance();
+		
 		//playState->loadState();
 		//stateMachine->pushState(playState);
 		MainMenuState* mm = new MainMenuState();
@@ -109,6 +110,9 @@ void Game::handleEvents()
 					SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
 				}
 			}
+			else if (event.key.keysym.sym == SDLK_q) {
+				endGame();
+			}
 		}
 		if (event.type == SDL_QUIT)
 		{
@@ -138,7 +142,15 @@ Game * Game::getGame()
 
 void Game::startGame()
 {
+	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
 	playState->loadState();
+}
+
+void Game::endGame()//Termina el PlayState y resetea sus instancias.
+{
+	EnemyManager::ResetInstance();
+	PlayState::ResetInstance(); 
+	stateMachine->popState();
 }
 

@@ -38,6 +38,7 @@ private:
 public:
 	~EnemyManager();
 	static EnemyManager* getInstance();
+	static void ResetInstance();
 	void update();
 	void render();
 

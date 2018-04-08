@@ -24,4 +24,5 @@ public:
 	virtual void handleEvent(SDL_Event& e);
 	void addGameObject(GameObject* go);
 	void removeGameObject(GameObject* go);
+	void destroyAllGameObjects();
 };
