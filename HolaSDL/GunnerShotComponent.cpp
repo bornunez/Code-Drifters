@@ -137,19 +137,24 @@ void GunnerShotComponent::shoot() {
 		if (eg->currentState == IDLE) {
 			lastShotTime->restart();
 			updateGunPosition();
-			Transform bulletT;
-			bulletT.position.set(gunPosition.getX(), gunPosition.getY());
-			bulletT.direction = (targetT->position - gunnerT->position);
-			bulletT.direction.normalize();
-			bulletT.body.w = bulletT.body.h = 10;
-			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletT, true);
+			Transform bulletTransform;
+			bulletTransform.position.set(gunPosition.getX(), gunPosition.getY());
+			bulletTransform.direction = (targetT->position - gunnerT->position);
+			bulletTransform.direction.normalize();
+			bulletTransform.body.w = bulletTransform.body.h = 10;
+			bulletTransform.velocity = bulletTransform.direction;
+			bulletTransform.speed = 1000.0;
+
+			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform);
+
+		//	Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
-			auxBullet->addComponent(new GunnerBulletComponent(auxBullet));
+			//auxBullet->addComponent(new GunnerBulletComponent(auxBullet));
 			//auxBullet->addComponent(new GunnerBulletRenderComponent(auxBullet));
 
 			//Añade la bala a los objetos de la sala actual
-			PlayState::getInstance()->addGameObject(auxBullet);
+			//PlayState::getInstance()->addGameObject(auxBullet);
 
 			shotAnimationTime->restart();
 			eg->currentState = SHOOT;
