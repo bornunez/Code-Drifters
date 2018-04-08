@@ -34,7 +34,7 @@ private:
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ 
 		{ "bullet.png", 1, 1 },
 		{ "Tree\\1.png", 1, 1 },
-		{ "Tree\\243534.png", 1, 1 },
+		{ "Tree\\2.png", 1, 1 },
 		{ "Tree\\3.png", 1, 1 },
 		{ "Tree\\11.png", 1, 1 },
 		{ "Tree\\12.png", 1, 1 },

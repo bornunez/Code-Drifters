@@ -50,11 +50,6 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			aux.setX(p.x);
 			aux.setY(p.y);//Posición del cursor en pantalla
 
-
-																							  //cout << gunPosition << endl;
-
-
-
 			//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
 			Vector2D gunPosition;
 			gunPosition.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
@@ -67,12 +62,11 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 
 			Vector2D displayPosition;//Posición del personaje relativa a la cámara
-			displayPosition = (gunPosition
-				- PlayState::getInstance()->getCamera()->getTransform()->position);
+			displayPosition = (gunPosition - PlayState::getInstance()->getCamera()->getTransform()->position);
 			bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
 			bulletTransform.direction.normalize();//Halla el vector de dirección 
 
-												  //Crea la bala y le pasa el transform
+			//Crea la bala y le pasa el transform
 			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
