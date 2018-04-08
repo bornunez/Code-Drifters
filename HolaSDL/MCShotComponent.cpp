@@ -2,22 +2,21 @@
 #include "MCShotComponent.h"
 #include "Bullet.h"
 #include "ResourceManager.h"
-#include "Game.h"
 #include "PlayState.h"
 #include "GameState.h"
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
 #include "MainCharacter.h"
-#include "Room.h"
-#include "DungeonGenerator.h"
 #include "Camera.h"
 #include "PlayState.h"
 #include <iostream>
-#include "Managers.h"
+#include "BulletManager.h"
+
 
 MCShotComponent::MCShotComponent(GameObject * o) : InputComponent(o)
 {
-	lastReloadTime = new Timer();
+	this->bulletManager = bulletManager;
+	this->lastReloadTime = new Timer();
 }
 
 MCShotComponent::~MCShotComponent()
@@ -50,6 +49,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			aux.setX(p.x);
 			aux.setY(p.y);//Posición del cursor en pantalla
 
+
 			//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
 			Vector2D gunPosition;
 			gunPosition.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
@@ -65,15 +65,19 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 			displayPosition = (gunPosition - PlayState::getInstance()->getCamera()->getTransform()->position);
 			bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
 			bulletTransform.direction.normalize();//Halla el vector de dirección 
+			bulletTransform.velocity = bulletTransform.direction;
+			bulletTransform.speed = 1000.0;
+
+			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform);
 
 			//Crea la bala y le pasa el transform
-			Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
+			//Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
 
 			//Le añade los componentes de físicas y render
-			auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
-			auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
+			//auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
+			//auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
 			//Añade la bala a los objetos de la sala actual
-			PlayState::getInstance()->addGameObject(auxBullet);
+			//PlayState::getInstance()->addGameObject(auxBullet);
 
 			currentBullets--;//Le resta balas al personaje
 			static_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
@@ -82,4 +86,3 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 
 }
-

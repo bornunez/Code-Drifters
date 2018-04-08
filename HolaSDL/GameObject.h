@@ -28,6 +28,7 @@ protected:
 public:
 
 	GameObject();
+	GameObject(Texture* tex, bool active = true);			//Para las balas
 	GameObject(Texture* tex, Transform t, bool active = true);
 	GameObject(Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active = true);
 	GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active = true);
@@ -54,5 +55,6 @@ public:
 	void changeCurrentAnimation(const char * animName);
 	bool getInvincibility() { return invincible; }
 	void setInvincibility(bool state) { invincible = state; }
+	void setTransform(Transform t) { this->transform = t; }
 };
 

@@ -146,7 +146,7 @@ void GunnerShotComponent::shoot() {
 
 			//Le añade los componentes de físicas y render
 			auxBullet->addComponent(new GunnerBulletComponent(auxBullet));
-			auxBullet->addComponent(new GunnerBulletRenderComponent(auxBullet));
+			//auxBullet->addComponent(new GunnerBulletRenderComponent(auxBullet));
 
 			//Añade la bala a los objetos de la sala actual
 			PlayState::getInstance()->addGameObject(auxBullet);

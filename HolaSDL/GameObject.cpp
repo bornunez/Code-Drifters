@@ -10,6 +10,12 @@ GameObject::GameObject()
 	this->playState = PlayState::getInstance();
 }
 
+GameObject::GameObject(Texture * tex, bool active) : texture(tex), active(active)
+{
+	this->game = Game::getGame();
+	this->playState = PlayState::getInstance();
+}
+
 GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), active(active)
 {
 	this->game = Game::getGame();

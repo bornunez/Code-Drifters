@@ -7,16 +7,24 @@ class BulletManager : public GameObject {
 private:
 	Bullet * getBullet();
 	virtual void receive(Message* msg);
-	virtual void shoot(GameObject* owner, Vector2D position, Vector2D velocity);
 	std::vector<Bullet*> bullets;
 	//FillRectRenderer bulletRenderer;
 	//BasicMotionPhysics bulletPhysics;
 
-public:
+	//Singleton
+	static BulletManager* instance;
 	BulletManager();
+
+public:
+	//Singleton
+	static BulletManager* getInstance() { return instance; }
+	static void createInstance();
+
 	~BulletManager();
 	virtual void update();
 	virtual void render();
 	virtual void handleEvents(SDL_Event& e);
-	 std::vector<Bullet*>& getBullets();
+	std::vector<Bullet*>& getBullets();
+	void shoot(GameObject* owner, Vector2D position, Vector2D velocity);
+	void shoot(GameObject* owner, Transform bulletTransform);
 };

@@ -1,7 +1,6 @@
 #pragma once
 #include "RenderComponent.h"
-class GunnerBulletRenderComponent :
-	public RenderComponent
+class GunnerBulletRenderComponent : public RenderComponent
 {
 public:
 	void render();

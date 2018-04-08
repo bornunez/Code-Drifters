@@ -46,6 +46,7 @@ void Game::run()
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	ResourceManager::createInstance(this->getRenderer());
+	BulletManager::createInstance();
 
 	//Creamos el levelParser
 

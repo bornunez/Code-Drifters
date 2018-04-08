@@ -19,9 +19,7 @@
 
 
 
-
-MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
-	: GameObject(tex, x, y, w, h)
+MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h) : GameObject(tex, x, y, w, h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);

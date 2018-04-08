@@ -1,6 +1,8 @@
 #pragma once
 #include "Animation.h"
 #include <map>
+#include "BulletManager.h"
+
 class PlayState;
 class MCAnimationComponent;
 enum ActionState { Idle, Run, Attack, Shoot, Hook, Hurt, Heal };

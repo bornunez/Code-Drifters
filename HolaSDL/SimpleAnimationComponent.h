@@ -20,7 +20,7 @@ private:
 public:
 	SimpleAnimationComponent(GameObject* o, Texture* texture, double angle = 0, int fps = 100, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	~SimpleAnimationComponent();
-	virtual void render();
+	void render();
 
 	//Sets
 	void setAnimationNumber(AnimationNumber animNumber);
