@@ -3,8 +3,9 @@
 #include "MCBulletComponent.h"
 #include "BasicMovement.h"
 
-Bullet::Bullet(Texture * tex, bool active) : GameObject(tex, active)
+Bullet::Bullet(Texture * tex, bool active, BulletType type) : GameObject(tex, active)
 {
+	this->type = type;
 	this->addComponent(new SimpleAnimationComponent(this, texture));
 
 	//Esta llevarla a MCBullet
@@ -12,16 +13,18 @@ Bullet::Bullet(Texture * tex, bool active) : GameObject(tex, active)
 	//this->addComponent(new MCBulletComponent(this, 1.5));
 }
 
-Bullet::Bullet(Texture * tex, Transform t, bool active) : GameObject(tex, t, active)
+Bullet::Bullet(Texture * tex, Transform t, bool active, BulletType type) : GameObject(tex, t, active)
 {
+	this->type = type;
 	this->addComponent(new SimpleAnimationComponent(this, texture));
 
 	//Esta llevarla a MCBullet
-	this->addComponent(new MCBulletComponent(this, 1.5));
+	//this->addComponent(new MCBulletComponent(this, 1.5));
 }
 
-Bullet::Bullet(Texture * tex, int x, int y, int width, int height, bool active)  : GameObject(tex, x, y, width, height, active)
+Bullet::Bullet(Texture * tex, int x, int y, int width, int height, bool active, BulletType type)  : GameObject(tex, x, y, width, height, active)
 {
+	this->type = type;
 	this->addComponent(new SimpleAnimationComponent(this, texture));
 }
 

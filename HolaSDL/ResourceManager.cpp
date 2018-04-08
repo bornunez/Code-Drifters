@@ -28,6 +28,14 @@ ResourceManager::~ResourceManager()
 {
 }
 
+Texture * ResourceManager::getTexture(TextureId id)
+{
+	if (id < NUM_TEXTURES)
+		return textures[id];
+	else
+		return nullptr;
+}
+
 void ResourceManager::loadTextures()
 {
 	for (int i = 0; i < NUM_TEXTURES; i++) {

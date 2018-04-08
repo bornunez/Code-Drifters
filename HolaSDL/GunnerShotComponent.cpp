@@ -145,7 +145,7 @@ void GunnerShotComponent::shoot() {
 			bulletTransform.velocity = bulletTransform.direction;
 			bulletTransform.speed = 1000.0;
 
-			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform);
+			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::GunnerBullet);
 
 		//	Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
 

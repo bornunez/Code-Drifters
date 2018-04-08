@@ -5,7 +5,7 @@
 
 class BulletManager : public GameObject {
 private:
-	Bullet * getBullet();
+	Bullet * getBullet(BulletType bulletType);
 	virtual void receive(Message* msg);
 	std::vector<Bullet*> bullets;
 	//FillRectRenderer bulletRenderer;
@@ -25,6 +25,6 @@ public:
 	virtual void render();
 	virtual void handleEvents(SDL_Event& e);
 	std::vector<Bullet*>& getBullets();
-	void shoot(GameObject* owner, Vector2D position, Vector2D velocity);
-	void shoot(GameObject* owner, Transform bulletTransform);
+	void shoot(GameObject* owner, Vector2D position, Vector2D velocity, BulletType bulletType);
+	void shoot(GameObject* owner, Transform bulletTransform, BulletType bulletType);
 };

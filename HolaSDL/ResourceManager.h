@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 23;
+const int NUM_TEXTURES = 24;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 2;
@@ -21,7 +21,7 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureName { BulletSprite, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton};
+enum TextureId { MCBulletTex, GunnerBulletTex, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
@@ -32,7 +32,8 @@ class ResourceManager
 private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ 
-		{ "bullet.png", 1, 1 },
+		{ "MCBullet.png", 1, 1 },
+		{ "GunnerBullet.png", 1, 1 },
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
 		{ "Tree\\3.png", 1, 1 },
@@ -85,7 +86,7 @@ public:
 	~ResourceManager();
 
 	//Devuelve la textura dado su numero en la enum
-	Texture * getTexture(int numTexture) { return textures[numTexture]; };
+	Texture * getTexture(TextureId id);
 	Tileset* getCurrTileset() { return currentTileset; };
 	Tileset* getProtaTileset() { return protaTileset; };
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset];

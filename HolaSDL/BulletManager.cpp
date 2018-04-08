@@ -54,42 +54,49 @@ std::vector<Bullet*>& BulletManager::getBullets()
 	return bullets;
 }
 
-Bullet * BulletManager::getBullet()
+Bullet * BulletManager::getBullet(BulletType bulletType)
 {
 	for (Bullet* bullet : bullets) {
-		if (!bullet->isActive()) {
+		if (!bullet->isActive() && bullet->getType() == bulletType) {
 			bullet->setActive(true);
 			return bullet;
 		}
 	}
 
-	Bullet* newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), true);
+	//Bullet* newBullet = new Bullet(ResourceManager::getInstance()->getTexture(bulletType), true, bulletType);
 
-	//newBullet->addPhysicsComponent(&bulletPhysics);
-	//newBullet->addRenderComponent(&bulletRenderer);
+
+	//Esta linea funcionaria porque tienen el mismo numero en las enums, quiza cambiarlo a enum class
+	//Bullet* newBullet = new Bullet(ResourceManager::getInstance()->getTexture(bulletType), true, bulletType);
+
+	Bullet* newBullet = nullptr;
+
+	if(bulletType == MCBullet)
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(MCBulletTex), true, bulletType);
+	
+	else if(bulletType == GunnerBullet)
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBulletTex), true, bulletType);
+
 	bullets.push_back(newBullet);
 	return newBullet;
 }
 
 
-void BulletManager::shoot(GameObject * owner, Transform bulletTransform)
+void BulletManager::shoot(GameObject * owner, Transform bulletTransform, BulletType bulletType)
 {
-	Bullet* newBullet = getBullet();
+	Bullet* newBullet = getBullet(bulletType);
 
 	newBullet->setTransform(bulletTransform);
 
-	//Es necesario añadirla si ya ha sido añadida??
-	//PlayState::getInstance()->addGameObject(newBullet);
-
 	//Se envia el mensaje de que se ha creado una bala, deberia enviarse al sound manager
-	Message msg(BULLET_CREATED);
-	owner->sendMessage(&msg);
+	//Message msg(BULLET_CREATED);
+	//owner->sendMessage(&msg);
 	//this->send(&msg);
 }
 
-void BulletManager::shoot(GameObject * owner, Vector2D position, Vector2D velocity)
+void BulletManager::shoot(GameObject * owner, Vector2D position, Vector2D velocity, BulletType bulletType)
 {
-	Bullet* newBullet = getBullet();
+	Bullet* newBullet = getBullet(bulletType);
 	newBullet->getTransform()->position = position;
 	newBullet->getTransform()->velocity = velocity;
 
