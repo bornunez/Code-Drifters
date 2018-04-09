@@ -534,9 +534,6 @@
     <Filter Include="Prota\Header">
       <UniqueIdentifier>{0f24dd3d-dc31-436c-86d2-c3c0f2fe4a6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Estados\Source">
-      <UniqueIdentifier>{e5fb76a0-9203-4b19-8536-b26a448883d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Prota\Source">
       <UniqueIdentifier>{19d51594-024d-4264-80f1-a35db2b99d8b}</UniqueIdentifier>
     </Filter>

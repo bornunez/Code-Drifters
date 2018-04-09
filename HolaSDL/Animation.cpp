@@ -20,6 +20,7 @@ Animation::Animation(string animationName, Tileset* tileset,  GameObject* o, int
 
 Animation::~Animation()
 {
+	delete lastFrame;
 }
 
 void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelve al primer frame

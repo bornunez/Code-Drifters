@@ -17,6 +17,12 @@ void BulletManager::createInstance()
 		instance = new BulletManager();
 }
 
+void BulletManager::ResetInstance()
+{
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
+}
+
 BulletManager::~BulletManager()
 {
 	for (Bullet* b : bullets)

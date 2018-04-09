@@ -19,6 +19,7 @@ public:
 	//Singleton
 	static BulletManager* getInstance() { return instance; }
 	static void createInstance();
+	static void ResetInstance();
 
 	~BulletManager();
 	virtual void update();

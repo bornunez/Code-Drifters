@@ -63,5 +63,6 @@ public:
 	static Game* getGame();
 
 	void startGame();
+	void endGame();
 };
 

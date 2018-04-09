@@ -55,6 +55,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h) : GameOb
 
 MainCharacter::~MainCharacter()
 {
+	//animations.clear();
 }
 void MainCharacter::loadAnimations()
 {
