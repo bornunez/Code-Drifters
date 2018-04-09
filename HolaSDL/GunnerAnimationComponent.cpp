@@ -5,11 +5,13 @@
 #include "Camera.h"
 #include "MainCharacter.h"
 #include "EnemyGunner.h"
+#include "Random.h"
 GunnerAnimationComponent::GunnerAnimationComponent(GameObject* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
 	this->target = target;
 	gameObject->changeCurrentAnimation("IDLE_BOT");
+	hurtTimer = new Timer();
 }
 
 
@@ -95,19 +97,23 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 		gameObject->changeCurrentAnimation("SHOT_BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
+	case HURT:
+		hurtAnimations();
+		break;
 	}
+	
 }
 
 void GunnerAnimationComponent::handleAnimations()
 {
 	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	Transform* gunnerT = gameObject->getTransform();
-	if (eg->currentState != SHOOT) {
+	if (eg->enemyState != EnemyState::Shoot) {
 		if (gunnerT->velocity.getX() != 0 && gunnerT->velocity.getY() != 0) {
-			eg->currentState = RUN;
+			eg->enemyState = EnemyState::Run;
 		}
 		else {
-			eg->currentState = IDLE;
+			eg->enemyState = EnemyState::Idle;
 		}
 	}
 
@@ -119,65 +125,65 @@ void GunnerAnimationComponent::handleAnimations()
 	if (angle < 0)
 		angle += 360;
 
-	if (eg->currentState == IDLE) {
+	if (eg->enemyState == EnemyState::Idle) {
 		if (angle > 297 && angle < 342) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_TOPRIGHT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(1, -1);
 		}
 		else if (angle > 252 && angle < 297) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_TOP);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(0, -1);
 		}
 		else if (angle > 207 && angle <= 252) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_TOPLEFT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(-1, -1);
 		}
 		else if (angle > 162 && angle < 207) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_LEFT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(-1, 0);
 		}
 		else if (angle >= 117 && angle < 162) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_BOTLEFT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(-1, 1);
 		}
 		else if (angle > 72 && angle < 117) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_BOT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(0, 1);
 		}
 		else if (angle > 27 && angle < 72) {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_BOTRIGHT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(1, 1);
 		}
 		else {
-			if (eg->currentState == IDLE) {
+			if (eg->enemyState == EnemyState::Idle) {
 				Message msg(IDLE_RIGHT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(1, 0);
 		}
 	}
-	else if (eg->currentState == RUN) {
+	else if (eg->enemyState == EnemyState::Run) {
 		if (angle > 225 && angle < 315) {
 			Message msg(RUN_TOP);
 			gameObject->sendMessage(&msg);
@@ -199,4 +205,14 @@ void GunnerAnimationComponent::handleAnimations()
 			gameObject->getTransform()->direction.set(1, 0);
 		}
 	}
+}
+
+void GunnerAnimationComponent::hurtAnimations()
+{
+	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
+	Random::randomInt(0, 1);
+	hurtTimer->restart();
+	eg->enemyState = EnemyState::Hurt;
+	gameObject->changeCurrentAnimation("DAMAGE_RIGHT1");
+	gameObject->getCurrentAnimation()->startAnimation();
 }
