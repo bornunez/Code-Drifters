@@ -7,17 +7,17 @@
 #include "PlayState.h"
 #include "ResourceManager.h"
 #include "EnemyManager.h"
+#include "LevelManager.h"
 
+void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, vector<Tileset*> tilesets)
 
-void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, Tileset* tileset)
-
-{	
+{
 	//Cargamos los datos del mapa
 	int tileSize = atoi(root->Attribute("tilewidth"));
 	int width = atoi(root->Attribute("width"));
 	int height = atoi(root->Attribute("height"));
 	string name = tileElement->Attribute("name");
-	TileLayer* tileLayer = new TileLayer(tileset,name,width,height,tileSize);
+	TileLayer* tileLayer = new TileLayer(tilesets, name, width, height, tileSize);
 	//Vector de los datos de tiles
 	vector<vector<int>> data;
 	string decodedID;
@@ -30,7 +30,7 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 		std::string t = text->Value();
 		//Quitar los espacios ( Lee la linea con espacios incluidos) Esto es un hack
 		string nt;
-		for (int i = 0; i<t.length(); i++) {
+		for (int i = 0; i < t.length(); i++) {
 			if (t[i] != '\n' &&t[i] && t[i] != ' ') {
 				nt.push_back(t[i]);
 			}
@@ -39,7 +39,7 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 		//Aqui ya esta el texto cortado y listo para decodificar
 		///cout << t << endl;
 		//Decodificamos el mapa
-		macaron::Base64::Decode(t,decodedID);
+		macaron::Base64::Decode(t, decodedID);
 		///cout << decodedID << endl;
 		//Y descomprimimos
 		uLongf numGids = width * height * sizeof(int);
@@ -61,6 +61,7 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 		}
 		//Finalmente lo asignamos a la layer y la agregamos al vector de layers
 		tileLayer->seTileIDs(data);
+		tileLayer->setFirstGid(map->getFirstGid());
 		map->addLayer(tileLayer);
 	}
 }
@@ -68,7 +69,7 @@ void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map*
 void LevelParser::parseSpawners(XMLElement * root, XMLElement * spawnersElements, Map * map)
 {
 	//Nodo donde estaguardado el mapa
-	for (XMLElement* e = spawnersElements->FirstChildElement();	e != nullptr; e = e->NextSiblingElement()) {
+	for (XMLElement* e = spawnersElements->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		//Leemos los atributos 
 		int width = atoi(e->Attribute("width"));
 		int height = atoi(e->Attribute("height"));
@@ -94,6 +95,60 @@ void LevelParser::parseSpawners(XMLElement * root, XMLElement * spawnersElements
 
 }
 
+void LevelParser::parseDoors(XMLElement* root, XMLElement * doorsElement, Map * map, vector<bool> doors)
+{
+	int scale = Game::getGame()->getScale();
+	SDL_Rect trigger;
+	for (XMLElement* door = doorsElement->FirstChildElement(); door != nullptr; door = door->NextSiblingElement()) {
+		//Casteamos la puerta y sacamos la direccion
+		string direction = door->Attribute("name");
+		Direction dir = stringToDir(direction);
+		//Si la sala tiene puerta, la cargamos
+		if (doors[dir]) {
+			
+			//Si hay puerta sacamos sus datos
+			trigger.w = atoi(door->Attribute("width")) * scale;
+			trigger.h = atoi(door->Attribute("height"))* scale;
+			trigger.x = atoi(door->Attribute("x"))* scale;
+			trigger.y = atoi(door->Attribute("y"))* scale;
+			map->getDoor(dir)->setTrigger(trigger);
+			map->getDoor(dir)->setDirection(dir);
+		}
+	}
+}
+
+void LevelParser::parseEntries(XMLElement* root, XMLElement * entriesElement, Map * map, vector<bool> doors)
+{
+	int scale = Game::getGame()->getScale();
+	Vector2D entry;
+	for (XMLElement* door = entriesElement->FirstChildElement(); door != nullptr; door = door->NextSiblingElement()) {
+		//Casteamos la puerta y sacamos la direccion
+		string direction = door->Attribute("name");
+		Direction dir = stringToDir(direction);
+		//Si la sala tiene puerta, la cargamos
+		if (doors[dir]) {
+
+			//Si hay puerta sacamos sus datos
+			entry.setX(atoi(door->Attribute("x"))* scale);
+			entry.setY( atoi(door->Attribute("y"))* scale);
+			map->getDoor(dir)->setEntry(entry);
+		}
+	}
+}
+
+vector<Tileset*> LevelParser::parseTileSets(XMLElement * root, Map * map)
+{
+	vector<Tileset*> tilesets;
+	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
+		if (e->Value() == string("tileset")) {
+			tilesets.push_back(ResourceManager::getInstance()->getTileset(e->Attribute("source")));
+			map->setFirstGid(atoi(e->Attribute("firstgid")));
+		}
+	}
+	map->setTilesets(tilesets);
+	return tilesets;
+}
+
 EnemyType LevelParser::parseEnemyTypes(string enemyType)
 {
 	EnemyType eType;
@@ -107,30 +162,80 @@ EnemyType LevelParser::parseEnemyTypes(string enemyType)
 	return eType;
 }
 
+void LevelParser::initDoors(Map* map, vector<bool> doors)
+{
+	for (int i = 0; i < 4; i++) {
+		if (doors[i]) {
+			map->addDoor(new Door(), (Direction)i);
+		}
+	}
+}
+
+string LevelParser::dirToString(Direction dir)
+{
+	string direction;
+	switch (dir)
+	{
+	case Up:
+		direction = "Up";
+		break;
+	case Right:
+		direction = "Right";
+		break;
+	case Down:
+		direction = "Down";
+		break;
+	case Left:
+		direction = "Left";
+		break;
+	default:
+		break;
+	}
+	return direction;
+}
+
+Direction LevelParser::stringToDir(string direction)
+{
+	Direction dir;
+	if (direction == "Up")
+		dir = Up;
+	else if (direction == "Right")
+		dir = Right;
+	else if (direction == "Down")
+		dir = Down;
+	else if (direction == "Left")
+		dir = Left;
+	return dir;
+}
 
 LevelParser::~LevelParser()
 {
 }
 
-Map * LevelParser::parseLevel(string levelFile)
+Map * LevelParser::parseLevel(string levelFile, vector<bool> doors)
 {
 	Game* game = Game::getGame();
 	if (PlayState::getInstance()->getCamera() == nullptr)
 		cout << "Haciendo mapa sin camara definida";
-	Map* map = new Map(levelFile, ResourceManager::getInstance()->getCurrTileset(), PlayState::getInstance()->getCamera());
+	Map* map = new Map(levelFile, PlayState::getInstance()->getCamera());
 	//Carga y lectura del mapa
 	XMLDocument doc;
 	doc.LoadFile(levelFile.c_str());
 	//Raiz del mapa
 	XMLElement* root = doc.FirstChildElement();
-
+	initDoors(map, doors);
+	vector<Tileset*> tilesets = parseTileSets(root, map);
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
-		if(e->Value() == string("layer"))
-			parseTileLayer(root,e, map, ResourceManager::getInstance()->getCurrTileset());
+		if (e->Value() == string("layer"))
+			parseTileLayer(root, e, map, tilesets);
 		if (e->Value() == string("objectgroup")) {
 			if (e->Attribute("name") == string("Spawners"))
-				parseSpawners(root, e,map);
+				parseSpawners(root, e, map);
+			else if (e->Attribute("name") == string("Puertas"))
+				parseDoors(root, e, map, doors);
+			else if (e->Attribute("name") == string("Entradas"))
+				parseEntries(root, e, map, doors);
 		}
 	}
 	//XMLElement* mapa = levelDocument.FirstChildElement("map");

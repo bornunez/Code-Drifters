@@ -1,0 +1,16 @@
+===== Creación de Spawners ===================================
+
+ - Crear capa de objetos "Spawners"
+
+ ### Crear un "template" para los spawners ###
+  - Crear objeto (Nombre da igual)
+  - Añadir una probiedad booleana con el nombre de cada enemigo   (los strings estan en el levelParser->parseEnemyTypes):
+    ->"Stalker"
+    ->"Gunner"
+    ->"Ninja"
+ #############################################
+
+ -Para los spawners individuales, copiamos el "template" y
+  activamos los enemigos que queremos que se spawneen
+   
+==============================================================

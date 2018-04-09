@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="5">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="32" tileheight="32" nextobjectid="13">
  <tileset firstgid="1" source="Tileset/tile.tsx"/>
  <layer name="Suelo" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJwTYGBgECADcwOxIJQmVx03GhZE48PUCRLAuMxDx+T4k94YAKF0Be0=
+   eJwTYGBgEEDCglAsQABTUx03kjpuHPqphYm1l5b+xacOAPzsBlE=
   </data>
  </layer>
  <layer name="Decoracion" width="10" height="10">
@@ -37,9 +37,21 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="Puertas">
+  <object id="5" name="Left" x="0" y="124" width="16.5" height="76"/>
+  <object id="7" name="Up" x="119.5" y="0" width="79.5" height="12.5"/>
+  <object id="11" name="Right" x="303" y="121" width="15.5" height="77.5"/>
+  <object id="12" name="Down" x="123.5" y="301" width="77.5" height="19.5"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="6" name="Left" x="32" y="143.5" width="1.5" height="2"/>
+  <object id="8" name="Up" x="158" y="23" width="2" height="2"/>
+  <object id="9" name="Right" x="270.5" y="136" width="1.5" height="1.5"/>
+  <object id="10" name="Down" x="147.5" y="262" width="0.5" height="1"/>
+ </objectgroup>
  <layer name="Paredes" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJzjZWBgYEHCIgwQwIUkxgfEwgyEgRAJ6kQIqoK4gVjASYQaDgbq+4NYdfxAzEoA8wAxAC+nAXk=
+   eJzjZWBgYIFiEQYE4EIS5wNiYQbCQIgEdSIEVUHcQG3ASYQaDgbq+5cfiFmhGNkNHEjiPEAMABJrAU0=
   </data>
  </layer>
 </map>

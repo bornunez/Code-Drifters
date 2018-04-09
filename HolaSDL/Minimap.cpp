@@ -10,13 +10,13 @@ void Minimap::drawDoors(SDL_Rect rect, Room* room)
 	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0x0000ffff));//Dibujaremos en verde
 	int cx = rect.x + rect.w / 2;
 	int cy = rect.y + rect.h / 2; //El centro del objeto
-	if (room->getDownDoor())
+	if (room->getDoor(Down))
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), cx, cy, cx, cy + rect.h / 2);
-	if (room->getUpDoor())
+	if (room->getDoor(Up))
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), cx, cy, cx, cy - rect.h / 2);
-	if (room->getRightDoor())
+	if (room->getDoor(Right))
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), cx, cy, cx + rect.w /2, cy);
-	if (room->getLeftDoor())
+	if (room->getDoor(Left))
 		SDL_RenderDrawLine(Game::getGame()->getRenderer(), cx, cy, cx - rect.w / 2, cy);
 }
 

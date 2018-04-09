@@ -9,6 +9,7 @@ class Texture;
 
 class Map;
 using namespace std;
+enum Direction;
 
 class Room
 {
@@ -18,21 +19,17 @@ public:
 	~Room();
 	void load();
 	void render();
+	void setAllDoors(bool set);
+
 	int getX();
 	int getY();
-	bool getUpDoor();
-	bool getRightDoor();
-	bool getLeftDoor();
-	bool getDownDoor();
+	bool getDoor(Direction door);
 	bool getVisited();
 	string getSpecial();
 	Map* getMap() { return map; }
 	void setX(int x);
 	void setY(int y);
-	void setUpDoor(bool upDoor);
-	void setRightDoor(bool rightDoor);
-	void setLeftDoor(bool leftDoor);
-	void setDownDoor(bool downDoor);
+	void setDoor(Direction door, bool set);
 	void setVisited(bool visited);
 	void setSpecial(string special);
 	bool isVoid() { return voidRoom; }
@@ -50,9 +47,11 @@ private:
 	bool rightDoor;
 	bool downDoor;
 	bool leftDoor;
+	vector<bool> doors;
+
 	bool visited; //Indica si el generador la ha visitado
 	bool voidRoom; //Indica que la sala se ha creado
 	bool explored; //Indica si el jugador ha visitado la sala
-	string special;//Boss, chest, or shop
+	string special; //Boss, chest, or shop
 };
 

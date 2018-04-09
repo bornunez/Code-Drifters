@@ -5,7 +5,7 @@ using namespace std;
 class Room;
 class DungeonGenerator;
 
-enum RoomDirection{Up,Right,Down,Left};
+enum Direction{Up,Right,Down,Left};
 struct DirPair { int x; int y; };
 
 class LevelManager
@@ -37,14 +37,14 @@ public:
 	Room* getFirstRoom() { return firstRoom; }
  
 	Room* getRoom(int x, int y);
-	Room* getRoom(RoomDirection dir);
+	Room* getRoom(Direction dir);
 
 	void changeRoom(Room* room);
 	void changeRoom(int x, int y);
-	void changeRoom(RoomDirection dir);
+	void changeRoom(Direction dir);
 	void render();
 
-	bool getDoor(RoomDirection dir);
+	bool getDoor(Direction dir);
 
 	//Metodos de control
 	void init();

@@ -131,7 +131,6 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="MainMenuState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
@@ -366,7 +365,6 @@
     <ClInclude Include="Bullet.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="MainMenuState.h">
       <Filter>Estados\Header</Filter>
     </ClInclude>

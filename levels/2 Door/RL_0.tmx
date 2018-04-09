@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
+ <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
+ <layer name="Suelo" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztUUEKgDAMm7voxg5Dh4/w/w/UwYQS0rGi3izk4JqkqXXuu5oELFym0/pWvOlVsQzyEnzPTTsDai82fiK6qfNekS/sAjc/Ej3zicp7Bj9tvgVZ+T9hUB9BdwxosLQ7sT7urRV6HqLHMt638cTLAwfn4hz09YBg3GMjeTGPnF86fjLv1virskMZyMd8Lbf/63mdwcoEZg==
+  </data>
+ </layer>
+ <layer name="Decoracion" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+  </data>
+ </layer>
+ <layer name="Aire" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztkUEKgDAMBPMktV5q/f+73ECCITQ06EWkA0Mv7XZJiCaT77LCDRa4v8zi9xUesMFT8ntk/uP3i7MGd/W/ET6vh+1l5/MU28vOJ5rNiKh3pbtvhswOtK/meoucnJPdgc31NjmzOX/nAtx1DL8=
+  </data>
+ </layer>
+ <layer name="Paredes" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAdqAKxGhasToQaXFgXiPXQsD4Ws9DVYMMgfaZAbIaGzbGYha4GGwbpswViOzRsj+RufahadDXYsD2esEW3l1KAHA747CUWwMKBGmaNglEwCoY2AAC2AxE4
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="7" name="Right" x="304" y="64" width="16" height="80"/>
+  <object id="9" name="Left" x="0" y="128" width="16" height="64"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="11" name="Right" gid="56" x="256" y="96" width="16" height="16"/>
+  <object id="12" name="Left" gid="56" x="32" y="160" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="1" name="Spawn" gid="64" x="256" y="112" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

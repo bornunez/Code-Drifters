@@ -55,7 +55,7 @@ void TextureParser::parseTextures(string texturesFile)
 //	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 //		if (e->Value() == string("layer"))
 //			/*parseTileLayer(root, e, anim, game->getResourceManager()->getCurrTileset());*/
-//			parseAnimationLayer(animationName, root, e, anim, Game::getGame()->getResourceManager()->getProtaTileset());
+//			parseAnimationLayer(animationName, root, e, anim, ResourceManager::getInstance()->getProtaTileset());
 //		if (e->Value() == string("objectgroup")) {
 //			string name = e->Attribute("name");
 //			if (name == animationName) {

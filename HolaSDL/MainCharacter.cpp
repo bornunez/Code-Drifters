@@ -15,6 +15,7 @@
 #include "AnimationParser.h"
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
+#include "DoorsCollision.h"
 //Personaje principal
 
 
@@ -34,7 +35,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h) : GameOb
 
 	
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
-	addComponent(new BasicMovement(this, "Paredes"));
+	vector<string> collisionLayer = { "Paredes","Aire" };
+	addComponent(new BasicMovement(this, collisionLayer));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
@@ -42,6 +44,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h) : GameOb
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
+	addComponent(new DoorsCollision(this));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);

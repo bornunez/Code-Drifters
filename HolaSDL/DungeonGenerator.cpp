@@ -1,6 +1,7 @@
 #pragma once
 #include "DungeonGenerator.h"
 #include "Room.h"
+#include "LevelManager.h"
 #include <ctime>
 
 
@@ -82,11 +83,7 @@ void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la 
 			Dungeon_[i][j] = new Room();
 			Dungeon_[i][j]->setX(j);
 			Dungeon_[i][j]->setY(i);
-			Dungeon_[i][j]->setUpDoor(false);
-			Dungeon_[i][j]->setRightDoor(false);
-			Dungeon_[i][j]->setDownDoor(false);
-			Dungeon_[i][j]->setLeftDoor(false);
-			Dungeon_[i][j]->setVisited(false);
+			Dungeon_[i][j]->setAllDoors(false);
 			Dungeon_[i][j]->setSpecial("");
 		}
 	}
@@ -144,7 +141,7 @@ void DungeonGenerator::AddFirstRoom()//Crea la sala inicial de la mazmora
 	visitedRooms_.push_back(Dungeon_[midHeight][midWidth]);
 	visitedRooms_[0]->setSpecial("FirstRoom");
 	unvisitedRooms_.push_back(Dungeon_[midHeight + 1][midWidth]);//Añade la sala de abajo al vector de salas sin visitar
-	Dungeon_[midHeight][midWidth]->setDownDoor(true);
+	Dungeon_[midHeight][midWidth]->setDoor(Down,true);
 	SetEntryDoor(midWidth, midHeight + 1, "Up");
 }
 void DungeonGenerator::FixDoors()//"Cierra" las puertas que se han quedado abiertas y no tienen salas contiguas
@@ -153,20 +150,20 @@ void DungeonGenerator::FixDoors()//"Cierra" las puertas que se han quedado abier
 		int x = visitedRooms_[i]->getX();
 		int y = visitedRooms_[i]->getY();
 		if (CellInsideBounds(x + 1, y) && AvailableCell(x + 1, y)) {//Si no hay celda a la derecha dentro de los límites del mapa
-			Dungeon_[y][x]->setRightDoor(false);
-			Dungeon_[y][x + 1]->setLeftDoor(false);
+			Dungeon_[y][x]->setDoor(Right, false);
+			Dungeon_[y][x + 1]->setDoor(Left,false);
 		}
 		if (CellInsideBounds(x - 1, y) && AvailableCell(x - 1, y)) {//Si no hay celda a la izquierda dentro de los límites del mapa
-			Dungeon_[y][x]->setLeftDoor(false);
-			Dungeon_[y][x - 1]->setRightDoor(false);
+			Dungeon_[y][x]->setDoor(Left,false);
+			Dungeon_[y][x - 1]->setDoor(Right,false);
 		}
 		if (CellInsideBounds(x, y + 1) && AvailableCell(x, y + 1)) {//Si no hay celda abajo dentro de los límites del mapa
-			Dungeon_[y][x]->setDownDoor(false);
-			Dungeon_[y + 1][x]->setUpDoor(false);
+			Dungeon_[y][x]->setDoor(Down,false);
+			Dungeon_[y + 1][x]->setDoor(Up,false);
 		}
 		if (CellInsideBounds(x, y - 1) && AvailableCell(x, y - 1)) {//Si no hay celda arriba dentro de los límites del mapa
-			Dungeon_[y][x]->setUpDoor(false);
-			Dungeon_[y - 1][x]->setDownDoor(false);
+			Dungeon_[y][x]->setDoor(Up,false);
+			Dungeon_[y - 1][x]->setDoor(Down,false);
 		}
 	}
 }
@@ -212,16 +209,16 @@ void DungeonGenerator::UnvisitedRoomToQueue(vector<string> posibleDirections_, s
 void DungeonGenerator::SetEntryDoor(int x, int y, string direction)//Se usa para asignar la puerta de entrada
 {
 	if (direction == "Up") {
-		Dungeon_[y][x]->setUpDoor(true);
+		Dungeon_[y][x]->setDoor(Up, true);
 	}
 	else if (direction == "Down") {
-		Dungeon_[y][x]->setDownDoor(true);
+		Dungeon_[y][x]->setDoor(Down, true);
 	}
 	else if (direction == "Right") {
-		Dungeon_[y][x]->setRightDoor(true);
+		Dungeon_[y][x]->setDoor(Right, true);
 	}
 	else if (direction == "Left") {
-		Dungeon_[y][x]->setLeftDoor(true);
+		Dungeon_[y][x]->setDoor(Left, true);
 	}
 }
 vector<Room*> DungeonGenerator::FindDeadEnds()//Busca las salas que solo tienen una puerta, "salas sin salida"
@@ -230,16 +227,16 @@ vector<Room*> DungeonGenerator::FindDeadEnds()//Busca las salas que solo tienen 
 	//Empieza en el 1 para saltarse la sala inicial
 	for (int i = 1; i< visitedRooms_.size(); i++) {
 		int doorCount = 0;
-		if (visitedRooms_[i]->getUpDoor()) {
+		if (visitedRooms_[i]->getDoor(Up)) {
 			doorCount++;
 		}
-		if (visitedRooms_[i]->getDownDoor()) {
+		if (visitedRooms_[i]->getDoor(Down)) {
 			doorCount++;
 		}
-		if (visitedRooms_[i]->getRightDoor()) {
+		if (visitedRooms_[i]->getDoor(Right)) {
 			doorCount++;
 		}
-		if (visitedRooms_[i]->getLeftDoor()) {
+		if (visitedRooms_[i]->getDoor(Left)) {
 			doorCount++;
 		}
 		if (doorCount == 1) {
@@ -252,25 +249,25 @@ void DungeonGenerator::SetRoomDirections(vector<string> posibleDirections_, stri
 {
 	if (direction == "Up")
 	{
-		Dungeon_[y][x]->setUpDoor(true);
+		Dungeon_[y][x]->setDoor(Up, true);
 		SetEntryDoor(x, y - 1, "Down");//Asigna la puerta de entrada de la sala de arriba	
 		UnvisitedRoomToQueue(posibleDirections_, direction, x, y - 1);
 	}
 	else if (direction == "Down")
 	{
-		Dungeon_[y][x]->setDownDoor(true);
+		Dungeon_[y][x]->setDoor(Down, true);
 		SetEntryDoor(x, y + 1, "Up");
 		UnvisitedRoomToQueue(posibleDirections_, direction, x, y + 1);
 	}
 	else if (direction == "Right")
 	{
-		Dungeon_[y][x]->setRightDoor(true);
+		Dungeon_[y][x]->setDoor(Right, true);
 		SetEntryDoor(x + 1, y, "Left");
 		UnvisitedRoomToQueue(posibleDirections_, direction, x + 1, y);
 	}
 	else if (direction == "Left")
 	{
-		Dungeon_[y][x]->setLeftDoor(true);
+		Dungeon_[y][x]->setDoor(Left, true);
 		SetEntryDoor(x - 1, y, "Right");
 		UnvisitedRoomToQueue(posibleDirections_, direction, x - 1, y);
 	}

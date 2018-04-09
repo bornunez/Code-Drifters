@@ -2,6 +2,11 @@
 #include "DungeonGenerator.h"
 #include "Room.h"
 #include "Managers.h"
+#include "Door.h"
+#include "Map.h"
+#include "PlayState.h"
+#include "GameObject.h"
+#include"MainCharacter.h"
 #include <iostream>
 
 LevelManager* LevelManager::instance = nullptr;
@@ -24,7 +29,7 @@ Room * LevelManager::getRoom(int x, int y)
 	return dungeon->getRoom(x, y);
 }
 
-Room * LevelManager::getRoom(RoomDirection dir)
+Room * LevelManager::getRoom(Direction dir)
 {
 	return dungeon->getRoom(roomX + directions[dir].x, roomY + directions[dir].y);
 }
@@ -46,7 +51,7 @@ void LevelManager::changeRoom(int x, int y)
 }
 }
 
-void LevelManager::changeRoom(RoomDirection dir)
+void LevelManager::changeRoom(Direction dir)
 {
 	bool canMove = getDoor(dir);
 	if (canMove) {
@@ -60,6 +65,9 @@ void LevelManager::changeRoom(RoomDirection dir)
 			//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
 			//Antes de Spawnear, despawneamos los que hubiera
 			EnemyManager::getInstance()->killAll();
+			//Y ponemos al jugador en la puerta contraria
+			Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
+			PlayState::getInstance()->getMainCharacter()->getTransform()->position.set(entry);
 			room->spawn();
 			room->setExplored(true);
 		}
@@ -72,27 +80,9 @@ void LevelManager::render()
 	currentRoom->render();
 }
 
-bool LevelManager::getDoor(RoomDirection dir)
+bool LevelManager::getDoor(Direction dir)
 {
-	bool door = false;
-	switch (dir)
-	{
-	case Up:
-		door = currentRoom->getUpDoor();
-		break;
-	case Right:
-		door = currentRoom->getRightDoor();
-		break;
-	case Down:
-		door = currentRoom->getDownDoor();
-		break;
-	case Left:
-		door = currentRoom->getLeftDoor();
-		break;
-	default:
-		break;
-	}
-	return door;
+	return currentRoom->getDoor(dir);
 }
 
 void LevelManager::init()

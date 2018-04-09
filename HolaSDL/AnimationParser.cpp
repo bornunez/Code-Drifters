@@ -23,7 +23,7 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 	int width = atoi(root->Attribute("width"));
 	int height = atoi(root->Attribute("height"));
 	string name = animationElement->Attribute("name");
-	TileLayer* tileLayer = new TileLayer(tileset,name,width,height,tileSize);
+	TileLayer* tileLayer = new TileLayer({ tileset }, name, width, height, tileSize);
 	//Vector de los datos de tiles
 	vector<vector<int>> data;
 	string decodedID;
