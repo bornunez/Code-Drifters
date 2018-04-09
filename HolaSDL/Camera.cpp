@@ -30,14 +30,19 @@ Camera::~Camera()
 
 bool Camera::isInsideCamera(Transform* t)
 {
-	
-	if (t->position.getX() + t->body.w >= transform.position.getX() &&		//Si no se sale por la izquierda
+	//
+	//if (t->position.getX() + t->body.w >= transform.position.getX() &&		//Si no se sale por la izquierda
+	//	t->position.getX() - t->body.w / 2 <= transform.position.getX() + transform.body.w && //Si no se sale por la derecha
+	//	t->position.getY() <= transform.position.getY() + transform.body.h &&  //Si no se sale por abajo
+	//	t->position.getY() + t->body.h >= transform.position.getY())//Si no se sale por arriba
+	//{
+	//	return true;
+	//}
+	//return true;
+
+	return (t->position.getX() + t->body.w >= transform.position.getX() &&		//Si no se sale por la izquierda
 		t->position.getX() - t->body.w / 2 <= transform.position.getX() + transform.body.w && //Si no se sale por la derecha
 		t->position.getY() <= transform.position.getY() + transform.body.h &&  //Si no se sale por abajo
-		t->position.getY() + t->body.h >= transform.position.getY())//Si no se sale por arriba
-	{
-		return true;
-	}
-	return true;
+		t->position.getY() + t->body.h >= transform.position.getY());
 }
 
