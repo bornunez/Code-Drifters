@@ -5,7 +5,7 @@
 #include "PlayState.h"
 #include "Tileset.h"
 #include "Game.h"
-AnimationFrame::AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX, int frameOffsetY)
+AnimationFrame::AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX, int frameOffsetY, int frameWidth, int frameHeight)
 {
 	tileSet = tileset;
 	gameObject = o;
@@ -13,6 +13,8 @@ AnimationFrame::AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect
 	this->destRect = destRect;
 	this->frameOffsetX = frameOffsetX;
 	this->frameOffsetY = frameOffsetY;
+	this->frameWidth = frameWidth;
+	this->frameHeight = frameHeight;
 	
 }
 
@@ -44,10 +46,10 @@ void AnimationFrame::addGunPosition(Vector2D gunPos, int offsetX, int offsetY)
 void AnimationFrame::render(SDL_RendererFlip flip)
 {
 	//Coloca el sprite correctamente 64 es el tamaño del frame 
-	destRect.x = gameObject->getCenterPos().getX() - 64* Game::getGame()->getScale() /2  -
+	destRect.x = gameObject->getCenterPos().getX() - frameWidth* Game::getGame()->getScale() /2  -
 		PlayState::getInstance()->getCamera()->getTransform()->position.getX() 
 		+ frameOffsetX;
-	destRect.y = gameObject->getCenterPos().getY() - 64 * Game::getGame()->getScale() / 2
+	destRect.y = gameObject->getCenterPos().getY() - frameHeight * Game::getGame()->getScale() / 2
 		- PlayState::getInstance()->getCamera()->getTransform()->position.getY()
 		+ frameOffsetY ;
 	updateBoxPosition();
@@ -58,12 +60,12 @@ void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes res
 {
 	Transform* t = gameObject->getTransform();
 	for (int i = 0; i < hitboxes.size(); i++) {		//Posiciona las hitbox correctamente
-		hitboxes[i].x = t->position.getX() + t->body.w / 2 - (64 * Game::getGame()->getScale() / 2) + hitboxOffset[i].first;
-		hitboxes[i].y = t->position.getY() + t->body.h / 2 - (64 * Game::getGame()->getScale() / 2) + hitboxOffset[i].second;
+		hitboxes[i].x = t->position.getX() + t->body.w / 2 - (frameWidth * Game::getGame()->getScale() / 2) + hitboxOffset[i].first;
+		hitboxes[i].y = t->position.getY() + t->body.h / 2 - (frameHeight * Game::getGame()->getScale() / 2) + hitboxOffset[i].second;
 	}
 	for (int i = 0; i < hurtboxes.size(); i++) {		
-		hurtboxes[i].x = t->position.getX() + t->body.w / 2 - (64 * Game::getGame()->getScale() / 2)+ hurtboxOffset[i].first;
-		hurtboxes[i].y = t->position.getY() + t->body.h / 2 - (64 * Game::getGame()->getScale() / 2) + hurtboxOffset[i].second;
+		hurtboxes[i].x = t->position.getX() + t->body.w / 2 - (frameWidth * Game::getGame()->getScale() / 2)+ hurtboxOffset[i].first;
+		hurtboxes[i].y = t->position.getY() + t->body.h / 2 - (frameHeight * Game::getGame()->getScale() / 2) + hurtboxOffset[i].second;
 	}
 	gunPosition.setX(t->position.getX() + gunPosOffset.first);
 	gunPosition.setY(t->position.getY() + gunPosOffset.second);

@@ -32,7 +32,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.position.setY(y);
 	transform.body.x = x; transform.body.y = y;
 	transform.body.w = w/2;
-	transform.body.h = h;
+	transform.body.h = h/1.2;
 
 	loadAnimations();
 

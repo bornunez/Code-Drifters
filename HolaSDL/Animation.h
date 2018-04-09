@@ -20,7 +20,7 @@ public:
 	void startAnimation();
 	bool isFinished();
 	void setTime(int tim);
-	void addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset=0, int yOffset=0);
+	void addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset=0, int yOffset=0, int frameWidth=64, int frameHeight=64);
 	void setLayer(TileLayer* lay);
 	TileLayer* getLayer() { return layer; };
 	string getName() { return name; };

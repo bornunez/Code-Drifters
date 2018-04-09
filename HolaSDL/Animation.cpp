@@ -81,9 +81,9 @@ void Animation::setTime(int tim)//Cambia el tiempo entre frames
 	time = tim;
 }
 
-void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset)//Añade un frame a la animación
+void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset, int frameWidth, int frameHeight)//Añade un frame a la animación
 {	
-	AnimationFrame* aux = new AnimationFrame(tileSet, gameObject,srcRect,destRect, xOffset, yOffset);
+	AnimationFrame* aux = new AnimationFrame(tileSet, gameObject,srcRect,destRect, xOffset, yOffset, frameWidth, frameHeight);
 	animFrames.push_back(aux);
 }
 
@@ -99,9 +99,9 @@ void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asig
 				SDL_Rect destRec;
 				destRec.x = gameObject->getTransform()->body.x;
 				destRec.y = gameObject->getTransform()->body.y;
-				destRec.w = frameW;
-				destRec.h = frameH;
-				addAnimationFrame(srcRect, destRec, offsetX,offsetY);				
+				destRec.w = frameW * Game::getGame()->getScale();
+				destRec.h = frameH * Game::getGame()->getScale();
+				addAnimationFrame(srcRect, destRec, offsetX,offsetY,frameW,frameH);				
 			}
 		}
 	}
