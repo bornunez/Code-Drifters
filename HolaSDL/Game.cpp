@@ -15,6 +15,7 @@
 #include "PlayState.h"
 #include "MainMenuState.h"
 #include "Time.h"
+#include "LevelManager.h"
 
 Game* Game::game = nullptr;
 Game::Game()
@@ -46,7 +47,7 @@ void Game::run()
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	ResourceManager::createInstance(this->getRenderer());
-	BulletManager::createInstance();
+	
 
 	//Creamos el levelParser
 
@@ -63,7 +64,7 @@ void Game::run()
 	else
 	{
 		stateMachine = new GameStateMachine();
-		playState = PlayState::getInstance();
+		
 		//playState->loadState();
 		//stateMachine->pushState(playState);
 		MainMenuState* mm = new MainMenuState();
@@ -110,6 +111,9 @@ void Game::handleEvents()
 					SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
 				}
 			}
+			else if (event.key.keysym.sym == SDLK_q) {
+				endGame();
+			}
 		}
 		if (event.type == SDL_QUIT)
 		{
@@ -139,7 +143,16 @@ Game * Game::getGame()
 
 void Game::startGame()
 {
+	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
 	playState->loadState();
+}
+
+void Game::endGame()//Termina el PlayState y resetea sus instancias.
+{
+	EnemyManager::ResetInstance();
+	PlayState::ResetInstance(); 
+	BulletManager::ResetInstance();
+	stateMachine->popState();
 }
 

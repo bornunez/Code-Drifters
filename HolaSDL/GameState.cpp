@@ -24,6 +24,10 @@ GameState::GameState()
 
 GameState::~GameState()
 {
+	for(GameObject* o : gameObjects){
+		removeGameObject(o);
+	}
+	cleanGarbage();
 }
 
 void GameState::update()
@@ -55,6 +59,13 @@ void GameState::addGameObject(GameObject * go)
 void GameState::removeGameObject(GameObject * go)
 {
 	garbage.push(go);
+}
+
+void GameState::destroyAllGameObjects()
+{
+	for (GameObject* o : gameObjects) {
+		delete o;
+	}
 }
 
 

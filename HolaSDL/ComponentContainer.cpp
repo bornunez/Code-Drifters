@@ -18,6 +18,7 @@ ComponentContainer::~ComponentContainer()
 			delete c;
 		}
 	}
+	components->clear();
 }
 
 

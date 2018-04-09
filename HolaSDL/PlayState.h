@@ -25,11 +25,11 @@ private:
 
 
 	//enemigo temporal
-	ExampleEnemy* enemy;
 	PlayState();
 public:
 	void loadState();
 	static PlayState* getInstance();
+	static void ResetInstance();
 	~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	void render();
@@ -37,5 +37,6 @@ public:
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
+	void endState();
 };
 

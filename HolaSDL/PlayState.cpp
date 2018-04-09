@@ -28,6 +28,10 @@ PlayState * PlayState::getInstance()
 
 PlayState::~PlayState()
 {
+	/*delete minimap;
+	delete mainCharacter;
+	delete level;
+	delete currentRoom;*/
 }
 
 void PlayState::render()
@@ -57,6 +61,21 @@ void PlayState::update()
 	//cout << enemy->getTransform()->position;
 }
 
+void PlayState::endState()
+{
+	/*camera = nullptr;
+	mainCharacter = nullptr;
+	EnemyManager::getInstance()->killAll();
+	destroyAllGameObjects();*/
+}
+
+void PlayState::ResetInstance()
+{
+	instance->destroyAllGameObjects();
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
+}
+
 void PlayState::loadState()
 {
 	//Creamos el puntero, es todo lo que hace falta
@@ -80,6 +99,7 @@ void PlayState::loadState()
 	//EnemyManager Requiere de MainCharacter : HACER DESPUES DE MAINCHARACTER
 	EnemyManager::getInstance()->init(mainCharacter);
 	CollisionsManager::getInstance();
+	BulletManager::createInstance();
 
 	LevelManager::getInstance()->getFirstRoom()->spawn();
 
