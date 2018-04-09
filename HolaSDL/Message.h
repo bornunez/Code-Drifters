@@ -37,7 +37,7 @@ enum MessageId {
 	ATTACK2_BOTRIGHT,
 	ATTACK3_BOTRIGHT,
 
-	//Gameobjects
+	//GameObjects
 	HURT,
 
 	//Gunner Shot

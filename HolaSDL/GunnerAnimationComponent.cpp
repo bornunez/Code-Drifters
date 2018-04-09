@@ -106,9 +106,19 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 
 void GunnerAnimationComponent::handleAnimations()
 {
+	
 	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
+
+	if (eg->enemyState == EnemyState::Hurt) {
+		hurtTimer->update();
+		if (hurtTimer->TimeSinceTimerCreation > 0.2) {
+			eg->enemyState == EnemyState::Idle;
+		}
+	}
+		
+
 	Transform* gunnerT = gameObject->getTransform();
-	if (eg->enemyState != EnemyState::Shoot) {
+	if (eg->enemyState != EnemyState::Shoot && eg->enemyState != EnemyState::Hurt) {
 		if (gunnerT->velocity.getX() != 0 && gunnerT->velocity.getY() != 0) {
 			eg->enemyState = EnemyState::Run;
 		}
