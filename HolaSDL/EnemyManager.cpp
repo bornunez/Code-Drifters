@@ -30,6 +30,12 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	case Ninja:
 		//e = new Ninja(...));
 		break;
+	case Charger:
+		e = new EnemyCharger(mc);
+		break;
+	case Turret:
+		e = new EnemyTurret(mc);
+		break;
 	default:
 		break;
 	}
