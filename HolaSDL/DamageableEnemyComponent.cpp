@@ -19,6 +19,8 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 	if (msg->id == MC_ATTACK_DAMAGE) {
 		receiveDamage("NORMAL_ATTACK", static_cast<MCAttackDamage*>(msg)->damage);
 		gameObject->setInvincibility(true);
+		Message msg(HURT);
+		gameObject->sendMessage(&msg);
 	}
 }
 

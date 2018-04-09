@@ -34,6 +34,10 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 			gameObject->changeCurrentAnimation("ATTACK");
 			gameObject->getCurrentAnimation()->startAnimation();
 			break;
+		case HURT:
+			gameObject->changeCurrentAnimation("HURT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
 	}
 }
 
