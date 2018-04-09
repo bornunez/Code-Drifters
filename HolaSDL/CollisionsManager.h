@@ -5,13 +5,15 @@
 class CollisionsManager : public GameObject
 {
 private:
-	MainCharacter * mainCharacter;
-	
-
+	static CollisionsManager* instance;
 public:
-	CollisionsManager(MainCharacter* mc);
+	CollisionsManager();
 	virtual ~CollisionsManager();
-	virtual void handleInput(Uint32 time, const SDL_Event& event);
-	virtual void update(Uint32 time);
-	virtual void render(Uint32 time);
+	static CollisionsManager* getInstance();
+	virtual void handleInput(const SDL_Event& event);
+	virtual void update();
+	virtual void render();
+	void bulletCollisions();
+	void playerCollisions();
+	void enemyCollisions();
 };

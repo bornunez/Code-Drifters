@@ -31,8 +31,9 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	facing = LEFT;
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
-	addComponent(new KnockbackComponent(this, 10000, "Paredes"));
-	this->addComponent(new BasicMovement(this, "Paredes"));
+	vector<string> collisionLayers = { "Paredes","Aire" };
+	addComponent(new KnockbackComponent(this, 10000, collisionLayers));
+	this->addComponent(new BasicMovement(this, collisionLayers));
 	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
 	this->addComponent(new StalkerComponent(this, getMC(), 1, 1.5, 2));

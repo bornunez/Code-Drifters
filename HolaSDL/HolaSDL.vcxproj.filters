@@ -23,9 +23,6 @@
     <ClCompile Include="RenderComponent.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
@@ -177,9 +174,6 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="Minimap.cpp" />
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Mapa\Source</Filter>
-    </ClCompile>
     <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="BasicInvincibleComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
@@ -205,14 +199,8 @@
     <ClCompile Include="ChargerAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionsManager.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
     <ClCompile Include="TextureParser.cpp" />
     <ClCompile Include="Random.cpp" />
-    <ClCompile Include="BulletManager.cpp">
-      <Filter>Arquitectura\Source</Filter>
-    </ClCompile>
     <ClCompile Include="Observable.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
@@ -227,6 +215,21 @@
     </ClCompile>
     <ClCompile Include="TurretShotComponent.cpp">
       <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp" />
+    <ClCompile Include="DoorsCollision.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Managers\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionsManager.cpp">
+      <Filter>Managers\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Managers\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Managers\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -252,9 +255,6 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="RenderComponent.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="sdl_includes.h">
@@ -414,9 +414,6 @@
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="Minimap.h" />
-    <ClInclude Include="LevelManager.h">
-      <Filter>Mapa\Header</Filter>
-    </ClInclude>
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="BasicInvincibleComponent.h">
       <Filter>UpdateComponent\Header</Filter>
@@ -445,17 +442,11 @@
     <ClInclude Include="ChargerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionsManager.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
     <ClInclude Include="TextureParser.h" />
     <ClInclude Include="Message.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="Random.h" />
-    <ClInclude Include="BulletManager.h">
-      <Filter>Arquitectura\Header</Filter>
-    </ClInclude>
     <ClInclude Include="Observable.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
@@ -470,6 +461,21 @@
     </ClInclude>
     <ClInclude Include="TurretShotComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h" />
+    <ClInclude Include="DoorsCollision.h" />
+    <ClInclude Include="MenuButton.h" />
+    <ClInclude Include="BulletManager.h">
+      <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionsManager.h">
+      <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Managers\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +541,15 @@
     </Filter>
     <Filter Include="Includes">
       <UniqueIdentifier>{9c305cca-d9ed-4957-b6d3-519345f05685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{169fee36-3c74-411a-bc6d-6ceb98435fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers\Header">
+      <UniqueIdentifier>{96319c98-17b2-48e0-9b3e-5d7729358a4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers\Source">
+      <UniqueIdentifier>{fb2f079d-3ef6-4266-accc-18582f5c0bbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

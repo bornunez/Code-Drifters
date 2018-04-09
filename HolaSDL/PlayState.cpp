@@ -9,6 +9,7 @@
 #include "Room.h"
 #include "Managers.h"
 #include "Minimap.h"
+#include "CollisionsManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -51,6 +52,7 @@ void PlayState::update()
 	camera->update();
 	EnemyManager::getInstance()->update();
 	BulletManager::getInstance()->update();
+	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
 }
@@ -77,6 +79,7 @@ void PlayState::loadState()
 
 	//EnemyManager Requiere de MainCharacter : HACER DESPUES DE MAINCHARACTER
 	EnemyManager::getInstance()->init(mainCharacter);
+	CollisionsManager::getInstance();
 
 	LevelManager::getInstance()->getFirstRoom()->spawn();
 

@@ -26,12 +26,15 @@ LevelManager * LevelManager::getInstance()
 
 Room * LevelManager::getRoom(int x, int y)
 {
-	return dungeon->getRoom(x, y);
+	if(x >= 0 && x < dungeon->getLevelWidth() && y >= 0 && y < dungeon->getLevelHeight())
+		return dungeon->getRoom(x, y);
+	else 
+		return nullptr;
 }
 
 Room * LevelManager::getRoom(Direction dir)
 {
-	return dungeon->getRoom(roomX + directions[dir].x, roomY + directions[dir].y);
+	return getRoom(roomX + directions[dir].x, roomY + directions[dir].y);
 }
 
 void LevelManager::changeRoom(Room * room)
@@ -44,11 +47,11 @@ void LevelManager::changeRoom(Room * room)
 
 void LevelManager::changeRoom(int x, int y)
 {
-	Room* room = dungeon->getRoom(x, y);
-	if (!room->isVoid()) {
-	currentRoom = room;
-	roomX = x; roomY = y;
-}
+	Room* room = getRoom(x, y);
+	if (room != nullptr && !room->isVoid()) {
+		currentRoom = room;
+		roomX = x; roomY = y;
+	}
 }
 
 void LevelManager::changeRoom(Direction dir)
@@ -57,7 +60,7 @@ void LevelManager::changeRoom(Direction dir)
 	if (canMove) {
 		//Pedimos la sala de la direccion
 		Room* room = getRoom(dir);
-		if (!room->isVoid()) {
+		if (room != nullptr && !room->isVoid()) {
 			//Si hay sala, la cambiamos
 			currentRoom = room;
 			roomX += directions[dir].x;

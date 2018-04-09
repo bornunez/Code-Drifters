@@ -9,7 +9,7 @@ Bullet::Bullet(Texture * tex, bool active, BulletType type) : GameObject(tex, ac
 	this->addComponent(new SimpleAnimationComponent(this, texture));
 
 	//Esta llevarla a MCBullet
-	this->addComponent(new BasicMovement(this, "Paredes"));
+	this->addComponent(new BasicMovement(this));
 	//this->addComponent(new MCBulletComponent(this, 1.5));
 }
 
