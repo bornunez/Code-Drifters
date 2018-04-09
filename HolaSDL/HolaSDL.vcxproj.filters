@@ -210,6 +210,8 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="TextureParser.cpp" />
+    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="CoinManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -435,6 +437,8 @@
     <ClInclude Include="Message.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Coin.h" />
+    <ClInclude Include="CoinManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

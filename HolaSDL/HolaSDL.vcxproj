@@ -24,6 +24,8 @@
     <ClCompile Include="ChargerAnimationComponent.cpp" />
     <ClCompile Include="ChargerComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
+    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="CoinManager.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="CollisionsManager.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -101,6 +103,8 @@
     <ClInclude Include="ChargerAnimationComponent.h" />
     <ClInclude Include="ChargerComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
+    <ClInclude Include="Coin.h" />
+    <ClInclude Include="CoinManager.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="CollisionsManager.h" />
     <ClInclude Include="Component.h" />
