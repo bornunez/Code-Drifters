@@ -28,18 +28,13 @@ void GunnerComponent::update() {
 	
 	EnemyGunner* eg=static_cast<EnemyGunner*>(gameObject);
 
-
-	if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
-		
-
+	if (!eg->isStunned()) {
+		if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
 			gameObject->getTransform()->velocity.set(0.0, 0.0);
-		
+		}
 
-		
-	}
-	
-	//Regular chase
-	else {
+		//Regular chase
+		else {
 			Vector2D auxVel;
 
 			//vectorentre enemigo y objetivo
@@ -49,10 +44,13 @@ void GunnerComponent::update() {
 			auxVel.normalize();
 
 			//se asigna la velocidad del enemigo y se actualiza la posicion
-			gunnerT->velocity.set(auxVel*20);
-			
-		
+			gunnerT->velocity.set(auxVel * 20);
+
+
+		}
 	}
+	else
+		gameObject->getTransform()->velocity.set({ 0,0 });
 	/* horizontal chase
 	else {
 	if (abs(targetT->position.getX() - gunnerT->position.getX()) > abs(targetT->position.getY() - gunnerT->position.getY())) {

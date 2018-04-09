@@ -83,6 +83,7 @@
     <ClCompile Include="EnemyStalker.cpp" />
     <ClCompile Include="StalkerAnimationComponent.cpp" />
     <ClCompile Include="StalkerComponent.cpp" />
+    <ClCompile Include="StunComponent.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureParser.cpp" />
     <ClCompile Include="TileLayer.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="EnemyStalker.h" />
     <ClInclude Include="StalkerAnimationComponent.h" />
     <ClInclude Include="StalkerComponent.h" />
+    <ClInclude Include="StunComponent.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureParser.h" />
     <ClInclude Include="TileLayer.h" />

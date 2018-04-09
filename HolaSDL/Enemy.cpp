@@ -6,6 +6,7 @@
 #include "MainCharacter.h"
 #include "PlayState.h"
 #include "GameObject.h"
+#include "StunComponent.h"
 #include "EnemyManager.h"
 #include "Map.h"
 
@@ -13,6 +14,7 @@ Enemy::Enemy(MainCharacter* mc) : GameObject()
 {
 	this->mainCharacter = mc;
 	transform.position.set(10, 10);
+	this->addComponent(new StunComponent(this));
 	//this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
 }
 
@@ -33,6 +35,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	meleeDmg = params.meleDmg; rangedDmg = params.rangedDmg ;
 	minDrop = params.minDrop; maxDrop = params.maxDrop;
 	this->spawner = spawner;
+	stunned = false;
 }
 
 void Enemy::render() {
