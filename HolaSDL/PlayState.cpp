@@ -87,7 +87,7 @@ void PlayState::loadState()
 	int mMapH = Game::getGame()->getWinW() / 5;
 	minimap = new Minimap(mMapW, mMapH, mMapW / 5, mMapH / 5);
 
-	mainCharacter = new MainCharacter(nullptr,32*3*Game::getGame()->getScale(), 32*3 * Game::getGame()->getScale(), 31 * Game::getGame()->getScale(), 31 * Game::getGame()->getScale());
+	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
 
 	camera->load();
 

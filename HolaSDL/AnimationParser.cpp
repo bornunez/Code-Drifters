@@ -95,8 +95,8 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 		box.y = y;
 		
 		//El offset del hitbox respecto al sprite
-		int offsetx = ((x) % 64)* Game::getGame()->getScale() - o->getTransform()->body.w / 2 + offsetX;
-		int offsety = ((y) % 64)* Game::getGame()->getScale() - o->getTransform()->body.h / 2 + offsetY;
+		int offsetx = ((x) % 64)* Game::getGame()->getScale() + offsetX;
+		int offsety = ((y) % 64)* Game::getGame()->getScale() + offsetY;
 		if (type == "Hitbox") {
 			anim->getFrame(frame)->addHitbox(box,offsetx,offsety);
 		}
