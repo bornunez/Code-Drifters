@@ -61,6 +61,8 @@ enum MessageId {
 	KNOCK_BACK,
 	MC_ATTACK_DAMAGE,
 	BULLET_CREATED,
+	MC_BULLET_COLLISION,
+	ENEMY_BULLET_COLLISION,
 
 
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
@@ -90,6 +92,10 @@ struct KnockbackMessage : Message {
 struct MCAttackDamage : Message {
 	MCAttackDamage(float dmg) : Message(MC_ATTACK_DAMAGE), damage(dmg) {}
 	float damage;
+};
+struct MCBulletStun : Message {
+	MCBulletStun(int stunTime) : Message(MC_BULLET_COLLISION), stunTime(stunTime) {}
+	float stunTime;
 };
 
 #endif /* MESSAGE_H_ */

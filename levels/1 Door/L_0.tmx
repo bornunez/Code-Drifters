@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
  <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../tileset/Decoracion.tsx"/>
  <layer name="Suelo" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJztkc0KgCAQhPVkVxcPnit6IN//YWrBYFnGX4ouDcwhnfl005j3ZIVHsqiD9mf8JIu9dOaC+na565R5j3I+gJ6trLPj5UP4zhPoSw6BsxG3df6IY+H/eJClwprs9bwt4qB3MoA3O3cSvDRxJ50pSbMR14M5ato67iPn3Bs8yeX8Chh2gPPrW53JJgb9
+   eJztkUsKgDAMRPsD9+LCE3ig3v8wppBAGCbtTlx0YFBj8tppU9r6ShlcxFXcxId61E/xpc6ux/r9HPs/3h91Vs4J6+LT5mrAa8BjLNtbcRzM6vPfkzPx/ZgX17A6nvFqDnP6rOzO2J4KYeN3d7xOmFF2ZFk9EsuMNc9e8VZMxmocM+VGd7b1f7381gMV
   </data>
  </layer>
  <layer name="Aire" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2B4gBIqmpVMRbNAgJpuS0FiJwJxEgNl7kV2WyEQFwFxMdRsckAEDvFCBoR7iQEgP6UQUANzL8xcGE5Go0HmgPxEbDzAzIXhYjSamvE5lAEAjzwQmA==
+   eJxjYBgFo2B4ABsqmmVCZbOo6TZkswyB2AiIjSkwzwCJbQnEVkBsDTWbUvOQgSUDwr3EAJA6QvEAcy9yOCDTMLYJVB2x8YAcDsg0jE3N+BzKAAA3kQix
   </data>
  </layer>
  <layer name="Paredes" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJztkEEKgDAMBPs59QVpX1B9Qer3zSHCEqqkWPCSgbltR0lK4yziatwcmzdJzCA2sZUdFrGKO0j6HlvFbJ48RBYbWM1/F901h2fnpqw9/GZvNwLBHb62krbuO8yAJ3WCIPiHC67oIJ4=
+   eJztkDEKwCAQBO8zSSqTSq3U//8qEVY4jiVEsAncwnTDFCsyv+1hNxwfnDdOg26O1kU8RveSIaChW5l4jO5VQ0QnqBbzGI18WtDKCubNLIIVrdEri1qCls/n++9uBUURlw==
   </data>
  </layer>
  <layer name="Decoracion" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+   eJxjYBgFo2DoA7ZBapYAGp8XCVPDPGTASmXzYGYS61aQOmLDDmYuLkzNOBgFtAMAHN4A9A==
   </data>
  </layer>
  <objectgroup name="Puertas">

@@ -64,12 +64,12 @@ void CollisionsManager::bulletCollisions()
 		if (b->isActive()) {
 			Transform* t = b->getTransform();
 
-			//COLISION CON ENEMIGOS
 			bool hit = false;
 			switch (b->getType())
 			{
 			case (BulletType::MCBullet):
 			{
+				//COLISION CON ENEMIGOS
 				list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 				for (GameObject* e : enemies) {//Itera la lista de enemigos activos
 					if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
@@ -80,6 +80,9 @@ void CollisionsManager::bulletCollisions()
 							if (CollisionHandler::RectCollide(enemyHurtboxes[i], hitbox)) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 								hit = true;
 								//Mandar mensaje de collision bala / enemigo
+								//Habria que cambiar el 1000 por el tiempo del arma
+								MCBulletStun msg(2.5);
+								e->sendMessage(&msg);
 							}
 							i++;
 						}
@@ -87,6 +90,7 @@ void CollisionsManager::bulletCollisions()
 				}
 				break;
 			}
+			//COLISION CON JUGADOR
 			case BulletType::GunnerBullet:
 			{
 				//Colisionamos la bala con las hurtboxes del player
@@ -100,6 +104,8 @@ void CollisionsManager::bulletCollisions()
 						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 							hit = true;
 							//Mandar mensaje de collision bala / player
+							Message msg(ENEMY_BULLET_COLLISION);
+							mc->sendMessage(&msg);
 						}
 						i++;
 					}
@@ -108,6 +114,8 @@ void CollisionsManager::bulletCollisions()
 			default:
 				break;
 			}
+
+
 			bool collision = false;
 			//COLISION CON PAREDES
 			for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {

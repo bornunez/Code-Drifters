@@ -15,6 +15,7 @@ protected:
 	float meleeDmg; float rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
 	GameObject* mainCharacter;
+	bool stunned = false;
 //#########################################################
 
 	//Necesario para el ciclo de salas
@@ -44,6 +45,8 @@ public:
 	float getDefense() { return defense; };
 	float getLife() { return life; }
 	void setLife(int life) { this->life = life; };
+	void setStun(bool set) { stunned = set; }
+	bool isStunned() { return stunned; }
 
 };
 

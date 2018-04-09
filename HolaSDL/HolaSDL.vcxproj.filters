@@ -173,8 +173,6 @@
     <ClCompile Include="ChargeComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Minimap.cpp" />
-    <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="BasicInvincibleComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
@@ -216,8 +214,6 @@
     <ClCompile Include="TurretShotComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Door.cpp" />
-    <ClCompile Include="DoorsCollision.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="BulletManager.cpp">
       <Filter>Managers\Source</Filter>
@@ -231,6 +227,19 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Managers\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Minimap.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorsCollision.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelExplorer.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="StunComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -414,7 +423,6 @@
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="Minimap.h" />
-    <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="BasicInvincibleComponent.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
@@ -462,8 +470,6 @@
     <ClInclude Include="TurretShotComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Door.h" />
-    <ClInclude Include="DoorsCollision.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="BulletManager.h">
       <Filter>Managers\Header</Filter>
@@ -477,6 +483,16 @@
     <ClInclude Include="ResourceManager.h">
       <Filter>Managers\Header</Filter>
     </ClInclude>
+    <ClInclude Include="DoorsCollision.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelExplorer.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="StunComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

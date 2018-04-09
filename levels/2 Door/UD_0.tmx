@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
  <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../tileset/Decoracion.tsx"/>
  <layer name="Suelo" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJzdk90KgCAMheeVJV5ERg/h+z9gCgtEtzmlCDpwiHT7POsH4F0ZtLautKZmxF/yfHVvkxe8WobniT4jrGdvyWcnnxf4TuBzs0rPQNMzy7uzct/XTD6J54l9zbyxk88VvRoep1j1Omh5K7Tvl1PeCwSDY+fzD4FXzhCwficYBjm9fBR35H/V6gnGX3UBZ+sDBw==
+   eJzdlFkKgDAMRGvbH0vuf14VKg5DNkERDAxKlkeSVkt515apbB4qk3NHX/JE8dVdbT41nkBdI5bH60F/AvxKjDF9Gp9ZWt8tqLF2Vw0ezsaxYfi5VutbjJjmPw13wjxv3hr0N6CWzzOah+N4p/hsD63luj/e7rh/vFcd3rUcz6waTdl/B3Oz32vWnmD81TYE/gG1
   </data>
  </layer>
  <layer name="Decoracion" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+   eJxjYBgFAwG8gNgbynYiQh0vEDsCsTOavCMJdsLUskFpVixqeJEwCAQRMFMAjc9PQC4Kizgl5mETR5antnmg8ODAoscZj3lsDNgBLDwYkMwk5D58YYcen3xY1PAhYWx2YDOTl4AaGACpw+VXXOaimw0TI9YcbIBQPA60ecMJAACwxAbV
   </data>
  </layer>
  <layer name="Aire" width="20" height="20">
