@@ -112,7 +112,7 @@ void GunnerAnimationComponent::handleAnimations()
 	if (eg->enemyState == EnemyState::Hurt) {
 		hurtTimer->update();
 		if (hurtTimer->TimeSinceTimerCreation > 0.2) {
-			eg->enemyState == EnemyState::Idle;
+			eg->enemyState = EnemyState::Idle;
 		}
 	}
 		
@@ -220,9 +220,20 @@ void GunnerAnimationComponent::handleAnimations()
 void GunnerAnimationComponent::hurtAnimations()
 {
 	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
-	Random::randomInt(0, 1);
+	int rnd = Random::randomInt(0, 1);
 	hurtTimer->restart();
 	eg->enemyState = EnemyState::Hurt;
-	gameObject->changeCurrentAnimation("DAMAGE_RIGHT1");
+	if (gameObject->getTransform()->direction.getX() == 1) {
+		if (rnd == 1) {
+			gameObject->changeCurrentAnimation("DAMAGE_RIGHT1");
+		}
+		else gameObject->changeCurrentAnimation("DAMAGE_RIGHT2");
+	}
+	else {
+		if (rnd == 1) {
+			gameObject->changeCurrentAnimation("DAMAGE_LEFT1");
+		}
+		else  gameObject->changeCurrentAnimation("DAMAGE_LEFT2");
+	}
 	gameObject->getCurrentAnimation()->startAnimation();
 }
