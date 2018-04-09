@@ -27,7 +27,7 @@ void TileLayer::render(Camera* camera)
 				destRect.y = i * destRect.w - camera->getTransform()->position.getY();
 				//Cogemos el tileset, que será el ultimo 
 				int tileS = 0;
-				while (tileS < tileSets.size() && (tileID - firstGids[tileS]) > tileSets[tileS]->getTileCount())
+				while (tileS < tileSets.size() && (tileID - firstGids[tileS]) >= tileSets[tileS]->getTileCount())
 					tileS++;
 				tileID -= firstGids[tileS];
 				SDL_Rect* srcRect = tileSets[tileS]->getTileRect(tileID);

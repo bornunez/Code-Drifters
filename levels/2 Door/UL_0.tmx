@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="29" height="20" tilewidth="16" tileheight="16" nextobjectid="18">
  <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../tileset/Decoracion.tsx"/>
  <layer name="Suelo" width="29" height="20">
   <data encoding="base64" compression="zlib">
-   eJztksEKgCAMhtfJGh4ipYfo/R+wBAORbf5SHQIH/8G57dumRP+xSdEX9bS7p0yt9lvMGWT6yu9yrquEzsMAzwv+pPXSXghleoFLCosV/83uYXrjHhVq5f6kXIvBRh7CRHuW3hqNl3z1O6Hco2MeyvHSzlpvx2T3hv6Bmi+xF3Af6F9L5wDMVfYYFabGteJCrrkpu4iNOhK3ZUhfw4YlOwFS7gPg
+   eJztkt0KgDAIhVcbFOF17/+oNUiQw3G5fi6ChFGo89tRU/qODc55o54Xu8v0aj/FnINMIf5xP9l8pw49C/gy4YnhMF79rh1MIdxEWPnI03/111MuMKURV222p6i3BHlaU7lah8UtD1m9O8t2bwzmRzTaGbAaNS4kh3GtXo/J5qJ+3FPsGd7DvJY+vO/VsvvP/KjT04h5bO7sTarF47dmyXrYep/Xk959tXfPLPKu336rtgFPTQIa
   </data>
  </layer>
  <layer name="Decoracion" width="29" height="20">
   <data encoding="base64" compression="zlib">
-   eJztwQEBAAAAgiD/r25IQAEAfBsJEAAB
+   eJztk70OhCAQhLfxp0Hvle6s1I7S93+Qo4BkMnEEQuz4koloYMbNLmadjtkRdMb1N+jX6DcEueiF+PjcG/1z2cj1YhbnOpDiU+GJfVmC5oJ/uGOsyLwjl7vS+1ONk5XVksvlTFXjJDy5VxvsWYQQVWPK2+g716J6xec8rFVmTd/VXiTdGSc8lFduzviOsErnNPm0znWng/wB0oQGmA==
   </data>
  </layer>
  <layer name="Aire" width="29" height="20">

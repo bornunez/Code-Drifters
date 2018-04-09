@@ -1,43 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="44" height="29" tilewidth="16" tileheight="16" nextobjectid="19">
  <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../tileset/Decoracion.tsx"/>
- <layer name="Suelo" width="20" height="20">
+ <layer name="Suelo" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJztkdEKgDAIRbfZU+3/vzcChdNlVg9FEF0YM7meaZby6w0ZTrvgq+7rHk9+b2cR1pSwWNfAZa553JGLb2rB+3VQHzf7MuTqoDetVU/xXvkf6FeelX1/IwXPxK+zcp6YMxM9deBlT9mbVOz0zEcu92cSByvuI3EXjGdhHO1MxVky/hVOpjsYT/K+pBV5FAFR
+   eJztluEKgzAMhGvtP33/5x0DheO8rEk2nRs9CEiN8WuSRksZGhrKaAardG/a7LneLuLY37du1w04FmLFe2i1HPfySSFXBW7Fs4LfJJ7JMGO83jOLYPIaMjKzl5f3vlvUX61jnzBXFf6eHuYYHl7Oi8XbM8Xs5cWaWftcRHyuK/dlhD3Da9Ulk79MniO8r/rBy9uKPbfOyq/FG313K8f+7vWLh5drYvWDZWqWqlz36hOZZxgrypupPX4bM7wY593zpvxUbHXmPEL/2eGTzSfnweOTlacH1T/FGSwRZqvW1hn8FitKzZRoL1wtZlb5vBPvrrvn1RLPxV9QZO4PDf2rHvjsAvc=
   </data>
  </layer>
- <layer name="Decoracion" width="20" height="20">
+ <layer name="Decoracion" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFAwG8gNgbynYiUt1gBEFUNi9qiNlPCXCmo12jYBTQAgAAQagDCA==
+   eJztzyEOACAIQFGupjZtRu5/EA0GKwZx+N/GRiB8RACcqHPa2vMjHbt0OySo7h1gpMb76P/9rHgHAAAAAHAzAI9LA0k=
   </data>
  </layer>
- <layer name="Aire" width="20" height="20">
+ <layer name="Aire" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJztkcEOgCAMQ/kkES+g//9ddom9LCxrPBnDS3oZo4yulMXiu1Rohxp0JL1Xcm73OzSg8+mvQW8TZpu915Pe6NzYAnl8DsznLf4fNqPlE2WTMZuZvtyngrJz7pO+3ps18+HOFeg7XJ011efv3DjUCrQ=
+   eJztk0kOwyAMRTlSBzYhuf+5WpR+CVmUMBjixX8Si1hgP4zjHCGE9PEQyzI5P6vOJS+LzvSdS62vFXf6zoW+c7nL9xg4+8zEvPjW9H0Pnt/c6fz65Yqu8v6aviO9BdE5fNdeyLcp1PFJnRXgDXrR6G0LscexN7mZryH1Ra7SHi3Sma8B/8W/XFezqAHqwFu6I+YXuLQA7yDiiFnxJGQVHweAEa8=
   </data>
  </layer>
- <layer name="Paredes" width="20" height="20">
+ <layer name="Paredes" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJztkEEKwCAMBPOZtifNyXrS/v9XjdDQEAyk6Kk4MBdZl7AA39nIvePhyFgGMgr5XXdFh0gm8hTyf9mFKmOZyUJWYVD345OrDq/Opkn1ZSPnpagbR7oYvhEndDUKvLvNYnQ3zcyuxeJv3DG3ElA=
+   eJztljEKAzEMBP2ZJNWdq4urJP//VeRiQQgZGU4WKjywTcyhiRF4S8nHg/JU8gqaY83VvjsoJwt+X+F6Ghn9D5xXykV5s3j6ctcq5mgZ3R3OG+VD+bIcjr7ctYk5WuTdwRvnP2XGtcC3DWZJ5N3B2/rG23fGVQPeM3M8wC6sxssXe7saL9/Zvb2Ll2+Ea8fzvYhg+64lky9/00c9LJMv+k4tY68svrhb3sW0O87iK3sd9kLuSCbf7oluhr4p+3HEm2/BdwGgb/KeHPXmW3Sn7sLfSPRN3pOj3nwLOGnwnpzBtQOnzWazucsf47slnQ==
   </data>
  </layer>
- <layer name="Bordes" width="20" height="20">
+ <layer name="Bordes" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFAwFEgVgOiMWBWIyAOmQghkVOlkg75YlUhw2guxHdXTDAi4YpAWxYxFhxuAebWmQggEeOn4BabH4lxTx0t4H8gB42xJqHTx0rGp8PBybWXpiZMLeKE1ALUkcoHtDNRQ8HmBix5mADsPAi5LeBMm84AQAgPgMv
+   eJztlsEOgjAMhrkoXlAvwEl9FuLJq0ff/0Fck5Hs8KNdKd1I+iXNkq6Ej7IxmsZxHAl9iHuIMcQA5l+GHsQUxwHM3YxctJj+l4hoQ5xjnDa6hxYtyNXsfAG5q7kFn5K+T8E1XF9Up82bUVOT74dRs8aX0w9tJL6POP7qx9LaRGdcDrm+PZiz5AByR5CTrt+1/USQcxcDuRIW+00TeqbSayGX+T3sDfKWnE0lSXs9lhTJJN2rKd1Cvibmb0jN/3cpe+ip42zNF27zBpw=
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="8" name="Down" x="144" y="256" width="48" height="16"/>
+  <object id="8" name="Down" x="416" y="384" width="48" height="16"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="13" name="Down" gid="56" x="160" y="224" width="16" height="16"/>
+  <object id="13" name="Down" gid="56" x="432" y="352" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Spawners" visible="0">
-  <object id="1" name="Spawn" gid="64" x="256" y="112" width="16" height="16">
+ <objectgroup name="Spawners">
+  <object id="1" name="Spawn" gid="64" x="352" y="112" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="14" name="Spawn" gid="64" x="608" y="112" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="15" name="Spawn" gid="64" x="656" y="256" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="16" name="Spawn" gid="64" x="304" y="288" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="17" name="Spawn" gid="64" x="160" y="160" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="18" name="Spawn" gid="64" x="160" y="256" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
