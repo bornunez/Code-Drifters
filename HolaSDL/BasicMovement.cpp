@@ -31,29 +31,30 @@ BasicMovement::~BasicMovement()
 
 void BasicMovement::update()
 {
-	Transform* t = gameObject->getTransform();
+	if (gameObject->canMove()) {
+		Transform* t = gameObject->getTransform();
 
-	Transform auxT = *t;
+		Transform auxT = *t;
 
 	//Movemos al personaje y a su body
 	//cout << "DeltaTime: [ " << Time::getInstance()->DeltaTime << " ]" << endl;
 	auxT.position.set(auxT.position + auxT.velocity * auxT.speed * (min((float)1, Time::getInstance()->DeltaTime)));
 	auxT.body.x = auxT.position.getX(); auxT.body.y = auxT.position.getY();
 
-	//Colisionamos
-	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
-	bool collision = false;
-	vector<string>::iterator it;
-	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
-		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
-		if (tl != nullptr) {
-			if (CollisionHandler::Collide(&auxT, tl)) {
-				t->velocity.set(0, 0);
-				collision = true;
+		//Colisionamos
+		Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
+		bool collision = false;
+		vector<string>::iterator it;
+		for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
+			TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
+			if (tl != nullptr) {
+				if (CollisionHandler::Collide(&auxT, tl)) {
+					t->velocity.set(0, 0);
+					collision = true;
+				}
 			}
 		}
+		if (!collision)
+			*t = auxT;
 	}
-	if(!collision)
-		*t = auxT;
-
 }
