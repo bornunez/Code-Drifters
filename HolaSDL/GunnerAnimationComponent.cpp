@@ -95,7 +95,6 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 		gameObject->changeCurrentAnimation("SHOT_BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
-
 	}
 }
 

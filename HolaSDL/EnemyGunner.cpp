@@ -90,6 +90,16 @@ void EnemyGunner::loadAnimations()
 	animations.emplace("SHOT_TOPLEFT", shotTopLeft);
 	animations.emplace("SHOT_BOTRIGHT", shotBotRight);
 	animations.emplace("SHOT_TOPRIGHT", shotTopRight);
+
+	Animation* damageRight1 = AnimationParser::parseAnimation(tileset, animationPath, "DamageRight1", this, 0, 0, false, 0.15);
+	Animation* damageRight2 = AnimationParser::parseAnimation(tileset, animationPath, "DamageRight2", this, 0, 0, false, 0.15);
+	Animation* damageLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "DamageLeft1", this, 0, 0, false, 0.15);
+	Animation* damageLeft2 = AnimationParser::parseAnimation(tileset, animationPath, "DamageLeft2", this, 0, 0, false, 0.15);
+
+	animations.emplace("DAMAGE_RIGHT1", damageRight1);
+	animations.emplace("DAMAGE_RIGHT2", damageRight2);
+	animations.emplace("DAMAGE_LEFT1", damageLeft1);
+	animations.emplace("DAMAGE_LEFT2", damageLeft2);
 }
 
 
