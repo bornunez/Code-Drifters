@@ -9,7 +9,7 @@
  </layer>
  <layer name="Decoracion" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJztzyEOACAIQFGupjZtRu5/EA0GKwZx+N/GRiB8RACcqHPa2vMjHbt0OySo7h1gpMb76P/9rHgHAAAAAHAzAI9LA0k=
+   eJztzyEOwCAQRFFM6zhUWwcOyf0PwoqK2kUwZPtfMglixSclADOKrb7ve5OOr2t1SFBNHeDUnffR//dnjzoAAABA5LBl26kOAYQG16cDYQ==
   </data>
  </layer>
  <layer name="Aire" width="44" height="29">
@@ -71,4 +71,5 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="Animados"/>
 </map>
