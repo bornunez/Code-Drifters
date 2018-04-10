@@ -244,6 +244,13 @@
       <Filter>UpdateComponent</Filter>
     </ClCompile>
     <ClCompile Include="DecelerationComponent.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="CoinManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -511,6 +518,8 @@
       <Filter>UpdateComponent</Filter>
     </ClInclude>
     <ClInclude Include="DecelerationComponent.h" />
+    <ClInclude Include="Coin.h" />
+    <ClInclude Include="CoinManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

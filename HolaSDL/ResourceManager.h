@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 24;
+const int NUM_TEXTURES = 25;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 2;
@@ -21,7 +21,7 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureId { MCBullet, GunnerBullet, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton};
+enum TextureId { MCBullet, GunnerBullet, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
@@ -56,6 +56,7 @@ private:
 		{ "Tree\\GreenLine.png", 1, 1 },
 		{ "Tree\\RedLine.png", 1, 1 },
 		{ "Tree\\Line.png", 1, 1 },
+		{ "coin.png", 1, 1},
 	};			
 
 
