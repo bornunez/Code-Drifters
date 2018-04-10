@@ -6,7 +6,7 @@ class Game;
 class PlayState;
 class Spawner;
 enum EnemyType;
-enum class EnemyState {Idle,Run, Hurt, Shoot, Charge, Death};
+enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death};
 class Enemy : public GameObject
 {
 protected:
@@ -39,6 +39,7 @@ public:
 	virtual void render();
 	virtual void update();
 	void onDestroy();
+	void death();
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();

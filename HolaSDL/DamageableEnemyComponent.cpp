@@ -17,10 +17,7 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 void DamageableEnemyComponent::receiveMessage(Message* msg)
 {
 	if (msg->id == MC_ATTACK_DAMAGE) {
-		receiveDamage("NORMAL_ATTACK", static_cast<MCAttackDamage*>(msg)->damage);
-		gameObject->setInvincibility(true);
-		Message msg(HURT);
-		gameObject->sendMessage(&msg);
+		receiveDamage("NORMAL_ATTACK", static_cast<MCAttackDamage*>(msg)->damage);		
 	}
 }
 
@@ -30,7 +27,13 @@ void DamageableEnemyComponent::receiveDamage(std::string attackType, float damag
 	int life = enemy->getLife();
 	life -= damage;
 	enemy->setLife(life);
-	if (life <= 0) {
-		enemy->onDestroy();
+	if (life <= 0) {		
+		enemy->death();
+		//enemy->onDestroy();
+	}
+	else {
+		gameObject->setInvincibility(true);
+		Message msg(HURT);
+		gameObject->sendMessage(&msg);
 	}
 }

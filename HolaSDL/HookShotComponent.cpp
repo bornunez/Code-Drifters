@@ -107,7 +107,15 @@ void HookShotComponent::extend()//Extiende el gancho en la dirección de disparo
 
 void HookShotComponent::contract()//Retrae la punta del gancho
 {
+	mc->setMovable(true);
+
 	Transform* t = hook->getTransform();
+
+	Vector2D auxVel;//El gancho sigue al personaje cuando se contrae
+	auxVel.set(t->position - mc->getTransform()->position);
+	auxVel.normalize();
+	t->velocity.set(auxVel);
+
 	t->position.set(t->position - t->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
 	t->body.x = t->position.getX(); t->body.y = t->position.getY();
 }

@@ -45,7 +45,7 @@ void Animation::normalAnimation()//El último frame se mantiene
 			currentFrame++;
 			if (currentFrame >= animFrames.size()) {
 				finish = true;
-				currentFrame = 0;
+				currentFrame = animFrames.size()-1;
 			}
 		}
 	}
