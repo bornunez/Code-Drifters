@@ -2,10 +2,9 @@
 #include "Transform.h"
 #include "TileLayer.h"
 #include "Game.h"
-#include <vector>
 #include "GameObject.h"
 
-using namespace std;
+
 
 bool CollisionHandler::Collide(Transform * A, Transform * B)
 {
@@ -19,7 +18,7 @@ bool CollisionHandler::Collide(GameObject * A, GameObject * B)
 
 bool CollisionHandler::Collide(Transform * A, TileLayer * tileLayer)
 {
-	return -Collide(A->body, tileLayer);
+	return Collide(A->body, tileLayer);
 }
 
 bool CollisionHandler::Collide(SDL_Rect A, TileLayer * tileLayer)
@@ -43,6 +42,32 @@ bool CollisionHandler::Collide(SDL_Rect A, TileLayer * tileLayer)
 		}
 	}
 	return false;
+}
+
+vector<bool> CollisionHandler::Collide(std::vector<SDL_Rect> rects, TileLayer * tileLayer)
+{
+	vector<bool> collisions(rects.size(), false);
+	vector<vector<int>> idLayer = tileLayer->getTileIDs();
+	int tileSize = tileLayer->getTileSize(); int scale = Game::getGame()->getScale();
+
+	for (int i = 0; i < idLayer.size(); i++) {
+		for (int j = 0; j < idLayer[i].size(); j++) {
+			if (idLayer[i][j] != 0) {
+				//El rect del bloque, con coordenadas de mundo real
+				SDL_Rect destRect;
+				destRect.h = destRect.w = tileSize * scale;
+				destRect.x = j * destRect.w;
+				destRect.y = i * destRect.w;
+				//Vemos si colisiona el prota con el bloque
+				for (int k = 0; k < rects.size(); k++) {
+					if (RectCollide(rects[k], destRect)) {
+						collisions[k] = true;
+					}
+				}
+			}
+		}
+	}
+	return collisions;
 }
 
 
