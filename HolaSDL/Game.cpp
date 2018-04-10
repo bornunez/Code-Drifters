@@ -16,6 +16,8 @@
 #include "MainMenuState.h"
 #include "Time.h"
 #include "LevelManager.h"
+#include "DialogsState.h"
+
 
 Game* Game::game = nullptr;
 Game::Game()
@@ -154,5 +156,11 @@ void Game::endGame()//Termina el PlayState y resetea sus instancias.
 	PlayState::ResetInstance(); 
 	BulletManager::ResetInstance();
 	stateMachine->popState();
+}
+
+void Game::startDialogue(string filename)
+{
+	DialogsState* ds = new DialogsState(stateMachine->currentState(),filename);
+	stateMachine->pushState(ds);
 }
 

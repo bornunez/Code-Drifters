@@ -1,0 +1,10 @@
+2
+loadbutton Tonto1
+playbutton Tonto2
+3
+0 
+aieiei eieeiei
+1 
+ouououo oeoeoe
+0 
+lelelele llilo

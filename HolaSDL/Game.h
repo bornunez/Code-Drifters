@@ -1,5 +1,6 @@
 #pragma once
 #include "sdl_includes.h"
+#include <string>
 
 class MouseIcon;
 class ResourceManager;
@@ -13,6 +14,7 @@ class Camera;
 class Map;
 class LevelParser;
 class PlayState;
+class DialogState;
 
 using namespace std;
 class Game
@@ -64,5 +66,6 @@ public:
 
 	void startGame();
 	void endGame();
+	void startDialogue(string filename);
 };
 

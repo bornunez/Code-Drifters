@@ -46,6 +46,11 @@ void PlayState::render()
 
 void PlayState::handleEvent(SDL_Event & e)
 {
+	if (e.type == SDL_MOUSEBUTTONDOWN) 
+	{
+		cout << "caca";
+		game->startDialogue("1");
+	}
 	GameState::handleEvent(e);
 	//mainCharacter->handleEvents(e);
 }
