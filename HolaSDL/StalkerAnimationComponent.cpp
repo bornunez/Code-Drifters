@@ -5,11 +5,12 @@
 #include "Camera.h"
 #include "EnemyStalker.h"
 
-StalkerAnimationComponent::StalkerAnimationComponent(GameObject* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
+StalkerAnimationComponent::StalkerAnimationComponent(EnemyStalker* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
 	gameObject->changeCurrentAnimation("RUN");
 	this->target = target;
+	this->es = o;
 }
 
 
@@ -34,19 +35,22 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 			gameObject->changeCurrentAnimation("ATTACK");
 			gameObject->getCurrentAnimation()->startAnimation();
 			break;
+		case HURT:
+			gameObject->changeCurrentAnimation("HURT");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
 	}
 }
 
 void StalkerAnimationComponent::handleAnimation()
 {
-	EnemyStalker* es = static_cast<EnemyStalker*>(gameObject);
 	
-	if (gameObject->getCenterPos().getX() + 10 <= target->getCenterPos().getX() && es->facing == LEFT) {		//Si está mirando a la izquierda gira
-		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+	if (gameObject->getCenterPos().getX() + 10 <= target->getCenterPos().getX() && es->facing == LEFT) {		//Si estï¿½ mirando a la izquierda gir		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
 		es->facing = RIGHT;
 	}
 	else if (gameObject->getCenterPos().getX() - 10 > target->getCenterPos().getX() && es->facing == RIGHT) {
-		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 		es->facing = LEFT;
 	}
 }

@@ -7,7 +7,7 @@ class Tileset;
 class AnimationFrame
 {
 public:
-	AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX=0, int frameOffsetY=0);
+	AnimationFrame(Tileset* tileset, GameObject* o,SDL_Rect* srcRect, SDL_Rect destRect, int frameOffsetX=0, int frameOffsetY=0, int frameWidth = 64, int frameHeight = 64);
 	~AnimationFrame();
 	void addHurtbox(SDL_Rect rect, int offsetX=0, int offsetY=0);
 	void addHitbox(SDL_Rect rect, int offsetX=0, int offsetY=0);
@@ -37,5 +37,7 @@ private:
 	
 	int frameOffsetX;
 	int frameOffsetY;
+	int frameWidth;
+	int frameHeight;
 };
 

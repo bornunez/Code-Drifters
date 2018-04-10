@@ -18,21 +18,24 @@
 #include "BoxRenderer.h"
 #include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
+#include "StunComponent.h"
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Gunner;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
 	defense = 30;
-	this->addComponent(new GunnerComponent(this, getMC(), 400));
-	this->addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
+	addComponent(new GunnerComponent(this, getMC(), 400));
+	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	vector<string> collisionLayers = { "Paredes","Aire" };
 	addComponent(new KnockbackComponent(this, 5000, collisionLayers));
-	this->addComponent(new BasicMovement(this, collisionLayers));
-	this->addComponent(new DamageableEnemyComponent(this, getMC()));
+	addComponent(new BasicMovement(this, collisionLayers));
+	addComponent(new DamageableEnemyComponent(this, getMC()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
+	addComponent(new StunComponent(this));
+
 }
 
 
@@ -90,6 +93,22 @@ void EnemyGunner::loadAnimations()
 	animations.emplace("SHOT_TOPLEFT", shotTopLeft);
 	animations.emplace("SHOT_BOTRIGHT", shotBotRight);
 	animations.emplace("SHOT_TOPRIGHT", shotTopRight);
+
+	Animation* damageRight1 = AnimationParser::parseAnimation(tileset, animationPath, "DamageRight1", this, 0, 0, false, 0.15);
+	Animation* damageRight2 = AnimationParser::parseAnimation(tileset, animationPath, "DamageRight2", this, 0, 0, false, 0.15);
+	Animation* damageLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "DamageLeft1", this, 0, 0, false, 0.15);
+	Animation* damageLeft2 = AnimationParser::parseAnimation(tileset, animationPath, "DamageLeft2", this, 0, 0, false, 0.15);
+
+	animations.emplace("DAMAGE_RIGHT1", damageRight1);
+	animations.emplace("DAMAGE_RIGHT2", damageRight2);
+	animations.emplace("DAMAGE_LEFT1", damageLeft1);
+	animations.emplace("DAMAGE_LEFT2", damageLeft2);
+
+	Animation* deathRight = AnimationParser::parseAnimation(tileset, animationPath, "DeathRight", this, 0, 0, false, 0.10);
+	Animation* deathLeft = AnimationParser::parseAnimation(tileset, animationPath, "DeathLeft", this, 0, 0, false, 0.10);
+
+	animations.emplace("DEATH_RIGHT", deathRight);
+	animations.emplace("DEATH_LEFT", deathLeft);
 }
 
 

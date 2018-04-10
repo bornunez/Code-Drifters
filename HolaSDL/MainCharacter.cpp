@@ -214,3 +214,8 @@ void MainCharacter::setReloadTime(int miliseconds)
 {
 	reloadTime = miliseconds;
 }
+
+void MainCharacter::addHP(int life)
+{
+	HP += life;
+}

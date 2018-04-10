@@ -25,16 +25,17 @@ void MCMovementInput::update()
 		debug = true;
 	}
 	Transform* t = gameObject->getTransform();
-	if (mc->getActionState() == Attack) {
+	if (!mc->canMove()) {
 		velocity.setX(0);
 		velocity.setY(0);
 	}
-	else {
+	//if(mc->canMove() && mc->getMCState() != MCState::Attack && mc->getMCState() != MCState::Hooking){
+	if (mc->canMove()){
 		if (keystate[leftKey])
 		{
 			t->direction.setX(-1);
 			velocity.setX(-1);
-			mc->setActionState(Run);
+			mc->setMCState(MCState::Run);
 			if (!keystate[upKey] && !keystate[downKey]) {
 				t->direction.setY(0);
 			}
@@ -43,7 +44,7 @@ void MCMovementInput::update()
 		{
 			t->direction.setX(1);
 			velocity.setX(1);
-			mc->setActionState(Run);
+			mc->setMCState(MCState::Run);
 			if (!keystate[upKey] && !keystate[downKey]) {
 				t->direction.setY(0);
 			}
@@ -56,7 +57,7 @@ void MCMovementInput::update()
 		{
 			t->direction.setY(-1);
 			velocity.setY(-1);
-			mc->setActionState(Run);
+			mc->setMCState(MCState::Run);
 			if (!keystate[leftKey] && !keystate[rightKey]) {
 				t->direction.setX(0);
 			}
@@ -65,7 +66,7 @@ void MCMovementInput::update()
 		{
 			t->direction.setY(1);
 			velocity.setY(1);
-			mc->setActionState(Run);
+			mc->setMCState(MCState::Run);
 			if (!keystate[leftKey] && !keystate[rightKey]) {
 				t->direction.setX(0);
 			}
@@ -74,12 +75,10 @@ void MCMovementInput::update()
 			velocity.setY(0);
 
 		}
-		if (velocity.getX() == 0 && velocity.getY() == 0 && mc->getActionState() != Attack) {
-			mc->setActionState(Idle);
+		if (velocity.getX() == 0 && velocity.getY() == 0 && (mc->getMCState() != MCState::Attack && mc->getMCState() != MCState::Hooking)) {
+			mc->setMCState(MCState::Idle);
 		}
 	}
-	
-	
 	
 	velocity.normalize();
 	t->velocity.set(velocity);
@@ -93,5 +92,6 @@ void MCMovementInput::update()
 		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
 		cout << "CenterPosition: [ X: " << gameObject->getCenterPos().getX() << " ,Y: " << gameObject->getCenterPos().getY() << " ]" << endl;
 		cout << "DisplayPosition: [ X: " << gameObject->getDisplayPos().getX() << " ,Y: " << gameObject->getDisplayPos().getY() << " ]" << endl;*/
-	}	
+	}
+
 }

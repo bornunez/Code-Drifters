@@ -19,15 +19,15 @@ void StalkerComponent::update()
 	EnemyStalker* es = static_cast<EnemyStalker*>(gameObject);
 
 	if (!es->isStunned()) {
-		if (!charge && timer->TimeSinceTimerCreation >= 8.0) {
-			charge = true;
+		if (es->enemyState != EnemyState::Charge && timer->TimeSinceTimerCreation >= 8.0) {
+			es->enemyState = EnemyState::Charge;			
 			timer->restart();
 			Message msg(STALKER_ATTACK);
 			es->sendMessage(&msg);
 			ChargeComponent::resetTimer();
 		}
-		else if (charge && timer->TimeSinceTimerCreation >= 3.0) {
-			charge = false;
+		else if (es->enemyState == EnemyState::Charge && timer->TimeSinceTimerCreation >= 3.0) {
+			es->enemyState = EnemyState::Run;
 			timer->restart();
 			Message msg(STALKER_RUN);
 			es->sendMessage(&msg);
@@ -49,10 +49,11 @@ void StalkerComponent::update()
 		//		mc->sendMessage("RUN");
 		//}
 
-		if (!charge)
-			ChaseComponent::update();
-		else
+		if (es->enemyState == EnemyState::Charge)
 			ChargeComponent::update();
+
+		else
+			ChaseComponent::update();
 	}
 	else {
 		gameObject->getTransform()->velocity.set({ 0,0 });

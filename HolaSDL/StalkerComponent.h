@@ -4,7 +4,6 @@
 class StalkerComponent : public ChaseComponent, public ChargeComponent
 {
 private:
-	bool charge = false;
 	Timer* timer;
 
 public:

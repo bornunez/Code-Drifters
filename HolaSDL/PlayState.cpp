@@ -10,6 +10,7 @@
 #include "Managers.h"
 #include "Minimap.h"
 #include "CollisionsManager.h"
+#include "ItemManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -42,6 +43,7 @@ void PlayState::render()
 	EnemyManager::getInstance()->render();
 	minimap->render();
 	BulletManager::getInstance()->render();
+	ItemManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -87,7 +89,7 @@ void PlayState::loadState()
 	int mMapH = Game::getGame()->getWinW() / 5;
 	minimap = new Minimap(mMapW, mMapH, mMapW / 5, mMapH / 5);
 
-	mainCharacter = new MainCharacter(nullptr,32*3*Game::getGame()->getScale(), 32*3 * Game::getGame()->getScale(), 31 * Game::getGame()->getScale(), 31 * Game::getGame()->getScale());
+	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
 
 	camera->load();
 
@@ -100,8 +102,9 @@ void PlayState::loadState()
 	EnemyManager::getInstance()->init(mainCharacter);
 	CollisionsManager::getInstance();
 	BulletManager::createInstance();
-
 	LevelManager::getInstance()->getFirstRoom()->spawn();
+	ItemManager::getInstance()->init();
+	ItemManager::getInstance()->AddItem(Enemies);
 
 
 }

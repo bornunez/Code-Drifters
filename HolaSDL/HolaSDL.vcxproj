@@ -25,11 +25,14 @@
     <ClCompile Include="ChargerAnimationComponent.cpp" />
     <ClCompile Include="ChargerComponent.cpp" />
     <ClCompile Include="ChaseComponent.cpp" />
+    <ClCompile Include="Coin.cpp" />
+    <ClCompile Include="CoinManager.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="CollisionsManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DamageableEnemyComponent.cpp" />
+    <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="DoorsCollision.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
@@ -50,7 +53,13 @@
     <ClCompile Include="GunnerBulletRenderComponent.cpp" />
     <ClCompile Include="GunnerComponent.cpp" />
     <ClCompile Include="GunnerShotComponent.cpp" />
+    <ClCompile Include="Hook.cpp" />
+    <ClCompile Include="HookAnimationComponent.cpp" />
+    <ClCompile Include="HookCollisionComponent.cpp" />
+    <ClCompile Include="HookShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="ItemManager.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LevelExplorer.cpp" />
@@ -65,6 +74,7 @@
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCAttackCollisionComponent.cpp" />
+    <ClCompile Include="MCHookInputComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -112,11 +122,14 @@
     <ClInclude Include="ChargerAnimationComponent.h" />
     <ClInclude Include="ChargerComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
+    <ClInclude Include="Coin.h" />
+    <ClInclude Include="CoinManager.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="CollisionsManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DamageableEnemyComponent.h" />
+    <ClInclude Include="DecelerationComponent.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="DoorsCollision.h" />
     <ClInclude Include="DungeonGenerator.h" />
@@ -137,6 +150,15 @@
     <ClInclude Include="GunnerBulletRenderComponent.h" />
     <ClInclude Include="GunnerComponent.h" />
     <ClInclude Include="GunnerShotComponent.h" />
+<<<<<<< HEAD
+    <ClInclude Include="ItemManager.h" />
+    <ClInclude Include="ItemObject.h" />
+=======
+    <ClInclude Include="Hook.h" />
+    <ClInclude Include="HookAnimationComponent.h" />
+    <ClInclude Include="HookCollisionComponent.h" />
+    <ClInclude Include="HookShotComponent.h" />
+>>>>>>> e0b30d24ba4955d90a16ee798e7450370048cd0c
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="Managers.h" />
@@ -152,6 +174,7 @@
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCAttackCollisionComponent.h" />
+    <ClInclude Include="MCHookInputComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />

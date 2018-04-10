@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "PlayState.h"
 #include "ResourceManager.h"
+#include "DecelerationComponent.h"
 
 //Inicializacion de instance
 BulletManager* BulletManager::instance = nullptr;
@@ -93,7 +94,7 @@ void BulletManager::shoot(GameObject * owner, Transform bulletTransform, BulletT
 	Bullet* newBullet = getBullet(bulletType);
 
 	newBullet->setTransform(bulletTransform);
-
+	newBullet->addComponent(new DecelerationComponent(newBullet, 0.99));
 	//Se envia el mensaje de que se ha creado una bala, deberia enviarse al sound manager
 	//Message msg(BULLET_CREATED);
 	//owner->sendMessage(&msg);

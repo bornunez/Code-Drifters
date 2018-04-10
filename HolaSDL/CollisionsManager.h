@@ -6,8 +6,8 @@ class CollisionsManager : public GameObject
 {
 private:
 	static CollisionsManager* instance;
-public:
 	CollisionsManager();
+public:
 	virtual ~CollisionsManager();
 	static CollisionsManager* getInstance();
 	virtual void handleInput(const SDL_Event& event);

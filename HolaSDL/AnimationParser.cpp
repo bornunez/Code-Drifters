@@ -95,8 +95,8 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 		box.y = y;
 		
 		//El offset del hitbox respecto al sprite
-		int offsetx = ((x) % 64)* Game::getGame()->getScale() - o->getTransform()->body.w / 2 + offsetX;
-		int offsety = ((y) % 64)* Game::getGame()->getScale() - o->getTransform()->body.h / 2 + offsetY;
+		int offsetx = ((x) % 64)* Game::getGame()->getScale() + offsetX;
+		int offsety = ((y) % 64)* Game::getGame()->getScale() + offsetY;
 		if (type == "Hitbox") {
 			anim->getFrame(frame)->addHitbox(box,offsetx,offsety);
 		}
@@ -142,7 +142,7 @@ Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFi
 	//Raiz del mapa
 	XMLElement* root = doc.FirstChildElement();
 	int tileSize = atoi(root->Attribute("tilewidth"));
-	Animation* anim = new Animation(animationName, tileset, o, tileSize*Game::getGame()->getScale(), offsetX, offsetY, loop, time);
+	Animation* anim = new Animation(animationName, tileset, o, tileSize, offsetX, offsetY, loop, time);
 	//Ahora cargamos las tileLayer
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if (e->Value() == string("layer"))

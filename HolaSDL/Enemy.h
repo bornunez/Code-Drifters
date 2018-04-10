@@ -6,7 +6,7 @@ class Game;
 class PlayState;
 class Spawner;
 enum EnemyType;
-
+enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death};
 class Enemy : public GameObject
 {
 protected:
@@ -26,19 +26,20 @@ protected:
 
 	//Metodos auxiliares
 	
-	
 
 	friend class EnemyManager;
 	Enemy(MainCharacter* mc);
 	
 public:
 	/*void receiveDamage(int damage);*/
+	EnemyState enemyState;
 	
 	~Enemy();
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
 	void onDestroy();
+	void death();
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();

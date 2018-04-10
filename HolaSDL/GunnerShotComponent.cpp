@@ -50,42 +50,42 @@ void GunnerShotComponent::handleAnimation()
 
 	if (shotAnimationTime->TimeSinceTimerCreation == 0) {
 		if (angle > 297 && angle < 342) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_TOPRIGHT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(1, -1);
 		}
 		else if (angle > 252 && angle < 297) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_TOP);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(0, -1);
 		}
 		else if (angle > 207 && angle <= 252) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_TOPLEFT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(-1, -1);
 		}
 		else if (angle > 162 && angle < 207) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_LEFT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(-1, 0);
 		}
 		else if (angle >= 117 && angle < 162) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_BOTLEFT);
 				gameObject->sendMessage(&msg);
 			}
 			gameObject->getTransform()->direction.set(-1, 1);
 		}
 		else if (angle > 72 && angle < 117) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_BOT);
 				gameObject->sendMessage(&msg);
 			}
@@ -93,7 +93,7 @@ void GunnerShotComponent::handleAnimation()
 			gameObject->getTransform()->direction.set(0, 1);
 		}
 		else if (angle > 27 && angle < 72) {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_BOTRIGHT);
 				gameObject->sendMessage(&msg);
 			}
@@ -102,7 +102,7 @@ void GunnerShotComponent::handleAnimation()
 			gameObject->getTransform()->direction.set(1, 1);
 		}
 		else {
-			if (eg->currentState == SHOOT) {
+			if (eg->enemyState == EnemyState::Shoot) {
 				Message msg(SHOT_RIGHT);
 				gameObject->sendMessage(&msg);
 			}
@@ -110,11 +110,12 @@ void GunnerShotComponent::handleAnimation()
 		}
 	}
 
-	if (eg->currentState == SHOOT) {
+	if (eg->enemyState == EnemyState::Shoot) {
 		shotAnimationTime->update();
 
 		if (shotAnimationTime->TimeSinceTimerCreation > 0.45) {
-			eg->currentState = IDLE;
+			
+			eg->enemyState = EnemyState::Idle;
 		}
 	}
 
@@ -134,7 +135,7 @@ void GunnerShotComponent::shoot() {
 	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	if (lastShotTime->TimeSinceTimerCreation > shotDelay && 
 		(abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distance) {
-		if (eg->currentState == IDLE) {
+		if (eg->enemyState == EnemyState::Idle) {
 			lastShotTime->restart();
 			updateGunPosition();
 			Transform bulletTransform;
@@ -157,16 +158,18 @@ void GunnerShotComponent::shoot() {
 			//PlayState::getInstance()->addGameObject(auxBullet);
 
 			shotAnimationTime->restart();
-			eg->currentState = SHOOT;
+			eg->enemyState = EnemyState::Shoot;
 		}		
 	}
 
 }
 
 void GunnerShotComponent::update() {
-	lastShotTime->update();
-	if(!static_cast<Enemy*>(gameObject)->isStunned())
-		shoot();
-	handleAnimation();
+	if (!gameObject->isDead()) {
+		lastShotTime->update();
+		if (!static_cast<Enemy*>(gameObject)->isStunned())
+			shoot();
+		handleAnimation();
+	}
 }
 

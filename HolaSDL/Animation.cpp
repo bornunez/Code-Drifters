@@ -45,7 +45,7 @@ void Animation::normalAnimation()//El último frame se mantiene
 			currentFrame++;
 			if (currentFrame >= animFrames.size()) {
 				finish = true;
-				currentFrame = 0;
+				currentFrame = animFrames.size()-1;
 			}
 		}
 	}
@@ -81,9 +81,9 @@ void Animation::setTime(int tim)//Cambia el tiempo entre frames
 	time = tim;
 }
 
-void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset)//Añade un frame a la animación
+void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset, int frameWidth, int frameHeight)//Añade un frame a la animación
 {	
-	AnimationFrame* aux = new AnimationFrame(tileSet, gameObject,srcRect,destRect, xOffset, yOffset);
+	AnimationFrame* aux = new AnimationFrame(tileSet, gameObject,srcRect,destRect, xOffset, yOffset, frameWidth, frameHeight);
 	animFrames.push_back(aux);
 }
 
@@ -99,9 +99,9 @@ void Animation::setLayer(TileLayer * lay)//Recibe la layer y la divide para asig
 				SDL_Rect destRec;
 				destRec.x = gameObject->getTransform()->body.x;
 				destRec.y = gameObject->getTransform()->body.y;
-				destRec.w = frameW;
-				destRec.h = frameH;
-				addAnimationFrame(srcRect, destRec, offsetX,offsetY);				
+				destRec.w = frameW * Game::getGame()->getScale();
+				destRec.h = frameH * Game::getGame()->getScale();
+				addAnimationFrame(srcRect, destRec, offsetX,offsetY,frameW,frameH);				
 			}
 		}
 	}
@@ -115,7 +115,7 @@ void Animation::setFlip(SDL_RendererFlip flip)//Rota el sprite y con él todas la
 		vector<SDL_Rect> hitboxes = animFrames[i]->getHitboxes();
 		for (uint j = 0; j < hitboxOffset.size(); j++) {
 			std::pair<int, int> aux;
-			hitboxOffset[j].first = 96 - (hitboxOffset[j].first + hitboxes[j].w);//Desplaza de forma simétrica en x el punto
+			hitboxOffset[j].first = gameObject->getTransform()->body.w - (hitboxOffset[j].first + hitboxes[j].w);//Desplaza de forma simétrica en x el punto
 			aux = { hitboxOffset[j].first , hitboxOffset[j].second };
 			animFrames[i]->setHitboxOffset(j, aux);
 		}
@@ -123,13 +123,13 @@ void Animation::setFlip(SDL_RendererFlip flip)//Rota el sprite y con él todas la
 		vector<SDL_Rect> hurtboxes = animFrames[i]->getHurtboxes();
 		for (uint j = 0; j < hurtboxOffset.size(); j++) {
 			std::pair<int, int> aux;
-			hurtboxOffset[j].first = 96 - (hurtboxOffset[j].first + hurtboxes[j].w);//Desplaza de forma simétrica en x el punto
+			hurtboxOffset[j].first = gameObject->getTransform()->body.w - (hurtboxOffset[j].first + hurtboxes[j].w);//Desplaza de forma simétrica en x el punto
 			aux = { hurtboxOffset[j].first , hurtboxOffset[j].second };
 			animFrames[i]->setHurtboxOffset(j, aux);
 		}
 		std::pair<int, int> gunPosOffset = animFrames[i]->getGunPosOffset();
 		Vector2D gunPos = animFrames[i]->getGunPosition();
-		gunPosOffset.first = 96 - (gunPosOffset.first);
+		gunPosOffset.first = gameObject->getTransform()->body.w - (gunPosOffset.first);
 		animFrames[i]->setGunPosOffset({ gunPosOffset.first, gunPosOffset.second });
 	}
 }
