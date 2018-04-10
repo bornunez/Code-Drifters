@@ -18,6 +18,7 @@
 #include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "StalkerComponent.h"
+#include "StunComponent.h"
 //#include "ChargeComponent.h"
 //#include "ChaseComponent.h"
 
@@ -26,7 +27,7 @@
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w = transform.body.h = 96;
+	transform.body.w = transform.body.h = 32*Game::getGame()->getScale();
 	loadAnimations();
 	facing = LEFT;
 	//this->addComponent(new ChaseComponent(this, getMC()));
@@ -39,6 +40,8 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new StalkerComponent(this, getMC(), 1, 1.5, 2));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
+	addComponent(new StunComponent(this));
+
 }
 
 

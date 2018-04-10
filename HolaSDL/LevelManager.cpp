@@ -69,8 +69,11 @@ void LevelManager::changeRoom(Direction dir)
 			//Antes de Spawnear, despawneamos los que hubiera
 			EnemyManager::getInstance()->killAll();
 			//Y ponemos al jugador en la puerta contraria
+			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 			Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
-			PlayState::getInstance()->getMainCharacter()->getTransform()->position.set(entry);
+			mc->getTransform()->position.set(entry);
+			mc->getTransform()->body.x = mc->getTransform()->position.getX();
+			mc->getTransform()->body.y = mc->getTransform()->position.getY();
 			room->spawn();
 			room->setExplored(true);
 		}

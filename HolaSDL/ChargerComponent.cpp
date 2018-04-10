@@ -18,9 +18,9 @@ void ChargerComponent::update()
 
 	EnemyCharger* ec = static_cast<EnemyCharger*>(gameObject);
 
-
-	if (!stunned) {
-		if (!charge && timer->TimeSinceTimerCreation >= 8.0) {
+	
+	if (!ec->isStunned()) {
+		if (!charge && timer->TimeSinceTimerCreation >= 3.0) {
 			charge = true;
 			timer->restart();
 			Message msg(STALKER_ATTACK);
@@ -40,7 +40,7 @@ void ChargerComponent::update()
 		else {
 			ChargeComponent::update();
 			//if(comprobar colision con pared)
-			//stunned = true;
+			//ec->setStun(true);
 			//timer->restart();
 		}
 		ec->setInvincibility(true);
@@ -49,7 +49,7 @@ void ChargerComponent::update()
 		ec->setInvincibility(false);
 
 	//	if (timer->TimeSinceTimerCreation >= 4.0) {
-	//	stunned = false;
+	//	ec->setStun(false);
 	//	}
 	}
 }

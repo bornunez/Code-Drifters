@@ -16,17 +16,23 @@
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
 #include "DoorsCollision.h"
+#include "MCHookInputComponent.h"
+#include "HookShotComponent.h"
+#include "ExampleRender.h"
+#include "HookAnimationComponent.h"
 //Personaje principal
 
 
 
-MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h) : GameObject(tex, x, y, w, h)
+
+MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
+	: GameObject(tex, x, y, w, h), hook(500)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
-	transform.body.x = x; transform.body.y = y;
-	transform.body.w = w;
-	transform.body.h = h;
+	transform.body.x = x; transform.body.y = y + h/2.5;
+	transform.body.w = w/2;
+	transform.body.h = h/2.5;
 
 	loadAnimations();
 
@@ -45,11 +51,15 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h) : GameOb
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
 	addComponent(new DoorsCollision(this));
+	hookShot = new HookShotComponent(this,&hook, 1000.0f);
+	addComponent(hookShot);
+	addComponent(new MCHookInputComponent(this));
+	addComponent(new HookAnimationComponent(&hook));
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);
 	normalAttackDamage = 50;
-	
+	movable = true;
 	
 }
 
@@ -213,4 +223,9 @@ int MainCharacter::getReloadTime()
 void MainCharacter::setReloadTime(int miliseconds)
 {
 	reloadTime = miliseconds;
+}
+
+void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
+{
+	hookShot->shoot(originPos, hookDir);
 }

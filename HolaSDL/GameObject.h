@@ -25,6 +25,7 @@ protected:
 	Animation* currentAnimation;
 	bool active = true;
 	bool invincible = false;
+	bool movable = true;
 public:
 
 	GameObject();
@@ -56,5 +57,7 @@ public:
 	bool getInvincibility() { return invincible; }
 	void setInvincibility(bool state) { invincible = state; }
 	void setTransform(Transform t) { this->transform = t; }
+	bool canMove() { return movable; }
+	void setMovable(bool mov) { movable = mov; }
 };
 

@@ -3,9 +3,12 @@
 #include <map>
 #include "BulletManager.h"
 
+#include "Hook.h"
+
+class HookShotComponent;
 class PlayState;
 class MCAnimationComponent;
-enum ActionState { Idle, Run, Attack, Shoot, Hook, Hurt, Heal };
+enum ActionState { Idle, Run, Attack, Shoot, Hooking, Hurt, Heal };
 class MainCharacter : public GameObject
 {
 private:
@@ -14,17 +17,14 @@ private:
 	float maxVelocity;
 	float normalAttackDamage;
 	float chargedAttackDamage;
-	bool activeHook;
-	bool firingGun;
-	bool attacking;
 	ActionState actionState = Idle;
 	int maxBullets;
 	int currentBullets;
 	int reloadTime;
 	Vector2D gunPosition;//Posición de donde sale la bala
+	Hook hook;
 	
-	
-	
+	HookShotComponent* hookShot;
 
 
 public:
@@ -58,6 +58,10 @@ public:
 	void setReloadTime(int miliseconds);
 	void setActionState(ActionState actionState) { this->actionState = actionState; };
 	ActionState getActionState() { return actionState; };
+	
+	//HOOK
+	Hook getHook() { return hook; }
+	void shootHook(Vector2D originPos, Vector2D hookDir);
 };
 
 

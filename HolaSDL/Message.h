@@ -1,6 +1,5 @@
 #ifndef MESSAGE_H_
 #define MESSAGE_H_
-
 //USAR PARA MENSAJES CON ARGUMENTOS
 enum MessageId {
 	//Idle
@@ -61,9 +60,10 @@ enum MessageId {
 	KNOCK_BACK,
 	MC_ATTACK_DAMAGE,
 	BULLET_CREATED,
+	ENEMY_HOOKED,
 	MC_BULLET_COLLISION,
+	WALL_HOOKED,
 	ENEMY_BULLET_COLLISION,
-
 
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID
@@ -97,5 +97,10 @@ struct MCBulletStun : Message {
 	MCBulletStun(int stunTime) : Message(MC_BULLET_COLLISION), stunTime(stunTime) {}
 	float stunTime;
 };
+
+//struct HookedMessage : Message {
+//	HookedMessage(GameObject* o) : Message(ENEMY_HOOKED), gameObject(o){}
+//	GameObject* gameObject;
+//};
 
 #endif /* MESSAGE_H_ */
