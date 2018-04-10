@@ -65,7 +65,8 @@ void ComponentContainer::sendMessage(Message * msg)
 {
 	for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
-			c->receiveMessage(msg);
+			if(c->isActive())
+				c->receiveMessage(msg);
 		}
 	}
 }
@@ -73,27 +74,35 @@ void ComponentContainer::sendMessage(Message * msg)
 void ComponentContainer::sendMessage(Message * msg, ComponentType type)
 {
 	for (Component* c : components[type]) {
-		c->receiveMessage(msg);
+		if (c->isActive())
+			c->receiveMessage(msg);
 	}
 }
 
 void ComponentContainer::update()
 {
-	for (Component* c : components[UpdateC])
-		dynamic_cast<UpdateComponent*>(c)->update();
+	for (Component* c : components[UpdateC]) {
+		if (c->isActive())
+			static_cast<UpdateComponent*>(c)->update();
+	}
 	cleanGarbage();
 }
 
 void ComponentContainer::render()
 {
-	for (Component* c : components[RenderC])
-		dynamic_cast<RenderComponent*>(c)->render();
+	for (Component* c : components[RenderC]) {
+		if (c->isActive())
+			static_cast<RenderComponent*>(c)->render();
+	}
 }
 
 void ComponentContainer::handleEvents(SDL_Event & e)
 {
 	for (Component* c : components[InputC])
-		dynamic_cast<InputComponent*>(c)->handleEvents(e);
+	{
+		if(c->isActive())
+			static_cast<InputComponent*>(c)->handleEvents(e);
+	}
 	cleanGarbage();
 }
 
