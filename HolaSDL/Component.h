@@ -11,12 +11,15 @@ class Component
 protected: 
 	GameObject* gameObject;
 	ComponentType type;
+	bool active = true;
 public:
 	//virtual void receiveMessage(std::string msg) {};
 	virtual void receiveMessage(Message* msg) {}
 	GameObject* getGameObject() { return gameObject; }
 	ComponentType getType() { return type; }
 	Component(GameObject* o) : gameObject(o) {};
+	bool isActive() { return active; }
+	void setActive(bool set) { active = set; }
 	~Component();
 };
 

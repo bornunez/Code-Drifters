@@ -139,6 +139,8 @@ void EnemyManager::killAll()
 	while (!actives.empty())
 	{
 		it = actives.begin();
+		if ((*it)->isDead())
+			(*it)->onDestroy();
 		kill(*it);
 	}
 }

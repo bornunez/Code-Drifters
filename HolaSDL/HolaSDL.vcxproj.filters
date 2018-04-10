@@ -224,7 +224,6 @@
     <ClCompile Include="LevelExplorer.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
-    <ClCompile Include="StunComponent.cpp" />
     <ClCompile Include="Hook.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
@@ -236,6 +235,15 @@
     </ClCompile>
     <ClCompile Include="HookCollisionComponent.cpp" />
     <ClCompile Include="HookAnimationComponent.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="StunComponent.cpp">
+      <Filter>UpdateComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
@@ -495,7 +503,6 @@
     <ClInclude Include="LevelExplorer.h">
       <Filter>Mapa</Filter>
     </ClInclude>
-    <ClInclude Include="StunComponent.h" />
     <ClInclude Include="Hook.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -507,6 +514,10 @@
     </ClInclude>
     <ClInclude Include="HookCollisionComponent.h" />
     <ClInclude Include="HookAnimationComponent.h" />
+    <ClInclude Include="StunComponent.h">
+      <Filter>UpdateComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="DecelerationComponent.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="CoinManager.h" />
   </ItemGroup>

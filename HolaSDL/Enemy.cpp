@@ -35,6 +35,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	minDrop = params.minDrop; maxDrop = params.maxDrop;
 	this->spawner = spawner;
 	stunned = false;
+	setDeath(false);
 }
 
 void Enemy::render() {
@@ -70,8 +71,6 @@ void Enemy::onDestroy() {
 	//Si tenemos un spawner asignado, nos destruimos
 	if(spawner != nullptr)
 		spawner->setActive(false);
-	//droppear dinero etc
-	 EnemyManager::getInstance()->kill(this);
 }
 
 void Enemy::death()

@@ -32,6 +32,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DamageableEnemyComponent.cpp" />
+    <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="DoorsCollision.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DamageableEnemyComponent.h" />
+    <ClInclude Include="DecelerationComponent.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="DoorsCollision.h" />
     <ClInclude Include="DungeonGenerator.h" />
