@@ -30,9 +30,9 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
-	transform.body.x = x; transform.body.y = y;
+	transform.body.x = x; transform.body.y = y + h/2.5;
 	transform.body.w = w/2;
-	transform.body.h = h/1.2;
+	transform.body.h = h/2.5;
 
 	loadAnimations();
 
