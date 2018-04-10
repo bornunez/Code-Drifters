@@ -26,7 +26,7 @@ MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
 //if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
-//		attackCD->update();
+	attackCD->update();
 
 	if (attackCD->TimeSinceTimerCreation >= 0.5) {
 		attackCD->restart();
