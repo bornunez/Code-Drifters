@@ -10,6 +10,8 @@
 #include "Managers.h"
 #include "Room.h"
 #include "BasicMovement.h"
+#include "PlayState.h"
+#include "Camera.h"
 HookShotComponent::HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed) : UpdateComponent(static_cast<GameObject*>(h))
 {
 	h->setActive(false);
@@ -37,7 +39,8 @@ void HookShotComponent::update()
 {
 	if (hook->isActive()) {
 		updateHookPos();
-		checkCollision();
+		if (hook->getHookStatus() == EXTEND)
+			checkCollision();
 		Vector2D hookSize = hook->getTransform()->position - hook->getOriginPosition();//Diferencia entre la pos actual del gancho y su origen
 		//cout << "ORIGEN: " << hook->getOriginPosition() << endl;
 		
@@ -93,9 +96,22 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->getTransform()->position.set(originPos);
 	hook->getTransform()->velocity.set(hookDir);
 	hook->setHookStatus(EXTEND);
-	mc->setActionState(Hooking);
+	mc->setMCState(MCState::Hooking);
 	mc->setMovable(false);
 	
+
+	SDL_Point p;
+	SDL_Rect r;
+	SDL_GetMouseState(&p.x, &p.y);
+	Vector2D displayPosition;//Posición del personaje relativa a la cámara
+	displayPosition = hook->getDisplayPos();
+
+	float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));//Angulo entre el cursor y el jugador, en grados
+
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+	hook->setAngle(angle);
 }
 
 void HookShotComponent::extend()//Extiende el gancho en la dirección de disparo
@@ -118,6 +134,8 @@ void HookShotComponent::contract()//Retrae la punta del gancho
 
 	t->position.set(t->position - t->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
 	t->body.x = t->position.getX(); t->body.y = t->position.getY();
+
+	updateHookAngle();
 }
 
 void HookShotComponent::moveEnemy()//Cambia la posición del enemigo según la posición del gancho
@@ -167,7 +185,7 @@ void HookShotComponent::stop()
 {
 	hook->setHookStatus(STOP);
 	hook->setActive(false);
-	mc->setActionState(Idle);
+	mc->setMCState(MCState::Idle);
 	mc->setMovable(true);	
 }
 
@@ -205,6 +223,23 @@ void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con u
 			}
 		}
 	}
+}
+
+void HookShotComponent::updateHookAngle()
+{
+	//SDL_Point p;
+	//SDL_Rect r;
+	//SDL_GetMouseState(&p.x, &p.y);
+	Vector2D displayPosition;//Posición del personaje relativa a la cámara
+	displayPosition = mc->getCenterPos();
+
+	//float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));//Angulo entre el cursor y el jugador, en grados
+
+	float angle = (atan2(hook->getCenterPos().getY() - displayPosition.getY(), hook->getCenterPos().getX() - displayPosition.getX()));
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+	hook->setAngle(angle);
 }
 
 
