@@ -16,7 +16,6 @@ protected:
 	list<GameObject*>gameObjects;
 	Game* game;
 	void cleanGarbage();
-	CoinManager* CM;
 public:
 	GameState();
 	virtual ~GameState();

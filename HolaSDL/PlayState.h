@@ -23,7 +23,7 @@ private:
 
 	static PlayState* instance;
 
-
+	//CoinManager* CM;
 	//enemigo temporal
 	ExampleEnemy* enemy;
 	PlayState();

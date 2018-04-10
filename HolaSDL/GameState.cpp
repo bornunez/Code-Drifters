@@ -20,8 +20,7 @@ void GameState::cleanGarbage()
 GameState::GameState()
 {
 	game = Game::getGame();
-	CM = new CoinManager();
-	CM->Drop(13);
+
 }
 
 GameState::~GameState()

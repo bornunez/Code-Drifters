@@ -14,7 +14,8 @@ PlayState* PlayState::instance = nullptr;
 
 PlayState::PlayState():GameState ()
 {
-
+	//CM = new CoinManager();
+	//CM->Drop(13);
 }
 
 
