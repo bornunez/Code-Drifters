@@ -129,7 +129,7 @@ void MCAnimationComponent::handleAnimationStates()
 {
 	//IDLE POSITIONS
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-	if (gameObject->getCurrentAnimation()->isFinished() || mc->getActionState() == Idle) {
+	if (gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
 			gameObject->changeCurrentAnimation("IDLE_RIGHT");
@@ -145,7 +145,7 @@ void MCAnimationComponent::handleAnimationStates()
 		}
 	}
 	//RUN POSITIONS
-	if (mc->getActionState() == Run) {
+	if (mc->getMCState() == MCState::Run) {
 
 		Message msg(NO_ID);
 

@@ -15,7 +15,7 @@
 #include <iostream>
 #include "EnemyGunner.h"
 #include "CollisionHandler.h"
-
+#include "Time.h"
 
 MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 {
@@ -25,13 +25,13 @@ MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
-if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
+if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 		attackCD->update();
 
 	if (attackCD->TimeSinceTimerCreation >= 0.5) {
 		attackCD->restart();
 		comboAttack = First;
-		static_cast<MainCharacter*>(gameObject)->setActionState(Idle);		//La animacion vuelve a idle
+		static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Idle);		//La animacion vuelve a idle
 		static_cast<MainCharacter*>(gameObject)->setMovable(true);
 	}
 	//if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
@@ -39,13 +39,13 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 
 	//	attackCD->restart();
 	//	comboAttack = First;
-	//	static_cast<MainCharacter*>(gameObject)->setActionState(Idle);		//La animacion vuelve a idle
+	//	static_cast<MainCharacter*>(gameObject)->setMCState(Idle);		//La animacion vuelve a idle
 	//	static_cast<MainCharacter*>(gameObject)->setMovable(true);
 	//}
 
 
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (static_cast<MainCharacter*>(gameObject)->getActionState() != Hooking) {
+		if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Hooking) {
 			int mouseX, mouseY;
 			SDL_Point p;
 			SDL_Rect r;
@@ -64,6 +64,15 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 			angle = angle * 180 / M_PI;
 			if (angle < 0)
 				angle += 360;
+		
+			displayPosition = (mc->getTransform()->position - PlayState::getInstance()->getCamera()->getTransform()->position);
+
+			mc->getTransform()->direction = { p.x - displayPosition.getX(), p.y - displayPosition.getY()};//Resta la posición del cursor al del personaje
+
+			mc->getTransform()->direction.normalize();											//Halla el vector de dirección 
+			mc->getTransform()->velocity = mc->getTransform()->direction * ATTACK_MOV;			//Multiplica por cuanto debe moverse
+			mc->getTransform()->position = mc->getTransform()->position + mc->getTransform()->velocity * mc->getTransform()->speed * (min((float)1, Time::getInstance()->DeltaTime));
+
 
 
 
@@ -86,7 +95,7 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 
 			if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
 				//Pasa el estado a atacando
-				mc->setActionState(Attack);
+				mc->setMCState(MCState::Attack);
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK1_TOPLEFT;
@@ -119,7 +128,7 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 			else if (comboAttack == Second) {
 				attackCD->restart();
 				//Pasa el estado a atacando
-				mc->setActionState(Attack);
+				mc->setMCState(MCState::Attack);
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK2_TOPLEFT;
@@ -151,7 +160,7 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 			else if (comboAttack == Third) {
 				attackCD->restart();
 				//Pasa el estado a atacando
-				mc->setActionState(Attack);
+				mc->setMCState(MCState::Attack);
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK3_TOPLEFT;
