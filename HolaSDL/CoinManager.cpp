@@ -69,4 +69,18 @@ Coin * CoinManager::getCoin(CoinType type)
 	}
 }
 
+void CoinManager::render() {
+	for (int i = 0; i < coins.size(); i++) {
+		if (coins[i]->isActive())
+			coins[i]->render();
+	}
+}
+
+void CoinManager::update() {
+	for (int i = 0; i < coins.size(); i++) {
+		if (coins[i]->isActive())
+			coins[i]->update();
+	}
+}
+
 
