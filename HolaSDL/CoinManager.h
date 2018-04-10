@@ -6,9 +6,9 @@ class CoinManager
 public:
 	void Drop(int valueToDrop);
 	CoinManager();
-	~CoinManager();
+	virtual ~CoinManager();
 	std::vector<Coin*> getCoins();
-	Coin* getCoin();
+	Coin* getCoin(CoinType type);
 protected:
 	std::vector<Coin*> coins;
 };

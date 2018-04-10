@@ -2,10 +2,10 @@
 
 
 
-Coin::Coin(Texture* text, Transform pos, CoinType val) : GameObject()
+Coin::Coin(Texture* text, CoinType val) : GameObject(text,{0,0},10,10)
 {
-	texture = text;
-	transform = pos;
+	//texture = text;
+	//transform = pos;
 	value = val;
 }
 

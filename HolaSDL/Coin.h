@@ -9,13 +9,13 @@ enum class CoinType
 class Coin : public GameObject
 {
 public:
-	Coin(Texture* text, Transform pos, CoinType val);
-	~Coin();
+	Coin(Texture* text, CoinType val);
+	virtual ~Coin();
 	virtual void render();
 	virtual void update();
 	virtual void handleEvents(SDL_Event& e);
 	CoinType getCoinType();
 private:
-	CoinType value = CoinType::TenCoin
+	CoinType value = CoinType::TenCoin;
 };
 
