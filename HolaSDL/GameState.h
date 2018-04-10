@@ -4,7 +4,7 @@
 #include <queue>
 #include "GameObject.h"
 
-
+#include"CoinManager.h"
 using namespace std;
 
 class Game;
@@ -16,6 +16,7 @@ protected:
 	list<GameObject*>gameObjects;
 	Game* game;
 	void cleanGarbage();
+	CoinManager* CM;
 public:
 	GameState();
 	virtual ~GameState();
