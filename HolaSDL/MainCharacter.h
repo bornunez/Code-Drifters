@@ -8,7 +8,8 @@
 class HookShotComponent;
 class PlayState;
 class MCAnimationComponent;
-enum ActionState { Idle, Run, Attack, Shoot, Hooking, Hurt, Heal };
+enum class MCState { Idle, Run, Attack, Shoot, Hooking, Hurt, Heal };
+
 class MainCharacter : public GameObject
 {
 private:
@@ -17,7 +18,7 @@ private:
 	float maxVelocity;
 	float normalAttackDamage;
 	float chargedAttackDamage;
-	ActionState actionState = Idle;
+	MCState mcState = MCState::Idle;
 	int maxBullets;
 	int currentBullets;
 	int reloadTime;
@@ -56,8 +57,8 @@ public:
 	void substractHP(int damage);
 	int getReloadTime();
 	void setReloadTime(int miliseconds);
-	void setActionState(ActionState actionState) { this->actionState = actionState; };
-	ActionState getActionState() { return actionState; };
+	void setMCState(MCState state) { this->mcState = state; };
+	MCState getMCState() { return mcState; };
 	
 	//HOOK
 	Hook getHook() { return hook; }
