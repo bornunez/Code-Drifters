@@ -9,7 +9,7 @@
  </layer>
  <layer name="Decoracion" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJztzyEOACAIQFGupjZtRu5/EA0GKwZx+N/GRiB8RACcqHPa2vMjHbt0OySo7h1gpMb76P/9rHgHAAAAAHAzAI9LA0k=
+   eJztzyEOwCAQRFFM6zhUWwcOyf0PwoqK2kUwZPtfMglixSclADOKrb7ve5OOr2t1SFBNHeDUnffR//dnjzoAAABA5LBl26kOAYQG16cDYQ==
   </data>
  </layer>
  <layer name="Aire" width="44" height="29">
@@ -34,19 +34,7 @@
   <object id="13" name="Down" gid="56" x="432" y="352" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="1" name="Spawn" gid="64" x="352" y="112" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="true"/>
-   </properties>
-  </object>
   <object id="14" name="Spawn" gid="64" x="608" y="112" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="15" name="Spawn" gid="64" x="656" y="256" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="true"/>
@@ -58,12 +46,6 @@
     <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="17" name="Spawn" gid="64" x="160" y="160" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
   <object id="18" name="Spawn" gid="64" x="160" y="256" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
@@ -71,4 +53,5 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup name="Animados"/>
 </map>

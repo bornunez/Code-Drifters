@@ -3,6 +3,9 @@
 #include "Vector2D.h"
 #include "Timer.h"
 
+//Este numero define cuanto se mueve el personaje cuando ataca
+const int ATTACK_MOV = 3;
+
 class MCAttackComponent : public InputComponent
 {
 private:

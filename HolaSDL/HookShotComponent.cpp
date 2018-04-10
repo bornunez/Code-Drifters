@@ -96,7 +96,7 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->getTransform()->position.set(originPos);
 	hook->getTransform()->velocity.set(hookDir);
 	hook->setHookStatus(EXTEND);
-	mc->setActionState(Hooking);
+	mc->setMCState(MCState::Hooking);
 	mc->setMovable(false);
 	
 
@@ -185,7 +185,7 @@ void HookShotComponent::stop()
 {
 	hook->setHookStatus(STOP);
 	hook->setActive(false);
-	mc->setActionState(Idle);
+	mc->setMCState(MCState::Idle);
 	mc->setMovable(true);	
 }
 
