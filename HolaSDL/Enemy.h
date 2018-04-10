@@ -39,6 +39,7 @@ public:
 	virtual void render();
 	virtual void update();
 	void onDestroy();
+	void death();
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();

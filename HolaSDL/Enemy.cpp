@@ -74,3 +74,11 @@ void Enemy::onDestroy() {
 	 EnemyManager::getInstance()->kill(this);
 }
 
+void Enemy::death()
+{
+	setMovable(false);
+	setDeath(true);
+	Message msg(ENEMY_DEATH);
+	sendMessage(&msg);
+}
+
