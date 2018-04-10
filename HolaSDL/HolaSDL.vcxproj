@@ -102,6 +102,7 @@
     <ClCompile Include="TurretShotComponent.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="WallStunComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="TurretShotComponent.h" />
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="WallStunComponent.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>
