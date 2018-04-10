@@ -9,6 +9,7 @@ private:
 	Vector2D hookDirection;
 	float hookLength;
 	HookStatus hs;
+	float angle;
 public:
 	Hook(float hookLength);
 	virtual ~Hook();
@@ -19,5 +20,7 @@ public:
 	void setHookDirection(Vector2D dir) { transform.velocity.set(dir); }
 	HookStatus getHookStatus() { return hs; }
 	void setHookStatus(HookStatus hs) { this->hs = hs; }
+	float getAngle() { return angle; }
+	void setAngle(float a) { angle = a; }
 };
 
