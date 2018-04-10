@@ -56,6 +56,16 @@
    eJxjYBgFo4D2YBsQbwfiHQPtkFFAVQAA8AkCJg==
   </data>
  </layer>
+ <layer name="DamageLeft1" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwVkAnEWEGcDcc4Au2UUDA8AANolAas=
+  </data>
+ </layer>
+ <layer name="DamageLeft2" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxXkAnEeEOcDccEAu2UUDE0AAONlAbs=
+  </data>
+ </layer>
  <layer name="ShotLeft" width="17" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFowA/WATEi4F4yUA7ZBQMOgAABEwB6g==
