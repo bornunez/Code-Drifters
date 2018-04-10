@@ -180,6 +180,16 @@
    eJxjYBgFpIBIII4C4mggjhlgt4yCUTDQAABQjAFr
   </data>
  </layer>
+ <layer name="DeathRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFtAa1QFwHxPVA3ADEjUDcBMTNQNwycM4aBaOAYgAAR3UEBQ==
+  </data>
+ </layer>
+ <layer name="DeathLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQwFMBOJJQDwZiKcA8VQgngbE04F4BhDPBOJZA+a6UTBSAQDAUgXY
+  </data>
+ </layer>
  <objectgroup name="IdleBot">
   <object id="53" name="Hithurtbox" type="0" x="28.1818" y="721.636" width="8" height="27.6364"/>
   <object id="90" name="GunPosition" type="0" x="30.0625" y="740.219" width="0.875" height="1.1875"/>

@@ -27,7 +27,7 @@
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w = transform.body.h = 96;
+	transform.body.w = transform.body.h = 32*Game::getGame()->getScale();
 	loadAnimations();
 	facing = LEFT;
 	//this->addComponent(new ChaseComponent(this, getMC()));

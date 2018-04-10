@@ -103,6 +103,12 @@ void EnemyGunner::loadAnimations()
 	animations.emplace("DAMAGE_RIGHT2", damageRight2);
 	animations.emplace("DAMAGE_LEFT1", damageLeft1);
 	animations.emplace("DAMAGE_LEFT2", damageLeft2);
+
+	Animation* deathRight = AnimationParser::parseAnimation(tileset, animationPath, "DeathRight", this, 0, 0, false, 0.10);
+	Animation* deathLeft = AnimationParser::parseAnimation(tileset, animationPath, "DeathLeft", this, 0, 0, false, 0.10);
+
+	animations.emplace("DEATH_RIGHT", deathRight);
+	animations.emplace("DEATH_LEFT", deathLeft);
 }
 
 

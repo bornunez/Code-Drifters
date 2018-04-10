@@ -22,7 +22,6 @@ MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
-	attackCD->update();
 if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 		attackCD->update();
 	if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque

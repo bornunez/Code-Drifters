@@ -46,16 +46,6 @@
    eJxjYBgFo2DkgHtAfB+IHwywO4YLAABoAQKe
   </data>
  </layer>
- <layer name="DamageLeft1" width="17" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFtAaZQJwFxNlAnDPAbhkFo4CaAAC8hAGr
-  </data>
- </layer>
- <layer name="DamageLeft2" width="17" height="16">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgF9Aa5QJwHxPlAXDDAbhkFo4ASAADORAG7
-  </data>
- </layer>
  <layer name="ShotBotLeft" width="17" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2BogFNAfBqIzwy0Q0YBHAAAu/UCYg==
@@ -188,6 +178,16 @@
  <layer name="DamageRight2" width="17" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFpIBIII4C4mggjhlgt4yCUTDQAABQjAFr
+  </data>
+ </layer>
+ <layer name="DeathRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFtAa1QFwHxPVA3ADEjUDcBMTNQNwycM4aBaOAYgAAR3UEBQ==
+  </data>
+ </layer>
+ <layer name="DeathLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQwFMBOJJQDwZiKcA8VQgngbE04F4BhDPBOJZA+a6UTBSAQDAUgXY
   </data>
  </layer>
  <objectgroup name="IdleBot">
