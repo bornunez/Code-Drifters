@@ -15,23 +15,33 @@
 #include <iostream>
 #include "EnemyGunner.h"
 #include "CollisionHandler.h"
+
+
 MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
 {
+	//ResetAttack y AttackDelay
 	attackCD = new Timer();
 }
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
-if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
-		attackCD->update();
-	if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
-		(attackCD->TimeSinceTimerCreation >= 0.75)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
+//if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
+//		attackCD->update();
 
+	if (attackCD->TimeSinceTimerCreation >= 0.5) {
 		attackCD->restart();
 		comboAttack = First;
 		static_cast<MainCharacter*>(gameObject)->setActionState(Idle);		//La animacion vuelve a idle
 		static_cast<MainCharacter*>(gameObject)->setMovable(true);
 	}
+	//if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
+	//	(attackCD->TimeSinceTimerCreation >= 0.75)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
+
+	//	attackCD->restart();
+	//	comboAttack = First;
+	//	static_cast<MainCharacter*>(gameObject)->setActionState(Idle);		//La animacion vuelve a idle
+	//	static_cast<MainCharacter*>(gameObject)->setMovable(true);
+	//}
 
 
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
@@ -55,7 +65,8 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 			if (angle < 0)
 				angle += 360;
 
-			//attackCD->update();
+
+
 
 			if (comboAttack == First)
 				attackCD->restart();
@@ -104,7 +115,9 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 				}
 				comboAttack = Second;
 			}
-			else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
+			//else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
+			else if (comboAttack == Second) {
+				attackCD->restart();
 				//Pasa el estado a atacando
 				mc->setActionState(Attack);
 
@@ -134,7 +147,9 @@ if(static_cast<MainCharacter*>(gameObject)->getActionState()==Attack)
 				}
 				comboAttack = Third;
 			}
-			else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
+			//else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
+			else if (comboAttack == Third) {
+				attackCD->restart();
 				//Pasa el estado a atacando
 				mc->setActionState(Attack);
 
