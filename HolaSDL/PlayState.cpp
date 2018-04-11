@@ -10,6 +10,7 @@
 #include "Managers.h"
 #include "Minimap.h"
 #include "CollisionsManager.h"
+#include "ItemManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -42,6 +43,7 @@ void PlayState::render()
 	EnemyManager::getInstance()->render();
 	minimap->render();
 	BulletManager::getInstance()->render();
+	ItemManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -100,8 +102,7 @@ void PlayState::loadState()
 	EnemyManager::getInstance()->init(mainCharacter);
 	CollisionsManager::getInstance();
 	BulletManager::createInstance();
-
 	LevelManager::getInstance()->getFirstRoom()->spawn();
-
-
+	ItemManager::getInstance()->init();
+	ItemManager::getInstance()->AddItem(Enemies);
 }

@@ -229,3 +229,8 @@ void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
 {
 	hookShot->shoot(originPos, hookDir);
 }
+
+void MainCharacter::addHP(int life)
+{
+	HP += life;
+}
