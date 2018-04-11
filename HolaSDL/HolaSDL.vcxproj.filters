@@ -199,7 +199,6 @@
     <ClCompile Include="TurretShotComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="BulletManager.cpp">
       <Filter>Managers\Source</Filter>
     </ClCompile>
@@ -233,13 +232,6 @@
     <ClCompile Include="HookShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="HookCollisionComponent.cpp" />
-    <ClCompile Include="HookAnimationComponent.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="GameStateMachine.cpp" />
-    <ClCompile Include="MainMenuState.cpp" />
-    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -247,13 +239,43 @@
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Coin.cpp" />
-    <ClCompile Include="CoinManager.cpp" />
     <ClCompile Include="StunComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
     <ClCompile Include="WallStunComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HookCollisionComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="HookAnimationComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinManager.cpp">
+      <Filter>Managers\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButton.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemManager.cpp">
+      <Filter>Managers\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -484,7 +506,6 @@
     <ClInclude Include="TurretShotComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="BulletManager.h">
       <Filter>Managers\Header</Filter>
     </ClInclude>
@@ -515,17 +536,27 @@
     <ClInclude Include="HookShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="HookCollisionComponent.h" />
-    <ClInclude Include="HookAnimationComponent.h" />
     <ClInclude Include="DecelerationComponent.h" />
     <ClInclude Include="Coin.h" />
-    <ClInclude Include="CoinManager.h" />
     <ClInclude Include="StunComponent.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
     <ClInclude Include="WallStunComponent.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
+    <ClInclude Include="HookAnimationComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="HookCollisionComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinManager.h">
+      <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButton.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -596,6 +627,9 @@
     </Filter>
     <Filter Include="Managers\Source">
       <UniqueIdentifier>{fb2f079d-3ef6-4266-accc-18582f5c0bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Estados\Source">
+      <UniqueIdentifier>{64be611b-66dc-47a5-ba24-c9045f904bdd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

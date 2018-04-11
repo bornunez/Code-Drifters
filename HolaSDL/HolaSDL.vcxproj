@@ -58,6 +58,8 @@
     <ClCompile Include="HookCollisionComponent.cpp" />
     <ClCompile Include="HookShotComponent.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="ItemManager.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LevelExplorer.cpp" />
@@ -153,6 +155,7 @@
     <ClInclude Include="HookAnimationComponent.h" />
     <ClInclude Include="HookCollisionComponent.h" />
     <ClInclude Include="HookShotComponent.h" />
+    <ClInclude Include="ItemObject.h" />
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="Managers.h" />

@@ -67,6 +67,11 @@ enum MessageId {
 	ENEMY_BULLET_COLLISION,
 	HIT_WALL,
 
+	//Gancho
+	HOOK_FAIL,
+	HOOK_EMPTY,
+	HOOK_STOP,
+
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID
 };

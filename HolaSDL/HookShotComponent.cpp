@@ -28,31 +28,36 @@ void HookShotComponent::receiveMessage(Message* msg) {
 	if (msg->id == ENEMY_HOOKED) {
 		//enemyHooked = static_cast<HookedMessage*>(msg)->gameObject;
 		moveEnemy();
-		hook->setHookStatus(MOVE_ENEMY);
+		hook->setHookStatus(HookStatus::MOVE_ENEMY);
 	}
 	else if (msg->id == WALL_HOOKED) {
 		moveMC();
-		hook->setHookStatus(MOVE_MC);
+		hook->setHookStatus(HookStatus::MOVE_MC);
+	}
+	else if (msg->id == HOOK_STOP) {
+		stop();
 	}
 }
 void HookShotComponent::update()
 {
 	if (hook->isActive()) {
 		updateHookPos();
-		if (hook->getHookStatus() == EXTEND)
+		if (hook->getHookStatus() == (HookStatus::EXTEND))
 			checkCollision();
 		Vector2D hookSize = hook->getTransform()->position - hook->getOriginPosition();//Diferencia entre la pos actual del gancho y su origen
 		//cout << "ORIGEN: " << hook->getOriginPosition() << endl;
 		
-		if (hook->getHookStatus() == EXTEND) {
+		if (hook->getHookStatus() == HookStatus::EXTEND) {
 			if (hookSize.magnitude() < hook->getLength()) {
 				extend();
 			}
 			else {
-				hook->setHookStatus(CONTRACT);
+				hook->setHookStatus(HookStatus::EMPTY);
+				Message msg(HOOK_EMPTY);
+				mc->sendMessage(&msg);
 			}
 		}		
-		else if (hook->getHookStatus() == CONTRACT) {
+		else if (hook->getHookStatus() == HookStatus::EMPTY) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 			}
@@ -60,7 +65,7 @@ void HookShotComponent::update()
 				stop();
 			}
 		}
-		else if (hook->getHookStatus() == MOVE_ENEMY) {
+		else if (hook->getHookStatus() == HookStatus::MOVE_ENEMY) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 				moveEnemy();
@@ -70,7 +75,7 @@ void HookShotComponent::update()
 				enemyHooked->setMovable(true);
 			}
 		}
-		else if (hook->getHookStatus() == MOVE_MC) {
+		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
 			}
@@ -95,7 +100,7 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->setOriginPosition(originPos);
 	hook->getTransform()->position.set(originPos);
 	hook->getTransform()->velocity.set(hookDir);
-	hook->setHookStatus(EXTEND);
+	hook->setHookStatus(HookStatus::EXTEND);
 	mc->setMCState(MCState::Hooking);
 	mc->setMovable(false);
 	
@@ -175,7 +180,9 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 		*mcT = auxT;
 	}
 	else {
-		hook->setHookStatus(CONTRACT);
+		hook->setHookStatus(HookStatus::EMPTY);
+		Message msg(HOOK_EMPTY);
+		mc->sendMessage(&msg);
 		contract();
 	}
 
@@ -183,7 +190,7 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 
 void HookShotComponent::stop()
 {
-	hook->setHookStatus(STOP);
+	hook->setHookStatus(HookStatus::STOP);
 	hook->setActive(false);
 	mc->setMCState(MCState::Idle);
 	mc->setMovable(true);	
@@ -200,7 +207,7 @@ void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con u
 			uint i = 0;
 			while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo				
 				if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
-					hook->setHookStatus(MOVE_ENEMY);
+					hook->setHookStatus(HookStatus::MOVE_ENEMY);
 					enemyHooked = e;
 					e->setMovable(false);
 				}
@@ -219,7 +226,7 @@ void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con u
 		if (tl != nullptr) {
 			if (CollisionHandler::Collide(hook->getTransform(), tl)) {
 				collision = true;
-				hook->setHookStatus(MOVE_MC);
+				hook->setHookStatus(HookStatus::MOVE_MC);
 			}
 		}
 	}
