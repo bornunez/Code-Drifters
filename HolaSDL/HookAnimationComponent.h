@@ -10,6 +10,8 @@ public:
 	HookAnimationComponent(Hook* o, Texture* hookChainTex, Texture* hookHeadTex,double angle = 0, int fps = 100, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void receiveMessage(std::string msg) {};
 	void render();
+	void renderHookHead();
+	void renderHookChains();
 	virtual ~HookAnimationComponent();
 	void setAngle(float angle);
 	void setFlip(SDL_RendererFlip flip);

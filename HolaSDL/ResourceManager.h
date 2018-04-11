@@ -34,7 +34,7 @@ private:
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ 
 		{ "MCBullet.png", 1, 1 },
 		{ "GunnerBullet.png", 1, 1 },
-		{ "HookChain.png", 1,4},
+		{ "HookChain.png", 1,1},
 		{"HookHead.png", 1 ,2},
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },

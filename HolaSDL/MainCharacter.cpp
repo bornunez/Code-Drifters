@@ -55,6 +55,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(hookShot);
 	addComponent(new MCHookInputComponent(this));
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookHead)));
+
 	setCurrentBullets(4);
 	setReloadTime(4);
 	setMaxBullets(4);

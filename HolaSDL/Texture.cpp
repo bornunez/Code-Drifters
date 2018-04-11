@@ -113,3 +113,14 @@ void Texture::render(const SDL_Rect& dest, double angle, SDL_Rect* clip) const {
 		SDL_RenderCopyEx(renderer, texture, clip, &dest, angle, nullptr, SDL_FLIP_NONE);
 	}
 }
+
+
+void Texture::render(SDL_Rect const& dest, double angle, SDL_Point* center, SDL_Rect* clip) const {
+	if (texture) {
+		SDL_Rect default_clip = { 0, 0, width, height };
+		if (clip == nullptr) {
+			clip = &default_clip;
+		}
+		SDL_RenderCopyEx(renderer, texture, clip, &dest, angle, center, SDL_FLIP_NONE);
+	}
+}

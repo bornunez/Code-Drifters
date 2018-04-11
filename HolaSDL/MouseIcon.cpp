@@ -16,5 +16,5 @@ void MouseIcon::drawIcon(SDL_Event & e)
 		this->mouseX = e.motion.x;
 		this->mouseY = e.motion.y;
 	}
-	texture->render(mouseX, mouseY);
+	texture->render(mouseX - texture->getWidth()/2, mouseY - texture->getHeight()/2);
 }

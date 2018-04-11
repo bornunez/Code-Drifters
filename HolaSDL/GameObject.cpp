@@ -69,8 +69,8 @@ void GameObject::handleEvents(SDL_Event & e)
 
 void GameObject::updateCenterPosition()
 {
-	centerPosition.setX(transform.position.getX() + transform.body.w / 2);
-	centerPosition.setY(transform.position.getY() + transform.body.h / 2);
+	centerPosition.setX(transform.body.x + transform.body.w / 2);
+	centerPosition.setY(transform.body.y + transform.body.h / 2);
 }
 
 void GameObject::updateDisplayPosition()

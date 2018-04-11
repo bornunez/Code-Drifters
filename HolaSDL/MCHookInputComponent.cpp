@@ -19,8 +19,6 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 	if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Hooking) {
 		if (e.key.keysym.sym == SDLK_SPACE && e.type == SDL_KEYDOWN) {
 			if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Attack) {
-
-
 				int mouseX, mouseY;
 				SDL_Point p;
 				SDL_Rect r;
@@ -28,19 +26,21 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 				cursorPos.setX(p.x);
 				cursorPos.setY(p.y);//Posición del cursor en pantalla
 
-							  //Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
+				//Cambia la posición de donde sala el gancho,  HAY QUE CAMBIARLO PARA QUE SALGA DEL GUNPOSITION BUENO
 				Vector2D gunPosition;
-				gunPosition.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-				gunPosition.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
-				mc->setGunPosition(gunPosition);
+				gunPosition = mc->getCenterPos();
 
-				Vector2D displayPosition;//Posición del personaje relativa a la cámara
-				displayPosition = (gunPosition
-					- PlayState::getInstance()->getCamera()->getTransform()->position);
+				Vector2D displayPosition = mc->getDisplayCenterPos();
+
+				Vector2D targetPosition;//Es la posición donde llega el gancho, se tiene en cuenta que el centro del gancho debe llegar al punto justo del cursor
+				targetPosition = cursorPos;
+				targetPosition.setX(targetPosition.getX()-mc->getHook().getTransform()->body.w/2);
+				targetPosition.setY(targetPosition.getY() - mc->getHook().getTransform()->body.h / 2);
 
 				Vector2D hookDirection;
-				hookDirection = cursorPos - displayPosition;
+				hookDirection = targetPosition - displayPosition;
 				hookDirection.normalize();
+				
 
 				mc->shootHook(gunPosition, hookDirection);
 			}

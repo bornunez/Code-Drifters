@@ -25,6 +25,7 @@ public:
 	void render(int x, int y) const;
 	void render(SDL_Rect const& dest, SDL_Rect* clip = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 	void render(SDL_Rect const& dest, double angle, SDL_Rect* clip = nullptr) const;
+	void render(SDL_Rect const& dest, double angle, SDL_Point* center, SDL_Rect* clip = nullptr) const;
 	void close();
 
 private:
