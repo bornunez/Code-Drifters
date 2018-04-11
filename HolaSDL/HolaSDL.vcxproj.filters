@@ -240,9 +240,6 @@
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PlayState.cpp" />
-    <ClCompile Include="StunComponent.cpp">
-      <Filter>UpdateComponent</Filter>
-    </ClCompile>
     <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -251,6 +248,12 @@
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="CoinManager.cpp" />
+    <ClCompile Include="StunComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="WallStunComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -514,12 +517,15 @@
     </ClInclude>
     <ClInclude Include="HookCollisionComponent.h" />
     <ClInclude Include="HookAnimationComponent.h" />
-    <ClInclude Include="StunComponent.h">
-      <Filter>UpdateComponent</Filter>
-    </ClInclude>
     <ClInclude Include="DecelerationComponent.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="CoinManager.h" />
+    <ClInclude Include="StunComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="WallStunComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

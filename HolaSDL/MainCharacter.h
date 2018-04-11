@@ -22,7 +22,7 @@ private:
 	int maxBullets;
 	int currentBullets;
 	int reloadTime;
-	Vector2D gunPosition;//Posición de donde sale la bala
+	Vector2D gunPosition;//Posiciï¿½n de donde sale la bala
 	Hook hook;
 	
 	HookShotComponent* hookShot;
@@ -43,11 +43,11 @@ public:
 	int getCurrentBullets();
 	void setMaxBullets(int bullets);
 	int getMaxBullets();
-	float getNormalAttackDamage();//Devuelve el daño que hace el ataque normal
-	void setNormalAttackDamage(float dmg);//Cambia el daño que hace el ataque normal
-	float getChargedAttackDamage();//Devuelve el daño que hace el ataque normal
-	void setChargedAttackDamage(float dmg);//Cambia el daño que hace el ataque normal
-	float getAttackDamage(std::string attackType);//Según el ataque que sea, devuelve su daño
+	float getNormalAttackDamage();//Devuelve el daï¿½o que hace el ataque normal
+	void setNormalAttackDamage(float dmg);//Cambia el daï¿½o que hace el ataque normal
+	float getChargedAttackDamage();//Devuelve el daï¿½o que hace el ataque normal
+	void setChargedAttackDamage(float dmg);//Cambia el daï¿½o que hace el ataque normal
+	float getAttackDamage(std::string attackType);//Segï¿½n el ataque que sea, devuelve su daï¿½o
 	void setMaxVelocity(float vel);
 	float getVelocity();
 	float getMaxVelocity();
@@ -55,6 +55,7 @@ public:
 	Vector2D getGunPosition();
 	void setGunPosition(Vector2D pos);
 	void substractHP(int damage);
+	void addHP(int life);
 	int getReloadTime();
 	void setReloadTime(int miliseconds);
 	void setMCState(MCState state) { this->mcState = state; };

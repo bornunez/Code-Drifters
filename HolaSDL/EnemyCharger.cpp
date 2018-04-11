@@ -18,6 +18,7 @@
 #include "KnockbackComponent.h"
 #include "ChargerComponent.h"
 #include "DamageableEnemyComponent.h"
+#include "WallStunComponent.h"
 //#include "ChargeComponent.h"
 //#include "ChaseComponent.h"
 
@@ -31,8 +32,10 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	facing = LEFTs;
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
-	addComponent(new KnockbackComponent(this, 10000, "Paredes"));
-	this->addComponent(new BasicMovement(this, "Paredes"));
+	vector<string> collisionLayers = { "Paredes","Aire" };
+	addComponent(new KnockbackComponent(this, 10000, collisionLayers));
+	addComponent(new WallStunComponent(this, 4.0));
+	this->addComponent(new BasicMovement(this, collisionLayers));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations));
 	this->addComponent(new ChargerComponent(this, getMC(), 1, 1.5, 2));
 	addComponent(new BasicInvincibleComponent(this, 100));

@@ -68,7 +68,8 @@ void BasicMovement::update()
 		}
 		//Si hay colision lo notificamos
 		if (collisionX || collisionY) {
-			//MANDAR MENSAJE
+			Message msg(HIT_WALL);
+			gameObject->sendMessage(&msg);
 		}
 	}
 }

@@ -79,5 +79,6 @@ void Enemy::death()
 	setDeath(true);
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
+	cout << "me he morido";
 }
 
