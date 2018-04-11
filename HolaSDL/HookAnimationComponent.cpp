@@ -98,7 +98,7 @@ void HookAnimationComponent::renderHookFail()
 	float hookLength = hookSize.magnitude();
 	
 	hookFailAnim->update();
-	if (hookFailAnim->TimeSinceTimerCreation*1000>50) {
+	if (hookFailAnim->TimeSinceTimerCreation*1000>20) {
 		hookFailSprite++;
 		hookFailAnim->restart();
 	}

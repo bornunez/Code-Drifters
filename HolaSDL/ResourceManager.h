@@ -35,7 +35,7 @@ private:
 		{ "MCBullet.png", 1, 1 },
 		{ "GunnerBullet.png", 1, 1 },
 		{ "HookChain.png", 1,2},
-		{"HookChainFail.png",2,7},
+		{"HookChainFail.png",2,13},
 		{"HookHead.png", 1 ,2},
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
