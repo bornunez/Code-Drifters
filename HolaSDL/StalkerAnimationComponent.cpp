@@ -43,14 +43,18 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 }
 
 void StalkerAnimationComponent::handleAnimation()
-{
-	
-	if (gameObject->getCenterPos().getX() + 10 <= target->getCenterPos().getX() && es->facing == LEFT) {		//Si est� mirando a la izquierda gir		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
-		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+{	
+
+	if (gameObject->getCenterPos().getX() > target->getCenterPos().getX() && es->facing == RIGHT) {//Si está mirando a la izq gira a la derecha 
+		
+		gameObject->flipAllAnimations(SDL_FLIP_HORIZONTAL);
+		es->facing = LEFT;
+		cout << "Gira Izquierda" << endl;
+		
+	}
+	else if (gameObject->getCenterPos().getX() <= target->getCenterPos().getX() && es->facing == LEFT) {
+		gameObject->flipAllAnimations(SDL_FLIP_NONE);
 		es->facing = RIGHT;
 	}
-	else if (gameObject->getCenterPos().getX() - 10 > target->getCenterPos().getX() && es->facing == RIGHT) {
-		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
-		es->facing = LEFT;
-	}
+	
 }

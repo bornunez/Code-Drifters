@@ -3,7 +3,7 @@
 #include "PlayState.h"
 #include "Game.h"
 #include "Camera.h"
-
+#include "Animation.h"
 GameObject::GameObject()
 {
 	this->game = Game::getGame();
@@ -88,6 +88,16 @@ void GameObject::updateDisplayCenterPosition()
 Animation * GameObject::getCurrentAnimation()
 {
 	return currentAnimation;
+}
+
+void GameObject::flipAllAnimations(SDL_RendererFlip flip)
+{
+	map<const char*, Animation*>::iterator it;
+
+	for (it = animations.begin(); it != animations.end(); it++)
+	{
+		it->second->setFlip(flip);
+	}
 }
 
 void GameObject::changeCurrentAnimation(const char * animName)
