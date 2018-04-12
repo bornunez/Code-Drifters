@@ -28,7 +28,7 @@
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w =32*Game::getGame()->getScale()/2.5;
+	transform.body.w =32*Game::getGame()->getScale()/3;
 	transform.body.h = 32 * Game::getGame()->getScale() / 2;
 	loadAnimations();
 	facing = RIGHT;

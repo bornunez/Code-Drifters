@@ -55,8 +55,8 @@ void HookAnimationComponent::renderHookHead()
 
 	Uint32 sprite = (ticks / fps) % hookHeadTex->getNumCols();
 	SDL_Rect srcrect = { sprite * hookHeadTex->getFrameWidth(), animationNumber * hookHeadTex->getFrameHeight(), hookHeadTex->getFrameWidth(), hookHeadTex->getFrameHeight() };
-	SDL_Rect dstrect = { displayX - hook->getTransform()->body.w / 2, displayY - hook->getTransform()->body.h / 2, hook->getTransform()->body.w,  hook->getTransform()->body.h};
-	angle = hook->getAngle();
+	SDL_Rect dstrect = { displayX - hook->getTransform()->body.w / 2, displayY - hook->getTransform()->body.h / 2, hook->getTransform()->body.w*Game::getGame()->getScale()/3,  hook->getTransform()->body.h*Game::getGame()->getScale()/3};
+	angle = getSpriteAngle();
 
 	SDL_Point center;
 	center.x = dstrect.w / 2;

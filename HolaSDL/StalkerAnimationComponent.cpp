@@ -49,7 +49,6 @@ void StalkerAnimationComponent::handleAnimation()
 		
 		gameObject->flipAllAnimations(SDL_FLIP_HORIZONTAL);
 		es->facing = LEFT;
-		cout << "Gira Izquierda" << endl;
 		
 	}
 	else if (gameObject->getCenterPos().getX() <= target->getCenterPos().getX() && es->facing == LEFT) {
