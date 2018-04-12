@@ -82,6 +82,9 @@ void MCMovementInput::update()
 	
 	velocity.normalize();
 	t->velocity.set(velocity);
+
+	cout << "POS " <<mc->getTransform()->position << endl;
+	cout << "BODY " << mc->getTransform()->body.x << " " << mc->getTransform()->body.y << endl;
 	if (debug) {
 
 		/*

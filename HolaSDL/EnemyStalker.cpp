@@ -19,6 +19,7 @@
 #include "KnockbackComponent.h"
 #include "StalkerComponent.h"
 #include "StunComponent.h"
+#include "SkeletonRenderer.h"
 //#include "ChargeComponent.h"
 //#include "ChaseComponent.h"
 
@@ -27,20 +28,22 @@
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w = transform.body.h = 32*Game::getGame()->getScale();
+	transform.body.w =32*Game::getGame()->getScale()/2.5;
+	transform.body.h = 32 * Game::getGame()->getScale() / 2;
 	loadAnimations();
-	facing = LEFT;
+	facing = RIGHT;
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	vector<string> collisionLayers = { "Paredes","Aire" };
 	addComponent(new KnockbackComponent(this, 10000, collisionLayers));
 	this->addComponent(new BasicMovement(this, collisionLayers));
-	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
 	this->addComponent(new StalkerComponent(this, getMC(), 1, 1.5, 2));
+	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new StunComponent(this));
+	addComponent(new SkeletonRendered(this,playState->getCamera()));
 
 }
 

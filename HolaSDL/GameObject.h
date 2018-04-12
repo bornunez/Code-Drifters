@@ -54,6 +54,7 @@ public:
 	Vector2D getDisplayPos() { return displayPosition; }
 	Vector2D getDisplayCenterPos() { return displayCenterPosition; }
 	Animation* getCurrentAnimation();
+	void flipAllAnimations(SDL_RendererFlip flip);
 	void changeCurrentAnimation(const char * animName);
 	bool getInvincibility() { return invincible; }
 	void setInvincibility(bool state) { invincible = state; }
