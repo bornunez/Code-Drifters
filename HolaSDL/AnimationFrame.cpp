@@ -67,6 +67,6 @@ void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes res
 		hurtboxes[i].x = gameObject->getCenterPos().getX() - (frameWidth * Game::getGame()->getScale() / 2)+ hurtboxOffset[i].first;
 		hurtboxes[i].y = gameObject->getCenterPos().getY() - (frameHeight * Game::getGame()->getScale() / 2) + hurtboxOffset[i].second;
 	}
-	gunPosition.setX(t->position.getX() + gunPosOffset.first);
-	gunPosition.setY(t->position.getY() + gunPosOffset.second);
+	gunPosition.setX(gameObject->getCenterPos().getX() - (frameWidth * Game::getGame()->getScale() / 2) + gunPosOffset.first);
+	gunPosition.setY(gameObject->getCenterPos().getY() - (frameHeight * Game::getGame()->getScale() / 2) + gunPosOffset.second);
 }
