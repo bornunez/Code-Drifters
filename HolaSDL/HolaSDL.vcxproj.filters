@@ -233,11 +233,6 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="DecelerationComponent.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="GameStateMachine.cpp" />
-    <ClCompile Include="MainMenuState.cpp" />
-    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="StunComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
@@ -276,6 +271,22 @@
       <Filter>Managers\Source</Filter>
     </ClCompile>
     <ClCompile Include="ItemObject.cpp" />
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletAnimationComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -557,6 +568,7 @@
       <Filter>Estados\Header</Filter>
     </ClInclude>
     <ClInclude Include="ItemObject.h" />
+    <ClInclude Include="BulletAnimationComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -142,7 +142,7 @@ void GunnerShotComponent::shoot() {
 			bulletTransform.position.set(gunPosition.getX(), gunPosition.getY());
 			bulletTransform.direction = (targetT->position - gunnerT->position);
 			bulletTransform.direction.normalize();
-			bulletTransform.body.w = bulletTransform.body.h = 10;
+			bulletTransform.body.w = bulletTransform.body.h = 32;
 			bulletTransform.velocity = bulletTransform.direction;
 			bulletTransform.speed = 1000.0;
 

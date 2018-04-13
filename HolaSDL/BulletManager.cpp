@@ -4,7 +4,6 @@
 #include "PlayState.h"
 #include "ResourceManager.h"
 #include "DecelerationComponent.h"
-
 //Inicializacion de instance
 BulletManager* BulletManager::instance = nullptr;
 
@@ -70,12 +69,6 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 		}
 	}
 
-	//Bullet* newBullet = new Bullet(ResourceManager::getInstance()->getTexture(bulletType), true, bulletType);
-
-
-	//Esta linea funcionaria porque tienen el mismo numero en las enums, quiza cambiarlo a enum class
-	//Bullet* newBullet = new Bullet(ResourceManager::getInstance()->getTexture(bulletType), true, bulletType);
-
 	Bullet* newBullet = nullptr;
 
 	if(bulletType == BulletType::MCBullet)
@@ -94,7 +87,11 @@ void BulletManager::shoot(GameObject * owner, Transform bulletTransform, BulletT
 	Bullet* newBullet = getBullet(bulletType);
 
 	newBullet->setTransform(bulletTransform);
-	newBullet->addComponent(new DecelerationComponent(newBullet, 0.99));
+	float angle = atan2(bulletTransform.direction.getY(), bulletTransform.direction.getX());
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+	newBullet->setAngle(angle);
 	//Se envia el mensaje de que se ha creado una bala, deberia enviarse al sound manager
 	//Message msg(BULLET_CREATED);
 	//owner->sendMessage(&msg);

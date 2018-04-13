@@ -2,11 +2,16 @@
 #include "SimpleAnimationComponent.h"
 #include "MCBulletComponent.h"
 #include "BasicMovement.h"
-
+#include "BulletAnimationComponent.h"
 Bullet::Bullet(Texture * tex, bool active, BulletType type) : GameObject(tex, active)
 {
 	this->type = type;
-	this->addComponent(new SimpleAnimationComponent(this, texture));
+	if (type == BulletType::GunnerBullet) {
+		this->addComponent(new BulletAnimationComponent(this, texture));
+	}
+	else if (type == BulletType::MCBullet) {
+		this->addComponent(new SimpleAnimationComponent(this, texture));
+	}
 
 	//Esta llevarla a MCBullet
 	this->addComponent(new BasicMovement(this));
