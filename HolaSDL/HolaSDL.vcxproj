@@ -18,6 +18,7 @@
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletAnimationComponent.cpp" />
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
@@ -116,6 +117,7 @@
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />
+    <ClInclude Include="BulletAnimationComponent.h" />
     <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />

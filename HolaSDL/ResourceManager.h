@@ -33,7 +33,7 @@ private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ 
 		{ "MCBullet.png", 1, 1 },
-		{ "GunnerBullet.png", 1, 1 },
+		{ "GunnerBullet.png", 1, 4 },
 		{ "HookChain.png", 1,2},
 		{"HookChainFail.png",2,13},
 		{"HookHead.png", 1 ,2},
