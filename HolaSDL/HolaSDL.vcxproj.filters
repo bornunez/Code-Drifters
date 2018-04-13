@@ -182,8 +182,6 @@
     <ClCompile Include="ChargerAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="TextureParser.cpp" />
-    <ClCompile Include="Random.cpp" />
     <ClCompile Include="Observable.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
@@ -232,13 +230,8 @@
     <ClCompile Include="HookShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameState.cpp" />
-    <ClCompile Include="GameStateMachine.cpp" />
-    <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PlayState.cpp" />
-    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="StunComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
@@ -275,7 +268,30 @@
     <ClCompile Include="ItemManager.cpp">
       <Filter>Managers\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ItemObject.cpp" />
+    <ClCompile Include="DecelerationComponent.cpp">
+      <Filter>UpdateComponent\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Coin.cpp">
+      <Filter>Items</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemObject.cpp">
+      <Filter>Items</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureParser.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -486,11 +502,9 @@
     <ClInclude Include="ChargerAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="TextureParser.h" />
     <ClInclude Include="Message.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Random.h" />
     <ClInclude Include="Observable.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
@@ -536,8 +550,6 @@
     <ClInclude Include="HookShotComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="DecelerationComponent.h" />
-    <ClInclude Include="Coin.h" />
     <ClInclude Include="StunComponent.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
@@ -556,7 +568,21 @@
     <ClInclude Include="MenuButton.h">
       <Filter>Estados\Header</Filter>
     </ClInclude>
-    <ClInclude Include="ItemObject.h" />
+    <ClInclude Include="DecelerationComponent.h">
+      <Filter>UpdateComponent\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Coin.h">
+      <Filter>Items</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemObject.h">
+      <Filter>Items</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureParser.h">
+      <Filter>Arquitectura</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -630,6 +656,9 @@
     </Filter>
     <Filter Include="Estados\Source">
       <UniqueIdentifier>{64be611b-66dc-47a5-ba24-c9045f904bdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Items">
+      <UniqueIdentifier>{50d390ec-137c-4dde-a41c-bbf6f76c72a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -104,5 +104,5 @@ void PlayState::loadState()
 	BulletManager::createInstance();
 	LevelManager::getInstance()->getFirstRoom()->spawn();
 	ItemManager::getInstance()->init();
-	ItemManager::getInstance()->AddItem(Enemies);
+	//ItemManager::getInstance()->AddItem(Enemies);
 }
