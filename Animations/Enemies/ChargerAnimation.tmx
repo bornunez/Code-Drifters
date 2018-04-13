@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="16" tilewidth="64" tileheight="64" nextobjectid="188">
+ <tileset firstgid="1" name="charger front" tilewidth="64" tileheight="64" tilecount="20" columns="4">
+  <image source="Charger/Charger front.png" width="256" height="320"/>
+ </tileset>
+ <tileset firstgid="21" name="Charger Right" tilewidth="64" tileheight="64" tilecount="20" columns="4">
+  <image source="Charger/Charger right.png" width="256" height="320"/>
+ </tileset>
+ <tileset firstgid="41" name="Charger Top" tilewidth="64" tileheight="64" tilecount="20" columns="4">
+  <image source="Charger/Charger back.png" width="256" height="320"/>
+ </tileset>
+ <tileset firstgid="61" name="Charger Left" tilewidth="64" tileheight="64" tilecount="20" columns="4">
+  <image source="Charger/Charger left.png" width="256" height="320"/>
+ </tileset>
+ <tileset firstgid="81" name="charger front" tilewidth="64" tileheight="64" tilecount="20" columns="4">
+  <image source="Charger/Charger front.png" width="256" height="320"/>
+ </tileset>
+ <layer name="ChargeLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4Ay4A3EPkDsC8R+A+yWUUBfAABcVgEz
+  </data>
+ </layer>
+ <objectgroup name="ChargeLeft">
+  <object id="184" name="Hithurtbox" type="0" x="600.943" y="529.076" width="12.7803" height="29.1818"/>
+  <object id="185" name="Hithurtbox" type="0" x="663.277" y="530.409" width="13.447" height="29.1818"/>
+  <object id="186" name="Hithurtbox" type="0" x="728.943" y="529.742" width="12.7803" height="29.1818"/>
+  <object id="187" name="Hithurtbox" type="0" x="792.943" y="529.742" width="14.7803" height="29.1818"/>
+ </objectgroup>
+ <layer name="ChargeTop" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxmYA7EFEFsCsdUAu2UUDD0AAPtvAOM=
+  </data>
+ </layer>
+ <objectgroup name="ChargeTop">
+  <object id="180" name="Hithurtbox" type="0" x="598.943" y="464.742" width="14.447" height="29.1818"/>
+  <object id="181" name="Hithurtbox" type="0" x="662.11" y="466.409" width="14.447" height="29.1818"/>
+  <object id="182" name="Hithurtbox" type="0" x="727.11" y="466.076" width="14.447" height="29.1818"/>
+  <object id="183" name="Hithurtbox" type="0" x="792.11" y="465.409" width="14.447" height="29.1818"/>
+ </objectgroup>
+ <layer name="ChargeRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxUoA7EKEKsCsdoAu2UUjEwAAHAXAJM=
+  </data>
+ </layer>
+ <objectgroup name="ChargeRight">
+  <object id="160" name="Hithurtbox" type="0" x="602.277" y="400.409" width="12.7803" height="29.1818"/>
+  <object id="161" name="Hithurtbox" type="0" x="665.943" y="401.076" width="14.1136" height="29.1818"/>
+  <object id="162" name="Hithurtbox" type="0" x="729.943" y="401.742" width="12.7803" height="29.1818"/>
+  <object id="163" name="Hithurtbox" type="0" x="792.277" y="402.076" width="14.1136" height="29.1818"/>
+ </objectgroup>
+ <layer name="ChargeBot" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAwH4gVgAiAWBWGiA3TIKRgG5AAC6MABD
+  </data>
+ </layer>
+ <objectgroup name="ChargeBot">
+  <object id="147" name="Hithurtbox" type="0" x="730.443" y="337.576" width="13.1136" height="29.1818"/>
+  <object id="148" name="Hithurtbox" type="0" x="663.776" y="336.909" width="16.4469" height="29.1818"/>
+  <object id="149" name="Hithurtbox" type="0" x="602.443" y="337.242" width="13.1136" height="29.1818"/>
+  <object id="150" name="Hithurtbox" type="0" x="793.443" y="337.909" width="16.1136" height="29.1818"/>
+ </objectgroup>
+ <layer name="PreChargeLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFowA3cAZiFyB2BWI3IHYHYg8g9gRirwF01yigLogmUx8Ap2QCkA==
+  </data>
+ </layer>
+ <objectgroup name="PreChargeLeft">
+  <object id="172" name="Hithurtbox" type="0" x="24.7765" y="529.076" width="14.1136" height="29.1818"/>
+  <object id="173" name="Hithurtbox" type="0" x="88.2765" y="528.409" width="14.1136" height="29.1818"/>
+  <object id="174" name="Hithurtbox" type="0" x="151.943" y="529.076" width="14.1136" height="29.1818"/>
+  <object id="175" name="Hithurtbox" type="0" x="216.277" y="529.409" width="14.1136" height="29.1818"/>
+  <object id="176" name="Hithurtbox" type="0" x="280.61" y="529.409" width="14.1136" height="29.1818"/>
+  <object id="177" name="Hithurtbox" type="0" x="343.943" y="529.409" width="14.1136" height="29.1818"/>
+  <object id="178" name="Hithurtbox" type="0" x="407.61" y="528.742" width="14.1136" height="29.1818"/>
+  <object id="179" name="Hithurtbox" type="0" x="471.943" y="529.076" width="14.1136" height="29.1818"/>
+ </objectgroup>
+ <layer name="PreChargeTop" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFwxXoA7EBEBsCsREQGwOxCRCbArHZALprFAw+EE2mPgDHZQHw
+  </data>
+ </layer>
+ <objectgroup name="PreChargeTop">
+  <object id="164" name="Hithurtbox" type="0" x="24.1099" y="464.742" width="15.1136" height="29.1818"/>
+  <object id="165" name="Hithurtbox" type="0" x="86.4432" y="464.742" width="15.1136" height="29.1818"/>
+  <object id="166" name="Hithurtbox" type="0" x="150.777" y="465.076" width="15.1136" height="29.1818"/>
+  <object id="167" name="Hithurtbox" type="0" x="214.777" y="465.076" width="15.1136" height="29.1818"/>
+  <object id="168" name="Hithurtbox" type="0" x="278.443" y="465.742" width="15.1136" height="29.1818"/>
+  <object id="169" name="Hithurtbox" type="0" x="342.443" y="465.409" width="15.1136" height="29.1818"/>
+  <object id="170" name="Hithurtbox" type="0" x="406.443" y="465.742" width="15.1136" height="29.1818"/>
+  <object id="171" name="Hithurtbox" type="0" x="470.777" y="464.742" width="15.1136" height="29.1818"/>
+ </objectgroup>
+ <layer name="PreChargeRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgxFIA7EMEMsCsRwQywOxAhArArHSwDlrFAxTEE2mPgCSZgFQ
+  </data>
+ </layer>
+ <objectgroup name="PreChargeRight">
+  <object id="152" name="Hithurtbox" type="0" x="25.4432" y="401.409" width="12.7803" height="29.1818"/>
+  <object id="153" name="Hithurtbox" type="0" x="89.2765" y="401.076" width="12.7803" height="29.1818"/>
+  <object id="154" name="Hithurtbox" type="0" x="153.61" y="401.742" width="12.7803" height="29.1818"/>
+  <object id="155" name="Hithurtbox" type="0" x="217.61" y="401.409" width="12.7803" height="29.1818"/>
+  <object id="156" name="Hithurtbox" type="0" x="281.61" y="401.076" width="12.7803" height="29.1818"/>
+  <object id="157" name="Hithurtbox" type="0" x="345.943" y="401.076" width="12.7803" height="29.1818"/>
+  <object id="158" name="Hithurtbox" type="0" x="409.943" y="401.076" width="12.7803" height="29.1818"/>
+  <object id="159" name="Hithurtbox" type="0" x="474.277" y="401.409" width="12.7803" height="29.1818"/>
+ </objectgroup>
+ <layer name="PreChargeBot" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF1AbsQMwBxJxAzAXE3EDMA8S8QMw3gO4aBaMAF4gmUx8ACGcAsA==
+  </data>
+ </layer>
+ <objectgroup name="PreChargeBot">
+  <object id="132" name="Hithurtbox" type="0" x="90.7765" y="337.076" width="13.1136" height="29.1818"/>
+  <object id="133" name="Hithurtbox" type="0" x="154.777" y="337.076" width="13.1136" height="29.1818"/>
+  <object id="134" name="Hithurtbox" type="0" x="218.11" y="337.076" width="13.1136" height="29.1818"/>
+  <object id="135" name="Hithurtbox" type="0" x="283.11" y="337.409" width="13.1136" height="29.1818"/>
+  <object id="136" name="Hithurtbox" type="0" x="347.11" y="337.076" width="13.1136" height="29.1818"/>
+  <object id="137" name="Hithurtbox" type="0" x="410.443" y="337.409" width="13.1136" height="29.1818"/>
+  <object id="138" name="Hithurtbox" type="0" x="474.443" y="337.742" width="13.1136" height="29.1818"/>
+  <object id="151" name="Hithurtbox" type="0" x="24.4432" y="337.076" width="15.1136" height="29.1818"/>
+ </objectgroup>
+ <layer name="RunLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg+wBaI7YDYHogdgNgRiJ0G0kGjYBQMcwAAGQcBfg==
+  </data>
+ </layer>
+ <objectgroup name="RunLeft">
+  <object id="33" name="Hithurtbox" type="0" x="23.5909" y="209.193" width="14.75" height="29.7273"/>
+  <object id="127" name="Hithurtbox" type="0" x="87.8977" y="209.682" width="14.75" height="29.7273"/>
+  <object id="128" name="Hithurtbox" type="0" x="153.898" y="209.682" width="13.1136" height="29.1818"/>
+  <object id="129" name="Hithurtbox" type="0" x="215.534" y="210.227" width="14.75" height="28.4546"/>
+  <object id="130" name="Hithurtbox" type="0" x="279.534" y="208.773" width="14.75" height="29.7273"/>
+  <object id="131" name="Hithurtbox" type="0" x="343.534" y="208.773" width="13.2955" height="29.7273"/>
+ </objectgroup>
+ <layer name="RunTop" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcQBOItYBYG4h1gFgXiPUG1EWjYBSMAkIAAMSNAQY=
+  </data>
+ </layer>
+ <objectgroup name="RunTop">
+  <object id="23" name="Hithurtbox" type="0" x="23.25" y="145.375" width="18.5" height="29.75"/>
+  <object id="122" name="Hithurtbox" type="0" x="87.5" y="146" width="18.5" height="28.5"/>
+  <object id="123" name="Hithurtbox" type="0" x="152.25" y="146" width="17" height="28.5"/>
+  <object id="124" name="Hithurtbox" type="0" x="216.25" y="145.5" width="17.25" height="28.5"/>
+  <object id="125" name="Hithurtbox" type="0" x="279.5" y="145.5" width="18.5" height="29.5"/>
+  <object id="126" name="Hithurtbox" type="0" x="343.5" y="146" width="18.5" height="28.5"/>
+ </objectgroup>
+ <layer name="RunRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAciAKxGBCLA7EEEEsCsRQVzB0Fo2AUDG4AADBiAI4=
+  </data>
+ </layer>
+ <objectgroup name="RunRight">
+  <object id="12" name="Hithurtbox" type="0" x="24.9091" y="82" width="16" height="28.1818"/>
+  <object id="117" name="Hithurtbox" type="0" x="88.7273" y="81.7273" width="16" height="28.1818"/>
+  <object id="118" name="Hithurtbox" type="0" x="152.545" y="81.5455" width="14.1818" height="28.1818"/>
+  <object id="119" name="Hithurtbox" type="0" x="217.455" y="81.7273" width="14.7273" height="28.1818"/>
+  <object id="120" name="Hithurtbox" type="0" x="282" y="82.2727" width="14.3636" height="28.1818"/>
+  <object id="121" name="Hithurtbox" type="0" x="346" y="81.9091" width="14.1818" height="28.1818"/>
+ </objectgroup>
+ <layer name="RunBot" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYAJiZiBmAWJWIGZjGAWjYBSMAsIAAFxoABY=
+  </data>
+ </layer>
+ <objectgroup name="RunBot">
+  <object id="8" name="Hithurtbox" type="6" x="21.938" y="16.8125" width="18.625" height="29.375"/>
+  <object id="110" name="Hithurtbox" type="6" x="84.9375" y="17.5625" width="18.625" height="29.375"/>
+  <object id="111" name="Hithurtbox" type="6" x="149.438" y="17.3125" width="18.625" height="29.375"/>
+  <object id="112" name="Hithurtbox" type="6" x="213.688" y="17.3125" width="18.625" height="29.375"/>
+  <object id="113" name="Hithurtbox" type="6" x="276.938" y="18.0625" width="18.625" height="29.375"/>
+  <object id="114" name="Hithurtbox" type="6" x="341.688" y="17.5625" width="18.625" height="29.375"/>
+ </objectgroup>
+</map>
