@@ -139,6 +139,27 @@ void MainCharacter::loadAnimations()
 	animations.emplace("ATTACK1_BOTLEFT", attackBotLeft1);
 	animations.emplace("ATTACK2_BOTLEFT", attackBotLeft2);
 	animations.emplace("ATTACK3_BOTLEFT", attackBotLeft3);
+
+	Animation*dashRight = AnimationParser::parseAnimation(tileset, animationPath, "DashRight", this);
+	Animation*dashEndRight = AnimationParser::parseAnimation(tileset, animationPath, "DashEndRight", this, 0, 0, false);
+	
+	Animation*dashLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashLeft", this);
+	Animation*dashEndLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashEndLeft", this, 0, 0, false);
+
+	Animation*dashTop = AnimationParser::parseAnimation(tileset, animationPath, "DashTop", this);
+	Animation*dashEndTop = AnimationParser::parseAnimation(tileset, animationPath, "DashEndTop", this, 0, 0, false);
+
+	Animation*dashBot = AnimationParser::parseAnimation(tileset, animationPath, "DashBot", this);
+	Animation*dashEndBot = AnimationParser::parseAnimation(tileset, animationPath, "DashEndBot", this, 0, 0, false);
+
+	animations.emplace("DASH_RIGHT", dashRight);
+	animations.emplace("DASHEND_RIGHT", dashEndRight);
+	animations.emplace("DASH_LEFT", dashLeft);
+	animations.emplace("DASHEND_LEFT", dashEndLeft);
+	animations.emplace("DASH_TOP", dashTop);
+	animations.emplace("DASHEND_TOP", dashEndTop);
+	animations.emplace("DASH_BOT", dashBot);
+	animations.emplace("DASHEND_BOT", dashEndBot);
 }
 
 //Getters & Setters
