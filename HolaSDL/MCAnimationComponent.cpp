@@ -114,6 +114,23 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 	case IDLE_BOT:
 		gameObject->changeCurrentAnimation("IDLE_BOT");
 		break;
+	case HOOK_WALL:
+		handleAnimationDash();
+		break;
+	case HOOK_ENEMY:
+		handleAnimationShot();
+		break;
+	case HOOK_EXTEND:
+		handleAnimationShot();
+		break;
+	case HOOK_FAIL:
+		break;
+	case HOOK_EMPTY:
+		break;
+	case HOOK_STOP:
+		handleAnimationEndDash();
+		break;
+
 	}
 }
 
@@ -166,4 +183,62 @@ void MCAnimationComponent::handleAnimationStates()
 		//Envia el mensaje
 		gameObject->sendMessage(&msg);
 	}
+	
 }
+
+void MCAnimationComponent::handleAnimationHook()
+{
+	
+}
+
+void MCAnimationComponent::handleAnimationShot()
+{
+}
+
+void MCAnimationComponent::handleAnimationDash()
+{
+	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
+	//HOOK STATE
+	if (mc->getMCState() == MCState::Hooking) {
+		Vector2D direction = gameObject->getTransform()->direction;
+		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
+			gameObject->changeCurrentAnimation("DASH_RIGHT");
+		}
+		else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
+			gameObject->changeCurrentAnimation("DASH_LEFT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
+			gameObject->changeCurrentAnimation("DASH_BOT");
+		}
+		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
+			gameObject->changeCurrentAnimation("DASH_TOP");
+		}
+	}
+}
+
+void MCAnimationComponent::handleAnimationEndDash()
+{
+	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
+	//HOOK STATE
+	Vector2D direction = gameObject->getTransform()->direction;
+	if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
+		gameObject->changeCurrentAnimation("DASHEND_RIGHT");
+		gameObject->getCurrentAnimation()->startAnimation();
+	}
+	else if (direction.getX() == -1 && direction.getY() == 0) {//Izquierda
+		gameObject->changeCurrentAnimation("DASHEND_LEFT");
+		gameObject->getCurrentAnimation()->startAnimation();
+	}
+	else if (direction.getX() == 0 && direction.getY() == 1) {//Abajo
+		gameObject->changeCurrentAnimation("DASHEND_BOT");
+		gameObject->getCurrentAnimation()->startAnimation();
+	}
+	else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
+		gameObject->changeCurrentAnimation("DASHEND_TOP");
+		gameObject->getCurrentAnimation()->startAnimation();
+	}
+	
+	mc->setMovable(true);
+	
+}
+

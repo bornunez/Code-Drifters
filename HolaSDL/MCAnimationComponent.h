@@ -10,6 +10,10 @@ public:
 	void receiveMessage(Message* msg);
 	virtual ~MCAnimationComponent();	
 	void handleAnimationStates();
+	void handleAnimationHook();
+	void handleAnimationShot();
+	void handleAnimationDash();
+	void handleAnimationEndDash();
 private:
 	std::map<const char*, Animation*> animations;
 	
