@@ -16,11 +16,16 @@ class ItemManager
 {
 public:
 	~ItemManager();
-	void AddItem(ItemPool pool);
-	void PickItem(ItemObject item);
+	void AddItem(ItemPool pool,Vector2D position);
+	void PickItem(ItemObject* item);
 	void DeleteItem(ItemObject* item);
+
+
 	void render();
 	void init();
+	void reset();
+
+	vector<ItemObject*> getItems() { return items; }
 	static ItemManager* getInstance();
 
 private:

@@ -8,6 +8,8 @@
 #include "BulletManager.h"
 #include "Enemy.h"
 #include "PlayState.h"
+#include "ItemManager.h"
+#include "ItemObject.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -35,7 +37,7 @@ void CollisionsManager::handleInput(const SDL_Event & event)
 void CollisionsManager::update()
 {
 	//COLISIONES DEL PLAYER
-
+	playerCollisions();
 
 
 	//COLISIONES DE LAS BALAS
@@ -134,6 +136,15 @@ void CollisionsManager::bulletCollisions()
 
 void CollisionsManager::playerCollisions()
 {
+	vector<ItemObject*> items = ItemManager::getInstance()->getItems();
+	//Colisionamos la bala con las hurtboxes del player
+	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+	for (ItemObject* item : items) {
+		if (item->isActive() && CollisionHandler::RectCollide(mc->getTransform()->body, item->getTransform()->body)) {
+			//Mandar mensaje a mc
+			ItemManager::getInstance()->PickItem(item);
+		}
+	}
 }
 
 void CollisionsManager::enemyCollisions()

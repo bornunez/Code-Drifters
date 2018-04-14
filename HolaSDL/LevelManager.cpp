@@ -7,6 +7,7 @@
 #include "PlayState.h"
 #include "GameObject.h"
 #include"MainCharacter.h"
+#include "ItemManager.h"
 #include <iostream>
 
 LevelManager* LevelManager::instance = nullptr;
@@ -68,6 +69,8 @@ void LevelManager::changeRoom(Direction dir)
 			//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
 			//Antes de Spawnear, despawneamos los que hubiera
 			EnemyManager::getInstance()->killAll();
+			ItemManager::getInstance()->reset();
+
 			//Y ponemos al jugador en la puerta contraria
 			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 			Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
