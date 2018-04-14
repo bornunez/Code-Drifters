@@ -46,7 +46,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new MCAttackCollisionComponent(this));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
 	addComponent(new DoorsCollision(this));
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
@@ -55,6 +54,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	setCurrentBullets(4);
 	setReloadTime(4);

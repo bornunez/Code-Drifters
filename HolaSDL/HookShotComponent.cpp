@@ -53,11 +53,19 @@ void HookShotComponent::update()
 				
 			}
 			else {
-				hook->setHookStatus(HookStatus::EMPTY);
-				Message msg(HOOK_EMPTY);
+				hook->setHookStatus(HookStatus::FAIL);
+				Message msg(HOOK_FAIL);
 				mc->sendMessage(&msg);
 			}
 		}		
+		else if (hook->getHookStatus() == HookStatus::FAIL) {
+			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+				contract();
+			}
+			else {
+				stop();
+			}
+		}
 		else if (hook->getHookStatus() == HookStatus::EMPTY) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
