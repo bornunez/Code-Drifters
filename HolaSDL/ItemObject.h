@@ -16,7 +16,7 @@ public:
 
 class LifeItemObject : public ItemObject {
 public:
-	LifeItemObject(Texture* tex, int life) : ItemObject(tex, LifeItem) { addComponent(new SimpleAnimationComponent(this, tex)); };
+	LifeItemObject(Texture* tex, int life) : ItemObject(tex, LifeItem), life(life) { addComponent(new SimpleAnimationComponent(this, tex)); };
 	int life;
 private:
 };

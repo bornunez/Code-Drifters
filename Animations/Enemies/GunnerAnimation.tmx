@@ -97,85 +97,85 @@
   </data>
  </layer>
  <objectgroup name="IdleTop">
-  <object id="43" name="Hithurtbox" type="0" x="28" y="274.182" width="8" height="27.6364"/>
+  <object id="43" name="Hurtbox" type="0" x="28" y="274.182" width="8" height="27.6364"/>
   <object id="77" name="GunPosition" type="0" x="34.4375" y="273.313" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotTop">
-  <object id="44" name="Hithurtbox" type="0" x="92.7273" y="275.273" width="8" height="27.6364"/>
-  <object id="45" name="Hithurtbox" type="1" x="156" y="275.636" width="8" height="27.6364"/>
-  <object id="46" name="Hithurtbox" type="2" x="219.636" y="274.545" width="8" height="27.6364"/>
+  <object id="44" name="Hurtbox" type="0" x="92.7273" y="275.273" width="8" height="27.6364"/>
+  <object id="45" name="Hurtbox" type="1" x="156" y="275.636" width="8" height="27.6364"/>
+  <object id="46" name="Hurtbox" type="2" x="219.636" y="274.545" width="8" height="27.6364"/>
   <object id="78" name="GunPosition" type="0" x="98.1875" y="274.719" width="0.875" height="1.1875"/>
   <object id="79" name="GunPosition" type="1" x="161.063" y="274.906" width="0.875" height="1.1875"/>
   <object id="80" name="GunPosition" type="2" x="224.563" y="273.781" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="IdleTopRight">
-  <object id="47" name="Hithurtbox" type="0" x="28.1818" y="338.182" width="8" height="27.6364"/>
+  <object id="47" name="Hurtbox" type="0" x="28.1818" y="338.182" width="8" height="27.6364"/>
   <object id="81" name="GunPosition" type="0" x="42.0625" y="336.906" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotTopRight">
-  <object id="74" name="Hithurtbox" type="0" x="91.8182" y="338.182" width="8" height="27.6364"/>
-  <object id="75" name="Hithurtbox" type="1" x="155.818" y="338.182" width="8" height="27.6364"/>
-  <object id="76" name="Hithurtbox" type="2" x="220.727" y="337.636" width="8" height="27.6364"/>
+  <object id="74" name="Hurtbox" type="0" x="91.8182" y="338.182" width="8" height="27.6364"/>
+  <object id="75" name="Hurtbox" type="1" x="155.818" y="338.182" width="8" height="27.6364"/>
+  <object id="76" name="Hurtbox" type="2" x="220.727" y="337.636" width="8" height="27.6364"/>
   <object id="82" name="GunPosition" type="0" x="105.063" y="337.906" width="0.875" height="1.1875"/>
   <object id="83" name="GunPosition" type="1" x="168.25" y="337.906" width="0.875" height="1.1875"/>
   <object id="84" name="GunPosition" type="2" x="232.75" y="337.344" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="IdleTopLeft">
-  <object id="70" name="Hithurtbox" type="0" x="27.6364" y="401.455" width="8" height="27.6364"/>
+  <object id="70" name="Hurtbox" type="0" x="27.6364" y="401.455" width="8" height="27.6364"/>
   <object id="85" name="GunPosition" type="0" x="21.875" y="400.781" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotTopLeft">
-  <object id="71" name="Hithurtbox" type="0" x="92.7273" y="402.909" width="8" height="27.6364"/>
-  <object id="72" name="Hithurtbox" type="1" x="156.545" y="402.364" width="8" height="27.6364"/>
-  <object id="73" name="Hithurtbox" type="2" x="220.545" y="402" width="8" height="27.6364"/>
+  <object id="71" name="Hurtbox" type="0" x="92.7273" y="402.909" width="8" height="27.6364"/>
+  <object id="72" name="Hurtbox" type="1" x="156.545" y="402.364" width="8" height="27.6364"/>
+  <object id="73" name="Hurtbox" type="2" x="220.545" y="402" width="8" height="27.6364"/>
   <object id="106" name="GunPosition" type="0" x="87.017" y="401.77" width="0.875" height="1.1875"/>
   <object id="107" name="GunPosition" type="0" x="150.108" y="402.315" width="0.875" height="1.1875"/>
   <object id="108" name="GunPosition" type="0" x="213.199" y="403.043" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="IdleRight">
-  <object id="66" name="Hithurtbox" type="0" x="28.5455" y="465.818" width="8" height="27.6364"/>
+  <object id="66" name="Hurtbox" type="0" x="28.5455" y="465.818" width="8" height="27.6364"/>
   <object id="86" name="GunPosition" type="0" x="45.5" y="472.906" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotRight">
-  <object id="67" name="Hithurtbox" type="0" x="92.1818" y="465.636" width="8" height="27.6364"/>
-  <object id="68" name="Hithurtbox" type="1" x="155.818" y="466.182" width="8" height="27.6364"/>
-  <object id="69" name="Hithurtbox" type="2" x="220.364" y="465.818" width="8" height="27.6364"/>
+  <object id="67" name="Hurtbox" type="0" x="92.1818" y="465.636" width="8" height="27.6364"/>
+  <object id="68" name="Hurtbox" type="1" x="155.818" y="466.182" width="8" height="27.6364"/>
+  <object id="69" name="Hurtbox" type="2" x="220.364" y="465.818" width="8" height="27.6364"/>
   <object id="103" name="GunPosition" type="0" x="108.835" y="472.861" width="0.875" height="1.1875"/>
   <object id="104" name="GunPosition" type="1" x="174.29" y="473.406" width="0.875" height="1.1875"/>
   <object id="105" name="GunPosition" type="2" x="238.653" y="473.406" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="IdleLeft">
-  <object id="62" name="Hithurtbox" type="0" x="28.1818" y="530.364" width="8" height="27.6364"/>
+  <object id="62" name="Hurtbox" type="0" x="28.1818" y="530.364" width="8" height="27.6364"/>
   <object id="87" name="GunPosition" type="0" x="17.75" y="537.156" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotLeft">
-  <object id="63" name="Hithurtbox" type="0" x="92.5455" y="530.909" width="8" height="27.6364"/>
-  <object id="64" name="Hithurtbox" type="1" x="156.364" y="530.727" width="8" height="27.6364"/>
-  <object id="65" name="Hithurtbox" type="2" x="219.818" y="529.636" width="8" height="27.6364"/>
+  <object id="63" name="Hurtbox" type="0" x="92.5455" y="530.909" width="8" height="27.6364"/>
+  <object id="64" name="Hurtbox" type="1" x="156.364" y="530.727" width="8" height="27.6364"/>
+  <object id="65" name="Hurtbox" type="2" x="219.818" y="529.636" width="8" height="27.6364"/>
   <object id="100" name="GunPosition" type="0" x="83.7443" y="537.588" width="0.875" height="1.1875"/>
   <object id="101" name="GunPosition" type="1" x="145.926" y="537.77" width="0.875" height="1.1875"/>
   <object id="102" name="GunPosition" type="2" x="205.744" y="538.861" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="IdleBotRight">
-  <object id="61" name="Hithurtbox" type="0" x="28" y="594.364" width="8" height="27.6364"/>
+  <object id="61" name="Hurtbox" type="0" x="28" y="594.364" width="8" height="27.6364"/>
   <object id="88" name="GunPosition" type="0" x="40" y="611.844" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotBotRight">
-  <object id="58" name="Hithurtbox" type="0" x="91.2727" y="593.273" width="8" height="27.6364"/>
-  <object id="59" name="Hithurtbox" type="1" x="155.818" y="593.818" width="8" height="27.6364"/>
-  <object id="60" name="Hithurtbox" type="2" x="220" y="593.818" width="8" height="27.6364"/>
+  <object id="58" name="Hurtbox" type="0" x="91.2727" y="593.273" width="8" height="27.6364"/>
+  <object id="59" name="Hurtbox" type="1" x="155.818" y="593.818" width="8" height="27.6364"/>
+  <object id="60" name="Hurtbox" type="2" x="220" y="593.818" width="8" height="27.6364"/>
   <object id="97" name="GunPosition" type="0" x="103.926" y="612.315" width="0.875" height="1.1875"/>
   <object id="98" name="GunPosition" type="1" x="169.744" y="612.497" width="0.875" height="1.1875"/>
   <object id="99" name="GunPosition" type="2" x="234.653" y="613.77" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="IdleBotLeft">
-  <object id="54" name="Hithurtbox" type="0" x="27.6364" y="657.455" width="8" height="27.6364"/>
+  <object id="54" name="Hurtbox" type="0" x="27.6364" y="657.455" width="8" height="27.6364"/>
   <object id="89" name="GunPosition" type="0" x="23.125" y="676.094" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotBotLeft">
-  <object id="55" name="Hithurtbox" type="0" x="92.9091" y="657.273" width="8" height="27.6364"/>
-  <object id="56" name="Hithurtbox" type="1" x="156.909" y="657.455" width="8" height="27.6364"/>
-  <object id="57" name="Hithurtbox" type="2" x="219.636" y="657.818" width="8" height="27.6364"/>
+  <object id="55" name="Hurtbox" type="0" x="92.9091" y="657.273" width="8" height="27.6364"/>
+  <object id="56" name="Hurtbox" type="1" x="156.909" y="657.455" width="8" height="27.6364"/>
+  <object id="57" name="Hurtbox" type="2" x="219.636" y="657.818" width="8" height="27.6364"/>
   <object id="94" name="GunPosition" type="0" x="87.9261" y="673.952" width="0.875" height="1.1875"/>
   <object id="95" name="GunPosition" type="1" x="152.108" y="675.588" width="0.875" height="1.1875"/>
   <object id="96" name="GunPosition" type="2" x="215.926" y="675.952" width="0.875" height="1.1875"/>
@@ -201,13 +201,13 @@
   </data>
  </layer>
  <objectgroup name="IdleBot">
-  <object id="53" name="Hithurtbox" type="0" x="28.1818" y="721.636" width="8" height="27.6364"/>
+  <object id="53" name="Hurtbox" type="0" x="28.1818" y="721.636" width="8" height="27.6364"/>
   <object id="90" name="GunPosition" type="0" x="30.0625" y="740.219" width="0.875" height="1.1875"/>
  </objectgroup>
  <objectgroup name="ShotBot">
-  <object id="50" name="Hithurtbox" type="0" x="92.1818" y="720.727" width="8" height="27.6364"/>
-  <object id="51" name="Hithurtbox" type="1" x="156.364" y="720.364" width="8" height="27.6364"/>
-  <object id="52" name="Hithurtbox" type="2" x="220" y="720.909" width="8" height="27.6364"/>
+  <object id="50" name="Hurtbox" type="0" x="92.1818" y="720.727" width="8" height="27.6364"/>
+  <object id="51" name="Hurtbox" type="1" x="156.364" y="720.364" width="8" height="27.6364"/>
+  <object id="52" name="Hurtbox" type="2" x="220" y="720.909" width="8" height="27.6364"/>
   <object id="91" name="GunPosition" type="0" x="94.1875" y="738.844" width="0.875" height="1.1875"/>
   <object id="92" name="GunPosition" type="1" x="158.063" y="737.469" width="0.875" height="1.1875"/>
   <object id="93" name="GunPosition" type="2" x="222" y="738.906" width="0.875" height="1.1875"/>
@@ -228,51 +228,51 @@
   </data>
  </layer>
  <objectgroup name="RunBot">
-  <object id="1" name="Hithurtbox" type="0" x="26.25" y="18.5" width="11.875" height="26.875"/>
-  <object id="2" name="Hithurtbox" type="1" x="90.1875" y="19.3125" width="11.875" height="26.875"/>
-  <object id="4" name="Hithurtbox" type="2" x="153.688" y="17.8125" width="11.875" height="26.875"/>
-  <object id="5" name="Hithurtbox" type="3" x="217.813" y="19.0625" width="11.875" height="26.875"/>
-  <object id="6" name="Hithurtbox" type="4" x="281.563" y="19.1875" width="11.875" height="26.875"/>
-  <object id="7" name="Hithurtbox" type="5" x="345.813" y="18.5625" width="11.875" height="26.875"/>
-  <object id="8" name="Hithurtbox" type="6" x="410.188" y="18.5625" width="11.875" height="26.875"/>
-  <object id="9" name="Hithurtbox" type="7" x="473.813" y="17.5625" width="11.875" height="26.875"/>
-  <object id="10" name="Hithurtbox" type="8" x="538.063" y="18.4375" width="11.875" height="26.875"/>
-  <object id="11" name="Hithurtbox" type="9" x="601.688" y="17.9375" width="11.875" height="26.875"/>
+  <object id="1" name="Hurtbox" type="0" x="26.25" y="18.5" width="11.875" height="26.875"/>
+  <object id="2" name="Hurtbox" type="1" x="90.1875" y="19.3125" width="11.875" height="26.875"/>
+  <object id="4" name="Hurtbox" type="2" x="153.688" y="17.8125" width="11.875" height="26.875"/>
+  <object id="5" name="Hurtbox" type="3" x="217.813" y="19.0625" width="11.875" height="26.875"/>
+  <object id="6" name="Hurtbox" type="4" x="281.563" y="19.1875" width="11.875" height="26.875"/>
+  <object id="7" name="Hurtbox" type="5" x="345.813" y="18.5625" width="11.875" height="26.875"/>
+  <object id="8" name="Hurtbox" type="6" x="410.188" y="18.5625" width="11.875" height="26.875"/>
+  <object id="9" name="Hurtbox" type="7" x="473.813" y="17.5625" width="11.875" height="26.875"/>
+  <object id="10" name="Hurtbox" type="8" x="538.063" y="18.4375" width="11.875" height="26.875"/>
+  <object id="11" name="Hurtbox" type="9" x="601.688" y="17.9375" width="11.875" height="26.875"/>
  </objectgroup>
  <objectgroup name="RunRight">
-  <object id="12" name="Hithurtbox" type="0" x="26.5455" y="81.4545" width="12.7273" height="28"/>
-  <object id="13" name="Hithurtbox" type="1" x="89.5454" y="82.1818" width="12.7273" height="28"/>
-  <object id="14" name="Hithurtbox" type="2" x="153.636" y="82.2727" width="12.7273" height="28"/>
-  <object id="15" name="Hithurtbox" type="3" x="218.545" y="82.6364" width="12.7273" height="28"/>
-  <object id="16" name="Hithurtbox" type="4" x="281.455" y="81.7273" width="12.7273" height="28"/>
-  <object id="17" name="Hithurtbox" type="5" x="345.818" y="81.4545" width="12.7273" height="28"/>
-  <object id="18" name="Hithurtbox" type="6" x="410.182" y="81.7273" width="12.7273" height="28"/>
-  <object id="19" name="Hithurtbox" type="7" x="473.727" y="82.6364" width="12.7273" height="28"/>
-  <object id="20" name="Hithurtbox" type="8" x="537.273" y="82.2727" width="12.7273" height="28"/>
-  <object id="21" name="Hithurtbox" type="9" x="601.455" y="82.1818" width="12.7273" height="28"/>
+  <object id="12" name="Hurtbox" type="0" x="26.5455" y="81.4545" width="12.7273" height="28"/>
+  <object id="13" name="Hurtbox" type="1" x="89.5454" y="82.1818" width="12.7273" height="28"/>
+  <object id="14" name="Hurtbox" type="2" x="153.636" y="82.2727" width="12.7273" height="28"/>
+  <object id="15" name="Hurtbox" type="3" x="218.545" y="82.6364" width="12.7273" height="28"/>
+  <object id="16" name="Hurtbox" type="4" x="281.455" y="81.7273" width="12.7273" height="28"/>
+  <object id="17" name="Hurtbox" type="5" x="345.818" y="81.4545" width="12.7273" height="28"/>
+  <object id="18" name="Hurtbox" type="6" x="410.182" y="81.7273" width="12.7273" height="28"/>
+  <object id="19" name="Hurtbox" type="7" x="473.727" y="82.6364" width="12.7273" height="28"/>
+  <object id="20" name="Hurtbox" type="8" x="537.273" y="82.2727" width="12.7273" height="28"/>
+  <object id="21" name="Hurtbox" type="9" x="601.455" y="82.1818" width="12.7273" height="28"/>
  </objectgroup>
  <objectgroup name="RunTop">
-  <object id="23" name="Hithurtbox" type="0" x="27.5" y="145.375" width="11.5" height="28.5"/>
-  <object id="24" name="Hithurtbox" type="1" x="90.375" y="145.75" width="11.5" height="28.5"/>
-  <object id="25" name="Hithurtbox" type="2" x="154.375" y="144.625" width="11.5" height="28.5"/>
-  <object id="26" name="Hithurtbox" type="3" x="218.5" y="145" width="11.5" height="28.5"/>
-  <object id="27" name="Hithurtbox" type="4" x="283" y="146.125" width="11.5" height="28.5"/>
-  <object id="28" name="Hithurtbox" type="5" x="346.75" y="146.625" width="11.5" height="28.5"/>
-  <object id="29" name="Hithurtbox" type="6" x="410.25" y="146.875" width="11.5" height="28.5"/>
-  <object id="30" name="Hithurtbox" type="7" x="474.125" y="146.375" width="11.5" height="28.5"/>
-  <object id="31" name="Hithurtbox" type="8" x="538.375" y="145.625" width="11.5" height="28.5"/>
-  <object id="32" name="Hithurtbox" type="9" x="602.25" y="146" width="11.5" height="28.5"/>
+  <object id="23" name="Hurtbox" type="0" x="27.5" y="145.375" width="11.5" height="28.5"/>
+  <object id="24" name="Hurtbox" type="1" x="90.375" y="145.75" width="11.5" height="28.5"/>
+  <object id="25" name="Hurtbox" type="2" x="154.375" y="144.625" width="11.5" height="28.5"/>
+  <object id="26" name="Hurtbox" type="3" x="218.5" y="145" width="11.5" height="28.5"/>
+  <object id="27" name="Hurtbox" type="4" x="283" y="146.125" width="11.5" height="28.5"/>
+  <object id="28" name="Hurtbox" type="5" x="346.75" y="146.625" width="11.5" height="28.5"/>
+  <object id="29" name="Hurtbox" type="6" x="410.25" y="146.875" width="11.5" height="28.5"/>
+  <object id="30" name="Hurtbox" type="7" x="474.125" y="146.375" width="11.5" height="28.5"/>
+  <object id="31" name="Hurtbox" type="8" x="538.375" y="145.625" width="11.5" height="28.5"/>
+  <object id="32" name="Hurtbox" type="9" x="602.25" y="146" width="11.5" height="28.5"/>
  </objectgroup>
  <objectgroup name="RunLeft">
-  <object id="33" name="Hithurtbox" type="0" x="26.5" y="209.375" width="10.75" height="29"/>
-  <object id="34" name="Hithurtbox" type="1" x="90.125" y="208.5" width="10.75" height="29"/>
-  <object id="35" name="Hithurtbox" type="2" x="154.75" y="209.5" width="10.75" height="29"/>
-  <object id="36" name="Hithurtbox" type="3" x="219" y="208.5" width="10.75" height="29"/>
-  <object id="37" name="Hithurtbox" type="4" x="282.625" y="208.25" width="10.75" height="29"/>
-  <object id="38" name="Hithurtbox" type="5" x="347.25" y="207.875" width="10.75" height="29"/>
-  <object id="39" name="Hithurtbox" type="6" x="410.75" y="210" width="10.75" height="29"/>
-  <object id="40" name="Hithurtbox" type="7" x="474.875" y="209.625" width="10.75" height="29"/>
-  <object id="41" name="Hithurtbox" type="8" x="539.125" y="210.125" width="10.75" height="29"/>
-  <object id="42" name="Hithurtbox" type="9" x="602.625" y="209" width="10.75" height="29"/>
+  <object id="33" name="Hurtbox" type="0" x="26.5" y="209.375" width="10.75" height="29"/>
+  <object id="34" name="Hurtbox" type="1" x="90.125" y="208.5" width="10.75" height="29"/>
+  <object id="35" name="Hurtbox" type="2" x="154.75" y="209.5" width="10.75" height="29"/>
+  <object id="36" name="Hurtbox" type="3" x="219" y="208.5" width="10.75" height="29"/>
+  <object id="37" name="Hurtbox" type="4" x="282.625" y="208.25" width="10.75" height="29"/>
+  <object id="38" name="Hurtbox" type="5" x="347.25" y="207.875" width="10.75" height="29"/>
+  <object id="39" name="Hurtbox" type="6" x="410.75" y="210" width="10.75" height="29"/>
+  <object id="40" name="Hurtbox" type="7" x="474.875" y="209.625" width="10.75" height="29"/>
+  <object id="41" name="Hurtbox" type="8" x="539.125" y="210.125" width="10.75" height="29"/>
+  <object id="42" name="Hurtbox" type="9" x="602.625" y="209" width="10.75" height="29"/>
  </objectgroup>
 </map>

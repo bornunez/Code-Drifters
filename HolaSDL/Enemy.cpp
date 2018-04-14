@@ -8,6 +8,7 @@
 #include "GameObject.h"
 #include "EnemyManager.h"
 #include "Map.h"
+#include "ItemManager.h"
 
 Enemy::Enemy(MainCharacter* mc) : GameObject()
 {
@@ -77,6 +78,7 @@ void Enemy::death()
 {
 	setMovable(false);
 	setDeath(true);
+	ItemManager::getInstance()->AddItem(Enemies,centerPosition);
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
 	cout << "me he morido";

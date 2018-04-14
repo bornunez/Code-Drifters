@@ -46,7 +46,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new MCAttackCollisionComponent(this));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new LevelExplorer(this));
 	addComponent(new DoorsCollision(this));
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
@@ -55,6 +54,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	setCurrentBullets(4);
 	setReloadTime(4);
@@ -139,6 +139,27 @@ void MainCharacter::loadAnimations()
 	animations.emplace("ATTACK1_BOTLEFT", attackBotLeft1);
 	animations.emplace("ATTACK2_BOTLEFT", attackBotLeft2);
 	animations.emplace("ATTACK3_BOTLEFT", attackBotLeft3);
+
+	Animation*dashRight = AnimationParser::parseAnimation(tileset, animationPath, "DashRight", this);
+	Animation*dashEndRight = AnimationParser::parseAnimation(tileset, animationPath, "DashEndRight", this, 0, 0, false,0.1);
+	
+	Animation*dashLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashLeft", this);
+	Animation*dashEndLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashEndLeft", this, 0, 0, false,0.1);
+
+	Animation*dashTop = AnimationParser::parseAnimation(tileset, animationPath, "DashTop", this);
+	Animation*dashEndTop = AnimationParser::parseAnimation(tileset, animationPath, "DashEndTop", this, 0, 0, false,0.1);
+
+	Animation*dashBot = AnimationParser::parseAnimation(tileset, animationPath, "DashBot", this);
+	Animation*dashEndBot = AnimationParser::parseAnimation(tileset, animationPath, "DashEndBot", this, 0, 0, false,0.1);
+
+	animations.emplace("DASH_RIGHT", dashRight);
+	animations.emplace("DASHEND_RIGHT", dashEndRight);
+	animations.emplace("DASH_LEFT", dashLeft);
+	animations.emplace("DASHEND_LEFT", dashEndLeft);
+	animations.emplace("DASH_TOP", dashTop);
+	animations.emplace("DASHEND_TOP", dashEndTop);
+	animations.emplace("DASH_BOT", dashBot);
+	animations.emplace("DASHEND_BOT", dashEndBot);
 }
 
 //Getters & Setters

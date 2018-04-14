@@ -100,11 +100,11 @@ if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK1_TOPLEFT;
-					gameObject->getTransform()->direction.set(-1, -1);
+					gameObject->getTransform()->direction.set(0, -1);
 				}
 				else if (angle > 270 && angle < 330) {
 					msg.id = ATTACK1_TOPRIGHT;
-					gameObject->getTransform()->direction.set(1, -1);
+					gameObject->getTransform()->direction.set(0, -1);
 				}
 				else if (angle > 150 && angle < 210) {
 					msg.id = ATTACK1_LEFT;
@@ -112,12 +112,11 @@ if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 				}
 				else if (angle >= 90 && angle < 150) {
 					msg.id = ATTACK1_BOTLEFT;
-					gameObject->getTransform()->direction.set(-1, 1);
+					gameObject->getTransform()->direction.set(0, 1);
 				}
 				else if (angle > 30 && angle < 90) {
 					msg.id = ATTACK1_BOTRIGHT;
-					gameObject->sendMessage(&msg);
-					gameObject->getTransform()->direction.set(1, 1);
+					gameObject->getTransform()->direction.set(0, 1);
 				}
 				else {
 					msg.id = ATTACK1_RIGHT;

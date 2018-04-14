@@ -25,17 +25,17 @@ HookShotComponent::~HookShotComponent()
 {
 }
 void HookShotComponent::receiveMessage(Message* msg) {
-	if (msg->id == ENEMY_HOOKED) {
+	if (msg->id == HOOK_ENEMY) {
 		//enemyHooked = static_cast<HookedMessage*>(msg)->gameObject;
-		moveEnemy();
-		hook->setHookStatus(HookStatus::MOVE_ENEMY);
+		/*moveEnemy();
+		hook->setHookStatus(HookStatus::MOVE_ENEMY);*/
 	}
-	else if (msg->id == WALL_HOOKED) {
-		moveMC();
-		hook->setHookStatus(HookStatus::MOVE_MC);
+	else if (msg->id == HOOK_WALL) {
+		/*moveMC();
+		hook->setHookStatus(HookStatus::MOVE_MC);*/
 	}
 	else if (msg->id == HOOK_STOP) {
-		stop();
+		//stop();
 	}
 }
 void HookShotComponent::update()
@@ -50,13 +50,14 @@ void HookShotComponent::update()
 		if (hook->getHookStatus() == HookStatus::EXTEND) {
 			if (hookSize.magnitude() < hook->getLength()) {
 				extend();
+				
 			}
 			else {
 				hook->setHookStatus(HookStatus::EMPTY);
 				Message msg(HOOK_EMPTY);
 				mc->sendMessage(&msg);
 			}
-		}		
+		}	
 		else if (hook->getHookStatus() == HookStatus::EMPTY) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
@@ -71,6 +72,7 @@ void HookShotComponent::update()
 				moveEnemy();
 			}
 			else {
+				mc->setMCState(MCState::Idle);
 				stop();
 				enemyHooked->setMovable(true);
 			}
@@ -103,7 +105,8 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->setHookStatus(HookStatus::EXTEND);
 	mc->setMCState(MCState::Hooking);
 	mc->setMovable(false);
-	
+	Message msg(HOOK_EXTEND);
+	mc->sendMessage(&msg);
 
 	SDL_Point p;
 	SDL_Rect r;
@@ -192,8 +195,9 @@ void HookShotComponent::stop()
 {
 	hook->setHookStatus(HookStatus::STOP);
 	hook->setActive(false);
-	mc->setMCState(MCState::Idle);
-	mc->setMovable(true);	
+	
+	Message msg(HOOK_STOP);
+	mc->sendMessage(&msg);
 }
 
 void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con un enemigo y si choca contra la pared
@@ -210,6 +214,8 @@ void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con u
 					hook->setHookStatus(HookStatus::MOVE_ENEMY);
 					enemyHooked = e;
 					e->setMovable(false);
+					Message msg(HOOK_ENEMY);
+					mc->sendMessage(&msg);
 				}
 				i++;
 			}
@@ -227,6 +233,8 @@ void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con u
 			if (CollisionHandler::Collide(hook->getTransform(), tl)) {
 				collision = true;
 				hook->setHookStatus(HookStatus::MOVE_MC);
+				Message msg(HOOK_WALL);
+				mc->sendMessage(&msg);
 			}
 		}
 	}
@@ -246,6 +254,7 @@ void HookShotComponent::updateHookAngle()
 	angle = angle * 180 / M_PI;
 	if (angle < 0)
 		angle += 360;
+
 	hook->setAngle(angle);
 }
 
