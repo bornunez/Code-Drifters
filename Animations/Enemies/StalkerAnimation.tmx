@@ -48,6 +48,11 @@
   <object id="68" name="Hurtbox" type="2" x="147" y="86.5" width="20" height="21"/>
   <object id="69" name="Hurtbox" type="3" x="210" y="87.5" width="20" height="21"/>
  </objectgroup>
+ <layer name="Death" width="17" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg+wJYKZgAAEUQAPg==
+  </data>
+ </layer>
  <objectgroup name="Run">
   <object id="41" name="Hurtbox" type="0" x="20.25" y="25" width="15.375" height="18.375"/>
   <object id="43" name="Hurtbox" type="1" x="83.1875" y="25.5625" width="15.375" height="18.375"/>

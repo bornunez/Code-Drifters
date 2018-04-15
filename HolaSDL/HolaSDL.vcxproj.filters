@@ -230,8 +230,6 @@
     <ClCompile Include="HookShotComponent.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="StunComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
@@ -308,6 +306,12 @@
       <Filter>Estados\Source</Filter>
     </ClCompile>
     <ClCompile Include="BulletAnimationComponent.cpp" />
+    <ClCompile Include="PlayState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">

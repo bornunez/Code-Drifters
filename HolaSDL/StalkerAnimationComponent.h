@@ -2,7 +2,7 @@
 #include "RenderComponent.h"
 #include <map>
 #include "Animation.h"
-
+#include "Timer.h"
 class EnemyStalker;
 class StalkerAnimationComponent :
 	public RenderComponent
@@ -17,6 +17,6 @@ private:
 	GameObject* target;
 	EnemyStalker* es;
 	std::map<const char*, Animation*> animations;
-	
+	Timer* hurtTimer;
 };
 
