@@ -83,6 +83,7 @@ void HookShotComponent::update()
 		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
+				mc->setMCState(MCState::Hooking);
 			}
 			else {
 				stop();
