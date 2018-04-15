@@ -133,6 +133,9 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 	case ENEMY_BULLET_COLLISION:
 		handleAnimationHurt();
 		break;
+	case MC_DEATH:
+		handleAnimationDeath();
+		break;
 	}
 }
 
@@ -149,7 +152,7 @@ void MCAnimationComponent::handleAnimationStates()
 	
 	//IDLE POSITIONS
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-	cout << mc->getMCState();
+	cout << (int)mc->getMCState();
 	if ((gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle)) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
@@ -250,5 +253,11 @@ void MCAnimationComponent::handleAnimationHurt()
 {
 	gameObject->changeCurrentAnimation("HURT");
 	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Hurt);
+}
+
+void MCAnimationComponent::handleAnimationDeath()
+{
+	gameObject->changeCurrentAnimation("DEATH");
+	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Death);
 }
 

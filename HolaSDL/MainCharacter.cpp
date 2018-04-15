@@ -164,6 +164,10 @@ void MainCharacter::loadAnimations()
 	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this);
 
 	animations.emplace("HURT", hurt);
+
+	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false);
+
+	animations.emplace("DEATH", death);
 }
 
 //Getters & Setters
