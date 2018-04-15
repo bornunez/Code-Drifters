@@ -168,6 +168,19 @@ void MainCharacter::loadAnimations()
 	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false);
 
 	animations.emplace("DEATH", death);
+
+	Animation*shotRight = AnimationParser::parseAnimation(tileset, animationPath, "ShotRight", this);
+
+	Animation*shotLeft = AnimationParser::parseAnimation(tileset, animationPath, "ShotLeft", this);
+
+	Animation*shotTop = AnimationParser::parseAnimation(tileset, animationPath, "ShotTop", this);
+
+	Animation*shotBot = AnimationParser::parseAnimation(tileset, animationPath, "ShotBot", this);
+
+	animations.emplace("SHOT_TOP", shotTop);
+	animations.emplace("SHOT_LEFT", shotLeft);
+	animations.emplace("SHOT_RIGHT", shotRight);
+	animations.emplace("SHOT_BOT", shotBot);
 }
 
 //Getters & Setters
