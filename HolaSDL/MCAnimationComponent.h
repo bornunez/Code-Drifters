@@ -14,6 +14,7 @@ public:
 	void handleAnimationShot();
 	void handleAnimationDash();
 	void handleAnimationEndDash();
+	void handleAnimationHurt();
 private:
 	std::map<const char*, Animation*> animations;
 	

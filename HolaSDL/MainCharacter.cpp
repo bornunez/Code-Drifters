@@ -160,6 +160,10 @@ void MainCharacter::loadAnimations()
 	animations.emplace("DASHEND_TOP", dashEndTop);
 	animations.emplace("DASH_BOT", dashBot);
 	animations.emplace("DASHEND_BOT", dashEndBot);
+
+	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this);
+
+	animations.emplace("HURT", hurt);
 }
 
 //Getters & Setters

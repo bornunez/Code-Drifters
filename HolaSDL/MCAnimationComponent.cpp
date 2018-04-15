@@ -130,7 +130,9 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 	case HOOK_STOP:
 		handleAnimationEndDash();
 		break;
-
+	case ENEMY_BULLET_COLLISION:
+		handleAnimationHurt();
+		break;
 	}
 }
 
@@ -241,5 +243,12 @@ void MCAnimationComponent::handleAnimationEndDash()
 	}
 	mc->setMCState(MCState::DashEnd);
 	mc->setMovable(true);	
+}
+
+//Cambia la animacion a HURT y crea una particula de sangre
+void MCAnimationComponent::handleAnimationHurt()
+{
+	gameObject->changeCurrentAnimation("HURT");
+	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Hurt);
 }
 
