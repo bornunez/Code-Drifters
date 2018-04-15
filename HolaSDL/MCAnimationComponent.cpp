@@ -144,9 +144,11 @@ void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tie
 
 void MCAnimationComponent::handleAnimationStates()
 {
+	
 	//IDLE POSITIONS
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-	if (gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle) {
+	cout << mc->getMCState();
+	if ((gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle)) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
 			gameObject->changeCurrentAnimation("IDLE_RIGHT");
@@ -237,8 +239,7 @@ void MCAnimationComponent::handleAnimationEndDash()
 		gameObject->changeCurrentAnimation("DASHEND_TOP");
 		gameObject->getCurrentAnimation()->startAnimation();
 	}
-	
-	mc->setMovable(true);
-	
+	mc->setMCState(MCState::DashEnd);
+	mc->setMovable(true);	
 }
 

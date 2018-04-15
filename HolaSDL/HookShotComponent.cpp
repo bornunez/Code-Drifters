@@ -64,6 +64,7 @@ void HookShotComponent::update()
 			}
 			else {
 				stop();
+				mc->setMCState(MCState::Idle);
 			}
 		}
 		else if (hook->getHookStatus() == HookStatus::MOVE_ENEMY) {
@@ -72,8 +73,8 @@ void HookShotComponent::update()
 				moveEnemy();
 			}
 			else {
-				mc->setMCState(MCState::Idle);
 				stop();
+				mc->setMCState(MCState::Idle);
 				enemyHooked->setMovable(true);
 			}
 		}
@@ -183,10 +184,11 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 		*mcT = auxT;
 	}
 	else {
-		hook->setHookStatus(HookStatus::EMPTY);
-		Message msg(HOOK_EMPTY);
+		hook->setHookStatus(HookStatus::FAIL);
+		Message msg(HOOK_FAIL);
 		mc->sendMessage(&msg);
 		contract();
+		stop();
 	}
 
 }

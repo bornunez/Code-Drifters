@@ -75,7 +75,7 @@ void MCMovementInput::update()
 			velocity.setY(0);
 
 		}
-		if (velocity.getX() == 0 && velocity.getY() == 0 && (mc->getMCState() != MCState::Attack && mc->getMCState() != MCState::Hooking)) {
+		if (velocity.getX() == 0 && velocity.getY() == 0 && (mc->getMCState() != MCState::Attack && mc->getMCState() != MCState::Hooking && mc->getMCState() != MCState::DashEnd)) {
 			mc->setMCState(MCState::Idle);
 		}
 	}
