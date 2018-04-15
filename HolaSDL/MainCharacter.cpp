@@ -160,6 +160,19 @@ void MainCharacter::loadAnimations()
 	animations.emplace("DASHEND_TOP", dashEndTop);
 	animations.emplace("DASH_BOT", dashBot);
 	animations.emplace("DASHEND_BOT", dashEndBot);
+
+	Animation*shotRight = AnimationParser::parseAnimation(tileset, animationPath, "ShotRight", this);
+
+	Animation*shotLeft = AnimationParser::parseAnimation(tileset, animationPath, "ShotLeft", this);
+
+	Animation*shotTop = AnimationParser::parseAnimation(tileset, animationPath, "ShotTop", this);
+
+	Animation*shotBot = AnimationParser::parseAnimation(tileset, animationPath, "ShotBot", this);
+
+	animations.emplace("SHOT_TOP", shotTop);
+	animations.emplace("SHOT_LEFT", shotLeft);
+	animations.emplace("SHOT_RIGHT", shotRight);
+	animations.emplace("SHOT_BOT", shotBot);
 }
 
 //Getters & Setters

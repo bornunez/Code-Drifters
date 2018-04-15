@@ -81,6 +81,8 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 			currentBullets--;//Le resta balas al personaje
 			static_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
+			Message msg(MC_SHOT);
+			gameObject->sendMessage(&msg);
 		}
 	}
 
