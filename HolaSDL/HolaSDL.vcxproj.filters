@@ -312,6 +312,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -604,6 +607,9 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="BulletAnimationComponent.h" />
+    <ClInclude Include="Particle.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

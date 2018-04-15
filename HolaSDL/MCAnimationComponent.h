@@ -17,6 +17,8 @@ public:
 	void handleAnimationShot();
 	void handleAnimationDash();
 	void handleAnimationEndDash();
+	void handleAnimationHurt();
+	void handleAnimationDeath();
 	void handleAnimationGun();
 	float handleGunAngle();
 private:

@@ -49,7 +49,7 @@ void HookShotComponent::update()
 		
 		if (hook->getHookStatus() == HookStatus::EXTEND) {
 			if (hookSize.magnitude() < hook->getLength()) {
-				mc->setMCState(MCState::Shot);
+				mc->setMCState(MCState::HookShot);
 				extend();
 				
 			}
@@ -72,7 +72,7 @@ void HookShotComponent::update()
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 				moveEnemy();
-				mc->setMCState(MCState::Shot);
+				mc->setMCState(MCState::HookShot);
 			}
 			else {
 				stop();

@@ -161,6 +161,14 @@ void MainCharacter::loadAnimations()
 	animations.emplace("DASH_BOT", dashBot);
 	animations.emplace("DASHEND_BOT", dashEndBot);
 
+	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this);
+
+	animations.emplace("HURT", hurt);
+
+	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false);
+
+	animations.emplace("DEATH", death);
+
 	Animation*shotRight = AnimationParser::parseAnimation(tileset, animationPath, "ShotRight", this);
 
 	Animation*shotLeft = AnimationParser::parseAnimation(tileset, animationPath, "ShotLeft", this);
