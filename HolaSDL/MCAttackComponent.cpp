@@ -77,7 +77,6 @@ if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 
 
 
-
 			if (comboAttack == First)
 				attackCD->restart();
 

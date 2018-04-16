@@ -2,11 +2,14 @@
 
 #include "ComponentContainer.h"
 #include "Transform.h"
+#include <vector>
 #include <map>
 class Animation;
 class Game;
 class Texture;
 class PlayState;
+
+using namespace std;
 
 class GameObject : public ComponentContainer
 {
@@ -16,6 +19,7 @@ protected:
 	PlayState* playState = nullptr;
 	Texture * texture = nullptr; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
+	Vector2D prevPosition; //Posicion antigua
 	Vector2D centerPosition;//Centro del objeto
 	Vector2D displayPosition;//Posición respecto a la cámara
 	Vector2D displayCenterPosition;//Centro del objeto respecto a la cámara
@@ -23,6 +27,9 @@ protected:
 
 	std::map<const char*, Animation*> animations;//Animaciones que contiene
 	Animation* currentAnimation;
+
+	vector<string> collisionsLayer;
+
 	bool active = true;
 	bool invincible = false;
 	bool movable = true;
@@ -44,11 +51,15 @@ public:
 	void updateCenterPosition();
 	void updateDisplayPosition();
 	void updateDisplayCenterPosition();
+	void updateBody();
 
 	//Gets y sets
 	bool isActive() { return active; }
 	void setActive(bool active) { this->active = active; }
 	Transform* getTransform() { return &transform; }
+	Vector2D getPreviousPosition() { return prevPosition; }
+	void updatePreviousPosition() { prevPosition = transform.position; }
+
 	Texture* getTexture() { return texture; }
 	Vector2D getCenterPos() { return centerPosition; }
 	Vector2D getDisplayPos() { return displayPosition; }
@@ -63,5 +74,9 @@ public:
 	void setMovable(bool mov) { movable = mov; }
 	bool isDead() { return dead; }
 	void setDeath(bool b) { dead = b; }
+
+	void setCollisionsLayers(vector<string> colLayer) { collisionsLayer = colLayer; }
+	vector<string> getCollisionsLayers() { return collisionsLayer; }
+
 };
 

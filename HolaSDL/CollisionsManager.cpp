@@ -10,6 +10,7 @@
 #include "PlayState.h"
 #include "ItemManager.h"
 #include "ItemObject.h"
+#include "Transform.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -45,7 +46,6 @@ void CollisionsManager::update()
 
 
 	//COLISIONES DE LOS ENEMIGOS
-
 
 }
 
@@ -100,7 +100,7 @@ void CollisionsManager::bulletCollisions()
 				vector<SDL_Rect> hurtBoxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
 				SDL_Rect hitbox = t->body;
 				int i = 0;
-				while (!hit && i< hurtBoxes.size())
+				while (!hit && i < hurtBoxes.size())
 				{
 					if (!mc->getInvincibility()) {
 						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
@@ -156,10 +156,48 @@ void CollisionsManager::playerCollisions()
 	//	if (CollisionHandler::RectCollide(mc->getTransform()->body, enemy->getTransform()->body))
 	//		//Si colisiona con un enemigo no se mueve
 	//}
+
 }
 
 void CollisionsManager::enemyCollisions()
 {
-	
+
 }
 
+void layerCollisions(GameObject* o) {
+
+	Transform* t = o->getTransform();
+	vector<string> collisionsLayer = o->getCollisionsLayers();
+
+	//Movemos al personaje y a su body
+	t->body.x = t->position.getX(); t->body.y = t->position.getY();
+
+	vector<SDL_Rect> rects = { t->body, t->body };
+	vector<bool> collisions = { false,false };
+	//Colisionamos
+	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
+	bool collisionX = false;
+	bool collisionY = false;
+	vector<string>::iterator it;
+	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && (!collisionX || !collisionY); it++) {
+		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
+		if (tl != nullptr) {
+			collisions = CollisionHandler::Collide(rects, tl);
+			collisionX = collisions[0] || collisionX;
+			collisionY = collisions[1] || collisionY;
+		}
+	}
+	if (collisionX || collisionY) {
+		//Si hay colision, cogemos la antigua posicion
+		Vector2D prevPosition = o->getPreviousPosition();
+		if (collisionX) {
+			t->position.setX(prevPosition.getX());
+		}
+		else{
+			t->position.setY(prevPosition.getY());
+		}
+		//Finalmente lo notificamos
+		Message msg(HIT_WALL);
+		o->sendMessage(&msg);
+	}
+}
