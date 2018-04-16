@@ -87,10 +87,10 @@ void MainCharacter::loadAnimations()
 	animations.emplace("IDLE_RIGHT", idleRight);
 	animations.emplace("IDLE_LEFT", idleLeft);
 
-	Animation*runBot = AnimationParser::parseAnimation(tileset, animationPath, "RunBot", this);
-	Animation*runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this);
-	Animation*runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this);
-	Animation*runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this);
+	Animation*runBot = AnimationParser::parseAnimation(tileset, animationPath, "RunBot", this, 0, 0, true, 0.1);
+	Animation*runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this, 0, 0, true, 0.1);
+	Animation*runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this, 0, 0, true, 0.1);
+	Animation*runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this, 0, 0, true, 0.1);
 
 	animations.emplace("RUN_BOT", runBot);
 	animations.emplace("RUN_TOP", runTop);

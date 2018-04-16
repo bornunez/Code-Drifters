@@ -5,17 +5,17 @@
 
 //Este numero define cuanto se mueve el personaje cuando ataca
 const int ATTACK_MOV = 3;
-
+class MainCharacter;
 class MCAttackComponent : public InputComponent
 {
 private:
-	Vector2D aux;
 	Timer* attackCD;
 	enum Combo { First, Second, Third, CD };
 	Combo comboAttack = First;
+	MainCharacter* mc;
 public:
 
-	MCAttackComponent(GameObject* o);
+	MCAttackComponent(MainCharacter* mc);
 	void handleEvents(SDL_Event & e);
 	void receiveMessage(std::string msg) {};
 	virtual ~MCAttackComponent();

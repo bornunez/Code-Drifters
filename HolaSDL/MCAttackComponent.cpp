@@ -17,50 +17,36 @@
 #include "CollisionHandler.h"
 #include "Time.h"
 
-MCAttackComponent::MCAttackComponent(GameObject * o) : InputComponent(o)
+MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(static_cast<GameObject*>(mc))
 {
 	//ResetAttack y AttackDelay
+	this->mc = mc;
 	attackCD = new Timer();
 }
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
 
-if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
+	if(mc->getMCState()== MCState::Attack || mc->getMCState() == MCState::Idle)
 		attackCD->update();
 
-	if (attackCD->TimeSinceTimerCreation >= 0.5) {
+	if (attackCD->TimeSinceTimerCreation >= 0.5 || (mc->getMCState() == MCState::Attack && gameObject->getCurrentAnimation()->isFinished())) {
 		attackCD->restart();
 		comboAttack = First;
-		static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Idle);		//La animacion vuelve a idle
-		static_cast<MainCharacter*>(gameObject)->setMovable(true);
+		mc->setMCState(MCState::Idle);		//La animacion vuelve a idle		
 	}
-	//if ((attackCD->TimeSinceTimerCreation >= 0.4 && comboAttack == Second) ||  //Si te pasas el tiempo disponible para realizar el segundo ataque
-	//	(attackCD->TimeSinceTimerCreation >= 0.75)) {   //Si te pasas el tiempo disponible para realizar el tercer ataque
-
-	//	attackCD->restart();
-	//	comboAttack = First;
-	//	static_cast<MainCharacter*>(gameObject)->setMCState(Idle);		//La animacion vuelve a idle
-	//	static_cast<MainCharacter*>(gameObject)->setMovable(true);
-	//}
-
-
+	
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Dash) {
+		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt) {
 			int mouseX, mouseY;
 			SDL_Point p;
 			SDL_Rect r;
 			SDL_GetMouseState(&p.x, &p.y);
-			MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-			mc->setMovable(false);
 
-			aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-			aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
-
+			
 
 			Vector2D displayPosition;//Posición del personaje relativa a la cámara
-			displayPosition = aux - (PlayState::getInstance()->getCamera()->getTransform()->position);
-
+			displayPosition = mc->getDisplayCenterPos();
 			float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));			//Angulo entre el cursor y el jugador, en grados
 			angle = angle * 180 / M_PI;
 			if (angle < 0)
@@ -73,24 +59,10 @@ if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 			mc->getTransform()->direction.normalize();											//Halla el vector de dirección 
 			mc->getTransform()->velocity = mc->getTransform()->direction * ATTACK_MOV;			//Multiplica por cuanto debe moverse
 			mc->getTransform()->position = mc->getTransform()->position + mc->getTransform()->velocity * mc->getTransform()->speed * (min((float)1, Time::getInstance()->DeltaTime));
-
-
-
-
-
+			
 			if (comboAttack == First)
 				attackCD->restart();
 
-
-
-			//if(attackCD->TimeSinceTimerCreation >= 1) {
-		//		attackCD->restart();
-			//	comboAttack = First;
-		//	}
-			//	else if (attackCD->TimeSinceTimerCreation >= 1 && comboAttack == First) {					//Si el tiempo ha superado el maximo el timer del combo vuelve a 0
-			//	attackCD->restart();
-			//	comboAttack = First;
-			//	}
 
 			Message msg(NO_ID);
 
@@ -188,12 +160,16 @@ if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 				}
 				comboAttack = CD;
 				attackCD->restart();
+
 			}
 
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
+
 		}
 	}
+
+	
 }
 
 MCAttackComponent::~MCAttackComponent()
