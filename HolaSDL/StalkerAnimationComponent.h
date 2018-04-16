@@ -8,7 +8,7 @@ class StalkerAnimationComponent :
 	public RenderComponent
 {
 public:
-	StalkerAnimationComponent(EnemyStalker* o, GameObject* target, std::map<const char*, Animation*> anim);
+	StalkerAnimationComponent(EnemyStalker* o, GameObject* target, std::map<const char*, Animation*> anim, float hTime, float delayTime);
 	virtual ~StalkerAnimationComponent();
 	void render();
 	void receiveMessage(Message* msg);
@@ -18,5 +18,8 @@ private:
 	EnemyStalker* es;
 	std::map<const char*, Animation*> animations;
 	Timer* hurtTimer;
+	Timer* chargeTimer;
+	float hurtTime;
+	float attackDelay;
 };
 
