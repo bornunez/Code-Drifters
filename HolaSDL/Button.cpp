@@ -1,20 +1,17 @@
 #include "Button.h"
+#include "Game.h"
 
 
 
-Button::Button(SDL_Rect rec, CallBackOnClick cbon, string filename, SDL_Renderer* rend)
+Button::Button(SDL_Rect rect, CallBackOnClick cbon, string filename)
 {
 	CbOnClk = cbon;
-	destRect = rec;
-	text = new Texture();
-	rend_ = rend;
-	text->loadText(filename, 1, 1, rend_);
+	destRect = rect;
 }
 
 
 Button::~Button()
 {
-	delete text;
 }
 
 bool Button::HandleEvents(SDL_Event& e) {
@@ -32,12 +29,3 @@ bool Button::HandleEvents(SDL_Event& e) {
 
 void Button::update() {}
 
-void Button::render(SDL_Renderer* render, SDL_Rect destRec) {
-	destRect = destRec;
-	rend_ = render;
-	text->Render(destRec, render);
-}
-
-void Button::render() {
-	text->Render(destRect, rend_);
-}

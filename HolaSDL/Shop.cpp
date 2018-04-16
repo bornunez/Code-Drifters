@@ -1,4 +1,5 @@
 #include "Shop.h"
+#include "Game.h"
 
 
 
@@ -8,7 +9,7 @@ Shop::Shop(SDL_Renderer* re)
 	//lecture of different trees from file
 	for (int i = 0; i < 3; i++) {
 		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + ".txt", rend, "..\\Arbol\\Textures\\"+ to_string(i+1) +".png");
-		fondos_[i] = new Texture();
+		fondos_[i] = new Texture(Game::getGame()->getRenderer());
 	}
 	//lecture of textures
 	if (!LoadTextures());
@@ -35,9 +36,9 @@ Shop::Shop(SDL_Renderer* re)
 }
 
 bool Shop::LoadTextures() {
-	if (!fondos_[0]->loadText("..\\Arbol\\Izquierdo.png", 1, 1, rend)) return false;
-	if (!fondos_[1]->loadText("..\\Arbol\\Central.png", 1, 1, rend))return false;
-	if (!fondos_[2]->loadText("..\\Arbol\\Derecho.png", 1, 1, rend))return false;
+	if (!fondos_[0]->loadFromImg("..\\Arbol\\Izquierdo.png")) return false;
+	if (!fondos_[1]->loadFromImg("..\\Arbol\\Central.png"))return false;
+	if (!fondos_[2]->loadFromImg("..\\Arbol\\Derecho.png"))return false;
 	else return true;
 }
 
@@ -51,8 +52,8 @@ void Shop::update() {
 
 void Shop::render() {
 	//render of the left and right rectangles
-	fondos_[(actual_tree + 1) % 3]->Render(right_tree, rend);
-	fondos_[(actual_tree + 2) % 3]->Render(left_tree, rend);
+	fondos_[(actual_tree + 1) % 3]->render(right_tree);
+	fondos_[(actual_tree + 2) % 3]->render(left_tree);
 
 	//render of left and right tree, in the assigned rectangle
 	Skills_[(actual_tree + 1) % 3]->render(right_tree, 25, right_tree.w);
@@ -60,7 +61,7 @@ void Shop::render() {
 
 
 	//render of the central tree, so it is above the two others
-	fondos_[actual_tree]->Render(central_tree, rend);
+	fondos_[actual_tree]->render(central_tree);
 	Skills_[actual_tree]->render(central_tree, 55, central_tree.w);
 }
 

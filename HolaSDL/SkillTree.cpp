@@ -1,12 +1,13 @@
 #include "SkillTree.h"
+#include "Game.h"
 
 SkillTree::SkillTree(SkillTree* parent, string source, SDL_Renderer* rend, string TextSource) {
 	//initial values for destRect
 	skill.destRect.w = skill.destRect.x = skill.destRect.h = 50;
 	skill.destRect.y = 0;
 
-	skill.text = new Texture();
-	if (skill.text->loadText(TextSource, 1, 1, rend));
+	skill.text = new Texture(Game::getGame()->getRenderer());
+	if (skill.text->loadFromImg(TextSource));
 
 	parent_ = parent;
 	rending = rend;
@@ -48,27 +49,27 @@ SkillTree::SkillTree(SkillTree* parent, string source, SDL_Renderer* rend, strin
 			"..\\Arbol\\Textures\\" + to_string(skill.id) + to_string(i) + ".png"));
 	}
 
-	skill.HLineToFather = new Texture();
-	skill.VLineToFather = new Texture();
+	skill.HLineToFather = new Texture(Game::getGame()->getRenderer());
+	skill.VLineToFather = new Texture(Game::getGame()->getRenderer());
 	if (!skill.bought) {
-		if (skill.HLineToFather->loadText("..\\Arbol\\Textures\\Line.png", 1, 1, rend));
-		if (skill.VLineToFather->loadText("..\\Arbol\\Textures\\Line.png", 1, 1, rend));
+		if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
+		if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
 	}
 	else {
 		int TreeNumber = to_string(skill.id).front() - '0';
 		switch (TreeNumber)
 		{
 		case 1:
-			if (skill.HLineToFather->loadText("..\\Arbol\\Textures\\RedLine.png", 1, 1, rending));
-			if (skill.VLineToFather->loadText("..\\Arbol\\Textures\\RedLine.png", 1, 1, rending));
+			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\RedLine.png"));
+			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\RedLine.png"));
 			break;
 		case 2:
-			if (skill.HLineToFather->loadText("..\\Arbol\\Textures\\BlueLine.png", 1, 1, rending));
-			if (skill.VLineToFather->loadText("..\\Arbol\\Textures\\BlueLine.png", 1, 1, rending));
+			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\BlueLine.png"));
+			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\BlueLine.png"));
 			break;
 		case 3:
-			if (skill.HLineToFather->loadText("..\\Arbol\\Textures\\GreenLine.png", 1, 1, rending));
-			if (skill.VLineToFather->loadText("..\\Arbol\\Textures\\GreenLine.png", 1, 1, rending));
+			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\GreenLine.png"));
+			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\GreenLine.png"));
 		default:
 			break;
 		}
@@ -112,8 +113,8 @@ void SkillTree::render(SDL_Rect destination, int size, int totalWidth ) {
 
 	DrawLine();
 	if (parent_ != nullptr && parent_->parent_ == nullptr)
-		parent_->skill.text->Render(parent_->skill.destRect, rending);
-	skill.text->Render(skill.destRect, rending);
+		parent_->skill.text->render(parent_->skill.destRect);
+	skill.text->render(skill.destRect);
 
 	if (sons_.size() > 0) {
 		
@@ -180,7 +181,7 @@ void SkillTree::DrawLine() {
 			auxRect.w = abs(skill.destRect.x - parent_->skill.destRect.x) - parent_->skill.destRect.w / 2;
 		else auxRect.w = 0;
 
-		skill.HLineToFather->Render(auxRect, rending);
+		skill.HLineToFather->render(auxRect);
 		//now line first
 		if (auxRect.w <= 0) {
 			auxRect.h = skill.destRect.y - parent_->skill.destRect.y - parent_->skill.destRect.h;
@@ -193,7 +194,7 @@ void SkillTree::DrawLine() {
 
 		auxRect.x = skill.destRect.x + (skill.destRect.w/2) - auxRect.w/2;
 
-		skill.VLineToFather->Render(auxRect, rending);
+		skill.VLineToFather->render(auxRect);
 	}
 }
 
