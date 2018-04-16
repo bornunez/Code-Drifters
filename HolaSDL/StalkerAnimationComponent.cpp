@@ -32,6 +32,10 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 			gameObject->changeCurrentAnimation("RUN");
 			gameObject->getCurrentAnimation()->startAnimation();
 			break;
+		case STALKER_CHARGE:
+			gameObject->changeCurrentAnimation("CHARGE");
+			gameObject->getCurrentAnimation()->startAnimation();
+			break;
 		case STALKER_ATTACK:
 			gameObject->changeCurrentAnimation("ATTACK");
 			gameObject->getCurrentAnimation()->startAnimation();

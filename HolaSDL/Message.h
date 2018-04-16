@@ -57,6 +57,7 @@ enum MessageId {
 
 	//Stalker
 	STALKER_RUN,
+	STALKER_CHARGE,
 	STALKER_ATTACK,
 
 

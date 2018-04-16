@@ -145,9 +145,21 @@ void CollisionsManager::playerCollisions()
 			ItemManager::getInstance()->PickItem(item);
 		}
 	}
+
+	////Colision jugador con enemigos activos, sin hurt
+
+	//list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
+	//MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+
+	//for (Enemy* enemy : enemies)
+	//{
+	//	if (CollisionHandler::RectCollide(mc->getTransform()->body, enemy->getTransform()->body))
+	//		//Si colisiona con un enemigo no se mueve
+	//}
 }
 
 void CollisionsManager::enemyCollisions()
 {
+	
 }
 

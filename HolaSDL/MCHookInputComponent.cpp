@@ -16,7 +16,7 @@ MCHookInputComponent::~MCHookInputComponent()
 
 void MCHookInputComponent::handleEvents(SDL_Event & e)
 {
-	if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Hooking) {
+	if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Dash) {
 		if (e.key.keysym.sym == SDLK_SPACE && e.type == SDL_KEYDOWN) {
 			if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Attack) {
 				int mouseX, mouseY;

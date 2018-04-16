@@ -120,7 +120,7 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("IDLE_BOT");
 		break;
 	case HOOK_WALL:
-		mc->setMCState(MCState::Hooking);
+		mc->setMCState(MCState::Dash);
 		handleAnimationDash();
 		break;
 	case HOOK_ENEMY:
@@ -240,7 +240,7 @@ void MCAnimationComponent::handleAnimationShot()
 void MCAnimationComponent::handleAnimationDash()
 {
 	//HOOK STATE
-	if (mc->getMCState() == MCState::Hooking) {
+	if (mc->getMCState() == MCState::Dash) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
 			gameObject->changeCurrentAnimation("DASH_RIGHT");
@@ -321,36 +321,39 @@ void MCAnimationComponent::handleAnimationGun()
 	float spritePosY = displayY - gunTexture->getFrameHeight()*Game::getGame()->getScale() / 2;
 	float spriteW = gunTexture->getFrameWidth()*Game::getGame()->getScale();
 	float spriteH = gunTexture->getFrameHeight()*Game::getGame()->getScale();
-	
+	float offsetX = 0;
+	float offsetY = 0;
 
 	if (angle > 45 && angle < 135) {//Abajo
 		if (angle > 90) {//Abajo a la izquierda
-			spritePosY += 5;
-			spritePosX -= 6;
+			offsetY += 2;
+			offsetX -= 2;
 		}
 		else {//Abajo a la derecha
-			spritePosY += 5;
-			spritePosX -= 17;
+			offsetY += 2;
+			offsetX -= 6;
 		}
 		
 	}
 	else if(angle>=135 && angle<225) {//Izquierda
-		spritePosX -= 6;
+		 offsetX += 1;
 	}
 	else if (angle >= 225 && angle<315) {//Arriba
 		if (angle>270) {//Arriba a la derecha
-			spritePosY -= 5;
-			spritePosX += 15;
+			offsetY -= 2;
+			offsetX += 5;
 		}
 		else {
-			spritePosY -= 5;
-			spritePosX += 5;
+			offsetY -= 2;
+			offsetX += 2;
 		}
 	}
 	else {//Derecha
-		spritePosY += 5;
-		spritePosX += 6;
+		offsetY += 2;
+		offsetX += 2;
 	}
+	offsetY *= Game::getGame()->getScale();
+	offsetX *= Game::getGame()->getScale();
 
 	SDL_RendererFlip flip;
 	if (angle >= 90 && angle<270) {
@@ -361,7 +364,7 @@ void MCAnimationComponent::handleAnimationGun()
 		flip = SDL_FLIP_NONE;
 	}
 	SDL_Rect srcrect = { 0, 0, gunTexture->getFrameWidth(), gunTexture->getFrameHeight() };
-	SDL_Rect dstrect = { spritePosX, spritePosY,spriteW, spriteH };
+	SDL_Rect dstrect = { spritePosX + offsetX, spritePosY + offsetY,spriteW, spriteH };
 
 	SDL_Point center;
 	center.x = dstrect.w / 2;
