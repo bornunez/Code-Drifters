@@ -3,6 +3,9 @@
 #include "MainCharacter.h"
 #include "Time.h"
 #include "Managers.h"
+#include "Transform.h"
+#include "Vector2D.h"
+
 MCMovementInput::MCMovementInput(GameObject * o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left): 
 	UpdateComponent (o), upKey(up), rightKey(right), downKey(down), leftKey(left)
 {
@@ -89,4 +92,16 @@ void MCMovementInput::update()
 	velocity.normalize();
 	t->velocity.set(velocity);
 
+}
+
+void MCMovementInput::receiveMessage(Message * msg)
+{
+	switch (msg->id)
+	{
+	case HIT_WALL:
+		gameObject->getTransform()->velocity.set({ 0,0 });
+		break;
+	default:
+		break;
+	}
 }

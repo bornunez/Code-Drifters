@@ -54,12 +54,15 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		
 			displayPosition = (mc->getTransform()->position - PlayState::getInstance()->getCamera()->getTransform()->position);
 
-			mc->getTransform()->direction = { p.x - displayPosition.getX(), p.y - displayPosition.getY()};//Resta la posición del cursor al del personaje
+			Transform* t = mc->getTransform();
 
-			mc->getTransform()->direction.normalize();											//Halla el vector de dirección 
-			mc->getTransform()->velocity = mc->getTransform()->direction * ATTACK_MOV;			//Multiplica por cuanto debe moverse
-			mc->getTransform()->position = mc->getTransform()->position + mc->getTransform()->velocity * mc->getTransform()->speed * (min((float)1, Time::getInstance()->DeltaTime));
-			
+			t->direction.set( p.x - displayPosition.getX(), p.y - displayPosition.getY());//Resta la posición del cursor al del personaje
+
+			t->direction.normalize();											//Halla el vector de dirección 
+			Vector2D aux = t->direction * ATTACK_MOV;			//Multiplica por cuanto debe moverse
+			t->position.set( t->position + aux * (min((float)1, Time::getInstance()->DeltaTime)));
+			t->velocity.set({ 0,0 });
+
 			if (comboAttack == First)
 				attackCD->restart();
 
@@ -72,27 +75,27 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK1_TOPLEFT;
-					gameObject->getTransform()->direction.set(0, -1);
+					t->direction.set(0, -1);
 				}
 				else if (angle > 270 && angle < 330) {
 					msg.id = ATTACK1_TOPRIGHT;
-					gameObject->getTransform()->direction.set(0, -1);
+					t->direction.set(0, -1);
 				}
 				else if (angle > 150 && angle < 210) {
 					msg.id = ATTACK1_LEFT;
-					gameObject->getTransform()->direction.set(-1, 0);
+					t->direction.set(-1, 0);
 				}
 				else if (angle >= 90 && angle < 150) {
 					msg.id = ATTACK1_BOTLEFT;
-					gameObject->getTransform()->direction.set(0, 1);
+					t->direction.set(0, 1);
 				}
 				else if (angle > 30 && angle < 90) {
 					msg.id = ATTACK1_BOTRIGHT;
-					gameObject->getTransform()->direction.set(0, 1);
+					t->direction.set(0, 1);
 				}
 				else {
 					msg.id = ATTACK1_RIGHT;
-					gameObject->getTransform()->direction.set(1, 0);
+					t->direction.set(1, 0);
 				}
 				comboAttack = Second;
 			}
@@ -104,27 +107,27 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK2_TOPLEFT;
-					gameObject->getTransform()->direction.set(0, -1);
+					t->direction.set(0, -1);
 				}
 				else if (angle > 270 && angle < 330) {
 					msg.id = ATTACK2_TOPRIGHT;
-					gameObject->getTransform()->direction.set(0, -1);
+					t->direction.set(0, -1);
 				}
 				else if (angle > 150 && angle < 210) {
 					msg.id = ATTACK2_LEFT;
-					gameObject->getTransform()->direction.set(-1, 0);
+					t->direction.set(-1, 0);
 				}
 				else if (angle >= 90 && angle < 150) {
 					msg.id = ATTACK2_BOTLEFT;
-					gameObject->getTransform()->direction.set(0, 1);
+					t->direction.set(0, 1);
 				}
 				else if (angle > 30 && angle < 90) {
 					msg.id = ATTACK2_BOTRIGHT;
-					gameObject->getTransform()->direction.set(0, 1);
+					t->direction.set(0, 1);
 				}
 				else {
 					msg.id = ATTACK2_RIGHT;
-					gameObject->getTransform()->direction.set(1, 0);
+					t->direction.set(1, 0);
 				}
 				comboAttack = Third;
 			}
@@ -136,27 +139,27 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 				if (angle > 210 && angle <= 270) {
 					msg.id = ATTACK3_TOPLEFT;
-					gameObject->getTransform()->direction.set(0, -1);
+					t->direction.set(0, -1);
 				}
 				else if (angle > 270 && angle < 330) {
 					msg.id = ATTACK3_RIGHT;
-					gameObject->getTransform()->direction.set(0, -1);
+					t->direction.set(0, -1);
 				}
 				else if (angle > 150 && angle < 210) {
 					msg.id = ATTACK3_LEFT;
-					gameObject->getTransform()->direction.set(-1, 0);
+					t->direction.set(-1, 0);
 				}
 				else if (angle >= 90 && angle < 150) {
 					msg.id = ATTACK3_BOTLEFT;
-					gameObject->getTransform()->direction.set(0, 1);
+					t->direction.set(0, 1);
 				}
 				else if (angle > 30 && angle < 90) {
 					msg.id = ATTACK3_BOTRIGHT;
-					gameObject->getTransform()->direction.set(0, 1);
+					t->direction.set(0, 1);
 				}
 				else {
 					msg.id = ATTACK3_RIGHT;
-					gameObject->getTransform()->direction.set(1, 0);
+					t->direction.set(1, 0);
 				}
 				comboAttack = CD;
 				attackCD->restart();

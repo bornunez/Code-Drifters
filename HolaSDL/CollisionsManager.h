@@ -7,13 +7,14 @@ class CollisionsManager : public GameObject
 private:
 	static CollisionsManager* instance;
 	CollisionsManager();
+	void layerCollisions(GameObject* o);
+	void bulletCollisions();
+	void playerCollisions();
+	void enemyCollisions();
 public:
 	virtual ~CollisionsManager();
 	static CollisionsManager* getInstance();
 	virtual void handleInput(const SDL_Event& event);
 	virtual void update();
 	virtual void render();
-	void bulletCollisions();
-	void playerCollisions();
-	void enemyCollisions();
 };

@@ -8,6 +8,7 @@ GameObject::GameObject()
 {
 	this->game = Game::getGame();
 	this->playState = PlayState::getInstance();
+	prevPosition = transform.position;
 	movable = true;
 }
 
@@ -15,6 +16,7 @@ GameObject::GameObject(Texture * tex, bool active) : texture(tex), active(active
 {
 	this->game = Game::getGame();
 	this->playState = PlayState::getInstance();
+	prevPosition = transform.position;
 }
 
 GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), active(active)
@@ -22,6 +24,7 @@ GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), a
 	this->game = Game::getGame();
 	this->playState = PlayState::getInstance();
 	transform = t;
+	prevPosition = transform.position;
 	movable = true;
 }
 
@@ -31,6 +34,7 @@ GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float
 	this->playState = PlayState::getInstance();
 	transform.position = position; transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
+	prevPosition = transform.position;
 	movable = true;
 }
 
@@ -40,6 +44,7 @@ GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight
 	transform.position.setX(x); transform.position.setY(y);
 	transform.rotation = { 0,0 }; transform.velocity = { 0,0 };
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
+	prevPosition = transform.position;
 	movable = true;
 }
 
@@ -83,6 +88,11 @@ void GameObject::updateDisplayCenterPosition()
 {
 	displayCenterPosition.setX(displayPosition.getX() + transform.body.w / 2);
 	displayCenterPosition.setY(displayPosition.getY() + transform.body.h / 2);
+}
+
+void GameObject::updateBody() {
+	transform.body.x = transform.position.getX(); 
+	transform.body.y = transform.position.getY();
 }
 
 Animation * GameObject::getCurrentAnimation()

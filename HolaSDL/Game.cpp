@@ -85,9 +85,9 @@ void Game::run()
 	{
 		Time::getInstance()->Ticks();
 		//Provisional en lugar del render	
+		handleEvents();
 		stateMachine->currentState()->update();
 		stateMachine->currentState()->render();
-		handleEvents();
 		this->mouseIcon->drawIcon(event);
 		SDL_RenderPresent(this->getRenderer());
 	}

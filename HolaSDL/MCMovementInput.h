@@ -21,7 +21,7 @@ public:
 	virtual ~MCMovementInput();
 	Vector2D aux;
 	Timer* lastReloadTime;
-	void update();
-	void receiveMessage(std::string msg) {};	
+	void update();	
+	virtual void receiveMessage(Message* msg);
 };
 

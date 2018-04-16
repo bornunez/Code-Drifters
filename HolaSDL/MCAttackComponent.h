@@ -4,7 +4,7 @@
 #include "Timer.h"
 
 //Este numero define cuanto se mueve el personaje cuando ataca
-const int ATTACK_MOV = 3;
+const int ATTACK_MOV = 800;
 class MainCharacter;
 class MCAttackComponent : public InputComponent
 {

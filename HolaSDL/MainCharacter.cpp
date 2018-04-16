@@ -43,9 +43,9 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
-	vector<string> collisionLayer = { "Paredes","Aire" };
+	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new MCGunPosition(this));
-	addComponent(new BasicMovement(this, collisionLayer));
+	addComponent(new BasicMovement(this));
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
