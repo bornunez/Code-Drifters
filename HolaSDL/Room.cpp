@@ -175,7 +175,6 @@ void Room::load() {
 	if (i > 0) {
 		//Ahora seleccionamos una sala aleatoria entre las salas que haya
 		int rnd = rand() % i;
-		cout << rnd << endl;
 		level = levelPath + loadFile + to_string(rnd) + ".tmx";
 	}
 	else

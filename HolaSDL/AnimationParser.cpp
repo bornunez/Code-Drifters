@@ -47,10 +47,8 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 			}
 			t = nt;
 			//Aqui ya esta el texto cortado y listo para decodificar
-			///cout << t << endl;
 			//Decodificamos el mapa
 			macaron::Base64::Decode(t, decodedID);
-			///cout << decodedID << endl;
 			//Y descomprimimos
 			uLongf numGids = width * height * sizeof(int);
 			std::vector<unsigned> gids(numGids);
@@ -156,7 +154,6 @@ Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFi
 		}
 	}
 	//XMLElement* mapa = levelDocument.FirstChildElement("map");
-	//cout << mapa->Attribute("width");
 
 	return anim;
 }

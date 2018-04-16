@@ -113,7 +113,7 @@ void GunnerAnimationComponent::handleAnimations()
 
 		EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 
-		if (eg->enemyState == EnemyState::Hurt) {
+		if (eg->enemyState == EnemyState::Hurt) {//Timer relacionado con la animación de recibir daño
 			hurtTimer->update();
 			if (hurtTimer->TimeSinceTimerCreation > 0.2) {
 				eg->enemyState = EnemyState::Idle;

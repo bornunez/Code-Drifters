@@ -35,6 +35,11 @@ enum MessageId {
 	ATTACK1_BOTRIGHT,
 	ATTACK2_BOTRIGHT,
 	ATTACK3_BOTRIGHT,
+	MC_SHOT,
+	MC_HOOKSHOT,
+
+	//Death
+	MC_DEATH,
 
 	//GameObjects
 	HURT,
@@ -52,6 +57,7 @@ enum MessageId {
 
 	//Stalker
 	STALKER_RUN,
+	STALKER_CHARGE,
 	STALKER_ATTACK,
 
 

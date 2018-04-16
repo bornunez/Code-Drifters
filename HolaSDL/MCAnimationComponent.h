@@ -2,10 +2,13 @@
 #include "RenderComponent.h"
 #include <map>
 #include "Animation.h"
+#include "Texture.h"
+#include "Timer.h"
+class MainCharacter;
 class MCAnimationComponent : public RenderComponent
 {
 public:
-	MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim);
+	MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim);
 	void render();
 	void receiveMessage(Message* msg);
 	virtual ~MCAnimationComponent();	
@@ -14,7 +17,15 @@ public:
 	void handleAnimationShot();
 	void handleAnimationDash();
 	void handleAnimationEndDash();
+	void handleAnimationHurt();
+	void handleAnimationDeath();
+	void handleAnimationGun();
+	float handleGunAngle();
 private:
+	MainCharacter * mc;
+	float gunAngle=0;
+	Texture * gunTexture;
+	Timer* gunTimer;
 	std::map<const char*, Animation*> animations;
 	
 };

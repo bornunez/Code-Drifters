@@ -20,6 +20,7 @@
 #include "HookShotComponent.h"
 #include "ExampleRender.h"
 #include "HookAnimationComponent.h"
+#include "ReloadComponent.h"
 //Personaje principal
 
 
@@ -43,6 +44,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	vector<string> collisionLayer = { "Paredes","Aire" };
 	addComponent(new BasicMovement(this, collisionLayer));
+	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new MCAttackCollisionComponent(this));
@@ -56,9 +58,10 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 
-	setCurrentBullets(4);
-	setReloadTime(4);
-	setMaxBullets(4);
+	maxBullets = 3;
+	reloadTime = 5;
+	currentBullets = maxBullets;
+
 	normalAttackDamage = 50;
 	movable = true;
 	
@@ -160,17 +163,41 @@ void MainCharacter::loadAnimations()
 	animations.emplace("DASHEND_TOP", dashEndTop);
 	animations.emplace("DASH_BOT", dashBot);
 	animations.emplace("DASHEND_BOT", dashEndBot);
+
+	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this);
+
+	animations.emplace("HURT", hurt);
+
+	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false);
+
+	animations.emplace("DEATH", death);
+
+	Animation*shotRight = AnimationParser::parseAnimation(tileset, animationPath, "ShotRight", this);
+
+	Animation*shotLeft = AnimationParser::parseAnimation(tileset, animationPath, "ShotLeft", this);
+
+	Animation*shotTop = AnimationParser::parseAnimation(tileset, animationPath, "ShotTop", this);
+
+	Animation*shotBot = AnimationParser::parseAnimation(tileset, animationPath, "ShotBot", this);
+
+	animations.emplace("SHOT_TOP", shotTop);
+	animations.emplace("SHOT_LEFT", shotLeft);
+	animations.emplace("SHOT_RIGHT", shotRight);
+	animations.emplace("SHOT_BOT", shotBot);
 }
 
 //Getters & Setters
-
-void MainCharacter::setCurrentBullets(int num)
-{
-	currentBullets = num;
-}
-int MainCharacter::getCurrentBullets()
+float MainCharacter::getCurrentBullets()
 {
 	return currentBullets;
+}
+void MainCharacter::setCurrentBullets(float current)
+{
+	currentBullets = current;
+}
+void MainCharacter::setReloadTime(float newReloadTime)
+{
+	reloadTime = newReloadTime;
 }
 void MainCharacter::setMaxBullets(int bullets)
 {
@@ -237,16 +264,10 @@ void MainCharacter::substractHP(int damage)
 	HP -= damage;
 }
 
-int MainCharacter::getReloadTime()
+float MainCharacter::getReloadTime()
 {
 	return reloadTime;
 }
-
-void MainCharacter::setReloadTime(int miliseconds)
-{
-	reloadTime = miliseconds;
-}
-
 void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
 {
 	hookShot->shoot(originPos, hookDir);

@@ -4,10 +4,15 @@
 #include "PlayState.h"
 #include "Camera.h"
 #include "MainCharacter.h"
-MCAnimationComponent::MCAnimationComponent(GameObject* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
+#include "ResourceManager.h"
+#include "Hook.h"
+MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(static_cast<GameObject*>(o))
 {
+	mc = o;
 	animations = anim;
 	gameObject->changeCurrentAnimation("IDLE_BOT");
+	gunTexture = ResourceManager::getInstance()->getTexture(MCGun);
+	gunTimer = new Timer();
 }
 
 
@@ -115,6 +120,7 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("IDLE_BOT");
 		break;
 	case HOOK_WALL:
+		mc->setMCState(MCState::Hooking);
 		handleAnimationDash();
 		break;
 	case HOOK_ENEMY:
@@ -130,14 +136,46 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 	case HOOK_STOP:
 		handleAnimationEndDash();
 		break;
-
+	case MC_SHOT:
+		gunTimer->restart();
+		mc->setMCState(MCState::Shot);
+		break;
+	case MC_HOOKSHOT:
+		mc->setMCState(MCState::HookShot);
+		break;
+	case ENEMY_BULLET_COLLISION:
+		handleAnimationHurt();
+		break;
+	case MC_DEATH:
+		handleAnimationDeath();
+		break;
 	}
 }
 
 void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tiene que haber asignada una animación para que se vea en pantalla)
 {
-	handleAnimationStates();
-	gameObject->getCurrentAnimation()->runAnimation();
+	if (mc->getMCState() == MCState::Shot || mc->getMCState() == MCState::HookShot) {//Cuando está disparando aparece la pistola
+		
+		float angle = handleGunAngle();
+		if (angle > 135 && angle < 315) {//Arriba a la izquierda la pistola se ve detrás
+			handleAnimationGun();
+			gameObject->getCurrentAnimation()->runAnimation();
+		}
+		else {
+			gameObject->getCurrentAnimation()->runAnimation();
+			handleAnimationGun();
+		}
+		gunTimer->update();
+		if (gunTimer->TimeSinceTimerCreation > 0.5) {
+			gunTimer->restart();
+			mc->setMCState(MCState::Idle);
+		}
+	}
+	else {
+		handleAnimationStates();
+		gameObject->getCurrentAnimation()->runAnimation();
+	}
+	
 
 }
 
@@ -146,7 +184,8 @@ void MCAnimationComponent::handleAnimationStates()
 {
 	//IDLE POSITIONS
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-	if (gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle) {
+	//cout << (int)mc->getMCState();
+	if ((gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle)) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
 			gameObject->changeCurrentAnimation("IDLE_RIGHT");
@@ -159,6 +198,9 @@ void MCAnimationComponent::handleAnimationStates()
 		}
 		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
 			gameObject->changeCurrentAnimation("IDLE_TOP");
+		}
+		else {
+			gameObject->changeCurrentAnimation("IDLE_BOT");
 		}
 	}
 	//RUN POSITIONS
@@ -197,7 +239,6 @@ void MCAnimationComponent::handleAnimationShot()
 
 void MCAnimationComponent::handleAnimationDash()
 {
-	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
 	//HOOK STATE
 	if (mc->getMCState() == MCState::Hooking) {
 		Vector2D direction = gameObject->getTransform()->direction;
@@ -218,7 +259,6 @@ void MCAnimationComponent::handleAnimationDash()
 
 void MCAnimationComponent::handleAnimationEndDash()
 {
-	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
 	//HOOK STATE
 	Vector2D direction = gameObject->getTransform()->direction;
 	if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
@@ -237,8 +277,126 @@ void MCAnimationComponent::handleAnimationEndDash()
 		gameObject->changeCurrentAnimation("DASHEND_TOP");
 		gameObject->getCurrentAnimation()->startAnimation();
 	}
+	mc->setMCState(MCState::DashEnd);
+	mc->setMovable(true);	
+}
+
+//Cambia la animacion a HURT y crea una particula de sangre
+void MCAnimationComponent::handleAnimationHurt()
+{
+	gameObject->changeCurrentAnimation("HURT");
+	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Hurt);
+}
+
+void MCAnimationComponent::handleAnimationDeath()
+{
+	gameObject->changeCurrentAnimation("DEATH");
+	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Death);
+}
+
+void MCAnimationComponent::handleAnimationGun()
+{
+	Uint32 ticks = SDL_GetTicks();
+
+
+	float angle = handleGunAngle();
+
+	if (angle > 45 && angle < 135) {//Abajo
+		gameObject->changeCurrentAnimation("SHOT_BOT");
+	}
+	else if (angle >= 135 && angle<225) {//Izquierda
+		gameObject->changeCurrentAnimation("SHOT_LEFT");
+	}
+	else if (angle >= 225 && angle<315) {//Arriba
+		gameObject->changeCurrentAnimation("SHOT_TOP");
+	}
+	else {//Derecha
+		gameObject->changeCurrentAnimation("SHOT_RIGHT");
+	}
+	gameObject->getCurrentAnimation()->startAnimation();
+
+	float displayX = mc->getDisplayCenterPos().getX();
+	float displayY = mc->getDisplayCenterPos().getY();
+	float spritePosX = displayX - gunTexture->getFrameWidth()*Game::getGame()->getScale() / 2;
+	float spritePosY = displayY - gunTexture->getFrameHeight()*Game::getGame()->getScale() / 2;
+	float spriteW = gunTexture->getFrameWidth()*Game::getGame()->getScale();
+	float spriteH = gunTexture->getFrameHeight()*Game::getGame()->getScale();
 	
-	mc->setMovable(true);
-	
+
+	if (angle > 45 && angle < 135) {//Abajo
+		if (angle > 90) {//Abajo a la izquierda
+			spritePosY += 5;
+			spritePosX -= 6;
+		}
+		else {//Abajo a la derecha
+			spritePosY += 5;
+			spritePosX -= 17;
+		}
+		
+	}
+	else if(angle>=135 && angle<225) {//Izquierda
+		spritePosX -= 6;
+	}
+	else if (angle >= 225 && angle<315) {//Arriba
+		if (angle>270) {//Arriba a la derecha
+			spritePosY -= 5;
+			spritePosX += 15;
+		}
+		else {
+			spritePosY -= 5;
+			spritePosX += 5;
+		}
+	}
+	else {//Derecha
+		spritePosY += 5;
+		spritePosX += 6;
+	}
+
+	SDL_RendererFlip flip;
+	if (angle >= 90 && angle<270) {
+		flip = SDL_FLIP_HORIZONTAL;
+		angle -= 180;
+	}
+	else {
+		flip = SDL_FLIP_NONE;
+	}
+	SDL_Rect srcrect = { 0, 0, gunTexture->getFrameWidth(), gunTexture->getFrameHeight() };
+	SDL_Rect dstrect = { spritePosX, spritePosY,spriteW, spriteH };
+
+	SDL_Point center;
+	center.x = dstrect.w / 2;
+	center.y = dstrect.h / 2;
+
+	gunTexture->render(dstrect, angle, &center, &srcrect, flip);
+}
+
+float MCAnimationComponent::handleGunAngle()
+{
+	float gunAngle;
+	int targetX, targetY;
+
+	if (mc->getMCState() == MCState::Shot) {
+		SDL_Point p;//El target aquí es el cursor
+		SDL_GetMouseState(&p.x, &p.y);
+		targetX = p.x;
+		targetY = p.y;
+
+	}
+	else if (mc->getMCState() == MCState::HookShot) {
+
+		targetX = mc->getHook().getDisplayCenterPos().getX();
+		targetY = mc->getHook().getDisplayCenterPos().getY();
+	}
+
+	Vector2D mcDisplayPos = mc->getDisplayCenterPos();
+
+
+	gunAngle = (atan2(targetY - mcDisplayPos.getY(), targetX - mcDisplayPos.getX()));//Angulo entre el cursor y el jugador, en grados
+
+	gunAngle = gunAngle * 180 / M_PI;
+	if (gunAngle < 0)
+		gunAngle += 360;
+
+	return gunAngle;
 }
 

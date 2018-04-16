@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="44" height="29" tilewidth="16" tileheight="16" nextobjectid="19">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="44" height="29" tilewidth="16" tileheight="16" nextobjectid="20">
  <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../tileset/Decoracion.tsx"/>
  <layer name="Suelo" width="44" height="29">
@@ -14,7 +14,7 @@
  </layer>
  <layer name="Aire" width="44" height="29">
   <data encoding="base64" compression="zlib">
-   eJztk0kOwyAMRTlSBzYhuf+5WpR+CVmUMBjixX8Si1hgP4zjHCGE9PEQyzI5P6vOJS+LzvSdS62vFXf6zoW+c7nL9xg4+8zEvPjW9H0Pnt/c6fz65Yqu8v6aviO9BdE5fNdeyLcp1PFJnRXgDXrR6G0LscexN7mZryH1Ra7SHi3Sma8B/8W/XFezqAHqwFu6I+YXuLQA7yDiiFnxJGQVHweAEa8=
+   eJztl0sOgCAMBTmSHzai9z+XEn0JaRBBipakk7CwkXYsZaExiqIo7xjIkkzMT6pzykuis/q2JddXirv6tkV92/KX71axd4zELHnm9J0r9y/mdJ6uXN6Vfj+nb01vgXd2x1oT+RaGOjao8wU4g7dw9LYE32Pfm9jM5xD6IlfqHS7Cmc8B9+Iu19MscoA68KbuiNkPXEqAtyNxxKR4xujln0rpix1WzxI/
   </data>
  </layer>
  <layer name="Paredes" width="44" height="29">
@@ -53,5 +53,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Animados"/>
+ <objectgroup name="Animados">
+  <object id="19" name="Turret" gid="64" x="352" y="112" width="16" height="16"/>
+ </objectgroup>
 </map>

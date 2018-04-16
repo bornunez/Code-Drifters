@@ -49,6 +49,7 @@ void HookShotComponent::update()
 		
 		if (hook->getHookStatus() == HookStatus::EXTEND) {
 			if (hookSize.magnitude() < hook->getLength()) {
+				mc->setMCState(MCState::HookShot);
 				extend();
 				
 			}
@@ -64,22 +65,25 @@ void HookShotComponent::update()
 			}
 			else {
 				stop();
+				mc->setMCState(MCState::Idle);
 			}
 		}
 		else if (hook->getHookStatus() == HookStatus::MOVE_ENEMY) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				contract();
 				moveEnemy();
+				mc->setMCState(MCState::HookShot);
 			}
 			else {
-				mc->setMCState(MCState::Idle);
 				stop();
+				mc->setMCState(MCState::Idle);
 				enemyHooked->setMovable(true);
 			}
 		}
 		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
+				mc->setMCState(MCState::Hooking);
 			}
 			else {
 				stop();
@@ -183,10 +187,11 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 		*mcT = auxT;
 	}
 	else {
-		hook->setHookStatus(HookStatus::EMPTY);
-		Message msg(HOOK_EMPTY);
+		hook->setHookStatus(HookStatus::FAIL);
+		Message msg(HOOK_FAIL);
 		mc->sendMessage(&msg);
 		contract();
+		stop();
 	}
 
 }

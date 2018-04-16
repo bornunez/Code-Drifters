@@ -23,12 +23,16 @@ void Map::update()
 {
 	for (Layer* l : layers)
 		l->update();
+	for (GameObject* o : objects)
+		o->update();
 }
 
 void Map::render()
 {
 	for (Layer* l : layers)
 		l->render(camera);
+	for (GameObject* o : objects)
+		o->render();
 }
 
 Layer * Map::GetLayer(string LayerID)

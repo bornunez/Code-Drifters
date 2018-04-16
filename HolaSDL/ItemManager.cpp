@@ -28,6 +28,7 @@ void ItemManager::AddItem(ItemPool pool, Vector2D position)
 	case ShockWave:
 		//Añadimos la textura del shocwave...
 		// tex = ResourceManager::getInstance()->getTexture(ShockWave);
+		itemO = new ItemObject(nullptr, item);
 		break;
 	case BulletShield:
 		itemO = new ItemObject(nullptr, item);
