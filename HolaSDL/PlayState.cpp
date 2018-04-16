@@ -48,6 +48,13 @@ void PlayState::render()
 
 void PlayState::handleEvent(SDL_Event & e)
 {
+	if (e.type == SDL_KEYDOWN)//Provisional para debug de dialogos
+	{
+		if (e.key.keysym.sym == SDLK_l)
+		{
+			game->startDialogue("1");
+		}
+	}
 	GameState::handleEvent(e);
 	//mainCharacter->handleEvents(e);
 }

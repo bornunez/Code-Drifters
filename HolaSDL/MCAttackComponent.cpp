@@ -46,7 +46,7 @@ if(static_cast<MainCharacter*>(gameObject)->getMCState()== MCState::Attack)
 
 
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Hooking) {
+		if (static_cast<MainCharacter*>(gameObject)->getMCState() != MCState::Dash) {
 			int mouseX, mouseY;
 			SDL_Point p;
 			SDL_Rect r;

@@ -9,7 +9,7 @@ class HookShotComponent;
 class PlayState;
 class MCAnimationComponent;
 
-enum class MCState { Idle, Run, Attack, Shot, HookShot, Hooking, Hurt, Heal, DashEnd, Death };
+enum class MCState { Idle, Run, Attack, Shot, HookShot, Dash, Hurt, Heal, DashEnd, Death };
 
 class MainCharacter : public GameObject
 {
