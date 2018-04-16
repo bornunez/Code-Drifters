@@ -25,6 +25,5 @@ void BasicMovement::update()
 		Transform* t = gameObject->getTransform();
 
 		t->position.set(t->position + t->velocity * t->speed * Time::getInstance()->DeltaTime) ;
-		//t->body.x = t->position.getX(); t->body.y = t->position.getY();
 	}
 }
