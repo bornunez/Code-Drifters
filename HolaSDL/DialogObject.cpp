@@ -6,12 +6,12 @@
 
 DialogObject::DialogObject(string filename )
 {
-	boxRect = RECT(120, 470, 800, 250);
-	namesRect = RECT(150, 480, 150, 50);
+	boxRect = RECT(70, 470, 900, 250);
+	namesRect = RECT(150, 510, 150, 50);
 	pjRect = RECT(120, 120, 200, 350);
 	for (int i = 0; i < 4; i++) 
 	{
-		SDL_Rect r = RECT(150, 510 + i * 60, 200, 40);
+		SDL_Rect r = RECT(150, 550 + i * 25, 200, 40);
 		linesRect.push_back(r);
 	}
 	string s = "";
@@ -19,8 +19,8 @@ DialogObject::DialogObject(string filename )
 	{
 		lines.push_back(s);
 	}
-	font = new Font("..\\images\\ARCADECLASSIC.ttf", 50);
-	box = new Texture(game->getRenderer(), "..\\images\\MCbullet.png");
+	font = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
+	box = new Texture(game->getRenderer(), "..\\images\\DialogoSinAnim.png");
 	read.open("..\\dialogues\\" + filename + ".txt");
 	read >> pjNum;
 	string aux;
@@ -39,10 +39,11 @@ DialogObject::DialogObject(string filename )
 	currentPj = i;
 	nameTex = new Texture(game->getRenderer());
 	nameTex->loadFromText(names[currentPj], *font);
+	read.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	getline(read, currentText);
 	divideText();
 	adjustRects();
-	for (int i = 0; i < linesTex.size(); i++) 
+	for (int i = 0; i < 4; i++) 
 	{
 		Texture* t = new Texture(game->getRenderer());
 		linesTex.push_back(t);
@@ -71,34 +72,33 @@ DialogObject::~DialogObject()
 void DialogObject::divideText()
 {
 	int ch = 0;
-	int mark = 0;
 	int line = 0;
 	bool fin = false;
 	while (!fin) 
 	{
 		int max = 0;
 		bool nextSpace = false;
-		while ((max < 20 || nextSpace)&& !fin) 
+		while ((max < 35 || nextSpace)&& !fin) 
 		{
-			lines[line][mark] = currentText[ch];
+			lines[line] += currentText[ch];
 			if (nextSpace && currentText[ch]==' ') 
 			{
 				nextSpace = false;
 			}
 			max++;
-			if (max == 20)
+			if (max == 35)
 			{
 				if (currentText[ch] != ' ')
 				{
 					nextSpace = true;
 				}
 			}
-			ch++; mark++;
+			ch++;
 			if (ch == currentText.size()) {
 				fin = true;
 			}
 		}
-		line++; mark = 0;
+		line++;
 	}
 }
 
@@ -106,7 +106,7 @@ void DialogObject::adjustRects()
 {
 	for (int i = 0; i < 4; i++) 
 	{
-		linesRect[i].w = lines[i].size() * 5;
+		linesRect[i].w = lines[i].size() * 15;
 	}
 }
 
@@ -116,7 +116,6 @@ void DialogObject::update()
 
 void DialogObject::render()
 {
-	//SDL_RenderClear(game->getRenderer());
 	pjSprites[currentPj]->render(pjRect);
 	box->render(boxRect);
 	nameTex->render(namesRect);
@@ -124,7 +123,6 @@ void DialogObject::render()
 	{
 		linesTex[i]->render(linesRect[i]);
 	}
-	//SDL_RenderPresent(game->getRenderer());
 }
 
 void DialogObject::handleEvents(SDL_Event & e)
@@ -136,7 +134,13 @@ void DialogObject::handleEvents(SDL_Event & e)
 			int i;
 			read >> i;
 			currentPj = i;
+			read.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			getline(read, currentText);
+			string s = "";
+			for (int i = 0; i < 4; i++)
+			{
+				lines[i] = s;
+			}
 			divideText();
 			adjustRects();
 			nameTex->loadFromText(names[currentPj], *font);
