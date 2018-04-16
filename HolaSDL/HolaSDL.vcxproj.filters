@@ -316,6 +316,7 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="ReloadComponent.cpp" />
+    <ClCompile Include="MCGunPosition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -612,6 +613,7 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="ReloadComponent.h" />
+    <ClInclude Include="MCGunPosition.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

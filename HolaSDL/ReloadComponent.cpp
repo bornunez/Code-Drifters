@@ -21,7 +21,6 @@ void ReloadComponent::update()
 		if (currB > mc->getMaxBullets()) {
 			currB = mc->getMaxBullets();
 		}
-		cout << "BulletTime [ " << currB << " ]" << endl;
 		mc->setCurrentBullets(currB);
 	}
 }
