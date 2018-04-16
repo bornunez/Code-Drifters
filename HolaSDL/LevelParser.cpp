@@ -7,6 +7,7 @@
 #include "PlayState.h"
 #include "ResourceManager.h"
 #include "EnemyManager.h"
+#include "SimpleAnimationComponent.h"
 #include "LevelManager.h"
 
 void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, vector<Tileset*> tilesets)
@@ -136,6 +137,23 @@ void LevelParser::parseEntries(XMLElement* root, XMLElement * entriesElement, Ma
 	}
 }
 
+void LevelParser::parseObjects(XMLElement * root, XMLElement * objectsElement, Map * map)
+{
+	int scale = Game::getGame()->getScale();
+	vector<GameObject*> objects;
+	//Si hay puerta sacamos sus datos
+	for (XMLElement* object = objectsElement->FirstChildElement(); object != nullptr; object = objectsElement->NextSiblingElement()) {
+		//Casteamos la puerta y sacamos la direccion
+		string objectName = object->Attribute("name");
+		int x = atoi(object->Attribute("x"))* scale;
+		int y = atoi(object->Attribute("y"))* scale;
+		//Guardamos la posicion
+		GameObject* go = stringToObject(objectName,x,y);
+		objects.push_back(go);
+	}
+	map->setObjects(objects);
+}
+
 vector<Tileset*> LevelParser::parseTileSets(XMLElement * root, Map * map)
 {
 	vector<Tileset*> tilesets;
@@ -194,6 +212,17 @@ string LevelParser::dirToString(Direction dir)
 	return direction;
 }
 
+GameObject * LevelParser::stringToObject(string objName, int x, int y)
+{
+	GameObject* obj = new GameObject(nullptr, x, y, 0, 0);
+
+	//Aqui hacer el switch largo para ver cual es
+	if (objName == "Turret")
+		obj->addComponent(new SimpleAnimationComponent(obj,ResourceManager::getInstance()->getTexture(GunnerBullet)));
+		
+	return obj;
+}
+
 Direction LevelParser::stringToDir(string direction)
 {
 	Direction dir;
@@ -236,6 +265,8 @@ Map * LevelParser::parseLevel(string levelFile, vector<bool> doors)
 				parseDoors(root, e, map, doors);
 			else if (e->Attribute("name") == string("Entradas"))
 				parseEntries(root, e, map, doors);
+			else if (e->Attribute("name") == string("Animados"))
+				parseObjects(root, e, map);
 		}
 	}
 	//XMLElement* mapa = levelDocument.FirstChildElement("map");

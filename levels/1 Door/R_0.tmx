@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="21" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
  <tileset firstgid="1" source="../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../tileset/Decoracion.tsx"/>
- <layer name="Suelo" width="20" height="20">
+ <layer name="Suelo" width="21" height="20">
   <data encoding="base64" compression="zlib">
-   eJztkksKwCAMRP1k6f3PWwoGhsdouyl04UBQNHnmYylHX6pNo6pY+oTxG8ZvzLUazhOvmdhAzH3Wp+V5Nzy+H2CHWWPBG2B1E6s5ab3K1txC4lmzY+ie0pzI1po4q7zf8VYz0f7nbByLTM6NfWNfdlJmWsbpO295yl39YffXjv6pC8LkAWo=
+   eJztktEKgCAMRTV99P+/NwIvHG4b1ksQeGFYtp02r6VsfaljhqsilNMTxghyx1xrubOeMI+gvlvdtddmaL8lTO9DLL77qpyIOYzXgnr2xtnJ9x47GD5/xOFzJPbmfM7n/un7ipn5RE/kV8Zzrvvp5+hntBK5CtXyX2+YZGf3PLuLW//RCQLXAWo=
   </data>
  </layer>
- <layer name="Decoracion" width="20" height="20">
+ <layer name="Decoracion" width="21" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFAwG8kdiOQOyJQ50XFrUMaOodGYY+wOV/YgEvFGMDQSSaJUBAPgqHuDMOcTYsYrjcSgjgcxsrlc2DmQlzKy7/wQBIHTa/4jMXFybWnFEwsAAA3KQEng==
+   eJxjYBgFgwF4I7EdgdgTj1ovLOoZ0PQ4MgwvgC88iAG8UIwLBJFongARaqJwiDvjEGfDIY7P3fgAITey0sBMmLkwN+PyKwyA1OHyNz6zcWFSzBoFgw8AAL1HBJ4=
   </data>
  </layer>
- <layer name="Aire" width="20" height="20">
+ <layer name="Aire" width="21" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUoANjIDahonnWQGxDJbOQ3WUJxFYMEPeSC7C5C2SuIQVmYgMwM42IVE9MHMD8DzMXGRsjsUHmkBIHMHORsTUSm1pxOdQBAOujCBw=
+   eJxjYBgFgxkYjJo5aM00BmITKpoHAtZAbENF89DdZwnEVgwQt5MLcLkPZLYhBebiAjBzjYhUT2y8wMICZjYyNkZig8wiNV5gZiNjayQ2NeN4OAEAsdIJDA==
   </data>
  </layer>
- <layer name="Paredes" width="20" height="20">
+ <layer name="Paredes" width="21" height="20">
   <data encoding="base64" compression="zlib">
-   eJztkkEKgDAMBPsZ9aQ5qSft/39lAgbCkmDFgJcOzG0ZiqaU9wzs6Dg1bCJndgHJaeEmcmU3cHdauIk82BOspkX3DjeREdrT937F9mpiL6Nle1nIHdHjqh25o4z/oMgdZX27TudvLoSgEkg=
+   eJztkjEKgDAMRXsZddJM6qS9/61MoYHwMdZgBoc+eNvnUTQp+RnY8cbp5c5yZheQjB7uLFd2A3ejhzvLgz3BXJvSo7rFneUT0tRv/4pu5sbW24zq6WYk5c6oufJR7izq3wjlziK/Zafzdy5DkxJI
   </data>
  </layer>
  <objectgroup name="Puertas">

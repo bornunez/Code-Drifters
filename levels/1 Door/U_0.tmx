@@ -9,12 +9,12 @@
  </layer>
  <layer name="Decoracion" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2DoAzYqmiWAxuel0DxsbmMl0yx0t1FqJj7zYGYS63+QOmLjAWYuLkzN+BwFtAMA6O8A3w==
+   eJxjYBjawHmImQsDXkDsTQV1jkDsiSYWhEMtujpiQRQQO6GJofORAalhR667kAEbFjFc4UAICKDxeaF0FBa1+MIBBrC5jRWNT2yYobsNn5nIAN2dsLDBZx7MTJj/0c1AdnMUVB02v+IzFxcm1pxRMLAAAJ3ZB8I=
   </data>
  </layer>
  <layer name="Aire" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUoAMTILahonkwsyyB2JBCs0zQ+CAzjSkwD5s/KXGnAQ5xmJlGRJoD8hO6X7GZaYVkLjI2RmKDzLFmID5OYeYiY2skNjXTxlAGAFXCCEo=
+   eJxjYKAvMEDCo2AUDFZgAsQ2VDQPZpYlEBtSaJYJGh9kpjEF5mHzJyXuxJW3YWYaEWkOyE/ofsVmphWSucjYGIkNMseagfg4hZmLjK2R2NRMG0MZAACYrwja
   </data>
  </layer>
  <layer name="Paredes" width="20" height="20">
