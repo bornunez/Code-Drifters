@@ -1,5 +1,6 @@
 #pragma once
 #include "sdl_includes.h"
+#include <string>
 
 class MouseIcon;
 class ResourceManager;
@@ -64,5 +65,7 @@ public:
 
 	void startGame();
 	void endGame();
+	void startDialogue(string filename);
+	void endDialogue();
 };
 

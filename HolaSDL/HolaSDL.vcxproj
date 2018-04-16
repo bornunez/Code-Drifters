@@ -34,6 +34,8 @@
     <ClCompile Include="ComponentContainer.cpp" />
     <ClCompile Include="DamageableEnemyComponent.cpp" />
     <ClCompile Include="DecelerationComponent.cpp" />
+    <ClCompile Include="DialogObject.cpp" />
+    <ClCompile Include="DialogsState.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="DoorsCollision.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
@@ -107,6 +109,7 @@
     <ClCompile Include="tinyxml2.cpp" />
     <ClCompile Include="TurretShotComponent.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
+    <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WallStunComponent.cpp" />
   </ItemGroup>
@@ -136,6 +139,8 @@
     <ClInclude Include="ComponentContainer.h" />
     <ClInclude Include="DamageableEnemyComponent.h" />
     <ClInclude Include="DecelerationComponent.h" />
+    <ClInclude Include="DialogObject.h" />
+    <ClInclude Include="DialogsState.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="DoorsCollision.h" />
     <ClInclude Include="DungeonGenerator.h" />
@@ -210,6 +215,7 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TurretShotComponent.h" />
     <ClInclude Include="UpdateComponent.h" />
+    <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />
   </ItemGroup>
