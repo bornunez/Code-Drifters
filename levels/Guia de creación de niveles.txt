@@ -1,10 +1,18 @@
 Creación de salas:
- -Crear Layer "Paredes", donde el jugador colisionará
+ -Crear Layer "Paredes", donde el jugador y gancho colisionarán
+ -Crear Layer "Aire", donde el movimiento del jugador colisionara
+ -Cualquier otra capa sera decorativa o podra tener un uso en el parser
 
 Crear Puertas:
  -Crear capa de objetos "Puertas"
  -Crear un rectangulo con el trigger, llamarlo "Door"
- -Crear 
+ -Crear capa de Objetos "Entradas" 
+ -Crear un objeto en la posicion para spawnear y llamarlo Up, Down.. etc
+
+Crear Objetos Animados:
+ -Crear Capa de Objetos, llamarla "Animados" y poner un objeto con el nombre 
+  del objeto a spawnear, se leerá del metodo "stringToObject", mirar que todo   cuadre.
+
  -Llamar a cada puerta "Left, Right, Up, Down" Respectivamente
  -Guardar el mapa con nombre "U + R + D + L" + "_" + "X", del   siguente modo: 
    -Si tiene puerta Left, añadimos L, si tiene Right, R, etc...; 

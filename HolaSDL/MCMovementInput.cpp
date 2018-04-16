@@ -82,16 +82,5 @@ void MCMovementInput::update()
 	
 	velocity.normalize();
 	t->velocity.set(velocity);
-	if (debug) {
-
-		/*
-		system("cls");
-		cout << "Player info: \nPosition: [ X: " << t->position.getX() << " ,Y: " << t->position.getY() << " ]" << endl;
-		cout << "Velocity: [ X: " << t->velocity.getX() << " ,Y: " << t->velocity.getY() << " ]" << endl;
-		cout << "Direction: [ X: " << t->direction.getX() << " ,Y: " << t->direction.getY() << " ]" << endl;
-		cout << "Body: [ X: " << t->body.x << " ,Y: " << t->body.y << " ,W: " << t->body.w << " H: " << t->body.h << " ]" << endl;
-		cout << "CenterPosition: [ X: " << gameObject->getCenterPos().getX() << " ,Y: " << gameObject->getCenterPos().getY() << " ]" << endl;
-		cout << "DisplayPosition: [ X: " << gameObject->getDisplayPos().getX() << " ,Y: " << gameObject->getDisplayPos().getY() << " ]" << endl;*/
-	}
 
 }

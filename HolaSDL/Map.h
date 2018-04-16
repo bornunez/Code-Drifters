@@ -40,8 +40,11 @@ private:
 	std::vector<Spawner*> spawners;
 	std::vector<Door*> doors;
 	string filename;
+
+	vector<GameObject*> objects;
 	vector<Tileset*> tilesets;
 	vector<int> firstGids;
+
 	Camera* camera;
 	void parseLevel();
 
@@ -51,17 +54,21 @@ public:
 	~Map();
 	void update();
 	void render();
+
 	vector<Layer*>* getLayers() { return &layers; }
 	vector<Tileset*> getTilesets() { return tilesets; }
-	void addLayer(Layer* layer) { layers.push_back(layer); }
-	void addSpawn(Spawner* spawn) { spawners.push_back(spawn); }
-	void addDoor(Door* door, Direction dir) { doors[dir] = door; }
 	Layer * GetLayer(string LayerID);
 	Door* getDoor(Direction door) { return doors[door]; }
 	vector<Door*> getDoors() { return doors; }
+	vector<int >getFirstGid(){ return firstGids; }
+
 	void setTilesets(vector<Tileset*> tileSets) { tilesets = tileSets; }
 	void setFirstGid(int gid) { firstGids.push_back(gid); }
-	vector<int >getFirstGid(){ return firstGids; }
+	void setObjects(vector<GameObject*> go) { objects = go; }
+
+	void addLayer(Layer* layer) { layers.push_back(layer); }
+	void addSpawn(Spawner* spawn) { spawners.push_back(spawn); }
+	void addDoor(Door* door, Direction dir) { doors[dir] = door; }
 	void spawn();
 };
 

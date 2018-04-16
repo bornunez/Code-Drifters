@@ -184,7 +184,7 @@ void MCAnimationComponent::handleAnimationStates()
 {
 	//IDLE POSITIONS
 	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
-	cout << (int)mc->getMCState();
+	//cout << (int)mc->getMCState();
 	if ((gameObject->getCurrentAnimation()->isFinished() || mc->getMCState() == MCState::Idle)) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha

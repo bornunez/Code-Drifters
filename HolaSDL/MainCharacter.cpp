@@ -20,6 +20,7 @@
 #include "HookShotComponent.h"
 #include "ExampleRender.h"
 #include "HookAnimationComponent.h"
+#include "ReloadComponent.h"
 //Personaje principal
 
 
@@ -43,6 +44,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	vector<string> collisionLayer = { "Paredes","Aire" };
 	addComponent(new BasicMovement(this, collisionLayer));
+	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new MCAttackCollisionComponent(this));
@@ -56,9 +58,10 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 
-	setCurrentBullets(4);
-	setReloadTime(4);
-	setMaxBullets(4);
+	maxBullets = 3;
+	reloadTime = 5;
+	currentBullets = maxBullets;
+
 	normalAttackDamage = 50;
 	movable = true;
 	
@@ -184,14 +187,17 @@ void MainCharacter::loadAnimations()
 }
 
 //Getters & Setters
-
-void MainCharacter::setCurrentBullets(int num)
-{
-	currentBullets = num;
-}
-int MainCharacter::getCurrentBullets()
+float MainCharacter::getCurrentBullets()
 {
 	return currentBullets;
+}
+void MainCharacter::setCurrentBullets(float current)
+{
+	currentBullets = current;
+}
+void MainCharacter::setReloadTime(float newReloadTime)
+{
+	reloadTime = newReloadTime;
 }
 void MainCharacter::setMaxBullets(int bullets)
 {
@@ -258,16 +264,10 @@ void MainCharacter::substractHP(int damage)
 	HP -= damage;
 }
 
-int MainCharacter::getReloadTime()
+float MainCharacter::getReloadTime()
 {
 	return reloadTime;
 }
-
-void MainCharacter::setReloadTime(int miliseconds)
-{
-	reloadTime = miliseconds;
-}
-
 void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
 {
 	hookShot->shoot(originPos, hookDir);

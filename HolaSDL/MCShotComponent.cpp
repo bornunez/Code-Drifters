@@ -13,10 +13,9 @@
 #include "BulletManager.h"
 
 
-MCShotComponent::MCShotComponent(GameObject * o) : InputComponent(o)
+MCShotComponent::MCShotComponent(MainCharacter * o) : InputComponent(o), mc(o)
 {
 	this->bulletManager = bulletManager;
-	this->lastReloadTime = new Timer();
 }
 
 MCShotComponent::~MCShotComponent()
@@ -25,23 +24,11 @@ MCShotComponent::~MCShotComponent()
 
 void MCShotComponent::handleEvents(SDL_Event & e)
 {
-	int currentBullets = dynamic_cast<MainCharacter*>(gameObject)->getCurrentBullets();
-	int reloadTime = dynamic_cast<MainCharacter*>(gameObject)->getReloadTime();//Tiempo para que se recargue una bala
-	int maxBullets = dynamic_cast<MainCharacter*>(gameObject)->getMaxBullets();
-	lastReloadTime->update();
+	float currentBullets = mc->getCurrentBullets();
+	int maxBullets = mc->getMaxBullets();
 
-	if (currentBullets == maxBullets) {//Si el cargador está al máximo la recarga se mantiene en pausa
-		lastReloadTime->restart();
-	}
-	if (lastReloadTime->TimeSinceTimerCreation > reloadTime) {//Si el tiempo desde la última recarga supera al tiempo de recarga del personaje
-		if (currentBullets < maxBullets) {//Suma una bala si el cargador no está lleno
-			currentBullets++;
-			dynamic_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
-			lastReloadTime->restart();//Reinicia el tiempo desde la última recarga
-		}
-	}
 	if (e.button.button == SDL_BUTTON_RIGHT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (currentBullets > 0) {//Si tiene balas en el cargador dispara
+		if (currentBullets >= 1) {//Si tiene balas en el cargador dispara
 			int mouseX, mouseY;
 			SDL_Point p;
 			SDL_Rect r;
@@ -70,17 +57,8 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);
 
-			//Crea la bala y le pasa el transform
-			//Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
-
-			//Le añade los componentes de físicas y render
-			//auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
-			//auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-			//Añade la bala a los objetos de la sala actual
-			//PlayState::getInstance()->addGameObject(auxBullet);
-
-			currentBullets--;//Le resta balas al personaje
-			static_cast<MainCharacter*>(gameObject)->setCurrentBullets(currentBullets);
+			currentBullets -= 1;
+			mc->setCurrentBullets(currentBullets); //Le resta balas al personaje
 			Message msg(MC_SHOT);
 			gameObject->sendMessage(&msg);
 		}

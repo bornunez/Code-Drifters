@@ -20,9 +20,11 @@ private:
 	float normalAttackDamage;
 	float chargedAttackDamage;
 	MCState mcState = MCState::Idle;
+
 	int maxBullets;
-	int currentBullets;
-	int reloadTime;
+	float currentBullets;
+	float reloadTime;
+
 	Vector2D gunPosition;//Posici�n de donde sale la bala
 	Hook hook;
 	
@@ -40,26 +42,29 @@ public:
 	
 
 	//Getters & Setters
-	void setCurrentBullets(int num);
-	int getCurrentBullets();
-	void setMaxBullets(int bullets);
-	int getMaxBullets();
-	float getNormalAttackDamage();//Devuelve el da�o que hace el ataque normal
 	void setNormalAttackDamage(float dmg);//Cambia el da�o que hace el ataque normal
-	float getChargedAttackDamage();//Devuelve el da�o que hace el ataque normal
 	void setChargedAttackDamage(float dmg);//Cambia el da�o que hace el ataque normal
-	float getAttackDamage(std::string attackType);//Seg�n el ataque que sea, devuelve su da�o
 	void setMaxVelocity(float vel);
+	void setGunPosition(Vector2D pos);
+	void setMCState(MCState state) { this->mcState = state; };
+
+	void setCurrentBullets(float current);
+	void setReloadTime(float newReloadTime);
+	void setMaxBullets(int bullets);
+
+	float getCurrentBullets();
+	int getMaxBullets();
+	float getReloadTime();
+
+	float getNormalAttackDamage();//Devuelve el da�o que hace el ataque normal
+	float getChargedAttackDamage();//Devuelve el da�o que hace el ataque normal
+	float getAttackDamage(std::string attackType);//Seg�n el ataque que sea, devuelve su da�o
 	float getVelocity();
 	float getMaxVelocity();
 	float getHP();
 	Vector2D getGunPosition();
-	void setGunPosition(Vector2D pos);
 	void substractHP(int damage);
 	void addHP(int life);
-	int getReloadTime();
-	void setReloadTime(int miliseconds);
-	void setMCState(MCState state) { this->mcState = state; };
 	MCState getMCState() { return mcState; };
 	
 	//HOOK
