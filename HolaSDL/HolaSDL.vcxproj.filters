@@ -316,6 +316,13 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="ReloadComponent.cpp" />
+    <ClCompile Include="DialogObject.cpp" />
+    <ClCompile Include="DialogsState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UpperGameState.cpp">
+      <Filter>Estados\Header</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -612,6 +619,13 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="ReloadComponent.h" />
+    <ClInclude Include="DialogObject.h" />
+    <ClInclude Include="UpperGameState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DialogsState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
