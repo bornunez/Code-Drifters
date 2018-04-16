@@ -14,7 +14,8 @@ enum class MCState { Idle, Run, Attack, Shot, HookShot, Hooking, Hurt, Heal, Das
 class MainCharacter : public GameObject
 {
 private:
-	float HP;
+	float HP,
+		maxHP;
 	float velocity;
 	float maxVelocity;
 	float normalAttackDamage;
@@ -61,7 +62,8 @@ public:
 	float getAttackDamage(std::string attackType);//Seg�n el ataque que sea, devuelve su da�o
 	float getVelocity();
 	float getMaxVelocity();
-	float getHP();
+	float getActualHP();
+	float getMaxHP();
 	Vector2D getGunPosition();
 	void substractHP(int damage);
 	void addHP(int life);

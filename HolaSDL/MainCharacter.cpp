@@ -247,10 +247,15 @@ float MainCharacter::getMaxVelocity()
 {
 	return maxVelocity;
 }
-float MainCharacter::getHP()
+float MainCharacter::getActualHP()
 {
 	return HP;
 }
+
+float MainCharacter::getMaxHP() {
+	return maxHP;
+}
+
 Vector2D MainCharacter::getGunPosition()
 {
 	return gunPosition;

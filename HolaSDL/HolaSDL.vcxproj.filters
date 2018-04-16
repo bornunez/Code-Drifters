@@ -316,6 +316,8 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="ReloadComponent.cpp" />
+    <ClCompile Include="HUDManager.cpp" />
+    <ClCompile Include="HUDObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -612,6 +614,8 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="ReloadComponent.h" />
+    <ClInclude Include="HUDManager.h" />
+    <ClInclude Include="HUDObject.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
