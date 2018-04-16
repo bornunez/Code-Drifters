@@ -115,7 +115,7 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	SDL_Point p;
 	SDL_Rect r;
 	SDL_GetMouseState(&p.x, &p.y);
-	Vector2D displayPosition;//Posición del personaje relativa a la cámara
+	Vector2D displayPosition;//Posición del gancho relativa a la cámara
 	displayPosition = hook->getDisplayPos();
 
 	float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));//Angulo entre el cursor y el jugador, en grados
@@ -251,7 +251,7 @@ void HookShotComponent::updateHookAngle()
 	//SDL_Rect r;
 	//SDL_GetMouseState(&p.x, &p.y);
 	Vector2D displayPosition;//Posición del personaje relativa a la cámara
-	displayPosition = mc->getCenterPos();
+	displayPosition = mc->getGunPosition();
 
 	//float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));//Angulo entre el cursor y el jugador, en grados
 

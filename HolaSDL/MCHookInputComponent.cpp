@@ -27,10 +27,10 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 				cursorPos.setY(p.y);//Posición del cursor en pantalla
 
 				//Cambia la posición de donde sala el gancho,  HAY QUE CAMBIARLO PARA QUE SALGA DEL GUNPOSITION BUENO
-				Vector2D gunPosition;
-				gunPosition = mc->getCenterPos();
+				Vector2D gunDisplayPosition;
+				gunDisplayPosition = mc->getGunPosition();
 
-				Vector2D displayPosition = mc->getDisplayCenterPos();
+				Vector2D gunPosition = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
 
 				Vector2D targetPosition;//Es la posición donde llega el gancho, se tiene en cuenta que el centro del gancho debe llegar al punto justo del cursor
 				targetPosition = cursorPos;
@@ -38,7 +38,7 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 				targetPosition.setY(targetPosition.getY() - mc->getHook().getTransform()->body.h / 2);
 
 				Vector2D hookDirection;
-				hookDirection = targetPosition - displayPosition;
+				hookDirection = targetPosition - gunDisplayPosition ;
 				hookDirection.normalize();
 
 				float angle = (atan2(hookDirection.getY(), hookDirection.getX()));
