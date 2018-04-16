@@ -34,12 +34,13 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	facing = RIGHT;
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
-	vector<string> collisionLayers = { "Paredes","Aire" };
-	addComponent(new KnockbackComponent(this, 10000, collisionLayers));
-	this->addComponent(new BasicMovement(this, collisionLayers));
+	setCollisionsLayers({ "Paredes","Aire" });
+	addComponent(new KnockbackComponent(this, 10000));
+	this->addComponent(new BasicMovement(this));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
-	this->addComponent(new StalkerComponent(this, getMC(), 1, 1.5, 2));
-	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations));
+	//parametros: tiempo entre cargas, tiempo de delay al cargar, tiempo de movimiento en carga, multiplicador velocidad
+	this->addComponent(new StalkerComponent(this, getMC(), 8, .5, 1.5, 2));
+	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations, .2, .5));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new StunComponent(this));
@@ -60,7 +61,7 @@ void EnemyStalker::loadAnimations()
 	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Attack", this, 0, 0, false, 0.2);
 	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false);
 	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this);
-	Animation* charge = AnimationParser::parseAnimation(tileset, animationPath, "Charge", this);
+	Animation* charge = AnimationParser::parseAnimation(tileset, animationPath, "Charge", this, 0, 0, false);
 
 	animations.emplace("RUN", run);
 	animations.emplace("ATTACK", attack);

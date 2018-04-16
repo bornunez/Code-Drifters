@@ -27,9 +27,9 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	defense = 30;
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
-	vector<string> collisionLayers = { "Paredes","Aire" };
-	addComponent(new KnockbackComponent(this, 5000, collisionLayers));
-	addComponent(new BasicMovement(this, collisionLayers));
+	setCollisionsLayers({ "Paredes","Aire" });
+	addComponent(new KnockbackComponent(this, 5000));
+	addComponent(new BasicMovement(this));
 	addComponent(new DamageableEnemyComponent(this, getMC()));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 	addComponent(new BasicInvincibleComponent(this, 0.2));

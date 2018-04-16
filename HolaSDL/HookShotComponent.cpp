@@ -145,7 +145,7 @@ void HookShotComponent::contract()//Retrae la punta del gancho
 	t->velocity.set(auxVel);
 
 	t->position.set(t->position - t->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
-	t->body.x = t->position.getX(); t->body.y = t->position.getY();
+	//t->body.x = t->position.getX(); t->body.y = t->position.getY();
 
 	updateHookAngle();
 }
@@ -168,8 +168,8 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 	Transform auxT = *mcT;
 	auxT.position.setX(hook->getOriginPosition().getX() - auxT.body.w / 2);
 	auxT.position.setY(hook->getOriginPosition().getY() - auxT.body.h / 2);
-	auxT.body.x = auxT.position.getX();
-	auxT.body.y = auxT.position.getY();
+	/*auxT.body.x = auxT.position.getX();
+	auxT.body.y = auxT.position.getY();*/
 
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;

@@ -3,6 +3,9 @@
 #include "MainCharacter.h"
 #include "Time.h"
 #include "Managers.h"
+#include "Transform.h"
+#include "Vector2D.h"
+
 MCMovementInput::MCMovementInput(GameObject * o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left): 
 	UpdateComponent (o), upKey(up), rightKey(right), downKey(down), leftKey(left)
 {
@@ -25,18 +28,27 @@ void MCMovementInput::update()
 		debug = true;
 	}
 	Transform* t = gameObject->getTransform();
-	if (!mc->canMove()) {
+	
+	//Si no hago nada Idle
+	if (mc->getMCState() != MCState::Hurt &&
+		mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Attack &&
+		mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::Shot &&
+		mc->getMCState() != MCState::DashEnd ) {
+
+		mc->setMCState(MCState::Idle);		
+	}
+	//Solo puede moverse cuando está en Idle o Run
+	if (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run){
+
 		velocity.setX(0);
 		velocity.setY(0);
-	}
-	//if(mc->canMove() && mc->getMCState() != MCState::Attack && mc->getMCState() != MCState::Dash){
-	if (mc->canMove()){
-		if (keystate[leftKey])
+
+		if (keystate[leftKey])//Mueve a la izquierda
 		{
 			t->direction.setX(-1);
 			velocity.setX(-1);
 			mc->setMCState(MCState::Run);
-			if (!keystate[upKey] && !keystate[downKey]) {
+			if (!keystate[upKey] && !keystate[downKey]) {//
 				t->direction.setY(0);
 			}
 		}
@@ -73,14 +85,23 @@ void MCMovementInput::update()
 		}
 		else {//Si no se mueve en vertical frena
 			velocity.setY(0);
-
 		}
-		if (velocity.getX() == 0 && velocity.getY() == 0 && (mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Attack && mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::Shot && mc->getMCState() != MCState::DashEnd)) {
-			mc->setMCState(MCState::Idle);
-		}
+		
 	}
 	
 	velocity.normalize();
 	t->velocity.set(velocity);
 
+}
+
+void MCMovementInput::receiveMessage(Message * msg)
+{
+	switch (msg->id)
+	{
+	case HIT_WALL:
+		gameObject->getTransform()->velocity.set({ 0,0 });
+		break;
+	default:
+		break;
+	}
 }

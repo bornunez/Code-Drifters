@@ -32,10 +32,10 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	facing = LEFTs;
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
-	vector<string> collisionLayers = { "Paredes","Aire" };
-	addComponent(new KnockbackComponent(this, 10000, collisionLayers));
+	setCollisionsLayers({ "Paredes","Aire" });
+	addComponent(new KnockbackComponent(this, 10000));
 	addComponent(new WallStunComponent(this, 4.0));
-	this->addComponent(new BasicMovement(this, collisionLayers));
+	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations));
 	this->addComponent(new ChargerComponent(this, getMC(), 1, 1.5, 2));
 	addComponent(new BasicInvincibleComponent(this, 100));

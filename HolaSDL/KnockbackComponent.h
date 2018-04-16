@@ -8,13 +8,10 @@ class KnockbackComponent :
 {
 public:
 	KnockbackComponent(GameObject* o, int knockbackForce);
-	KnockbackComponent(GameObject * o, int knockbackForce, string layer);
-	KnockbackComponent(GameObject * o, int knockbackForce, vector<string> collisionsL);
 	void update();
 	void knockback(Vector2D direction);
 	virtual ~KnockbackComponent();
 	virtual void receiveMessage(Message* msg);
 private:
 	int force;
-	vector<string> collisionsLayer;
 };

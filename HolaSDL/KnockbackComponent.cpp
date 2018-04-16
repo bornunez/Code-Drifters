@@ -17,17 +17,6 @@ KnockbackComponent::KnockbackComponent(GameObject* o, int knockbackForce): Updat
 {
 	force = knockbackForce;
 }
-KnockbackComponent::KnockbackComponent(GameObject * o, int knockbackForce, string layer) : UpdateComponent(o)
-{
-	force = knockbackForce;
-	collisionsLayer.push_back(layer);
-}
-
-KnockbackComponent::KnockbackComponent(GameObject * o, int knockbackForce, vector<string> collisionsL) : UpdateComponent(o)
-{
-	force = knockbackForce;
-	collisionsLayer = collisionsL;
-}
 
 void KnockbackComponent::update()
 {
@@ -35,26 +24,8 @@ void KnockbackComponent::update()
 void KnockbackComponent::knockback(Vector2D direction)
 {
 	Transform* t = gameObject->getTransform();
-	Transform auxT = *t;
 
-	auxT.position.setX(auxT.position.getX() + direction.getX() * force * (Time::getInstance()->DeltaTime));
-	auxT.position.setY(auxT.position.getY() + direction.getY() * force * (Time::getInstance()->DeltaTime));
-	auxT.body.x = auxT.position.getX(); auxT.body.y = auxT.position.getY();
-	//Colisionamos
-	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
-	bool collision = false;
-	vector<string>::iterator it;
-	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
-		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
-		if (tl != nullptr) {
-			if (CollisionHandler::Collide(&auxT, tl)) {
-				t->velocity.set(0, 0);
-				collision = true;
-			}
-		}
-	}
-	if (!collision)
-		*t = auxT;
+	t->position.set(t->position + direction * force * Time::getInstance()->DeltaTime);
 }
 void KnockbackComponent::receiveMessage(Message* msg) {
 	if (msg->id == KNOCK_BACK) {

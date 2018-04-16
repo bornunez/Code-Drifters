@@ -43,9 +43,9 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
-	vector<string> collisionLayer = { "Paredes","Aire" };
+	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new MCGunPosition(this));
-	addComponent(new BasicMovement(this, collisionLayer));
+	addComponent(new BasicMovement(this));
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
@@ -87,10 +87,10 @@ void MainCharacter::loadAnimations()
 	animations.emplace("IDLE_RIGHT", idleRight);
 	animations.emplace("IDLE_LEFT", idleLeft);
 
-	Animation*runBot = AnimationParser::parseAnimation(tileset, animationPath, "RunBot", this);
-	Animation*runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this);
-	Animation*runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this);
-	Animation*runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this);
+	Animation*runBot = AnimationParser::parseAnimation(tileset, animationPath, "RunBot", this, 0, 0, true, 0.1);
+	Animation*runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this, 0, 0, true, 0.1);
+	Animation*runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this, 0, 0, true, 0.1);
+	Animation*runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this, 0, 0, true, 0.1);
 
 	animations.emplace("RUN_BOT", runBot);
 	animations.emplace("RUN_TOP", runTop);
@@ -249,10 +249,15 @@ float MainCharacter::getMaxVelocity()
 {
 	return maxVelocity;
 }
-float MainCharacter::getHP()
+float MainCharacter::getActualHP()
 {
 	return HP;
 }
+
+float MainCharacter::getMaxHP() {
+	return maxHP;
+}
+
 Vector2D MainCharacter::getGunPosition()
 {
 	return gunPosition;

@@ -5,13 +5,16 @@
 #include "Camera.h"
 #include "EnemyStalker.h"
 
-StalkerAnimationComponent::StalkerAnimationComponent(EnemyStalker* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
+StalkerAnimationComponent::StalkerAnimationComponent(EnemyStalker* o, GameObject* target,std::map<const char*, Animation*> anim, float hTime, float delayTime) : RenderComponent(o)
 {
 	animations = anim;
 	gameObject->changeCurrentAnimation("RUN");
 	this->target = target;
 	this->es = o;
 	hurtTimer = new Timer();
+	chargeTimer = new Timer();
+	attackDelay = delayTime;
+	hurtTime = hTime;
 }
 
 
@@ -35,6 +38,7 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 		case STALKER_CHARGE:
 			gameObject->changeCurrentAnimation("CHARGE");
 			gameObject->getCurrentAnimation()->startAnimation();
+			chargeTimer->restart();
 			break;
 		case STALKER_ATTACK:
 			gameObject->changeCurrentAnimation("ATTACK");
@@ -59,9 +63,19 @@ void StalkerAnimationComponent::handleAnimation()
 
 		if (es->enemyState == EnemyState::Hurt) {
 			hurtTimer->update();
-			if (hurtTimer->TimeSinceTimerCreation > 0.2) {
+			if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
 				es->enemyState = EnemyState::Run;
 				gameObject->changeCurrentAnimation("RUN");
+			}
+		}
+
+		else if (es->enemyState == EnemyState::Charge) {
+			chargeTimer->update();
+			if (chargeTimer->TimeSinceTimerCreation > attackDelay) {
+				es->enemyState = EnemyState::Attack;
+				Message msg(STALKER_ATTACK);
+				es->sendMessage(&msg);
+				
 			}
 		}
 

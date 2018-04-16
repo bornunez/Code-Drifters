@@ -75,8 +75,7 @@ void LevelManager::changeRoom(Direction dir)
 			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 			Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
 			mc->getTransform()->position.set(entry);
-			mc->getTransform()->body.x = mc->getTransform()->position.getX();
-			mc->getTransform()->body.y = mc->getTransform()->position.getY();
+			mc->updateBody();
 			room->spawn();
 			room->setExplored(true);
 		}

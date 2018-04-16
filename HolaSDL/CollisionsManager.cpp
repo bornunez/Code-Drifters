@@ -146,6 +146,8 @@ void CollisionsManager::playerCollisions()
 		}
 	}
 
+	layerCollisions(mc);
+
 	////Colision jugador con enemigos activos, sin hurt
 
 	//list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
@@ -164,15 +166,20 @@ void CollisionsManager::enemyCollisions()
 
 }
 
-void layerCollisions(GameObject* o) {
+void CollisionsManager::layerCollisions(GameObject* o) {
 
 	Transform* t = o->getTransform();
 	vector<string> collisionsLayer = o->getCollisionsLayers();
+	Vector2D prevPosition = o->getPreviousPosition();
 
 	//Movemos al personaje y a su body
-	t->body.x = t->position.getX(); t->body.y = t->position.getY();
+	o->updateBody();
+	SDL_Rect bodyX, bodyY;
+	bodyX = bodyY = t->body;
+	bodyX.y = prevPosition.getY();
+	bodyY.x = prevPosition.getX();
 
-	vector<SDL_Rect> rects = { t->body, t->body };
+	vector<SDL_Rect> rects = { bodyX, bodyY };
 	vector<bool> collisions = { false,false };
 	//Colisionamos
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
@@ -189,15 +196,16 @@ void layerCollisions(GameObject* o) {
 	}
 	if (collisionX || collisionY) {
 		//Si hay colision, cogemos la antigua posicion
-		Vector2D prevPosition = o->getPreviousPosition();
 		if (collisionX) {
 			t->position.setX(prevPosition.getX());
 		}
-		else{
+		if (collisionY){
 			t->position.setY(prevPosition.getY());
 		}
 		//Finalmente lo notificamos
 		Message msg(HIT_WALL);
 		o->sendMessage(&msg);
 	}
+	o->updatePreviousPosition();
+	o->updateBody();
 }
