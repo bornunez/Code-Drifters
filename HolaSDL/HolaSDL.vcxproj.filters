@@ -324,6 +324,9 @@
     <ClCompile Include="UpperGameState.cpp">
       <Filter>Estados\Header</Filter>
     </ClCompile>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="SkillTree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -628,6 +631,9 @@
     <ClInclude Include="DialogsState.h">
       <Filter>Estados\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="SkillTree.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
