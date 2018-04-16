@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 28;
+const int NUM_TEXTURES = 30;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 2;
@@ -21,7 +21,7 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureId { MCBullet, GunnerBullet, HookChain, HookChainFail, HookHead, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
+enum TextureId { MCBullet, MCGun,GunnerBullet, HookChain, HookChainFail, HookHead, Blood, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
@@ -31,12 +31,14 @@ class ResourceManager
 {
 private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
-	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{ 
+	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{
 		{ "MCBullet.png", 1, 1 },
-		{ "GunnerBullet.png", 1, 4 },
+		{"GunRight.png",1,1},
+		{ "GunnerBullet.png", 1, 5 },
 		{ "HookChain.png", 1,2},
 		{"HookChainFail.png",2,13},
 		{"HookHead.png", 1 ,2},
+		{"Particles\\Blood.png", 3, 3},
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
 		{ "Tree\\3.png", 1, 1 },

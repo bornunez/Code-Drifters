@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="17" height="4" tilewidth="64" tileheight="64" nextobjectid="64">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="17" height="4" tilewidth="64" tileheight="64" infinite="0" nextobjectid="70">
  <tileset firstgid="1" source="Stalker.tsx"/>
  <layer name="Run" width="17" height="4">
   <data encoding="base64" compression="zlib">
@@ -13,66 +13,57 @@
  </layer>
  <layer name="Attack" width="17" height="4">
   <data encoding="base64" compression="zlib">
-   eJytzcERgCAQADGaQFEEFPrv0fTA7Uzem9J+mYOTwsVN5aHRGbx8TFbAO7ofHX8BpQ==
+   eJxjYKA+kARiKSCWBmIZIJYFYjkglgdiBSBWBGIlIFamgd2UAgDX6AFL
+  </data>
+ </layer>
+ <layer name="Charge" width="17" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAciAKxGBCLA7EEFcwbSAAARpgAWw==
   </data>
  </layer>
  <objectgroup name="Attack">
-  <object id="1" name="Hitbox" type="0" x="26.625" y="86.125" width="10.875" height="20.5"/>
-  <object id="2" name="Hurtbox" type="0" x="27.0625" y="86.5" width="10.875" height="20.5"/>
-  <object id="5" name="Hurtbox" type="1" x="84.25" y="92.25" width="18.75" height="16"/>
-  <object id="6" name="Hitbox" type="1" x="84.25" y="92.25" width="18.75" height="15.875"/>
-  <object id="7" name="Hurtbox" type="2" x="147.625" y="94" width="18.75" height="16"/>
-  <object id="8" name="Hitbox" type="2" x="147.625" y="94" width="18.75" height="15.875"/>
-  <object id="11" name="Hurtbox" type="3" x="211.875" y="93" width="18.75" height="16"/>
-  <object id="12" name="Hitbox" type="3" x="211.875" y="93" width="18.75" height="15.875"/>
-  <object id="15" name="Hurtbox" type="4" x="276.75" y="81" width="20.875" height="18.625"/>
-  <object id="16" name="Hitbox" type="4" x="277" y="81.125" width="20.75" height="18.375"/>
-  <object id="17" name="Hitbox" type="5" x="340.875" y="82.0625" width="20.75" height="18.375"/>
-  <object id="18" name="Hurtbox" type="5" x="340.625" y="81.9375" width="20.875" height="18.625"/>
-  <object id="19" name="Hurtbox" type="6" x="408.375" y="91.375" width="18.125" height="15.625"/>
-  <object id="20" name="Hitbox" type="6" x="403.625" y="81.25" width="16.625" height="9.75"/>
-  <object id="21" name="Hitbox" type="6" x="420.75" y="85.75" width="5.625" height="5.375"/>
-  <object id="22" name="Hitbox" type="6" x="426.375" y="90.375" width="4.375" height="16.875"/>
-  <object id="23" name="Hitbox" type="6" x="407.75" y="91.125" width="19" height="16.125"/>
-  <object id="24" name="Hurtbox" type="7" x="472.25" y="92.625" width="18.25" height="15.375"/>
-  <object id="25" name="Hitbox" type="7" x="472.75" y="89.125" width="20.375" height="18.875"/>
-  <object id="26" name="Hurtbox" type="8" x="536.125" y="92.75" width="17.625" height="17.5"/>
-  <object id="27" name="Hitbox" type="8" x="536" y="92.75" width="17.875" height="17.625"/>
-  <object id="28" name="Hitbox" type="9" x="600.938" y="92.9375" width="17.875" height="17.625"/>
-  <object id="29" name="Hurtbox" type="9" x="601.063" y="92.9375" width="17.625" height="17.5"/>
-  <object id="30" name="Hitbox" type="10" x="664.188" y="93.8125" width="17.875" height="17.625"/>
-  <object id="31" name="Hurtbox" type="10" x="664.313" y="93.8125" width="17.625" height="17.5"/>
-  <object id="32" name="Hitbox" type="11" x="729.438" y="94.0625" width="17.875" height="17.625"/>
-  <object id="33" name="Hurtbox" type="11" x="729.563" y="94.0625" width="17.625" height="17.5"/>
-  <object id="34" name="Hitbox" type="12" x="791.188" y="92.5625" width="17.875" height="17.625"/>
-  <object id="35" name="Hurtbox" type="12" x="791.313" y="92.5625" width="17.625" height="17.5"/>
-  <object id="36" name="Hitbox" type="13" x="855.063" y="93.1875" width="17.875" height="17.625"/>
-  <object id="37" name="Hurtbox" type="13" x="855.188" y="93.1875" width="17.625" height="17.5"/>
-  <object id="38" name="Hitbox" type="14" x="920.438" y="92.8125" width="17.875" height="17.625"/>
-  <object id="39" name="Hurtbox" type="14" x="920.563" y="92.8125" width="17.625" height="17.5"/>
+  <object id="15" name="Hurtbox" type="0" x="276.75" y="81" width="20.875" height="18.625"/>
+  <object id="16" name="Hitbox" type="0" x="277" y="81.125" width="20.75" height="18.375"/>
+  <object id="17" name="Hitbox" type="1" x="340.875" y="82.0625" width="20.75" height="18.375"/>
+  <object id="18" name="Hurtbox" type="1" x="340.625" y="81.9375" width="20.875" height="18.625"/>
+  <object id="19" name="Hurtbox" type="2" x="408.375" y="91.375" width="18.125" height="15.625"/>
+  <object id="20" name="Hitbox" type="2" x="403.625" y="81.25" width="16.625" height="9.75"/>
+  <object id="21" name="Hitbox" type="2" x="420.75" y="85.75" width="5.625" height="5.375"/>
+  <object id="22" name="Hitbox" type="2" x="426.375" y="90.375" width="4.375" height="16.875"/>
+  <object id="23" name="Hitbox" type="2" x="407.75" y="91.125" width="19" height="16.125"/>
+  <object id="24" name="Hurtbox" type="3" x="472.25" y="92.625" width="18.25" height="15.375"/>
+  <object id="25" name="Hitbox" type="3" x="472.75" y="89.125" width="20.375" height="18.875"/>
+  <object id="26" name="Hurtbox" type="4" x="536.125" y="92.75" width="17.625" height="17.5"/>
+  <object id="27" name="Hitbox" type="4" x="536" y="92.75" width="17.875" height="17.625"/>
+  <object id="29" name="Hurtbox" type="5" x="601.063" y="92.9375" width="17.625" height="17.5"/>
+  <object id="31" name="Hurtbox" type="6" x="664.313" y="93.8125" width="17.625" height="17.5"/>
+  <object id="33" name="Hurtbox" type="7" x="729.563" y="94.0625" width="17.625" height="17.5"/>
+  <object id="35" name="Hurtbox" type="8" x="791.313" y="92.5625" width="17.625" height="17.5"/>
+  <object id="37" name="Hurtbox" type="9" x="855.188" y="93.1875" width="17.625" height="17.5"/>
+  <object id="39" name="Hurtbox" type="10" x="920.563" y="92.8125" width="17.625" height="17.5"/>
  </objectgroup>
+ <objectgroup name="Charge">
+  <object id="64" name="Hurtbox" type="0" x="26" y="83" width="15" height="23"/>
+  <object id="66" name="Hurtbox" type="1" x="83" y="87" width="20" height="21"/>
+  <object id="68" name="Hurtbox" type="2" x="147" y="86.5" width="20" height="21"/>
+  <object id="69" name="Hurtbox" type="3" x="210" y="87.5" width="20" height="21"/>
+ </objectgroup>
+ <layer name="Death" width="17" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg+wJYKZgAAEUQAPg==
+  </data>
+ </layer>
  <objectgroup name="Run">
-  <object id="40" name="Hitbox" type="0" x="20.25" y="25.125" width="15.375" height="18.25"/>
   <object id="41" name="Hurtbox" type="0" x="20.25" y="25" width="15.375" height="18.375"/>
-  <object id="42" name="Hitbox" type="1" x="83.1875" y="25.6875" width="15.375" height="18.25"/>
   <object id="43" name="Hurtbox" type="1" x="83.1875" y="25.5625" width="15.375" height="18.375"/>
-  <object id="44" name="Hitbox" type="2" x="147.688" y="25.6875" width="15.375" height="18.25"/>
   <object id="45" name="Hurtbox" type="2" x="147.688" y="25.5625" width="15.375" height="18.375"/>
-  <object id="46" name="Hitbox" type="3" x="211.438" y="26.0625" width="15.375" height="18.25"/>
   <object id="47" name="Hurtbox" type="3" x="211.438" y="25.9375" width="15.375" height="18.375"/>
-  <object id="48" name="Hitbox" type="4" x="275.813" y="25.5625" width="15.375" height="18.25"/>
   <object id="49" name="Hurtbox" type="4" x="275.813" y="25.4375" width="15.375" height="18.375"/>
-  <object id="50" name="Hitbox" type="5" x="339.063" y="25.0625" width="15.375" height="18.25"/>
   <object id="51" name="Hurtbox" type="5" x="339.063" y="24.9375" width="15.375" height="18.375"/>
-  <object id="52" name="Hitbox" type="6" x="403.313" y="26.6875" width="15.375" height="18.25"/>
   <object id="53" name="Hurtbox" type="6" x="403.313" y="26.5625" width="15.375" height="18.375"/>
-  <object id="54" name="Hitbox" type="7" x="467.563" y="25.1875" width="15.375" height="18.25"/>
   <object id="55" name="Hurtbox" type="7" x="467.563" y="25.0625" width="15.375" height="18.375"/>
-  <object id="56" name="Hitbox" type="8" x="532.063" y="24.5625" width="15.375" height="18.25"/>
   <object id="57" name="Hurtbox" type="8" x="532.063" y="24.4375" width="15.375" height="18.375"/>
-  <object id="58" name="Hitbox" type="9" x="595.188" y="24.4375" width="15.375" height="18.25"/>
   <object id="59" name="Hurtbox" type="9" x="595.188" y="24.3125" width="15.375" height="18.375"/>
-  <object id="62" name="Hitbox" type="10" x="658.938" y="23.5625" width="15.375" height="18.25"/>
   <object id="63" name="Hurtbox" type="10" x="658.938" y="23.4375" width="15.375" height="18.375"/>
  </objectgroup>
 </map>

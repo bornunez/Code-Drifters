@@ -39,8 +39,8 @@ void PlayState::render()
 {
 	SDL_RenderClear(Game::getGame()->getRenderer());
 	LevelManager::getInstance()->render();
-	GameState::render();
 	EnemyManager::getInstance()->render();
+	GameState::render();
 	minimap->render();
 	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();

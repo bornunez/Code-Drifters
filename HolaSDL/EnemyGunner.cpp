@@ -31,10 +31,10 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new KnockbackComponent(this, 5000, collisionLayers));
 	addComponent(new BasicMovement(this, collisionLayers));
 	addComponent(new DamageableEnemyComponent(this, getMC()));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new StunComponent(this));
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 
 }
 

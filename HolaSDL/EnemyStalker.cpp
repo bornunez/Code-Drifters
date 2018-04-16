@@ -59,9 +59,11 @@ void EnemyStalker::loadAnimations()
 	Animation* run = AnimationParser::parseAnimation(tileset, animationPath, "Run", this);
 	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Attack", this, 0, 0, false, 0.2);
 	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false);
+	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this);
 
 	animations.emplace("RUN", run);
 	animations.emplace("ATTACK", attack);
 	animations.emplace("HURT", hurt);
+	animations.emplace("DEATH", death);
 }
 

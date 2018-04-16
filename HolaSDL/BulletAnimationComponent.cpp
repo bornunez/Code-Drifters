@@ -22,7 +22,6 @@ BulletAnimationComponent::~BulletAnimationComponent()
 void BulletAnimationComponent::render()
 {
 	angle = bullet->getAngle();
-	cout << angle << endl;
 	Uint32 ticks = SDL_GetTicks();
 	
 	float displayX = gameObject->getDisplayPos().getX();

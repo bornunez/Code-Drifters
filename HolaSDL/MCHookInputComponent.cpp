@@ -40,6 +40,24 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 				Vector2D hookDirection;
 				hookDirection = targetPosition - displayPosition;
 				hookDirection.normalize();
+
+				float angle = (atan2(hookDirection.getY(), hookDirection.getX()));
+				angle = angle * 180 / M_PI;
+				if (angle < 0)
+					angle += 360;
+
+				if (angle < 315 && angle >= 225) {
+					mc->getTransform()->direction.set(0, -1);
+				}
+				else if (angle <225 && angle >= 135) {
+					mc->getTransform()->direction.set(-1, 0);
+				}
+				else if (angle <135 && angle >= 45) {
+					mc->getTransform()->direction.set(0, 1);
+				}
+				else {
+					mc->getTransform()->direction.set(1, 0);
+				}
 				
 
 				mc->shootHook(gunPosition, hookDirection);

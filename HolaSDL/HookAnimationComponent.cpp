@@ -39,7 +39,7 @@ void HookAnimationComponent::render()
 			renderHookChains();
 			renderHookHead();
 		}
-		else {
+		else if(hook->getHookStatus() != HookStatus::FAIL){
 			renderHookFail();
 		}
 	}
