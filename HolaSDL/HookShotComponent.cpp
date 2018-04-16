@@ -83,7 +83,7 @@ void HookShotComponent::update()
 		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
 			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
-				mc->setMCState(MCState::Hooking);
+				mc->setMCState(MCState::Dash);
 			}
 			else {
 				stop();
@@ -107,7 +107,7 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->getTransform()->position.set(originPos);
 	hook->getTransform()->velocity.set(hookDir);
 	hook->setHookStatus(HookStatus::EXTEND);
-	mc->setMCState(MCState::Hooking);
+	mc->setMCState(MCState::Dash);
 	mc->setMovable(false);
 	Message msg(HOOK_EXTEND);
 	mc->sendMessage(&msg);

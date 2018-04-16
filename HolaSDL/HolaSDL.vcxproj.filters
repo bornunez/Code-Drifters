@@ -316,6 +316,7 @@
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
     <ClCompile Include="ReloadComponent.cpp" />
+    <ClCompile Include="MCGunPosition.cpp" />
     <ClCompile Include="DialogObject.cpp" />
     <ClCompile Include="DialogsState.cpp">
       <Filter>Estados\Source</Filter>
@@ -619,6 +620,7 @@
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
     <ClInclude Include="ReloadComponent.h" />
+    <ClInclude Include="MCGunPosition.h" />
     <ClInclude Include="DialogObject.h" />
     <ClInclude Include="UpperGameState.h">
       <Filter>Estados\Header</Filter>
