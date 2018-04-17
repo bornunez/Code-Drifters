@@ -12,6 +12,8 @@
 #include "CollisionsManager.h"
 #include "ItemManager.h"
 
+#include"HUDManager.h"
+
 PlayState* PlayState::instance = nullptr;
 
 PlayState::PlayState():GameState ()
@@ -100,7 +102,6 @@ void PlayState::loadState()
 
 	camera->load();
 
-
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 	addGameObject(mainCharacter);
 
@@ -112,4 +113,5 @@ void PlayState::loadState()
 	LevelManager::getInstance()->getFirstRoom()->spawn();
 	ItemManager::getInstance()->init();
 	//ItemManager::getInstance()->AddItem(Enemies);
+	HUDManager::getInstance()->init(mainCharacter);
 }
