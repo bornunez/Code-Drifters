@@ -7,7 +7,7 @@ class Tileset;
 const int NUM_TEXTURES = 30;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
-const int NUM_ENEMYTILESET = 2;
+const int NUM_ENEMYTILESET = 3;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels\\";
 const string TILESET_PATH = "..\\levels\\tileset\\";
@@ -72,7 +72,7 @@ private:
 	vector<Tileset*> tilesets;
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
-	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx" };
+	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx"};
 	vector<Tileset*> enemyTilesets;
 	SDL_Renderer* renderer;
 	static ResourceManager* instance;

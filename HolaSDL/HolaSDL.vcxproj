@@ -109,6 +109,7 @@
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="tinyxml2.cpp" />
+    <ClCompile Include="TurretAnimationComponent.cpp" />
     <ClCompile Include="TurretShotComponent.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
@@ -217,6 +218,7 @@
     <ClInclude Include="Time.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="TurretAnimationComponent.h" />
     <ClInclude Include="TurretShotComponent.h" />
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="UpperGameState.h" />
