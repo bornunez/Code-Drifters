@@ -3,11 +3,11 @@
 
 
 
-Shop::Shop()
+Shop::Shop(ShopState* shopState)
 {
 	//lecture of different trees from file
 	for (int i = 0; i < 3; i++) {
-		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + ".txt", "..\\Arbol\\Textures\\"+ to_string(i+1) +".png");
+		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + ".txt", "..\\Arbol\\Textures\\"+ to_string(i+1) +".png", shopState);
 		fondos_[i] = new Texture(Game::getGame()->getRenderer());
 	}
 	//lecture of textures

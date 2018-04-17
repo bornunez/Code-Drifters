@@ -321,13 +321,13 @@
     <ClCompile Include="DialogsState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
-    <ClCompile Include="UpperGameState.cpp">
-      <Filter>Estados\Header</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="SkillTree.cpp" />
     <ClCompile Include="ShopState.cpp" />
+    <ClCompile Include="UpperGameState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">

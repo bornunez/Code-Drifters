@@ -1,7 +1,9 @@
 #include "SkillTree.h"
 #include "Game.h"
+#include "Shop.h"
+#include "ShopState.h"
 
-SkillTree::SkillTree(SkillTree* parent, string source, string TextSource) {
+SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopState) {
 	//initial values for destRect
 	skill.destRect.w = skill.destRect.x = skill.destRect.h = 50;
 	skill.destRect.y = 0;
@@ -10,7 +12,8 @@ SkillTree::SkillTree(SkillTree* parent, string source, string TextSource) {
 	if (skill.text->loadFromImg(TextSource));
 
 	parent_ = parent;
-
+	
+	shopState->createButton(this);
 	ifstream archivo;
 	archivo.open(source);
 
@@ -45,7 +48,7 @@ SkillTree::SkillTree(SkillTree* parent, string source, string TextSource) {
 	for (int i = 1; i <= numHijos; i++) {
 		//the names of the files of the sons are their ids
 		AddChild(new SkillTree(this,"..\\Arbol\\"+ to_string(skill.id)+to_string(i)+".txt",
-			"..\\Arbol\\Textures\\" + to_string(skill.id) + to_string(i) + ".png"));
+			"..\\Arbol\\Textures\\" + to_string(skill.id) + to_string(i) + ".png", shopState));
 	}
 
 	skill.HLineToFather = new Texture(Game::getGame()->getRenderer());
@@ -131,9 +134,14 @@ void SkillTree::render(SDL_Rect destination, int size, int totalWidth ) {
 	}
 }
 
-void SkillTree::Buy() {
-	cout << 1;
+SDL_Rect SkillTree::GetSkillRect()
+{
+	return skill.destRect;
 }
+
+void SkillTree::Buy() {
+	cout << skill.description;
+	}
 
 string SkillTree::FindParentID() {
 	if (parent_ != nullptr)

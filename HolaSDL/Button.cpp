@@ -3,10 +3,8 @@
 
 
 
-Button::Button(SDL_Rect rect, CallBackOnClick cbon, string filename)
+Button::Button(SkillTree* skill): skill_(skill)
 {
-	CbOnClk = cbon;
-	destRect = rect;
 }
 
 
@@ -14,18 +12,20 @@ Button::~Button()
 {
 }
 
-bool Button::HandleEvents(SDL_Event& e) {
-	bool handled = false;
-	if (e.type == SDL_MOUSEBUTTONDOWN) {
-		SDL_Point p;
-		SDL_GetMouseState(&p.x, &p.y);
-		if (SDL_PointInRect(&p, &destRect)) {
-			handled = true;
-			CbOnClk();
+void Button::handleEvents(SDL_Event& e) {
+	if (e.type == SDL_MOUSEBUTTONDOWN)
+	{
+		SDL_GetMouseState(&mouse.x, &mouse.y);
+		if (SDL_PointInRect(&mouse, &rect))
+		{
+			skill_->Buy();
 		}
 	}
-	return handled;
 }
 
-void Button::update() {}
+void Button::update()
+{
+	rect = skill_->GetSkillRect();
+}
+
 

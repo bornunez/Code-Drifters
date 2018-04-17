@@ -14,6 +14,7 @@ class Camera;
 class Map;
 class LevelParser;
 class PlayState;
+class GameState;
 
 using namespace std;
 class Game
@@ -67,7 +68,7 @@ public:
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();
-	void pushState(GameState* state) {};
+	void pushState(GameState* state);
 	void quitState();
 };
 

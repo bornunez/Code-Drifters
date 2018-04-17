@@ -55,6 +55,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			game->startDialogue("1");
 		}
+		if (e.key.keysym.sym == SDLK_o)
+		{
+			openShop();
+		}
 	}
 	GameState::handleEvent(e);
 	//mainCharacter->handleEvents(e);
@@ -69,6 +73,11 @@ void PlayState::update()
 	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
+}
+
+void PlayState::openShop()
+{
+	game->pushState(shopState);
 }
 
 void PlayState::endState()

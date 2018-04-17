@@ -1,12 +1,15 @@
 #pragma once
 #include "UpperGameState.h"
-
-class Shop;
+#include "Shop.h"
 
 class ShopState: public UpperGameState
 {
+private:
+
 public:
 	ShopState(GameState* upper);
-	~ShopState();
+	virtual ~ShopState();
+
+	void createButton(SkillTree* skill);
 };
 

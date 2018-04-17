@@ -10,6 +10,7 @@ class Shop: public GameObject
 private:
 	//Button* Left, *Right;
 	SkillTree* Skills_[3];
+	ShopState* shopState_;
 	//where the 3 trees will be rendered
 	Texture* fondos_[3];
 	SDL_Rect right_tree,
@@ -24,8 +25,8 @@ private:
 	void GoLeft() { actual_tree = (actual_tree + 1) % 3; };
 	void GoRight() { actual_tree--; if (actual_tree < 0)actual_tree = 2;};
 public:
-	Shop();
-	~Shop();
+	Shop(ShopState* shopState);
+	virtual ~Shop();
 	
 	virtual void update();
 	virtual void render();

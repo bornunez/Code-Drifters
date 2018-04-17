@@ -1,23 +1,20 @@
 #pragma once
-#include"SDL.h"
-#include"SDL_image.h"
-#include<iostream>
-#include"Texture.h"
 #include "GameObject.h"
+#include "SkillTree.h"
 
 using namespace std;
 
 class Button: public GameObject
 {
-protected:
-	typedef void CallBackOnClick();
-	SDL_Rect destRect;
-	CallBackOnClick* CbOnClk;
+private:
+	SDL_Rect rect;
+	SDL_Point mouse;
+	SkillTree* skill_;
 
 public:
-	Button(SDL_Rect rect, CallBackOnClick cbon, string filename);
+	Button(SkillTree* skill);
 	~Button();
-	bool HandleEvents(SDL_Event& e);
+	void handleEvents(SDL_Event& e);
 	void update();
 };
 

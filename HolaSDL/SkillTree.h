@@ -2,10 +2,10 @@
 #include<vector>
 #include<fstream>
 #include<string>
-#include"Button.h"
+#include "Texture.h"
 
 using namespace std;
-
+class ShopState;
 struct Habilidad {
 	bool bought;
 	int needed_point,
@@ -27,21 +27,18 @@ private:
 		id_; //to recognize a tree
 	string description_;*/
 	Habilidad skill;
-
 	vector<SkillTree*> sons_; 	//undefined number of sons
 	SkillTree* parent_; //to check information
 
 	SDL_Renderer* rending = nullptr;
 
-	//Button* boton;
 	//SDL_Rect destRec;
-	static void Buy();
 	string FindParentID();
 	void DrawLine();
 	int getRootID();
 
 public:
-	SkillTree(SkillTree* parent, string source, string TextSource);
+	SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopState);
 	~SkillTree() {};
 
 	void HandleEvents(SDL_Event e);
@@ -49,6 +46,9 @@ public:
 
 	void AddChild(SkillTree* son) { sons_.push_back(son);};
 	SkillTree* FindSon(int id);
+
+	SDL_Rect GetSkillRect();
+	void Buy();
 
 	//check if its unlockable
 	bool Available(int money) { return (parent_->skill.bought && money >= skill.needed_point); };

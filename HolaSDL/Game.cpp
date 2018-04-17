@@ -168,4 +168,14 @@ void Game::endDialogue()
 	stateMachine->popState();
 }
 
+void Game::pushState(GameState * state)
+{
+	stateMachine->pushState(state);
+}
+
+void Game::quitState()
+{
+	stateMachine->quitState();
+}
+
 
