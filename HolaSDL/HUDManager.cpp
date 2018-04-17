@@ -32,7 +32,7 @@ void HUDManager::render() {
 	}
 	lifeBack->getTexture()->render(lifeBack->destRect, &lifeBack->srcRect);
 	lifeBar->getTexture()->render(lifeBar->destRect, &lifeBar->srcRect);
-	lifeSkeleton->getTexture()->render(lifeBack->destRect, &lifeBar->srcRect);
+	lifeSkeleton->getTexture()->render(lifeSkeleton->destRect, &lifeSkeleton->srcRect);
 
 	ultBack->getTexture()->render(ultBack->destRect, &ultBack->srcRect);
 	ultBar->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
@@ -67,10 +67,28 @@ void HUDManager::update() {
 	//update the ult bar, but without parameter from the character we cant
 }
 
-void HUDManager::setNewHP(float newL) {
-	lifeBack->destRect.w += newL;
-	lifeBar->destRect.w += newL;
-	lifeSkeleton->destRect.w += newL;
+void HUDManager::setNewHP(int newL) {
+	lifeBack->destRect.w += newL*gameScale*0.75;
+	lifeBack->srcRect.x -= newL;
+	lifeBack->srcRect.w += newL;
+
+	lifeBar->destRect.w += newL*gameScale*0.75;
+	lifeBar->srcRect.x -= newL;
+	lifeBar->srcRect.w += newL;
+
+	lifeSkeleton->destRect.w += newL*gameScale*0.75;
+	lifeSkeleton->srcRect.x -= newL;
+	lifeSkeleton->srcRect.w += newL;
+}
+
+void HUDManager::changeLife(int l) {
+	lifeBar->destRect.w += l*gameScale*0.75;
+	lifeBar->srcRect.x -= l;
+	lifeBar->srcRect.w += l;
+	if (lifeBar->destRect.w > lifeBack->destRect.w)
+		lifeBar->destRect.w = lifeBack->destRect.w * gameScale * .75;
+	else if (lifeBar->destRect.w < 0)
+		lifeBar->destRect.w = 0;
 }
 
 void HUDManager::addBullet() {
@@ -96,14 +114,6 @@ void HUDManager::addBullet() {
 	}
 }
 
-void HUDManager::changeLife(float l) {
-	lifeBar->destRect.w += l;
-	if (lifeBar->destRect.w > lifeBack->destRect.w)
-		lifeBar->destRect.w = lifeBack->destRect.w;
-	else if (lifeBar->destRect.w < 0)
-		lifeBar->destRect.w = 0;
-}
-
 HUDManager* HUDManager::getInstance() {
 	if (instance == nullptr)
 		instance = new HUDManager();
@@ -125,36 +135,47 @@ void HUDManager::init(MainCharacter* MC) {
 		bullets_.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(CoinSprite)));
 		bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(CoinSprite)));
 	}
-	lifeBack->destRect.w = lifeBack->getTexture()->getFrameWidth()*gameScale * 0.75;
-	lifeBack->destRect.h = lifeSkeleton->getTexture()->getFrameHeight()*gameScale * 0.75;
-	lifeBack->destRect.x = 50;
-	lifeBack->destRect.y = 25;
 
+	ultBack->destRect.w = ultBack->getTexture()->getWidth()*gameScale*0.75;
+	ultBack->destRect.h = ultBack->getTexture()->getHeight()*gameScale*0.75;
+	ultBack->destRect.x = 50;
+	ultBack->destRect.y = 25;
+
+	ultBar->destRect = ultBack->destRect;
+	ultBar->destRect.w = ultBar->getTexture()->getWidth()*gameScale*0.75;
+	ultBar->destRect.h = ultBar->getTexture()->getHeight()*gameScale*0.75;
+	ultSkeleton->destRect = ultBack->destRect;
+
+	lifeBack->destRect = ultBack->destRect;
+	lifeBack->destRect.x += ultBar->destRect.w / 2;
+	lifeBack->srcRect.x = lifeBack->getTexture()->getWidth() / 3;
+	lifeBack->srcRect.w = lifeBack->getTexture()->getWidth() - lifeBack->srcRect.x;
+	lifeBack->destRect.w = lifeBack->srcRect.w * gameScale * 0.75;
 	lifeBar->destRect = lifeBack->destRect;
+	lifeBar->srcRect = lifeBack->srcRect;
 	lifeSkeleton->destRect = lifeBack->destRect;
-
-	ultBack->destRect = lifeBack->destRect;
-	ultBar->destRect = lifeBack->destRect;
-	ultSkeleton->destRect = lifeBack->destRect;
-
+	lifeSkeleton->srcRect = lifeBack->srcRect;
 
 	for (int i = 0; i < bullets_.size(); i++) {
-		bulletBack[i]->destRect.x =
-			bullets_[i]->destRect.x =
-			bulletSkeleton[i]->destRect.x =
-			lifeBack->destRect.x + (75 * i);
-
-		bulletBack[i]->destRect.y =
-			bullets_[i]->destRect.y =
-			bulletSkeleton[i]->destRect.y =
-			lifeBack->destRect.y + lifeBack->destRect.h + 50;
 
 		bulletBack[i]->destRect.w =
 			bullets_[i]->destRect.w =
 			bulletSkeleton[i]->destRect.w =
-			bulletBack[i]->destRect.h =
+			20;
+		bulletBack[i]->destRect.h =
 			bullets_[i]->destRect.h =
 			bulletSkeleton[i]->destRect.h =
-			50;
+			30;
+
+		bulletBack[i]->destRect.x =
+			bullets_[i]->destRect.x =
+			bulletSkeleton[i]->destRect.x =
+			lifeBack->destRect.x + ((bullets_[i]->destRect.w +10) * i)+65;
+
+		bulletBack[i]->destRect.y =
+			bullets_[i]->destRect.y =
+			bulletSkeleton[i]->destRect.y =
+			lifeBack->destRect.y + lifeBack->destRect.h - 10;
+
 	}
 }

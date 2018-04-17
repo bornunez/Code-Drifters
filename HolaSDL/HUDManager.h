@@ -29,8 +29,8 @@ public:
 
 	void update();
 	void render();
-	void setNewHP(float newL);
+	void setNewHP(int newL);
 	void addBullet();
-	void changeLife(float l);
+	void changeLife(int l);
 };
 
