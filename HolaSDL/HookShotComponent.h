@@ -31,7 +31,6 @@ public:
 	void moveEnemy();
 	void moveMC();
 	void stop();
-	void checkCollision();
 	void updateHookAngle();
 	HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed);
 	virtual ~HookShotComponent();

@@ -9,6 +9,7 @@ Hook::Hook(float hookLength) : GameObject()
 	transform.body.w = 10 * Game::getGame()->getScale();
 	transform.body.h = 10 * Game::getGame()->getScale();
 	hs = HookStatus::STOP;
+	setCollisionsLayers({ "Paredes"});
 }
 
 

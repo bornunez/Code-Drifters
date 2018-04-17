@@ -69,8 +69,16 @@ void HookAnimationComponent::renderHookChains()
 {
 	Uint32 ticks = SDL_GetTicks();
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-	Vector2D gunPos = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
-	Vector2D hookSize = hook->getCenterPos() - gunPos;
+	Vector2D targetPos;
+
+	if (mc->getMCState() == MCState::Dash) {
+		targetPos = mc->getCenterPos();
+	}
+	else {
+		targetPos = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
+	}
+
+	Vector2D hookSize = hook->getCenterPos() - targetPos;
 	float hookLength = hookSize.magnitude();
 	
 	Uint32 sprite = (ticks / fps) % hookChainTex->getNumCols();

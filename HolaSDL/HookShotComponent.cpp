@@ -25,25 +25,31 @@ HookShotComponent::~HookShotComponent()
 {
 }
 void HookShotComponent::receiveMessage(Message* msg) {
-	if (msg->id == HOOK_ENEMY) {
-		//enemyHooked = static_cast<HookedMessage*>(msg)->gameObject;
-		/*moveEnemy();
-		hook->setHookStatus(HookStatus::MOVE_ENEMY);*/
-	}
-	else if (msg->id == HOOK_WALL) {
-		/*moveMC();
-		hook->setHookStatus(HookStatus::MOVE_MC);*/
-	}
-	else if (msg->id == HOOK_STOP) {
-		//stop();
+	switch (msg->id) {
+	case HOOK_ENEMY:
+		hook->setHookStatus(HookStatus::MOVE_ENEMY);
+		enemyHooked = static_cast<HookEnemyMessage*>(msg)->gameObject;
+		break;
+	case HOOK_WALL:
+		//Cuando el gancho colisiona con la pared, el protagonista se mueve
+		hook->setHookStatus(HookStatus::MOVE_MC);
+		hook->setOriginPosition(mc->getCenterPos());
+		break;
+	case HOOK_STOP:
+
+		break;
+	case HIT_WALL:
+		if (hook->getHookStatus() == HookStatus::MOVE_MC) {//Cuando está moviéndose con el gancho y choca con la pared se detiene
+			hook->setHookStatus(HookStatus::STOP);
+			stop();
+		}
+		break;
 	}
 }
 void HookShotComponent::update()
 {
 	if (hook->isActive()) {
 		updateHookPos();
-		if (hook->getHookStatus() == (HookStatus::EXTEND))
-			checkCollision();
 		Vector2D hookSize = hook->getTransform()->position - hook->getOriginPosition();//Diferencia entre la pos actual del gancho y su origen
 		//cout << "ORIGEN: " << hook->getOriginPosition() << endl;
 		
@@ -92,7 +98,7 @@ void HookShotComponent::update()
 	}
 }
 
-void HookShotComponent::updateHookPos()
+void HookShotComponent::updateHookPos()//Actualiza la posición del gancho
 {
 	mc->getHook().getTransform()->position.set(mc->getGunPosition());
 	hook->getTransform()->body.x = hook->getTransform()->position.getX();
@@ -168,13 +174,11 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 	Transform auxT = *mcT;
 	auxT.position.setX(hook->getOriginPosition().getX() - auxT.body.w / 2);
 	auxT.position.setY(hook->getOriginPosition().getY() - auxT.body.h / 2);
-	/*auxT.body.x = auxT.position.getX();
-	auxT.body.y = auxT.position.getY();*/
 
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;
 
-	vector<string>::iterator it;
+	/*vector<string>::iterator it;
 	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
 		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
 		if (tl != nullptr) {
@@ -183,16 +187,16 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 			}
 		}
 	}
-	if (!collision) {
+	if (!collision) {*/
 		*mcT = auxT;
-	}
-	else {
-		hook->setHookStatus(HookStatus::FAIL);
-		Message msg(HOOK_FAIL);
-		mc->sendMessage(&msg);
-		contract();
-		stop();
-	}
+	//}
+	//else {
+	//	hook->setHookStatus(HookStatus::FAIL);
+	//	Message msg(HOOK_FAIL);
+	//	mc->sendMessage(&msg);
+	//	contract();
+	//	stop();
+	//}
 
 }
 
@@ -205,45 +209,6 @@ void HookShotComponent::stop()
 	mc->sendMessage(&msg);
 }
 
-void HookShotComponent::checkCollision()//Comprueba si el gancho colisiona con un enemigo y si choca contra la pared
-{
-	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
-	SDL_Rect hookColl = hook->getTransform()->body;
-	for (GameObject* e : enemies) {//Itera la lista de enemigos activos
-		if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
-			vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();			
-			bool hit = false;
-			uint i = 0;
-			while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo				
-				if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
-					hook->setHookStatus(HookStatus::MOVE_ENEMY);
-					enemyHooked = e;
-					e->setMovable(false);
-					Message msg(HOOK_ENEMY);
-					mc->sendMessage(&msg);
-				}
-				i++;
-			}
-		}
-	}
-
-	//Colisionamos
-	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
-	bool collision = false;
-	
-	vector<string>::iterator it;
-	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
-		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
-		if (tl != nullptr) {
-			if (CollisionHandler::Collide(hook->getTransform(), tl)) {
-				collision = true;
-				hook->setHookStatus(HookStatus::MOVE_MC);
-				Message msg(HOOK_WALL);
-				mc->sendMessage(&msg);
-			}
-		}
-	}
-}
 
 void HookShotComponent::updateHookAngle()
 {
