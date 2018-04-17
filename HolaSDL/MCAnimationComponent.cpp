@@ -13,6 +13,7 @@ MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char
 	gameObject->changeCurrentAnimation("IDLE_BOT");
 	gunTexture = ResourceManager::getInstance()->getTexture(MCGun);
 	gunTimer = new Timer();
+	hurtTimer = new Timer();
 }
 
 
@@ -184,8 +185,18 @@ void MCAnimationComponent::handleAnimationStates()
 {
 	//IDLE POSITIONS
 	//cout << (int)mc->getMCState();
+	if (mc->getMCState() == MCState::Hurt) {
+		hurtTimer->update();
+		if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
+			mc->setMCState(MCState::Idle);
+			gameObject->changeCurrentAnimation("RUN");
+		}
+	}
 
 	if (mc->getMCState() == MCState::Attack && gameObject->getCurrentAnimation()->isFinished()) {
+		mc->setMCState(MCState::Idle);
+	}
+	else if (mc->getMCState() == MCState::DashEnd && gameObject->getCurrentAnimation()->isFinished()) {
 		mc->setMCState(MCState::Idle);
 	}
 	if (mc->getMCState() == MCState::Idle) {
@@ -288,13 +299,14 @@ void MCAnimationComponent::handleAnimationEndDash()
 void MCAnimationComponent::handleAnimationHurt()
 {
 	gameObject->changeCurrentAnimation("HURT");
-	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Hurt);
+	mc->setMCState(MCState::Hurt);
+	hurtTimer->restart();
 }
 
 void MCAnimationComponent::handleAnimationDeath()
 {
 	gameObject->changeCurrentAnimation("DEATH");
-	static_cast<MainCharacter*>(gameObject)->setMCState(MCState::Death);
+	mc->setMCState(MCState::Death);
 }
 
 void MCAnimationComponent::handleAnimationGun()
