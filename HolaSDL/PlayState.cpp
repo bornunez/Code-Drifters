@@ -46,6 +46,7 @@ void PlayState::render()
 	minimap->render();
 	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();
+	HUDManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -70,6 +71,8 @@ void PlayState::update()
 	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
+	//HUDManager::getInstance()->update(); //de momento peta
+	HUDManager::getInstance()->changeLife(-1);
 }
 
 void PlayState::endState()

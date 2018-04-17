@@ -1,6 +1,7 @@
 #include "HUDObject.h"
 #include"Texture.h"
-
+#include "SimpleAnimationComponent.h"
+#include "ResourceManager.h"
 
 HUDObject::HUDObject(Texture* text) : GameObject(text)
 {

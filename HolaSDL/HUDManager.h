@@ -19,6 +19,8 @@ private:
 	HUDObject* ultSkeleton;
 	HUDObject* ultBar;
 	HUDObject* ultBack;
+
+	int gameScale = 0;
 public:
 	void init(MainCharacter* MC);
 	HUDManager();

@@ -1,5 +1,6 @@
 #include "HUDManager.h"
 #include"ResourceManager.h"
+#include "Game.h"
 
 HUDManager* HUDManager::instance = nullptr;
 
@@ -39,6 +40,7 @@ void HUDManager::render() {
 }
 
 void HUDManager::update() {
+
 	float aux = character->getCurrentBullets();
 	int currentBullet = (int)aux - 1;
 	//the fully charged bullets
@@ -110,20 +112,21 @@ HUDManager* HUDManager::getInstance() {
 
 void HUDManager::init(MainCharacter* MC) {
 	character = MC;
+	gameScale = Game::getGame()->getScale();
 
-	lifeSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(CoinSprite));
-	lifeBar = new HUDObject();
-	lifeBack = new HUDObject();
-	ultSkeleton = new HUDObject();
-	ultBar = new HUDObject();
-	ultBack = new HUDObject();
+	lifeSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(LifeBorde));
+	lifeBar = new HUDObject(ResourceManager::getInstance()->getTexture(LifeBarra));
+	lifeBack = new HUDObject(ResourceManager::getInstance()->getTexture(LifeFondo));
+	ultSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(UltBorde));
+	ultBar = new HUDObject(ResourceManager::getInstance()->getTexture(UltBarra));
+	ultBack = new HUDObject(ResourceManager::getInstance()->getTexture(UltFondo));
 	for (int i = 0; i < character->getMaxBullets(); i++) {
-		bulletSkeleton.push_back(new HUDObject());
-		bullets_.push_back(new HUDObject());
-		bulletBack.push_back(new HUDObject());
+		bulletSkeleton.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(CoinSprite)));
+		bullets_.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(CoinSprite)));
+		bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(CoinSprite)));
 	}
-	lifeBack->destRect.w = lifeBack->getTexture()->getFrameWidth();;
-	lifeBack->destRect.h = lifeSkeleton->getTexture()->getFrameHeight();
+	lifeBack->destRect.w = lifeBack->getTexture()->getFrameWidth()*gameScale * 0.75;
+	lifeBack->destRect.h = lifeSkeleton->getTexture()->getFrameHeight()*gameScale * 0.75;
 	lifeBack->destRect.x = 50;
 	lifeBack->destRect.y = 25;
 
