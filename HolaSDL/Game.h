@@ -67,5 +67,7 @@ public:
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();
+	void pushState(GameState* state) {};
+	void quitState();
 };
 

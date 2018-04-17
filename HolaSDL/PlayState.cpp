@@ -11,7 +11,7 @@
 #include "Minimap.h"
 #include "CollisionsManager.h"
 #include "ItemManager.h"
-#include "Shop.h"
+#include "ShopState.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -98,7 +98,7 @@ void PlayState::loadState()
 	minimap = new Minimap(mMapW, mMapH, mMapW / 5, mMapH / 5);
 
 	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
-	gameObjects.push_back(new Shop());
+	shopState = new ShopState(this);
 	camera->load();
 
 

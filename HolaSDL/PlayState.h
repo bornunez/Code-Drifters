@@ -23,7 +23,7 @@ private:
 
 	static PlayState* instance;
 
-
+	GameState* shopState;
 	//enemigo temporal
 	PlayState();
 public:

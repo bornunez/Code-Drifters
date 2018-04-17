@@ -327,6 +327,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="SkillTree.cpp" />
+    <ClCompile Include="ShopState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -634,6 +635,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="SkillTree.h" />
+    <ClInclude Include="ShopState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
