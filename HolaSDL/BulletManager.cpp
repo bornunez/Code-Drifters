@@ -1,5 +1,4 @@
 #include "BulletManager.h"
-#include "Message.h"
 #include "Game.h"
 #include "PlayState.h"
 #include "ResourceManager.h"
