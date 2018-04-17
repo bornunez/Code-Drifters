@@ -53,36 +53,39 @@ float MCGunPosition::handleGunAngle()
 
 	if (gunAngle > 45 && gunAngle < 135) {//Abajo
 		if (gunAngle > 90) {//Abajo a la izquierda
-			offsetY += 2;
-			offsetX -= 2;
+			offsetY += 4;
+			offsetX -= 7;
 		}
 		else {//Abajo a la derecha
-			offsetY += 2;
-			offsetX -= 6;
+			offsetY += 1;
+			offsetX -= 1;
 		}
 
 	}
 	else if (gunAngle >= 135 && gunAngle<225) {//Izquierda
 		offsetX += 1;
+		offsetY -= 5;
 	}
 	else if (gunAngle >= 225 && gunAngle<315) {//Arriba
 		if (gunAngle>270) {//Arriba a la derecha
 			offsetY -= 2;
-			offsetX += 5;
+			offsetX += 0;
 		}
 		else {
 			offsetY -= 2;
-			offsetX += 2;
+			offsetX += 8;
 		}
 	}
 	else {//Derecha
-		offsetY += 2;
+		offsetY -= 3;
 		offsetX += 1;
 	}
+	offsetY *= Game::getGame()->getScale();
+	offsetX *= Game::getGame()->getScale();
 
 	Vector2D gunPos;
 	gunPos.setX(mc->getDisplayCenterPos().getX() + offsetX + 12*Game::getGame()->getScale() * gunDirection.getX());
-	gunPos.setY(mc->getDisplayCenterPos().getY() + +offsetY + 12 * Game::getGame()->getScale() * gunDirection.getY());
+	gunPos.setY(mc->getDisplayCenterPos().getY() + offsetY + 12 * Game::getGame()->getScale() * gunDirection.getY());
 
 	mc->setGunPosition(gunPos);
 
