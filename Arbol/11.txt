@@ -1,1 +1,1 @@
-1 1 10 Aumento De Ataque Espada
+1 0 10 Aumento De Ataque Espada

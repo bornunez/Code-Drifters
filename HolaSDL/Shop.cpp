@@ -14,14 +14,14 @@ Shop::Shop(ShopState* shopState)
 	if (!LoadTextures());
 	
 	right_tree.w = left_tree.w = 200;
-	right_tree.h = left_tree.h = 400;
-	central_tree.w = 350; 
-	central_tree.h = 500;
+	right_tree.h = left_tree.h = 450;
+	central_tree.w = 400; 
+	central_tree.h = 600;
 
-	right_tree.y = left_tree.y = 100;
+	right_tree.y = left_tree.y = 150;
 	central_tree.y = 50;
 
-	left_tree.x = 50;
+	left_tree.x = 140;
 	central_tree.x = left_tree.x + left_tree.w - 25;
 	right_tree.x = central_tree.x + central_tree.w-25;
 
@@ -55,8 +55,8 @@ void Shop::render() {
 	fondos_[(actual_tree + 2) % 3]->render(left_tree);
 
 	//render of left and right tree, in the assigned rectangle
-	Skills_[(actual_tree + 1) % 3]->render(right_tree, 25, right_tree.w);
-	Skills_[(actual_tree + 2) % 3]->render(left_tree, 25, left_tree.w);
+	Skills_[(actual_tree + 1) % 3]->render(right_tree, 30, right_tree.w);
+	Skills_[(actual_tree + 2) % 3]->render(left_tree, 30, left_tree.w);
 
 
 	//render of the central tree, so it is above the two others

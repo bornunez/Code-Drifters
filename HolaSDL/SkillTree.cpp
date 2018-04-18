@@ -110,7 +110,7 @@ void SkillTree::render(SDL_Rect destination, int size, int totalWidth ) {
 	else {
 		skill.destRect.w = skill.destRect.h = size;
 		skill.destRect.x = destination.x - skill.destRect.w / 2 + totalWidth / 2 + totalWidth/30;
-		skill.destRect.y = parent_->skill.destRect.y + (parent_->skill.destRect.h) + (skill.destRect.h * (destination.h >= 450 ? 0.7 : 2));
+		skill.destRect.y = parent_->skill.destRect.y + (parent_->skill.destRect.h) + (skill.destRect.h * (destination.h >= 450 ? 0.9 : 2));
 	}
 
 	DrawLine();
