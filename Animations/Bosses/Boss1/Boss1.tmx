@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="128" tileheight="128" infinite="0" nextobjectid="64">
+ <tileset firstgid="1" source="Boss1.tsx"/>
+ <layer name="Boss1-Static" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzgEJAAAMA6A1ev92jzEGmsAEADZdOwAA4x5lEwAw
+  </data>
+ </layer>
+ <objectgroup name="Boss1-Static">
+  <object id="62" name="Hurtbox" type="0" x="1693.33" y="1814.67" width="54.6667" height="72.6667"/>
+ </objectgroup>
+ <layer name="Boss1-NormalAttack" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNADAIwEA2Ssi3/2h4Bao0Psm9IyRJUsegSUmLNh269D5+SZLUVb52AZU=
+  </data>
+ </layer>
+ <objectgroup name="Boss1-NormalAttack">
+  <object id="54" name="Hurtbox" type="0" x="1692" y="1943.33" width="52" height="69.3333"/>
+  <object id="55" name="Hurtbox" type="1" x="1823.33" y="1941.33" width="65.3333" height="72.6667"/>
+  <object id="56" name="Hurtbox" type="2" x="1950.67" y="1936" width="67.3333" height="80.6667"/>
+  <object id="57" name="Hitbox" type="3" x="2055.33" y="1935.33" width="96" height="83.3333"/>
+  <object id="58" name="Hitbox" type="4" x="2182.67" y="1935.33" width="96.6667" height="87.3333"/>
+  <object id="59" name="Hitbox" type="5" x="2312" y="1936.67" width="84.6667" height="87.3333"/>
+  <object id="60" name="Hitbox" type="6" x="2445.33" y="1935.33" width="71.3333" height="83.3333"/>
+  <object id="61" name="Hurtbox" type="7" x="2584.67" y="1940" width="52" height="78.6667"/>
+ </objectgroup>
+ <layer name="Boss1-StartJump" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzskJACAQBMENwwPzT9PJYlGqoP9dBQC8YKSZVtrp9O4A8IELSwkAhA==
+  </data>
+ </layer>
+ <objectgroup name="Boss1-StartJump">
+  <object id="51" name="Hurtbox" type="0" x="1704" y="2100" width="53.3333" height="71.3333"/>
+  <object id="52" name="Hurtbox" type="1" x="1827.33" y="2108.67" width="62" height="62"/>
+  <object id="53" name="Hurtbox" type="2" x="1958.67" y="2104.67" width="52.6667" height="63.3333"/>
+ </objectgroup>
+ <layer name="Boss1-StaticJump" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzjENAAAIA7AZwb9NFOwkPK2CJgAA3XwHADizuOQAHg==
+  </data>
+ </layer>
+ <layer name="Boss1-NormalFall" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzsENACAMxLAuAmX/KbktQJUt5Z8qAID/rLRTp/N2BWCsC6C2AHs=
+  </data>
+ </layer>
+ <objectgroup name="Boss1-NormalFall">
+  <object id="48" name="Hurtbox" type="1" x="1824.67" y="2356" width="68.6667" height="69.3333"/>
+  <object id="49" name="Hurtbox" type="2" x="1956.67" y="2363.33" width="60" height="65.3333"/>
+  <object id="50" name="Hurtbox" type="3" x="2083.33" y="2355.33" width="58.6667" height="71.3333"/>
+ </objectgroup>
+ <layer name="Boss1-StartAttackJump" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrcNACAQwMAnh/0Hxg0bINH4JPeOkCRJ0pUoU6FKjToNmrRof7uTpLcOGWMAOA==
+  </data>
+ </layer>
+ <objectgroup name="Boss1-StartAttackJump">
+  <object id="40" name="Hurtbox" type="0" x="1699.33" y="2483.33" width="60.6667" height="71.3333"/>
+  <object id="41" name="Hurtbox" type="1" x="1828" y="2492.67" width="61.3333" height="64.6667"/>
+  <object id="42" name="Hurtbox" type="2" x="1956.67" y="2492.67" width="62" height="64.6667"/>
+  <object id="43" name="Hurtbox" type="3" x="2084.67" y="2493.33" width="60" height="65.3333"/>
+  <object id="44" name="Hurtbox" type="4" x="2212.67" y="2491.33" width="59.3333" height="66"/>
+  <object id="45" name="Hurtbox" type="5" x="2338" y="2486" width="60.6667" height="72"/>
+  <object id="46" name="Hurtbox" type="6" x="2466.67" y="2492" width="64" height="66"/>
+  <object id="47" name="Hurtbox" type="7" x="2593.33" y="2480" width="64" height="74"/>
+ </objectgroup>
+ <layer name="Boss1-AttackFall" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzssJwCAAwFDPVlu/df9NzRaC5EHuCUGSJEmnRXooUaaXPipUqVGnQZN+WkdOJd1kA/8dAOg=
+  </data>
+ </layer>
+ <objectgroup name="Boss1-AttackFall">
+  <object id="28" name="Hitbox" type="2" x="1940.67" y="2623.33" width="90" height="62.6667"/>
+  <object id="29" name="Hitbox" type="3" x="2067.33" y="2622" width="94" height="65.3333"/>
+  <object id="30" name="Hitbox" type="4" x="2200" y="2620.67" width="88.6667" height="64.6667"/>
+  <object id="31" name="Hitbox" type="5" x="2334" y="2622" width="69.3333" height="63.3333"/>
+  <object id="32" name="Hitbox" type="6" x="2468.67" y="2620.67" width="60" height="62"/>
+  <object id="33" name="Hurtbox" type="7" x="2598" y="2620.67" width="55.3333" height="66"/>
+  <object id="34" name="Hurtbox" type="8" x="2726" y="2622.67" width="58" height="62"/>
+  <object id="35" name="Hurtbox" type="9" x="2855.33" y="2622.67" width="56" height="64"/>
+  <object id="36" name="Hurtbox" type="10" x="2980.67" y="2618" width="58.6667" height="67.3333"/>
+  <object id="37" name="Hurtbox" type="11" x="3111.33" y="2618.67" width="55.3333" height="68"/>
+  <object id="38" name="Hurtbox" type="12" x="3236" y="2620" width="62.6667" height="66"/>
+  <object id="39" name="Hurtbox" type="13" x="3365.33" y="2610.67" width="59.3333" height="70.6667"/>
+ </objectgroup>
+ <layer name="Desvanece" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNACAMwMBMxxvYfxw8BRT4JPeOkCRJ0q8KVWrUadCkpEX73ZqkCw5WfgKb
+  </data>
+ </layer>
+ <objectgroup name="Desvanece">
+  <object id="26" name="Hurtbox" type="0" x="1691.33" y="2711.33" width="58.6667" height="70.6667"/>
+  <object id="27" name="Hurtbox" type="1" x="1824.67" y="2709.33" width="66.6667" height="72.6667"/>
+ </objectgroup>
+ <layer name="Aparece" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNACAMwMBMxxvYfxw8BRT4JPeOkCRJku7atChp0qBOjSqVd2vSVw4gHwKb
+  </data>
+ </layer>
+ <objectgroup name="Aparece">
+  <object id="9" name="Hurtbox" type="7" x="2593.33" y="2838" width="70" height="76.6667"/>
+  <object id="10" name="Hurtbox" type="8" x="2714" y="2838" width="58" height="69.3333"/>
+ </objectgroup>
+ <layer name="Cansado" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNADAMxDAj7/4b57ZwERJQryoAAPjDSDOttNNJt/UIej1f2AAc
+  </data>
+ </layer>
+ <objectgroup name="Cansado">
+  <object id="2" name="Hurtbox" type="0" x="1703.33" y="3006" width="54.6667" height="64"/>
+  <object id="3" name="Hurtbox" type="1" x="1830.67" y="3007.33" width="56" height="62"/>
+  <object id="5" name="Hurtbox" type="2" x="1959.33" y="3007.33" width="56" height="62"/>
+  <object id="6" name="Hurtbox" type="3" x="2088" y="3002.67" width="52.6667" height="66.6667"/>
+  <object id="7" name="Hurtbox" type="4" x="2215.33" y="3005.33" width="56.6667" height="64"/>
+  <object id="8" name="Hurtbox" type="5" x="2340.67" y="3005.33" width="61.3333" height="64"/>
+ </objectgroup>
+</map>

@@ -4,6 +4,7 @@
 class HUDManager
 {
 private:
+	static HUDManager* instance;
 	//pointer to the character to get life, bullets, etc...
 	MainCharacter* character = nullptr;
 
@@ -18,13 +19,18 @@ private:
 	HUDObject* ultSkeleton;
 	HUDObject* ultBar;
 	HUDObject* ultBack;
+
+	int gameScale = 0;
 public:
-	HUDManager(MainCharacter* MC);
+	void init(MainCharacter* MC);
+	HUDManager();
 	~HUDManager();
+	static HUDManager* getInstance();
 
 	void update();
 	void render();
-	void setNewHP(float newL);
+	void setNewHP(int newL);
 	void addBullet();
+	void changeLife(int l);
 };
 
