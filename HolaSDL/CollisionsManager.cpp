@@ -68,7 +68,6 @@ void CollisionsManager::bulletCollisions()
 	//Colisionamos todas las balas que esten activas
 	for (Bullet* b : bullets) {
 		if (b->isActive()) {
-			b->updateBody();
 			Transform* t = b->getTransform();
 
 			bool hit = false;

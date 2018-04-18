@@ -26,8 +26,6 @@ private:
 	float gunAngle=0;
 	Texture * gunTexture;
 	Timer* gunTimer;
-	Timer* hurtTimer;
-	float hurtTime = 0.2;
 	std::map<const char*, Animation*> animations;
 	
 };

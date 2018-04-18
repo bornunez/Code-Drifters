@@ -178,8 +178,25 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;
 
-	*mcT = auxT;
-
+	/*vector<string>::iterator it;
+	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
+		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
+		if (tl != nullptr) {
+			if (CollisionHandler::Collide(&auxT, tl)) {
+				collision = true;
+			}
+		}
+	}
+	if (!collision) {*/
+		*mcT = auxT;
+	//}
+	//else {
+	//	hook->setHookStatus(HookStatus::FAIL);
+	//	Message msg(HOOK_FAIL);
+	//	mc->sendMessage(&msg);
+	//	contract();
+	//	stop();
+	//}
 
 }
 
