@@ -11,9 +11,6 @@
 #include "Minimap.h"
 #include "CollisionsManager.h"
 #include "ItemManager.h"
-#include "Boss.h"
-
-#include"HUDManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -47,7 +44,6 @@ void PlayState::render()
 	minimap->render();
 	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();
-	HUDManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -72,9 +68,6 @@ void PlayState::update()
 	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
-	//HUDManager::getInstance()->update(); //de momento peta
-	HUDManager::getInstance()->changeLife(-1);
-	//HUDManager::getInstance()->setNewHP(1);
 }
 
 void PlayState::endState()
@@ -107,6 +100,7 @@ void PlayState::loadState()
 
 	camera->load();
 
+
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 	addGameObject(mainCharacter);
 
@@ -117,9 +111,5 @@ void PlayState::loadState()
 	BulletManager::createInstance();
 	LevelManager::getInstance()->getFirstRoom()->spawn();
 	ItemManager::getInstance()->init();
-	
-	//Boss* boss = new Boss(mainCharacter, 300, 300, 200, 200);
-	//addGameObject(boss);
 	//ItemManager::getInstance()->AddItem(Enemies);
-	HUDManager::getInstance()->init(mainCharacter);
 }

@@ -11,8 +11,6 @@ class ExampleEnemy;
 class Room;
 class Minimap;
 
-//class HUDManager;
-
 using namespace std;
 class PlayState : public GameState
 {
@@ -23,9 +21,8 @@ private:
 	Room* currentRoom;
 	Minimap* minimap;
 
-	//HUDManager* hud;
-
 	static PlayState* instance;
+
 
 	//enemigo temporal
 	PlayState();

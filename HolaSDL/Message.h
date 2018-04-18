@@ -62,9 +62,6 @@ enum MessageId {
 	STALKER_CHARGE,
 	STALKER_ATTACK,
 
-	//Turret
-	TURRET_IDLE,
-	TURRET_ALERT,
 
 
 	//Con argumentos

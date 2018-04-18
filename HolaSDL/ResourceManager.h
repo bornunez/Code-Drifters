@@ -4,17 +4,15 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 36;
+const int NUM_TEXTURES = 30;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
-const int NUM_BOSS1TILESET = 1;
-const int NUM_ENEMYTILESET = 3;
+const int NUM_ENEMYTILESET = 2;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels\\";
 const string TILESET_PATH = "..\\levels\\tileset\\";
 const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
-const string BOSS1_PATH = "..\\Animations\\Bosses\\Boss1\\";
 // Estructura para las texturas
 typedef struct {
 	string filename;
@@ -23,8 +21,7 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureId { MCBullet, MCGun,GunnerBullet, HookChain, HookChainFail, HookHead, Blood,LifeBarra,LifeBorde,LifeFondo,
-	UltBorde, UltBarra, UltFondo,SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
+enum TextureId { MCBullet, MCGun,GunnerBullet, HookChain, HookChainFail, HookHead, Blood, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
@@ -42,12 +39,6 @@ private:
 		{"HookChainFail.png",2,13},
 		{"HookHead.png", 1 ,2},
 		{"Particles\\Blood.png", 3, 3},
-		{"Interfaz\\Barra.png", 1, 1},
-		{"Interfaz\\Borde.png", 1, 1},
-		{"Interfaz\\Fondo.png",1,1},
-		{"Interfaz\\BordeUlt.png", 1, 1},
-		{"Interfaz\\BarraUlt.png",1, 1},
-		{"Interfaz\\FondoUlt.png", 1, 1},
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
 		{ "Tree\\3.png", 1, 1 },
@@ -81,10 +72,8 @@ private:
 	vector<Tileset*> tilesets;
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
-	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx"};
-	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx"};
+	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx" };
 	vector<Tileset*> enemyTilesets;
-	vector<Tileset*> boss1Tilesets;
 	SDL_Renderer* renderer;
 	static ResourceManager* instance;
 
@@ -92,7 +81,6 @@ private:
 	Tileset* loadTileset(string path);
 	void loadProtaTileset();
 	void loadEnemyTilesets();
-	void loadBoss1Tilesets();
 	ResourceManager(SDL_Renderer* renderer);
 
 public:
@@ -106,7 +94,6 @@ public:
 	Tileset* getTileset(string path);
 	Tileset* getProtaTileset() { return protaTileset; };
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
-	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };
 };
 
