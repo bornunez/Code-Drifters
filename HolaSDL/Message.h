@@ -65,6 +65,7 @@ enum MessageId {
 	//Turret
 	TURRET_IDLE,
 	TURRET_ALERT,
+	TURRET_ALERT_OVER,
 
 
 	//Con argumentos
