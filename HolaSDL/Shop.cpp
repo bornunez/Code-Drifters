@@ -14,9 +14,9 @@ Shop::Shop(ShopState* shopState)
 	if (!LoadTextures());
 	
 	right_tree.w = left_tree.w = 200;
-	right_tree.h = left_tree.h = 450;
+	right_tree.h = left_tree.h = 400;
 	central_tree.w = 400; 
-	central_tree.h = 600;
+	central_tree.h = 550;
 
 	right_tree.y = left_tree.y = 150;
 	central_tree.y = 50;

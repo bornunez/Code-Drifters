@@ -31,6 +31,7 @@ private:
 	SkillTree* parent_; //to check information
 
 	SDL_Renderer* rending = nullptr;
+	ShopState* shopState;
 
 	//SDL_Rect destRec;
 	string FindParentID();
@@ -49,6 +50,8 @@ public:
 
 	SDL_Rect GetSkillRect();
 	void Buy();
+	void UpdateBox();
+	void DesactiveBox();
 
 	//check if its unlockable
 	bool Available(int money) { return (parent_->skill.bought && money >= skill.needed_point); };

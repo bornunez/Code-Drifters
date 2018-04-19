@@ -11,6 +11,8 @@ private:
 	SDL_Point mouse;
 	SkillTree* skill_;
 
+	bool cursorOn;
+
 public:
 	Button(SkillTree* skill);
 	~Button();

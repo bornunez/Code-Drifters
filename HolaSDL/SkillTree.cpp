@@ -3,8 +3,9 @@
 #include "Shop.h"
 #include "ShopState.h"
 
-SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopState) {
+SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopSta) {
 	//initial values for destRect
+	shopState= shopSta;
 	skill.destRect.w = skill.destRect.x = skill.destRect.h = 50;
 	skill.destRect.y = 0;
 
@@ -142,6 +143,17 @@ SDL_Rect SkillTree::GetSkillRect()
 void SkillTree::Buy() {
 	cout << skill.description;
 	}
+
+void SkillTree::UpdateBox()
+{
+	shopState->updateBox(skill.description, skill.needed_point);
+	shopState->activeBox(true);
+}
+
+void SkillTree::DesactiveBox()
+{
+	shopState->activeBox(false);
+}
 
 string SkillTree::FindParentID() {
 	if (parent_ != nullptr)

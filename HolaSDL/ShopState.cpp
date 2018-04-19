@@ -5,6 +5,8 @@
 
 ShopState::ShopState(GameState* upper): UpperGameState(upper)
 {
+	shopBox = new ShopBox();
+	gameObjects.push_back(shopBox);
 	gameObjects.push_back(new Shop(this));
 }
 

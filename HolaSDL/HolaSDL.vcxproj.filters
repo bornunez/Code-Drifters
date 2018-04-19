@@ -328,6 +328,7 @@
     <ClCompile Include="UpperGameState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
+    <ClCompile Include="ShopBox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -636,6 +637,7 @@
     <ClInclude Include="Shop.h" />
     <ClInclude Include="SkillTree.h" />
     <ClInclude Include="ShopState.h" />
+    <ClInclude Include="ShopBox.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
