@@ -21,7 +21,7 @@ EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 	loadAnimations();
 	defense = 30;
 	this->addComponent(new TurretShotComponent(this, getMC(), 500, .3));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 }
 

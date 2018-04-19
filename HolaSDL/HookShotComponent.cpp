@@ -168,6 +168,7 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 	Transform auxT = *mcT;
 	auxT.position.setX(hook->getOriginPosition().getX() - auxT.body.w / 2);
 	auxT.position.setY(hook->getOriginPosition().getY() - auxT.body.h / 2);
+	//*mcT = auxT;
 	/*auxT.body.x = auxT.position.getX();
 	auxT.body.y = auxT.position.getY();*/
 

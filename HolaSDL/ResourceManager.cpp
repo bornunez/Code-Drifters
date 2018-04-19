@@ -38,6 +38,16 @@ Texture * ResourceManager::getTexture(TextureId id)
 
 Tileset * ResourceManager::getTileset(string path)
 {
+	//Hay que limpiar el path de ../../  
+	int i = 0;
+	while (path[i] == '/' || path[i] == '.')
+		i++;
+	//Una vez eliminados, copiamos el nuevo string
+	string auxPath;
+	for (i; i < path.size(); i++)
+		auxPath.push_back(path[i]);
+	path = auxPath;
+
 	for (size_t i = 0; i < tilesets.size(); i++)
 	{
 		if (tilesets[i]->getPath() == path)
@@ -58,13 +68,14 @@ void ResourceManager::loadTextures()
 
 Tileset* ResourceManager::loadTileset(string path)
 {
+		
 		string filename = path;
 		XMLDocument doc;
 		doc.LoadFile((TILESET_PATH + filename).c_str());
 		//Raiz del tileset
 		XMLElement* root = doc.FirstChildElement();
 		string imageSrc = root->FirstChildElement("image")->Attribute("source");
-		Texture* tileTex = new Texture(Game::getGame()->getRenderer(), TILESET_PATH + imageSrc);
+		Texture* tileTex = new Texture(Game::getGame()->getRenderer(), TILESET_PATH + "tileset/" + imageSrc);
 		//Y cargamos el tileset
 		Tileset* aux = new Tileset(tileTex, root);
 		aux->setPath(path);

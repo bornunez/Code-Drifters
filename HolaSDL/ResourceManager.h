@@ -10,7 +10,7 @@ const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 2;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels\\";
-const string TILESET_PATH = "..\\levels\\tileset\\";
+const string TILESET_PATH = "..\\levels\\";
 const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
 // Estructura para las texturas

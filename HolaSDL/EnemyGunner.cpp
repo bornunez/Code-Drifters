@@ -34,7 +34,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new StunComponent(this));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));
 
 }
 
