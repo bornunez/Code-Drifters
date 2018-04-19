@@ -25,19 +25,23 @@ bool CollisionHandler::Collide(SDL_Rect A, TileLayer * tileLayer)
 {
 	vector<vector<int>> idLayer = tileLayer->getTileIDs();
 	int tileSize = tileLayer->getTileSize(); int scale = Game::getGame()->getScale();
+	int tileScale = (tileSize * scale); //Cuanto ocupa un tile en el mundo real
 
-	for (int i = 0; i < idLayer.size(); i++) {
-		for (int j = 0; j < idLayer[i].size(); j++) {
+
+	int bodyX, bodyY;
+	int bodyW, bodyH;
+
+	//Esto nos sirve para saber los tiles que abarca el cuerpo
+	//Es una conversion de coordenadas de mundo a coordenadas de matriz
+	bodyX = max(A.x / tileScale, 0);
+	bodyY = max(A.y / tileScale, 0);
+	bodyW = (A.x + A.w) / tileScale;
+	bodyH = (A.y + A.h) / tileScale;
+	//Ahora comprobaremos si hay algun tile colisionable entre los tiles de la capa
+	for (int i = bodyY;i < min(bodyH + 1, (int)idLayer.size()); i++) {
+		for (int j = bodyX;j < min(bodyW + 1, (int)idLayer[i].size()); j++) {
 			if (idLayer[i][j] != 0) {
-				//El rect del bloque, con coordenadas de mundo real
-				SDL_Rect destRect;
-				destRect.h = destRect.w = tileSize * scale;
-				destRect.x = j * destRect.w;
-				destRect.y = i * destRect.w;
-				//Vemos si colisiona el prota con el bloque
-				if (RectCollide(A, destRect)) {
-					return true;
-				}
+				return true;
 			}
 		}
 	}
@@ -50,23 +54,32 @@ vector<bool> CollisionHandler::Collide(std::vector<SDL_Rect> rects, TileLayer * 
 	vector<vector<int>> idLayer = tileLayer->getTileIDs();
 	int tileSize = tileLayer->getTileSize(); int scale = Game::getGame()->getScale();
 
-	for (int i = 0; i < idLayer.size(); i++) {
-		for (int j = 0; j < idLayer[i].size(); j++) {
-			if (idLayer[i][j] != 0) {
-				//El rect del bloque, con coordenadas de mundo real
-				SDL_Rect destRect;
-				destRect.h = destRect.w = tileSize * scale;
-				destRect.x = j * destRect.w;
-				destRect.y = i * destRect.w;
-				//Vemos si colisiona el prota con el bloque
-				for (int k = 0; k < rects.size(); k++) {
-					if (RectCollide(rects[k], destRect)) {
-						collisions[k] = true;
-					}
+
+	int bodyX, bodyY; //Coordenadas del inicio del cuerpo en la matriz del mapa
+	int bodyW, bodyH; //Tamaño del cuerpo en matriz de mapa
+	int tileScale = (tileSize * scale); //Cuanto ocupa un tile en el mundo real
+
+	int k = 0;
+	for (SDL_Rect rect : rects) {
+		//Esto nos sirve para saber los tiles que abarca el cuerpo
+		//Es una conversion de coordenadas de mundo a coordenadas de matriz
+		bodyX = max(rect.x / tileScale,0);
+		bodyY = max(rect.y / tileScale,0);
+		bodyW = (rect.x + rect.w) / tileScale;
+		bodyH = (rect.y + rect.h) / tileScale;
+		//Ahora comprobaremos si hay algun tile colisionable entre los tiles de la capa
+		for (int i = bodyY; !collisions[k] && i < min(bodyH + 1 , (int)idLayer.size()); i++) {
+			for (int j = bodyX; !collisions[k] && j < min(bodyW + 1 , (int)idLayer[i].size()); j++) {
+				if (idLayer[i][j] != 0) {
+
+					collisions[k] = true;
+					
 				}
 			}
 		}
+		k++;
 	}
+
 	return collisions;
 }
 
