@@ -10,6 +10,7 @@ TurretAnimationComponent::TurretAnimationComponent(GameObject* o, GameObject* ta
 {
 	animations = anim;
 	this->target = target;
+	alertTimer = new Timer();
 	
 	gameObject->changeCurrentAnimation("WAITING");
 	gameObject->getCurrentAnimation()->startAnimation();
@@ -38,6 +39,12 @@ void TurretAnimationComponent::receiveMessage(Message * msg)
 	case TURRET_ALERT:
 		gameObject->changeCurrentAnimation("PREPARING");
 		gameObject->getCurrentAnimation()->startAnimation();
+		alertTimer->restart();
+		break;
+	case TURRET_ALERT_OVER:
+		gameObject->changeCurrentAnimation("DISAMBLING");
+		gameObject->getCurrentAnimation()->startAnimation();
+		alertTimer->restart();
 		break;
 	case IDLE_LEFT:
 		gameObject->changeCurrentAnimation("LEFT");
@@ -82,14 +89,33 @@ void TurretAnimationComponent::handleAnimations()
 
 		EnemyTurret* et = static_cast<EnemyTurret*>(gameObject);
 
-		//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
-		Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
-		float angle = (atan2(target->getDisplayCenterPos().getY() - displayCenterPos.getY(), target->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
-		angle = angle * 180 / M_PI;
-		if (angle < 0)
-			angle += 360;
-
 		if (et->enemyState == EnemyState::Run) {
+			alertTimer->update();
+			if (alertTimer->TimeSinceTimerCreation > .6) {
+				et->enemyState = EnemyState::Attack;
+			}
+		}
+
+		else if (et->enemyState == EnemyState::Charge){
+			alertTimer->update();
+			if (alertTimer->TimeSinceTimerCreation > .6) {
+				et->enemyState = EnemyState::Idle;
+				Message msg(TURRET_IDLE);
+				gameObject->sendMessage(&msg);
+			}
+		}
+
+		else if (et->enemyState == EnemyState::Attack) {
+			Message msg(IDLE_TOPRIGHT);
+			gameObject->sendMessage(&msg);
+
+			//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
+			Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
+			float angle = (atan2(target->getDisplayCenterPos().getY() - displayCenterPos.getY(), target->getDisplayCenterPos().getX() - displayCenterPos.getX()));
+			//Angulo entre el enemigo y el target, en grados
+			angle = angle * 180 / M_PI;
+			if (angle < 0)
+				angle += 360;
 			if (angle > 297 && angle < 342) {
 				Message msg(IDLE_TOPRIGHT);
 				gameObject->sendMessage(&msg);
@@ -131,6 +157,8 @@ void TurretAnimationComponent::handleAnimations()
 				gameObject->getTransform()->direction.set(1, 0);
 			}
 		}
+
+
 	}
 }
 
