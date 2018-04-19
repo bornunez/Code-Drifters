@@ -14,8 +14,7 @@ enum class MCState { Idle, Run, Attack, Shot, HookShot, Dash, Hurt, Heal, DashEn
 class MainCharacter : public GameObject
 {
 private:
-	float HP,
-		maxHP;
+	float HP, maxHP;
 	float velocity;
 	float maxVelocity;
 	float normalAttackDamage;

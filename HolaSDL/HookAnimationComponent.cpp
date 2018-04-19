@@ -69,13 +69,21 @@ void HookAnimationComponent::renderHookChains()
 {
 	Uint32 ticks = SDL_GetTicks();
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+	Vector2D targetPos;
 
-	Vector2D hookSize = hook->getCenterPos() - mc->getCenterPos();
+	if (mc->getMCState() == MCState::Dash) {
+		targetPos = mc->getCenterPos();
+	}
+	else {
+		targetPos = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
+	}
+
+	Vector2D hookSize = hook->getCenterPos() - targetPos;
 	float hookLength = hookSize.magnitude();
 	
 	Uint32 sprite = (ticks / fps) % hookChainTex->getNumCols();
 	SDL_Rect srcrect = { sprite * hookChainTex->getFrameWidth(), animationNumber * hookChainTex->getFrameHeight(), hookLength, hookChainTex->getFrameHeight() };
-	SDL_Rect dstrect = { mc->getDisplayCenterPos().getX(), mc->getDisplayCenterPos().getY() - srcrect.h/2 , srcrect.w*Game::getGame()->getScale()/3, srcrect.h*Game::getGame()->getScale() / 3 };
+	SDL_Rect dstrect = { mc->getGunPosition().getX() , mc->getGunPosition().getY() - srcrect.h/2 , srcrect.w*Game::getGame()->getScale()/3, srcrect.h*Game::getGame()->getScale() / 3 };
 	
 
 	angle = getSpriteAngle();
@@ -94,9 +102,10 @@ void HookAnimationComponent::renderHookFail()
 	Uint32 ticks = SDL_GetTicks();
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 
-	Vector2D hookSize = hook->getCenterPos() - mc->getCenterPos();
+	Vector2D gunPos = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
+	Vector2D hookSize = hook->getCenterPos() - mc->getDisplayCenterPos();
 	float hookLength = hookSize.magnitude();
-	
+
 	hookFailAnim->update();
 	if (hookFailAnim->TimeSinceTimerCreation*1000>40) {
 		hookFailSprite++;
@@ -112,7 +121,20 @@ void HookAnimationComponent::renderHookFail()
 	SDL_Rect srcrect = { hookFailSprite * hookChainFailTex->getFrameWidth(), animationNumber * hookChainFailTex->getFrameHeight(),hookChainFailTex->getFrameWidth(), hookChainFailTex->getFrameHeight() };
 	SDL_Rect dstrect = { mc->getDisplayCenterPos().getX(), mc->getDisplayCenterPos().getY() - srcrect.h / 2 , srcrect.w*Game::getGame()->getScale() / 3, srcrect.h*Game::getGame()->getScale() / 3 };
 	
-	angle = getSpriteAngle();
+	
+
+	angle = hook->getAngle();
+	Vector2D displayPosition;//Posición del personaje relativa a la cámara
+	displayPosition = hook->getDisplayCenterPos();
+	Vector2D mcDisplayPos = mc->getDisplayCenterPos();
+
+
+	float angle = (atan2(displayPosition.getY() - mcDisplayPos.getY(), displayPosition.getX() - mcDisplayPos.getX()));//Angulo entre el cursor y el jugador, en grados
+
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+
 
 	SDL_Point center;
 	center.x = 0;
@@ -139,7 +161,7 @@ float HookAnimationComponent::getSpriteAngle()
 	angle = hook->getAngle();
 	Vector2D displayPosition;//Posición del personaje relativa a la cámara
 	displayPosition = hook->getDisplayCenterPos();
-	Vector2D mcDisplayPos = mc->getDisplayCenterPos();
+	Vector2D mcDisplayPos = mc->getGunPosition();
 
 
 	float angle = (atan2(displayPosition.getY() - mcDisplayPos.getY(), displayPosition.getX() - mcDisplayPos.getX()));//Angulo entre el cursor y el jugador, en grados

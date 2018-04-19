@@ -11,6 +11,7 @@ private:
 	void bulletCollisions();
 	void playerCollisions();
 	void enemyCollisions();
+	void hookCollisions();
 public:
 	virtual ~CollisionsManager();
 	static CollisionsManager* getInstance();

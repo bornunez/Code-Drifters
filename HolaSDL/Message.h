@@ -1,5 +1,7 @@
 #ifndef MESSAGE_H_
 #define MESSAGE_H_
+class GameObject;
+class Enemy;
 //USAR PARA MENSAJES CON ARGUMENTOS
 enum MessageId {
 	//Idle
@@ -60,6 +62,9 @@ enum MessageId {
 	STALKER_CHARGE,
 	STALKER_ATTACK,
 
+	//Turret
+	TURRET_IDLE,
+	TURRET_ALERT,
 
 
 	//Con argumentos
@@ -112,9 +117,9 @@ struct MCBulletStun : Message {
 	float stunTime;
 };
 
-//struct HookedMessage : Message {
-//	HookedMessage(GameObject* o) : Message(ENEMY_HOOKED), gameObject(o){}
-//	GameObject* gameObject;
-//};
+struct HookEnemyMessage : Message {
+	HookEnemyMessage(Enemy* o) : Message(HOOK_ENEMY), gameObject(o){}
+	Enemy* gameObject;
+};
 
 #endif /* MESSAGE_H_ */

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="16" tilewidth="64" tileheight="64" nextobjectid="232">
+ <tileset firstgid="1" source="Torreta.tsx"/>
+ <layer name="Preparing" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg+gB2IOYCYE4i5gJh7YJ0zCkbBsAcAnhQALg==
+  </data>
+ </layer>
+ <objectgroup name="Preparing">
+  <object id="227" name="Hurtbox" type="0" x="23" y="222" width="15.5" height="16"/>
+  <object id="228" name="Hurtbox" type="1" x="87" y="222" width="15.5" height="16"/>
+  <object id="229" name="Hurtbox" type="2" x="151.5" y="218" width="15.5" height="20"/>
+  <object id="230" name="Hurtbox" type="3" x="215.5" y="216" width="15.5" height="22"/>
+  <object id="231" name="Hurtbox" type="4" x="278" y="214" width="19.5" height="24"/>
+ </objectgroup>
+ <layer name="Waiting" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgcgBGImYCYGYhZgJgViNkG1EWjYBSMAkIAAFFAABY=
+  </data>
+ </layer>
+ <objectgroup name="Waiting" opacity="0.97">
+  <object id="191" name="Hurtbox" type="0" x="23" y="158" width="15.5" height="16"/>
+  <object id="222" name="Hurtbox" type="1" x="87" y="158" width="15.5" height="16"/>
+  <object id="223" name="Hurtbox" type="2" x="151" y="158" width="15.5" height="16"/>
+  <object id="224" name="Hurtbox" type="3" x="215" y="158" width="15.5" height="16"/>
+  <object id="225" name="Hurtbox" type="4" x="279" y="158" width="15.5" height="16"/>
+  <object id="226" name="Hurtbox" type="5" x="343" y="158" width="15.5" height="16"/>
+ </objectgroup>
+ <layer name="BotRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjZQGigHTAKRsEQBgA+wAAT
+  </data>
+ </layer>
+ <objectgroup name="BotRight">
+  <object id="211" name="Hurtbox" type="0" x="857" y="213" width="13" height="25"/>
+  <object id="216" name="GunPosition" type="0" x="869" y="224" width="1" height="1"/>
+ </objectgroup>
+ <layer name="Right" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBi5QHCgHTAKRsEQBwA7xAAS
+  </data>
+ </layer>
+ <objectgroup name="Right">
+  <object id="213" name="Hurtbox" type="0" x="792" y="212" width="14" height="26"/>
+  <object id="218" name="GunPosition" type="0" x="806" y="220" width="1" height="1"/>
+ </objectgroup>
+ <layer name="TopRight" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBiZQGCgHTAKRsEwAAA4wAAR
+  </data>
+ </layer>
+ <objectgroup name="TopRight">
+  <object id="210" name="Hurtbox" type="0" x="728" y="212" width="14" height="26"/>
+  <object id="221" name="GunPosition" type="0" x="741" y="215" width="1" height="1"/>
+ </objectgroup>
+ <layer name="Top" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh5gH+gHTAKRsEwAQA1tAAQ
+  </data>
+ </layer>
+ <objectgroup name="Top">
+  <object id="193" name="GunPosition" type="0" x="670.5" y="213" width="1" height="1"/>
+  <object id="207" name="Hurtbox" type="0" x="662" y="214" width="18" height="24"/>
+ </objectgroup>
+ <layer name="TopLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhZgG+gHTAKRsEwAgAyoAAP
+  </data>
+ </layer>
+ <objectgroup name="TopLeft">
+  <object id="209" name="Hurtbox" type="0" x="600" y="212" width="14" height="26"/>
+  <object id="220" name="GunPosition" type="0" x="601" y="215" width="1" height="1"/>
+ </objectgroup>
+ <layer name="Left" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBg5gHegHTAKRsEwAwAvhAAO
+  </data>
+ </layer>
+ <objectgroup name="Left">
+  <object id="212" name="Hurtbox" type="0" x="536" y="212" width="14" height="26"/>
+  <object id="217" name="GunPosition" type="0" x="536" y="220" width="1" height="1"/>
+ </objectgroup>
+ <layer name="BotLeft" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgZgGegHTAKRsEwBAAsYAAN
+  </data>
+ </layer>
+ <objectgroup name="BotLeft">
+  <object id="208" name="Hurtbox" type="0" x="472" y="212" width="14" height="26"/>
+  <object id="215" name="GunPosition" type="0" x="472" y="222" width="1" height="1"/>
+ </objectgroup>
+ <layer name="Bot" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj+gHugHTAKRsEwBQApNAAM
+  </data>
+ </layer>
+ <objectgroup name="Bot">
+  <object id="204" name="Hurtbox" type="0" x="406" y="213" width="19" height="25"/>
+  <object id="214" name="GunPosition" type="0" x="415" y="222" width="1" height="1"/>
+ </objectgroup>
+</map>

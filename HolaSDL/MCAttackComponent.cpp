@@ -35,7 +35,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		comboAttack = First;
 		mc->setMCState(MCState::Idle);		//La animacion vuelve a idle		
 	}
-	
+
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
 		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt) {
 			int mouseX, mouseY;
@@ -62,6 +62,9 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			Vector2D aux = t->direction * ATTACK_MOV;			//Multiplica por cuanto debe moverse
 			t->position.set( t->position + aux * (min((float)1, Time::getInstance()->DeltaTime)));
 			t->velocity.set({ 0,0 });
+
+			//speed a 0 para que no se mueva mientras ataca
+			t->speed = 0;
 
 			if (comboAttack == First)
 				attackCD->restart();
@@ -142,7 +145,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 					t->direction.set(0, -1);
 				}
 				else if (angle > 270 && angle < 330) {
-					msg.id = ATTACK3_RIGHT;
+					msg.id = ATTACK3_TOPRIGHT;
 					t->direction.set(0, -1);
 				}
 				else if (angle > 150 && angle < 210) {
@@ -161,6 +164,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 					msg.id = ATTACK3_RIGHT;
 					t->direction.set(1, 0);
 				}
+				//Poniendo aqui First haces ataques sin pausa
 				comboAttack = CD;
 				attackCD->restart();
 

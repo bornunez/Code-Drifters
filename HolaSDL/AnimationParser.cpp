@@ -74,7 +74,7 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 	}
 }
 
-void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLElement * hitboxElements, Animation * anim, GameObject* o, int offsetX, int offsetY)
+void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLElement * hitboxElements, Animation * anim, GameObject* o, int offsetX, int offsetY, int frameSize)
 {
 	//Nodo donde estaguardado el mapa
 	for (XMLElement* e = hitboxElements->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
@@ -93,8 +93,8 @@ void AnimationParser::parseHitbox(string animationName, XMLElement * root, XMLEl
 		box.y = y;
 		
 		//El offset del hitbox respecto al sprite
-		int offsetx = ((x) % 64)* Game::getGame()->getScale() + offsetX;
-		int offsety = ((y) % 64)* Game::getGame()->getScale() + offsetY;
+		int offsetx = ((x) % frameSize)* Game::getGame()->getScale() + offsetX;
+		int offsety = ((y) % frameSize)* Game::getGame()->getScale() + offsetY;
 		if (type == "Hitbox") {
 			anim->getFrame(frame)->addHitbox(box,offsetx,offsety);
 		}
@@ -149,7 +149,7 @@ Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFi
 		if (e->Value() == string("objectgroup")) {
 			string name = e->Attribute("name");
 			if (name == animationName) {
-				parseHitbox(animationName, root, e, anim, o, offsetX, offsetY);
+				parseHitbox(animationName, root, e, anim, o, offsetX, offsetY,tileSize);
 			}
 		}
 	}

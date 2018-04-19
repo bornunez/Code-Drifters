@@ -4,10 +4,10 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 30;
+const int NUM_TEXTURES = 36;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
-const int NUM_ENEMYTILESET = 2;
+const int NUM_ENEMYTILESET = 3;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels\\";
 const string TILESET_PATH = "..\\levels\\";
@@ -21,7 +21,8 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureId { MCBullet, MCGun,GunnerBullet, HookChain, HookChainFail, HookHead, Blood, SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
+enum TextureId { MCBullet, MCGun,GunnerBullet, HookChain, HookChainFail, HookHead, Blood,LifeBarra,LifeBorde,LifeFondo,
+	UltBorde, UltBarra, UltFondo,SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
@@ -39,6 +40,12 @@ private:
 		{"HookChainFail.png",2,13},
 		{"HookHead.png", 1 ,2},
 		{"Particles\\Blood.png", 3, 3},
+		{"Interfaz\\Barra.png", 1, 1},
+		{"Interfaz\\Borde.png", 1, 1},
+		{"Interfaz\\Fondo.png",1,1},
+		{"Interfaz\\BordeUlt.png", 1, 1},
+		{"Interfaz\\BarraUlt.png",1, 1},
+		{"Interfaz\\FondoUlt.png", 1, 1},
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
 		{ "Tree\\3.png", 1, 1 },
@@ -72,7 +79,7 @@ private:
 	vector<Tileset*> tilesets;
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
-	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx" };
+	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx"};
 	vector<Tileset*> enemyTilesets;
 	SDL_Renderer* renderer;
 	static ResourceManager* instance;
