@@ -7,11 +7,11 @@ class DungeonGenerator;
 
 enum Direction{Up,Right,Down,Left};
 struct DirPair { int x; int y; };
+enum LevelType{ City, Red};
 
 class LevelManager
 {
 private:
-
 	//Singleton
 	static LevelManager * instance;
 	LevelManager();
@@ -23,6 +23,8 @@ private:
 	int level;
 	int baseRooms;
 	int roomsPerLevel;
+	vector<string> levelTypePath { "City_Levels\\" , "Red_Levels\\" };
+
 	//Posicion del jugador
 	int roomX, roomY;
 	Room* currentRoom;
@@ -45,6 +47,8 @@ public:
 	void render();
 
 	bool getDoor(Direction dir);
+
+	string getActiveLevelPath() { return levelTypePath[Red]; }
 
 	//Metodos de control
 	void init();

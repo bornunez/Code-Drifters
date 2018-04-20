@@ -11,7 +11,6 @@
 #include "Minimap.h"
 #include "CollisionsManager.h"
 #include "ItemManager.h"
-#include "Boss.h"
 
 #include"HUDManager.h"
 
@@ -117,9 +116,6 @@ void PlayState::loadState()
 	BulletManager::createInstance();
 	LevelManager::getInstance()->getFirstRoom()->spawn();
 	ItemManager::getInstance()->init();
-	
-	//Boss* boss = new Boss(mainCharacter, 300, 300, 200, 200);
-	//addGameObject(boss);
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
 }

@@ -14,12 +14,11 @@
 TurretShotComponent::TurretShotComponent(GameObject* o, GameObject* target, float dist, float delay)
 	: UpdateComponent(o)
 {
+	et = static_cast<EnemyTurret*>(gameObject);
 	targetObject = target;
 	distance = dist;
 	shotDelay = delay;
-
-	lastShotTime = new Timer();
-	shotAnimationTime = new Timer();
+	lastShotTimer = new Timer();
 }
 
 TurretShotComponent::~TurretShotComponent()
@@ -29,108 +28,26 @@ TurretShotComponent::~TurretShotComponent()
 
 void TurretShotComponent::handleAnimation()
 {
-	EnemyTurret* eg = static_cast<EnemyTurret*>(gameObject);
+	et = static_cast<EnemyTurret*>(gameObject);
 
 	if ((abs(targetObject->getTransform()->position.getX() - getGameObject()->getTransform()->position.getX()) +
 		abs(targetObject->getTransform()->position.getY() - getGameObject()->getTransform()->position.getY())) <= distance) {
-		eg->enemyState = EnemyState::Run;
-	}
-	else eg->enemyState = EnemyState::Idle;
-
-	if (eg->enemyState == EnemyState::Run) {
-		//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
-		Vector2D aux;
-		aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-		aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
-
-
-
-		Vector2D displayPosition;//Posición del personaje relativa a la cámara
-		displayPosition = aux - (PlayState::getInstance()->getCamera()->getTransform()->position);
-		float angle = (atan2(targetObject->getDisplayCenterPos().getY() - displayPosition.getY(), targetObject->getDisplayCenterPos().getX() - displayPosition.getX()));//Angulo entre el enemigo y el target, en grados
-		angle = angle * 180 / M_PI;
-
-
-		if (angle < 0)
-			angle += 360;
-
-		if (shotAnimationTime->TimeSinceTimerCreation == 0) {
-			if (angle > 297 && angle < 342) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_TOPRIGHT);
-					gameObject->sendMessage(&msg);
-				}
-				gameObject->getTransform()->direction.set(1, -1);
-			}
-			else if (angle > 252 && angle < 297) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_TOP);
-					gameObject->sendMessage(&msg);
-				}
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 207 && angle <= 252) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_TOPLEFT);
-					gameObject->sendMessage(&msg);
-				}
-				gameObject->getTransform()->direction.set(-1, -1);
-			}
-			else if (angle > 162 && angle < 207) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_LEFT);
-					gameObject->sendMessage(&msg);
-				}
-				gameObject->getTransform()->direction.set(-1, 0);
-			}
-			else if (angle >= 117 && angle < 162) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_BOTLEFT);
-					gameObject->sendMessage(&msg);
-				}
-				gameObject->getTransform()->direction.set(-1, 1);
-			}
-			else if (angle > 72 && angle < 117) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_BOT);
-					gameObject->sendMessage(&msg);
-				}
-
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else if (angle > 27 && angle < 72) {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_BOTRIGHT);
-					gameObject->sendMessage(&msg);
-				}
-
-
-				gameObject->getTransform()->direction.set(1, 1);
-			}
-			else {
-				if (eg->enemyState == EnemyState::Shoot) {
-					Message msg(SHOT_RIGHT);
-					gameObject->sendMessage(&msg);
-				}
-				gameObject->getTransform()->direction.set(1, 0);
-			}
+		if (et->enemyState == EnemyState::Idle) { 
+			et->enemyState = EnemyState::Run;
+			Message msg(TURRET_ALERT);
+			gameObject->sendMessage(&msg);
 		}
 	}
-	if (eg->enemyState == EnemyState::Shoot) {
-		shotAnimationTime->update();
-
-		if (shotAnimationTime->TimeSinceTimerCreation > 0.45) {
-
-			eg->enemyState = EnemyState::Run;
-		}
+	else if (et->enemyState == EnemyState::Attack){
+		et->enemyState = EnemyState::Charge;
+		Message msg(TURRET_ALERT_OVER);
+		gameObject->sendMessage(&msg);
 	}
-
 }
 
 void TurretShotComponent::updateGunPosition()
 {
-	EnemyTurret* eg = static_cast<EnemyTurret*>(gameObject);
-	Vector2D aux = eg->getCurrentAnimation()->getCurrentFrame()->getGunPosition();
+	Vector2D aux = et->getCurrentAnimation()->getCurrentFrame()->getGunPosition();
 	gunPosition = aux;
 }
 
@@ -138,11 +55,10 @@ void TurretShotComponent::updateGunPosition()
 void TurretShotComponent::shoot() {
 	Transform* gunnerT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
-	EnemyTurret* eg = static_cast<EnemyTurret*>(gameObject);
-	if (lastShotTime->TimeSinceTimerCreation > shotDelay &&
-		(abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distance) {
-		if (eg->enemyState == EnemyState::Run) {
-			lastShotTime->restart();
+	EnemyTurret* et = static_cast<EnemyTurret*>(gameObject);
+	if (et->enemyState == EnemyState::Attack){
+		if (lastShotTimer->TimeSinceTimerCreation > shotDelay) {
+			lastShotTimer->restart();
 			updateGunPosition();
 			Transform bulletTransform;
 
@@ -156,17 +72,6 @@ void TurretShotComponent::shoot() {
 
 			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::GunnerBullet);
 
-			//	Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
-
-			//Le añade los componentes de físicas y render
-			//auxBullet->addComponent(new GunnerBulletComponent(auxBullet));
-			//auxBullet->addComponent(new GunnerBulletRenderComponent(auxBullet));
-
-			//Añade la bala a los objetos de la sala actual
-			//PlayState::getInstance()->addGameObject(auxBullet);
-
-			shotAnimationTime->restart();
-			eg->enemyState = EnemyState::Shoot;
 		}
 	}
 
@@ -174,7 +79,7 @@ void TurretShotComponent::shoot() {
 
 void TurretShotComponent::update() {
 	if (!gameObject->isDead()) {
-		lastShotTime->update();
+		lastShotTimer->update();
 		if (!static_cast<Enemy*>(gameObject)->isStunned())
 			shoot();
 		handleAnimation();

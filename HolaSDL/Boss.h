@@ -7,6 +7,8 @@
 #include "AnimationParser.h"
 #include "RenderBoss.h"
 #include "UpdateBoss.h"
+#include "SkeletonRenderer.h"
+#include "PlayState.h"
 class MainCharacter;
 class Timer;
 class Vector2D;

@@ -40,6 +40,8 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	addComponent(rend);
 	updat = new UpdateBoss(this);
 	addComponent(updat);
+	SkeletonRendered* skel = new SkeletonRendered(this, playState->getCamera());
+	addComponent(skel);
 
 }
 Boss::~Boss()

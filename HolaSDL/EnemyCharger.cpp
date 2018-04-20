@@ -39,7 +39,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations));
 	this->addComponent(new ChargerComponent(this, getMC(), 1, 1.5, 2));
 	addComponent(new BasicInvincibleComponent(this, 100));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new DamageableEnemyComponent(this, getMC()));
 }
 

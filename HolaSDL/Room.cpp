@@ -24,119 +24,6 @@ Room::~Room()
 {
 }
 void Room::load() {
-//	//if (upDoor && downDoor && leftDoor && rightDoor)//UDLR
-//	//{
-//	//	filename = "..\\images\\roomUDLR.png";
-//	//}
-//	//else if (upDoor && downDoor && leftDoor)//UDL
-//	//{
-//	//	filename = "..\\images\\roomUDL.png";
-//	//}
-//	//else if (upDoor && downDoor && rightDoor)//UDR
-//	//{
-//	//	filename = "..\\images\\roomUDR.png";
-//	//}
-//	//else if (upDoor && leftDoor && rightDoor)//ULR
-//	//{
-//	//	filename = "..\\images\\roomULR.png";
-//	//}
-//	//else if (upDoor && downDoor)//UD
-//	//{
-//	//	filename = "..\\images\\roomUD.png";
-//	//}
-//	//else if (upDoor && leftDoor)//UL
-//	//{
-//	//	filename = "..\\images\\roomUL.png";
-//
-//	//}
-//	//else if (upDoor && rightDoor)//UR
-//	//{
-//	//	filename = "..\\images\\roomUR.png";
-//	//}
-//
-//	//else if (downDoor && leftDoor && rightDoor)//DLR
-//	//{
-//	//	filename = "..\\images\\roomDLR.png";
-//	//}
-//	//else if (downDoor && leftDoor)//DL
-//	//{
-//	//	filename = "..\\images\\roomDL.png";
-//	//}
-//	//else if (downDoor && rightDoor)//DR
-//	//{
-//	//	filename = "..\\images\\roomDR.png";
-//	//}
-//	//else if (leftDoor && rightDoor)//LR
-//	//{
-//	//	filename = "..\\images\\roomLR.png";
-//	//}
-//	//else if (upDoor)//U
-//	//{
-//	//	if (special == "Boss") {
-//	//		filename = "..\\images\\roomBossU.png";
-//	//	}
-//	//	else if (special == "Chest") {
-//	//		filename = "..\\images\\roomChestU.png";
-//	//	}
-//	//	else if (special == "Shop") {
-//	//		filename = "..\\images\\roomShopU.png";
-//	//	}
-//	//	else {
-//	//		filename = "..\\images\\roomU.png";
-//	//	}
-//	//}
-//	//else if (downDoor)//D
-//	//{
-//	//	if (special == "Boss") {
-//	//		filename = "..\\images\\roomBossD.png";
-//	//	}
-//	//	else if (special == "Chest") {
-//	//		filename = "..\\images\\roomChestD.png";
-//	//	}
-//	//	else if (special == "Shop") {
-//	//		filename = "..\\images\\roomShopD.png";
-//	//	}
-//	//	else if (special == "FirstRoom") {
-//	//		filename = "..\\images\\firstRoom.png";
-//	//	}
-//	//	else {
-//	//		filename = "..\\images\\roomD.png";
-//	//	}
-//	//}
-//	//else if (leftDoor)//L
-//	//{
-//	//	if (special == "Boss") {
-//	//		filename = "..\\images\\roomL.png";
-//	//	}
-//	//	else if (special == "Chest") {
-//	//		filename = "..\\images\\roomChestL.png";
-//	//	}
-//	//	else if (special == "Shop") {
-//	//		filename = "..\\images\\roomShopL.png";
-//	//	}
-//	//	else {
-//	//		filename = "..\\images\\roomL.png";
-//	//	}
-//
-//	//}
-//	//else if (rightDoor)//R
-//	//{
-//	//	if (special == "Boss") {
-//	//		filename = "..\\images\\roomBossR.png";
-//	//	}
-//	//	else if (special == "Chest") {
-//	//		filename = "..\\images\\roomChestR.png";
-//	//	}
-//	//	else if (special == "Shop") {
-//	//		filename = "..\\images\\roomShopR.png";
-//	//	}
-//	//	else {
-//	//		filename = "..\\images\\roomR.png";
-//	//	}
-//
-//	}
-////	texture->loadFromImg(filename);*/
-
 //Como esta puesto en el archivo sobre creacion de niveles, los niveles se guardaran del siguiente formato
 //Si tiene puerta Izquierda, añadimos una L, luego lo mismo con R... del siguiente orden:
 // U > R > D > L + _ + numero de sala
@@ -156,7 +43,7 @@ void Room::load() {
 	//A partir de ahora seleccionaremos una sala aleatoria con las puertas dadas
 
 	//Primero vamos a ver cuantos archivos con las puertas tenemos
-	string levelPath = ResourceManager::getInstance()->getLevelPath() + to_string(numDoors) + " Door\\";
+	string levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(numDoors) + " Door\\";
 	ifstream mapFile;
 	int i = 0;
 	bool found = true;
@@ -170,7 +57,7 @@ void Room::load() {
 		if(found)
 			i++;
 	}
-	//Al final queda refistrado en i el numero de niveles que existen (si existe alguno)
+	//Al final queda registrado en i el numero de niveles que existen (si existe alguno)
 	string level;
 	if (i > 0) {
 		//Ahora seleccionamos una sala aleatoria entre las salas que haya

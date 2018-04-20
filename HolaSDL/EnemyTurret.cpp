@@ -20,8 +20,7 @@ EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
 	defense = 30;
-	this->addComponent(new TurretShotComponent(this, getMC(), 500, .3));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	this->addComponent(new TurretShotComponent(this, getMC(), 500, 1));
 	addComponent(new TurretAnimationComponent(this, getMC(), animations));
 }
 
@@ -55,9 +54,11 @@ void EnemyTurret::loadAnimations()
 	animations.emplace("TOPRIGHT", topRight);
 
 	Animation* preparing = AnimationParser::parseAnimation(tileset, animationPath, "Preparing", this,0,0,false,0.15);
-	Animation* waiting = AnimationParser::parseAnimation(tileset, animationPath, "Waiting", this, 0, 0, false, 0.15);
+	Animation* disambling = AnimationParser::parseAnimation(tileset, animationPath, "Disambling", this, 0, 0, false, 0.15);
+	Animation* waiting = AnimationParser::parseAnimation(tileset, animationPath, "Waiting", this, 0, 0, true, 0.15);
 
 	animations.emplace("PREPARING", preparing);
+	animations.emplace("DISAMBLING", disambling);
 	animations.emplace("WAITING", waiting);
 
 	
