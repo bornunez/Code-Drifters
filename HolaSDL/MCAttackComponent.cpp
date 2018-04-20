@@ -64,7 +64,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			t->velocity.set({ 0,0 });
 
 			//speed a 0 para que no se mueva mientras ataca
-			t->speed = 0;
+			//t->speed = 0;
 
 			if (comboAttack == First)
 				attackCD->restart();

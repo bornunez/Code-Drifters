@@ -391,9 +391,6 @@
     <ClInclude Include="Enemy.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyManager.h">
-      <Filter>Enemigos\Header</Filter>
-    </ClInclude>
     <ClInclude Include="ExampleEnemy.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
@@ -637,6 +634,9 @@
     </ClInclude>
     <ClInclude Include="TurretAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

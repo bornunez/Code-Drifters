@@ -24,7 +24,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	type = Gunner;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	defense = 30;
+	Attributes.defense = 30;
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	setCollisionsLayers({ "Paredes","Aire" });

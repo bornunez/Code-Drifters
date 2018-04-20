@@ -114,3 +114,21 @@ void GameObject::changeCurrentAnimation(const char * animName)
 {
 	currentAnimation = animations[animName];
 }
+
+void GameObject::addCollisionLayer(string colLayer)
+{
+	bool found = false;
+	for (int i = 0; i < collisionsLayer.size() && !found; i++)
+		found = collisionsLayer[i] == colLayer;
+	if(!found)
+		collisionsLayer.push_back(colLayer);
+}
+
+void GameObject::removeCollisionLayer(string colLayer)
+{
+	auto it = collisionsLayer.begin();
+	while (it!=collisionsLayer.end() && *it != colLayer)
+		it++;
+	if (it != collisionsLayer.end())
+		collisionsLayer.erase(it);
+}
