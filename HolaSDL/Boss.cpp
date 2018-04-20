@@ -9,6 +9,7 @@
 #include "ResourceManager.h"
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
+#include "BoxRenderer.h"
 
 using namespace std;
 Boss::Boss(Transform t) : MasterBoss()
@@ -38,9 +39,10 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 
 	rend = new RenderBoss(this);
 	addComponent(rend);
-	updat = new UpdateBoss(this);
+	updat = new UpdateBoss(this, prota);
 	addComponent(updat);
-	SkeletonRendered* skel = new SkeletonRendered(this, playState->getCamera());
+
+    BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);
 
 }
@@ -48,53 +50,7 @@ Boss::~Boss()
 {
 }
 
-void Boss::fase1()
-{
-	Vector2D direccion;
-	posProta = prota->getTransform()->position + (Vector2D(prota->getTransform()->body.w / 2, prota->getTransform()->body.h/2));
-	direccion = transform.position - posProta;
-	direccion.normalize();
-	transform.position.set(transform.position - direccion*Time::getInstance()->DeltaTime*velocidad);
-}
 
-void Boss::fase2()
-{
-	this->changeCurrentAnimation("NORMAL_ATTACK");
-	Vector2D direccion;
-	direccion = transform.position - posInic;
-	direccion.normalize();
-	transform.position.set(transform.position - direccion*Time::getInstance()->DeltaTime*velocidad*1.2f);
-}
-void Boss::fase3()
-{
-	this->changeCurrentAnimation("START_ATTACK_JUMP");
-	Vector2D direccion;
-	Vector2D posExtrema;
-	if (!saltado)
-	{
-		posProta = prota->getTransform()->position + (Vector2D(prota->getTransform()->body.w / 2, prota->getTransform()->body.h / 2));
-		saltado = true;
-	}
-	if (Time->TimeSinceTimerCreation < tiempoFase3*0.8f)
-	{
-		direccion = transform.position - posProta;
-		direccion.normalize();
-		transform.position.set(transform.position - direccion*Time::getInstance()->DeltaTime*velocidad * 5);
-	}
-}
-
-void Boss::fase4()
-{
-	/*Transform bulletTransform;
-	bulletTransform.position = transform.position;
-	bulletTransform.body.w = bulletTransform.body.h = 50;
-	bulletTransform.direction = prota->getTransform()->position - transform.position;//Resta la posición del cursor al del personaje
-	bulletTransform.direction.normalize();
-	Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
-	auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
-	auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-	*/
-}
 
 void Boss::loadAnimations()
 {
@@ -126,54 +82,5 @@ void Boss::loadAnimations()
 	animations.emplace("STATIC", estatico);
 	animations.emplace("NORMAL_ATTACK", attack);
 }
-void Boss::update()
-{
-	cout << transform.position;
-	Time->update();
-	if (faseAct == 1 && Time->TimeSinceTimerCreation< tiempoFase1)
-	{
-		fase1();
-		faseAct = 1;
-	}
-	else if(faseAct == 1)
-	{
-		Time->restart();
-		faseAct = 2;
-	}
-	if (faseAct == 2 && Time->TimeSinceTimerCreation < tiempoFase2)
-	{
-		fase2();
-		faseAct = 2;
-	}
-	else if(faseAct == 2)
-	{
-		Time->restart();
-		faseAct = 3;
-		saltado = false;
-	}
-	if (faseAct == 3 && Time->TimeSinceTimerCreation < tiempoFase3)
-	{
-		fase3();
-		faseAct = 3;
-	}
-	else if (faseAct == 3)
-	{
-		Time->restart();
-		faseAct = 1;
-	}
-	if (faseAct == 4 && Time->TimeSinceTimerCreation < tiempoFase4)
-	{
-		fase4();
-		faseAct = 4;
-	}
-	else if (faseAct == 4)
-	{
-		Time->restart();
-		faseAct = 1;
-	}
-}
 
-void Boss::render()
-{
-	this->getCurrentAnimation()->runAnimation();
-}
+

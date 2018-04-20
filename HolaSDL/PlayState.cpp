@@ -11,6 +11,7 @@
 #include "Minimap.h"
 #include "CollisionsManager.h"
 #include "ItemManager.h"
+#include "Boss.h"
 
 #include"HUDManager.h"
 
@@ -118,4 +119,6 @@ void PlayState::loadState()
 	ItemManager::getInstance()->init();
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
+	//Boss* boss = new Boss(mainCharacter, 300, 300, 200, 200);
+	//addGameObject(boss);
 }

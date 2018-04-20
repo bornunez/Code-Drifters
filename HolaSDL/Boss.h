@@ -33,25 +33,11 @@ private:
 	//RenderBoss* rend;
 	//UpdateBoss* updat;
 
-	//FASES
-	void fase1();
-	void fase2();
-	void fase3();
-	void fase4();
-	bool saltado;
 
-	//TIEMPOS
-	float tiempoAct = 0;
-	float velocidad = 2.5f;
-	int faseAct = 1;
-	float tiempoFase1 = 5;
-	float tiempoFase2 = 5;
-	float tiempoFase3 = 2;
-	float tiempoFase4 = 2;
+
+
 
 	void loadAnimations();
 protected:
-	virtual void update();
-    virtual void render();
 };
 
