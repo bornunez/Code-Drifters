@@ -26,6 +26,7 @@ GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), a
 	transform = t;
 	prevPosition = transform.position;
 	movable = true;
+	allUpdates();
 }
 
 GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float bodyWidth, bool active): texture(tex), active(active)
@@ -36,6 +37,7 @@ GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
 	prevPosition = transform.position;
 	movable = true;
+	allUpdates();
 }
 
 GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active) : texture(tex), active(active) {
@@ -46,6 +48,7 @@ GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
 	prevPosition = transform.position;
 	movable = true;
+	allUpdates();
 }
 
 GameObject::~GameObject()
@@ -56,10 +59,9 @@ GameObject::~GameObject()
 
 void GameObject::update()
 {
+
 	ComponentContainer::update();
-	updateCenterPosition();
-	updateDisplayPosition();
-	updateDisplayCenterPosition();
+	allUpdates();
 }
 
 void GameObject::render()
@@ -113,4 +115,11 @@ void GameObject::flipAllAnimations(SDL_RendererFlip flip)
 void GameObject::changeCurrentAnimation(const char * animName)
 {
 	currentAnimation = animations[animName];
+}
+void GameObject::allUpdates()
+{
+	updateBody();
+	updateCenterPosition();
+	updateDisplayPosition();
+	updateDisplayCenterPosition();
 }

@@ -7,6 +7,7 @@ UpdateBoss::UpdateBoss(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
 	boss = o;
 	Time = new Timer();
 	prota = prot;
+	posInic = Vector2D(boss->getTransform()->position.getX(), boss->getTransform()->position.getY());
 }
 
 
@@ -16,9 +17,8 @@ UpdateBoss::~UpdateBoss()
 
 void UpdateBoss::update()
 {
-	boss->updateBody();
-	Time->update();
-	if (faseAct == 1 && Time->TimeSinceTimerCreation< tiempoFase1)
+	boss->allUpdates();
+	if (faseAct == 1 && Time->TimeSinceTimerCreation < tiempoFase1)
 	{
 		fase1();
 		faseAct = 1;
@@ -59,24 +59,30 @@ void UpdateBoss::update()
 		Time->restart();
 		faseAct = 1;
 	}
+	Time->update();
 }
 
 void UpdateBoss::fase1()
 {
-	Vector2D direccion;
-	posProta = prota->getTransform()->position + (Vector2D(prota->getTransform()->body.w / 2, prota->getTransform()->body.h / 2));
-	direccion = boss->getTransform()->position - posProta;
-	direccion.normalize();
-	boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*velocidad);
+	if (Time->TimeSinceTimerCreation <= 0.001f)
+	{
+		boss->changeCurrentAnimation("START_JUMP");
+		posProta = prota->getCenterPos();
+		direccion = boss->getCenterPos() - posProta;
+		vel = direccion.magnitude() / tiempoFase1;
+		direccion.normalize();
+	}
+	boss->getTransform()->position.set(boss->getTransform()->position-direccion*Time::getInstance()->DeltaTime*vel);
 }
 
 void UpdateBoss::fase2()
 {
-	boss->changeCurrentAnimation("NORMAL_ATTACK");
+	boss->changeCurrentAnimation("ATTACK_FALL");
 	Vector2D direccion;
 	direccion = boss->getTransform()->position - posInic;
 	direccion.normalize();
-	boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*velocidad*1.2f);
+	if (boss->getCurrentAnimation()->isFinished()) boss->changeCurrentAnimation("CANSADO");
+	//boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*velocidad*1.2f);
 }
 void UpdateBoss::fase3()
 {

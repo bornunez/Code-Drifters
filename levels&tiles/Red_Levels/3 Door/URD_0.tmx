@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="22" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
+ <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../../tileset/Decoracion.tsx"/>
+ <layer name="Suelo" width="22" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzdlMEKgDAMQ6vzNPb/3+vFQAgpdUM8LFCUal9jrUbsp4Piby6unwvcYfKNeIhMQzyCyfkmTBzbhF/t002fiutmqN75+TmuJ7RO5wed4dkamd/sfTtv6nNmDxzT9aj2IOjeXnhUbiWtyfiY+cwMuC7j4Vx34I0wN54pcis8p5Xvf4b79T9td90cMwFR
+  </data>
+ </layer>
+ <layer name="Decoracion" width="22" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztkzEOgCAMAFnQCfVL4Kabo/9/iDRC0jSlpQ5OXNKgjZzaFucGvew/v+/IcZbrWNZNeD6QwESyVlKOS/FSViaXmNwteCfB21Nn7PXu/V/Oib0akuOr11JXYCb3rVpo3wmeBYVG7wx4skdDmgHOHcqeFnXOrL3Cfnw2EspZfRwwE9Aza981tBkf8DxAfQdg
+  </data>
+ </layer>
+ <layer name="Paredes" width="22" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAfqAKxGhpWJ1OdKpK4LhDroWF9PGbiU6eLJG4KxGZo2ByPmbjUMSCZBRK3BWI7NGyPww1meNQxIJmFLo4N4HMfJQA5nIhxB7GAFL+NglEwCkYBpQAAHXAOuw==
+  </data>
+ </layer>
+ <layer name="Aire" width="22" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztlEsOgCAMRHskFTd87n8uIYRYJ2ALwZgYJ5lNF6/TNkD0nhbmX3o9ta8Wd4s2zLO4Ltozj3CRvSt7S9yklfLsiRmEvncykMtSnj3Q9Q30ZvWQi+cbFe5vFreWk2sd5EqZLJ131AhvJbEd42OPUku81q00fAf1Uuvl1fT1P/gAcAgNgw==
+  </data>
+ </layer>
+ <objectgroup name="Puertas" visible="0">
+  <object id="5" name="Up" x="144" y="32" width="48" height="16"/>
+  <object id="7" name="Right" x="320" y="64" width="16" height="80"/>
+  <object id="8" name="Down" x="160" y="256" width="48" height="16"/>
+ </objectgroup>
+ <objectgroup name="Entradas" visible="0">
+  <object id="10" name="Up" gid="56" x="160" y="80" width="16" height="16"/>
+  <object id="11" name="Right" gid="56" x="272" y="96" width="16" height="16"/>
+  <object id="13" name="Down" gid="56" x="176" y="224" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners" visible="0">
+  <object id="1" name="Spawn" gid="64" x="272" y="112" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

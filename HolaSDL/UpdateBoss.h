@@ -12,6 +12,10 @@ public:
 protected:
 	virtual void update();
 private:
+
+	Vector2D direccion;
+	float vel;
+
 	GameObject* boss;
 	//FASES
 	void fase1();
@@ -22,10 +26,10 @@ private:
 
 	//TIEMPOS
 	float tiempoAct = 0;
-	float velocidad = 2.5f;
+	float velocidad = 50;
 	int faseAct = 1;
-	float tiempoFase1 = 5;
-	float tiempoFase2 = 5;
+	float tiempoFase1 = 2;
+	float tiempoFase2 = 2;
 	float tiempoFase3 = 2;
 	float tiempoFase4 = 2;
 

@@ -52,7 +52,7 @@ public:
 	void updateDisplayPosition();
 	void updateDisplayCenterPosition();
 	void updateBody();
-
+	void allUpdates();
 	//Gets y sets
 	bool isActive() { return active; }
 	void setActive(bool active) { this->active = active; }

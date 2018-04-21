@@ -14,7 +14,6 @@
 using namespace std;
 Boss::Boss(Transform t) : MasterBoss()
 {
-	Time = new Timer();
 	transform.position.setX(t.position.getX());
 	transform.position.setY(t.position.getY());
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
@@ -23,7 +22,6 @@ Boss::Boss(Transform t) : MasterBoss()
 Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 {
 
-	Time = new Timer();
 	transform.position.setX(x);
 	transform.position.setY(y);
 	transform.body.w = w;
@@ -32,8 +30,7 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
 	vida = 500;
 	daño = 10;
-	centro = new Vector2D(transform.body.w / 2, transform.body.h / 2);
-
+	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("CANSADO");
 
@@ -44,7 +41,6 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 
     BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);
-
 }
 Boss::~Boss()
 {

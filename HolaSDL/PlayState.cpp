@@ -119,6 +119,6 @@ void PlayState::loadState()
 	ItemManager::getInstance()->init();
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
-	//Boss* boss = new Boss(mainCharacter, 300, 300, 200, 200);
+	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
 	//addGameObject(boss);
 }
