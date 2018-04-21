@@ -71,9 +71,9 @@ void PlayState::update()
 	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
-	//HUDManager::getInstance()->update(); //de momento peta
+	HUDManager::getInstance()->update(); //de momento peta
 	HUDManager::getInstance()->changeLife(-1);
-	//HUDManager::getInstance()->setNewHP(1);
+	HUDManager::getInstance()->setNewHP(1);
 }
 
 void PlayState::endState()
@@ -118,4 +118,5 @@ void PlayState::loadState()
 	ItemManager::getInstance()->init();
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
+	//HUDManager::getInstance()->addBullet();
 }
