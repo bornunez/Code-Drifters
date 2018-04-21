@@ -146,9 +146,11 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case ENEMY_BULLET_COLLISION:
 		handleAnimationHurt();
+		mc->substractHP(5);
 		break;
 	case STALKER_ATTACK:
 		handleAnimationHurt();
+		mc->substractHP(10);
 		break;
 	case MC_DEATH:
 		handleAnimationDeath();
@@ -301,6 +303,7 @@ void MCAnimationComponent::handleAnimationEndDash()
 //Cambia la animacion a HURT y crea una particula de sangre
 void MCAnimationComponent::handleAnimationHurt()
 {
+	cout << mc->getActualHP();
 	gameObject->changeCurrentAnimation("HURT");
 	mc->setMCState(MCState::Hurt);
 	hurtTimer->restart();

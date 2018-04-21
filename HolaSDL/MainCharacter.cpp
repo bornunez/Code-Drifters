@@ -28,7 +28,7 @@
 
 
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
-	: GameObject(tex, x, y, w, h), hook(500)
+	: GameObject(tex, x, y, w, h), hook(500), HP(100)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
