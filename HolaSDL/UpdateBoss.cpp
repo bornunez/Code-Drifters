@@ -5,7 +5,7 @@
 UpdateBoss::UpdateBoss(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
 {
 	boss = o;
-	Time = new Timer();
+	Tiempo = new Timer();
 	prota = prot;
 	posInic = Vector2D(boss->getTransform()->position.getX(), boss->getTransform()->position.getY());
 }
@@ -18,55 +18,67 @@ UpdateBoss::~UpdateBoss()
 void UpdateBoss::update()
 {
 	boss->allUpdates();
-	if (faseAct == 1 && Time->TimeSinceTimerCreation < tiempoFase1)
+	cout << faseAct;
+	if (faseAct == 1 && (Tiempo->TimeSinceTimerCreation < tiempoFase1))
 	{
 		fase1();
-		faseAct = 1;
 	}
 	else if (faseAct == 1)
 	{
-		Time->restart();
+		Tiempo->restart();
 		faseAct = 2;
 	}
-	if (faseAct == 2 && Time->TimeSinceTimerCreation < tiempoFase2)
+	if (faseAct == 2 && Tiempo->TimeSinceTimerCreation < tiempoFase2)
 	{
 		fase2();
-		faseAct = 2;
 	}
 	else if (faseAct == 2)
 	{
-		Time->restart();
-		faseAct = 3;
-		saltado = false;
+		Tiempo->restart();
+		faseAct = 1;
+		if (fasesPast > 1)
+		{
+			faseAct = 3;
+			fasesPast = 0;
+		}
+		else fasesPast++;
 	}
-	if (faseAct == 3 && Time->TimeSinceTimerCreation < tiempoFase3)
+	if (faseAct == 3 && Tiempo->TimeSinceTimerCreation < tiempoFase3)
 	{
 		fase3();
-		faseAct = 3;
 	}
 	else if (faseAct == 3)
 	{
-		Time->restart();
-		faseAct = 1;
+		Tiempo->restart();
+		faseAct = 4;
 	}
-	if (faseAct == 4 && Time->TimeSinceTimerCreation < tiempoFase4)
+	if (faseAct == 4 && Tiempo->TimeSinceTimerCreation < tiempoFase4)
 	{
 		fase4();
-		faseAct = 4;
 	}
 	else if (faseAct == 4)
 	{
-		Time->restart();
+		Tiempo->restart();
+		faseAct = 5;
+	}
+	if (faseAct == 5 && Tiempo->TimeSinceTimerCreation < tiempoFase5)
+	{
+		fase5();
+	}
+	else if (faseAct == 5)
+	{
+		Tiempo->restart();
 		faseAct = 1;
 	}
-	Time->update();
+	Tiempo->update();
 }
 
 void UpdateBoss::fase1()
 {
-	if (Time->TimeSinceTimerCreation <= 0.001f)
+	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->changeCurrentAnimation("START_JUMP");
+		boss->getCurrentAnimation()->startAnimation();
 		posProta = prota->getCenterPos();
 		direccion = boss->getCenterPos() - posProta;
 		vel = direccion.magnitude() / tiempoFase1;
@@ -77,40 +89,50 @@ void UpdateBoss::fase1()
 
 void UpdateBoss::fase2()
 {
-	boss->changeCurrentAnimation("ATTACK_FALL");
-	Vector2D direccion;
-	direccion = boss->getTransform()->position - posInic;
-	direccion.normalize();
-	if (boss->getCurrentAnimation()->isFinished()) boss->changeCurrentAnimation("CANSADO");
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		boss->changeCurrentAnimation("ATTACK_FALL");
+		boss->getCurrentAnimation()->startAnimation();
+	}
 	//boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*velocidad*1.2f);
 }
 void UpdateBoss::fase3()
 {
-	boss->changeCurrentAnimation("START_ATTACK_JUMP");
-	Vector2D direccion;
-	Vector2D posExtrema;
-	if (!saltado)
+	if (boss->getCurrentAnimation()->isFinished())
 	{
-		posProta = prota->getTransform()->position + (Vector2D(prota->getTransform()->body.w / 2, prota->getTransform()->body.h / 2));
-		saltado = true;
-	}
-	if (Time->TimeSinceTimerCreation < tiempoFase3*0.8f)
-	{
-		direccion = boss->getTransform()->position - posProta;
-		direccion.normalize();
-		boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*velocidad * 5);
+		boss->changeCurrentAnimation("CANSADO");
+		boss->getCurrentAnimation()->startAnimation();
 	}
 }
 
 void UpdateBoss::fase4()
 {
-	/*Transform bulletTransform;
-	bulletTransform.position = transform.position;
-	bulletTransform.body.w = bulletTransform.body.h = 50;
-	bulletTransform.direction = prota->getTransform()->position - transform.position;//Resta la posición del cursor al del personaje
-	bulletTransform.direction.normalize();
-	Bullet* auxBullet = new Bullet(Game::getGame()->getResourceManager()->getTexture(BulletSprite), bulletTransform, true);
-	auxBullet->addComponent(new MCBulletComponent(auxBullet, 1.5));
-	auxBullet->addComponent(new MCBulletRenderComponent(auxBullet));
-	*/
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		boss->changeCurrentAnimation("DESVANECE");
+		boss->getCurrentAnimation()->startAnimation();
+	}
+}
+void UpdateBoss::fase5()
+{
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		direccion = prota->getCenterPos();
+		boss->changeCurrentAnimation("APARECE");
+		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->position.set(direccion);
+		boss->getTransform()->position.setX(boss->getTransform()->position.getX() - boss->getTransform()->body.w / 2);
+		boss->getTransform()->position.setY(boss->getTransform()->position.getY() - boss->getTransform()->body.h / 2);
+	}
+	if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() != "Boss1-NormalAttack")
+	{
+		boss->changeCurrentAnimation("NORMAL_ATTACK");
+		boss->getCurrentAnimation()->startAnimation();
+		boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+	}
+	else if (boss->getCurrentAnimation()->isFinished())
+	{
+		boss->getCurrentAnimation()->startAnimation();
+		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+	}
 }

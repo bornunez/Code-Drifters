@@ -54,15 +54,15 @@ void Boss::loadAnimations()
 	string animationPath = "../Animations/Bosses/Boss1/Boss1.tmx";
 
 	//Animaciones
-	Animation* desvanece = AnimationParser::parseAnimation(tileset, animationPath, "Desvanece", this, 0, 0, false, 0.1);
-	Animation* aparece = AnimationParser::parseAnimation(tileset, animationPath, "Aparece", this, 0, 0, false, 0.1);
-	Animation* cansado = AnimationParser::parseAnimation(tileset, animationPath, "Cansado", this, 0, 0, true, 0.1);
-	Animation* startJump = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-StartJump", this, 0, 0, false, 0.1);
+	Animation* desvanece = AnimationParser::parseAnimation(tileset, animationPath, "Desvanece", this, 25, 0, false, 0.1);
+	Animation* aparece = AnimationParser::parseAnimation(tileset, animationPath, "Aparece", this, 0, 0, false, 0.05);
+	Animation* cansado = AnimationParser::parseAnimation(tileset, animationPath, "Cansado", this, 0, -75, true, 0.1);
+	Animation* startJump = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-StartJump", this, 0, -75, false, 0.1);
 	Animation* startAttackJump = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-StartAttackJump", this, 0, 0, false, 0.1);
 	Animation* staticJump = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-StaticJump", this, 0, 0, true, 0.1);
-	Animation* normalFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-NormalFall", this, 0, 0, false, 0.1);
-	Animation* attackFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-AttackFall", this, 0, 0, false, 0.1);
-	Animation* estatico = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-Static", this, 0, 0, true, 0.1);
+	Animation* normalFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-NormalFall", this, 0, -75, false, 0.1);
+	Animation* attackFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-AttackFall", this, 0, -75, false, 0.1);
+	Animation* estatico = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-Static", this, 0, -75, true, 0.1);
 	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-NormalAttack", this, 0, 0, false, 0.1);
 
 

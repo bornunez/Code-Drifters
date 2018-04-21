@@ -22,20 +22,23 @@ private:
 	void fase2();
 	void fase3();
 	void fase4();
+	void fase5();
 	bool saltado;
 
 	//TIEMPOS
 	float tiempoAct = 0;
 	float velocidad = 50;
 	int faseAct = 1;
-	float tiempoFase1 = 2;
-	float tiempoFase2 = 2;
-	float tiempoFase3 = 2;
-	float tiempoFase4 = 2;
+	int fasesPast = 0;
+	const float tiempoFase1 = 0.6f;
+	const float tiempoFase2 = 1;
+	const float tiempoFase3 = 2;
+	const float tiempoFase4 = 2;
+	const float tiempoFase5 = 2.3;
 
 	Vector2D posInic;
 	Vector2D posProta;
-	Timer* Time;
+	Timer* Tiempo;
 	MainCharacter* prota;
 };
 
