@@ -47,7 +47,7 @@ void CollisionsManager::update()
 
 
 	//COLISIONES DE LOS ENEMIGOS
-
+	enemyCollisions();
 
 	//COLISIONES DEL GANCHO
 	hookCollisions();
@@ -168,7 +168,12 @@ void CollisionsManager::playerCollisions()
 
 void CollisionsManager::enemyCollisions()
 {
-
+	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
+	for (Enemy* e : enemies) {
+		if (e->isActive()) {
+			layerCollisions(e);
+		}
+	}
 }
 
 void CollisionsManager::hookCollisions()

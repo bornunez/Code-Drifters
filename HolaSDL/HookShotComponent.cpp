@@ -33,10 +33,11 @@ void HookShotComponent::receiveMessage(Message* msg) {
 	case HOOK_WALL:
 		//Cuando el gancho colisiona con la pared, el protagonista se mueve
 		hook->setHookStatus(HookStatus::MOVE_MC);
+		mc->removeCollisionLayer("Aire");
 		hook->setOriginPosition(mc->getCenterPos());
 		break;
 	case HOOK_STOP:
-
+		mc->addCollisionLayer("Aire");
 		break;
 	case HIT_WALL:
 		if (hook->getHookStatus() == HookStatus::MOVE_MC) {//Cuando está moviéndose con el gancho y choca con la pared se detiene

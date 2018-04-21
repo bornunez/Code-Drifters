@@ -38,7 +38,7 @@ void MCMovementInput::update()
 		mc->setMCState(MCState::Idle);		
 	}
 	//Solo puede moverse cuando está en Idle o Run
-	if (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run){
+	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run)) {
 
 		velocity.setX(0);
 		velocity.setY(0);
@@ -88,11 +88,13 @@ void MCMovementInput::update()
 		else {//Si no se mueve en vertical frena
 			velocity.setY(0);
 		}
-		
+
+		t->velocity.set(velocity);
 	}
+	else
+		t->velocity.set(0, 0);
 	
 	velocity.normalize();
-	t->velocity.set(velocity);
 
 }
 
@@ -101,6 +103,9 @@ void MCMovementInput::receiveMessage(Message * msg)
 	switch (msg->id)
 	{
 	case HIT_WALL:
+		gameObject->getTransform()->velocity.set({ 0,0 });
+		break;
+	case MC_SHOT:
 		gameObject->getTransform()->velocity.set({ 0,0 });
 		break;
 	default:

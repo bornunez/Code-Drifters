@@ -32,6 +32,7 @@ void GunnerComponent::update() {
 		if (!eg->isStunned()) {
 			if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
 				gameObject->getTransform()->velocity.set(0.0, 0.0);
+				eg->setMovable(false);
 			}
 
 			//Regular chase
@@ -45,13 +46,15 @@ void GunnerComponent::update() {
 				auxVel.normalize();
 
 				//se asigna la velocidad del enemigo y se actualiza la posicion
-				gunnerT->velocity.set(auxVel * 20);
-
+				gunnerT->velocity.set(auxVel);
+				eg->setMovable(true);
 
 			}
 		}
-		else
+		else {
 			gameObject->getTransform()->velocity.set({ 0,0 });
+			eg->setMovable(false);
+		}
 	}
 	/* horizontal chase
 	else {

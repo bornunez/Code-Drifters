@@ -7,16 +7,23 @@ class PlayState;
 class Spawner;
 enum EnemyType;
 enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death, Attack};
+
+//################## ATRIBUTOS COMUNES ####################
+struct CommonAttributes {
+	float life; float defense;
+	float speed;
+	float meleeDmg; float rangedDmg;
+	int minDrop; int maxDrop; //Drop de dinero
+	bool stunned = false;
+};
+//#########################################################
+
 class Enemy : public GameObject
 {
 protected:
-//################## ATRIBUTOS COMUNES ####################
-	float life; float defense;
-	float meleeDmg; float rangedDmg;
-	int minDrop; int maxDrop; //Drop de dinero
+
+	CommonAttributes Attributes;
 	GameObject* mainCharacter;
-	bool stunned = false;
-//#########################################################
 
 	//Necesario para el ciclo de salas
 	Spawner* spawner = nullptr;
@@ -43,11 +50,11 @@ public:
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();
-	float getDefense() { return defense; };
-	float getLife() { return life; }
-	void setLife(int life) { this->life = life; };
-	void setStun(bool set) { stunned = set; }
-	bool isStunned() { return stunned; }
+	float getDefense() { return Attributes.defense; };
+	float getLife() { return Attributes.life; }
+	void setLife(int life) { Attributes.life = life; };
+	void setStun(bool set) { Attributes.stunned = set; }
+	bool isStunned() { return Attributes.stunned; }
 
 };
 

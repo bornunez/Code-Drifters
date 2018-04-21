@@ -329,6 +329,18 @@
     <ClCompile Include="TurretAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MasterBoss.cpp">
+      <Filter>Bosses</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBoss.cpp">
+      <Filter>Bosses</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateBoss.cpp">
+      <Filter>Bosses</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Bosses\Boss1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -389,9 +401,6 @@
       <Filter>Estados\Header</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Enemigos\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyManager.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="ExampleEnemy.h">
@@ -638,6 +647,21 @@
     <ClInclude Include="TurretAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MasterBoss.h">
+      <Filter>Bosses</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBoss.h">
+      <Filter>Bosses</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateBoss.h">
+      <Filter>Bosses</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Bosses\Boss1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -714,6 +738,12 @@
     </Filter>
     <Filter Include="Items">
       <UniqueIdentifier>{50d390ec-137c-4dde-a41c-bbf6f76c72a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses">
+      <UniqueIdentifier>{757650ac-ebf6-47e2-9c1d-8b20d63c0814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\Boss1">
+      <UniqueIdentifier>{8e5702e3-61dd-4b5f-91d6-ea4d21a27298}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
