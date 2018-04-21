@@ -3,7 +3,6 @@
 #include "Particle.h"
 
 
-
 class ParticlesManager 
 {
 private:

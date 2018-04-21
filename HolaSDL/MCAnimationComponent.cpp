@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "MainCharacter.h"
 #include "ResourceManager.h"
+#include "ParticlesManager.h"
 #include "Hook.h"
 MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(static_cast<GameObject*>(o))
 {
@@ -307,6 +308,7 @@ void MCAnimationComponent::handleAnimationHurt()
 	gameObject->changeCurrentAnimation("HURT");
 	mc->setMCState(MCState::Hurt);
 	hurtTimer->restart();
+	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX(), mc->getCenterPos().getY());
 }
 
 void MCAnimationComponent::handleAnimationDeath()
