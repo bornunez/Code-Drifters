@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "MainCharacter.h"
 #include "ResourceManager.h"
+#include "ParticlesManager.h"
 #include "Hook.h"
 MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(static_cast<GameObject*>(o))
 {
@@ -146,6 +147,11 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case ENEMY_BULLET_COLLISION:
 		handleAnimationHurt();
+		mc->substractHP(5);
+		break;
+	case STALKER_ATTACK:
+		handleAnimationHurt();
+		mc->substractHP(10);
 		break;
 	case MC_DEATH:
 		handleAnimationDeath();
@@ -298,9 +304,11 @@ void MCAnimationComponent::handleAnimationEndDash()
 //Cambia la animacion a HURT y crea una particula de sangre
 void MCAnimationComponent::handleAnimationHurt()
 {
+	cout << mc->getActualHP();
 	gameObject->changeCurrentAnimation("HURT");
 	mc->setMCState(MCState::Hurt);
 	hurtTimer->restart();
+	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX(), mc->getCenterPos().getY());
 }
 
 void MCAnimationComponent::handleAnimationDeath()

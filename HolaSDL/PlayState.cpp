@@ -14,6 +14,7 @@
 #include "Boss.h"
 
 #include"HUDManager.h"
+#include "ParticlesManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -48,6 +49,7 @@ void PlayState::render()
 	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();
 	HUDManager::getInstance()->render();
+	ParticlesManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)

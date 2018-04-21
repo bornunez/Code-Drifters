@@ -51,6 +51,9 @@ void CollisionsManager::update()
 
 	//COLISIONES DEL GANCHO
 	hookCollisions();
+
+	//COLISION STALKER CON MC
+	enemyAttackCollision();
 }
 
 void CollisionsManager::render()
@@ -265,4 +268,34 @@ void CollisionsManager::layerCollisions(GameObject* o) {
 	}
 	o->updatePreviousPosition();
 	o->updateBody();
+}
+
+
+void CollisionsManager::enemyAttackCollision() {
+	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+
+	bool hit = false;
+	//COLISION CON ENEMIGOS
+	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
+	for (Enemy* e : enemies) {//Itera la lista de enemigos activos
+		if (e->getEnemyState() == EnemyState::Attack) {				//Solo se comprueban colisiones si el enemigo esta atacando
+
+			vector<SDL_Rect> enemyHitboxes = e->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+			vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+			uint i = 0;
+
+			//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+			for (uint i = 0; !hit && i < enemyHitboxes.size(); i++) {
+				for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
+					if (CollisionHandler::RectCollide(enemyHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+						hit = true;
+
+						//Mandar mensaje de collision stalker / player
+						Message msg(STALKER_ATTACK);
+						mc->sendMessage(&msg);
+					}
+				}
+			}
+		}
+	}
 }
