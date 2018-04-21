@@ -64,6 +64,7 @@ public:
 	Vector2D getCenterPos() { return centerPosition; }
 	Vector2D getDisplayPos() { return displayPosition; }
 	Vector2D getDisplayCenterPos() { return displayCenterPosition; }
+
 	Animation* getCurrentAnimation();
 	void flipAllAnimations(SDL_RendererFlip flip);
 	void changeCurrentAnimation(const char * animName);
@@ -76,6 +77,8 @@ public:
 	void setDeath(bool b) { dead = b; }
 
 	void setCollisionsLayers(vector<string> colLayer) { collisionsLayer = colLayer; }
+	void addCollisionLayer(string colLayer);
+	void removeCollisionLayer(string colLayer);
 	vector<string> getCollisionsLayers() { return collisionsLayer; }
 
 };

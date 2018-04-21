@@ -19,7 +19,7 @@ EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 	type = Turret;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	defense = 30;
+	Attributes.defense = 30;
 	this->addComponent(new TurretShotComponent(this, getMC(), 500, 1));
 	addComponent(new TurretAnimationComponent(this, getMC(), animations));
 }
