@@ -83,6 +83,7 @@
     <ClCompile Include="MCAttackCollisionComponent.cpp" />
     <ClCompile Include="MCGunPosition.cpp" />
     <ClCompile Include="MCHookInputComponent.cpp" />
+    <ClCompile Include="MCManagerComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
     <ClCompile Include="MenuButton.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="MCAttackCollisionComponent.h" />
     <ClInclude Include="MCGunPosition.h" />
     <ClInclude Include="MCHookInputComponent.h" />
+    <ClInclude Include="MCManagerComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
     <ClInclude Include="MenuButton.h" />

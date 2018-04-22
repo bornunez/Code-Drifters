@@ -123,7 +123,7 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case HOOK_WALL:
 		mc->setMCState(MCState::Dash);
-		handleAnimationDash();
+		//handleAnimationDash();
 		break;
 	case HOOK_ENEMY:
 		handleAnimationShot();
@@ -140,10 +140,10 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case MC_SHOT:
 		gunTimer->restart();
-		mc->setMCState(MCState::Shot);
+		//mc->setMCState(MCState::Shot);
 		break;
 	case MC_HOOKSHOT:
-		mc->setMCState(MCState::HookShot);
+		//mc->setMCState(MCState::HookShot);
 		break;
 	case ENEMY_BULLET_COLLISION:
 		handleAnimationHurt();
@@ -297,8 +297,8 @@ void MCAnimationComponent::handleAnimationEndDash()
 		gameObject->changeCurrentAnimation("DASHEND_TOP");
 		gameObject->getCurrentAnimation()->startAnimation();
 	}
-	mc->setMCState(MCState::DashEnd);
-	mc->setMovable(true);	
+//	mc->setMCState(MCState::DashEnd);
+//	mc->setMovable(true);	
 }
 
 //Cambia la animacion a HURT y crea una particula de sangre
@@ -306,15 +306,14 @@ void MCAnimationComponent::handleAnimationHurt()
 {
 	cout << mc->getActualHP();
 	gameObject->changeCurrentAnimation("HURT");
-	mc->setMCState(MCState::Hurt);
+	//mc->setMCState(MCState::Hurt);
 	hurtTimer->restart();
-	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX(), mc->getCenterPos().getY());
+	//ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX(), mc->getCenterPos().getY());
 }
 
 void MCAnimationComponent::handleAnimationDeath()
 {
 	gameObject->changeCurrentAnimation("DEATH");
-	mc->setMCState(MCState::Death);
 }
 
 void MCAnimationComponent::handleAnimationGun()

@@ -344,6 +344,9 @@
     <ClCompile Include="ParticlesManager.cpp">
       <Filter>Managers\Source</Filter>
     </ClCompile>
+    <ClCompile Include="MCManagerComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -667,6 +670,9 @@
     </ClInclude>
     <ClInclude Include="ParticlesManager.h">
       <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCManagerComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

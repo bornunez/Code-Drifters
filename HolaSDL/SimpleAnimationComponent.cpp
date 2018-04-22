@@ -47,6 +47,7 @@ void SimpleAnimationComponent::render()
 		SDL_Rect dstrect = { auxX, auxY , texture->getFrameWidth() * Game::getGame()->getScale(), texture->getFrameHeight() * Game::getGame()->getScale() };
 
 		texture->render(dstrect, angle, &srcrect);
+
 		if (!loop)
 			currentFrame++;
 

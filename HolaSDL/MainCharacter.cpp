@@ -22,6 +22,7 @@
 #include "HookAnimationComponent.h"
 #include "ReloadComponent.h"
 #include "MCGunPosition.h"
+#include "MCManagerComponent.h"
 //Personaje principal
 
 
@@ -41,7 +42,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.speed = 500;
 	//setMaxVelocity(0.5);
 
-	
+	addComponent(new MCManagerComponent(this));
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new MCGunPosition(this));

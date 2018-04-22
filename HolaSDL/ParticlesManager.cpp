@@ -16,7 +16,7 @@ ParticlesManager::~ParticlesManager()
 void ParticlesManager::render()
 {
 	for (Particle* particle : particles) {
-		if (particle->isActive())
+ 		if (particle->isActive())
 			particle->render();
 	}
 }
