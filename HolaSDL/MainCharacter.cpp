@@ -37,6 +37,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.body.w = w/2;
 	transform.body.h = h/3.5;
 
+	setSpriteOffset(0, -12 * Game::getGame()->getScale());
+
 	loadAnimations();
 
 	transform.speed = 500;
@@ -58,8 +60,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
-	/*addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	addComponent(new BoxRenderer(this, playState->getCamera()));*/
+	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	maxBullets = 3;
 	reloadTime = 5;
@@ -78,7 +80,7 @@ void MainCharacter::loadAnimations()
 {
 	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset();
 	string animationPath = "../Animations/Protagonist/tileset/ProtaAnimation.tmx";
-	int offsetY = -12 * Game::getGame()->getScale();
+	int offsetY = 0;
 	Animation* idleBot = AnimationParser::parseAnimation(tileset, animationPath, "IdleBot", this, 0, offsetY);
 	Animation* idleTop = AnimationParser::parseAnimation(tileset, animationPath, "IdleTop", this, 0, offsetY);
 	Animation* idleRight = AnimationParser::parseAnimation(tileset, animationPath, "IdleRight", this, 0, offsetY);
@@ -147,16 +149,16 @@ void MainCharacter::loadAnimations()
 	animations.emplace("ATTACK2_BOTLEFT", attackBotLeft2);
 	animations.emplace("ATTACK3_BOTLEFT", attackBotLeft3);
 
-	Animation*dashRight = AnimationParser::parseAnimation(tileset, animationPath, "DashRight", this);
+	Animation*dashRight = AnimationParser::parseAnimation(tileset, animationPath, "DashRight", this, 0, offsetY);
 	Animation*dashEndRight = AnimationParser::parseAnimation(tileset, animationPath, "DashEndRight", this, 0, offsetY, false,0.1);
 	
-	Animation*dashLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashLeft", this);
+	Animation*dashLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashLeft", this, 0, offsetY);
 	Animation*dashEndLeft = AnimationParser::parseAnimation(tileset, animationPath, "DashEndLeft", this, 0, offsetY, false,0.1);
 
-	Animation*dashTop = AnimationParser::parseAnimation(tileset, animationPath, "DashTop", this);
+	Animation*dashTop = AnimationParser::parseAnimation(tileset, animationPath, "DashTop", this, 0, offsetY);
 	Animation*dashEndTop = AnimationParser::parseAnimation(tileset, animationPath, "DashEndTop", this, 0, offsetY, false,0.1);
 
-	Animation*dashBot = AnimationParser::parseAnimation(tileset, animationPath, "DashBot", this);
+	Animation*dashBot = AnimationParser::parseAnimation(tileset, animationPath, "DashBot", this, 0, offsetY);
 	Animation*dashEndBot = AnimationParser::parseAnimation(tileset, animationPath, "DashEndBot", this, 0, offsetY, false,0.1);
 
 	animations.emplace("DASH_RIGHT", dashRight);

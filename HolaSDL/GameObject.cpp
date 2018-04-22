@@ -74,22 +74,22 @@ void GameObject::handleEvents(SDL_Event & e)
 	ComponentContainer::handleEvents(e);
 }
 
-void GameObject::updateCenterPosition()
+void GameObject::updateCenterPosition()//El center position no es el del body, sino el del sprite teniendo en cuenta el offset
 {
-	centerPosition.setX(transform.body.x + transform.body.w / 2);
-	centerPosition.setY(transform.body.y + transform.body.h / 2);
+	centerPosition.setX(transform.position.getX() + transform.body.w / 2 + spriteOffsetX);
+	centerPosition.setY(transform.position.getY() + transform.body.h / 2 + spriteOffsetY);
 }
 
 void GameObject::updateDisplayPosition()
 {
-	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX());
-	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY());
+	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX() + spriteOffsetX);
+	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY() + spriteOffsetY);
 }
 
 void GameObject::updateDisplayCenterPosition()
 {
-	displayCenterPosition.setX(displayPosition.getX() + transform.body.w / 2);
-	displayCenterPosition.setY(displayPosition.getY() + transform.body.h / 2);
+	displayCenterPosition.setX(centerPosition.getX() - playState->getCamera()->getTransform()->position.getX());
+	displayCenterPosition.setY(centerPosition.getY() - playState->getCamera()->getTransform()->position.getY());
 }
 
 void GameObject::updateBody() {

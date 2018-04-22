@@ -23,6 +23,8 @@ protected:
 	Vector2D centerPosition;//Centro del objeto
 	Vector2D displayPosition;//Posición respecto a la cámara
 	Vector2D displayCenterPosition;//Centro del objeto respecto a la cámara
+	int spriteOffsetX=0;
+	int spriteOffsetY=0;
 	
 
 	std::map<const char*, Animation*> animations;//Animaciones que contiene
@@ -81,5 +83,6 @@ public:
 	void removeCollisionLayer(string colLayer);
 	vector<string> getCollisionsLayers() { return collisionsLayer; }
 
+	void setSpriteOffset(int x, int y) { spriteOffsetX = x; spriteOffsetY = y; }
 };
 
