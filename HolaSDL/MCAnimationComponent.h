@@ -23,7 +23,7 @@ public:
 	float handleGunAngle();
 private:
 	MainCharacter * mc;
-	float gunAngle=0;
+	float gunAngle = 0;
 	Texture * gunTexture;
 	Timer* gunTimer;
 	Timer* hurtTimer;

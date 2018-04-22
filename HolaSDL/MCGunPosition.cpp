@@ -53,7 +53,7 @@ float MCGunPosition::handleGunAngle()
 
 	if (gunAngle > 45 && gunAngle < 135) {//Abajo
 		if (gunAngle > 90) {//Abajo a la izquierda
-			offsetY += 4;
+			offsetY += 2;
 			offsetX -= 7;
 		}
 		else {//Abajo a la derecha

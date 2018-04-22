@@ -34,12 +34,13 @@ protected:
 	//Metodos auxiliares
 	
 
+
 	friend class EnemyManager;
 	Enemy(MainCharacter* mc);
 	
 public:
 	/*void receiveDamage(int damage);*/
-	EnemyState enemyState;
+
 	
 	~Enemy();
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
@@ -55,6 +56,7 @@ public:
 	void setLife(int life) { Attributes.life = life; };
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }
-
+	EnemyState enemyState;		//PROTECTED
+	EnemyState getEnemyState() { return this->enemyState; }
 };
 

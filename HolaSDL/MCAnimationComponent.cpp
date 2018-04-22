@@ -5,6 +5,7 @@
 #include "Camera.h"
 #include "MainCharacter.h"
 #include "ResourceManager.h"
+#include "ParticlesManager.h"
 #include "Hook.h"
 MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(static_cast<GameObject*>(o))
 {
@@ -121,7 +122,7 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("IDLE_BOT");
 		break;
 	case HOOK_WALL:
-		mc->setMCState(MCState::Dash);
+		//mc->setMCState(MCState::Dash);
 		handleAnimationDash();
 		break;
 	case HOOK_ENEMY:
@@ -139,12 +140,15 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case MC_SHOT:
 		gunTimer->restart();
-		mc->setMCState(MCState::Shot);
+		//mc->setMCState(MCState::Shot);
 		break;
 	case MC_HOOKSHOT:
-		mc->setMCState(MCState::HookShot);
+		//mc->setMCState(MCState::HookShot);
 		break;
 	case ENEMY_BULLET_COLLISION:
+		handleAnimationHurt();
+		break;
+	case STALKER_ATTACK:
 		handleAnimationHurt();
 		break;
 	case MC_DEATH:
@@ -254,7 +258,7 @@ void MCAnimationComponent::handleAnimationShot()
 void MCAnimationComponent::handleAnimationDash()
 {
 	//HOOK STATE
-	if (mc->getMCState() == MCState::Dash) {
+	//if (mc->getMCState() == MCState::Dash) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
 			gameObject->changeCurrentAnimation("DASH_RIGHT");
@@ -268,7 +272,7 @@ void MCAnimationComponent::handleAnimationDash()
 		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
 			gameObject->changeCurrentAnimation("DASH_TOP");
 		}
-	}
+	//}
 }
 
 void MCAnimationComponent::handleAnimationEndDash()
@@ -291,22 +295,23 @@ void MCAnimationComponent::handleAnimationEndDash()
 		gameObject->changeCurrentAnimation("DASHEND_TOP");
 		gameObject->getCurrentAnimation()->startAnimation();
 	}
-	mc->setMCState(MCState::DashEnd);
-	mc->setMovable(true);	
+//	mc->setMCState(MCState::DashEnd);
+//	mc->setMovable(true);	
 }
 
 //Cambia la animacion a HURT y crea una particula de sangre
 void MCAnimationComponent::handleAnimationHurt()
 {
+	cout << mc->getActualHP();
 	gameObject->changeCurrentAnimation("HURT");
-	mc->setMCState(MCState::Hurt);
+	//mc->setMCState(MCState::Hurt);
 	hurtTimer->restart();
+	//ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX(), mc->getCenterPos().getY());
 }
 
 void MCAnimationComponent::handleAnimationDeath()
 {
 	gameObject->changeCurrentAnimation("DEATH");
-	mc->setMCState(MCState::Death);
 }
 
 void MCAnimationComponent::handleAnimationGun()

@@ -33,12 +33,12 @@ void MCMovementInput::update()
 	if (mc->getMCState() != MCState::Hurt &&
 		mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Attack &&
 		mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::Shot &&
-		mc->getMCState() != MCState::DashEnd ) {
+		mc->getMCState() != MCState::DashEnd  && mc->getMCState() != MCState::Death) {
 
 		mc->setMCState(MCState::Idle);		
 	}
 	//Solo puede moverse cuando está en Idle o Run
-	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run)) {
+	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd)) {
 
 		velocity.setX(0);
 		velocity.setY(0);

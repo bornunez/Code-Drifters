@@ -13,6 +13,7 @@
 #include "ItemManager.h"
 
 #include"HUDManager.h"
+#include "ParticlesManager.h"
 
 PlayState* PlayState::instance = nullptr;
 
@@ -47,6 +48,7 @@ void PlayState::render()
 	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();
 	HUDManager::getInstance()->render();
+	ParticlesManager::getInstance()->render();
 }
 
 void PlayState::handleEvent(SDL_Event & e)
@@ -119,4 +121,6 @@ void PlayState::loadState()
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
 	//HUDManager::getInstance()->addBullet();
+	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
+	//addGameObject(boss);
 }

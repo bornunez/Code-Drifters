@@ -48,6 +48,8 @@ void HookAnimationComponent::render()
 
 void HookAnimationComponent::renderHookHead()
 {
+	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+
 	Uint32 ticks = SDL_GetTicks();
 
 	float displayX = hook->getDisplayCenterPos().getX();
@@ -56,7 +58,8 @@ void HookAnimationComponent::renderHookHead()
 	Uint32 sprite = (ticks / fps) % hookHeadTex->getNumCols();
 	SDL_Rect srcrect = { sprite * hookHeadTex->getFrameWidth(), animationNumber * hookHeadTex->getFrameHeight(), hookHeadTex->getFrameWidth(), hookHeadTex->getFrameHeight() };
 	SDL_Rect dstrect = { displayX - hook->getTransform()->body.w / 2, displayY - hook->getTransform()->body.h / 2, hook->getTransform()->body.w*Game::getGame()->getScale()/3,  hook->getTransform()->body.h*Game::getGame()->getScale()/3};
-	angle = getSpriteAngle();
+
+	angle = getSpriteAngle(mc->getGunPosition(), hook->getDisplayCenterPos());
 
 	SDL_Point center;
 	center.x = dstrect.w / 2;
@@ -69,25 +72,31 @@ void HookAnimationComponent::renderHookChains()
 {
 	Uint32 ticks = SDL_GetTicks();
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-	Vector2D targetPos;
+	Vector2D originPos;//Posición de la que sale el gancho
+	Vector2D originDisplayPos;//La misma posición pero relativa a la cámara
 
 	if (mc->getMCState() == MCState::Dash) {
-		targetPos = mc->getCenterPos();
+		originPos = mc->getCenterPos();
+		originDisplayPos = mc->getDisplayCenterPos();
 	}
 	else {
-		targetPos = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
+		originPos = mc->getGunPosition() + PlayState::getInstance()->getCamera()->getTransform()->position;
+		originDisplayPos = mc->getGunPosition();
 	}
 
-	Vector2D hookSize = hook->getCenterPos() - targetPos;
+
+	Vector2D hookSize = originPos - hook->getCenterPos();//Calcula el tamaño que debe tener el gancho restando el origen al destino
 	float hookLength = hookSize.magnitude();
 	
 	Uint32 sprite = (ticks / fps) % hookChainTex->getNumCols();
 	SDL_Rect srcrect = { sprite * hookChainTex->getFrameWidth(), animationNumber * hookChainTex->getFrameHeight(), hookLength, hookChainTex->getFrameHeight() };
-	SDL_Rect dstrect = { mc->getGunPosition().getX() , mc->getGunPosition().getY() - srcrect.h/2 , srcrect.w*Game::getGame()->getScale()/3, srcrect.h*Game::getGame()->getScale() / 3 };
+	SDL_Rect dstrect = { originDisplayPos.getX() , originDisplayPos.getY() - srcrect.h/2 , srcrect.w*Game::getGame()->getScale()/3, srcrect.h*Game::getGame()->getScale() / 3 };
+	
+	Vector2D displayHookPosition;//Posición del gancho relativa a la cámara
+	displayHookPosition = hook->getDisplayCenterPos();
 	
 
-	angle = getSpriteAngle();
-
+	angle = getSpriteAngle(originDisplayPos, displayHookPosition);//Calcula el ángulo entre el origen del gancho y el gancho en sí
 
 	SDL_Point center;
 	center.x = 0;
@@ -106,7 +115,7 @@ void HookAnimationComponent::renderHookFail()
 	Vector2D hookSize = hook->getCenterPos() - mc->getDisplayCenterPos();
 	float hookLength = hookSize.magnitude();
 
-	hookFailAnim->update();
+	hookFailAnim->update();//Contador del tiempo que está activo el gancho fail
 	if (hookFailAnim->TimeSinceTimerCreation*1000>40) {
 		hookFailSprite++;
 		hookFailAnim->restart();
@@ -124,17 +133,11 @@ void HookAnimationComponent::renderHookFail()
 	
 
 	angle = hook->getAngle();
-	Vector2D displayPosition;//Posición del personaje relativa a la cámara
-	displayPosition = hook->getDisplayCenterPos();
+	Vector2D hookDisplayPosition;//Posición delgancho relativa a la cámara
+	hookDisplayPosition = hook->getDisplayCenterPos();
 	Vector2D mcDisplayPos = mc->getDisplayCenterPos();
 
-
-	float angle = (atan2(displayPosition.getY() - mcDisplayPos.getY(), displayPosition.getX() - mcDisplayPos.getX()));//Angulo entre el cursor y el jugador, en grados
-
-	angle = angle * 180 / M_PI;
-	if (angle < 0)
-		angle += 360;
-
+	angle = getSpriteAngle(mcDisplayPos, hookDisplayPosition);
 
 	SDL_Point center;
 	center.x = 0;
@@ -152,8 +155,7 @@ void HookAnimationComponent::setFlip(SDL_RendererFlip flip)
 {
 	this->flip = flip;
 }
-
-float HookAnimationComponent::getSpriteAngle()
+float HookAnimationComponent::getSpriteAngle(Vector2D origin, Vector2D target)
 {
 
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
@@ -164,12 +166,12 @@ float HookAnimationComponent::getSpriteAngle()
 	Vector2D mcDisplayPos = mc->getGunPosition();
 
 
-	float angle = (atan2(displayPosition.getY() - mcDisplayPos.getY(), displayPosition.getX() - mcDisplayPos.getX()));//Angulo entre el cursor y el jugador, en grados
+	float angle = (atan2(target.getY() - origin.getY(), target.getX() - origin.getX()));//Angulo entre el cursor y el jugador, en grados
 
 	angle = angle * 180 / M_PI;
 	if (angle < 0)
 		angle += 360;
-	
+
 	return angle;
 }
 

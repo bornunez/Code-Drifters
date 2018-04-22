@@ -341,6 +341,12 @@
     <ClCompile Include="Boss.cpp">
       <Filter>Bosses\Boss1</Filter>
     </ClCompile>
+    <ClCompile Include="ParticlesManager.cpp">
+      <Filter>Managers\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCManagerComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -647,9 +653,6 @@
     <ClInclude Include="TurretAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyManager.h">
-      <Filter>Managers</Filter>
-    </ClInclude>
     <ClInclude Include="MasterBoss.h">
       <Filter>Bosses</Filter>
     </ClInclude>
@@ -661,6 +664,15 @@
     </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>Bosses\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticlesManager.h">
+      <Filter>Managers\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCManagerComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

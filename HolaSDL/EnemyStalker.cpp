@@ -39,12 +39,12 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
 	//parametros: tiempo entre cargas, tiempo de delay al cargar, tiempo de movimiento en carga, multiplicador velocidad
-	this->addComponent(new StalkerComponent(this, getMC(), 8, .5, 1.5, 2));
+	this->addComponent(new StalkerComponent(this, getMC(), 4, .5, 1, 1.2));
 	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations, .2, .5));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
-	//addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new StunComponent(this));
-	//addComponent(new SkeletonRendered(this,playState->getCamera()));
+	addComponent(new SkeletonRendered(this,playState->getCamera()));
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 
 }
 

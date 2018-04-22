@@ -31,17 +31,7 @@ GunnerShotComponent::~GunnerShotComponent()
 void GunnerShotComponent::handleAnimation()
 {
 	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
-
-	//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
-	Vector2D aux;
-	aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-	aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
-
-
-
-	Vector2D displayPosition;//Posición del personaje relativa a la cámara
-	displayPosition = aux - (PlayState::getInstance()->getCamera()->getTransform()->position);
-	float angle = (atan2(targetObject->getDisplayCenterPos().getY() - displayPosition.getY(), targetObject->getDisplayCenterPos().getX() - displayPosition.getX()));//Angulo entre el enemigo y el target, en grados
+	float angle = (atan2(targetObject->getCenterPos().getY() - gunPosition.getY(), targetObject->getCenterPos().getX() - gunPosition.getX()));//Angulo entre el enemigo y el target, en grados
 	angle = angle * 180 / M_PI;
 
 
@@ -139,11 +129,12 @@ void GunnerShotComponent::shoot() {
 			lastShotTime->restart();
 			updateGunPosition();
 			Transform bulletTransform;
-			
-			bulletTransform.direction = (targetT->position - gunnerT->position);
-			bulletTransform.direction.normalize();
 			bulletTransform.body.w = 50;
-			bulletTransform.body.h = 15;
+			bulletTransform.body.h = 15;			
+			bulletTransform.direction = (targetObject->getCenterPos() - gunPosition);
+			bulletTransform.direction.setX(targetObject->getCenterPos().getX() - gunPosition.getX() - 25);
+			bulletTransform.direction.setY(targetObject->getCenterPos().getY() - gunPosition.getY() - 7);
+			bulletTransform.direction.normalize();
 			bulletTransform.position.set(gunPosition.getX()- bulletTransform.body.w/2, gunPosition.getY() - bulletTransform.body.h/2);
 			bulletTransform.velocity = bulletTransform.direction;
 			bulletTransform.speed = 1000.0;

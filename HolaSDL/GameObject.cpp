@@ -26,6 +26,7 @@ GameObject::GameObject(Texture * tex, Transform t, bool active): texture(tex), a
 	transform = t;
 	prevPosition = transform.position;
 	movable = true;
+	allUpdates();
 }
 
 GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float bodyWidth, bool active): texture(tex), active(active)
@@ -36,6 +37,7 @@ GameObject::GameObject(Texture * tex, Vector2D position, float bodyHeight, float
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
 	prevPosition = transform.position;
 	movable = true;
+	allUpdates();
 }
 
 GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active) : texture(tex), active(active) {
@@ -46,6 +48,7 @@ GameObject::GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight
 	transform.body.h = bodyHeight; transform.body.w = bodyWidth;
 	prevPosition = transform.position;
 	movable = true;
+	allUpdates();
 }
 
 GameObject::~GameObject()
@@ -56,10 +59,9 @@ GameObject::~GameObject()
 
 void GameObject::update()
 {
+
 	ComponentContainer::update();
-	updateCenterPosition();
-	updateDisplayPosition();
-	updateDisplayCenterPosition();
+	allUpdates();
 }
 
 void GameObject::render()
@@ -72,22 +74,22 @@ void GameObject::handleEvents(SDL_Event & e)
 	ComponentContainer::handleEvents(e);
 }
 
-void GameObject::updateCenterPosition()
+void GameObject::updateCenterPosition()//El center position no es el del body, sino el del sprite teniendo en cuenta el offset
 {
-	centerPosition.setX(transform.body.x + transform.body.w / 2);
-	centerPosition.setY(transform.body.y + transform.body.h / 2);
+	centerPosition.setX(transform.position.getX() + transform.body.w / 2 + spriteOffsetX);
+	centerPosition.setY(transform.position.getY() + transform.body.h / 2 + spriteOffsetY);
 }
 
 void GameObject::updateDisplayPosition()
 {
-	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX());
-	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY());
+	displayPosition.setX(transform.position.getX() - playState->getCamera()->getTransform()->position.getX() + spriteOffsetX);
+	displayPosition.setY(transform.position.getY() - playState->getCamera()->getTransform()->position.getY() + spriteOffsetY);
 }
 
 void GameObject::updateDisplayCenterPosition()
 {
-	displayCenterPosition.setX(displayPosition.getX() + transform.body.w / 2);
-	displayCenterPosition.setY(displayPosition.getY() + transform.body.h / 2);
+	displayCenterPosition.setX(centerPosition.getX() - playState->getCamera()->getTransform()->position.getX());
+	displayCenterPosition.setY(centerPosition.getY() - playState->getCamera()->getTransform()->position.getY());
 }
 
 void GameObject::updateBody() {
@@ -114,7 +116,13 @@ void GameObject::changeCurrentAnimation(const char * animName)
 {
 	currentAnimation = animations[animName];
 }
-
+void GameObject::allUpdates()
+{
+	updateBody();
+	updateCenterPosition();
+	updateDisplayPosition();
+	updateDisplayCenterPosition();
+}
 void GameObject::addCollisionLayer(string colLayer)
 {
 	bool found = false;
