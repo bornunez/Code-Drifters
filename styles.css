@@ -4,7 +4,6 @@
 }
 body {
 background-image: url(images/background.png);
-background-size: contain;
 background-repeat: no-repeat;
 background-position: top left;
 background-attachment: fixed;
