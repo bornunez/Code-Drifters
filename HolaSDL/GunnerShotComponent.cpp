@@ -31,17 +31,7 @@ GunnerShotComponent::~GunnerShotComponent()
 void GunnerShotComponent::handleAnimation()
 {
 	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
-
-	//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
-	Vector2D aux;
-	aux.setX(getGameObject()->getTransform()->position.getX() + getGameObject()->getTransform()->body.w / 2);
-	aux.setY(getGameObject()->getTransform()->position.getY() + getGameObject()->getTransform()->body.h / 2);
-
-
-
-	Vector2D displayPosition;//Posición del personaje relativa a la cámara
-	displayPosition = eg->getDisplayCenterPos();
-	float angle = (atan2(targetObject->getDisplayCenterPos().getY() - gunPosition.getY(), targetObject->getDisplayCenterPos().getX() - gunPosition.getX()));//Angulo entre el enemigo y el target, en grados
+	float angle = (atan2(targetObject->getCenterPos().getY() - gunPosition.getY(), targetObject->getCenterPos().getX() - gunPosition.getX()));//Angulo entre el enemigo y el target, en grados
 	angle = angle * 180 / M_PI;
 
 

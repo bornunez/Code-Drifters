@@ -38,7 +38,7 @@ void MCMovementInput::update()
 		mc->setMCState(MCState::Idle);		
 	}
 	//Solo puede moverse cuando está en Idle o Run
-	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run)) {
+	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd)) {
 
 		velocity.setX(0);
 		velocity.setY(0);
