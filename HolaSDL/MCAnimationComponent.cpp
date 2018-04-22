@@ -122,8 +122,8 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("IDLE_BOT");
 		break;
 	case HOOK_WALL:
-		mc->setMCState(MCState::Dash);
-		//handleAnimationDash();
+		//mc->setMCState(MCState::Dash);
+		handleAnimationDash();
 		break;
 	case HOOK_ENEMY:
 		handleAnimationShot();
@@ -260,7 +260,7 @@ void MCAnimationComponent::handleAnimationShot()
 void MCAnimationComponent::handleAnimationDash()
 {
 	//HOOK STATE
-	if (mc->getMCState() == MCState::Dash) {
+	//if (mc->getMCState() == MCState::Dash) {
 		Vector2D direction = gameObject->getTransform()->direction;
 		if (direction.getX() == 1 && direction.getY() == 0) {//Derecha
 			gameObject->changeCurrentAnimation("DASH_RIGHT");
@@ -274,7 +274,7 @@ void MCAnimationComponent::handleAnimationDash()
 		else if (direction.getX() == 0 && direction.getY() == -1) {//Arriba
 			gameObject->changeCurrentAnimation("DASH_TOP");
 		}
-	}
+	//}
 }
 
 void MCAnimationComponent::handleAnimationEndDash()

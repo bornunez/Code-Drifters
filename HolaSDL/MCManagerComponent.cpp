@@ -113,8 +113,9 @@ void MCManagerComponent::HurtMC(float dmg) {
 	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX(), mc->getCenterPos().getY());
 	mc->setMCState(MCState::Hurt);
 	mc->substractHP(dmg);
-	if (mc->getActualHP() <= 0) {
+	if (mc->getActualHP() <= 80) {
 		Message msg(MC_DEATH);
-		this->receiveMessage(&msg);
+		//Envia a todos los componentes del MC el msg de muerte
+		this->gameObject->sendMessage(&msg);
 	}
 }
