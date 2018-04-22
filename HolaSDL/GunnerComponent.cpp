@@ -23,7 +23,7 @@ GunnerComponent::~GunnerComponent()
 
 void GunnerComponent::update() {
 
-	if (gameObject->isDead()) {
+	if (!gameObject->isDead()) {
 		Transform* gunnerT = gameObject->getTransform();
 		Transform* targetT = targetObject->getTransform();
 

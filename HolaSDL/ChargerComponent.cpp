@@ -2,9 +2,13 @@
 #include "ChargerComponent.h"
 #include "EnemyCharger.h"
 
-ChargerComponent::ChargerComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier) : 
-			ChaseComponent(o, target), ChargeComponent(o, target, delay, time, velMultiplier), UpdateComponent(o)
+ChargerComponent::ChargerComponent(GameObject* o, GameObject* target, float cDelay, float aDelay, float aTime, float velMultiplier) :
+			ChaseComponent(o, target), ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
 {
+
+	chargeDelay = cDelay;
+	attackDelay = aDelay;
+	attackTime = aTime;
 	ec = static_cast<EnemyCharger*>(o);
 	timer = new Timer();
 }
@@ -20,24 +24,22 @@ void ChargerComponent::update()
 	timer->update();
 
 	if (!ec->isStunned()) {
-		if (ec->enemyState != EnemyState::Charge && timer->TimeSinceTimerCreation >= 3.0) {
+		if ((ec->enemyState != EnemyState::Charge && ec->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
 			ec->enemyState = EnemyState::Charge;
 			timer->restart();
-			Message msg(STALKER_ATTACK);
-			ec->sendMessage(&msg);
 			ChargeComponent::resetTimer();
 		}
-		else if (ec->enemyState == EnemyState::Charge && timer->TimeSinceTimerCreation >= 3.0) {
+		else if ((ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
 			ec->enemyState = EnemyState::Run;
 			timer->restart();
 			Message msg(STALKER_RUN);
 			ec->sendMessage(&msg);
 		}
 
-		if (ec->enemyState == EnemyState::Charge) {
+		if (ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) {
 			ChargeComponent::update();
 		}
-		else {
+		else if (ec->enemyState == EnemyState::Run) {
 			ChaseComponent::update();
 		}
 

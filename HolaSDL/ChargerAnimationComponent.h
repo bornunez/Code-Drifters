@@ -2,17 +2,22 @@
 #include "RenderComponent.h"
 #include <map>
 #include "Animation.h"
+class EnemyCharger;
 class ChargerAnimationComponent : public RenderComponent
 {
 public:
-	ChargerAnimationComponent(GameObject* o, GameObject* target, std::map<const char*, Animation*> anim);
+	ChargerAnimationComponent(EnemyCharger* o, GameObject* target, std::map<const char*, Animation*> anim, float hTime, float delayTime);
 	virtual ~ChargerAnimationComponent();
 	void render();
 	void receiveMessage(Message* msg);
 	void handleAnimation();
 private:
-	GameObject * target;
+	GameObject* target;
+	EnemyCharger* es;
 	std::map<const char*, Animation*> animations;
-	
+	Timer* hurtTimer;
+	Timer* chargeTimer;
+	float hurtTime;
+	float attackDelay;
 };
 
