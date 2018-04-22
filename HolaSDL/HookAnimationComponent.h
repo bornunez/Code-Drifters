@@ -18,7 +18,7 @@ public:
 	virtual ~HookAnimationComponent();
 	void setAngle(float angle);
 	void setFlip(SDL_RendererFlip flip);
-	float getSpriteAngle();
+	float getSpriteAngle(Vector2D origin, Vector2D target);
 
 	AnimationNumber animationNumber;
 private:
