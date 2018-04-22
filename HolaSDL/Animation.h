@@ -25,6 +25,8 @@ public:
 	TileLayer* getLayer() { return layer; };
 	string getName() { return name; };
 	void setFlip(SDL_RendererFlip flip);
+	int getFrameWidth() { return frameW; };
+	int getFrameHeight() { return frameH; };
 private:
 	TileLayer* layer;
 	Tileset* tileSet;
