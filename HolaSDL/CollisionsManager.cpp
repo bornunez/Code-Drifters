@@ -111,7 +111,7 @@ void CollisionsManager::bulletCollisions()
 				while (!hit && i < hurtBoxes.size())
 				{
 					if (!mc->getInvincibility()) {
-						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de la hitbox de la bala con la hurtbox del MC
 							hit = true;
 							//Mandar mensaje de collision bala / player
 							Message msg(ENEMY_BULLET_COLLISION);
