@@ -54,29 +54,8 @@ SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopSt
 
 	skill.HLineToFather = new Texture(Game::getGame()->getRenderer());
 	skill.VLineToFather = new Texture(Game::getGame()->getRenderer());
-	if (!skill.bought) {
-		if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
-		if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
-	}
-	else {
-		int TreeNumber = to_string(skill.id).front() - '0';
-		switch (TreeNumber)
-		{
-		case 1:
-			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\RedLine.png"));
-			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\RedLine.png"));
-			break;
-		case 2:
-			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\BlueLine.png"));
-			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\BlueLine.png"));
-			break;
-		case 3:
-			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\GreenLine.png"));
-			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\GreenLine.png"));
-		default:
-			break;
-		}
-	}
+	
+	LoadLineTex();
 	
 }
 
@@ -141,13 +120,27 @@ SDL_Rect SkillTree::GetSkillRect()
 }
 
 void SkillTree::Buy() {
-	cout << skill.description;
+	if (parent_ != nullptr && !skill.bought && parent_->Unlocked()) {//&& Falta condicion de dinero
+		skill.bought = true;
+		skill.needed_point = -1;
+		UpdateBox();
+		LoadLineTex();
+	}
 	}
 
 void SkillTree::UpdateBox()
 {
-	shopState->updateBox(skill.description, skill.needed_point);
-	shopState->activeBox(true);
+	if (parent_ == nullptr) {
+		shopState->updateBox(skill.description, skill.needed_point);
+	}
+	else {
+		if (parent_->Unlocked()) {
+			shopState->updateBox(skill.description, skill.needed_point);
+		}
+		else { shopState->updateBox(skill.description, 0); }
+	}
+		shopState->activeBox(true);
+	
 }
 
 void SkillTree::DesactiveBox()
@@ -214,6 +207,33 @@ void SkillTree::DrawLine() {
 		auxRect.x = skill.destRect.x + (skill.destRect.w/2) - auxRect.w/2;
 
 		skill.VLineToFather->render(auxRect);
+	}
+}
+
+void SkillTree::LoadLineTex()
+{
+	if (!skill.bought) {
+		if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
+		if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
+	}
+	else {
+		int TreeNumber = to_string(skill.id).front() - '0';
+		switch (TreeNumber)
+		{
+		case 1:
+			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\RedLine.png"));
+			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\RedLine.png"));
+			break;
+		case 2:
+			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\BlueLine.png"));
+			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\BlueLine.png"));
+			break;
+		case 3:
+			if (skill.HLineToFather->loadFromImg("..\\Arbol\\Textures\\GreenLine.png"));
+			if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\GreenLine.png"));
+		default:
+			break;
+		}
 	}
 }
 

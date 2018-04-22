@@ -1,1 +1,1 @@
-2 1 0 Rama de Pistola
+2 1 -1 Rama de Pistola

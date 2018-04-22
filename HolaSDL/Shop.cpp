@@ -18,8 +18,8 @@ Shop::Shop(ShopState* shopState)
 	central_tree.w = 400; 
 	central_tree.h = 550;
 
-	right_tree.y = left_tree.y = 150;
-	central_tree.y = 50;
+	right_tree.y = left_tree.y = 130;
+	central_tree.y = 30;
 
 	left_tree.x = 140;
 	central_tree.x = left_tree.x + left_tree.w - 25;

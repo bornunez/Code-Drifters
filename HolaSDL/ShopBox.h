@@ -15,14 +15,13 @@ private:
 	std::string description;
 	Texture* descriptionTex;
 	
-	SDL_Rect costRect;
-	Texture* costTex;
 
 	SDL_Rect priceRect;
 	std::string price;
 	Texture* priceTex;
 
 	void adjustRects();
+	int fontSize = 25;
 public:
 	ShopBox();
 	virtual ~ShopBox();

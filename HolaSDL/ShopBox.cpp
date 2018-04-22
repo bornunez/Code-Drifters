@@ -5,22 +5,22 @@
 
 void ShopBox::adjustRects()
 {
-	descriptionRect.w = description.size() * 25;
-	priceRect.w = price.size() * 25;
+	descriptionRect.w = description.size() * fontSize;
+	descriptionRect.x = (boxRect.x+boxRect.w/2) - (description.size() * fontSize)/2;
+	priceRect.w = price.size() * fontSize;
+	priceRect.x = (boxRect.x + boxRect.w / 2) - (price.size() * fontSize)/2;
 }
 
 ShopBox::ShopBox()
 {
 	boxTex = new Texture(game->getRenderer(), "..\\images\\DialogoSinAnim.png");
 	descriptionTex = new Texture(game->getRenderer());
-	costTex = new Texture(game->getRenderer());
 	priceTex = new Texture(game->getRenderer());
 
 	font = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
-	boxRect= RECT(70, 470, 900, 250);
-	descriptionRect= RECT(150, 510, 150, 50);
-	costRect= RECT(150, 570, 150, 50);
-	priceRect = RECT(350, 570, 150, 50);
+	boxRect= RECT(70, 520, 900, 200);
+	descriptionRect= RECT(170, 560, 150, 50);
+	priceRect = RECT(350, 620, 150, 50);
 
 	active = false;
 	
@@ -30,7 +30,6 @@ ShopBox::ShopBox()
 ShopBox::~ShopBox()
 {
 	delete boxTex;
-	delete costTex;
 	delete descriptionTex;
 	delete priceTex;
 }
@@ -41,7 +40,6 @@ void ShopBox::render()
 	{
 		boxTex->render(boxRect);
 		descriptionTex->render(descriptionRect);
-		costTex->render(costRect);
 		priceTex->render(priceRect);
 	}
 }
@@ -54,13 +52,13 @@ void ShopBox::actualiza(std::string descrip, int prc)
 	{
 		price = "NO DISPONIBLE";
 	}
-	else if (prc = -1) 
+	else if (prc == -1) 
 	{
 		price = "YA OBTENIDO";
 	}
 	else 
 	{
-		price= std::to_string(prc);
+		price= std::to_string(prc)+" CREDITS";
 	}
 	priceTex->loadFromText(price, *font);
 	adjustRects();

@@ -36,6 +36,7 @@ private:
 	//SDL_Rect destRec;
 	string FindParentID();
 	void DrawLine();
+	void LoadLineTex();
 	int getRootID();
 
 public:
