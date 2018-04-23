@@ -57,7 +57,7 @@ void Minimap::render()
 			//Si la sala está explorada, la pintamos
 			if (level->getRoom(i, j)->isExplored()) {
 				//Pintamos distinta la sala actual
-				if(level->getRoom(i,j)->getType() == Boss)
+				if(level->getRoom(i,j)->getType() == BossRoom)
 					SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibujaremos en amarillo
 				else {
 					if (i == currX && j == currY)

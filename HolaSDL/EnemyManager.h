@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <list>
+#include "Boss.h"
 
 using namespace std;
 class Enemy;
@@ -37,6 +38,7 @@ private:
 	//Metodo aux para coger un enemigo del vector de inactivos, Coste O(n) con n = numero de enemigos inactivos
 	Enemy* createEnemy(EnemyType eType);
 	Enemy* getInactiveEnemy(EnemyType eType);
+	Boss* activeBoss;
 
 	MainCharacter* mc;
 
@@ -52,6 +54,10 @@ public:
 	//Spawnea un tipo de enemigo en unas X, Y dadas
 	void spawn(int x, int y, EnemyType eType);
 	void spawn(Spawner* spawner);
+
+	void spawnBoss(int x, int y);
+	Boss* getActiveBoss() { return activeBoss; }
+
 	//Desactiva un enemigo
 	void kill(Enemy* enemy);
 	void killAll();

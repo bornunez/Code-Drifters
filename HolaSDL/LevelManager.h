@@ -33,8 +33,6 @@ private:
 	Room* firstRoom;
 	DungeonGenerator* dungeon;
 
-	void onRoomChange();
-
 public:
 	static LevelManager * getInstance();
 
