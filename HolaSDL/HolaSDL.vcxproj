@@ -34,6 +34,7 @@
     <ClCompile Include="CollisionsManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
+    <ClCompile Include="DamageableBossComponent.cpp" />
     <ClCompile Include="DamageableEnemyComponent.cpp" />
     <ClCompile Include="DecelerationComponent.cpp" />
     <ClCompile Include="DialogObject.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="CollisionsManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
+    <ClInclude Include="DamageableBossComponent.h" />
     <ClInclude Include="DamageableEnemyComponent.h" />
     <ClInclude Include="DecelerationComponent.h" />
     <ClInclude Include="DialogObject.h" />

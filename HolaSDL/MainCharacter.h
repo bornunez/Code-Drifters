@@ -66,6 +66,7 @@ public:
 	float getActualHP();
 	float getMaxHP();
 	int getMoney() { return money; };
+	void changeMoney(int mon);
 	Vector2D getGunPosition();
 	void substractHP(int damage);
 	void addHP(int life);

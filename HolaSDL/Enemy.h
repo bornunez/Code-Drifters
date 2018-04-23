@@ -9,7 +9,7 @@ enum EnemyType;
 enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death, Attack};
 
 //################## ATRIBUTOS COMUNES ####################
-struct CommonAttributes {
+struct CommonBossAttributes {
 	float life; float defense;
 	float speed;
 	float meleeDmg; float rangedDmg;
@@ -22,7 +22,7 @@ class Enemy : public GameObject
 {
 protected:
 
-	CommonAttributes Attributes;
+	CommonBossAttributes Attributes;
 	GameObject* mainCharacter;
 
 	//Necesario para el ciclo de salas

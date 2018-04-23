@@ -80,7 +80,9 @@ void EnemyManager::update()
 		e->update();
 	}
 	if (activeBoss != nullptr)
+	{
 		activeBoss->update();
+	}
 }
 
 void EnemyManager::render()
@@ -89,7 +91,9 @@ void EnemyManager::render()
 		e->render();
 	}
 	if (activeBoss != nullptr)
+	{
 		activeBoss->render();
+	}
 }
 
 void EnemyManager::spawn(int x, int y, EnemyType eType)

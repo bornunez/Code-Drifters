@@ -43,7 +43,7 @@ void MCMovementInput::update()
 		velocity.setX(0);
 		velocity.setY(0);
 		//La velocidad se pone a 500 cada vez que puedes moverte
-		t->speed = 500;
+		t->speed = 300;
 
 		if (keystate[leftKey])//Mueve a la izquierda
 		{
@@ -95,7 +95,6 @@ void MCMovementInput::update()
 		t->velocity.set(0, 0);
 	
 	velocity.normalize();
-
 }
 
 void MCMovementInput::receiveMessage(Message * msg)

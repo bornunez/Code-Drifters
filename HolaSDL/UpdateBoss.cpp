@@ -14,6 +14,13 @@ UpdateBoss::UpdateBoss(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
 UpdateBoss::~UpdateBoss()
 {
 }
+void UpdateBoss::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case HURT:
+		break;
+	}
+}
 
 void UpdateBoss::update()
 {

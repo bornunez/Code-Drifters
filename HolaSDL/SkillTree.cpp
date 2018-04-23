@@ -3,6 +3,8 @@
 #include "Shop.h"
 #include "ShopState.h"
 
+#include"PlayState.h"
+
 SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopSta) {
 	//initial values for destRect
 	shopState= shopSta;
@@ -120,8 +122,9 @@ SDL_Rect SkillTree::GetSkillRect()
 }
 
 void SkillTree::Buy() {
-	if (parent_ != nullptr && !skill.bought && parent_->Unlocked()) {//&& Falta condicion de dinero
+	if (parent_ != nullptr && !skill.bought && parent_->Unlocked() && PlayState::getInstance()->getMainCharacter()->getMoney() >= skill.needed_point) {
 		skill.bought = true;
+		PlayState::getInstance()->getMainCharacter()->changeMoney(-skill.needed_point);
 		skill.needed_point = -1;
 		UpdateBox();
 		LoadLineTex();

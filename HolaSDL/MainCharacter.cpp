@@ -39,7 +39,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	loadAnimations();
 
-	transform.speed = 500;
+	transform.speed = 300;
 	//setMaxVelocity(0.5);
 
 	addComponent(new MCManagerComponent(this));
@@ -50,7 +50,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
-	addComponent(new MCAttackCollisionComponent(this));
+	//addComponent(new MCAttackCollisionComponent(this));
 	addComponent(new LevelExplorer(this));
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
 	addComponent(hookShot);
@@ -289,4 +289,13 @@ void MainCharacter::addHP(int life)
 		HP = maxHP;
 
 	HUDManager::getInstance()->changeLife(life);
+}
+
+void MainCharacter::changeMoney(int mon) {
+	money += mon;
+	if (money > 9999)
+		money = 9999;
+	else if (money < 0)
+		money = 0;
+	HUDManager::getInstance()->ActualizeMoney();
 }

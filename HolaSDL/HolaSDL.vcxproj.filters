@@ -352,6 +352,7 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="ShopBox.cpp" />
+    <ClCompile Include="DamageableBossComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -685,6 +686,7 @@
     <ClInclude Include="ShopBox.h" />
     <ClInclude Include="ShopState.h" />
     <ClInclude Include="SkillTree.h" />
+    <ClInclude Include="DamageableBossComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
