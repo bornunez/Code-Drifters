@@ -70,7 +70,19 @@ void HUDManager::init(MainCharacter* MC) {
 			lifeBack->destRect.y + lifeBack->destRect.h - 10;
 
 	}
-	//addBullet();
+
+	moneyFont = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
+	moneyTex = new Texture(Game::getGame()->getRenderer());
+	SDL_Color aux;
+	aux.a = 255;
+	aux.r = aux.g = aux.b = 255;
+	moneyTex->loadFromText(to_string(PlayState::getInstance()->getMainCharacter()->getMoney()), *moneyFont, aux);
+	moneyDestRect.h  = 50;
+	moneyDestRect.w = (to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() * 15);
+	moneyDestRect.y = Game::getGame()->getWinH() / 5;
+	//moneyDestRect.x = Game::getGame()->getWinW() / 15 - (to_string(PlayState::getInstance()->getMainCharacter()->getMoney())* 15);
+	//cout << to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() << endl;
+	moneyDestRect.x = Game::getGame()->getWinW() / 15 - ((to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() - 1) * 15) + 50;
 }
 
 HUDManager::~HUDManager()
@@ -101,6 +113,8 @@ void HUDManager::render() {
 	ultBack->getTexture()->render(ultBack->destRect, &ultBack->srcRect);
 	ultBar->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
 	ultSkeleton->getTexture()->render(ultSkeleton->destRect, &ultSkeleton->srcRect);
+
+	moneyTex->render(moneyDestRect);
 }
 
 void HUDManager::update() {
