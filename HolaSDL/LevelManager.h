@@ -5,7 +5,7 @@ using namespace std;
 class Room;
 class DungeonGenerator;
 
-enum Direction{Up,Right,Down,Left};
+enum Direction{Up,Right,Down,Left, None};
 struct DirPair { int x; int y; };
 enum LevelType{ City, Red};
 
@@ -15,6 +15,8 @@ private:
 	//Singleton
 	static LevelManager * instance;
 	LevelManager();
+
+	void onRoomChange(Room * room, Direction dir);
 
 	//Cosas de puertas
 	vector<DirPair> directions;
@@ -30,6 +32,8 @@ private:
 	Room* currentRoom;
 	Room* firstRoom;
 	DungeonGenerator* dungeon;
+
+	void onRoomChange();
 
 public:
 	static LevelManager * getInstance();

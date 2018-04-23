@@ -18,7 +18,8 @@ public:
 	GameState* currentState();
 	void pushState(GameState* ge);
 	void changeState(GameState* ge);
-	void popState();
+	void popState();//Saca un estado y lo borra
+	void quitState();//Saca un estado pero no lo borra
 
 	void cleanGarbage();
 };

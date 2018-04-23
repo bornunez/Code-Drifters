@@ -37,8 +37,8 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations, .2, .5));
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new StunComponent(this));
-	addComponent(new SkeletonRendered(this,playState->getCamera()));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	/*addComponent(new SkeletonRendered(this,playState->getCamera()));
+	addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
 }
 

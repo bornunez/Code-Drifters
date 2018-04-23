@@ -21,6 +21,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletAnimationComponent.cpp" />
     <ClCompile Include="BulletManager.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraMovementComponent.cpp" />
     <ClCompile Include="ChargeComponent.cpp" />
@@ -101,9 +102,13 @@
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Shop.cpp" />
+    <ClCompile Include="ShopBox.cpp" />
+    <ClCompile Include="ShopState.cpp" />
     <ClCompile Include="SimpleAnimationComponent.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
     <ClCompile Include="EnemyStalker.cpp" />
+    <ClCompile Include="SkillTree.cpp" />
     <ClCompile Include="StalkerAnimationComponent.cpp" />
     <ClCompile Include="StalkerComponent.cpp" />
     <ClCompile Include="StunComponent.cpp" />
@@ -135,6 +140,7 @@
     <ClInclude Include="Base64.h" />
     <ClInclude Include="BulletAnimationComponent.h" />
     <ClInclude Include="BulletManager.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementComponent.h" />
     <ClInclude Include="ChargeComponent.h" />
@@ -217,9 +223,13 @@
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
+    <ClInclude Include="Shop.h" />
+    <ClInclude Include="ShopBox.h" />
+    <ClInclude Include="ShopState.h" />
     <ClInclude Include="SimpleAnimationComponent.h" />
     <ClInclude Include="SkeletonRenderer.h" />
     <ClInclude Include="EnemyStalker.h" />
+    <ClInclude Include="SkillTree.h" />
     <ClInclude Include="StalkerAnimationComponent.h" />
     <ClInclude Include="StalkerComponent.h" />
     <ClInclude Include="StunComponent.h" />

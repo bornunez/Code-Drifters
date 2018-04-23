@@ -24,26 +24,21 @@ Room::~Room()
 {
 }
 void Room::load() {
-//Como esta puesto en el archivo sobre creacion de niveles, los niveles se guardaran del siguiente formato
-//Si tiene puerta Izquierda, añadimos una L, luego lo mismo con R... del siguiente orden:
-// U > R > D > L + _ + numero de sala
-	string loadFile; 
-	if (doors[Up])
-		loadFile.push_back('U');
-	if (doors[Right])
-		loadFile.push_back('R');
-	if (doors[Down])
-		loadFile.push_back('D');
-	if (doors[Left])
-		loadFile.push_back('L');
-	//Una vez hayamos puesto esto, guardamos el numero de puertas para mas tarde acceder a la carpeta
-	int numDoors = loadFile.size();
-	loadFile.push_back('_');
 
 	//A partir de ahora seleccionaremos una sala aleatoria con las puertas dadas
+	string loadFile;
+	string levelPath;
+	if (type == Boss) {
+		loadFile = "boss_";
+		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(0) + " Door\\";
+	}
+	else {
+		loadFile = getPath();
+		int numDoors = loadFile.size() - 1;
+		//Primero vamos a ver cuantos archivos con las puertas tenemos
+		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(numDoors) + " Door\\";
 
-	//Primero vamos a ver cuantos archivos con las puertas tenemos
-	string levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(numDoors) + " Door\\";
+	}
 	ifstream mapFile;
 	int i = 0;
 	bool found = true;
@@ -71,13 +66,6 @@ void Room::load() {
 }
 void Room::render() {
 
-	/*
-	for (Recorre los tiles de la sala) {//Pinta la sala
-		if (...) {//Si está dentro de la sala
-			tile->render();
-		}
-	}
-	*/
 	map->render();
 }
 
@@ -90,6 +78,25 @@ void Room::setAllDoors(bool set)
 void Room::update()
 {
 
+}
+string Room::getPath()
+{
+	//Como esta puesto en el archivo sobre creacion de niveles, los niveles se guardaran del siguiente formato
+	//Si tiene puerta Izquierda, añadimos una L, luego lo mismo con R... del siguiente orden:
+	// U > R > D > L + _ + numero de sala
+	string loadFile;
+	if (doors[Up])
+		loadFile.push_back('U');
+	if (doors[Right])
+		loadFile.push_back('R');
+	if (doors[Down])
+		loadFile.push_back('D');
+	if (doors[Left])
+		loadFile.push_back('L');
+	//Una vez hayamos puesto esto, guardamos el numero de puertas para mas tarde acceder a la carpeta
+	
+	loadFile.push_back('_');
+	return loadFile;
 }
 //-----------------------------------------------------------------------------------------------
 int Room::getX()
@@ -108,9 +115,6 @@ bool Room::getVisited()
 {
 	return visited;
 }
-string Room::getSpecial() {
-	return special;
-}
 void Room::setX(int X) {
 	x = X;
 }
@@ -123,9 +127,6 @@ void Room::setDoor(Direction door, bool set)
 }
 void Room::setVisited(bool Visited) {
 	visited = Visited;
-}
-void Room::setSpecial(string Special) {
-	special = Special;
 }
 
 void Room::spawn()
