@@ -45,9 +45,9 @@ void Game::run()
 	SDL_Init(SDL_INIT_EVERYTHING);
 	TTF_Init();
 	SDL_ShowCursor(SDL_DISABLE);
-	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("Neon Blade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	SDL_Surface* icon = IMG_Load("..\\images\\mouseIcon.png");
+	SDL_Surface* icon = IMG_Load("..\\images\\bladeIcon.png");
 	SDL_SetWindowIcon(window, icon);
 
 	ResourceManager::createInstance(this->getRenderer());
