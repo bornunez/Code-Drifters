@@ -290,3 +290,12 @@ void MainCharacter::addHP(int life)
 
 	HUDManager::getInstance()->changeLife(life);
 }
+
+void MainCharacter::changeMoney(int mon) {
+	money += mon;
+	if (money > 9999)
+		money = 9999;
+	else if (money < 0)
+		money = 0;
+	HUDManager::getInstance()->ActualizeMoney();
+}
