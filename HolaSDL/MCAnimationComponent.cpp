@@ -147,11 +147,9 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case ENEMY_BULLET_COLLISION:
 		handleAnimationHurt();
-		mc->substractHP(5);
 		break;
 	case STALKER_ATTACK:
 		handleAnimationHurt();
-		mc->substractHP(10);
 		break;
 	case MC_DEATH:
 		handleAnimationDeath();

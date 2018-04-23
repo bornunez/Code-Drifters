@@ -71,4 +71,10 @@ void BoxRenderer::debugGunPosition()
 	int PX = gunPos.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
 	int PY = gunPos.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
 	SDL_RenderDrawPoint(Game::getGame()->getRenderer(), PX, PY);
+
+	SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibuja el punto en azul
+	Vector2D gunPos1 = gameObject->getDisplayCenterPos();
+	int PX1 = gunPos1.getX();
+	int PY1 = gunPos1.getY();
+	SDL_RenderDrawPoint(Game::getGame()->getRenderer(), PX1, PY1);
 }

@@ -22,14 +22,18 @@ void ChaseComponent::update() {
 	Transform* targetT = targetObject->getTransform();
 
 	Vector2D auxVel;
+	if ((abs(targetT->position.getX() - chaserT->position.getX()) + abs(targetT->position.getY() - chaserT->position.getY())) 
+		>=(abs(targetT->body.w - chaserT->body.w) +abs(targetT->body.h - chaserT->body.h))) {
+		//vectorentre enemigo y objetivo
+		auxVel.set(targetT->position - chaserT->position);
 
-	//vectorentre enemigo y objetivo
-	auxVel.set(targetT->position - chaserT->position);
+		//se normaliza 
+		auxVel.normalize();
 
-	//se normaliza 
-	auxVel.normalize();
-	
-
+	}
+	else {
+		auxVel.set(0, 0);
+	}
 	//se asigna la velocidad del enemigo 
 	chaserT->velocity.set(auxVel);
 }
