@@ -32,12 +32,13 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 		mc->getTransform()->position.set(entry);
 	}
 	
-	if (room->getType() == Boss)
+	//Si la sala es de tipo boss, lo spawneamos
+	if (room->getType() == BossRoom)
 	{
 		GameObject * bossSpawn = room->getMap()->getBossSpawn();
 		GameObject * ePoint = room->getMap()->getEntryPoint();
 		if (bossSpawn != nullptr);
-		   //Spawnear boss aqui
+		EnemyManager::getInstance()->spawnBoss(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY());
 		if (ePoint != nullptr)
 			mc->getTransform()->position.set(ePoint->getTransform()->position);
 	}

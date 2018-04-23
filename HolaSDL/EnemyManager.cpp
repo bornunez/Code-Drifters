@@ -112,6 +112,9 @@ void EnemyManager::spawn(Spawner * spawner)
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
 	actives.push_back(e);
 }
+void EnemyManager::spawnBoss(int x, int y)
+{
+}
 void EnemyManager::ResetInstance()
 {
 	instance->killAll();
