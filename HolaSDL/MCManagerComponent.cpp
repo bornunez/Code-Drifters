@@ -2,7 +2,7 @@
 #include "MCManagerComponent.h"
 #include "MainCharacter.h"
 #include "ParticlesManager.h"
-
+#include "HUDManager.h"
 
 MCManagerComponent::MCManagerComponent(MainCharacter* o) : UpdateComponent(static_cast<GameObject*>(o)) {
 	mc = o;
@@ -113,6 +113,8 @@ void MCManagerComponent::HurtMC(float dmg) {
 	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX() - 75, mc->getCenterPos().getY() - 75);
 	mc->setMCState(MCState::Hurt);
 	mc->substractHP(dmg);
+	HUDManager::getInstance()->changeLife(-dmg);
+
 	if (mc->getActualHP() <= 0) {
 		Message msg(MC_DEATH);
 		//Envia a todos los componentes del MC el msg de muerte

@@ -74,8 +74,6 @@ void PlayState::update()
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
-	HUDManager::getInstance()->changeLife(-1);
-	HUDManager::getInstance()->setNewHP(1);
 }
 
 void PlayState::endState()

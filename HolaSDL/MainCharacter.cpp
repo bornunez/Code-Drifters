@@ -23,11 +23,9 @@
 #include "ReloadComponent.h"
 #include "MCGunPosition.h"
 #include "MCManagerComponent.h"
+
+
 //Personaje principal
-
-
-
-
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	: GameObject(tex, x, y, w, h), hook(500), HP(100)
 {

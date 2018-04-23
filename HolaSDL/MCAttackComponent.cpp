@@ -27,7 +27,7 @@ MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(static
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
 
-	if(mc->getMCState()== MCState::Attack || mc->getMCState() == MCState::Idle)
+	if(mc->getMCState()== MCState::Attack || mc->getMCState() == MCState::Idle || comboAttack == CD)
 		attackCD->update();
 
 	if (attackCD->TimeSinceTimerCreation >= 0.5 || (mc->getMCState() == MCState::Attack && gameObject->getCurrentAnimation()->isFinished())) {
@@ -43,9 +43,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			SDL_Rect r;
 			SDL_GetMouseState(&p.x, &p.y);
 
-			
-
-			Vector2D displayPosition;//Posición del personaje relativa a la cámara
+			Vector2D displayPosition;			//Posición del personaje relativa a la cámara
 			displayPosition = mc->getDisplayCenterPos();
 			float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));			//Angulo entre el cursor y el jugador, en grados
 			angle = angle * 180 / M_PI;
@@ -56,16 +54,16 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 			Transform* t = mc->getTransform();
 
-			t->direction.set( p.x - displayPosition.getX(), p.y - displayPosition.getY());//Resta la posición del cursor al del personaje
+			// Si no estas en CD te mueves al atacar
+			if (comboAttack != CD) {
+				t->direction.set(p.x - displayPosition.getX(), p.y - displayPosition.getY());//Resta la posición del cursor al del personaje
 
-			t->direction.normalize();											//Halla el vector de dirección 
-			Vector2D aux = t->direction * ATTACK_MOV;			//Multiplica por cuanto debe moverse
-			t->position.set( t->position + aux * (min((float)1, Time::getInstance()->DeltaTime)));
-			t->velocity.set({ 0,0 });
+				t->direction.normalize();													//Halla el vector de dirección 
+				Vector2D aux = t->direction * ATTACK_MOV;									//Multiplica por cuanto debe moverse
+				t->position.set(t->position + aux * (min((float)1, Time::getInstance()->DeltaTime)));
+				t->velocity.set({ 0,0 });
 
-			//speed a 0 para que no se mueva mientras ataca
-			//t->speed = 0;
-
+			}
 			if (comboAttack == First)
 				attackCD->restart();
 
