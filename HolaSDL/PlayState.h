@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "sdl_includes.h"
+#include "Boss.h"
 #include <list>
 
 class Camera;
