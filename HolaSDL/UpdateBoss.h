@@ -4,15 +4,16 @@
 #include "Timer.h"
 #include "MainCharacter.h"
 #include "Time.h"
+
 class UpdateBoss : public UpdateComponent
 {
 public:
 	UpdateBoss(GameObject* o, MainCharacter* prota);
 	~UpdateBoss();
+	void receiveMessage(Message * msg);
 protected:
 	virtual void update();
 private:
-
 	Vector2D direccion;
 	float vel;
 

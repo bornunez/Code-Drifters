@@ -355,6 +355,7 @@
     <ClCompile Include="ChargerDamageableEnemyComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
+    <ClCompile Include="DamageableBossComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -688,9 +689,6 @@
     <ClInclude Include="ShopBox.h" />
     <ClInclude Include="ShopState.h" />
     <ClInclude Include="SkillTree.h" />
-    <ClInclude Include="ChargerDamageableEnemyComponent.h">
-      <Filter>UpdateComponent\Header</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -23,6 +23,7 @@ private:
 	Font* moneyFont = nullptr;
 	Texture* moneyTex = nullptr;
 	SDL_Rect moneyDestRect;
+	SDL_Color moneyColor;
 
 	int gameScale = 0;
 	float lifeUnit;
@@ -37,5 +38,6 @@ public:
 	void setNewHP(int newL);
 	void addBullet();
 	void changeLife(int l);
+	void ActualizeMoney();
 };
 

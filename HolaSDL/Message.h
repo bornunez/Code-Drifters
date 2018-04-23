@@ -89,6 +89,9 @@ enum MessageId {
 	HOOK_EMPTY,
 	HOOK_STOP,
 
+	//Boss1
+	BOSS1_ATTACK,
+
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID
 };

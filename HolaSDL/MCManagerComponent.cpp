@@ -96,6 +96,9 @@ void MCManagerComponent::receiveMessage(Message * msg)
 	case STALKER_ATTACK:
 		HurtMC(10.0);
 		break;
+	case BOSS1_ATTACK:
+		HurtMC(10.0);
+		break;
 	case MC_DEATH:
 		mc->setMCState(MCState::Death);
 		break;

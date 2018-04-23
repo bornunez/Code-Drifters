@@ -10,6 +10,7 @@
 #include "Managers.h"
 #include "Minimap.h"
 #include "CollisionsManager.h"
+#include "CoinManager.h"
 #include "ItemManager.h"
 #include "ShopState.h"
 
@@ -48,6 +49,7 @@ void PlayState::render()
 	minimap->render();
 	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();
+	CoinManager::getInstance()->render();
 	HUDManager::getInstance()->render();
 	ParticlesManager::getInstance()->render();
 }
@@ -72,13 +74,14 @@ void PlayState::handleEvent(SDL_Event & e)
 void PlayState::update()
 {
 	GameState::update();
-	camera->update();
 	EnemyManager::getInstance()->update();
+	CoinManager::getInstance()->update();
 	BulletManager::getInstance()->update();
 	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
+	camera->update();
 }
 
 void PlayState::openShop()
@@ -126,6 +129,7 @@ void PlayState::loadState()
 	BulletManager::createInstance();
 	LevelManager::getInstance()->enterMap();
 	ItemManager::getInstance()->init();
+	CoinManager::getInstance();
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
 	//HUDManager::getInstance()->addBullet();

@@ -1,8 +1,18 @@
 #include "CoinManager.h"
 #include"ResourceManager.h"
+#include "Random.h"
+#include "DecelerationComponent.h"
 
+CoinManager* CoinManager::instance = nullptr;
 
-void CoinManager::Drop(int valueToDrop)
+CoinManager * CoinManager::getInstance()
+{
+	if (instance == nullptr)
+		instance = new CoinManager();
+	return instance;
+}
+
+void CoinManager::Drop(int valueToDrop, int x, int y)
 {
 	//TCoins = ten coins, FCoins = five coins, OCoins = one coins
 	int NumTCoins = 0,
@@ -10,10 +20,10 @@ void CoinManager::Drop(int valueToDrop)
 		NumOCoins = 0,
 		auxValue = valueToDrop;
 	//algorithm to randomize the quantity of coins dropped (up to the same value)
-	int MaxTenCoins = auxValue / 10;
-	if (MaxTenCoins > 0) {
-		//number between 0 and MaxTenCoins, both inclusive
-		NumTCoins = rand() % (MaxTenCoins + 1);
+	int MaxOneCoins = auxValue / 10;
+	if (MaxOneCoins > 0) {
+		//number between 0 and MaxOneCoins, both inclusive
+		NumTCoins = rand() % (MaxOneCoins + 1);
 		auxValue -= (NumTCoins * 10);
 	}
 	//analogue for five coins 
@@ -25,24 +35,43 @@ void CoinManager::Drop(int valueToDrop)
 	//we can't randomize the last coin due to value loss
 	NumOCoins = auxValue;
 
-	/*cout << NumTCoins << " Numero de monedas de 10" << endl;
+	cout << NumTCoins << " Numero de monedas de 10" << endl;
 	cout << NumFCoins << " Numero de monedas de 5" << endl;
-	cout << NumOCoins << " Numero de monedas de 1" << endl;*/
+	cout << NumOCoins << " Numero de monedas de 1" << endl;
 
 	//now we use getCoin to create the active coins
 	for (int i = 0; i < NumTCoins; i++) {
-		Coin* c = getCoin(CoinType::HundredCoin);
+		Coin* c = getCoin(CoinType::TenCoin);
+		spawnCoin(c, x, y);
 	}
 	for (int i = 0; i < NumFCoins; i++) {
-		Coin* c = getCoin(CoinType::FiftyCoin);
+		Coin* c = getCoin(CoinType::FiveCoin);
+		spawnCoin(c, x, y);
 	}
 	for (int i = 0; i < NumOCoins; i++) {
-		Coin* c = getCoin(CoinType::TenCoin);
+		Coin* c = getCoin(CoinType::OneCoin);
+		spawnCoin(c, x, y);
 	}
 }
 
 CoinManager::CoinManager()
 {
+}
+
+void CoinManager::spawnCoin(Coin * c, int x, int y)
+{
+	Transform* t = c->getTransform();
+	t->position.set(x, y);
+	c->updateBody();
+	t->body.w = t->body.h = 50;
+	int randX = rand() % 360;
+	
+	t->velocity.set(1,0);
+	t->velocity.rotate(randX);
+	t->speed = rand() % (500 - 250 + 1) + 250;
+
+	c->addComponent(new DecelerationComponent(c, 0.9));
+
 }
 
 CoinManager::~CoinManager()
@@ -56,14 +85,15 @@ std::vector<Coin*> CoinManager::getCoins() { return coins; }
 Coin * CoinManager::getCoin(CoinType type)
 {
 	int i = 0;
-	while (i < coins.size() && coins[i]->isActive() && coins[i]->getCoinType() != type)
+	while (i < coins.size() && (coins[i]->isActive() || coins[i]->getCoinType() != type))
 		i++;
 	if (i < coins.size()) {
 		coins[i]->setActive(true);
 		return coins[i];
 	}
 	else {
-		Coin* newCoin = new Coin(ResourceManager::getInstance()->getTexture(CoinSprite), type);
+		Coin* newCoin = new Coin(ResourceManager::getInstance()->getTexture(MCBullet), type);
+		newCoin->setActive(true);
 		coins.push_back(newCoin);
 		return newCoin;
 	}
