@@ -13,6 +13,7 @@ private:
 	void enemyCollisions();
 	void hookCollisions();
 	void enemyAttackCollision();
+	void bossCollisions();
 public:
 	virtual ~CollisionsManager();
 	static CollisionsManager* getInstance();

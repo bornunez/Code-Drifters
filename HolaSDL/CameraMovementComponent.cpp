@@ -15,7 +15,6 @@ CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject*
 
 void CameraMovementComponent::update()
 {
-	cout << "{" << mainCharacter->getTransform()->body.x << " , " << mainCharacter->getTransform()->body.y << "}" << endl;
 	Vector2D posDifference = { lastPos.getX() - mainCharacter->getTransform()->body.x,lastPos.getY() - mainCharacter->getTransform()->body.y };
 	if (abs(posDifference.getX()) >= offset || abs(posDifference.getY()) >= offset ||
 		abs(posDifference.getX()) + abs(posDifference.getY()) >=offset) {

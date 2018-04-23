@@ -50,7 +50,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
-	addComponent(new MCAttackCollisionComponent(this));
+	//addComponent(new MCAttackCollisionComponent(this));
 	addComponent(new LevelExplorer(this));
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
 	addComponent(hookShot);

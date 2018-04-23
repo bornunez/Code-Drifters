@@ -10,6 +10,7 @@
 #include "MCBulletComponent.h"
 #include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
+#include "DamageableBossComponent.h"
 
 using namespace std;
 Boss::Boss(Transform t) : MasterBoss()
@@ -38,6 +39,7 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	addComponent(updat);
 	rend = new RenderBoss(this);
 	addComponent(rend);
+	addComponent(new DamageableBossComponent(this, prota));
 
 
     BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
