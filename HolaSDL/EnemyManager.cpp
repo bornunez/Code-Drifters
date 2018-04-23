@@ -79,6 +79,8 @@ void EnemyManager::update()
 	for (Enemy* e : actives) {
 		e->update();
 	}
+	if (activeBoss != nullptr)
+		activeBoss->update();
 }
 
 void EnemyManager::render()
@@ -86,6 +88,8 @@ void EnemyManager::render()
 	for (Enemy* e : actives) {
 		e->render();
 	}
+	if (activeBoss != nullptr)
+		activeBoss->render();
 }
 
 void EnemyManager::spawn(int x, int y, EnemyType eType)
@@ -114,6 +118,7 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
+	activeBoss = new Boss(mc, x, y, 200, 200);
 }
 void EnemyManager::ResetInstance()
 {

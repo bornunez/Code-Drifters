@@ -4,8 +4,8 @@
 class CoinManager
 {
 public:
-	void Drop(int valueToDrop);
-	CoinManager();
+	static CoinManager* getInstance();
+	void Drop(int valueToDrop, int x, int y);
 	virtual ~CoinManager();
 	std::vector<Coin*> getCoins();
 	Coin* getCoin(CoinType type);
@@ -13,6 +13,9 @@ public:
 	virtual void render();
 	virtual void update();
 protected:
+	CoinManager();
 	std::vector<Coin*> coins;
+	static CoinManager* instance;
+	void spawnCoin(Coin* c, int x, int y);
 };
 

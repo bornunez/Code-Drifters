@@ -1,22 +1,21 @@
 #include "Coin.h"
+#include "SimpleAnimationComponent.h"
+#include "BasicMovement.h"
 
 
-
-Coin::Coin(Texture* text, CoinType val) : GameObject(text,{0,0},10,10)
+Coin::Coin(Texture* text, CoinType val) : GameObject(text,0,0,50,50)
 {
 	//texture = text;
 	//transform = pos;
 	value = val;
+	addComponent(new SimpleAnimationComponent(this, text));
+	addComponent(new BasicMovement(this));
 }
 
 
 Coin::~Coin()
 {
 }
-
-void Coin::update(){}
-
-void Coin::render() {}
 
 void Coin::handleEvents(SDL_Event& e){}
 

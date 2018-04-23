@@ -9,6 +9,7 @@
 #include "EnemyManager.h"
 #include "Map.h"
 #include "ItemManager.h"
+#include "CoinManager.h"
 
 Enemy::Enemy(MainCharacter* mc) : GameObject()
 {
@@ -81,6 +82,11 @@ void Enemy::death()
 	setMovable(false);
 	setDeath(true);
 	ItemManager::getInstance()->AddItem(Enemies,centerPosition);
+
+	int maxCoins = Attributes.maxDrop; int minCoins = Attributes.minDrop;
+	int drop = rand() % (maxCoins - minCoins + 1) + minCoins;
+	CoinManager::getInstance()->Drop(drop,centerPosition.getX(), centerPosition.getY());
+
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
 	cout << "me he morido";
