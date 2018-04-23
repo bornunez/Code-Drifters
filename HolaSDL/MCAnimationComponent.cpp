@@ -188,7 +188,6 @@ void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tie
 void MCAnimationComponent::handleAnimationStates()
 {
 	//IDLE POSITIONS
-	//cout << (int)mc->getMCState();
 	if (mc->getMCState() == MCState::Hurt) {
 		hurtTimer->update();
 		if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
@@ -302,7 +301,7 @@ void MCAnimationComponent::handleAnimationEndDash()
 //Cambia la animacion a HURT y crea una particula de sangre
 void MCAnimationComponent::handleAnimationHurt()
 {
-	cout << mc->getActualHP();
+	//cout << mc->getActualHP();
 	gameObject->changeCurrentAnimation("HURT");
 	//mc->setMCState(MCState::Hurt);
 	hurtTimer->restart();
