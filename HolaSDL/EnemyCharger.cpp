@@ -15,7 +15,6 @@
 #include "BasicMovement.h"
 #include "BoxRenderer.h"
 #include "BasicInvincibleComponent.h"
-#include "KnockbackComponent.h"
 #include "ChargerComponent.h"
 #include "ChargerDamageableEnemyComponent.h"
 #include "WallStunComponent.h"
@@ -33,12 +32,11 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
-	addComponent(new KnockbackComponent(this, 10000));
 	addComponent(new WallStunComponent(this, 4.0));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations, .2, .5));
 	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 2));
-	addComponent(new BasicInvincibleComponent(this, 100));
+	addComponent(new BasicInvincibleComponent(this, .2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new ChargerDamageableEnemyComponent(this, getMC()));
 }

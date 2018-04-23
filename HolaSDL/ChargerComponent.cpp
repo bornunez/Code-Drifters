@@ -26,8 +26,8 @@ void ChargerComponent::update()
 	timer->update();
 
 	if (!ec->isStunned()) {
+		ec->setMovable(true);
 		if ((ec->enemyState != EnemyState::Charge && ec->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
-			
 			Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
 			float angle = (atan2(targetObject->getDisplayCenterPos().getY() - displayCenterPos.getY(), targetObject->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
 			angle = angle * 180 / M_PI;
@@ -52,8 +52,8 @@ void ChargerComponent::update()
 			}
 
 			ec->enemyState = EnemyState::Charge;
+			ChargeComponent::startCharge();
 			timer->restart();
-			ChargeComponent::resetTimer();
 		}
 		else if ((ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
 			ec->enemyState = EnemyState::Run;
@@ -70,6 +70,8 @@ void ChargerComponent::update()
 	}
 
 	else { 
+		gameObject->getTransform()->velocity.set({ 0,0 });
+		ec->setMovable(false);
 		ec->enemyState = EnemyState::Run;
 		Message msg(STUN);
 		gameObject->sendMessage(&msg);

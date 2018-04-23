@@ -27,10 +27,10 @@ void StalkerComponent::update()
 		if (!es->isStunned()) {
 			if ((es->enemyState != EnemyState::Charge && es->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
 				es->enemyState = EnemyState::Charge;
+				ChargeComponent::startCharge();
 				timer->restart();
 				Message msg(STALKER_CHARGE);
 				es->sendMessage(&msg);
-				ChargeComponent::resetTimer();
 			}
 			else if ((es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
 				es->enemyState = EnemyState::Run;
