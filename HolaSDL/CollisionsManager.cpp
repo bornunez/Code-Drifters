@@ -12,6 +12,7 @@
 #include "ItemObject.h"
 #include "Transform.h"
 #include "Hook.h"
+#include "ParticlesManager.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -120,6 +121,7 @@ void CollisionsManager::bulletCollisions()
 							//Mandar mensaje de collision bala / player
 							Message msg(ENEMY_BULLET_COLLISION);
 							mc->sendMessage(&msg);
+							
 						}
 						i++;
 					}
@@ -140,8 +142,10 @@ void CollisionsManager::bulletCollisions()
 					}
 				}
 			}
-			if (collision || hit)
+			if (collision || hit) {
+				//ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX() -75, b->getCenterPos().getY()-75);
 				b->setActive(false);
+			}
 		}
 	}
 }

@@ -40,6 +40,11 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}
+	else if (particleName == ParticleType::GunnerBulletExplosion) {
+		newParticle = new Particle(ResourceManager::getInstance()->getTexture(GunnerBulletExplosion), ParticleType::GunnerBulletExplosion, x, y);
+		newParticle->setActive(true);
+		particles.push_back(newParticle);
+	}
 	return newParticle;
 }
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
-enum class ParticleType { Blood };
+enum class ParticleType { Blood , GunnerBulletExplosion};
 
 class Particle : public GameObject
 {
