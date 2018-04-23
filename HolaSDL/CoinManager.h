@@ -5,10 +5,12 @@ class CoinManager
 {
 public:
 	static CoinManager* getInstance();
-	void Drop(int valueToDrop, int x, int y);
 	virtual ~CoinManager();
 	std::vector<Coin*> getCoins();
 	Coin* getCoin(CoinType type);
+
+	void Drop(int valueToDrop, int x, int y);
+	void Pick(Coin* c);
 
 	virtual void render();
 	virtual void update();

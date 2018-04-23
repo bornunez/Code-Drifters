@@ -8,6 +8,7 @@ Coin::Coin(Texture* text, CoinType val) : GameObject(text,0,0,50,50)
 	//texture = text;
 	//transform = pos;
 	value = val;
+	setCollisionsLayers({ "Aire","Paredes" });
 	addComponent(new SimpleAnimationComponent(this, text));
 	addComponent(new BasicMovement(this));
 }

@@ -13,6 +13,8 @@
 #include "Transform.h"
 #include "Hook.h"
 #include "ParticlesManager.h"
+#include "CoinManager.h"
+#include "Coin.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -59,6 +61,9 @@ void CollisionsManager::update()
 
 	//Colision del Boss
 	bossCollisions();
+
+	//COLLISIONES DE LAS MONEDAS CON ENTORNO / PROTA
+	coinCollision();
 }
 
 void CollisionsManager::render()
@@ -380,4 +385,23 @@ void CollisionsManager::bossCollisions()
 		}
 		layerCollisions(boss);
 	}
+}
+
+void CollisionsManager::coinCollision()
+{
+	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+
+	vector<Coin*> coins = CoinManager::getInstance()->getCoins();
+	for (Coin* c : coins) {
+		if (c->isActive()) {
+			if (c->getTransform()->speed <= 0.5) {
+				if (CollisionHandler::RectCollide(c->getTransform()->body, mc->getTransform()->body)) {
+					CoinManager::getInstance()->Pick(c);
+				}
+			}
+			else
+				layerCollisions(c);
+		}
+	}
+
 }

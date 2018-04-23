@@ -1,6 +1,6 @@
 #pragma once
 #include"GameObject.h"
-enum class CoinType
+enum CoinType
 {
 	OneCoin,
 	FiveCoin,

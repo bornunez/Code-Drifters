@@ -2,6 +2,8 @@
 #include"ResourceManager.h"
 #include "Random.h"
 #include "DecelerationComponent.h"
+#include "MainCharacter.h"
+#include "PlayState.h"
 
 CoinManager* CoinManager::instance = nullptr;
 
@@ -54,6 +56,26 @@ void CoinManager::Drop(int valueToDrop, int x, int y)
 	}
 }
 
+void CoinManager::Pick(Coin * c)
+{
+	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+	c->setActive(false);
+	switch (c->getCoinType())
+	{
+	case OneCoin:
+		mc->changeMoney(1);
+		break;
+	case FiveCoin:
+		mc->changeMoney(5);
+		break;
+	case TenCoin:
+		mc->changeMoney(10);
+		break;
+	default:
+		break;
+	}
+}
+
 CoinManager::CoinManager()
 {
 }
@@ -70,7 +92,7 @@ void CoinManager::spawnCoin(Coin * c, int x, int y)
 	t->velocity.rotate(randX);
 	t->speed = rand() % (500 - 250 + 1) + 250;
 
-	c->addComponent(new DecelerationComponent(c, 0.9));
+	c->addComponent(new DecelerationComponent(c, 1,0.5));
 
 }
 

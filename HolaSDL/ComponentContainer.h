@@ -30,7 +30,7 @@ public:
 	//void sendMessage(std::string msg);
 	////El segundo manda un mensaje a un grupo de componentes de un tipo
 	//void sendMessage(std::string msg, ComponentType type);
-	void sendMessage(Message* msg);
+	virtual void sendMessage(Message* msg);
 	void sendMessage(Message* msg, ComponentType type);
 
 	virtual void update();
