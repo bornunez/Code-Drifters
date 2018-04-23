@@ -80,7 +80,6 @@ void HUDManager::init(MainCharacter* MC) {
 	moneyDestRect.h  = 50;
 	moneyDestRect.w = (to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() * 15);
 	moneyDestRect.y = Game::getGame()->getWinH() / 5;
-	//moneyDestRect.x = Game::getGame()->getWinW() / 15 - (to_string(PlayState::getInstance()->getMainCharacter()->getMoney())* 15);
 	//cout << to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() << endl;
 	moneyDestRect.x = Game::getGame()->getWinW() / 15 - ((to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() - 1) * 15) + 50;
 }

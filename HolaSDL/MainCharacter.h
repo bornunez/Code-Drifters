@@ -25,7 +25,7 @@ private:
 	float currentBullets;
 	float reloadTime;
 
-	int money = 0;
+	int money = 1297;
 
 	Vector2D gunPosition;//Posici�n de donde sale la bala
 	Hook hook;
