@@ -23,7 +23,7 @@ private:
 	void fase3();
 	void fase4();
 	void fase5();
-	bool saltado;
+	bool updateado = false;
 
 	//TIEMPOS
 	float tiempoAct = 0;

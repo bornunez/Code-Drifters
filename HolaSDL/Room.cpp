@@ -71,13 +71,6 @@ void Room::load() {
 }
 void Room::render() {
 
-	/*
-	for (Recorre los tiles de la sala) {//Pinta la sala
-		if (...) {//Si está dentro de la sala
-			tile->render();
-		}
-	}
-	*/
 	map->render();
 }
 
@@ -108,9 +101,6 @@ bool Room::getVisited()
 {
 	return visited;
 }
-string Room::getSpecial() {
-	return special;
-}
 void Room::setX(int X) {
 	x = X;
 }
@@ -123,9 +113,6 @@ void Room::setDoor(Direction door, bool set)
 }
 void Room::setVisited(bool Visited) {
 	visited = Visited;
-}
-void Room::setSpecial(string Special) {
-	special = Special;
 }
 
 void Room::spawn()

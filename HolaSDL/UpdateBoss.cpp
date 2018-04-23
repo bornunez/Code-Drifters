@@ -18,21 +18,22 @@ UpdateBoss::~UpdateBoss()
 void UpdateBoss::update()
 {
 	boss->allUpdates();
-	cout << faseAct;
-	if (faseAct == 1 && (Tiempo->TimeSinceTimerCreation < tiempoFase1))
+	updateado = false;
+	if (faseAct == 1 && (Tiempo->TimeSinceTimerCreation < tiempoFase1) && !updateado)
 	{
 		fase1();
 	}
-	else if (faseAct == 1)
+	else if (faseAct == 1 && !updateado)
 	{
 		Tiempo->restart();
 		faseAct = 2;
+		updateado = true;
 	}
-	if (faseAct == 2 && Tiempo->TimeSinceTimerCreation < tiempoFase2)
+	if (faseAct == 2 && Tiempo->TimeSinceTimerCreation < tiempoFase2 && !updateado)
 	{
 		fase2();
 	}
-	else if (faseAct == 2)
+	else if (faseAct == 2 && !updateado)
 	{
 		Tiempo->restart();
 		faseAct = 1;
@@ -42,33 +43,37 @@ void UpdateBoss::update()
 			fasesPast = 0;
 		}
 		else fasesPast++;
+		updateado = true;
 	}
-	if (faseAct == 3 && Tiempo->TimeSinceTimerCreation < tiempoFase3)
+	if (faseAct == 3 && Tiempo->TimeSinceTimerCreation < tiempoFase3 && !updateado)
 	{
 		fase3();
 	}
-	else if (faseAct == 3)
+	else if (faseAct == 3 && !updateado)
 	{
 		Tiempo->restart();
 		faseAct = 4;
+		updateado = true;
 	}
-	if (faseAct == 4 && Tiempo->TimeSinceTimerCreation < tiempoFase4)
+	if (faseAct == 4 && Tiempo->TimeSinceTimerCreation < tiempoFase4 && !updateado)
 	{
 		fase4();
 	}
-	else if (faseAct == 4)
+	else if (faseAct == 4 && !updateado)
 	{
 		Tiempo->restart();
 		faseAct = 5;
+		updateado = true;
 	}
-	if (faseAct == 5 && Tiempo->TimeSinceTimerCreation < tiempoFase5)
+	if (faseAct == 5 && Tiempo->TimeSinceTimerCreation < tiempoFase5 && !updateado)
 	{
 		fase5();
 	}
-	else if (faseAct == 5)
+	else if (faseAct == 5 && !updateado)
 	{
 		Tiempo->restart();
 		faseAct = 1;
+		updateado = true;
 	}
 	Tiempo->update();
 }
@@ -94,7 +99,6 @@ void UpdateBoss::fase2()
 		boss->changeCurrentAnimation("ATTACK_FALL");
 		boss->getCurrentAnimation()->startAnimation();
 	}
-	//boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*velocidad*1.2f);
 }
 void UpdateBoss::fase3()
 {
@@ -124,7 +128,7 @@ void UpdateBoss::fase5()
 		boss->getTransform()->position.setX(boss->getTransform()->position.getX() - boss->getTransform()->body.w / 2);
 		boss->getTransform()->position.setY(boss->getTransform()->position.getY() - boss->getTransform()->body.h / 2);
 	}
-	if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() != "Boss1-NormalAttack")
+	else if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() != "Boss1-NormalAttack")
 	{
 		boss->changeCurrentAnimation("NORMAL_ATTACK");
 		boss->getCurrentAnimation()->startAnimation();

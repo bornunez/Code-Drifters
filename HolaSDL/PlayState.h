@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "sdl_includes.h"
+#include "Boss.h"
 #include <list>
 
 class Camera;
@@ -27,6 +28,7 @@ private:
 
 	static PlayState* instance;
 
+	GameState* shopState;
 	//enemigo temporal
 	PlayState();
 public:
@@ -40,6 +42,7 @@ public:
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
+	void openShop();
 	void endState();
 };
 

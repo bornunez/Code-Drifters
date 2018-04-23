@@ -34,10 +34,11 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	loadAnimations();
 	this->changeCurrentAnimation("CANSADO");
 
-	rend = new RenderBoss(this);
-	addComponent(rend);
 	updat = new UpdateBoss(this, prota);
 	addComponent(updat);
+	rend = new RenderBoss(this);
+	addComponent(rend);
+
 
     BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);

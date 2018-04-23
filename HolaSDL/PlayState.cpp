@@ -11,6 +11,7 @@
 #include "Minimap.h"
 #include "CollisionsManager.h"
 #include "ItemManager.h"
+#include "ShopState.h"
 
 #include"HUDManager.h"
 #include "ParticlesManager.h"
@@ -19,7 +20,7 @@ PlayState* PlayState::instance = nullptr;
 
 PlayState::PlayState():GameState ()
 {
-
+	
 }
 
 
@@ -59,6 +60,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			game->startDialogue("1");
 		}
+		if (e.key.keysym.sym == SDLK_o)
+		{
+			openShop();
+		}
 	}
 	GameState::handleEvent(e);
 	//mainCharacter->handleEvents(e);
@@ -74,6 +79,11 @@ void PlayState::update()
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
+}
+
+void PlayState::openShop()
+{
+	game->pushState(shopState);
 }
 
 void PlayState::endState()
@@ -103,7 +113,7 @@ void PlayState::loadState()
 	minimap = new Minimap(mMapW, mMapH, mMapW / 5, mMapH / 5);
 
 	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
-
+	shopState = new ShopState(this);
 	camera->load();
 
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
