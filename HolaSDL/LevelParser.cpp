@@ -154,6 +154,25 @@ void LevelParser::parseObjects(XMLElement * root, XMLElement * objectsElement, M
 	map->setObjects(objects);
 }
 
+void LevelParser::parseEntryPoint(XMLElement * root, XMLElement * objectsElement, Map * map)
+{
+	int scale = Game::getGame()->getScale();
+	//Si hay puerta sacamos sus datos
+	bool found = false;
+	for (XMLElement* object = objectsElement->FirstChildElement(); !found && object != nullptr; object = objectsElement->NextSiblingElement()) {
+		//Casteamos la puerta y sacamos la direccion
+		string objectName = object->Attribute("name");
+		int x = atoi(object->Attribute("x"))* scale;
+		int y = atoi(object->Attribute("y"))* scale;
+		//Guardamos la posicion
+		if (objectName == "Start") {
+			GameObject* go = new GameObject(nullptr, x, y, 0, 0);
+			map->setEntryPoint(go);
+			found = true;
+		}
+	}
+}
+
 vector<Tileset*> LevelParser::parseTileSets(XMLElement * root, Map * map)
 {
 	vector<Tileset*> tilesets;
@@ -219,7 +238,6 @@ GameObject * LevelParser::stringToObject(string objName, int x, int y)
 	//Aqui hacer el switch largo para ver cual es
 	if (objName == "Turret")
 		obj->addComponent(new SimpleAnimationComponent(obj,ResourceManager::getInstance()->getTexture(GunnerBullet)));
-		
 	return obj;
 }
 
@@ -267,6 +285,8 @@ Map * LevelParser::parseLevel(string levelFile, vector<bool> doors)
 				parseEntries(root, e, map, doors);
 			else if (e->Attribute("name") == string("Animados"))
 				parseObjects(root, e, map);
+			else if (e->Attribute("name") == string("Inicio"))
+				parseEntryPoint(root, e, map);
 		}
 	}
 	//XMLElement* mapa = levelDocument.FirstChildElement("map");

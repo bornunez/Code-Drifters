@@ -23,13 +23,11 @@
 #include "ReloadComponent.h"
 #include "MCGunPosition.h"
 #include "MCManagerComponent.h"
+#include "HUDManager.h"
+
 //Personaje principal
-
-
-
-
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
-	: GameObject(tex, x, y, w, h), hook(500), HP(100)
+	: GameObject(tex, x, y, w, h), hook(500), HP(100), maxHP(100)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
@@ -287,4 +285,8 @@ void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
 void MainCharacter::addHP(int life)
 {
 	HP += life;
+	if (HP > maxHP)
+		HP = maxHP;
+
+	HUDManager::getInstance()->changeLife(life);
 }

@@ -84,7 +84,7 @@ void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la 
 			Dungeon_[i][j]->setX(j);
 			Dungeon_[i][j]->setY(i);
 			Dungeon_[i][j]->setAllDoors(false);
-			Dungeon_[i][j]->setSpecial("");
+			Dungeon_[i][j]->setType(Normal);
 		}
 	}
 }
@@ -139,7 +139,7 @@ void DungeonGenerator::AddFirstRoom()//Crea la sala inicial de la mazmora
 	int midHeight = round(mapHeight_ / 2);
 	Dungeon_[midHeight][midWidth]->setVisited(true);//Crea la primera sala en la mitad de la matriz
 	visitedRooms_.push_back(Dungeon_[midHeight][midWidth]);
-	visitedRooms_[0]->setSpecial("FirstRoom");
+	visitedRooms_[0]->setType(First);
 	unvisitedRooms_.push_back(Dungeon_[midHeight + 1][midWidth]);//Añade la sala de abajo al vector de salas sin visitar
 	Dungeon_[midHeight][midWidth]->setDoor(Down,true);
 	SetEntryDoor(midWidth, midHeight + 1, "Up");
@@ -175,14 +175,14 @@ void DungeonGenerator::CreateSpecialRooms()//Asigna las salas especiales a las s
 	int shopRooms = 1;
 	int chestRooms = round(deadEndsnum / 2);//La mitad de las salas restntes tienen tesoro
 	int rnd = rand() % deadEnds_.size();
-	deadEnds_[rnd]->setSpecial("Boss");
+	deadEnds_[rnd]->setType(Boss);
 	deadEnds_.erase(deadEnds_.begin() + rnd);
 	rnd = rand() % deadEnds_.size();
-	deadEnds_[rnd]->setSpecial("Shop");
+	deadEnds_[rnd]->setType(Shop);
 	deadEnds_.erase(deadEnds_.begin() + rnd);
 	for (int i = 0; i < chestRooms; i++) {
 		rnd = rand() % deadEnds_.size();
-		deadEnds_[rnd]->setSpecial("Chest");
+		deadEnds_[rnd]->setType(Chest);
 		deadEnds_.erase(deadEnds_.begin() + rnd);
 	}
 }

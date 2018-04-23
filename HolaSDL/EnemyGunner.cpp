@@ -29,7 +29,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
-	addComponent(new KnockbackComponent(this, 5000));
+	addComponent(new KnockbackComponent(this, 1000));
 	addComponent(new BasicMovement(this));
 	addComponent(new DamageableEnemyComponent(this, getMC()));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));

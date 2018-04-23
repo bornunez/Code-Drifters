@@ -20,10 +20,6 @@
 #include "StalkerComponent.h"
 #include "StunComponent.h"
 #include "SkeletonRenderer.h"
-//#include "ChargeComponent.h"
-//#include "ChaseComponent.h"
-
-
 
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
@@ -32,10 +28,8 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	transform.body.h = 32 * Game::getGame()->getScale() / 2;
 	loadAnimations();
 	facing = RIGHT;
-	//this->addComponent(new ChaseComponent(this, getMC()));
-	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
-	addComponent(new KnockbackComponent(this, 10000));
+	addComponent(new KnockbackComponent(this, 1000));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new DamageableEnemyComponent(this, getMC()));
 	//parametros: tiempo entre cargas, tiempo de delay al cargar, tiempo de movimiento en carga, multiplicador velocidad

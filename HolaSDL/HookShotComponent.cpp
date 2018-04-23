@@ -168,6 +168,12 @@ void HookShotComponent::moveEnemy()//Cambia la posición del enemigo según la pos
 
 void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hasta que llega o choca con una pared
 {
+	Vector2D auxVel;//El punto de origen sigue al gancho
+	auxVel.set( hook->getCenterPos() - hook->getOriginPosition());
+	auxVel.normalize();
+	hook->getTransform()->velocity.set(auxVel);
+
+
 	hook->setOriginPosition(hook->getOriginPosition() + hook->getTransform()->velocity*hookSpeed*(Time::getInstance()->DeltaTime));
 
 	Transform* mcT = mc->getTransform();

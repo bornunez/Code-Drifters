@@ -1,6 +1,7 @@
 #include "HUDManager.h"
 #include"ResourceManager.h"
 #include "Game.h"
+#include "PlayState.h"
 
 HUDManager* HUDManager::instance = nullptr;
 
@@ -44,6 +45,8 @@ void HUDManager::init(MainCharacter* MC) {
 	lifeBar->srcRect = lifeBack->srcRect;
 	lifeSkeleton->destRect = lifeBack->destRect;
 	lifeSkeleton->srcRect = lifeBack->srcRect;
+
+	lifeUnit = lifeBack->destRect.w / PlayState::getInstance()->getMainCharacter()->getMaxHP();
 
 	for (int i = 0; i < bullets_.size(); i++) {
 
@@ -146,11 +149,14 @@ void HUDManager::setNewHP(int newL) {
 }
 
 void HUDManager::changeLife(int l) {
-	lifeBar->destRect.w += l*gameScale*0.75;
+
+	lifeBar->destRect.w += l * lifeUnit;
 	lifeBar->srcRect.x -= l;
 	lifeBar->srcRect.w += l;
-	if (lifeBar->destRect.w > lifeBack->destRect.w)
-		lifeBar->destRect.w = lifeBack->destRect.w * gameScale * .75;
+	if (lifeBar->destRect.w > lifeBack->destRect.w) {
+		lifeBar->destRect.w = lifeBack->destRect.w;
+		lifeBar->srcRect = lifeBack->srcRect;
+	}
 	else if (lifeBar->destRect.w < 0)
 		lifeBar->destRect.w = 0;
 }

@@ -53,7 +53,8 @@ void CollisionsManager::update()
 	hookCollisions();
 
 	//COLISION STALKER CON MC
-	enemyAttackCollision();
+	if(PlayState::getInstance()->getMainCharacter()->getMCState() != MCState::Hurt)
+		enemyAttackCollision();
 }
 
 void CollisionsManager::render()
