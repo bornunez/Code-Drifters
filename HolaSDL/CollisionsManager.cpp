@@ -191,22 +191,24 @@ void CollisionsManager::playerCollisions()
 
 	Boss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
-		MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-		bool hit = false;
-		vector<SDL_Rect> bossHurtboxes = boss->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
-		vector<SDL_Rect> mcHitboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
-		uint i = 0;
+		if (!boss->getInvincibility()) {
+			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+			bool hit = false;
+			vector<SDL_Rect> bossHurtboxes = boss->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+			vector<SDL_Rect> mcHitboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+			uint i = 0;
 
-		//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
-		for (uint i = 0; !hit && i < bossHurtboxes.size(); i++) {
-			for (uint j = 0; !hit && j < mcHitboxes.size(); j++) {
-				if (CollisionHandler::RectCollide(bossHurtboxes[i], mcHitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
-					
-					float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
+			//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+			for (uint i = 0; !hit && i < bossHurtboxes.size(); i++) {
+				for (uint j = 0; !hit && j < mcHitboxes.size(); j++) {
+					if (CollisionHandler::RectCollide(bossHurtboxes[i], mcHitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 
-					MCAttackDamage msg(damage);
-					boss->sendMessage(&msg);
-					hit = true;
+						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
+
+						MCAttackDamage msg(damage);
+						boss->sendMessage(&msg);
+						hit = true;
+					}
 				}
 			}
 		}
@@ -231,28 +233,29 @@ void CollisionsManager::hookCollisions()
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 	Hook hook = mc->getHook();
 	if (hook.isActive()) {//Solo mira las colisiones si el gancho está activo
+		if (hook.getHookStatus() == HookStatus::EXTEND) {
+			list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
+			SDL_Rect hookColl = mc->getHook().getTransform()->body;
+			for (GameObject* e : enemies) {//Itera la lista de enemigos activos
+				if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
+					vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+					bool hit = false;
+					uint i = 0;
+					while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo				
+						if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
 
-		list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
-		SDL_Rect hookColl = mc->getHook().getTransform()->body;
-		for (GameObject* e : enemies) {//Itera la lista de enemigos activos
-			if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
-				vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
-				bool hit = false;
-				uint i = 0;
-				while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo				
-					if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
-						
-						HookEnemyMessage msg(static_cast<Enemy*>(e));
-						mc->sendMessage(&msg);
-						e->setMovable(false);
+							HookEnemyMessage msg(static_cast<Enemy*>(e));
+							mc->sendMessage(&msg);
+							e->setMovable(false);
+						}
+						i++;
 					}
-					i++;
 				}
 			}
 		}
 
 
-		if (hook.getHookStatus() != HookStatus::MOVE_MC) {//Solo hace las comprobaciones del gancho con la pared si no está enganchado ya
+		if (hook.getHookStatus() == HookStatus::EXTEND) {//Solo hace las comprobaciones del gancho con la pared si no está enganchado ya
 			//Colisionamos
 			Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 			bool collision = false;
@@ -326,20 +329,21 @@ void CollisionsManager::enemyAttackCollision() {
 	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 	for (Enemy* e : enemies) {//Itera la lista de enemigos activos
 		if (e->getEnemyState() == EnemyState::Attack) {				//Solo se comprueban colisiones si el enemigo esta atacando
+			if (!mc->getInvincibility()) {
+				vector<SDL_Rect> enemyHitboxes = e->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+				vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+				uint i = 0;
 
-			vector<SDL_Rect> enemyHitboxes = e->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
-			vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
-			uint i = 0;
+				//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+				for (uint i = 0; !hit && i < enemyHitboxes.size(); i++) {
+					for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
+						if (CollisionHandler::RectCollide(enemyHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+							hit = true;
 
-			//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
-			for (uint i = 0; !hit && i < enemyHitboxes.size(); i++) {
-				for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
-					if (CollisionHandler::RectCollide(enemyHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
-						hit = true;
-
-						//Mandar mensaje de collision stalker / player
-						Message msg(STALKER_ATTACK);
-						mc->sendMessage(&msg);
+							//Mandar mensaje de collision stalker / player
+							Message msg(STALKER_ATTACK);
+							mc->sendMessage(&msg);
+						}
 					}
 				}
 			}
@@ -352,19 +356,21 @@ void CollisionsManager::bossCollisions()
 	Boss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
 		MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-		bool hit = false;
-		vector<SDL_Rect> bossHitboxes = boss->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
-		vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
-		uint i = 0;
+		if (!mc->getInvincibility()) {
+			bool hit = false;
+			vector<SDL_Rect> bossHitboxes = boss->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+			vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+			uint i = 0;
 
-		//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
-		for (uint i = 0; !hit && i < bossHitboxes.size(); i++) {
-			for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
-				if (CollisionHandler::RectCollide(bossHitboxes[i], mcHurtboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
-					hit = true;
-					//Mandar mensaje de collision stalker / player
-					Message msg(BOSS1_ATTACK);
-					mc->sendMessage(&msg);
+			//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+			for (uint i = 0; !hit && i < bossHitboxes.size(); i++) {
+				for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
+					if (CollisionHandler::RectCollide(bossHitboxes[i], mcHurtboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+						hit = true;
+						//Mandar mensaje de collision stalker / player
+						Message msg(BOSS1_ATTACK);
+						mc->sendMessage(&msg);
+					}
 				}
 			}
 		}
