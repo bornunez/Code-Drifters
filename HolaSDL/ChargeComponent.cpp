@@ -7,7 +7,8 @@
 
 ChargeComponent::ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier) : UpdateComponent(o)
 {
-	e=static_cast<Enemy*>(o);
+	e = static_cast<Enemy*>(o);
+	chargeDelay = delay;
 	chargeTime = time;
 	velocityMult = velMultiplier;
 	targetObject = target;
@@ -35,7 +36,7 @@ void ChargeComponent::update() {
 			auxVel.set(targetObject->getTransform()->position - chaserT->position);
 			auxVel.normalize();
 
-			chaserT->speed = chaserT->speed * velocityMult;
+			chaserT->speed = e->baseSpeed * velocityMult;
 			timer->restart();
 		}
 		//si no ha llegado aumentamos timer y dejamos al velocidad en 0
@@ -58,11 +59,19 @@ void ChargeComponent::update() {
 		//a false y reiniciamos el timer
 		else {
 			timer->restart();
-			chaserT->speed = chaserT->speed / velocityMult;
+			chaserT->speed = e->baseSpeed;
 
 			//Si lo pones a true carga mas de una vez, en false solo una
 			charging = false;
 		}
 	}
+
+}
+
+void ChargeComponent::startCharge()
+{
+	gameObject->getTransform()->speed = e->baseSpeed;
+	timer->restart();
+	charging = false;
 
 }
