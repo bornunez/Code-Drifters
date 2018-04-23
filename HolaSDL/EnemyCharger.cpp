@@ -29,7 +29,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	type = Charger;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	facing = LEFTs;
+	
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
@@ -37,9 +37,9 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new WallStunComponent(this, 4.0));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations, .2, .5));
-	this->addComponent(new ChargerComponent(this, getMC(), 4, .5, 1, 1.2));
+	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 2));
 	addComponent(new BasicInvincibleComponent(this, 100));
-	//addComponent(new BoxRenderer(this, playState->getCamera()));
+	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new DamageableEnemyComponent(this, getMC()));
 }
 
@@ -53,20 +53,23 @@ void EnemyCharger::loadAnimations()
 	string animationPath = "../Animations/Enemies/ChargerAnimation.tmx";
 	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(3);
 
-	Animation* runBot = AnimationParser::parseAnimation(tileset, animationPath, "RunBot", this);
-	Animation* runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this);
-	Animation* runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this);
-	Animation* runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this);
+	Animation* runBot = AnimationParser::parseAnimation(tileset, animationPath, "RunBot", this, 0, 0, true, 0.1);
+	Animation* runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this, 0, 0, true, 0.1);
+	Animation* runTop = AnimationParser::parseAnimation(tileset, animationPath, "RunTop", this, 0, 0, true, 0.1);
+	Animation* runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this, 0, 0, true, 0.1);
 
-	Animation* preChargeBot = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeBot", this, 0, 0, false, 0.2);
-	Animation* preChargeRight = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeRight", this, 0, 0, false, 0.2);
-	Animation* preChargeTop = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeTop", this, 0, 0, false, 0.2);
-	Animation* preChargeLeft = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeLeft", this, 0, 0, false, 0.2);
+	Animation* preChargeBot = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeBot", this, 0, 0, false, 0.15);
+	Animation* preChargeRight = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeRight", this, 0, 0, false, 0.15);
+	Animation* preChargeTop = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeTop", this, 0, 0, false, 0.15);
+	Animation* preChargeLeft = AnimationParser::parseAnimation(tileset, animationPath, "PreChargeLeft", this, 0, 0, false, 0.15);
 
-	Animation* chargeBot = AnimationParser::parseAnimation(tileset, animationPath, "ChargeBot", this, 0, 0, false, 0.2);
-	Animation* chargeRight = AnimationParser::parseAnimation(tileset, animationPath, "ChargeRight", this, 0, 0, false, 0.2);
-	Animation* chargeTop = AnimationParser::parseAnimation(tileset, animationPath, "ChargeTop", this, 0, 0, false, 0.2);
-	Animation* chargeLeft = AnimationParser::parseAnimation(tileset, animationPath, "ChargeLeft", this, 0, 0, false, 0.2);
+	Animation* chargeBot = AnimationParser::parseAnimation(tileset, animationPath, "ChargeBot", this, 0, 0, true, 0.2);
+	Animation* chargeRight = AnimationParser::parseAnimation(tileset, animationPath, "ChargeRight", this, 0, 0, true, 0.2);
+	Animation* chargeTop = AnimationParser::parseAnimation(tileset, animationPath, "ChargeTop", this, 0, 0, true, 0.2);
+	Animation* chargeLeft = AnimationParser::parseAnimation(tileset, animationPath, "ChargeLeft", this, 0, 0, true, 0.2);
+
+	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false, 0.2);
+	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false, 0.2);
 
 	animations.emplace("RUNBOT", runBot);
 	animations.emplace("RUNRIGHT", runRight);
@@ -82,6 +85,9 @@ void EnemyCharger::loadAnimations()
 	animations.emplace("CHARGERIGHT", chargeRight);
 	animations.emplace("CHARGETOP", chargeTop);
 	animations.emplace("CHARGELEFT", chargeLeft);
+
+	animations.emplace("HURT", hurt);
+	animations.emplace("DEATH", death);
 
 }
 
