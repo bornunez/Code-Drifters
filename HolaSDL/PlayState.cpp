@@ -72,13 +72,13 @@ void PlayState::handleEvent(SDL_Event & e)
 void PlayState::update()
 {
 	GameState::update();
-	camera->update();
 	EnemyManager::getInstance()->update();
 	BulletManager::getInstance()->update();
 	CollisionsManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
+	camera->update();
 }
 
 void PlayState::openShop()
