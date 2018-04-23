@@ -41,6 +41,7 @@ public:
 
 private:
 	string filename;
+	string getPath();
 	Map* map;
 	int x;
 	int y;
