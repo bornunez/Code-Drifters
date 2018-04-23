@@ -27,6 +27,7 @@ private:
 
 	static PlayState* instance;
 
+	GameState* shopState;
 	//enemigo temporal
 	PlayState();
 public:
@@ -40,6 +41,7 @@ public:
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
+	void openShop();
 	void endState();
 };
 

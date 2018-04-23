@@ -35,6 +35,11 @@ void GameStateMachine::popState()
 	garbage.push(gs);
 }
 
+void GameStateMachine::quitState()
+{
+	stateStack.pop();
+}
+
 void GameStateMachine::changeState(GameState* ge)
 {
 	popState();
