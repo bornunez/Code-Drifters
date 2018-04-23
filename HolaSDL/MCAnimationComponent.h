@@ -27,7 +27,7 @@ private:
 	Texture * gunTexture;
 	Timer* gunTimer;
 	Timer* hurtTimer;
-	float hurtTime = 0.2;
+	float hurtTime = 0.5;	//Tiempo que eres invulnerable cuando te atacan
 	std::map<const char*, Animation*> animations;
 	
 };

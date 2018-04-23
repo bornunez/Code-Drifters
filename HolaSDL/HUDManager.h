@@ -21,6 +21,7 @@ private:
 	HUDObject* ultBack;
 
 	int gameScale = 0;
+	float lifeUnit;
 public:
 	void init(MainCharacter* MC);
 	HUDManager();
