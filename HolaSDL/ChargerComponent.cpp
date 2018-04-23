@@ -9,7 +9,9 @@ ChargerComponent::ChargerComponent(GameObject* o, GameObject* target, float cDel
 	chargeDelay = cDelay;
 	attackDelay = aDelay;
 	attackTime = aTime;
+	targetObject = target;
 	ec = static_cast<EnemyCharger*>(o);
+	ec->enemyState = EnemyState::Run;
 	timer = new Timer();
 }
 
@@ -25,6 +27,30 @@ void ChargerComponent::update()
 
 	if (!ec->isStunned()) {
 		if ((ec->enemyState != EnemyState::Charge && ec->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
+			
+			Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
+			float angle = (atan2(targetObject->getDisplayCenterPos().getY() - displayCenterPos.getY(), targetObject->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
+			angle = angle * 180 / M_PI;
+			if (angle < 0)
+				angle += 360;
+			//Animacion precharge según ángulo
+			if (angle > 45 && angle < 135) {
+				Message msg(PRECHARGE_BOT);
+				gameObject->sendMessage(&msg);
+			}
+			else if (angle > 135 && angle < 225) {
+				Message msg(PRECHARGE_LEFT);
+				gameObject->sendMessage(&msg);
+			}
+			else if (angle > 225 && angle < 315) {
+				Message msg(PRECHARGE_TOP);
+				gameObject->sendMessage(&msg);
+			}
+			else {
+				Message msg(PRECHARGE_RIGHT);
+				gameObject->sendMessage(&msg);
+			}
+
 			ec->enemyState = EnemyState::Charge;
 			timer->restart();
 			ChargeComponent::resetTimer();
@@ -32,8 +58,7 @@ void ChargerComponent::update()
 		else if ((ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
 			ec->enemyState = EnemyState::Run;
 			timer->restart();
-			Message msg(STALKER_RUN);
-			ec->sendMessage(&msg);
+			
 		}
 
 		if (ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) {

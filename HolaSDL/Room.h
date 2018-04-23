@@ -10,7 +10,7 @@ class Texture;
 class Map;
 using namespace std;
 enum Direction;
-enum RoomType {First, Normal, Boss, Shop, Chest};
+enum RoomType {First, Normal, BossRoom, Shop, Chest};
 
 class Room
 {

@@ -175,7 +175,7 @@ void DungeonGenerator::CreateSpecialRooms()//Asigna las salas especiales a las s
 	int shopRooms = 1;
 	int chestRooms = round(deadEndsnum / 2);//La mitad de las salas restntes tienen tesoro
 	int rnd = rand() % deadEnds_.size();
-	deadEnds_[rnd]->setType(Boss);
+	deadEnds_[rnd]->setType(BossRoom);
 	deadEnds_.erase(deadEnds_.begin() + rnd);
 	rnd = rand() % deadEnds_.size();
 	deadEnds_[rnd]->setType(Shop);

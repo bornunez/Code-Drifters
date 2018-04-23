@@ -15,7 +15,8 @@ ChargerAnimationComponent::ChargerAnimationComponent(EnemyCharger* o, GameObject
 	chargeTimer = new Timer();
 	attackDelay = delayTime;
 	hurtTime = hTime;
-
+	gameObject->changeCurrentAnimation("RUNLEFT");
+	gameObject->getCurrentAnimation()->startAnimation();
 }
 
 
@@ -34,19 +35,15 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 	switch (msg->id) {
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUNLEFT");
-		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	case RUN_RIGHT:
 		gameObject->changeCurrentAnimation("RUNRIGHT");
-		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	case RUN_TOP:
 		gameObject->changeCurrentAnimation("RUNTOP");
-		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	case RUN_BOT:
 		gameObject->changeCurrentAnimation("RUNBOT");
-		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 
 	case CHARGE_LEFT:
@@ -69,18 +66,22 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 	case PRECHARGE_LEFT:
 		gameObject->changeCurrentAnimation("PRECHARGELEFT");
 		gameObject->getCurrentAnimation()->startAnimation();
+		chargeTimer->restart();
 		break;
 	case PRECHARGE_RIGHT:
 		gameObject->changeCurrentAnimation("PRECHARGERIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
+		chargeTimer->restart();
 		break;
 	case PRECHARGE_TOP:
 		gameObject->changeCurrentAnimation("PRECHARGETOP");
 		gameObject->getCurrentAnimation()->startAnimation();
+		chargeTimer->restart();
 		break;
 	case PRECHARGE_BOT:
 		gameObject->changeCurrentAnimation("PRECHARGEBOT");
 		gameObject->getCurrentAnimation()->startAnimation();
+		chargeTimer->restart();
 		break;
 
 	case HURT:
@@ -115,15 +116,51 @@ void ChargerAnimationComponent::handleAnimation()
 			}
 		}
 
+		if (es->enemyState == EnemyState::Run) {
+				//Animacion charge según ángulo
+				if (angle > 45 && angle < 135) {
+					Message msg(RUN_BOT);
+					gameObject->sendMessage(&msg);
+				}
+				else if (angle > 135 && angle < 225) {
+					Message msg(RUN_LEFT);
+					gameObject->sendMessage(&msg);
+				}
+				else if (angle > 225 && angle < 315) {
+					Message msg(RUN_TOP);
+					gameObject->sendMessage(&msg);
+				}
+				else {
+					Message msg(RUN_RIGHT);
+					gameObject->sendMessage(&msg);
+				}
 
+			}
 		else if (es->enemyState == EnemyState::Charge) {
 			chargeTimer->update();
 			if (chargeTimer->TimeSinceTimerCreation > attackDelay) {
 				es->enemyState = EnemyState::Attack;
-				Message msg(STALKER_ATTACK);
-				es->sendMessage(&msg);
+				//Animacion charge según ángulo
+				if (angle > 45 && angle < 135) {
+					Message msg(CHARGE_BOT);
+					gameObject->sendMessage(&msg);
+				}
+				else if (angle > 135 && angle < 225) {
+					Message msg(CHARGE_LEFT);
+					gameObject->sendMessage(&msg);
+				}
+				else if (angle > 225 && angle < 315) {
+					Message msg(CHARGE_TOP);
+					gameObject->sendMessage(&msg);
+				}
+				else {
+					Message msg(CHARGE_RIGHT);
+					gameObject->sendMessage(&msg);
+				}
 
 			}
+
 		}
 	}
+
 }

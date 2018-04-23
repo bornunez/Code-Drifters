@@ -79,12 +79,20 @@ void EnemyManager::update()
 	for (Enemy* e : actives) {
 		e->update();
 	}
+	if (activeBoss != nullptr)
+	{
+		activeBoss->update();
+	}
 }
 
 void EnemyManager::render()
 {
 	for (Enemy* e : actives) {
 		e->render();
+	}
+	if (activeBoss != nullptr)
+	{
+		activeBoss->render();
 	}
 }
 
@@ -111,6 +119,10 @@ void EnemyManager::spawn(Spawner * spawner)
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
 	actives.push_back(e);
+}
+void EnemyManager::spawnBoss(int x, int y)
+{
+	activeBoss = new Boss(mc, x, y, 200, 200);
 }
 void EnemyManager::ResetInstance()
 {

@@ -28,7 +28,7 @@ void Room::load() {
 	//A partir de ahora seleccionaremos una sala aleatoria con las puertas dadas
 	string loadFile;
 	string levelPath;
-	if (type == Boss) {
+	if (type == BossRoom) {
 		loadFile = "boss_";
 		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(0) + " Door\\";
 	}
