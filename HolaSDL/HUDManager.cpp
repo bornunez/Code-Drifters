@@ -73,10 +73,9 @@ void HUDManager::init(MainCharacter* MC) {
 
 	moneyFont = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
 	moneyTex = new Texture(Game::getGame()->getRenderer());
-	SDL_Color aux;
-	aux.a = 255;
-	aux.r = aux.g = aux.b = 255;
-	moneyTex->loadFromText(to_string(PlayState::getInstance()->getMainCharacter()->getMoney()), *moneyFont, aux);
+	moneyColor.a = 255;
+	moneyColor.r = moneyColor.g = moneyColor.b = 255;
+	moneyTex->loadFromText(to_string(PlayState::getInstance()->getMainCharacter()->getMoney()), *moneyFont, moneyColor);
 	moneyDestRect.h  = 50;
 	moneyDestRect.w = (to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() * 15);
 	moneyDestRect.y = Game::getGame()->getWinH() / 5;
@@ -201,5 +200,9 @@ HUDManager* HUDManager::getInstance() {
 	if (instance == nullptr)
 		instance = new HUDManager();
 	return instance;
+}
+
+void HUDManager::ActualizeMoney() {
+	moneyTex->loadFromText(to_string(PlayState::getInstance()->getMainCharacter()->getMoney()), *moneyFont, moneyColor);
 }
 
