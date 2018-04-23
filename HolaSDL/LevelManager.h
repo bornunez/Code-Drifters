@@ -37,6 +37,7 @@ public:
 	DungeonGenerator* getLevel() { return dungeon; }
 	Room* getCurrentRoom() { return currentRoom; }
 	Room* getFirstRoom() { return firstRoom; }
+	void enterMap();
  
 	Room* getRoom(int x, int y);
 	Room* getRoom(Direction dir);
@@ -48,7 +49,7 @@ public:
 
 	bool getDoor(Direction dir);
 
-	string getActiveLevelPath() { return levelTypePath[Red]; }
+	string getActiveLevelPath() { return levelTypePath[City]; }
 
 	//Metodos de control
 	void init();

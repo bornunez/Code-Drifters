@@ -41,6 +41,7 @@ private:
 	std::vector<Door*> doors;
 	string filename;
 
+	GameObject* EntryPoint = nullptr;
 	vector<GameObject*> objects;
 	vector<Tileset*> tilesets;
 	vector<int> firstGids;
@@ -65,6 +66,8 @@ public:
 	void setTilesets(vector<Tileset*> tileSets) { tilesets = tileSets; }
 	void setFirstGid(int gid) { firstGids.push_back(gid); }
 	void setObjects(vector<GameObject*> go) { objects = go; }
+	GameObject* getEntryPoint() { return EntryPoint; };
+	void setEntryPoint(GameObject* ePoint) { EntryPoint = ePoint; }
 
 	void addLayer(Layer* layer) { layers.push_back(layer); }
 	void addSpawn(Spawner* spawn) { spawners.push_back(spawn); }

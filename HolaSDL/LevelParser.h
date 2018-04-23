@@ -19,6 +19,7 @@ private:
 	static void parseDoors(XMLElement* root, XMLElement* doorsElement, Map* map, vector<bool> doors);
 	static void parseEntries(XMLElement* root, XMLElement* entriesElement, Map* map, vector<bool> doors);
 	static void parseObjects(XMLElement* root, XMLElement* objectsElement, Map* map);
+	static void parseEntryPoint(XMLElement* root, XMLElement* objectsElement, Map* map);
 	static vector<Tileset*> parseTileSets(XMLElement* root, Map* map);
 	static EnemyType parseEnemyTypes(string enemyType);
 
