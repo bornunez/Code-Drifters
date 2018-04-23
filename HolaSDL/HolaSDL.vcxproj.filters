@@ -674,6 +674,7 @@
     <ClInclude Include="MCManagerComponent.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -757,5 +758,11 @@
     <Filter Include="Bosses\Boss1">
       <UniqueIdentifier>{8e5702e3-61dd-4b5f-91d6-ea4d21a27298}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HolaSDL.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
 </Project>

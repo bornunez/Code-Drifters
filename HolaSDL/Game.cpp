@@ -47,6 +47,9 @@ void Game::run()
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Haro I de Saboya", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	SDL_Surface* icon = IMG_Load("..\\images\\mouseIcon.png");
+	SDL_SetWindowIcon(window, icon);
+
 	ResourceManager::createInstance(this->getRenderer());
 	
 

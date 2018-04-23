@@ -213,6 +213,7 @@
     <ClInclude Include="ReloadComponent.h" />
     <ClInclude Include="RenderBoss.h" />
     <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="sdl_includes.h" />
@@ -236,6 +237,12 @@
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HolaSDL.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>
