@@ -116,7 +116,7 @@ void PlayState::loadState()
 	EnemyManager::getInstance()->init(mainCharacter);
 	CollisionsManager::getInstance();
 	BulletManager::createInstance();
-	LevelManager::getInstance()->getFirstRoom()->spawn();
+	LevelManager::getInstance()->enterMap();
 	ItemManager::getInstance()->init();
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);

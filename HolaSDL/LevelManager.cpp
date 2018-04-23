@@ -25,6 +25,20 @@ LevelManager * LevelManager::getInstance()
 	return instance;
 }
 
+void LevelManager::enterMap()
+{
+	getFirstRoom()->spawn();
+	GameObject* ePoint = currentRoom->getMap()->getEntryPoint();
+	if (ePoint != nullptr) {
+		//Y ponemos al jugador en la puerta contraria
+		MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+		mc->getTransform()->velocity.set(0, 0);
+		mc->getTransform()->position.set(ePoint->getTransform()->position);
+		mc->updatePreviousPosition();
+		mc->updateBody();
+	}
+}
+
 Room * LevelManager::getRoom(int x, int y)
 {
 	if(x >= 0 && x < dungeon->getLevelWidth() && y >= 0 && y < dungeon->getLevelHeight())
@@ -112,6 +126,7 @@ void LevelManager::newMap()
 	currentRoom = firstRoom;
 	roomX = currentRoom->getX(); roomY = currentRoom->getY();
 	currentRoom->setExplored(true);
+	
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 }
 
