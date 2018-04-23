@@ -15,9 +15,7 @@ CameraMovementComponent::CameraMovementComponent(GameObject* camera, GameObject*
 
 void CameraMovementComponent::update()
 {
-	Vector2D posDifference = { lastPos.getX() - mainCharacter->getTransform()->body.x,lastPos.getY() - mainCharacter->getTransform()->body.y };
-	if (abs(posDifference.getX()) >= offset || abs(posDifference.getY()) >= offset ||
-		abs(posDifference.getX()) + abs(posDifference.getY()) >=offset) {
+	
 		//gameObject->getTransform()->position.setX(mainCharacter->getTransform()->position.getX());
 		lastPos = mainCharacter->getTransform()->position;
 		gameObject->getTransform()->position.setX(mainCharacter->getTransform()->body.x +
@@ -40,7 +38,7 @@ void CameraMovementComponent::update()
 			gameObject->getTransform()->position.setY(Game::getGame()->getWorldHeight());
 		}
 
-	}
+	
 }
 
 CameraMovementComponent::~CameraMovementComponent()

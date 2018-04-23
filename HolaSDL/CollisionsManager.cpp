@@ -99,6 +99,7 @@ void CollisionsManager::bulletCollisions()
 						while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo
 							if (CollisionHandler::RectCollide(enemyHurtboxes[i], hitbox)) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 								hit = true;
+								e->setInvincibility(true);
 								//Mandar mensaje de collision bala / enemigo
 								//Habria que cambiar el 1000 por el tiempo del arma
 								MCBulletStun msg(2.5);
@@ -123,6 +124,7 @@ void CollisionsManager::bulletCollisions()
 					if (!mc->getInvincibility()) {
 						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de la hitbox de la bala con la hurtbox del MC
 							hit = true;
+							mc->setInvincibility(true);
 							//Mandar mensaje de collision bala / player
 							Message msg(ENEMY_BULLET_COLLISION);
 							mc->sendMessage(&msg);
@@ -185,6 +187,7 @@ void CollisionsManager::playerCollisions()
 						empuje.normalize();
 						KnockbackMessage msg1(empuje);
 						e->sendMessage(&msg1);
+						e->setInvincibility(true);
 						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
 
 						MCAttackDamage msg2(damage);
@@ -213,7 +216,7 @@ void CollisionsManager::playerCollisions()
 					if (CollisionHandler::RectCollide(bossHurtboxes[i], mcHitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 
 						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
-
+						boss->setInvincibility(true);
 						MCAttackDamage msg(damage);
 						boss->sendMessage(&msg);
 						hit = true;
@@ -348,7 +351,7 @@ void CollisionsManager::enemyAttackCollision() {
 					for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
 						if (CollisionHandler::RectCollide(enemyHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 							hit = true;
-
+							mc->setInvincibility(true);
 							//Mandar mensaje de collision stalker / player
 							Message msg(STALKER_ATTACK);
 							mc->sendMessage(&msg);
@@ -377,6 +380,7 @@ void CollisionsManager::bossCollisions()
 					if (CollisionHandler::RectCollide(bossHitboxes[i], mcHurtboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 						hit = true;
 						//Mandar mensaje de collision stalker / player
+						mc->setInvincibility(true);
 						Message msg(BOSS1_ATTACK);
 						mc->sendMessage(&msg);
 					}
