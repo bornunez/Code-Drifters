@@ -58,8 +58,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	/*addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
 	maxBullets = 3;
 	reloadTime = 5;

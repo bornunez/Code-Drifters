@@ -25,6 +25,8 @@ private:
 	float currentBullets;
 	float reloadTime;
 
+	int money = 1297;
+
 	Vector2D gunPosition;//Posici�n de donde sale la bala
 	Hook hook;
 	
@@ -63,6 +65,7 @@ public:
 	float getMaxVelocity();
 	float getActualHP();
 	float getMaxHP();
+	int getMoney() { return money; };
 	Vector2D getGunPosition();
 	void substractHP(int damage);
 	void addHP(int life);

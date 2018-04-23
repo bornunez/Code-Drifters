@@ -20,6 +20,10 @@ private:
 	HUDObject* ultBar;
 	HUDObject* ultBack;
 
+	Font* moneyFont = nullptr;
+	Texture* moneyTex = nullptr;
+	SDL_Rect moneyDestRect;
+
 	int gameScale = 0;
 	float lifeUnit;
 public:

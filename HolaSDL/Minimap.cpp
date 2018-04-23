@@ -57,11 +57,14 @@ void Minimap::render()
 			//Si la sala está explorada, la pintamos
 			if (level->getRoom(i, j)->isExplored()) {
 				//Pintamos distinta la sala actual
-				if(i == currX && j == currY)
-					SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xffff00ff));//Dibujaremos en amarillo
-				else
-					SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff00ffff));//Dibujaremos en morado
-
+				if(level->getRoom(i,j)->getType() == BossRoom)
+					SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff0000ff));//Dibujaremos en amarillo
+				else {
+					if (i == currX && j == currY)
+						SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xffff00ff));//Dibujaremos en amarillo
+					else
+						SDL_SetRenderDrawColor(Game::getGame()->getRenderer(), COLOR(0xff00ffff));//Dibujaremos en morado
+				}
 				//Y colocamos las habitaciones en funcion a la actual
 				destRect.x = (centerX + rWidth * (i - currX)) - rWidth/2;
 				destRect.y = centerY + rHeight * (j - currY) - rHeight/2;

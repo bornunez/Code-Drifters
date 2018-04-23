@@ -18,6 +18,39 @@ LevelManager::LevelManager()
 	directions = { {0,-1},{1,0},{0,1},{-1,0} };
 }
 
+void LevelManager::onRoomChange(Room* room, Direction dir)
+{
+	//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
+	//Antes de Spawnear, despawneamos los que hubiera
+	EnemyManager::getInstance()->killAll();
+	ItemManager::getInstance()->reset();
+
+	//Y ponemos al jugador en la puerta contraria
+	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+	if (dir != None) {
+		Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
+		mc->getTransform()->position.set(entry);
+	}
+	
+	//Si la sala es de tipo boss, lo spawneamos
+	if (room->getType() == BossRoom)
+	{
+		GameObject * bossSpawn = room->getMap()->getBossSpawn();
+		GameObject * ePoint = room->getMap()->getEntryPoint();
+		if (bossSpawn != nullptr);
+		EnemyManager::getInstance()->spawnBoss(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY());
+		if (ePoint != nullptr)
+			mc->getTransform()->position.set(ePoint->getTransform()->position);
+	}
+
+	mc->getTransform()->velocity.set(0, 0);
+	mc->updatePreviousPosition();
+	mc->updateBody();
+
+	room->spawn();
+	room->setExplored(true);
+}
+
 LevelManager * LevelManager::getInstance()
 {
 	if (instance == nullptr)
@@ -57,6 +90,7 @@ void LevelManager::changeRoom(Room * room)
 	if (!room->isVoid()) {
 		currentRoom = room;
 		roomX = room->getX(); roomY = room->getY();
+		onRoomChange(room, None);
 	}
 }
 
@@ -66,6 +100,7 @@ void LevelManager::changeRoom(int x, int y)
 	if (room != nullptr && !room->isVoid()) {
 		currentRoom = room;
 		roomX = x; roomY = y;
+		onRoomChange(room, None);
 	}
 }
 
@@ -80,20 +115,7 @@ void LevelManager::changeRoom(Direction dir)
 			currentRoom = room;
 			roomX += directions[dir].x;
 			roomY += directions[dir].y;
-			//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
-			//Antes de Spawnear, despawneamos los que hubiera
-			EnemyManager::getInstance()->killAll();
-			ItemManager::getInstance()->reset();
-
-			//Y ponemos al jugador en la puerta contraria
-			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-			Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
-			mc->getTransform()->velocity.set(0, 0);
-			mc->getTransform()->position.set(entry);
-			mc->updatePreviousPosition();
-			mc->updateBody();
-			room->spawn();
-			room->setExplored(true);
+			onRoomChange(room, dir);
 		}
 	}
 }

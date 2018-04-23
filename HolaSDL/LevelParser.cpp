@@ -142,7 +142,7 @@ void LevelParser::parseObjects(XMLElement * root, XMLElement * objectsElement, M
 	int scale = Game::getGame()->getScale();
 	vector<GameObject*> objects;
 	//Si hay puerta sacamos sus datos
-	for (XMLElement* object = objectsElement->FirstChildElement(); object != nullptr; object = objectsElement->NextSiblingElement()) {
+	for (XMLElement* object = objectsElement->FirstChildElement(); object != nullptr; object = object->NextSiblingElement()) {
 		//Casteamos la puerta y sacamos la direccion
 		string objectName = object->Attribute("name");
 		int x = atoi(object->Attribute("x"))* scale;
@@ -158,8 +158,7 @@ void LevelParser::parseEntryPoint(XMLElement * root, XMLElement * objectsElement
 {
 	int scale = Game::getGame()->getScale();
 	//Si hay puerta sacamos sus datos
-	bool found = false;
-	for (XMLElement* object = objectsElement->FirstChildElement(); !found && object != nullptr; object = objectsElement->NextSiblingElement()) {
+	for (XMLElement* object = objectsElement->FirstChildElement();object != nullptr; object = object->NextSiblingElement()) {
 		//Casteamos la puerta y sacamos la direccion
 		string objectName = object->Attribute("name");
 		int x = atoi(object->Attribute("x"))* scale;
@@ -168,7 +167,10 @@ void LevelParser::parseEntryPoint(XMLElement * root, XMLElement * objectsElement
 		if (objectName == "Start") {
 			GameObject* go = new GameObject(nullptr, x, y, 0, 0);
 			map->setEntryPoint(go);
-			found = true;
+		}
+		else if (objectName == "Boss") {
+			GameObject* go = new GameObject(nullptr, x, y, 0, 0);
+			map->setBossSpawn(go);
 		}
 	}
 }
