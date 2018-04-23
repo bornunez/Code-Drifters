@@ -34,6 +34,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	EnemyParams params = EnemyManager::getInstance()->getParams(type);
 	Attributes.life = params.life;
 	transform.speed = params.speed;
+	baseSpeed = params.speed;
 	Attributes.meleeDmg = params.meleDmg; Attributes.rangedDmg = params.rangedDmg ;
 	Attributes.minDrop = params.minDrop; Attributes.maxDrop = params.maxDrop;
 	this->spawner = spawner;

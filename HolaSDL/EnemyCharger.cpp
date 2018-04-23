@@ -17,7 +17,7 @@
 #include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "ChargerComponent.h"
-#include "DamageableEnemyComponent.h"
+#include "ChargerDamageableEnemyComponent.h"
 #include "WallStunComponent.h"
 //#include "ChargeComponent.h"
 //#include "ChaseComponent.h"
@@ -40,7 +40,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 2));
 	addComponent(new BasicInvincibleComponent(this, 100));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
-	addComponent(new DamageableEnemyComponent(this, getMC()));
+	addComponent(new ChargerDamageableEnemyComponent(this, getMC()));
 }
 
 
@@ -70,6 +70,7 @@ void EnemyCharger::loadAnimations()
 
 	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false, 0.2);
 	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false, 0.2);
+	Animation* stun = AnimationParser::parseAnimation(tileset, animationPath, "Stun", this, 0, 0, true, 0.2);
 
 	animations.emplace("RUNBOT", runBot);
 	animations.emplace("RUNRIGHT", runRight);
@@ -88,6 +89,7 @@ void EnemyCharger::loadAnimations()
 
 	animations.emplace("HURT", hurt);
 	animations.emplace("DEATH", death);
+	animations.emplace("STUN", stun);
 
 }
 

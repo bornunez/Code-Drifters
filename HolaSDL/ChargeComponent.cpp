@@ -2,12 +2,12 @@
 #include "ChargeComponent.h"
 #include "GameObject.h"
 #include "Time.h"
+#include "Enemy.h"
 
 
 ChargeComponent::ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier) : UpdateComponent(o)
 {
-
-	chargeDelay = delay;
+	e=static_cast<Enemy*>(o);
 	chargeTime = time;
 	velocityMult = velMultiplier;
 	targetObject = target;

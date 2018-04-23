@@ -67,11 +67,12 @@ void ChargerComponent::update()
 		else if (ec->enemyState == EnemyState::Run) {
 			ChaseComponent::update();
 		}
-
-		ec->setInvincibility(true);
 	}
 
 	else { 
-		ec->setInvincibility(false);
+		ec->enemyState = EnemyState::Run;
+		Message msg(STUN);
+		gameObject->sendMessage(&msg);
+		timer->restart();
 	}
 }

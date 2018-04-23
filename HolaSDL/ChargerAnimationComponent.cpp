@@ -10,7 +10,7 @@ ChargerAnimationComponent::ChargerAnimationComponent(EnemyCharger* o, GameObject
 	animations = anim;
 	gameObject->changeCurrentAnimation("RUN");
 	this->target = target;
-	this->es = o;
+	this->ec = o;
 	hurtTimer = new Timer();
 	chargeTimer = new Timer();
 	attackDelay = delayTime;
@@ -88,10 +88,14 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 		gameObject->changeCurrentAnimation("HURT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		hurtTimer->restart();
-		es->enemyState = EnemyState::Hurt;
+		ec->enemyState = EnemyState::Hurt;
 		break;
 	case ENEMY_DEATH:
 		gameObject->changeCurrentAnimation("DEATH");
+		gameObject->getCurrentAnimation()->startAnimation();
+		break;
+	case STUN:
+		gameObject->changeCurrentAnimation("STUN");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	}
@@ -99,7 +103,7 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 
 void ChargerAnimationComponent::handleAnimation()
 {
-	if (!gameObject->isDead()) {
+	if (!gameObject->isDead() && !ec->isStunned()) {
 
 		//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
 		Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
@@ -108,15 +112,15 @@ void ChargerAnimationComponent::handleAnimation()
 		if (angle < 0)
 			angle += 360;
 
-		if (es->enemyState == EnemyState::Hurt) {
+		if (ec->enemyState == EnemyState::Hurt) {
 			hurtTimer->update();
 			if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
-				es->enemyState = EnemyState::Run;
+				ec->enemyState = EnemyState::Run;
 				gameObject->changeCurrentAnimation("RUN");
 			}
 		}
 
-		if (es->enemyState == EnemyState::Run) {
+		if (ec->enemyState == EnemyState::Run) {
 				//Animacion charge según ángulo
 				if (angle > 45 && angle < 135) {
 					Message msg(RUN_BOT);
@@ -136,10 +140,10 @@ void ChargerAnimationComponent::handleAnimation()
 				}
 
 			}
-		else if (es->enemyState == EnemyState::Charge) {
+		else if (ec->enemyState == EnemyState::Charge) {
 			chargeTimer->update();
 			if (chargeTimer->TimeSinceTimerCreation > attackDelay) {
-				es->enemyState = EnemyState::Attack;
+				ec->enemyState = EnemyState::Attack;
 				//Animacion charge según ángulo
 				if (angle > 45 && angle < 135) {
 					Message msg(CHARGE_BOT);

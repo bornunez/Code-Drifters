@@ -58,5 +58,6 @@ public:
 	bool isStunned() { return Attributes.stunned; }
 	EnemyState enemyState;		//PROTECTED
 	EnemyState getEnemyState() { return this->enemyState; }
+	double baseSpeed;
 };
 

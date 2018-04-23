@@ -30,8 +30,8 @@ void WallStunComponent::receiveMessage(Message * msg)
 	switch (msg->id)
 	{
 	case HIT_WALL: {
-		if (!enemy->isStunned() && enemy->enemyState == EnemyState::Charge) {
-			stunTime = static_cast<MCBulletStun*>(msg)->stunTime;
+		if (!enemy->isStunned() && enemy->enemyState == EnemyState::Attack) {
+			stunTime = 2;
 			stunTimer.restart();
 			enemy->setStun(true);
 			std::cout << "Me reventé el cráneo contra la pared" << std::endl;

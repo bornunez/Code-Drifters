@@ -2,13 +2,14 @@
 #include "UpdateComponent.h"
 #include "Vector2D.h"
 #include "Timer.h"
-
+class Enemy;
 class ChargeComponent : virtual public UpdateComponent
 {
 private:
 	bool charging = false;
 	Timer* timer;
 	GameObject* targetObject;
+	Enemy* e;
 	float chargeDelay;
 	float velocityMult;
 	float angle;

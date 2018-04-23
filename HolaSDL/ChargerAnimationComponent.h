@@ -13,7 +13,7 @@ public:
 	void handleAnimation();
 private:
 	GameObject* target;
-	EnemyCharger* es;
+	EnemyCharger* ec;
 	std::map<const char*, Animation*> animations;
 	Timer* hurtTimer;
 	Timer* chargeTimer;
