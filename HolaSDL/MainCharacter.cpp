@@ -293,6 +293,12 @@ void MainCharacter::addHP(int life)
 	HUDManager::getInstance()->changeLife(life);
 }
 
+void MainCharacter::addMaxHP(int life) {
+	maxHP += life;
+	HP += life;
+	HUDManager::getInstance()->setNewHP(life);
+}
+
 void MainCharacter::changeMoney(int mon) {
 	money += mon;
 	if (money > 9999)
@@ -300,4 +306,10 @@ void MainCharacter::changeMoney(int mon) {
 	else if (money < 0)
 		money = 0;
 	HUDManager::getInstance()->ActualizeMoney();
+}
+///increases both normal and charged damage dealed to enemies
+void MainCharacter::addAttackDamage(float percentage) {
+	float newPercentage = (float)1 + (float)(percentage / 100);
+	normalAttackDamage = normalAttackDamage * newPercentage;
+	chargedAttackDamage = chargedAttackDamage * newPercentage;
 }
