@@ -110,9 +110,6 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 {
 	PlayState::getInstance()->addGameObject(hook);
 	hook->setActive(true);
-	hook->setOriginPosition(originPos);
-	hook->getTransform()->position.set(originPos);
-	hook->getTransform()->velocity.set(hookDir);
 	hook->setHookStatus(HookStatus::EXTEND);
 	mc->setMCState(MCState::Dash);
 	mc->setMovable(false);
@@ -130,6 +127,12 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	angle = angle * 180 / M_PI;
 	if (angle < 0)
 		angle += 360;
+	
+
+
+	hook->setOriginPosition(originPos);
+	hook->getTransform()->position.set(originPos);
+	hook->getTransform()->velocity.set(hookDir);
 	hook->setAngle(angle);
 }
 
@@ -180,7 +183,7 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 
 	Transform auxT = *mcT;
 	auxT.position.setX(hook->getOriginPosition().getX() - auxT.body.w / 2);
-	auxT.position.setY(hook->getOriginPosition().getY() - auxT.body.h / 2);
+	auxT.position.setY(hook->getOriginPosition().getY() + auxT.body.h / 2);
 
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;
