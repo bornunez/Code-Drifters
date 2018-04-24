@@ -25,56 +25,58 @@ void ChargerComponent::update()
 {
 	timer->update();
 
-	if (!ec->isStunned()) {
-		ec->setMovable(true);
-		if ((ec->enemyState != EnemyState::Charge && ec->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
-			Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
-			float angle = (atan2(targetObject->getDisplayCenterPos().getY() - displayCenterPos.getY(), targetObject->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
-			angle = angle * 180 / M_PI;
-			if (angle < 0)
-				angle += 360;
-			//Animacion precharge según ángulo
-			if (angle > 45 && angle < 135) {
-				Message msg(PRECHARGE_BOT);
-				gameObject->sendMessage(&msg);
+	if (!ec->isDead()) {
+		if (!ec->isStunned()) {
+			ec->setMovable(true);
+			if ((ec->enemyState != EnemyState::Charge && ec->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
+				Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
+				float angle = (atan2(targetObject->getDisplayCenterPos().getY() - displayCenterPos.getY(), targetObject->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
+				angle = angle * 180 / M_PI;
+				if (angle < 0)
+					angle += 360;
+				//Animacion precharge según ángulo
+				if (angle > 45 && angle < 135) {
+					Message msg(PRECHARGE_BOT);
+					gameObject->sendMessage(&msg);
+				}
+				else if (angle > 135 && angle < 225) {
+					Message msg(PRECHARGE_LEFT);
+					gameObject->sendMessage(&msg);
+				}
+				else if (angle > 225 && angle < 315) {
+					Message msg(PRECHARGE_TOP);
+					gameObject->sendMessage(&msg);
+				}
+				else {
+					Message msg(PRECHARGE_RIGHT);
+					gameObject->sendMessage(&msg);
+				}
+
+				ec->enemyState = EnemyState::Charge;
+				ChargeComponent::startCharge();
+				timer->restart();
 			}
-			else if (angle > 135 && angle < 225) {
-				Message msg(PRECHARGE_LEFT);
-				gameObject->sendMessage(&msg);
-			}
-			else if (angle > 225 && angle < 315) {
-				Message msg(PRECHARGE_TOP);
-				gameObject->sendMessage(&msg);
-			}
-			else {
-				Message msg(PRECHARGE_RIGHT);
-				gameObject->sendMessage(&msg);
+			else if ((ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
+				ec->enemyState = EnemyState::Run;
+				timer->restart();
+
 			}
 
-			ec->enemyState = EnemyState::Charge;
-			ChargeComponent::startCharge();
-			timer->restart();
+			if (ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) {
+				ChargeComponent::update();
+			}
+			else if (ec->enemyState == EnemyState::Run) {
+				ChaseComponent::update();
+			}
 		}
-		else if ((ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
+
+		else {
+			gameObject->getTransform()->velocity.set({ 0,0 });
+			ec->setMovable(false);
 			ec->enemyState = EnemyState::Run;
+			Message msg(STUN);
+			gameObject->sendMessage(&msg);
 			timer->restart();
-			
 		}
-
-		if (ec->enemyState == EnemyState::Charge || ec->enemyState == EnemyState::Attack) {
-			ChargeComponent::update();
-		}
-		else if (ec->enemyState == EnemyState::Run) {
-			ChaseComponent::update();
-		}
-	}
-
-	else { 
-		gameObject->getTransform()->velocity.set({ 0,0 });
-		ec->setMovable(false);
-		ec->enemyState = EnemyState::Run;
-		Message msg(STUN);
-		gameObject->sendMessage(&msg);
-		timer->restart();
 	}
 }

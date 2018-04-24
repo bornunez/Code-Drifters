@@ -15,6 +15,7 @@
 #include "ParticlesManager.h"
 #include "CoinManager.h"
 #include "Coin.h"
+#include "Game.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -130,8 +131,9 @@ void CollisionsManager::bulletCollisions()
 							mc->sendMessage(&msg);
 							
 						}
-						i++;
+						
 					}
+					i++;
 				}
 			}
 			default:
@@ -150,7 +152,8 @@ void CollisionsManager::bulletCollisions()
 				}
 			}
 			if (collision || hit) {
-				//ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX() -75, b->getCenterPos().getY()-75);
+				Particle* p = ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX() - 14 * Game::getGame()->getScale(), b->getCenterPos().getY());
+				
 				b->setActive(false);
 			}
 		}

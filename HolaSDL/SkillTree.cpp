@@ -4,6 +4,7 @@
 #include "ShopState.h"
 
 #include"PlayState.h"
+#include"HUDManager.h"
 
 SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopSta) {
 	//initial values for destRect
@@ -128,6 +129,7 @@ void SkillTree::Buy() {
 		skill.needed_point = -1;
 		UpdateBox();
 		LoadLineTex();
+		effect();
 	}
 	}
 
@@ -244,4 +246,27 @@ int SkillTree::getRootID() {
 	if (parent_ == nullptr)
 		return skill.id;
 	else return parent_->getRootID();
+}
+
+void SkillTree::effect() {
+	MainCharacter* character = PlayState::getInstance()->getMainCharacter();
+	switch (skill.id)
+	{
+	case 11:
+		character->addAttackDamage(10);
+		break;
+	case 22:
+		character->setMaxBullets(character->getMaxBullets() + 1);
+		HUDManager::getInstance()->addBullet();
+		break;
+	case 221:
+		character->setReloadTime(character->getReloadTime() * 0.67);
+		break;
+	case 31:
+		//add a bonus 10% max HP
+		character->addMaxHP(character->getMaxHP() / 10);
+		break;
+	default:
+		break;
+	}
 }

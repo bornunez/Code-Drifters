@@ -318,7 +318,6 @@
     <ClCompile Include="ReloadComponent.cpp" />
     <ClCompile Include="HUDManager.cpp" />
     <ClCompile Include="HUDObject.cpp" />
-    <ClCompile Include="MCGunPosition.cpp" />
     <ClCompile Include="DialogObject.cpp" />
     <ClCompile Include="DialogsState.cpp">
       <Filter>Estados\Source</Filter>
@@ -356,6 +355,9 @@
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
     <ClCompile Include="DamageableBossComponent.cpp" />
+    <ClCompile Include="MCGunPosition.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -651,7 +653,6 @@
     <ClInclude Include="ReloadComponent.h" />
     <ClInclude Include="HUDManager.h" />
     <ClInclude Include="HUDObject.h" />
-    <ClInclude Include="MCGunPosition.h" />
     <ClInclude Include="DialogObject.h" />
     <ClInclude Include="UpperGameState.h">
       <Filter>Estados\Header</Filter>
@@ -689,6 +690,11 @@
     <ClInclude Include="ShopBox.h" />
     <ClInclude Include="ShopState.h" />
     <ClInclude Include="SkillTree.h" />
+    <ClInclude Include="ChargerDamageableEnemyComponent.h" />
+    <ClInclude Include="DamageableBossComponent.h" />
+    <ClInclude Include="MCGunPosition.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

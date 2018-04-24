@@ -38,6 +38,7 @@ private:
 	void DrawLine();
 	void LoadLineTex();
 	int getRootID();
+	void effect();
 
 public:
 	SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopState);
