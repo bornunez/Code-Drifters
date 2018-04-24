@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 63;
+const int NUM_TEXTURES = 71;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 4;
@@ -33,6 +33,8 @@ enum TextureId {
 	First_On,First_Off,Normal_On,Normal_Off,Boss_On,Boss_Off, Shop_On,Shop_Off, Chest_On,Chest_Off,
 	//Todas las puertas abiertas
 	OpenUp, OpenRight, OpenDown, OpenLeft,
+	OpenUpNormalOn, OpenRightNormalOn, OpenDownNormalOn, OpenLeftNormalOn,
+	OpenUpNormalOff, OpenRightNormalOff, OpenDownNormalOff, OpenLeftNormalOff,
 	//Todas las puertas cerradas
 	ClosedUp, ClosedRight, ClosedDown, ClosedLeft,
 
@@ -87,11 +89,22 @@ private:
 		{ "Interfaz\\Minimapa\\OpenRight.png",1,1 },
 		{ "Interfaz\\Minimapa\\OpenDown.png",1,1 },
 		{ "Interfaz\\Minimapa\\OpenLeft.png",1,1 },
-		//Open
+
+		{ "Interfaz\\Minimapa\\OpenUpNormalOn.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenRightNormalOn.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenDownNormalOn.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenLeftNormalOn.png",1,1 },
+
+		{ "Interfaz\\Minimapa\\OpenUpNormalOff.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenRightNormalOff.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenDownNormalOff.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenLeftNormalOff.png",1,1 },
+		//Closed
 		{ "Interfaz\\Minimapa\\ClosedUp.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedRight.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedDown.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedLeft.png",1,1 },
+
 
 		{ "coin.png", 1, 4},
 		{ "coin_five.png", 1, 4 },

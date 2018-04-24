@@ -23,6 +23,8 @@ private:
 	Texture* base;
 	vector<Texture*> closedDoors;
 	vector<Texture*> openDoors;
+	vector<Texture*> openNormalOn;
+	vector<Texture*> openNormalOff;
 	vector<Texture*> onFills;
 	vector<Texture*> offFills;
 
