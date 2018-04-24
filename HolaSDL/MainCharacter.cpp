@@ -40,7 +40,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	loadAnimations();
 
-	transform.speed = 300;
+	transform.speed = 400;
 	//setMaxVelocity(0.5);
 
 	addComponent(new MCManagerComponent(this));

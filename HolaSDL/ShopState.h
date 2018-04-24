@@ -14,5 +14,6 @@ public:
 	void createButton(SkillTree* skill);
 	void updateBox(string description, int price) { shopBox->actualiza(description, price); };
 	void activeBox(bool active) { shopBox->setActive(active); };
+	void handleEvent(SDL_Event& e);
 };
 
