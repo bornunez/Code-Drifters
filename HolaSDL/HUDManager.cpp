@@ -174,7 +174,7 @@ void HUDManager::changeLife(int l) {
 }
 
 void HUDManager::addBullet() {
-	bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBarra)));
+	bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletFondo)));
 	bulletSkeleton.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBorde)));
 	bullets_.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBarra)));
 
@@ -204,5 +204,7 @@ HUDManager* HUDManager::getInstance() {
 
 void HUDManager::ActualizeMoney() {
 	moneyTex->loadFromText(to_string(PlayState::getInstance()->getMainCharacter()->getMoney()), *moneyFont, moneyColor);
+	moneyDestRect.x = Game::getGame()->getWinW() / 15 - ((to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() - 1) * 15) + 50;
+	moneyDestRect.w = (to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() * 15);
 }
 

@@ -60,7 +60,7 @@ void Shop::render() {
 
 
 	//render of the central tree, so it is above the two others
-	fondos_[actual_tree]->render(central_tree);
+	//fondos_[actual_tree]->render(central_tree);
 	Skills_[actual_tree]->render(central_tree, 55, central_tree.w);
 }
 
