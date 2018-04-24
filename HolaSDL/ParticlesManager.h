@@ -17,6 +17,7 @@ public:
 	~ParticlesManager();
 
 	void render();
+	void randomizeParticle(Particle* p, int animations);
 	//Crea en X,Y  una particula del tipo argumento.
 	Particle * getParticle(ParticleType particleName, int x, int y);
 };

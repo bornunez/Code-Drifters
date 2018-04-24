@@ -22,6 +22,14 @@ void ParticlesManager::render()
 	}
 }
 
+void ParticlesManager::randomizeParticle(Particle * p, int animations)
+{
+	Uint32 rndAnim = Random::randomInt(0, animations-1);
+	Uint32 rndAngle = Random::randomInt(0, 359);
+	p->simpleAnimation->setAngle(rndAngle);
+	p->simpleAnimation->setAnimationNumber(rndAnim);
+}
+
 Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y)
 {
 	for (Particle* particle : particles) {
@@ -29,6 +37,12 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 			particle->setActive(true);
 			particle->getTransform()->position.setX(x);
 			particle->getTransform()->position.setY(y);
+			if(particleName == ParticleType::Blood){
+				randomizeParticle(particle, 3);
+			}
+			else if (particleName == ParticleType::GunnerBulletExplosion) {
+				randomizeParticle(particle, 2);
+			}
 			return particle;
 		}
 	}
@@ -38,29 +52,14 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 	//Se deben añadir las demas particulas
 	if (particleName == ParticleType::Blood) {
 		newParticle = new Particle(ResourceManager::getInstance()->getTexture(Blood), ParticleType::Blood, x, y);
-		int rnd = Random::randomInt(0, 2);
-		AnimationNumber num;
-		if (rnd == 0)
-			num = FirstAnim;
-		else if (rnd == 1) {
-			num = SecondAnim;
-		}
-		else {
-			num = ThirdAnim;
-		}
-		newParticle->simpleAnimation->setAnimationNumber(num);
+		randomizeParticle(newParticle, 3);
 		newParticle->simpleAnimation->setSize(25 * Game::getGame()->getScale(), 25 * Game::getGame()->getScale());
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}
 	else if (particleName == ParticleType::GunnerBulletExplosion) {
 		newParticle = new Particle(ResourceManager::getInstance()->getTexture(GunnerBulletExplosion), ParticleType::GunnerBulletExplosion, x, y);
-		int rnd = Random::randomInt(0, 1);
-		AnimationNumber num;
-		if (rnd == 0)
-			num = FirstAnim;
-		else num = SecondAnim;
-		newParticle->simpleAnimation->setAnimationNumber(num);
+		randomizeParticle(newParticle, 2);
 		newParticle->simpleAnimation->setSize(14 * Game::getGame()->getScale(), 14 * Game::getGame()->getScale());
 		newParticle->setActive(true);
 		particles.push_back(newParticle);

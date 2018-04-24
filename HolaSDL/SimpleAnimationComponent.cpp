@@ -19,7 +19,7 @@ SimpleAnimationComponent::SimpleAnimationComponent(GameObject* o, Texture* textu
 	lastFrame = new Timer();
 }
 
-void SimpleAnimationComponent::setAnimationNumber(AnimationNumber animNumber)
+void SimpleAnimationComponent::setAnimationNumber(Uint32 animNumber)
 {
 	this->animationNumber = animNumber;
 }
@@ -67,7 +67,7 @@ void SimpleAnimationComponent::render()
 			SDL_Rect dstrect = { auxX, auxY , frameW, frameH };
 
 			SDL_Point center;
-			center.x = 0;
+			center.x = dstrect.w / 2;
 			center.y = dstrect.h / 2;
 
 			texture->render(dstrect, angle, &center, &srcrect, flip);
