@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "PlayState.h"
 #include "Camera.h"
+#include "Timer.h"
 
 SimpleAnimationComponent::SimpleAnimationComponent(GameObject* o, Texture* texture, double angle, int fps, SDL_RendererFlip flip, bool loop) : RenderComponent(o)
 {
@@ -12,7 +13,10 @@ SimpleAnimationComponent::SimpleAnimationComponent(GameObject* o, Texture* textu
 	this->fps = fps;
 	this->flip = flip;
 	this->loop = loop;
-	this->finish = false;	
+	this->finish = false;
+	frameW = texture->getFrameWidth() * Game::getGame()->getScale();
+	frameH = texture->getFrameHeight() * Game::getGame()->getScale();
+	lastFrame = new Timer();
 }
 
 void SimpleAnimationComponent::setAnimationNumber(AnimationNumber animNumber)
@@ -36,22 +40,50 @@ SimpleAnimationComponent::~SimpleAnimationComponent()
 
 void SimpleAnimationComponent::render()
 {
-	if(!finish) {
+	if (loop) {
 		Uint32 ticks = SDL_GetTicks();
 
 		float auxX = gameObject->getTransform()->position.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
 		float auxY = gameObject->getTransform()->position.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
 
 		Uint32 sprite = (ticks / fps) % texture->getNumCols();
-		SDL_Rect srcrect = { sprite * texture->getFrameWidth(), animationNumber * texture->getFrameHeight(), texture->getFrameWidth(), texture->getFrameHeight()};
-		SDL_Rect dstrect = { auxX, auxY , texture->getFrameWidth() * Game::getGame()->getScale(), texture->getFrameHeight() * Game::getGame()->getScale() };
+		SDL_Rect srcrect = { sprite * texture->getFrameWidth(), animationNumber * texture->getFrameHeight(), texture->getFrameWidth(), texture->getFrameHeight() };
+		SDL_Rect dstrect = { auxX, auxY , frameW, frameH };
 
-		texture->render(dstrect, angle, &srcrect);
+		SDL_Point center;
+		center.x = 0;
+		center.y = dstrect.h / 2;
 
-		if (!loop)
-			currentFrame++;
+		texture->render(dstrect, angle, &center, &srcrect, flip);
+	}
+	else {
+		if(!finish) {
+			lastFrame->update();
 
-		if (currentFrame >= texture->getNumCols())
-			finish = true;
+			float auxX = gameObject->getTransform()->position.getX() - PlayState::getInstance()->getCamera()->getTransform()->position.getX();
+			float auxY = gameObject->getTransform()->position.getY() - PlayState::getInstance()->getCamera()->getTransform()->position.getY();
+
+			SDL_Rect srcrect = { currentFrame* texture->getFrameWidth(), animationNumber * texture->getFrameHeight(), texture->getFrameWidth(), texture->getFrameHeight()};
+			SDL_Rect dstrect = { auxX, auxY , frameW, frameH };
+
+			SDL_Point center;
+			center.x = 0;
+			center.y = dstrect.h / 2;
+
+			texture->render(dstrect, angle, &center, &srcrect, flip);
+
+			if (lastFrame->TimeSinceTimerCreation > 0.05)
+			{
+				currentFrame++;
+				lastFrame->restart();
+			}
+
+			if (currentFrame >= texture->getNumCols())
+			{
+				finish = true;
+				currentFrame = 0;
+				lastFrame->restart();
+			}
+		}
 	}
 }
