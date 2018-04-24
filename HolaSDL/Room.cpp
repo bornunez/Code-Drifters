@@ -29,7 +29,7 @@ void Room::load() {
 	string loadFile;
 	string levelPath;
 	if (type == BossRoom) {
-		 ;
+		loadFile = "boss_";
 		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(0) + " Door\\";
 	}
 	else {
