@@ -7,6 +7,7 @@
 #include "PlayState.h"
 #include "GameObject.h"
 #include"MainCharacter.h"
+#include "CoinManager.h"
 #include "ItemManager.h"
 #include <iostream>
 
@@ -24,6 +25,7 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 	//Antes de Spawnear, despawneamos los que hubiera
 	EnemyManager::getInstance()->killAll();
 	ItemManager::getInstance()->reset();
+	CoinManager::getInstance()->clean();
 
 	//Y ponemos al jugador en la puerta contraria
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();

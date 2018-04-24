@@ -1,15 +1,35 @@
 #pragma once
+#include <vector>
+#include "sdl_includes.h"
 class SDL_Rect;
 class Room;
+class Texture;
+
+using namespace std;
 
 class Minimap
 {
 private:
 	int width,height; //Tamaño de la "Ventana" del minimapa
 	int rWidth, rHeight; //Tamaño de las celdas del mapa
-	void drawDoors(SDL_Rect rect,Room* room);
+	int marginWidth, marginHeight;
+	float scale, rScale; // Escala de la ventana y de las salas. Idealmente tendria que ser 1, para evitar distorsiones
+	
+	//Rects de las cosas
+	SDL_Rect borderRect, srcBorderRect;
+
+	Texture* border;
+	Texture* borderBase;
+	Texture* base;
+	vector<Texture*> closedDoors;
+	vector<Texture*> openDoors;
+	vector<Texture*> onFills;
+	vector<Texture*> offFills;
+
+	void drawDoors(SDL_Rect destRect, SDL_Rect srcRect, Room * room);
+	void drawFill(SDL_Rect destRect, SDL_Rect srcRect, Room * room, bool on);
 public:
-	Minimap(int w, int h, int rW, int rH);
+	Minimap(float scale, float rScale, int mWidth,int mHeight);
 	~Minimap();
 	void render();
 };
