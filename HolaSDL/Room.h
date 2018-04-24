@@ -25,6 +25,8 @@ public:
 	int getX();
 	int getY();
 	bool getDoor(Direction door);
+	vector<bool> getDoors() { return doors; }
+
 	bool getVisited();
 	RoomType getType() { return type; }
 	void setType(RoomType type) { this->type = type; }

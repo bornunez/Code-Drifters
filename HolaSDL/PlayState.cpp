@@ -45,11 +45,12 @@ void PlayState::render()
 	SDL_RenderClear(Game::getGame()->getRenderer());
 	LevelManager::getInstance()->render();
 	EnemyManager::getInstance()->render();
+	CoinManager::getInstance()->render();
+	BulletManager::getInstance()->render();
+	//Aqui se pinta el prota
 	GameState::render();
 	minimap->render();
-	BulletManager::getInstance()->render();
 	ItemManager::getInstance()->render();
-	CoinManager::getInstance()->render();
 	HUDManager::getInstance()->render();
 	ParticlesManager::getInstance()->render();
 }
@@ -111,9 +112,7 @@ void PlayState::loadState()
 
 	//IMPORTANTE: Crear primero la camara. El mapa la requiere
 	LevelManager::getInstance()->init();
-	int mMapW = Game::getGame()->getWinW() / 5;
-	int mMapH = Game::getGame()->getWinW() / 5;
-	minimap = new Minimap(mMapW, mMapH, mMapW / 5, mMapH / 5);
+	minimap = new Minimap(1,1, 10, 10);
 
 	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
 	shopState = new ShopState(this);

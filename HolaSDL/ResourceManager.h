@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 40;
+const int NUM_TEXTURES = 63;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 4;
@@ -23,9 +23,22 @@ typedef struct {
 } TextureAtributes;
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
-enum TextureId { MCBullet, MCGun,GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, LifeBarra,LifeBorde,LifeFondo,
-	UltBorde, UltBarra, UltFondo,HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
-	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton, CoinSprite};
+enum TextureId {
+	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, LifeBarra, LifeBorde, LifeFondo,
+	UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
+
+	//TEXTURAS DEL MINIMAPA
+	MinimapBorder, MinimapBase, //Borde
+	BaseRoom, //Todas las bases
+	First_On,First_Off,Normal_On,Normal_Off,Boss_On,Boss_Off, Shop_On,Shop_Off, Chest_On,Chest_Off,
+	//Todas las puertas abiertas
+	OpenUp, OpenRight, OpenDown, OpenLeft,
+	//Todas las puertas cerradas
+	ClosedUp, ClosedRight, ClosedDown, ClosedLeft,
+
+	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
+	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
+};
 
 //IMPORTANTE//
 //El orden en el que se ponen las cosas en la enum debe ser el mismo que en el que se añaden las cosas abajo en TextureAtributes ya que si no no van a coincidir
@@ -53,6 +66,37 @@ private:
 		{"Interfaz\\BalaBarra2.png", 1, 1},
 		{"Interfaz\\BalaFondo2.png", 1, 1},
 		{"Interfaz\\BalaBorde2.png", 1, 1},
+
+		//MINIMAPA
+		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},
+		{ "Interfaz\\Minimapa\\MinimapBase.png",1,1 },
+		{ "Interfaz\\Minimapa\\BaseRoom.png",1,1 },
+		//Los rellenos
+		{ "Interfaz\\Minimapa\\First_On.png",1,1 },
+		{ "Interfaz\\Minimapa\\First_Off.png",1,1 },
+		{ "Interfaz\\Minimapa\\Normal_On.png",1,1 },
+		{ "Interfaz\\Minimapa\\Normal_Off.png",1,1 },
+		{ "Interfaz\\Minimapa\\Boss_On.png",1,1 },
+		{ "Interfaz\\Minimapa\\Boss_Off.png",1,1 },
+		{ "Interfaz\\Minimapa\\Shop_On.png",1,1 },
+		{ "Interfaz\\Minimapa\\Shop_Off.png",1,1 },
+		{ "Interfaz\\Minimapa\\Chest_On.png",1,1 },
+		{ "Interfaz\\Minimapa\\Chest_Off.png",1,1 },
+		//Open
+		{ "Interfaz\\Minimapa\\OpenUp.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenRight.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenDown.png",1,1 },
+		{ "Interfaz\\Minimapa\\OpenLeft.png",1,1 },
+		//Open
+		{ "Interfaz\\Minimapa\\ClosedUp.png",1,1 },
+		{ "Interfaz\\Minimapa\\ClosedRight.png",1,1 },
+		{ "Interfaz\\Minimapa\\ClosedDown.png",1,1 },
+		{ "Interfaz\\Minimapa\\ClosedLeft.png",1,1 },
+
+		{ "coin.png", 1, 4},
+		{ "coin_five.png", 1, 4 },
+		{ "coin_ten.png", 1, 4 },
+
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
 		{ "Tree\\3.png", 1, 1 },
@@ -75,8 +119,7 @@ private:
 		{ "Tree\\GreenLine.png", 1, 1 },
 		{ "Tree\\RedLine.png", 1, 1 },
 		{ "Tree\\Line.png", 1, 1 },
-		{ "coin.png", 1, 1},
-	};			
+	};
 
 
 
@@ -87,7 +130,7 @@ private:
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
-	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx", "Charger.tsx"};
+	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx", "Charger.tsx" };
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	SDL_Renderer* renderer;

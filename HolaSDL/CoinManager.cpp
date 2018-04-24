@@ -84,6 +84,7 @@ void CoinManager::spawnCoin(Coin * c, int x, int y)
 {
 	Transform* t = c->getTransform();
 	t->position.set(x, y);
+	c->updatePreviousPosition();
 	c->updateBody();
 	t->body.w = t->body.h = 50;
 	int randX = rand() % 360;
@@ -114,11 +115,31 @@ Coin * CoinManager::getCoin(CoinType type)
 		return coins[i];
 	}
 	else {
-		Coin* newCoin = new Coin(ResourceManager::getInstance()->getTexture(MCBullet), type);
+		Coin* newCoin = nullptr;
+		switch (type)
+		{
+		case OneCoin:
+			newCoin = new Coin(ResourceManager::getInstance()->getTexture(OneCoinSprite), type);
+			break;
+		case FiveCoin:
+			newCoin = new Coin(ResourceManager::getInstance()->getTexture(FiveCoinSprite), type);
+			break;
+		case TenCoin:
+			newCoin = new Coin(ResourceManager::getInstance()->getTexture(TenCoinSprite), type);
+			break;
+		default:
+			break;
+		}
 		newCoin->setActive(true);
 		coins.push_back(newCoin);
 		return newCoin;
 	}
+}
+
+void CoinManager::clean()
+{
+	for (Coin* c : coins)
+		c->setActive(false);
 }
 
 void CoinManager::render() {

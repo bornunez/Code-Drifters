@@ -8,6 +8,7 @@ public:
 	virtual ~CoinManager();
 	std::vector<Coin*> getCoins();
 	Coin* getCoin(CoinType type);
+	void clean();
 
 	void Drop(int valueToDrop, int x, int y);
 	void Pick(Coin* c);
