@@ -113,7 +113,7 @@ void MCManagerComponent::update()
 
 //Crea particula de sangre, cambia estado de MC a HURT y le resta vida, si muere envia el mensaje.
 void MCManagerComponent::HurtMC(float dmg) {
-	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX() - 75, mc->getCenterPos().getY() - 75);
+	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX() - 40, mc->getCenterPos().getY() - 40);
 	mc->setMCState(MCState::Hurt);
 	mc->substractHP(dmg);
 	HUDManager::getInstance()->changeLife(-dmg);
