@@ -12,6 +12,7 @@
 #include "BasicMovement.h"
 #include "PlayState.h"
 #include "Camera.h"
+#include "Game.h"
 HookShotComponent::HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed) : UpdateComponent(static_cast<GameObject*>(h))
 {
 	h->setActive(false);
@@ -88,7 +89,12 @@ void HookShotComponent::update()
 			}
 		}
 		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
-			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+			SDL_Rect mcAux = mc->getTransform()->body;//Rectángulo auxiliar más grande que el body para la colisión con el gancho
+			mcAux.w = mcAux.h = 2*mc->getTransform()->body.w;
+			mcAux.x = mc->getCenterPos().getX() - mcAux.w / 2;
+			mcAux.y = mc->getCenterPos().getY() - mcAux.h / 2;
+
+			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mcAux)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
 				mc->setMCState(MCState::Dash);
 			}
