@@ -25,6 +25,7 @@
 #include "MCManagerComponent.h"
 #include "HUDManager.h"
 #include "BasicInvincibleComponent.h"
+#include "KnockbackComponent.h"
 
 //Personaje principal
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
@@ -59,7 +60,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
-	addComponent(new BasicInvincibleComponent(this, 0.5));
+	addComponent(new BasicInvincibleComponent(this, 0.2));
+	addComponent(new KnockbackComponent(this,1500));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
@@ -308,7 +310,7 @@ void MainCharacter::changeMoney(int mon) {
 	HUDManager::getInstance()->ActualizeMoney();
 }
 ///increases both normal and charged damage dealed to enemies
-void MainCharacter::addAttackDamage(float percentage) {
+void MainCharacter::addPercentualDamage(float percentage) {
 	float newPercentage = (float)1 + (float)(percentage / 100);
 	normalAttackDamage = normalAttackDamage * newPercentage;
 	chargedAttackDamage = chargedAttackDamage * newPercentage;

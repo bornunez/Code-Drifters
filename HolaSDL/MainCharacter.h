@@ -72,10 +72,10 @@ public:
 	Vector2D getGunPosition();
 	void substractHP(int damage);
 	void addHP(int life);
+	MCState getMCState() { return mcState; };
 	//different methods to use from the shop
 	void addMaxHP(int life);
-	void addAttackDamage(float newDamage);
-	MCState getMCState() { return mcState; };
+	void addPercentualDamage(float newDamage);
 	
 	//HOOK
 	Hook getHook() { return hook; }

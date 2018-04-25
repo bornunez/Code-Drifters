@@ -29,8 +29,8 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	transform.body.h = h;
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	vida = 500;
-	daño = 10;
+	Attributes.life = 500;
+	Attributes.meleeDmg = 10;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("STATIC_UP");

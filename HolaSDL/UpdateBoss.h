@@ -31,7 +31,7 @@ private:
 	float velocidad = 50;
 	int faseAct = 1;
 	int fasesPast = 0;
-	const float tiempoFase1 = 0.6f;
+	const float tiempoFase1 = 0.7f;
 	const float tiempoFase2 = 1;
 	const float tiempoFase3 = 2;
 	const float tiempoFase4 = 2;

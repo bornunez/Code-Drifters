@@ -185,26 +185,28 @@ void SkillTree::DrawLine() {
 	if (parent_ != nullptr) {
 		SDL_Rect auxRect;
 		//horizontal line first
+
+		//middle point of the father
 		auxRect.y = parent_->skill.destRect.y + parent_->skill.destRect.h / 2;
-		/*if (parent_->parent_ == nullptr)
-			auxRect.y += parent_->skill.destRect.h / 2;*/
-		
 		if (skill.destRect.x < parent_->skill.destRect.x)
-			auxRect.x = skill.destRect.x + (skill.destRect.w / 2);
+			auxRect.x = skill.destRect.x + (skill.destRect.w / 2) - skill.destRect.h / 8;
 		else auxRect.x = parent_->skill.destRect.x + (parent_->skill.destRect.w);
 
-		auxRect.h = skill.destRect.h/4;
-		if(parent_->parent_ != nullptr)
-			auxRect.w = abs(skill.destRect.x - parent_->skill.destRect.x) - parent_->skill.destRect.w / 2;
-		else auxRect.w = 0;
+		auxRect.h = skill.destRect.h/4;	//just a designed measure
+		if(parent_->parent_ != nullptr)	//not a son of the root, because they have no horizontal line
+			auxRect.w = abs(skill.destRect.x - parent_->skill.destRect.x) - parent_->skill.destRect.w / 2 + skill.destRect.h /8;
+		else auxRect.w = 0;	//if it is a son of the root
+
+		auxRect.y -= (auxRect.h / 2); //to adjust to right the center
 
 		skill.HLineToFather->render(auxRect);
-		//now line first
+		auxRect.y += auxRect.h / 2;
+		//now vertical line
 		if (auxRect.w <= 0) {
 			auxRect.h = skill.destRect.y - parent_->skill.destRect.y - parent_->skill.destRect.h;
 			/*if (parent_->parent_ == nullptr)
 				auxRect.h = auxRect.h / 2;*/
-			auxRect.y += parent_->skill.destRect.h / 2 +1;
+			auxRect.y += parent_->skill.destRect.h / 2;
 		}
 		else auxRect.h = skill.destRect.y - parent_->skill.destRect.y;
 		auxRect.w = skill.destRect.w/4;
@@ -222,7 +224,8 @@ void SkillTree::LoadLineTex()
 		if (skill.VLineToFather->loadFromImg("..\\Arbol\\Textures\\Line.png"));
 	}
 	else {
-		int TreeNumber = to_string(skill.id).front() - '0';
+		//int TreeNumber = to_string(skill.id).front() - '0';
+		int TreeNumber = getRootID();
 		switch (TreeNumber)
 		{
 		case 1:
@@ -253,7 +256,10 @@ void SkillTree::effect() {
 	switch (skill.id)
 	{
 	case 11:
-		character->addAttackDamage(1000);
+		character->addPercentualDamage((float)100/(float)3);
+		break;
+	case 111:
+		character->addPercentualDamage(50);
 		break;
 	case 22:
 		character->setMaxBullets(character->getMaxBullets() + 1);
