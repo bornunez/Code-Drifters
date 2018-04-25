@@ -17,6 +17,7 @@
     <ClCompile Include="BasicInvincibleComponent.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="Boss2.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BulletAnimationComponent.cpp" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ReloadComponent.cpp" />
     <ClCompile Include="RenderBoss.cpp" />
+    <ClCompile Include="RenderBoss2.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
@@ -124,6 +126,7 @@
     <ClCompile Include="TurretAnimationComponent.cpp" />
     <ClCompile Include="TurretShotComponent.cpp" />
     <ClCompile Include="UpdateBoss.cpp" />
+    <ClCompile Include="UpdateBoss2.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Vector2D.cpp" />
@@ -137,6 +140,7 @@
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BasicObject.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="Boss2.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Base64.h" />
@@ -222,6 +226,7 @@
     <ClInclude Include="Random.h" />
     <ClInclude Include="ReloadComponent.h" />
     <ClInclude Include="RenderBoss.h" />
+    <ClInclude Include="RenderBoss2.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceManager.h" />
@@ -247,6 +252,7 @@
     <ClInclude Include="TurretAnimationComponent.h" />
     <ClInclude Include="TurretShotComponent.h" />
     <ClInclude Include="UpdateBoss.h" />
+    <ClInclude Include="UpdateBoss2.h" />
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Vector2D.h" />

@@ -27,7 +27,7 @@ void DamageableBossComponent::receiveDamage(std::string attackType, float damage
 	int life = boss->getLife();
 	life -= damage;
 	boss->setLife(life);
-	cout << "daño";
+	cout << boss->getLife();
 	if (life <= 0) {
 		boss->death();
 		//enemy->onDestroy();

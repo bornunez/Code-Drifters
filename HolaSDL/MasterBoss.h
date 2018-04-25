@@ -18,11 +18,9 @@ public:
 	void setLife(int life) { Attributes.life = life; };
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }
-	void death() {};
+	virtual void death() = 0;
 
 protected:
-	int vida;
-	float daño;
 	CommonAttributes Attributes;
 };
 

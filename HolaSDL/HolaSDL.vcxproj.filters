@@ -335,12 +335,6 @@
     <ClCompile Include="MasterBoss.cpp">
       <Filter>Bosses</Filter>
     </ClCompile>
-    <ClCompile Include="RenderBoss.cpp">
-      <Filter>Bosses</Filter>
-    </ClCompile>
-    <ClCompile Include="UpdateBoss.cpp">
-      <Filter>Bosses</Filter>
-    </ClCompile>
     <ClCompile Include="Boss.cpp">
       <Filter>Bosses\Boss1</Filter>
     </ClCompile>
@@ -355,6 +349,21 @@
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
     <ClCompile Include="DamageableBossComponent.cpp" />
+    <ClCompile Include="RenderBoss.cpp">
+      <Filter>Bosses\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateBoss.cpp">
+      <Filter>Bosses\Boss1</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss2.cpp">
+      <Filter>Bosses\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateBoss2.cpp">
+      <Filter>Bosses\Boss2</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBoss2.cpp">
+      <Filter>Bosses\Boss2</Filter>
+	</ClCompile>
     <ClCompile Include="MCGunPosition.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
@@ -666,12 +675,6 @@
     <ClInclude Include="MasterBoss.h">
       <Filter>Bosses</Filter>
     </ClInclude>
-    <ClInclude Include="RenderBoss.h">
-      <Filter>Bosses</Filter>
-    </ClInclude>
-    <ClInclude Include="UpdateBoss.h">
-      <Filter>Bosses</Filter>
-    </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>Bosses\Boss1</Filter>
     </ClInclude>
@@ -692,6 +695,21 @@
     <ClInclude Include="SkillTree.h" />
     <ClInclude Include="ChargerDamageableEnemyComponent.h" />
     <ClInclude Include="DamageableBossComponent.h" />
+    <ClInclude Include="RenderBoss.h">
+      <Filter>Bosses\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateBoss.h">
+      <Filter>Bosses\Boss1</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss2.h">
+      <Filter>Bosses\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateBoss2.h">
+      <Filter>Bosses\Boss2</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBoss2.h">
+      <Filter>Bosses\Boss2</Filter>
+	 </ClInclude>
     <ClInclude Include="MCGunPosition.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
@@ -777,6 +795,9 @@
     </Filter>
     <Filter Include="Bosses\Boss1">
       <UniqueIdentifier>{8e5702e3-61dd-4b5f-91d6-ea4d21a27298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\Boss2">
+      <UniqueIdentifier>{1e4034ab-5fac-446d-977a-2d3c2cfdfbd7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
