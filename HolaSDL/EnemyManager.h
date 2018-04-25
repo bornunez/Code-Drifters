@@ -2,6 +2,7 @@
 #include <vector>
 #include <list>
 #include "Boss.h"
+#include "Boss2.h"
 
 using namespace std;
 class Enemy;
@@ -39,6 +40,7 @@ private:
 	Enemy* createEnemy(EnemyType eType);
 	Enemy* getInactiveEnemy(EnemyType eType);
 	Boss* activeBoss;
+	Boss2* activeBoss2;
 
 	MainCharacter* mc;
 
@@ -56,6 +58,7 @@ public:
 	void spawn(Spawner* spawner);
 
 	void spawnBoss(int x, int y);
+	void spawnBoss2(int x, int y);
 	Boss* getActiveBoss() { return activeBoss; }
 
 	//Desactiva un enemigo

@@ -9,12 +9,14 @@ const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
 const int NUM_ENEMYTILESET = 4;
 const int NUM_BOSS1TILESET = 1;
+const int NUM_BOSS2TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels&tiles\\";
 const string TILESET_PATH = "..\\levels&tiles\\";
 const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
 const string BOSS1_PATH = "..\\Animations\\Bosses\\Boss1\\";
+const string BOSS2_PATH = "..\\Animations\\Bosses\\Boss2\\";
 // Estructura para las texturas
 typedef struct {
 	string filename;
@@ -130,9 +132,11 @@ private:
 	const string protaTilesetName = "ProtaAnimation.tsx";
 	Tileset* protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
+	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
 	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx", "Charger.tsx" };
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
+	vector<Tileset*> boss2Tilesets;
 	SDL_Renderer* renderer;
 	static ResourceManager* instance;
 
@@ -141,6 +145,7 @@ private:
 	void loadProtaTileset();
 	void loadEnemyTilesets();
 	void loadBoss1Tilesets();
+	void loadBoss2Tilesets();
 	ResourceManager(SDL_Renderer* renderer);
 
 public:
@@ -155,6 +160,7 @@ public:
 	Tileset* getProtaTileset() { return protaTileset; };
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
+	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };
 };
 

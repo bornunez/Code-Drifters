@@ -76,7 +76,7 @@ bool Animation::isFinished()//Determina si la animación ha terminado
 	return finish;
 }
 
-void Animation::setTime(int tim)//Cambia el tiempo entre frames
+void Animation::setTime(float tim)//Cambia el tiempo entre frames
 {
 	time = tim;
 }
