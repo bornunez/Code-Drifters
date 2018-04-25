@@ -308,7 +308,7 @@ void MainCharacter::changeMoney(int mon) {
 	HUDManager::getInstance()->ActualizeMoney();
 }
 ///increases both normal and charged damage dealed to enemies
-void MainCharacter::addAttackDamage(float percentage) {
+void MainCharacter::addPercentualDamage(float percentage) {
 	float newPercentage = (float)1 + (float)(percentage / 100);
 	normalAttackDamage = normalAttackDamage * newPercentage;
 	chargedAttackDamage = chargedAttackDamage * newPercentage;
