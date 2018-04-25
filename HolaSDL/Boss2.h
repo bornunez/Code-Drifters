@@ -23,6 +23,7 @@ public:
 	~Boss2();
 
 	virtual void death() {};
+	virtual void changeColor(int r, int g, int b) {};
 private:
 
 	RenderBoss2* rend;
@@ -33,7 +34,6 @@ private:
 	MainCharacter* prota;
 	//RenderBoss* rend;
 	//UpdateBoss* updat;
-
 
 
 

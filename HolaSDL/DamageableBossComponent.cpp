@@ -27,6 +27,8 @@ void DamageableBossComponent::receiveDamage(std::string attackType, float damage
 	int life = boss->getLife();
 	life -= damage;
 	boss->setLife(life);
+	//Los numeros aqui no valen pa na
+	boss->changeColor(0, 0, 0);
 	cout << boss->getLife();
 	if (life <= 0) {
 		boss->death();

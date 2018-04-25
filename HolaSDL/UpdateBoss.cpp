@@ -82,6 +82,9 @@ void UpdateBoss::update()
 		faseAct = 1;
 		updateado = true;
 	}
+
+
+	if (hit) Hit();
 	Tiempo->update();
 }
 
@@ -146,4 +149,21 @@ void UpdateBoss::fase5()
 		boss->getCurrentAnimation()->startAnimation();
 		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 	}
+}
+
+void UpdateBoss::changeColor(int r, int g, int b)
+{
+	boss->getCurrentAnimation()->changeColor(r, g, b);
+	auxTimeHit = 0;
+	hit = true;
+}
+
+void UpdateBoss::Hit()
+{
+	if (auxTimeHit >= timeHit)
+	{
+		hit = false;
+		boss->getCurrentAnimation()->changeColor(255, 255, 255);
+	}
+	else auxTimeHit += Time::getInstance()->DeltaTime;
 }

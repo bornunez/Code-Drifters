@@ -23,6 +23,7 @@ public:
 	~Boss();
 
 	virtual void death();
+	virtual void changeColor(int r, int g, int b);
 
 private:
 

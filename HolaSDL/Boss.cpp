@@ -87,7 +87,11 @@ void Boss::loadAnimations()
 
 void Boss::death()
 {
-	cout << "muere";
+}
+
+void Boss::changeColor(int r, int g, int b)
+{
+	updat->changeColor(255, 100, 100);
 }
 
 

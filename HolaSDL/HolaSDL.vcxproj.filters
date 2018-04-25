@@ -348,7 +348,6 @@
     <ClCompile Include="ChargerDamageableEnemyComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
-    <ClCompile Include="DamageableBossComponent.cpp" />
     <ClCompile Include="RenderBoss.cpp">
       <Filter>Bosses\Boss1</Filter>
     </ClCompile>
@@ -369,6 +368,9 @@
     </ClCompile>
     <ClCompile Include="BomberComponent.cpp">
       <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageableBossComponent.cpp">
+      <Filter>Bosses</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -697,7 +699,6 @@
     <ClInclude Include="ShopState.h" />
     <ClInclude Include="SkillTree.h" />
     <ClInclude Include="ChargerDamageableEnemyComponent.h" />
-    <ClInclude Include="DamageableBossComponent.h" />
     <ClInclude Include="RenderBoss.h">
       <Filter>Bosses\Boss1</Filter>
     </ClInclude>
@@ -718,6 +719,9 @@
     </ClInclude>
     <ClInclude Include="BomberComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageableBossComponent.h">
+      <Filter>Bosses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
