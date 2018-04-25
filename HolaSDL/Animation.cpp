@@ -46,6 +46,14 @@ void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelv
 	animFrames[currentFrame]->render(flip);
 }
 
+void Animation::changeColor(int r, int g, int b)
+{
+	for (int i = 0; i < animFrames.size(); i++)
+	{
+		animFrames[i]->changeColor(r, g, b);
+	}
+}
+
 void Animation::normalAnimation()//El último frame se mantiene
 {
 	if (!finish) {
