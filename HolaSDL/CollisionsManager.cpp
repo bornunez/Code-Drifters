@@ -156,7 +156,7 @@ void CollisionsManager::bulletCollisions()
 				}
 			}
 			if (collision || hit) {
-				Particle* p = ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX() - 14 * Game::getGame()->getScale(), b->getCenterPos().getY());
+				Particle* p = ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX(), b->getCenterPos().getY());
 				
 				b->setActive(false);
 			}

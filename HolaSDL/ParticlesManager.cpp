@@ -60,7 +60,6 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 	else if (particleName == ParticleType::GunnerBulletExplosion) {
 		newParticle = new Particle(ResourceManager::getInstance()->getTexture(GunnerBulletExplosion), ParticleType::GunnerBulletExplosion, x, y);
 		randomizeParticle(newParticle, 2);
-		newParticle->simpleAnimation->setSize(14 * Game::getGame()->getScale(), 14 * Game::getGame()->getScale());
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}
