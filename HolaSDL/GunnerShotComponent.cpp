@@ -129,8 +129,8 @@ void GunnerShotComponent::shoot() {
 			lastShotTime->restart();
 			updateGunPosition();
 			Transform bulletTransform;
-			bulletTransform.body.w = 50;
-			bulletTransform.body.h = 15;			
+			bulletTransform.body.w = 20* Game::getGame()->getScale();
+			bulletTransform.body.h = 4*Game::getGame()->getScale();			
 			bulletTransform.direction = (targetObject->getCenterPos() - gunPosition);
 			bulletTransform.direction.setX(targetObject->getCenterPos().getX() - gunPosition.getX() - 25);
 			bulletTransform.direction.setY(targetObject->getCenterPos().getY() - gunPosition.getY() - 7);
