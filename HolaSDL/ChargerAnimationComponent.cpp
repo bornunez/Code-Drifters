@@ -84,18 +84,25 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 		chargeTimer->restart();
 		break;
 
-	case HURT:
+	/*case HURT:
 		gameObject->changeCurrentAnimation("HURT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		hurtTimer->restart();
 		ec->enemyState = EnemyState::Hurt;
-		break;
+		break;*/
 	case ENEMY_DEATH:
-		gameObject->changeCurrentAnimation("DEATH");
+		if (gameObject->getCurrentAnimation()->getName() == "StunRight") {
+			gameObject->changeCurrentAnimation("DEATHRIGHT");
+		}
+		else gameObject->changeCurrentAnimation("DEATHLEFT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	case STUN:
-		gameObject->changeCurrentAnimation("STUN");
+		if (gameObject->getCurrentAnimation()->getName() == "ChargeRight" 
+			|| gameObject->getCurrentAnimation()->getName() == "ChargeTop") {
+			gameObject->changeCurrentAnimation("STUNRIGHT");
+		}
+		else gameObject->changeCurrentAnimation("STUNLEFT");		
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	}
@@ -112,13 +119,13 @@ void ChargerAnimationComponent::handleAnimation()
 		if (angle < 0)
 			angle += 360;
 
-		if (ec->enemyState == EnemyState::Hurt) {
+		/*if (ec->enemyState == EnemyState::Hurt) {
 			hurtTimer->update();
 			if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
 				ec->enemyState = EnemyState::Run;
 				gameObject->changeCurrentAnimation("RUN");
 			}
-		}
+		}*/
 
 		if (ec->enemyState == EnemyState::Run) {
 				//Animacion charge según ángulo

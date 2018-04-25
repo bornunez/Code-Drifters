@@ -24,6 +24,16 @@ void Minimap::drawFill(SDL_Rect destRect, SDL_Rect srcRect, Room * room, bool on
 		onFills[room->getType()]->render(destRect, &srcRect);
 	else
 		offFills[room->getType()]->render(destRect, &srcRect);
+
+	vector<bool> doors = room->getDoors();
+	for (int i = 0; i < doors.size(); i++) {
+		if (doors[i]) {
+			if(on)
+				openNormalOn[i]->render(destRect, &srcRect);
+			else
+				openNormalOff[i]->render(destRect, &srcRect);
+		}
+	}
 }
 
 Minimap::Minimap(float scale, float rScale, int mWidth, int mHeight) : scale(scale), rScale(rScale), marginHeight(mHeight), marginWidth(mWidth)
@@ -76,6 +86,18 @@ Minimap::Minimap(float scale, float rScale, int mWidth, int mHeight) : scale(sca
 		rm->getTexture(Boss_Off),
 		rm->getTexture(Shop_Off),
 		rm->getTexture(Chest_Off)
+	};
+	openNormalOn = {
+		rm->getTexture(OpenUpNormalOn),
+		rm->getTexture(OpenRightNormalOn),
+		rm->getTexture(OpenDownNormalOn),
+		rm->getTexture(OpenLeftNormalOn)
+	};
+	openNormalOff = {
+		rm->getTexture(OpenUpNormalOff),
+		rm->getTexture(OpenRightNormalOff),
+		rm->getTexture(OpenDownNormalOff),
+		rm->getTexture(OpenLeftNormalOff)
 	};
 }
 

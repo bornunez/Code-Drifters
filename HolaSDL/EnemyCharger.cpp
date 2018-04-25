@@ -18,8 +18,6 @@
 #include "ChargerComponent.h"
 #include "ChargerDamageableEnemyComponent.h"
 #include "WallStunComponent.h"
-//#include "ChargeComponent.h"
-//#include "ChaseComponent.h"
 
 
 
@@ -66,9 +64,12 @@ void EnemyCharger::loadAnimations()
 	Animation* chargeTop = AnimationParser::parseAnimation(tileset, animationPath, "ChargeTop", this, 0, 0, true, 0.2);
 	Animation* chargeLeft = AnimationParser::parseAnimation(tileset, animationPath, "ChargeLeft", this, 0, 0, true, 0.2);
 
-	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false, 0.2);
-	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this, 0, 0, false, 0.2);
-	Animation* stun = AnimationParser::parseAnimation(tileset, animationPath, "Stun", this, 0, 0, true, 0.2);
+	//Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false, 0.2);
+	Animation* deathRight = AnimationParser::parseAnimation(tileset, animationPath, "DeathRight", this, 0, 0, false, 0.2);
+	Animation* deathLeft = AnimationParser::parseAnimation(tileset, animationPath, "DeathLeft", this, 0, 0, false, 0.2);
+	Animation* stunRight = AnimationParser::parseAnimation(tileset, animationPath, "StunRight", this);
+	Animation* stunLeft = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft", this);
+
 
 	animations.emplace("RUNBOT", runBot);
 	animations.emplace("RUNRIGHT", runRight);
@@ -85,9 +86,12 @@ void EnemyCharger::loadAnimations()
 	animations.emplace("CHARGETOP", chargeTop);
 	animations.emplace("CHARGELEFT", chargeLeft);
 
-	animations.emplace("HURT", hurt);
-	animations.emplace("DEATH", death);
-	animations.emplace("STUN", stun);
+	//animations.emplace("HURT", hurt);
+	animations.emplace("DEATHRIGHT", deathRight);
+	animations.emplace("DEATHLEFT", deathLeft);
+	animations.emplace("STUNRIGHT", stunRight);
+	animations.emplace("STUNLEFT", stunLeft);
+
 
 }
 

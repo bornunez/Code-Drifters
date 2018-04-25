@@ -25,12 +25,22 @@ Animation::~Animation()
 
 void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelve al primer frame
 {
-	
-	if (lastFrame->TimeSinceTimerCreation > time) {
-		lastFrame->restart();
-		currentFrame++;
-		if (currentFrame >= animFrames.size()) {
-			currentFrame = 0;
+	if (!inverted) {
+		if (lastFrame->TimeSinceTimerCreation > time) {
+			lastFrame->restart();
+			currentFrame++;
+			if (currentFrame >= animFrames.size()) {
+				currentFrame = 0;
+			}
+		}
+	}
+	else {
+		if (lastFrame->TimeSinceTimerCreation > time) {
+			lastFrame->restart();
+			currentFrame--;
+			if (currentFrame < 0) {
+				currentFrame = animFrames.size() - 1;
+			}
 		}
 	}
 	animFrames[currentFrame]->render(flip);
@@ -39,13 +49,24 @@ void Animation::loopedAnimation()//Al final de la ejecución de un ciclo se vuelv
 void Animation::normalAnimation()//El último frame se mantiene
 {
 	if (!finish) {
-
-		if (lastFrame->TimeSinceTimerCreation > time) {
-			lastFrame->restart();
-			currentFrame++;
-			if (currentFrame >= animFrames.size()) {
-				finish = true;
-				currentFrame = animFrames.size()-1;
+		if (!inverted) {
+			if (lastFrame->TimeSinceTimerCreation > time) {
+				lastFrame->restart();
+				currentFrame++;
+				if (currentFrame >= animFrames.size()) {
+					finish = true;
+					currentFrame = animFrames.size() - 1;
+				}
+			}
+		}
+		else {
+			if (lastFrame->TimeSinceTimerCreation > time) {
+				lastFrame->restart();
+				currentFrame--;
+				if (currentFrame < 0) {
+					finish = true;
+					currentFrame = 0;
+				}
 			}
 		}
 	}
@@ -68,7 +89,11 @@ void Animation::runAnimation()//Ejecuta las animaciones dependiendo de si es loo
 void Animation::startAnimation()
 {
 	finish = false;
-	currentFrame = 0;
+	if(!inverted)
+		currentFrame = 0;
+	else {
+		currentFrame = animFrames.size() - 1;
+	}
 }
 
 bool Animation::isFinished()//Determina si la animación ha terminado
@@ -78,7 +103,13 @@ bool Animation::isFinished()//Determina si la animación ha terminado
 
 void Animation::setTime(float tim)//Cambia el tiempo entre frames
 {
-	time = tim;
+	if (tim < 0) {
+		inverted = true;
+	}
+	else {
+		inverted = false;
+	}
+	time = abs(tim);
 }
 
 void Animation::addAnimationFrame(SDL_Rect* srcRect, SDL_Rect destRect, int xOffset, int yOffset, int frameWidth, int frameHeight)//Añade un frame a la animación

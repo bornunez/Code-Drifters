@@ -12,6 +12,7 @@
 #include "BasicMovement.h"
 #include "PlayState.h"
 #include "Camera.h"
+#include "Game.h"
 HookShotComponent::HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed) : UpdateComponent(static_cast<GameObject*>(h))
 {
 	h->setActive(false);
@@ -88,7 +89,12 @@ void HookShotComponent::update()
 			}
 		}
 		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
-			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mc->getTransform()->body)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
+			SDL_Rect mcAux = mc->getTransform()->body;//Rectángulo auxiliar más grande que el body para la colisión con el gancho
+			mcAux.w = mcAux.h = 2*mc->getTransform()->body.w;
+			mcAux.x = mc->getCenterPos().getX() - mcAux.w / 2;
+			mcAux.y = mc->getCenterPos().getY() - mcAux.h / 2;
+
+			if (!CollisionHandler::RectCollide(hook->getTransform()->body, mcAux)) {//10 margen de error MEJOR HACERLO POR COLISIÓN CON EL PERSONAJE
 				moveMC();
 				mc->setMCState(MCState::Dash);
 			}
@@ -110,9 +116,6 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 {
 	PlayState::getInstance()->addGameObject(hook);
 	hook->setActive(true);
-	hook->setOriginPosition(originPos);
-	hook->getTransform()->position.set(originPos);
-	hook->getTransform()->velocity.set(hookDir);
 	hook->setHookStatus(HookStatus::EXTEND);
 	mc->setMCState(MCState::Dash);
 	mc->setMovable(false);
@@ -130,6 +133,12 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	angle = angle * 180 / M_PI;
 	if (angle < 0)
 		angle += 360;
+	
+
+
+	hook->setOriginPosition(originPos);
+	hook->getTransform()->position.set(originPos);
+	hook->getTransform()->velocity.set(hookDir);
 	hook->setAngle(angle);
 }
 
@@ -180,7 +189,7 @@ void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hast
 
 	Transform auxT = *mcT;
 	auxT.position.setX(hook->getOriginPosition().getX() - auxT.body.w / 2);
-	auxT.position.setY(hook->getOriginPosition().getY() - auxT.body.h / 2);
+	auxT.position.setY(hook->getOriginPosition().getY() + auxT.body.h / 2);
 
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collision = false;

@@ -33,6 +33,7 @@ private:
 	GameObject * gameObject;
 	bool finish = false;;
 	bool loop;
+	bool inverted = false;
 	void loopedAnimation();
 	void normalAnimation();
 	int currentFrame;
