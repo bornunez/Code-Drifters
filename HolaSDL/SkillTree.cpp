@@ -253,7 +253,7 @@ void SkillTree::effect() {
 	switch (skill.id)
 	{
 	case 11:
-		character->addAttackDamage(10);
+		character->addAttackDamage(1000);
 		break;
 	case 22:
 		character->setMaxBullets(character->getMaxBullets() + 1);

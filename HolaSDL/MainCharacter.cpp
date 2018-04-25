@@ -32,9 +32,9 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
-	transform.body.x = x; transform.body.y = y + h - (h/3.5);
+	transform.body.x = x; transform.body.y = y + h - (h/3.2);
 	transform.body.w = w/2;
-	transform.body.h = h/3.5;
+	transform.body.h = h/3.2;
 
 	setSpriteOffset(0, -12 * Game::getGame()->getScale());
 
@@ -60,8 +60,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
 	addComponent(new BasicInvincibleComponent(this, 0.5));
-	/*addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	addComponent(new BoxRenderer(this, playState->getCamera()));*/
+	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
 	maxBullets = 3;
 	reloadTime = 5;
