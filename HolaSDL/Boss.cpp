@@ -11,6 +11,7 @@
 #include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
 #include "DamageableBossComponent.h"
+#include "BasicInvincibleComponent.h"
 
 using namespace std;
 Boss::Boss(Transform t) : MasterBoss()
@@ -29,8 +30,8 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	transform.body.h = h;
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	vida = 500;
-	daño = 10;
+	Attributes.life = 1000;
+	Attributes.meleeDmg = 10;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("CANSADO");
@@ -44,6 +45,7 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 
     BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);
+	addComponent(new BasicInvincibleComponent(this, 0.2));
 }
 Boss::~Boss()
 {
@@ -80,6 +82,12 @@ void Boss::loadAnimations()
 	animations.emplace("ATTACK_FALL", attackFall);
 	animations.emplace("STATIC", estatico);
 	animations.emplace("NORMAL_ATTACK", attack);
+}
+
+
+void Boss::death()
+{
+	cout << "muere";
 }
 
 

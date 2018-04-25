@@ -15,14 +15,14 @@
   </data>
  </layer>
  <objectgroup name="Boss1-NormalAttack">
-  <object id="54" name="Hurtbox" type="0" x="1692" y="1943.33" width="52" height="69.3333"/>
-  <object id="55" name="Hurtbox" type="1" x="1823.33" y="1941.33" width="65.3333" height="72.6667"/>
-  <object id="56" name="Hurtbox" type="2" x="1950.67" y="1936" width="67.3333" height="80.6667"/>
-  <object id="57" name="Hitbox" type="3" x="2059.33" y="1935.33" width="84.6667" height="83.3333"/>
-  <object id="58" name="Hitbox" type="4" x="2188.67" y="1938.66" width="85.3334" height="78.6666"/>
-  <object id="59" name="Hitbox" type="5" x="2324" y="1936.67" width="67.3334" height="87.3333"/>
-  <object id="60" name="Hurtbox" type="6" x="2456.66" y="1935.33" width="60" height="83.3333"/>
-  <object id="61" name="Hurtbox" type="7" x="2592.67" y="1940" width="49.3333" height="78.6667"/>
+  <object id="54" name="Hurtbox" type="0" x="1695.67" y="1946.66" width="48.3333" height="66"/>
+  <object id="55" name="Hurtbox" type="1" x="1826.66" y="1948" width="60" height="63.6667"/>
+  <object id="56" name="Hurtbox" type="2" x="1963.67" y="1940.33" width="51" height="76.3334"/>
+  <object id="57" name="Hitbox" type="3" x="2069.66" y="1943.33" width="71" height="75.3333"/>
+  <object id="58" name="Hitbox" type="4" x="2198.67" y="1945.33" width="65.0001" height="71.9999"/>
+  <object id="59" name="Hitbox" type="5" x="2330" y="1943" width="59.0001" height="74"/>
+  <object id="60" name="Hurtbox" type="6" x="2460.66" y="1945" width="50.6667" height="72"/>
+  <object id="61" name="Hurtbox" type="7" x="2594" y="1943.33" width="45" height="72.6667"/>
  </objectgroup>
  <layer name="Boss1-StartJump" width="30" height="30">
   <data encoding="base64" compression="zlib">
@@ -55,8 +55,8 @@
   </data>
  </layer>
  <objectgroup name="Boss1-StartAttackJump">
-  <object id="40" name="Hurtbox" type="0" x="1699.33" y="2483.33" width="60.6667" height="71.3333"/>
-  <object id="41" name="Hurtbox" type="1" x="1828" y="2492.67" width="61.3333" height="64.6667"/>
+  <object id="40" name="Hurtbox" type="0" x="1703" y="2486.66" width="53.6667" height="65.3333"/>
+  <object id="41" name="Hurtbox" type="1" x="1828" y="2492.67" width="61.3333" height="62.6667"/>
   <object id="42" name="Hurtbox" type="2" x="1956.67" y="2492.67" width="62" height="64.6667"/>
   <object id="43" name="Hurtbox" type="3" x="2084.67" y="2493.33" width="60" height="65.3333"/>
   <object id="44" name="Hurtbox" type="4" x="2212.67" y="2491.33" width="59.3333" height="66"/>
@@ -70,15 +70,15 @@
   </data>
  </layer>
  <objectgroup name="Boss1-AttackFall">
-  <object id="28" name="Hitbox" type="2" x="1940.67" y="2623.33" width="90" height="62.6667"/>
-  <object id="29" name="Hitbox" type="3" x="2067.33" y="2622" width="94" height="65.3333"/>
-  <object id="30" name="Hurtbox" type="4" x="2204" y="2620.67" width="79.1667" height="64.6667"/>
-  <object id="31" name="Hurtbox" type="5" x="2334" y="2622" width="69.3333" height="63.3333"/>
-  <object id="32" name="Hurtbox" type="6" x="2468.67" y="2620.67" width="60" height="62"/>
-  <object id="33" name="Hurtbox" type="7" x="2598" y="2620.67" width="55.3333" height="66"/>
-  <object id="34" name="Hurtbox" type="8" x="2726" y="2622.67" width="58" height="62"/>
-  <object id="35" name="Hurtbox" type="9" x="2855.33" y="2622.67" width="56" height="64"/>
-  <object id="36" name="Hurtbox" type="10" x="2980.67" y="2618" width="58.6667" height="67.3333"/>
+  <object id="28" name="Hitbox" type="2" x="1955.82" y="2624" width="62.1818" height="58.3637"/>
+  <object id="29" name="Hitbox" type="3" x="2082" y="2622" width="66.3333" height="62.3333"/>
+  <object id="30" name="Hurtbox" type="4" x="2209.33" y="2620.67" width="66.8334" height="64.6667"/>
+  <object id="31" name="Hurtbox" type="5" x="2342" y="2625" width="56.6666" height="56.6666"/>
+  <object id="32" name="Hurtbox" type="6" x="2472.67" y="2627.67" width="53.6667" height="53"/>
+  <object id="33" name="Hurtbox" type="7" x="2598" y="2623.67" width="55.3333" height="57"/>
+  <object id="34" name="Hurtbox" type="8" x="2728" y="2625.34" width="54" height="57.3333"/>
+  <object id="35" name="Hurtbox" type="9" x="2855.33" y="2622.67" width="56" height="61"/>
+  <object id="36" name="Hurtbox" type="10" x="2982.34" y="2625.33" width="57" height="58"/>
   <object id="37" name="Hurtbox" type="11" x="3111.33" y="2618.67" width="55.3333" height="68"/>
   <object id="38" name="Hurtbox" type="12" x="3236" y="2620" width="62.6667" height="66"/>
  </objectgroup>
@@ -88,8 +88,8 @@
   </data>
  </layer>
  <objectgroup name="Desvanece">
-  <object id="26" name="Hurtbox" type="0" x="1691.33" y="2711.33" width="58.6667" height="70.6667"/>
-  <object id="27" name="Hurtbox" type="1" x="1824.67" y="2709.33" width="66.6667" height="72.6667"/>
+  <object id="26" name="Hurtbox" type="0" x="1697.83" y="2712.33" width="48.1667" height="65.6667"/>
+  <object id="27" name="Hurtbox" type="1" x="1828.67" y="2714.33" width="51.6667" height="67.6667"/>
  </objectgroup>
  <layer name="Aparece" width="30" height="30">
   <data encoding="base64" compression="zlib">
@@ -97,8 +97,8 @@
   </data>
  </layer>
  <objectgroup name="Aparece">
-  <object id="9" name="Hurtbox" type="7" x="2593.33" y="2838" width="70" height="76.6667"/>
-  <object id="10" name="Hurtbox" type="8" x="2714" y="2838" width="58" height="69.3333"/>
+  <object id="9" name="Hurtbox" type="7" x="2596.33" y="2841.5" width="60" height="65.6667"/>
+  <object id="10" name="Hurtbox" type="8" x="2721.5" y="2843" width="47.5" height="64.3333"/>
  </objectgroup>
  <layer name="Cansado" width="30" height="30">
   <data encoding="base64" compression="zlib">
@@ -106,11 +106,11 @@
   </data>
  </layer>
  <objectgroup name="Cansado">
-  <object id="2" name="Hurtbox" type="0" x="1703.33" y="3006" width="54.6667" height="64"/>
-  <object id="3" name="Hurtbox" type="1" x="1830.67" y="3007.33" width="56" height="62"/>
-  <object id="5" name="Hurtbox" type="2" x="1959.33" y="3007.33" width="56" height="62"/>
-  <object id="6" name="Hurtbox" type="3" x="2088" y="3002.67" width="52.6667" height="66.6667"/>
-  <object id="7" name="Hurtbox" type="4" x="2215.33" y="3005.33" width="56.6667" height="64"/>
-  <object id="8" name="Hurtbox" type="5" x="2340.67" y="3005.33" width="61.3333" height="64"/>
+  <object id="2" name="Hurtbox" type="0" x="1707.66" y="3013.67" width="48.3334" height="51.6667"/>
+  <object id="3" name="Hurtbox" type="1" x="1834.34" y="3013.33" width="49" height="52.6667"/>
+  <object id="5" name="Hurtbox" type="2" x="1961.33" y="3011" width="52" height="55.3333"/>
+  <object id="6" name="Hurtbox" type="3" x="2090" y="3013.34" width="50.6667" height="52.6667"/>
+  <object id="7" name="Hurtbox" type="4" x="2217.66" y="3010.66" width="51" height="53.3333"/>
+  <object id="8" name="Hurtbox" type="5" x="2343.67" y="3011" width="55.6666" height="57"/>
  </objectgroup>
 </map>

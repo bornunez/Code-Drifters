@@ -130,7 +130,7 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	activeBoss2 = new Boss2(mc, x, y, 200, 200);
+	activeBoss = new Boss(mc, x, y, 200, 200);
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {

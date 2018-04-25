@@ -22,6 +22,7 @@ public:
 	Boss2(MainCharacter* prota, int x, int y, int w, int h);
 	~Boss2();
 
+	virtual void death() {};
 private:
 
 	RenderBoss2* rend;
