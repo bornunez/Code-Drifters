@@ -363,9 +363,12 @@
     </ClCompile>
     <ClCompile Include="RenderBoss2.cpp">
       <Filter>Bosses\Boss2</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="MCGunPosition.cpp">
       <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -709,9 +712,12 @@
     </ClInclude>
     <ClInclude Include="RenderBoss2.h">
       <Filter>Bosses\Boss2</Filter>
-	 </ClInclude>
+    </ClInclude>
     <ClInclude Include="MCGunPosition.h">
       <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberComponent.h">
+      <Filter>Enemigos\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

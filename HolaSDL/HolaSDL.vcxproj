@@ -16,6 +16,7 @@
     <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="BasicInvincibleComponent.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="BomberComponent.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Boss2.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="BasicInvincibleComponent.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BasicObject.h" />
+    <ClInclude Include="BomberComponent.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Boss2.h" />
     <ClInclude Include="BoxRenderer.h" />
