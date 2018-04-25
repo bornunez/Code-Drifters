@@ -60,7 +60,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
 	addComponent(new BasicInvincibleComponent(this, 0.5));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	//addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
 	maxBullets = 3;
