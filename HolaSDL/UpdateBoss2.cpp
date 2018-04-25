@@ -1,5 +1,5 @@
 #include "UpdateBoss2.h"
-
+#include "Boss.h"
 
 
 UpdateBoss2::UpdateBoss2(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
@@ -18,6 +18,8 @@ void UpdateBoss2::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
 	case HURT:
+		break;
+	case MC_ATTACK_DAMAGE:
 		break;
 	}
 }
@@ -142,6 +144,7 @@ void UpdateBoss2::fase3()
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->changeCurrentAnimation("SACA_RAYOS");
+		boss->getCurrentAnimation()->setTime(0.1);
 		boss->getCurrentAnimation()->startAnimation();
 	}
 }
@@ -152,6 +155,7 @@ void UpdateBoss2::fase4()
 	{
 		boss->changeCurrentAnimation("GIRA");
 		boss->getCurrentAnimation()->startAnimation();
+
 		auxVelocidad = 0.3f;
 		giroDir = true;
 	}
@@ -175,7 +179,9 @@ void UpdateBoss2::fase5()
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->changeCurrentAnimation("SACA_RAYOS");
+		boss->getCurrentAnimation()->setTime(-0.1);
 		boss->getCurrentAnimation()->startAnimation();
+
 	}
 }
 void UpdateBoss2::fase6()

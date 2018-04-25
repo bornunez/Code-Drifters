@@ -17,10 +17,12 @@ class Boss : public MasterBoss
 {
 public:
 	Vector2D* centro;
-
+	void damage(int life);
 	Boss(Transform t);
 	Boss(MainCharacter* prota, int x, int y, int w, int h);
 	~Boss();
+
+	virtual void death();
 
 private:
 
@@ -36,8 +38,8 @@ private:
 
 
 
-
 	void loadAnimations();
+
 protected:
 };
 
