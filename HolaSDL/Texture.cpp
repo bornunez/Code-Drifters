@@ -44,6 +44,11 @@ int Texture::getNumRows()
 	return height / frameHeight;
 }
 
+void Texture::setColor(int r, int g, int b)
+{
+	SDL_SetTextureColorMod(texture, r, g, b);
+}
+
 
 void Texture::close() {
 	if (texture != nullptr) {

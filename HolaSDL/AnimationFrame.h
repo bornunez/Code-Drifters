@@ -23,6 +23,7 @@ public:
 	void setHurtboxOffset(int boxIndex, std::pair<int, int> par) { hurtboxOffset[boxIndex] = par; }
 	void setHitboxOffset(int boxIndex, std::pair<int, int> par) { hitboxOffset[boxIndex] = par; }
 	void setGunPosOffset(std::pair<int, int> par) { gunPosOffset = par; }
+	void changeColor(int r, int g, int b);
 private:
 	Tileset * tileSet;
 	GameObject * gameObject;

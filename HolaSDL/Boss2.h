@@ -5,30 +5,29 @@
 //#include "UpdateBoss.h"
 #include "MasterBoss.h"
 #include "AnimationParser.h"
-#include "RenderBoss.h"
-#include "UpdateBoss.h"
+#include "RenderBoss2.h"
+#include "UpdateBoss2.h"
 #include "SkeletonRenderer.h"
 #include "PlayState.h"
 class MainCharacter;
 class Timer;
 class Vector2D;
 
-class Boss : public MasterBoss
+class Boss2 : public MasterBoss
 {
 public:
 	Vector2D* centro;
-	void damage(int life);
-	Boss(Transform t);
-	Boss(MainCharacter* prota, int x, int y, int w, int h);
-	~Boss();
 
-	virtual void death();
-	virtual void changeColor(int r, int g, int b);
+	Boss2(Transform t);
+	Boss2(MainCharacter* prota, int x, int y, int w, int h);
+	~Boss2();
 
+	virtual void death() {};
+	virtual void changeColor(int r, int g, int b) {};
 private:
 
-	RenderBoss* rend;
-	UpdateBoss* updat;
+	RenderBoss2* rend;
+	UpdateBoss2* updat;
 	Vector2D posInic;
 	Vector2D posProta;
 	Timer* Time;
@@ -40,7 +39,6 @@ private:
 
 
 	void loadAnimations();
-
 protected:
 };
 

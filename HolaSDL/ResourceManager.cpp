@@ -17,6 +17,7 @@ ResourceManager::ResourceManager(SDL_Renderer* renderer)
 	loadProtaTileset();
 	loadEnemyTilesets();
 	loadBoss1Tilesets();
+	loadBoss2Tilesets();
 }
 
 void ResourceManager::createInstance(SDL_Renderer * renderer)
@@ -124,5 +125,19 @@ void ResourceManager::loadBoss1Tilesets()
 		Texture* tileTex = new Texture(renderer, BOSS1_PATH + imageSrc);
 		//Y cargamos el tileset
 		boss1Tilesets.push_back(new Tileset(tileTex, root));
+	}
+}
+void ResourceManager::loadBoss2Tilesets()
+{
+	for (int i = 0; i < NUM_BOSS2TILESET; i++) {
+		string filename = boss2TilesetNames[i];
+		XMLDocument doc;
+		doc.LoadFile((BOSS2_PATH + filename).c_str());
+		//Raiz del tileset
+		XMLElement* root = doc.FirstChildElement();
+		string imageSrc = root->FirstChildElement("image")->Attribute("source");
+		Texture* tileTex = new Texture(renderer, BOSS2_PATH + imageSrc);
+		//Y cargamos el tileset
+		boss2Tilesets.push_back(new Tileset(tileTex, root));
 	}
 }
