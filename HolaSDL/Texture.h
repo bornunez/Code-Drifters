@@ -27,6 +27,7 @@ public:
 	void render(SDL_Rect const& dest, double angle, SDL_Rect* clip = nullptr) const;
 	void render(SDL_Rect const& dest, double angle, SDL_Point* center, SDL_Rect* clip = nullptr, SDL_RendererFlip flip = SDL_FLIP_NONE) const;
 	void close();
+	void setColor(int r, int g, int b);
 
 private:
 

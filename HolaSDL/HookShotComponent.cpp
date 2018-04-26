@@ -133,11 +133,46 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	angle = angle * 180 / M_PI;
 	if (angle < 0)
 		angle += 360;
-	
 
+	Vector2D auxOrigin = originPos;
+	int offsetY = 0;
+	int offsetX = 0;
+	if (angle > 45 && angle < 135) {//Abajo
+		if (angle > 90) {//Abajo a la izquierda
+			offsetY += 8;
+			offsetX -= 7;
+		}
+		else {//Abajo a la derecha
+			offsetY += 7;
+			offsetX -= 1;
+		}
 
-	hook->setOriginPosition(originPos);
-	hook->getTransform()->position.set(originPos);
+	}
+	else if (angle >= 135 && angle<225) {//Izquierda
+		offsetX += 1;
+		offsetY += 6;
+	}
+	else if (angle >= 225 && angle<315) {//Arriba
+		if (angle>270) {//Arriba a la derecha
+			offsetY -= 2;
+			offsetX -= 4;
+		}
+		else {
+			offsetY -= 2;
+			offsetX -= 10;
+		}
+	}
+	else {//Derecha
+		offsetY += 4;
+		offsetX += 1;
+	}
+	offsetX *= Game::getGame()->getScale();
+	offsetY *= Game::getGame()->getScale();
+
+	auxOrigin.setX(auxOrigin.getX() + offsetX);
+	auxOrigin.setY(auxOrigin.getY() + offsetY);
+	hook->setOriginPosition(auxOrigin);
+	hook->getTransform()->position.set(auxOrigin);
 	hook->getTransform()->velocity.set(hookDir);
 	hook->setAngle(angle);
 }

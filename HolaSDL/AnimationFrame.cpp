@@ -70,3 +70,8 @@ void AnimationFrame::updateBoxPosition()//Actualiza la posición de las boxes res
 	gunPosition.setX(gameObject->getCenterPos().getX() - (frameWidth * Game::getGame()->getScale() / 2) + gunPosOffset.first);
 	gunPosition.setY(gameObject->getCenterPos().getY() - (frameHeight * Game::getGame()->getScale() / 2) + gunPosOffset.second);
 }
+
+void AnimationFrame::changeColor(int r, int g, int b)
+{
+	tileSet->getTexture()->setColor(r, g, b);
+}

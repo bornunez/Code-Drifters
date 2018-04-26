@@ -27,6 +27,7 @@ public:
 	void setFlip(SDL_RendererFlip flip);
 	int getFrameWidth() { return frameW; };
 	int getFrameHeight() { return frameH; };
+	void changeColor(int r, int g, int b);
 private:
 	TileLayer* layer;
 	Tileset* tileSet;

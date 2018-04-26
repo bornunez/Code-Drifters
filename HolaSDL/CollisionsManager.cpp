@@ -129,6 +129,10 @@ void CollisionsManager::bulletCollisions()
 							//Mandar mensaje de collision bala / player
 							Message msg(ENEMY_BULLET_COLLISION);
 							mc->sendMessage(&msg);
+							Vector2D empuje = Vector2D(b->getTransform()->direction.getX(), b->getTransform()->direction.getY());
+							empuje.normalize();
+							KnockbackMessage msg1(empuje);
+							mc->sendMessage(&msg1);
 							
 						}
 						
@@ -152,7 +156,7 @@ void CollisionsManager::bulletCollisions()
 				}
 			}
 			if (collision || hit) {
-				Particle* p = ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX() - 14 * Game::getGame()->getScale(), b->getCenterPos().getY());
+				Particle* p = ParticlesManager::getInstance()->getParticle(ParticleType::GunnerBulletExplosion, b->getCenterPos().getX(), b->getCenterPos().getY());
 				
 				b->setActive(false);
 			}
@@ -358,6 +362,10 @@ void CollisionsManager::enemyAttackCollision() {
 							//Mandar mensaje de collision stalker / player
 							Message msg(STALKER_ATTACK);
 							mc->sendMessage(&msg);
+							Vector2D empuje = mc->getCenterPos() - e->getCenterPos();
+							empuje.normalize();
+							KnockbackMessage msg1(empuje);
+							mc->sendMessage(&msg1);
 						}
 					}
 				}
@@ -386,6 +394,10 @@ void CollisionsManager::bossCollisions()
 						mc->setInvincibility(true);
 						Message msg(BOSS1_ATTACK);
 						mc->sendMessage(&msg);
+						Vector2D empuje = mc->getCenterPos() - boss->getCenterPos();
+						empuje.normalize();
+						KnockbackMessage msg1(empuje);
+						mc->sendMessage(&msg1);
 					}
 				}
 			}

@@ -11,11 +11,15 @@ public:
 	UpdateBoss(GameObject* o, MainCharacter* prota);
 	~UpdateBoss();
 	void receiveMessage(Message * msg);
+	void changeColor(int r, int b, int g);
 protected:
 	virtual void update();
 private:
 	Vector2D direccion;
 	float vel;
+
+	void Hit();
+	bool hit = false;
 
 	GameObject* boss;
 	//FASES
@@ -25,6 +29,7 @@ private:
 	void fase4();
 	void fase5();
 	bool updateado = false;
+
 
 	//TIEMPOS
 	float tiempoAct = 0;
@@ -36,6 +41,8 @@ private:
 	const float tiempoFase3 = 2;
 	const float tiempoFase4 = 2;
 	const float tiempoFase5 = 2.3;
+	const float timeHit = 0.1f;
+	float auxTimeHit = 0;
 
 	Vector2D posInic;
 	Vector2D posProta;

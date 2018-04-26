@@ -19,7 +19,7 @@ public:
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }
 	virtual void death() = 0;
-
+	virtual void changeColor(int r, int g, int b) = 0;
 protected:
 	CommonAttributes Attributes;
 };
