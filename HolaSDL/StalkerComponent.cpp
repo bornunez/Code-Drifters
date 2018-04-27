@@ -1,6 +1,8 @@
 #pragma once
 #include "StalkerComponent.h"
 #include "EnemyStalker.h"
+#include "MainCharacter.h"
+#include "Hook.h"
 
 StalkerComponent::StalkerComponent(GameObject * o, GameObject * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(o, target),
 ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
@@ -11,10 +13,27 @@ ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
 	attackTime = aTime;
 	es = static_cast<EnemyStalker*>(gameObject);
 	es->enemyState = EnemyState::Run;
+	this->target = target;
 }
 
 StalkerComponent::~StalkerComponent()
 {
+}
+void StalkerComponent::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case HIT_WALL:
+		EnemyStalker * eg = static_cast<EnemyStalker*>(gameObject);
+		if (eg->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
+			static_cast<MainCharacter*>(target)->getHook().setHookStatus(HookStatus::STOP);
+			Message msg(HOOK_STOP);
+			static_cast<MainCharacter*>(target)->sendMessage(&msg);
+			eg->getEnemyState() == EnemyState::Idle;
+			static_cast<MainCharacter*>(target)->setMCState(MCState::Idle);
+
+		}
+		break;
+	}
 }
 
 void StalkerComponent::update()

@@ -68,7 +68,6 @@ void Shop::render() {
 	Skills_[(actual_tree + 1) % 3]->render(auxRight, 30, auxRight.w);
 	Skills_[(actual_tree + 2) % 3]->render(auxLeft, 30, auxLeft.w);
 
-
 	//render of the central tree, so it is above the two others
 	fondos_[actual_tree]->render(central_tree);
 	Skills_[actual_tree]->render(auxCentral, 55, auxCentral.w);

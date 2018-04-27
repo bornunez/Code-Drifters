@@ -19,7 +19,7 @@ private:
 	float hookSpeed;
 	Hook * hook;
 	MainCharacter* mc;
-	GameObject* enemyHooked=nullptr;
+	Enemy* enemyHooked=nullptr;
 	vector<string> collisionsLayer;
 public:
 	void update();

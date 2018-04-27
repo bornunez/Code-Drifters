@@ -122,6 +122,20 @@ void LevelManager::changeRoom(Direction dir)
 	}
 }
 
+Room * LevelManager::getBossRoom()
+{
+	Room* r = nullptr;
+	bool found = false;
+	for (int i = 0;!found && i < dungeon->getLevelHeight(); i++) {
+		for (int j = 0; !found && j < dungeon->getLevelWidth(); j++) {
+			 r = dungeon->getRoom(j, i);
+			 found = r->getType() == BossRoom;	
+		}
+	}
+	return found ? r : nullptr;
+
+}
+
 
 void LevelManager::render()
 {

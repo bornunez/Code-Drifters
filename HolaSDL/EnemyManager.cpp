@@ -167,6 +167,8 @@ void EnemyManager::killAll()
 			(*it)->onDestroy();
 		kill(*it);
 	}
+	if (activeBoss != nullptr)
+		activeBoss->setActive(false);
 }
 
 void EnemyManager::init(MainCharacter* mainCharacter)

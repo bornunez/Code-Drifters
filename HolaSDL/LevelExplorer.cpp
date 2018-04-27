@@ -20,5 +20,7 @@ void LevelExplorer::handleEvents(SDL_Event & e)
 			LevelManager::getInstance()->changeRoom(Left);
 		else if (e.key.keysym.sym == SDLK_RIGHT)
 			LevelManager::getInstance()->changeRoom(Right);
+		else if (e.key.keysym.sym == SDLK_p)
+			LevelManager::getInstance()->changeRoom(LevelManager::getInstance()->getBossRoom());
 	}
 }

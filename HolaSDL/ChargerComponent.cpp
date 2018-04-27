@@ -18,7 +18,21 @@ ChargerComponent::ChargerComponent(GameObject* o, GameObject* target, float cDel
 ChargerComponent::~ChargerComponent()
 {
 }
+void ChargerComponent::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case HIT_WALL:
+		if (ec->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
+			static_cast<MainCharacter*>(targetObject)->getHook().setHookStatus(HookStatus::STOP);
+			Message msg(HOOK_STOP);
+			static_cast<MainCharacter*>(targetObject)->sendMessage(&msg);
+			ec->getEnemyState() == EnemyState::Idle;
+			static_cast<MainCharacter*>(targetObject)->setMCState(MCState::Idle);
 
+		}
+		break;
+	}
+}
 
 
 void ChargerComponent::update()
