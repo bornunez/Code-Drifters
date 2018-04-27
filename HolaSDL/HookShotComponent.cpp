@@ -39,6 +39,7 @@ void HookShotComponent::receiveMessage(Message* msg) {
 		break;
 	case HOOK_STOP:
 		mc->addCollisionLayer("Aire");
+		stop();
 		break;
 	case HIT_WALL:
 		if (hook->getHookStatus() == HookStatus::MOVE_MC) {//Cuando está moviéndose con el gancho y choca con la pared se detiene
@@ -72,7 +73,8 @@ void HookShotComponent::update()
 				contract();
 			}
 			else {
-				stop();
+				Message msg(HOOK_STOP);
+				mc->sendMessage(&msg);
 				mc->setMCState(MCState::Idle);
 			}
 		}
@@ -81,11 +83,14 @@ void HookShotComponent::update()
 				contract();
 				moveEnemy();
 				mc->setMCState(MCState::HookShot);
+				enemyHooked->enemyState = EnemyState::Hooked;
 			}
 			else {
-				stop();
+				Message msg(HOOK_STOP);
+				mc->sendMessage(&msg);
 				mc->setMCState(MCState::Idle);
 				enemyHooked->setMovable(true);
+				enemyHooked->enemyState = EnemyState::Idle;
 			}
 		}
 		else if (hook->getHookStatus() == HookStatus::MOVE_MC) {
@@ -99,7 +104,8 @@ void HookShotComponent::update()
 				mc->setMCState(MCState::Dash);
 			}
 			else {
-				stop();
+				Message msg(HOOK_STOP);
+				mc->sendMessage(&msg);
 			}
 		}
 	}
@@ -239,8 +245,6 @@ void HookShotComponent::stop()
 	hook->setHookStatus(HookStatus::STOP);
 	hook->setActive(false);
 	
-	Message msg(HOOK_STOP);
-	mc->sendMessage(&msg);
 }
 
 
