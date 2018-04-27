@@ -50,18 +50,28 @@ void Shop::update() {
 }
 
 void Shop::render() {
+	//auxiliar rects to render the trees outside the margins of the decoration rects
+	SDL_Rect auxRight = right_tree,
+		auxLeft = left_tree,
+		auxCentral = central_tree;
+	auxRight.x += auxRight.w / 10;
+	auxRight.w -= auxRight.w / 5;
+	auxLeft.x += auxLeft.w / 10;
+	auxLeft.w -= auxLeft.w / 5;
+	auxCentral.x += auxCentral.w / 10;
+	auxCentral.w -= auxCentral.w / 5;
 	//render of the left and right rectangles
 	fondos_[(actual_tree + 1) % 3]->render(right_tree);
 	fondos_[(actual_tree + 2) % 3]->render(left_tree);
 
 	//render of left and right tree, in the assigned rectangle
-	Skills_[(actual_tree + 1) % 3]->render(right_tree, 30, right_tree.w);
-	Skills_[(actual_tree + 2) % 3]->render(left_tree, 30, left_tree.w);
+	Skills_[(actual_tree + 1) % 3]->render(auxRight, 30, auxRight.w);
+	Skills_[(actual_tree + 2) % 3]->render(auxLeft, 30, auxLeft.w);
 
 
 	//render of the central tree, so it is above the two others
-	//fondos_[actual_tree]->render(central_tree);
-	Skills_[actual_tree]->render(central_tree, 55, central_tree.w);
+	fondos_[actual_tree]->render(central_tree);
+	Skills_[actual_tree]->render(auxCentral, 55, auxCentral.w);
 }
 
 void Shop::handleEvents(SDL_Event& e) {
