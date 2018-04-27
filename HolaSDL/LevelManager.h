@@ -47,6 +47,8 @@ public:
 	void changeRoom(Room* room);
 	void changeRoom(int x, int y);
 	void changeRoom(Direction dir);
+	Room* getBossRoom();
+
 	void render();
 
 	bool getDoor(Direction dir);

@@ -9,7 +9,8 @@
 SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopSta) {
 	//initial values for destRect
 	shopState= shopSta;
-	skill.destRect.w = skill.destRect.x = skill.destRect.h = 50;
+	skill.destRect.w = skill.destRect.x = 50;
+	skill.destRect.h = 70;
 	skill.destRect.y = 0;
 
 	skill.text = new Texture(Game::getGame()->getRenderer());

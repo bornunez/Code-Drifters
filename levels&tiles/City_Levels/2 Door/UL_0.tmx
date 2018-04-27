@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt1MEJgDAQRFGL1waCERvQ+ixBDxFyiBJBcCb+hU8uuTwWtuvandmk8SimQnqnwj9cGuHCpRAuXArhwqUQLlwK4cKlEC5cCuHCpRAuXArhwqUQLlwK1bq2Rl2t7svN1T90DQblplpXNOzPrmDaWjC57+vKlLsWw+7u5jlf3++3w+VVy7MDGQZoCw==
+   eJzt1LEJgDAURVGH1wVExQV0PkfQwsIiikj4UTkXHmnSHAKpqv82Bq7b1u9r93NI3OPi4uLi4uLi4uLi4uLi4uLi4uLi4nq3qw50NUE7miJcfaFxPastuDlh+vp7nZlyuaZCu/o3lwyuyH/+7nJU2sAlSZL0nlYyWxNl
   </data>
  </layer>
  <layer name="Rotos de suelo" width="54" height="47">
@@ -13,12 +13,12 @@
  </layer>
  <layer name="Aire" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt0zEKgEAMAMH4/0/bWwiCxU3YhXRHYAI318xI8+zLW71cVrmsclnlsspllcsql9UfrhPvkut9x2n1v6xyWeWyymWVyyqXVS6rXFa5rDa7NpbLarNroy2X1XbXwrkBFWQAwg==
+   eJzt08EJwCAUBcGf/ptOEWZUwg54fCErOM/M3HpWrO6VusxeqcvslbrMXqnL7JW6zF6py+yVusxeOd2l7uX0f9W197u9r73qMnulLrNX6jJ7pS6zV+oye6Uus1fqMnulLrNXvui69SRJkl94AV2RAJo=
   </data>
  </layer>
  <layer name="Paredes" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJztmMERQDAQAEMHqACVoQJURgdUJilBLicnszuz78zeK3fOlUvlrY15eE9hV+NtjXl57wK7gh1dKl2DkmPGrjDTWclF2NU72Uytdk3Ct+miiy663r69Kbln7rLK6uK7pDMFKJ3YfTnFTqtJ7H8+xU6riXRPsQpd/+qS7pVWKfUfRRddFqCLLgvQ9a+ucAfIdVsBAAAAAPiCBxxm03c=
+   eJzt1sENgzAQRFGHDhIqIKksSQWByqCDpLKYA9ojK1leMeY/ae58H2xSatclr6u4OW8JqzHXvFvFffN+YTWmdte6PqzGnL3rXrBHWI3xdK3n/SrYO6zGDMl33mpdT+d30XWMrr13eXtX1br27o3tXW2tS/U+9HaNBZvCaoy3S433/VLjvefV0KWFLi10aaFLyycd8/8OAAAAAAAA7fkDEWd01Q==
   </data>
  </layer>
  <layer name="Sombras" width="54" height="47">
@@ -28,12 +28,12 @@
  </layer>
  <layer name="Puertas" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt0LERgDAMBEGHQAVABYb+C+RjYmMR7M5cLM23BgDA3y1pTVv1I4Pt6UjnxJsztuzpSveHN94qtpyhYksAAAAAAAAY7QGIuwHD
+   eJztzsENgCAUBUGOYgVIBWr/BfKKIPkcZpK9b2sAAJziSj3d1SObjfSkWT2y2Zu+9FePAAAAAAAAAEdbfzcA4g==
   </data>
  </layer>
  <layer name="Ventanas" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt2EsKwjAUheEO1RWoK1DHPuc+978hTweBEHqbYKK34P/BoSRkkN5LA2nXAQBa2SsH5aiclLNyGZgPY2s+HXu7KjflrjyUp/IamA9jaz4d17Lqmat3eKb9sfqV62O6rpZVz1y9wzPtj9WvXB/TdbVK+2PVe6pK+2PVuxd/6/H7jp0B1rqpnBu9+FuP33fsDLDWtTo3AAAAgH9g3b9K771TZd2/Su+9+C3v/yvf4v1/BZ+ZKXNl4b2RxpbKSll7b6SxjbJVdt4bAQAAABp7A3ChOso=
+   eJzt1jsKwzAQhGGXSU6Q5ARJ6rzc53n/C2VcCMTgLQJGks3/wWC0ldAulroOAPCvs3JRrspNuSv9SD2tvd6qh/JUXspb+SjfkXpae7206Jz96/2J+hXVS4vO2b/en6hfUR3lpdka5POV113r/41Bmq1BPl953TGHwPJE7x6/X+cmevf4/Yo2RO9xn8e5id7jPo9oy0pZK5vaG5nYVtkp+9obmdhBOSqn2hsBAAAAAADAYv0AG3AisA==
   </data>
  </layer>
  <layer name="Decoracion de edificio" width="54" height="47">
@@ -43,12 +43,12 @@
  </layer>
  <layer name="Cosas de encima" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt2MsJACAMRME07a97rUExKMzAu2eviQAAeF+5WE3c8YO26oeN9KsBAACAHf4AAAAAOSbQLhva
+   eJztzsEJACAMALEuLdbtdQTBgn0kcP+LAADoYzwGAEB/85SXrU+PAAAAAACVNpNEDPE=
   </data>
  </layer>
  <layer name="Techo" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt1zkRAAAIA0E04l8MAih5qt2ZM5AuEQBsycPobAoAAMCEXwkAAADAlwJS9hGf
+   eJzt1UENAAAIAzE04l8MGgh8CG1yBvZZBABdOYwd9gbgIv8FAAAAAADwTwGvDAuJ
   </data>
  </layer>
  <layer name="Carteles" width="54" height="47">
@@ -57,48 +57,42 @@
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="8" name="Up" x="704" y="0" width="64" height="16"/>
-  <object id="27" name="Left" x="0" y="608" width="32" height="64"/>
+  <object id="8" name="Up" x="464" y="0" width="64" height="32"/>
+  <object id="27" name="Left" x="0" y="464" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="29" name="Left" gid="255" x="48" y="640" width="16" height="16"/>
-  <object id="30" name="Up" gid="255" x="720" y="48" width="16" height="16"/>
+  <object id="29" name="Left" gid="255" x="80" y="480" width="16" height="16"/>
+  <object id="30" name="Up" gid="255" x="480" y="80" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="32" name="Spawner" gid="240" x="720" y="160" width="16" height="16">
+  <object id="32" name="Spawner" gid="240" x="480" y="208" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="33" name="Spawner" gid="240" x="192" y="640" width="16" height="16">
+  <object id="33" name="Spawner" gid="240" x="192" y="496" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="34" name="Spawner" gid="240" x="464" y="288" width="16" height="16">
+  <object id="34" name="Spawner" gid="240" x="480" y="320" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="35" name="Spawner" gid="240" x="448" y="544" width="16" height="16">
+  <object id="35" name="Spawner" gid="240" x="368" y="496" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="36" name="Spawner" gid="240" x="336" y="416" width="16" height="16">
+  <object id="36" name="Spawner" gid="240" x="262" y="315" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="37" name="Spawner" gid="240" x="656" y="416" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>
