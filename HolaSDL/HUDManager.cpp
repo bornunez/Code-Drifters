@@ -205,6 +205,6 @@ HUDManager* HUDManager::getInstance() {
 void HUDManager::ActualizeMoney() {
 	moneyTex->loadFromText(to_string(PlayState::getInstance()->getMainCharacter()->getMoney()), *moneyFont, moneyColor);
 	moneyDestRect.x = Game::getGame()->getWinW() / 15 - ((to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() - 1) * 15) + 50;
-	moneyDestRect.w = (to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() * 15);
+	moneyDestRect.w = (to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() * 15);	
 }
 

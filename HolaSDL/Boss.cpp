@@ -30,8 +30,8 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	transform.body.h = h;
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 1000;
-	Attributes.meleeDmg = 10;
+	Attributes.life = 1500;
+	Attributes.meleeDmg = 20;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("CANSADO");
@@ -87,6 +87,11 @@ void Boss::loadAnimations()
 
 void Boss::death()
 {
+	map<const char*, Animation*>::iterator it;
+	for (it = animations.begin(); it != animations.end(); it++)
+	{
+		it->second->changeColor(0, 0, 0);
+	}
 }
 
 void Boss::changeColor(int r, int g, int b)

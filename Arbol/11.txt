@@ -1,1 +1,1 @@
-1 0 10 Aumento De Ataque Espada
+2 0 10 Más poder de ataque

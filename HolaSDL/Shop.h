@@ -22,8 +22,8 @@ private:
 	
 	bool LoadTextures();
 	//to change between different trees
-	void GoLeft() { actual_tree = (actual_tree + 1) % 3; };
-	void GoRight() { actual_tree--; if (actual_tree < 0)actual_tree = 2;};
+	void GoLeft() {  actual_tree--; if (actual_tree < 0)actual_tree = 2;};
+	void GoRight() { actual_tree = (actual_tree + 1) % 3; };
 public:
 	Shop(ShopState* shopState);
 	virtual ~Shop();

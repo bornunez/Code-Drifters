@@ -196,7 +196,8 @@ void CollisionsManager::playerCollisions()
 						e->sendMessage(&msg1);
 						e->setInvincibility(true);
 						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
-
+						if(mc->isLifeStealEnable())
+							mc->addHP(mc->getNormalAttackDamage() * mc->getLifeSteal() / 100);
 						MCAttackDamage msg2(damage);
 						e->sendMessage(&msg2);
 						hit = true;
@@ -208,7 +209,7 @@ void CollisionsManager::playerCollisions()
 		}
 	}
 
-	Boss* boss = EnemyManager::getInstance()->getActiveBoss();
+	MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
 		if (!boss->getInvincibility()) {
 			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
@@ -376,7 +377,7 @@ void CollisionsManager::enemyAttackCollision() {
 
 void CollisionsManager::bossCollisions()
 {
-	Boss* boss = EnemyManager::getInstance()->getActiveBoss();
+	MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
 		MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 		if (!mc->getInvincibility()) {
@@ -392,7 +393,7 @@ void CollisionsManager::bossCollisions()
 						hit = true;
 						//Mandar mensaje de collision stalker / player
 						mc->setInvincibility(true);
-						Message msg(BOSS1_ATTACK);
+						BossAttack msg(boss->getDamage());
 						mc->sendMessage(&msg);
 						Vector2D empuje = mc->getCenterPos() - boss->getCenterPos();
 						empuje.normalize();

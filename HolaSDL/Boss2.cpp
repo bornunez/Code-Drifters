@@ -11,6 +11,7 @@
 #include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
 #include "DamageableBossComponent.h"
+#include "BasicInvincibleComponent.h"
 
 using namespace std;
 Boss2::Boss2(Transform t) : MasterBoss()
@@ -29,8 +30,8 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	transform.body.h = h;
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 500;
-	Attributes.meleeDmg = 10;
+	Attributes.life = 1000;
+	Attributes.meleeDmg = 8;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("STATIC_UP");
@@ -39,11 +40,14 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	addComponent(updat);
 	rend = new RenderBoss2(this);
 	addComponent(rend);
-	//addComponent(new DamageableBossComponent(this, prota));
+	addComponent(new DamageableBossComponent(this, prota));
 
 
 	BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);
+	addComponent(new BasicInvincibleComponent(this, 0.2));
+
+	createWheel(transform.position.getX(), transform.position.getY());
 }
 Boss2::~Boss2()
 {
@@ -63,11 +67,6 @@ void Boss2::loadAnimations()
 	Animation* sacaRayos = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-SacaRayos", this, 0, 0, false, 0.1);
 	Animation* entra = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Entra", this, 0, 0, false, 0.1);
 	Animation* staticDown = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-StaticDown", this, 0, 0, true, 0.1);
-	/*Animation* normalFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-NormalFall", this, 0, -75, false, 0.1);
-	Animation* attackFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-AttackFall", this, 0, -75, false, 0.1);
-	Animation* estatico = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-Static", this, 0, -75, true, 0.1);
-	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-NormalAttack", this, 0, 0, false, 0.1);
-	*/
 
 	//Nombres de animaciones
 	animations.emplace("SALE", sale);
@@ -76,10 +75,27 @@ void Boss2::loadAnimations()
 	animations.emplace("SACA_RAYOS", sacaRayos);
 	animations.emplace("ENTRA", entra);
 	animations.emplace("STATIC_DOWN", staticDown);
-	/*animations.emplace("NORMAL_FALL", normalFall);
-	animations.emplace("ATTACK_FALL", attackFall);
-	animations.emplace("STATIC", estatico);
-	animations.emplace("NORMAL_ATTACK", attack);
-	*/
 }
+
+void Boss2::changeColor(int r, int g, int b)
+{
+	updat->changeColor(255, 100, 100);
+}
+
+void Boss2::updateEnemies()
+{
+	for(int i = 0; i < wheels.size(); i++)
+	{
+		if (wheels[i] != nullptr)
+		{
+			wheels[i]->update();
+			wheels[i]->render();
+		}
+	}
+}
+void Boss2::createWheel(int posX, int posY)
+{
+	wheels.push_back(new Wheel(prota, transform.position.getX() - 100, transform.position.getY(), 50, 50));
+}
+
 

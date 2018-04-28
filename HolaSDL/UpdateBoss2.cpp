@@ -1,5 +1,5 @@
 #include "UpdateBoss2.h"
-#include "Boss.h"
+#include "Boss2.h"
 
 
 UpdateBoss2::UpdateBoss2(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
@@ -23,11 +23,28 @@ void UpdateBoss2::receiveMessage(Message * msg)
 		break;
 	}
 }
+void UpdateBoss2::changeColor(int r, int g, int b)
+{
+	boss->getCurrentAnimation()->changeColor(r, g, b);
+	auxTimeHit = 0;
+	hit = true;
+}
+
+void UpdateBoss2::Hit()
+{
+	if (auxTimeHit >= timeHit)
+	{
+		hit = false;
+		boss->getCurrentAnimation()->changeColor(255, 255, 255);
+	}
+	else auxTimeHit += Time::getInstance()->DeltaTime;
+}
 
 void UpdateBoss2::update()
 {
 	boss->allUpdates();
 	updateado = false;
+	static_cast<Boss2*>(boss)->updateEnemies();
 	//cout << auxVelocidad;
 	if (faseAct == 0 && (Tiempo->TimeSinceTimerCreation < tiempoFase0) && !updateado)
 	{
@@ -109,6 +126,8 @@ void UpdateBoss2::update()
 		faseAct = 0;
 		updateado = true;
 	}
+
+	if (hit) Hit();
 	Tiempo->update();
 }
 
@@ -160,7 +179,7 @@ void UpdateBoss2::fase4()
 		giroDir = true;
 	}
 	if(auxVelocidad > velocidad && giroDir)
-	auxVelocidad -= Time::getInstance()->DeltaTime/2;
+	auxVelocidad -= Time::getInstance()->DeltaTime;
 	else if(giroDir)
 	{
 		auxVelocidad = velocidad;
