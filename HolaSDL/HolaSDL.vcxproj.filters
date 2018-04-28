@@ -372,6 +372,13 @@
     <ClCompile Include="DamageableBossComponent.cpp">
       <Filter>Bosses</Filter>
     </ClCompile>
+    <ClCompile Include="Wheel.cpp">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateWheel.cpp">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWheel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -723,6 +730,13 @@
     <ClInclude Include="DamageableBossComponent.h">
       <Filter>Bosses</Filter>
     </ClInclude>
+    <ClInclude Include="Wheel.h">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateWheel.h">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderWheel.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -808,6 +822,9 @@
     </Filter>
     <Filter Include="Bosses\Boss2">
       <UniqueIdentifier>{1e4034ab-5fac-446d-977a-2d3c2cfdfbd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\WheelEnemy">
+      <UniqueIdentifier>{6ffbd8e4-18be-412d-9a5c-a35d074c7038}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

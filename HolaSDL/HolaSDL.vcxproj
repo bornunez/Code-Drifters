@@ -105,6 +105,7 @@
     <ClCompile Include="RenderBoss.cpp" />
     <ClCompile Include="RenderBoss2.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="RenderWheel.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -129,9 +130,11 @@
     <ClCompile Include="UpdateBoss.cpp" />
     <ClCompile Include="UpdateBoss2.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
+    <ClCompile Include="UpdateWheel.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WallStunComponent.cpp" />
+    <ClCompile Include="Wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -230,6 +233,7 @@
     <ClInclude Include="RenderBoss.h" />
     <ClInclude Include="RenderBoss2.h" />
     <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="RenderWheel.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
@@ -256,9 +260,11 @@
     <ClInclude Include="UpdateBoss.h" />
     <ClInclude Include="UpdateBoss2.h" />
     <ClInclude Include="UpdateComponent.h" />
+    <ClInclude Include="UpdateWheel.h" />
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />
+    <ClInclude Include="Wheel.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HolaSDL.rc" />

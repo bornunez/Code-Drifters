@@ -7,7 +7,7 @@ class Tileset;
 const int NUM_TEXTURES = 71;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 1;
-const int NUM_ENEMYTILESET = 4;
+const int NUM_ENEMYTILESET = 5;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
@@ -146,7 +146,14 @@ private:
 	Tileset* protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
 	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
-	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx", "Charger.tsx" };
+	const string enemyTilesetNames[NUM_ENEMYTILESET]
+	{ 
+		"Gunner.tsx", 
+		"Stalker.tsx", 
+		"Torreta.tsx", 
+		"Charger.tsx" , 
+		"Wheel.tsx"
+	};
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	vector<Tileset*> boss2Tilesets;

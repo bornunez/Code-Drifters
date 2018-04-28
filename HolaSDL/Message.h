@@ -130,4 +130,9 @@ struct HookEnemyMessage : Message {
 	Enemy* gameObject;
 };
 
+struct BossAttack : Message
+{
+	BossAttack(float dmg) : Message(BOSS1_ATTACK), damage(dmg) {}
+	int damage;
+};
 #endif /* MESSAGE_H_ */

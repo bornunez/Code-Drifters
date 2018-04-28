@@ -7,9 +7,9 @@ RenderBoss2::RenderBoss2(GameObject* o) : RenderComponent(o)
 	boss = o;
 }
 
-
 RenderBoss2::~RenderBoss2()
 {
+
 }
 
 void RenderBoss2::render()

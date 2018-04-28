@@ -5,38 +5,36 @@
 //#include "UpdateBoss.h"
 #include "MasterBoss.h"
 #include "AnimationParser.h"
-#include "RenderBoss2.h"
-#include "UpdateBoss2.h"
+#include "RenderWheel.h"
+#include "UpdateBoss.h"
 #include "SkeletonRenderer.h"
 #include "PlayState.h"
-#include "Wheel.h"
+#include "Enemy.h"
+#include "UpdateWheel.h"
 class MainCharacter;
 class Timer;
 class Vector2D;
 
-class Boss2 : public MasterBoss
+class Wheel : public Enemy
 {
 public:
 	Vector2D* centro;
+	void damage(int life);
+	Wheel(Transform t);
+	Wheel(MainCharacter* prota, int x, int y, int w, int h);
+	~Wheel();
 
-	Boss2(Transform t);
-	Boss2(MainCharacter* prota, int x, int y, int w, int h);
-	~Boss2();
-
-	virtual void death() {};
+	virtual void death();
 	virtual void changeColor(int r, int g, int b);
-	void updateEnemies();
-	void createWheel(int posX, int posY);
+
 private:
 
-	RenderBoss2* rend;
-	UpdateBoss2* updat;
+	RenderWheel* rend;
+	UpdateWheel* updat;
 	Vector2D posInic;
 	Vector2D posProta;
 	Timer* Time;
 	MainCharacter* prota;
-	vector<Wheel*> wheels;
-
 	//RenderBoss* rend;
 	//UpdateBoss* updat;
 
@@ -44,6 +42,7 @@ private:
 
 
 	void loadAnimations();
+
 protected:
 };
 
