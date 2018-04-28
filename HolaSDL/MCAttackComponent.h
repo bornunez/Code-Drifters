@@ -10,9 +10,11 @@ class MCAttackComponent : public InputComponent
 {
 private:
 	Timer* attackCD;
+	Timer* holdButton;
 	enum Combo { First, Second, Third, CD };
 	Combo comboAttack = First;
 	MainCharacter* mc;
+	bool buttonPressed = false;
 public:
 
 	MCAttackComponent(MainCharacter* mc);

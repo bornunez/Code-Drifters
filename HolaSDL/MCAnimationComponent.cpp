@@ -97,6 +97,9 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("ATTACK3_BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
+	case ATTACK_CHARGED:
+		cout << "ATAQUE CARGADO" << endl;
+		break;
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUN_LEFT");
 		break;
@@ -197,6 +200,9 @@ void MCAnimationComponent::handleAnimationStates()
 	}
 
 	if (mc->getMCState() == MCState::Attack && gameObject->getCurrentAnimation()->isFinished()) {
+		mc->setMCState(MCState::Idle);
+	}
+	else if (mc->getMCState() == MCState::ChargedAttack && gameObject->getCurrentAnimation()->isFinished()) {
 		mc->setMCState(MCState::Idle);
 	}
 	else if (mc->getMCState() == MCState::DashEnd && gameObject->getCurrentAnimation()->isFinished()) {

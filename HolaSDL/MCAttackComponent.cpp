@@ -22,6 +22,7 @@ MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(static
 	//ResetAttack y AttackDelay
 	this->mc = mc;
 	attackCD = new Timer();
+	holdButton = new Timer();
 }
 
 void MCAttackComponent::handleEvents(SDL_Event & e)
@@ -36,8 +37,17 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		mc->setMCState(MCState::Idle);		//La animacion vuelve a idle		
 	}
 
+
+	if (buttonPressed) {
+		holdButton->update();//Actualiza el contador con el tiempo que lleva pulsado el ratón
+		if (holdButton->TimeSinceTimerCreation >= 1.5) {
+			mc->setMCState(MCState::ChargedAttack);
+			cout << "CARGANDO" << endl;
+		}
+	}
+
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt) {
+		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt && mc->getMCState() != MCState::ChargedAttack) {
 			int mouseX, mouseY;
 			SDL_Point p;
 			SDL_Rect r;
@@ -168,10 +178,20 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 			}
 
+			
+			
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
-
+			buttonPressed = true;
 		}
+	}
+	else if(e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONUP) {
+		if (holdButton->TimeSinceTimerCreation >= 1.5) {
+			cout << "TOMA FIERROTE" << endl;
+			
+		}
+		holdButton->restart();
+		buttonPressed = false;
 	}
 
 	
