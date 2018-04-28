@@ -196,7 +196,8 @@ void CollisionsManager::playerCollisions()
 						e->sendMessage(&msg1);
 						e->setInvincibility(true);
 						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
-
+						if(mc->isLifeStealEnable())
+							mc->addHP(mc->getNormalAttackDamage() * mc->getLifeSteal() / 100);
 						MCAttackDamage msg2(damage);
 						e->sendMessage(&msg2);
 						hit = true;

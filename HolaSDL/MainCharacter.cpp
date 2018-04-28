@@ -275,6 +275,7 @@ void MainCharacter::setGunPosition(Vector2D pos)
 void MainCharacter::substractHP(int damage)
 {
 	HP -= damage;
+	HUDManager::getInstance()->changeLife(-damage);
 }
 
 float MainCharacter::getReloadTime()
@@ -295,7 +296,7 @@ void MainCharacter::addHP(int life)
 	HUDManager::getInstance()->changeLife(life);
 }
 
-void MainCharacter::addMaxHP(int life) {
+void MainCharacter::addMaxHP(float life) {
 	maxHP += life;
 	HP += life;
 	HUDManager::getInstance()->setNewHP(life);

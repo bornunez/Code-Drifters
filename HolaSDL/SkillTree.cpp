@@ -86,34 +86,34 @@ void SkillTree::HandleEvents(SDL_Event e) {
 
 void SkillTree::render(SDL_Rect destination, int size, int totalWidth ) {
 	if (parent_ == nullptr) {
-		skill.destRect.x = destination.x + destination.w / 5;
-		skill.destRect.y = destination.y + destination.h / 10;
-		skill.destRect.w = destination.w - ((skill.destRect.x - destination.x) * 2);
+		skill.destRect.x = destination.x;// +destination.w / 5;
+		skill.destRect.y = destination.y + destination.h / 12;
+		skill.destRect.w = destination.w -((skill.destRect.x - destination.x));
 		skill.destRect.h = skill.destRect.w / 2;
 	}
 	else {
 		skill.destRect.w = skill.destRect.h = size;
-		skill.destRect.x = destination.x - skill.destRect.w / 2 + totalWidth / 2 + totalWidth/30;
-		skill.destRect.y = parent_->skill.destRect.y + (parent_->skill.destRect.h) + (skill.destRect.h * (destination.h >= 450 ? 0.9 : 2));
+		skill.destRect.x = destination.x - skill.destRect.w / 2 + (destination.w /2);// +totalWidth / 2 + totalWidth / 30;
+		skill.destRect.y = parent_->
+			skill.destRect.y + (parent_->skill.destRect.h) + (skill.destRect.h * (destination.h >= 450 ? 0.9 : 1.75));//change central and lateral trees
 	}
-
 	DrawLine();
 	if (parent_ != nullptr && parent_->parent_ == nullptr)
-		parent_->skill.text->render(parent_->skill.destRect);
-	skill.text->render(skill.destRect);
+		parent_->skill.text->render(parent_->skill.destRect);	//re-draw the lines only for the sons of a root
+
+	skill.text->render(skill.destRect); //the render of its own texture
 
 	if (sons_.size() > 0) {
-		
-		if (sons_.size() > 1)
-			destination.x -= (destination.w / (sons_.size() * 2));
+		if (sons_.size() > 1);
+			//destination.x -= (destination.w / (sons_.size() *2));
 		//destination.x += destination.w / sons_.size();
 		destination.w = destination.w / sons_.size();
 		for (int i = 0; i < sons_.size(); i++)
 		{
 			sons_[i]->render(destination, size, totalWidth);
 			destination.x += (destination.w);
-			if(parent_ == nullptr)
-				destination.x -=(size/2);
+			/*if(parent_ == nullptr)
+				destination.x -=(size/2);*/
 		}
 	}
 }
@@ -262,17 +262,40 @@ void SkillTree::effect() {
 	case 111:
 		character->addPercentualDamage(50);
 		break;
+	case 1111:
+		character->addPercentualDamage(50);
+		break;
+	case 112:
+		character->setLifeStealEnable(true);
+		break;
+	case 1121:
+		character->setLifeSteal(2); //doubles life steal
+	case 12:
+		character->addMaxHP(-(character->getMaxHP() / 2));
+		character->addPercentualDamage(100);
+	case 221: //both add 1 bullet
 	case 22:
 		character->setMaxBullets(character->getMaxBullets() + 1);
 		HUDManager::getInstance()->addBullet();
 		break;
-	case 221:
-		character->setReloadTime(character->getReloadTime() * 0.67);
+	case 23:
+		character->setReloadTime(character->getReloadTime() * 2 / 3);
 		break;
-	case 31:
+	case 231:
+		character->setReloadTime(character->getReloadTime() * 2 / 3);
+		break;
+	case 32:
 		//add a bonus 10% max HP
-		character->addMaxHP(character->getMaxHP() / 10);
+		character->addMaxHP(character->getMaxHP()*10 / 100);
 		break;
+	case 321:
+		character->addMaxHP(character->getMaxHP() / 3);
+		break;
+	case 3211:
+		cout << character->getMaxHP() << endl;
+		cout << (character->getMaxHP() * (60.0 / 44.0)) << endl;
+		cout << (character->getMaxHP() * (60.0 / 44.0)) - character->getMaxHP() << endl;
+		character->addMaxHP(((character->getMaxHP() * (60.0 / 44.0)) - character->getMaxHP()));
 	default:
 		break;
 	}

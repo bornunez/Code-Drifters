@@ -27,7 +27,9 @@ private:
 	float currentBullets;
 	float reloadTime;
 
-	int money = 0;
+	int money = 1000;
+	bool lifeStealEnabled = false;
+	float lifeStealPercentual = 10.0; //percentage of the damage done that is healed
 
 	Vector2D gunPosition;//Posici�n de donde sale la bala
 	Hook hook;
@@ -74,8 +76,12 @@ public:
 	void addHP(int life);
 	MCState getMCState() { return mcState; };
 	//different methods to use from the shop
-	void addMaxHP(int life);
+	void addMaxHP(float life);
 	void addPercentualDamage(float newDamage);
+	void setLifeStealEnable(bool enable) { lifeStealEnabled = enable; };
+	bool isLifeStealEnable() { return lifeStealEnabled; };
+	float getLifeSteal() { return lifeStealPercentual; };
+	void setLifeSteal(float multiplicator) { lifeStealPercentual *= multiplicator; };
 	
 	//HOOK
 	Hook getHook() { return hook; }
