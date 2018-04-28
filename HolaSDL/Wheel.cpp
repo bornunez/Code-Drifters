@@ -21,7 +21,7 @@ Wheel::Wheel(Transform t) : Enemy(prota)
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
 }
 
-Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h) : Enemy(prot)
+Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h, float velocidad, int dir) : Enemy(prot)
 {
 	prota = prot;
 	transform.position.setX(x);
@@ -34,14 +34,14 @@ Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h) : Enemy(prot)
 	this->changeCurrentAnimation("SALE");
 	this->getCurrentAnimation()->startAnimation();
 
-	updat = new UpdateWheel(this, prota);
+	updat = new UpdateWheel(this, prota, velocidad, dir);
 	addComponent(updat);
 	rend = new RenderWheel(this);
 	addComponent(rend);
 
 
-	BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
-	addComponent(skel);
+	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
+	//addComponent(skel);
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 }
 Wheel::~Wheel()
@@ -52,13 +52,13 @@ Wheel::~Wheel()
 
 void Wheel::loadAnimations()
 {
-	Tileset* tileset = ResourceManager::getInstance()->getBoss1Tileset(0);
+	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(4);
 	string animationPath = "../Animations/Enemies/Wheel/Wheel.tmx";
 
 	//Animaciones
-	Animation* sale = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Sale", this, 0, 0, false, 0.1);
-	Animation* gira = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Gira", this, 0, 0, true, 0.1);
-	Animation* entra = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Entra", this, 0, 0, false, 0.1);
+	Animation* sale = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Sale", this, 0, 0, false, 0.075);
+	Animation* gira = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Gira", this, 0, 0, true, 0.05);
+	Animation* entra = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Entra", this, 0, 0, false, 0.075);
 	
 
 	//Nombres de animaciones
@@ -81,4 +81,12 @@ void Wheel::death()
 void Wheel::changeColor(int r, int g, int b)
 {
 	updat->changeColor(255, 100, 100);
+}
+
+void Wheel::setInvisible(bool inv)
+{
+	if (inv == true && !hasComponent(rend)) 
+		addComponent(rend);
+	else if(inv == false && hasComponent(rend))
+		removeComponent(rend);
 }

@@ -16,6 +16,7 @@
 #include "CoinManager.h"
 #include "Coin.h"
 #include "Game.h"
+#include "Boss2.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -209,6 +210,7 @@ void CollisionsManager::playerCollisions()
 		}
 	}
 
+	//Colision con Boss activo
 	MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
 		if (!boss->getInvincibility()) {
@@ -404,6 +406,41 @@ void CollisionsManager::bossCollisions()
 			}
 		}
 		layerCollisions(boss);
+
+		if (dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
+		{
+			vector<Wheel*> wheels = dynamic_cast<Boss2*>(boss)->returnWheel();
+			if (wheels.size() != 0)
+			{
+				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+				for (int i = 0; i < wheels.size(); i++)
+				{
+					if (!mc->getInvincibility()) {
+						bool hit = false;
+						vector<SDL_Rect> wheelsHitboxes = wheels[i]->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+						vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+						uint i = 0;
+
+						//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+						for (uint i = 0; !hit && i < wheelsHitboxes.size(); i++) {
+							for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
+								if (CollisionHandler::RectCollide(wheelsHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+									hit = true;
+									mc->setInvincibility(true);
+									//Mandar mensaje de collision stalker / player
+									Message msg(WHEEL_HIT);
+									mc->sendMessage(&msg);
+									Vector2D empuje = mc->getCenterPos() - wheels[i]->getCenterPos();
+									empuje.normalize();
+									KnockbackMessage msg1(empuje);
+									mc->sendMessage(&msg1);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

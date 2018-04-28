@@ -1,12 +1,14 @@
 #include "UpdateWheel.h"
+#include "Wheel.h"
 
 
-
-UpdateWheel::UpdateWheel(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
+UpdateWheel::UpdateWheel(GameObject* o, MainCharacter* prot, float velocidad, int direccion) : UpdateComponent(o)
 {
+	dir = direccion;
 	wheel = o;
 	prota = prot;
 	tiempo = new Timer();
+	vel = velocidad;
 	posInic = Vector2D(wheel->getTransform()->position.getX(), wheel->getTransform()->position.getY());
 }
 
@@ -37,7 +39,7 @@ void UpdateWheel::update()
 	{
 		fase1();
 	}
-	else if (faseAct == 1 && !updateado)
+	if (faseAct == 1 && !updateado && wheel->getCurrentAnimation()->isFinished())
 	{
 		tiempo->restart();
 		faseAct = 2;
@@ -57,11 +59,13 @@ void UpdateWheel::update()
 	{
 		fase3();
 	}
-	else if (faseAct == 3 && !updateado)
+	if (faseAct == 3 && !updateado && wheel->getCurrentAnimation()->isFinished())
 	{
 		tiempo->restart();
-		faseAct = 1;
+		faseAct = 0;
 		updateado = true;
+		static_cast<Wheel*>(wheel)->setInvisible(false);
+		setActive(false);
 	}
 
 	tiempo->update();
@@ -75,6 +79,7 @@ void UpdateWheel::fase1()
 	{
 		wheel->changeCurrentAnimation("SALE");
 		wheel->getCurrentAnimation()->startAnimation();
+		static_cast<Wheel*>(wheel)->setInvisible(true);
 	}
 }
 
@@ -86,10 +91,19 @@ void UpdateWheel::fase2()
 		wheel->getCurrentAnimation()->startAnimation();
 	}
 
-	posProta = prota->getCenterPos();
-	direccion = posProta - wheel->getCenterPos();
-	direccion.normalize();
-	wheel->getTransform()->position = wheel->getTransform()->position + direccion;
+	if (dir == 4)
+	{
+		posProta = prota->getCenterPos();
+		direccion = posProta - wheel->getCenterPos();
+		direccion.normalize();
+	}
+	else if (dir == 0) direccion = Vector2D(1, 0);
+	else if (dir == 1) direccion = Vector2D(0, 1);
+	else if (dir == 2) direccion = Vector2D(-1, 0);
+	else if (dir == 3) direccion = Vector2D(0, -1);
+
+
+	wheel->getTransform()->position = wheel->getTransform()->position + direccion*vel;
 }
 void UpdateWheel::fase3()
 {

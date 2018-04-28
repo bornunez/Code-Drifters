@@ -91,6 +91,8 @@ enum MessageId {
 
 	//Boss1
 	BOSS1_ATTACK,
+	//Wheels
+	WHEEL_HIT,
 
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID

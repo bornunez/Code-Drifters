@@ -26,7 +26,10 @@ public:
 	virtual void death() {};
 	virtual void changeColor(int r, int g, int b);
 	void updateEnemies();
-	void createWheel(int posX, int posY);
+	void renderEnemies();
+	void createWheel(int posX, int posY, float velocidad, int dir);
+	vector<Wheel*> returnWheel() {return wheels;};
+	int returnWheelSize() { return wheels.size(); };
 private:
 
 	RenderBoss2* rend;

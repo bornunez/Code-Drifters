@@ -43,11 +43,10 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 	addComponent(new DamageableBossComponent(this, prota));
 
 
-	BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
-	addComponent(skel);
+	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
+	//addComponent(skel);
 	addComponent(new BasicInvincibleComponent(this, 0.2));
 
-	createWheel(transform.position.getX(), transform.position.getY());
 }
 Boss2::~Boss2()
 {
@@ -89,13 +88,37 @@ void Boss2::updateEnemies()
 		if (wheels[i] != nullptr)
 		{
 			wheels[i]->update();
+		}
+	}
+}
+
+void Boss2::renderEnemies()
+{
+	for (int i = 0; i < wheels.size(); i++)
+	{
+		if (wheels[i] != nullptr)
+		{
 			wheels[i]->render();
 		}
 	}
 }
-void Boss2::createWheel(int posX, int posY)
+void Boss2::createWheel(int posX, int posY, float velocidad, int dir)
 {
-	wheels.push_back(new Wheel(prota, transform.position.getX() - 100, transform.position.getY(), 50, 50));
+	int i = 0;
+	bool pulled = false;
+	while (i < wheels.size() && !pulled)
+	{
+		if (!wheels[i]->isActive())
+		{
+			wheels[i] = new Wheel(prota, posX, posY, 50, 50, velocidad, dir);
+			pulled = true;
+		}
+		i++;
+	}
+	if (i == wheels.size())
+	{
+		wheels.push_back(new Wheel(prota, posX, posY, 50, 50, velocidad, dir));
+	}
 }
 
 

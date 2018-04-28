@@ -21,11 +21,12 @@ public:
 	Vector2D* centro;
 	void damage(int life);
 	Wheel(Transform t);
-	Wheel(MainCharacter* prota, int x, int y, int w, int h);
+	Wheel(MainCharacter* prota, int x, int y, int w, int h, float velocidad, int dir);
 	~Wheel();
 
 	virtual void death();
 	virtual void changeColor(int r, int g, int b);
+	void setInvisible(bool inv);
 
 private:
 

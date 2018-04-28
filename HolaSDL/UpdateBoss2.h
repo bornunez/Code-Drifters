@@ -17,6 +17,8 @@ protected:
 private:
 	Vector2D direccion;
 	float vel;
+	float velWheel = 3;
+	int dirWheel = 0;
 
 	GameObject* boss;
 	//FASES
@@ -33,6 +35,8 @@ private:
 	void Hit();
 	bool hit = false;
 
+	void RondaWheels();
+
 	//TIEMPOS
 	float tiempoAct = 0;
 	float velocidad = 0.001;
@@ -41,7 +45,7 @@ private:
 	int faseAct = 1;
 	int fasesPast = 0;
 	bool giroDir = true;
-	const float tiempoFase0 = 2;
+	const float tiempoFase0 = 15;
 	const float tiempoFase1 = 2;
 	const float tiempoFase2 = 2;
 	const float tiempoFase3 = 1;
