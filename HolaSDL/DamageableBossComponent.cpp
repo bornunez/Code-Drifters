@@ -1,9 +1,8 @@
 #include "DamageableBossComponent.h"
 #include "GameObject.h"
-#include "Boss.h"
 #include "MainCharacter.h"
 
-DamageableBossComponent::DamageableBossComponent(Boss* o, GameObject* mc) : UpdateComponent(static_cast<GameObject*>(o))
+DamageableBossComponent::DamageableBossComponent(MasterBoss* o, GameObject* mc) : UpdateComponent(static_cast<GameObject*>(o))
 {
 	boss = o;
 	this->mc = static_cast<MainCharacter*>(mc);

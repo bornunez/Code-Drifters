@@ -122,7 +122,11 @@ void MainCharacter::loadAnimations()
 	Animation*attackTopLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft1", this,0, -10 * Game::getGame()->getScale() + offsetY, false);
 	Animation*attackTopLeft2  = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft2", this, 0, -10 * Game::getGame()->getScale() + offsetY, false);
 	Animation*attackTopLeft3 = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft3", this, 0, -10 * Game::getGame()->getScale() + offsetY, false);
+	Animation*attackChargingTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingTop", this, 0,offsetY, false);
+	Animation*attackChargedTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedTop", this, 0, offsetY, false);
 
+	animations.emplace("ATTACKCHARGING_TOP", attackChargingTop);
+	animations.emplace("ATTACKCHARGED_TOP", attackChargedTop);
 	animations.emplace("ATTACK1_TOPLEFT", attackTopLeft1);
 	animations.emplace("ATTACK2_TOPLEFT", attackTopLeft2);
 	animations.emplace("ATTACK3_TOPLEFT", attackTopLeft3);
@@ -275,6 +279,7 @@ void MainCharacter::setGunPosition(Vector2D pos)
 void MainCharacter::substractHP(int damage)
 {
 	HP -= damage;
+	HUDManager::getInstance()->changeLife(-damage);
 }
 
 float MainCharacter::getReloadTime()
@@ -295,7 +300,7 @@ void MainCharacter::addHP(int life)
 	HUDManager::getInstance()->changeLife(life);
 }
 
-void MainCharacter::addMaxHP(int life) {
+void MainCharacter::addMaxHP(float life) {
 	maxHP += life;
 	HP += life;
 	HUDManager::getInstance()->setNewHP(life);

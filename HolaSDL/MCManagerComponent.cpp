@@ -97,7 +97,10 @@ void MCManagerComponent::receiveMessage(Message * msg)
 		HurtMC(10.0);
 		break;
 	case BOSS1_ATTACK:
-		HurtMC(10.0);
+		HurtMC(static_cast<BossAttack*>(msg)->damage);
+		break;
+	case WHEEL_HIT:
+		HurtMC(5.0);
 		break;
 	case MC_DEATH:
 		mc->setMCState(MCState::Death);

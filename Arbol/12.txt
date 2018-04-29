@@ -1,1 +1,1 @@
-2 0 72 Desbloquea Ataque Cargado
+0 0 15 Dobla tu Poder, divide tu HP

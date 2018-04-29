@@ -6,7 +6,7 @@ class Game;
 class PlayState;
 class Spawner;
 enum EnemyType;
-enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death, Attack};
+enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death, Attack, Hooked};
 
 //################## ATRIBUTOS COMUNES ####################
 struct CommonBossAttributes {

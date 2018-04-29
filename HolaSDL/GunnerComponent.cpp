@@ -7,6 +7,7 @@
 #include "MCBulletRenderComponent.h"
 #include "MainCharacter.h"
 #include"EnemyGunner.h"
+#include "Hook.h"
 
 GunnerComponent::GunnerComponent(GameObject* o, GameObject* target, float dist) : UpdateComponent(o)
 {
@@ -72,6 +73,23 @@ void GunnerComponent::update() {
 	}
 	}
 	*/
+}
+
+void GunnerComponent::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case HIT_WALL:
+		EnemyGunner * eg = static_cast<EnemyGunner*>(gameObject);
+		if (eg->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
+			static_cast<MainCharacter*>(targetObject)->getHook().setHookStatus(HookStatus::STOP);
+			Message msg(HOOK_STOP);
+			static_cast<MainCharacter*>(targetObject)->sendMessage(&msg);
+			eg->getEnemyState() == EnemyState::Idle;
+			static_cast<MainCharacter*>(targetObject)->setMCState(MCState::Idle);
+
+		}
+		break;
+	}
 }
 
 
