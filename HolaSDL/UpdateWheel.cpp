@@ -1,5 +1,6 @@
 #include "UpdateWheel.h"
 #include "Wheel.h"
+#include "EnemyManager.h"
 
 
 UpdateWheel::UpdateWheel(GameObject* o, MainCharacter* prot, float velocidad, int direccion) : UpdateComponent(o)
@@ -9,7 +10,10 @@ UpdateWheel::UpdateWheel(GameObject* o, MainCharacter* prot, float velocidad, in
 	prota = prot;
 	tiempo = new Timer();
 	vel = velocidad;
-	posInic = Vector2D(wheel->getTransform()->position.getX(), wheel->getTransform()->position.getY());
+	boss = EnemyManager::getInstance()->getActiveBoss();
+	if(dir == 5)
+	posInic = boss->getCenterPos().getX()-wheel->getCenterPos().getX();
+	else 	posInic = wheel->getCenterPos().getX()- boss->getCenterPos().getX() ;
 }
 
 
@@ -101,8 +105,28 @@ void UpdateWheel::fase2()
 	else if (dir == 1) direccion = Vector2D(0, 1);
 	else if (dir == 2) direccion = Vector2D(-1, 0);
 	else if (dir == 3) direccion = Vector2D(0, -1);
+	else if (dir == 5) direccion = Vector2D(0, 1);
+	else if (dir == 6) direccion = Vector2D(1, 0);
+	else if (dir == 7) direccion = Vector2D(0, -1);
+	else if (dir == 8) direccion = Vector2D(-1, 0);
 
 
+	if (dir == 5 && (wheel->getCenterPos().getY() >= boss->getCenterPos().getY() + posInic))
+	{
+		dir = 6;
+	}
+	if (dir == 6 && (wheel->getCenterPos().getX() >= boss->getCenterPos().getX() + posInic))
+	{
+		dir = 7;
+	}
+	if (dir == 7 && (wheel->getCenterPos().getY() <= boss->getCenterPos().getY() - posInic))
+	{
+		dir = 8;
+	}
+	if (dir == 8 && (wheel->getCenterPos().getX() <= boss->getCenterPos().getX() - posInic))
+	{
+		dir = 5;
+	}
 	wheel->getTransform()->position = wheel->getTransform()->position + direccion*vel;
 }
 void UpdateWheel::fase3()

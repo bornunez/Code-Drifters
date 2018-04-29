@@ -18,7 +18,7 @@ protected:
 private:
 	Vector2D direccion;
 	Vector2D posProta;
-	Vector2D posInic;
+	int posInic;
 	int dir;
 	float vel = 2;
 
@@ -43,4 +43,5 @@ private:
 	GameObject* wheel;
 	Timer* tiempo;
 	MainCharacter* prota;
+	GameObject* boss;
 };

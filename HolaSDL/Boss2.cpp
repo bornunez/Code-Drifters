@@ -23,7 +23,6 @@ Boss2::Boss2(Transform t) : MasterBoss()
 
 Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
 {
-
 	transform.position.setX(x);
 	transform.position.setY(y);
 	transform.body.w = w;

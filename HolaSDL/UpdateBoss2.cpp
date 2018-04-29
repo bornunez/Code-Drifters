@@ -53,7 +53,7 @@ void UpdateBoss2::update()
 	else if (faseAct == 0 && !updateado)
 	{
 		Tiempo->restart();
-		faseAct = 1;
+		faseAct = 8;
 		updateado = true;
 	}
 	if (faseAct == 1 && (Tiempo->TimeSinceTimerCreation < tiempoFase1) && !updateado)
@@ -126,6 +126,26 @@ void UpdateBoss2::update()
 		faseAct = 0;
 		updateado = true;
 	}
+	if (faseAct == 8 && Tiempo->TimeSinceTimerCreation < tiempoFase8 && !updateado)
+	{
+		fase8();
+	}
+	else if (faseAct == 8 && !updateado)
+	{
+		Tiempo->restart();
+		faseAct = 9;
+		updateado = true;
+	}
+	if (faseAct == 9 && Tiempo->TimeSinceTimerCreation < tiempoFase9 && !updateado)
+	{
+		fase9();
+	}
+	else if (faseAct == 9 && !updateado)
+	{
+		Tiempo->restart();
+		faseAct = 1;
+		updateado = true;
+	}
 
 	if (hit) Hit();
 	Tiempo->update();
@@ -157,6 +177,28 @@ void UpdateBoss2::fase0()
 	{
 		RondaWheels();
 		fasesPast = 0;
+	}
+}
+
+void UpdateBoss2::fase8()
+{
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		boss->changeCurrentAnimation("STATIC_DOWN");
+		boss->getCurrentAnimation()->startAnimation();
+		fasesPast = 1;
+		static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel, 4);
+	}
+}
+void UpdateBoss2::fase9()
+{
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		boss->changeCurrentAnimation("STATIC_DOWN");
+		boss->getCurrentAnimation()->startAnimation();
+		fasesPast = 1;
+		RondaWheels2();
+		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
 	}
 }
 void UpdateBoss2::fase1()
@@ -289,4 +331,24 @@ void UpdateBoss2::RondaWheels()
 		if (salto != 6)static_cast<Boss2*>(boss)->createWheel(1525, 1425, velWheel, dirWheel);
 		if (salto != 7)static_cast<Boss2*>(boss)->createWheel(1675, 1425, velWheel, dirWheel);
 	}
+}
+
+void UpdateBoss2::RondaWheels2()
+{
+	Vector2D pos = boss->getCenterPos();
+	//Izquierda
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() - 132, pos.getY()-50, velWheel/2, 5);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() - 232, pos.getY()-50, velWheel, 5);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() - 332, pos.getY()-50, velWheel*1.5, 5);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() - 432, pos.getY()-50, velWheel*2, 5);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() - 532, pos.getY() - 50, velWheel*2.5, 5);
+
+	//Derecha
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() + 68, pos.getY() - 50, velWheel / 2, 7);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() + 168, pos.getY() - 50, velWheel, 7);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() + 268, pos.getY() - 50, velWheel*1.5, 7);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() + 368, pos.getY() - 50, velWheel * 2, 7);
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() + 468, pos.getY() - 50, velWheel*2.5, 7);
+	//Centro
+	static_cast<Boss2*>(boss)->createWheel(pos.getX() - 32, pos.getY() - 50, 0, 5);
 }
