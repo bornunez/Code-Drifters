@@ -379,6 +379,7 @@
       <Filter>Bosses\WheelEnemy</Filter>
     </ClCompile>
     <ClCompile Include="RenderWheel.cpp" />
+    <ClCompile Include="MCChargedAttackComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -737,6 +738,7 @@
       <Filter>Bosses\WheelEnemy</Filter>
     </ClInclude>
     <ClInclude Include="RenderWheel.h" />
+    <ClInclude Include="MCChargedAttackComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

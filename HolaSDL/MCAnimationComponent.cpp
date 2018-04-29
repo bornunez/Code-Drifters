@@ -97,8 +97,14 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("ATTACK3_BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
-	case ATTACK_CHARGED:
-		cout << "ATAQUE CARGADO" << endl;
+	case ATTACKCHARGED_TOP:
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_TOP");
+		gameObject->getCurrentAnimation()->startAnimation();
+		break;
+	case ATTACKCHARGING_TOP:
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_TOP");
+		gameObject->getCurrentAnimation()->startAnimation();
+		cout << "CARGANDO" << endl;
 		break;
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUN_LEFT");
@@ -180,6 +186,7 @@ void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tie
 		}
 	}
 	else {
+		//cout << mc->getMCState();
 		handleAnimationStates();
 		gameObject->getCurrentAnimation()->runAnimation();
 	}

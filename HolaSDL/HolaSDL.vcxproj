@@ -86,6 +86,7 @@
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
     <ClCompile Include="MCAttackCollisionComponent.cpp" />
+    <ClCompile Include="MCChargedAttackComponent.cpp" />
     <ClCompile Include="MCGunPosition.cpp" />
     <ClCompile Include="MCHookInputComponent.cpp" />
     <ClCompile Include="MCManagerComponent.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
     <ClInclude Include="MCAttackCollisionComponent.h" />
+    <ClInclude Include="MCChargedAttackComponent.h" />
     <ClInclude Include="MCGunPosition.h" />
     <ClInclude Include="MCHookInputComponent.h" />
     <ClInclude Include="MCManagerComponent.h" />

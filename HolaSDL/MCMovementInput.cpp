@@ -34,26 +34,27 @@ void MCMovementInput::update()
 		mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Attack &&
 		mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::Shot &&
 		mc->getMCState() != MCState::DashEnd  && mc->getMCState() != MCState::Death &&
-		mc->getMCState() != MCState::ChargedAttack) {
+		mc->getMCState() != MCState::ChargedAttack &&
+		mc->getMCState() != MCState::ChargingAttack) {
 
 		mc->setMCState(MCState::Idle);		
 	}
 	//Solo puede moverse cuando está en Idle o Run
-	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd || mc->getMCState() == MCState::ChargedAttack)) {
+	if (mc->canMove() && (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd || mc->getMCState() == MCState::ChargingAttack)) {
 
 		velocity.setX(0);
 		velocity.setY(0);
 		//La velocidad se pone a 500 cada vez que puedes moverte
-		if (mc->getMCState() == MCState::ChargedAttack) {
+		if (mc->getMCState() == MCState::ChargingAttack) {
 			t->speed = 50;
 		}
-		t->speed = 375;
+		else t->speed = 375;
 
 		if (keystate[leftKey])//Mueve a la izquierda
 		{
 			t->direction.setX(-1);
 			velocity.setX(-1);
-			if (mc->getMCState() != MCState::ChargedAttack) mc->setMCState(MCState::Run);
+			if (mc->getMCState() != MCState::ChargingAttack) mc->setMCState(MCState::Run);
 			if (!keystate[upKey] && !keystate[downKey]) {//
 				t->direction.setY(0);
 			}
@@ -62,7 +63,7 @@ void MCMovementInput::update()
 		{
 			t->direction.setX(1);
 			velocity.setX(1);
-			if (mc->getMCState() != MCState::ChargedAttack) mc->setMCState(MCState::Run);
+			if (mc->getMCState() != MCState::ChargingAttack) mc->setMCState(MCState::Run);
 			if (!keystate[upKey] && !keystate[downKey]) {
 				t->direction.setY(0);
 			}
@@ -75,7 +76,7 @@ void MCMovementInput::update()
 		{
 			t->direction.setY(-1);
 			velocity.setY(-1);
-			if (mc->getMCState() != MCState::ChargedAttack) mc->setMCState(MCState::Run);
+			if (mc->getMCState() != MCState::ChargingAttack) mc->setMCState(MCState::Run);
 			if (!keystate[leftKey] && !keystate[rightKey]) {
 				t->direction.setX(0);
 			}
@@ -84,7 +85,7 @@ void MCMovementInput::update()
 		{
 			t->direction.setY(1);
 			velocity.setY(1);
-			if (mc->getMCState() != MCState::ChargedAttack) mc->setMCState(MCState::Run);
+			if (mc->getMCState() != MCState::ChargingAttack) mc->setMCState(MCState::Run);
 			if (!keystate[leftKey] && !keystate[rightKey]) {
 				t->direction.setX(0);
 			}
