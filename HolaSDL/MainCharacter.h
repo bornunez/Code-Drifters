@@ -9,7 +9,7 @@ class HookShotComponent;
 class PlayState;
 class MCAnimationComponent;
 
-enum class MCState { Idle, Run, Attack, Shot, HookShot, Dash, Hurt, Heal, DashEnd, Death };
+enum MCState { Idle, Run, Attack, ChargingAttack, ChargedAttack, Shot, HookShot, Dash, Hurt, Heal, DashEnd, Death };
 
 class MainCharacter : public GameObject
 {
@@ -22,6 +22,8 @@ private:
 	float normalAttackDamage;
 	float chargedAttackDamage;
 	MCState mcState = MCState::Idle;
+
+	bool charging = false;//Booleano si determina si se está pulsando el botón para cargar el ataque
 
 	int maxBullets;
 	float currentBullets;
@@ -82,6 +84,8 @@ public:
 	bool isLifeStealEnable() { return lifeStealEnabled; };
 	float getLifeSteal() { return lifeStealPercentual; };
 	void setLifeSteal(float multiplicator) { lifeStealPercentual *= multiplicator; };
+	bool getCharging() { return charging; };
+	void setCharging(bool b) { charging = b; };
 	
 	//HOOK
 	Hook getHook() { return hook; }

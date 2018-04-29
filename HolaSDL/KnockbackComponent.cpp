@@ -26,7 +26,6 @@ void KnockbackComponent::knockback(Vector2D direction)
 	Transform* t = gameObject->getTransform();
 
 	t->position.set(t->position + direction * force * Time::getInstance()->DeltaTime);
-	cout << direction << endl;
 }
 void KnockbackComponent::receiveMessage(Message* msg) {
 	if (msg->id == KNOCK_BACK) {

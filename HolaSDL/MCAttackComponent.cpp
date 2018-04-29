@@ -36,8 +36,13 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		mc->setMCState(MCState::Idle);		//La animacion vuelve a idle		
 	}
 
+
+
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt) {
+		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt && mc->getMCState() != MCState::ChargingAttack) {
+			
+			mc->setCharging(true);//Booleano que indica que está cargando el ataque
+
 			int mouseX, mouseY;
 			SDL_Point p;
 			SDL_Rect r;
@@ -165,16 +170,16 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 				//Poniendo aqui First haces ataques sin pausa
 				comboAttack = CD;
 				attackCD->restart();
-
-			}
-
+			}			
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
-
 		}
+		
 	}
-
-	
+	else if(e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONUP) {
+		mc->setCharging(false);
+		
+	}	
 }
 
 MCAttackComponent::~MCAttackComponent()

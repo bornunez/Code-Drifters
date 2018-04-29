@@ -26,6 +26,7 @@
 #include "HUDManager.h"
 #include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
+#include "MCChargedAttackComponent.h"
 
 //Personaje principal
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
@@ -45,7 +46,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	//setMaxVelocity(0.5);
 
 	addComponent(new MCManagerComponent(this));
-	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new MCGunPosition(this));
 	addComponent(new BasicMovement(this));
@@ -58,11 +58,13 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(hookShot);
 	addComponent(new MCHookInputComponent(this));
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
+	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
-	addComponent(new BasicInvincibleComponent(this, 0.2));
+	addComponent(new BasicInvincibleComponent(this, 0.3));
 	addComponent(new KnockbackComponent(this,1500));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	addComponent(new MCChargedAttackComponent(this, 0.4));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
 	maxBullets = 3;
@@ -122,7 +124,11 @@ void MainCharacter::loadAnimations()
 	Animation*attackTopLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft1", this,0, -10 * Game::getGame()->getScale() + offsetY, false);
 	Animation*attackTopLeft2  = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft2", this, 0, -10 * Game::getGame()->getScale() + offsetY, false);
 	Animation*attackTopLeft3 = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft3", this, 0, -10 * Game::getGame()->getScale() + offsetY, false);
+	Animation*attackChargingTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingTop", this, 0,offsetY, true);
+	Animation*attackChargedTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedTop", this, 0, offsetY, false);
 
+	animations.emplace("ATTACKCHARGING_TOP", attackChargingTop);
+	animations.emplace("ATTACKCHARGED_TOP", attackChargedTop);
 	animations.emplace("ATTACK1_TOPLEFT", attackTopLeft1);
 	animations.emplace("ATTACK2_TOPLEFT", attackTopLeft2);
 	animations.emplace("ATTACK3_TOPLEFT", attackTopLeft3);
