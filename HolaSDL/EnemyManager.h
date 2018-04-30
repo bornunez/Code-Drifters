@@ -9,7 +9,7 @@ class Enemy;
 class MainCharacter;
 class Spawner;
 
-enum EnemyType{Stalker, Gunner, Ninja, Charger, Turret, Bomb};
+enum EnemyType{Stalker, Gunner, Ninja, Charger, Turret, Bomb, Bomber};
 struct EnemyParams {
 	int life;
 	int speed;
@@ -32,7 +32,8 @@ private:
 		{75,200,15,0,7,8},
 		{10,100,10,0,8,10},
 		{10,100,0,10,8,10},
-		{10,100,0,10,8,10} };
+		{10,100,0,10,8,10},
+		{75,100,5,10,7,8} };
 	//Donde van a estal almacenados todos los enemigos del juego
 	list<Enemy*> inactives;
 	list<Enemy*> actives;
