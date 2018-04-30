@@ -16,6 +16,7 @@
     <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="BasicInvincibleComponent.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="BombComponent.cpp" />
     <ClCompile Include="BomberComponent.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Boss2.cpp" />
@@ -46,6 +47,7 @@
     <ClCompile Include="DoorsCollision.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBomb.cpp" />
     <ClCompile Include="EnemyCharger.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyTurret.cpp" />
@@ -144,6 +146,7 @@
     <ClInclude Include="BasicInvincibleComponent.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BasicObject.h" />
+    <ClInclude Include="BombComponent.h" />
     <ClInclude Include="BomberComponent.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Boss2.h" />
@@ -175,6 +178,7 @@
     <ClInclude Include="DoorsCollision.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBomb.h" />
     <ClInclude Include="EnemyCharger.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyTurret.h" />

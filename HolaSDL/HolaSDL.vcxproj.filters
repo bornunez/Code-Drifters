@@ -380,6 +380,12 @@
     </ClCompile>
     <ClCompile Include="RenderWheel.cpp" />
     <ClCompile Include="MCChargedAttackComponent.cpp" />
+    <ClCompile Include="EnemyBomb.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BombComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -691,9 +697,6 @@
     <ClInclude Include="Boss.h">
       <Filter>Bosses\Boss1</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyManager.h">
-      <Filter>Managers\Header</Filter>
-    </ClInclude>
     <ClInclude Include="ParticlesManager.h">
       <Filter>Managers\Header</Filter>
     </ClInclude>
@@ -739,6 +742,15 @@
     </ClInclude>
     <ClInclude Include="RenderWheel.h" />
     <ClInclude Include="MCChargedAttackComponent.h" />
+    <ClInclude Include="EnemyBomb.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BombComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
