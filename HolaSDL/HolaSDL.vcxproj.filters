@@ -386,6 +386,15 @@
     <ClCompile Include="BombComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="BomberAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBomber.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberShotComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -749,6 +758,15 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="BombComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBomber.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberShotComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
   </ItemGroup>
