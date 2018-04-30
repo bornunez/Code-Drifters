@@ -379,12 +379,14 @@
       <Filter>Bosses\WheelEnemy</Filter>
     </ClCompile>
     <ClCompile Include="RenderWheel.cpp" />
-    <ClCompile Include="MCChargedAttackComponent.cpp" />
     <ClCompile Include="EnemyBomb.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="BombComponent.cpp">
       <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCChargedAttackComponent.cpp">
+      <Filter>Prota\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -741,7 +743,6 @@
       <Filter>Bosses\WheelEnemy</Filter>
     </ClInclude>
     <ClInclude Include="RenderWheel.h" />
-    <ClInclude Include="MCChargedAttackComponent.h" />
     <ClInclude Include="EnemyBomb.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
@@ -750,6 +751,9 @@
     </ClInclude>
     <ClInclude Include="BombComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCChargedAttackComponent.h">
+      <Filter>Prota\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
