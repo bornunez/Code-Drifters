@@ -6,6 +6,7 @@
 #include "EnemyCharger.h"
 #include "MainCharacter.h"
 #include "EnemyTurret.h"
+#include "EnemyBomb.h"
 #include "Map.h"
 #include "PlayState.h"
 
@@ -35,6 +36,9 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 		break;
 	case Turret:
 		e = new EnemyTurret(mc);
+		break;
+	case Bomb:
+		e = new EnemyBomb(mc);
 		break;
 	default:
 		break;
