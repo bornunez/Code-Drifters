@@ -37,8 +37,11 @@ enum MessageId {
 	ATTACK1_BOTRIGHT,
 	ATTACK2_BOTRIGHT,
 	ATTACK3_BOTRIGHT,
+	ATTACKCHARGING,
+	ATTACKCHARGED,
 	MC_SHOT,
 	MC_HOOKSHOT,
+	ULTIMATE,
 
 	//Death
 	MC_DEATH,
@@ -91,6 +94,8 @@ enum MessageId {
 
 	//Boss1
 	BOSS1_ATTACK,
+	//Wheels
+	WHEEL_HIT,
 
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID
@@ -130,4 +135,9 @@ struct HookEnemyMessage : Message {
 	Enemy* gameObject;
 };
 
+struct BossAttack : Message
+{
+	BossAttack(float dmg) : Message(BOSS1_ATTACK), damage(dmg) {}
+	int damage;
+};
 #endif /* MESSAGE_H_ */

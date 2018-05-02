@@ -6,8 +6,8 @@ class Tileset;
 // CONSTANTES
 const int NUM_TEXTURES = 71;
 const int NUM_TILESET = 1;
-const int NUM_PROTATILESET = 1;
-const int NUM_ENEMYTILESET = 4;
+const int NUM_PROTATILESET = 2;
+const int NUM_ENEMYTILESET = 5;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
@@ -142,11 +142,18 @@ private:
 	Texture* textures[NUM_TEXTURES];
 	//Vector de tilesets
 	vector<Tileset*> tilesets;
-	const string protaTilesetName = "ProtaAnimation.tsx";
-	Tileset* protaTileset;
+	const string protaTilesetName[NUM_PROTATILESET] = { "ProtaAnimation.tsx", "Ultimate.tsx" };
+	vector<Tileset*> protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
 	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
-	const string enemyTilesetNames[NUM_ENEMYTILESET]{ "Gunner.tsx", "Stalker.tsx", "Torreta.tsx", "Charger.tsx" };
+	const string enemyTilesetNames[NUM_ENEMYTILESET]
+	{ 
+		"Gunner.tsx", 
+		"Stalker.tsx", 
+		"Torreta.tsx", 
+		"Charger.tsx" , 
+		"Wheel.tsx"
+	};
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	vector<Tileset*> boss2Tilesets;
@@ -170,7 +177,7 @@ public:
 	//Devuelve la textura dado su numero en la enum
 	Texture * getTexture(TextureId id);
 	Tileset* getTileset(string path);
-	Tileset* getProtaTileset() { return protaTileset; };
+	Tileset* getProtaTileset(int numTileset) { return protaTileset[numTileset]; };
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };

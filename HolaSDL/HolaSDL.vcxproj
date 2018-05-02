@@ -16,7 +16,10 @@
     <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="BasicInvincibleComponent.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="BombComponent.cpp" />
+    <ClCompile Include="BomberAnimationComponent.cpp" />
     <ClCompile Include="BomberComponent.cpp" />
+    <ClCompile Include="BomberShotComponent.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Boss2.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
@@ -46,6 +49,8 @@
     <ClCompile Include="DoorsCollision.cpp" />
     <ClCompile Include="DungeonGenerator.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBomb.cpp" />
+    <ClCompile Include="EnemyBomber.cpp" />
     <ClCompile Include="EnemyCharger.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
     <ClCompile Include="EnemyTurret.cpp" />
@@ -85,12 +90,13 @@
     <ClCompile Include="MCAttackComponent.cpp" />
     <ClCompile Include="MCBulletComponent.cpp" />
     <ClCompile Include="MCBulletRenderComponent.cpp" />
-    <ClCompile Include="MCAttackCollisionComponent.cpp" />
+    <ClCompile Include="MCChargedAttackComponent.cpp" />
     <ClCompile Include="MCGunPosition.cpp" />
     <ClCompile Include="MCHookInputComponent.cpp" />
     <ClCompile Include="MCManagerComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
+    <ClCompile Include="MCUltimateInput.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Minimap.cpp" />
     <ClCompile Include="miniz.c" />
@@ -105,6 +111,7 @@
     <ClCompile Include="RenderBoss.cpp" />
     <ClCompile Include="RenderBoss2.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="RenderWheel.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Shop.cpp" />
@@ -129,9 +136,11 @@
     <ClCompile Include="UpdateBoss.cpp" />
     <ClCompile Include="UpdateBoss2.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
+    <ClCompile Include="UpdateWheel.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WallStunComponent.cpp" />
+    <ClCompile Include="Wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -140,7 +149,10 @@
     <ClInclude Include="BasicInvincibleComponent.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BasicObject.h" />
+    <ClInclude Include="BombComponent.h" />
+    <ClInclude Include="BomberAnimationComponent.h" />
     <ClInclude Include="BomberComponent.h" />
+    <ClInclude Include="BomberShotComponent.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Boss2.h" />
     <ClInclude Include="BoxRenderer.h" />
@@ -171,6 +183,8 @@
     <ClInclude Include="DoorsCollision.h" />
     <ClInclude Include="DungeonGenerator.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBomb.h" />
+    <ClInclude Include="EnemyBomber.h" />
     <ClInclude Include="EnemyCharger.h" />
     <ClInclude Include="EnemyManager.h" />
     <ClInclude Include="EnemyTurret.h" />
@@ -209,12 +223,13 @@
     <ClInclude Include="MCAttackComponent.h" />
     <ClInclude Include="MCBulletComponent.h" />
     <ClInclude Include="MCBulletRenderComponent.h" />
-    <ClInclude Include="MCAttackCollisionComponent.h" />
+    <ClInclude Include="MCChargedAttackComponent.h" />
     <ClInclude Include="MCGunPosition.h" />
     <ClInclude Include="MCHookInputComponent.h" />
     <ClInclude Include="MCManagerComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
+    <ClInclude Include="MCUltimateInput.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Minimap.h" />
@@ -230,6 +245,7 @@
     <ClInclude Include="RenderBoss.h" />
     <ClInclude Include="RenderBoss2.h" />
     <ClInclude Include="RenderComponent.h" />
+    <ClInclude Include="RenderWheel.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Room.h" />
@@ -256,9 +272,11 @@
     <ClInclude Include="UpdateBoss.h" />
     <ClInclude Include="UpdateBoss2.h" />
     <ClInclude Include="UpdateComponent.h" />
+    <ClInclude Include="UpdateWheel.h" />
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />
+    <ClInclude Include="Wheel.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HolaSDL.rc" />

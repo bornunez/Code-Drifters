@@ -152,9 +152,6 @@
     <ClCompile Include="MCMovementInput.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MCAttackCollisionComponent.cpp">
-      <Filter>Prota\Source</Filter>
-    </ClCompile>
     <ClCompile Include="ChargeComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
@@ -372,6 +369,34 @@
     <ClCompile Include="DamageableBossComponent.cpp">
       <Filter>Bosses</Filter>
     </ClCompile>
+    <ClCompile Include="Wheel.cpp">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateWheel.cpp">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWheel.cpp" />
+    <ClCompile Include="EnemyBomb.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BombComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCChargedAttackComponent.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBomber.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BomberShotComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MCUltimateInput.cpp">
+      <Filter>Prota\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -542,9 +567,6 @@
     <ClInclude Include="MCMovementInput.h">
       <Filter>Prota\Header</Filter>
     </ClInclude>
-    <ClInclude Include="MCAttackCollisionComponent.h">
-      <Filter>Prota\Header</Filter>
-    </ClInclude>
     <ClInclude Include="Managers.h">
       <Filter>Includes</Filter>
     </ClInclude>
@@ -683,9 +705,6 @@
     <ClInclude Include="Boss.h">
       <Filter>Bosses\Boss1</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyManager.h">
-      <Filter>Managers\Header</Filter>
-    </ClInclude>
     <ClInclude Include="ParticlesManager.h">
       <Filter>Managers\Header</Filter>
     </ClInclude>
@@ -698,7 +717,6 @@
     <ClInclude Include="ShopBox.h" />
     <ClInclude Include="ShopState.h" />
     <ClInclude Include="SkillTree.h" />
-    <ClInclude Include="ChargerDamageableEnemyComponent.h" />
     <ClInclude Include="RenderBoss.h">
       <Filter>Bosses\Boss1</Filter>
     </ClInclude>
@@ -722,6 +740,40 @@
     </ClInclude>
     <ClInclude Include="DamageableBossComponent.h">
       <Filter>Bosses</Filter>
+    </ClInclude>
+    <ClInclude Include="Wheel.h">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateWheel.h">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderWheel.h" />
+    <ClInclude Include="EnemyBomb.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyManager.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BombComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCChargedAttackComponent.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBomber.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BomberShotComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MCUltimateInput.h">
+      <Filter>Prota\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ChargerDamageableEnemyComponent.h">
+      <Filter>Enemigos\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -808,6 +860,9 @@
     </Filter>
     <Filter Include="Bosses\Boss2">
       <UniqueIdentifier>{1e4034ab-5fac-446d-977a-2d3c2cfdfbd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\WheelEnemy">
+      <UniqueIdentifier>{6ffbd8e4-18be-412d-9a5c-a35d074c7038}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

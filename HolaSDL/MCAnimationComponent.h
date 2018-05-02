@@ -20,6 +20,8 @@ public:
 	void handleAnimationHurt();
 	void handleAnimationDeath();
 	void handleAnimationGun();
+	void handleAnimationChargingAttack();
+	void handleAnimationChargedAttack();
 	float handleGunAngle();
 private:
 	MainCharacter * mc;

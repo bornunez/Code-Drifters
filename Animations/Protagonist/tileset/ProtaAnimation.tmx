@@ -1,168 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="17" height="30" tilewidth="64" tileheight="64" nextobjectid="547">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="34" tilewidth="64" tileheight="64" nextobjectid="618">
  <tileset firstgid="1" source="ProtaAnimation.tsx"/>
- <layer name="IdleBot" width="17" height="30">
+ <layer name="IdleBot" width="17" height="34">
   <properties>
    <property name="offsetX" type="int" value="0"/>
    <property name="offsetY" type="int" value="0"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjZBgFo2AUjIJRMApGwUgBAA/wAAI=
+   eJztwQEBAAAAASD+nzZE1QAAfBoSEAAC
   </data>
  </layer>
- <layer name="ShotBot" width="17" height="30">
+ <layer name="AttackChargingBot" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAT5whnGgXUA9AACrUwDO
+   eJztzrENACAMxMBXJoBA2H/U/AhQ0fgk95YAAADujZCmS7fcduVO/D5713bKAJQ=
   </data>
  </layer>
- <layer name="ShotTop" width="17" height="30">
+ <layer name="AttackChargedBot" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGASFwlnGgXUAdAACo5wDP
+   eJztzrkNACAQxMDVNcF3QP9dsik5EolHcm4JAADgjRJSdc11N1y66Zbb8fvwdgCrJgEG
   </data>
  </layer>
- <layer name="ShotRight" width="17" height="30">
+ <layer name="AttackChargingRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGATHgHONAu4ByAACmcwDQ
+   eJztzrkNAEAMhMCVO7m//w6PKhwxEjmJJElSr1HJpEWbDl161fvxAYliAQs=
   </data>
  </layer>
- <layer name="ShotLeft" width="17" height="30">
+ <layer name="AttackChargedRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAbHgPONAu4AyAACj9wDR
+   eJztzbkNACAMwMAo0/DD/tPhISgofJJrR0iSJP2jZESlRp0GTVq06eS71wWczgGf
   </data>
  </layer>
- <layer name="Hurt" width="17" height="30">
+ <objectgroup name="AttackChargingBot">
+  <object id="572" name="Hurtbox" type="0" x="22" y="2001" width="15" height="22"/>
+  <object id="573" name="Hurtbox" type="1" x="90" y="1998" width="15" height="22"/>
+  <object id="574" name="Hurtbox" type="2" x="154" y="1999" width="15" height="22"/>
+  <object id="575" name="Hurtbox" type="3" x="217" y="1999" width="15" height="22"/>
+  <object id="576" name="Hurtbox" type="4" x="282" y="2000" width="15" height="22"/>
+  <object id="577" name="Hurtbox" type="5" x="347" y="2000" width="15" height="22"/>
+  <object id="578" name="Hurtbox" type="6" x="410" y="2000" width="15" height="22"/>
+ </objectgroup>
+ <objectgroup name="AttackChargedBot">
+  <object id="579" name="Hurtbox" type="0" x="475" y="1999" width="14" height="24"/>
+  <object id="580" name="Hurtbox" type="1" x="538" y="1999" width="14" height="24"/>
+  <object id="581" name="Hurtbox" type="2" x="604" y="1999" width="14" height="24"/>
+  <object id="582" name="Hurtbox" type="3" x="670" y="1999" width="14" height="24"/>
+  <object id="583" name="Hurtbox" type="4" x="731" y="2001" width="14" height="24"/>
+  <object id="584" name="Hurtbox" type="5" x="795" y="2001" width="14" height="24"/>
+  <object id="585" name="Hurtbox" type="6" x="860" y="2002" width="14" height="24"/>
+  <object id="586" name="Hurtbox" type="7" x="923" y="2000" width="14" height="24"/>
+  <object id="587" name="Hurtbox" type="8" x="986" y="1999" width="14" height="24"/>
+  <object id="612" name="Hitbox" type="1" x="549" y="1995" width="23" height="34"/>
+  <object id="613" name="Hitbox" type="2" x="578" y="2004" width="60" height="43"/>
+  <object id="614" name="Hitbox" type="3" x="643" y="2006" width="56" height="41"/>
+  <object id="615" name="Hitbox" type="3" x="649" y="1985" width="24" height="20"/>
+  <object id="616" name="Hitbox" type="4" x="712" y="1984" width="27" height="19"/>
+  <object id="617" name="Hitbox" type="4" x="712" y="2015" width="48" height="28"/>
+ </objectgroup>
+ <objectgroup name="AttackChargingRight">
+  <object id="588" name="Hurtbox" type="0" x="29" y="2069" width="14" height="23"/>
+  <object id="589" name="Hurtbox" type="1" x="93" y="2068" width="14" height="23"/>
+  <object id="590" name="Hurtbox" type="2" x="158" y="2068" width="14" height="23"/>
+  <object id="591" name="Hurtbox" type="3" x="220" y="2069" width="14" height="23"/>
+  <object id="592" name="Hurtbox" type="4" x="284" y="2069" width="14" height="23"/>
+  <object id="593" name="Hurtbox" type="5" x="349" y="2069" width="14" height="23"/>
+  <object id="594" name="Hurtbox" type="6" x="413" y="2071" width="14" height="23"/>
+ </objectgroup>
+ <objectgroup name="AttackChargedRight">
+  <object id="595" name="Hurtbox" type="0" x="477" y="2067" width="15" height="24"/>
+  <object id="596" name="Hurtbox" type="1" x="538" y="2066" width="15" height="24"/>
+  <object id="597" name="Hurtbox" type="2" x="603" y="2067" width="15" height="24"/>
+  <object id="598" name="Hurtbox" type="3" x="666" y="2066" width="15" height="24"/>
+  <object id="599" name="Hurtbox" type="4" x="729" y="2067" width="15" height="24"/>
+  <object id="600" name="Hurtbox" type="5" x="793" y="2067" width="15" height="24"/>
+  <object id="601" name="Hurtbox" type="6" x="857" y="2067" width="15" height="24"/>
+  <object id="602" name="Hurtbox" type="7" x="921" y="2068" width="15" height="24"/>
+  <object id="603" name="Hurtbox" type="8" x="985" y="2069" width="15" height="24"/>
+  <object id="604" name="Hitbox" type="1" x="539" y="2056" width="38" height="55"/>
+  <object id="605" name="Hitbox" type="1" x="513" y="2066" width="27" height="41"/>
+  <object id="606" name="Hitbox" type="2" x="578" y="2063" width="23" height="38"/>
+  <object id="607" name="Hitbox" type="2" x="593" y="2083" width="46" height="28"/>
+  <object id="608" name="Hitbox" type="3" x="641" y="2063" width="31" height="44"/>
+  <object id="609" name="Hitbox" type="3" x="666" y="2090" width="37" height="21"/>
+  <object id="610" name="Hitbox" type="4" x="705" y="2063" width="24" height="21"/>
+  <object id="611" name="Hitbox" type="4" x="724" y="2091" width="39" height="12"/>
+ </objectgroup>
+ <layer name="AttackChargingTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAa3BXcaBdgEEAAB95wDf
+   eJztzsENAEAIAkHE679lpQsft5MsbyQAAPCLqYylSk6dnq9f3VktNAEV
   </data>
  </layer>
- <layer name="Death" width="17" height="30">
+ <objectgroup name="AttackChargingTop">
+  <object id="547" name="Hurtbox" type="0" x="20" y="1941" width="16" height="26"/>
+  <object id="548" name="Hurtbox" type="1" x="85" y="1940" width="16" height="26"/>
+  <object id="549" name="Hurtbox" type="2" x="148" y="1942" width="16" height="26"/>
+  <object id="550" name="Hurtbox" type="3" x="213" y="1942" width="16" height="26"/>
+  <object id="551" name="Hurtbox" type="4" x="276" y="1943" width="16" height="26"/>
+  <object id="552" name="Hurtbox" type="5" x="340" y="1943" width="16" height="26"/>
+ </objectgroup>
+ <layer name="AttackChargedTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzLcNADAMxEBp/12dc2X2nsDAE7iWZkoppZT6oeBmEQkZBRUNHQMTCxvH38cFKJ0Mcg==
+   eJztzssJACAMBNElYPyl/3rdJsSD82DuIwEAgN+1kNJ1N9x0y21X8frungNVGABV
   </data>
  </layer>
- <layer name="IdleTop" width="17" height="30">
+ <objectgroup name="AttackChargedTop">
+  <object id="553" name="Hurtbox" type="0" x="408" y="1953" width="15" height="22"/>
+  <object id="554" name="Hurtbox" type="1" x="473" y="1946" width="15" height="22"/>
+  <object id="555" name="Hurtbox" type="2" x="535" y="1945" width="15" height="22"/>
+  <object id="556" name="Hurtbox" type="3" x="601" y="1948" width="15" height="22"/>
+  <object id="557" name="Hurtbox" type="4" x="665" y="1948" width="15" height="22"/>
+  <object id="558" name="Hurtbox" type="5" x="730" y="1950" width="15" height="22"/>
+  <object id="559" name="Hurtbox" type="6" x="793" y="1948" width="15" height="22"/>
+  <object id="560" name="Hurtbox" type="7" x="855" y="1950" width="15" height="22"/>
+  <object id="561" name="Hitbox" type="0" x="415" y="1922" width="18" height="45"/>
+  <object id="562" name="Hitbox" type="0" x="434" y="1929" width="10" height="34"/>
+  <object id="563" name="Hitbox" type="0" x="396" y="1923" width="19" height="37"/>
+  <object id="564" name="Hitbox" type="0" x="391" y="1932" width="5" height="25"/>
+  <object id="565" name="Hitbox" type="1" x="454" y="1928" width="18" height="40"/>
+  <object id="566" name="Hitbox" type="1" x="473" y="1944" width="19" height="34"/>
+  <object id="567" name="Hitbox" type="1" x="492" y="1921" width="16" height="52"/>
+  <object id="569" name="Hitbox" type="2" x="539" y="1942" width="22" height="39"/>
+  <object id="570" name="Hitbox" type="2" x="557" y="1921" width="14" height="49"/>
+  <object id="571" name="Hitbox" type="3" x="599" y="1945" width="33" height="31"/>
+ </objectgroup>
+ <layer name="ShotBot" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAMw6Dm/kVfyICqCwBY8BfgAAM=
+   eJxjYBgFo2AUjIJRMApGAT5whnGgXTAKaAUAhkIAzg==
   </data>
  </layer>
- <layer name="IdleRight" width="17" height="30">
+ <layer name="ShotTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYIAAZoZRMApGwSgYBaNgFAx3AAAfyAAE
+   eJxjYBgFo2AUjIJRMApGASFwlnGgXTAKaAEAhOYAzw==
   </data>
  </layer>
- <layer name="IdleLeft" width="17" height="30">
+ <layer name="ShotRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYEAAFoZRMApGwSgYBaNgFAxnAAAnqAAF
+   eJxjYBgFo2AUjIJRMApGATHgHONAu2AUUBsAAIOCANA=
   </data>
  </layer>
- <layer name="RunRight" width="17" height="30">
+ <layer name="ShotLeft" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskNACAMxMD0QoBw9l8e7gKQ1tL8bfZGCY6MgopAQ8fAxMK+9KiUUkr93gH7WwHn
+   eJxjYBgFo2AUjIJRMApGAbHgPONAu2AUUBMAAIIWANE=
   </data>
  </layer>
- <layer name="RunTop" width="17" height="30">
+ <layer name="Hurt" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzqkRACEAwECa473j6b8aItEYTDKzPiHYWURCRkFFw4cfHQMT69GjmZnZbRvYcQN/
+   eJxjYBgFo2AUjIJRMApGAa3BXcaBdsEowAYAauYA3w==
   </data>
  </layer>
- <layer name="RunLeft" width="17" height="30">
+ <layer name="Death" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztztsJACAMxdAOZdX63H8rs0VBbuD8x+yfChwVDR2BgYmFjYOb9KiUUkpl9gAgJQKz
+   eJztzrkNACAQxMCj/175/wh3AUhraXKbKaWUUuqHvDMLiEjIKKho6BiYWNju9vH7HWKADHI=
   </data>
  </layer>
- <layer name="AttackRight3" width="17" height="30">
+ <layer name="IdleTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskJACAQxdAp23VcCzdVKMgPvHvM1K8FRCRkFFQ4GjoGJhb2k0ullFI3O4TyBmc=
+   eJztwQENAAAMw6Dm/kVfyICqCwBgzwMbEAAD
   </data>
  </layer>
- <layer name="AttackRight2" width="17" height="30">
+ <layer name="IdleRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzscJACAAwEC3tbf9P2YLFRK4f0KwF4tIyCioaOgYmFjYtwbNzOzLDkCjBKU=
+   eJxjYIAAZoZRMApGwSgYBaNgFIyCkQUAJAgABA==
   </data>
  </layer>
- <layer name="AttackRight1" width="17" height="30">
+ <layer name="IdleLeft" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF1AZhQBwOxBFAHAnEUUAcDcQxQBw7gO4aBaNgFIyCUTAKAHPmAs0=
+   eJxjYEAAFoZRMApGwSgYBaNgFIyCkQMALPgABQ==
   </data>
  </layer>
- <layer name="AttackLeft1" width="17" height="30">
+ <layer name="RunRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrkNACAMwMCsD+EbOV6AhobGJ7l3hHTXqFPSoEmLNp2PX5KkNwVzrwRl
+   eJztzscNwCAAwEB2oSaU/cfDW4CQLd3fIdxRREJGQUXDhx8dAxPr0KOZmZm91QYA+AHn
   </data>
  </layer>
- <layer name="AttackLeft2" width="17" height="30">
+ <layer name="RunTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzscNACAAgED3H8HeBpUljA8huT8hmN0tIiGjoKKhY2BiYT/6MzP7qQOb6wbW
+   eJztzrkNwCAAwECW40149p8GlwyARGNL1zsEO4tIyCioaPjwo2NgYj16NDMzszttj50Dfw==
   </data>
  </layer>
- <layer name="AttackLeft3" width="17" height="30">
+ <layer name="RunLeft" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrcNADAMxEDtv4qjHNczt7CKJ3A9zZSKX0JGQUVDh2NgYmHj4P7ZVEqp8D3wKgj+
+   eJztzscNwCAAwECGoiaU/bfCW4CQLd3fIbxTREJGQUXDhx8dAxPr0KOZmZnd0wb+cwKz
   </data>
  </layer>
- <layer name="AttackTopRight1" width="17" height="30">
+ <layer name="AttackRight3" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrkNACAMwMDsPxOEb7F4CijwSe4dIf2hUaekQZMWbTrvtiTpqgLpCwX9
+   eJztzskJADAMxECXndM5C4+6MIQVzF9m6tcSMgoqGjocAxMLGwc35FIppZSK6wFSywZn
   </data>
  </layer>
- <layer name="AttackTopRight2" width="17" height="30">
+ <layer name="AttackRight2" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrkNADAIwED23y0h30B4BLo0Psm9IyR1DZqUtGjToUvv45ckdRXU+gaF
+   eJztzscJACAAwEC3tbf9P2YLRRK4f0KwF4tIyCioaOgYmFjYtwbNzMw+6AAwPgSl
   </data>
  </layer>
- <layer name="AttackTopRight3" width="17" height="30">
+ <layer name="AttackRight1" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrkNACAMwMDsPySEb494CijwSe4dIemmRp2SBk1atOm825L0iQJ4qQcN
+   eJztzrkNACAMwMBMCeHbf424pUei8UnuHaHXGnVKGjRp0abz8UuSJN0KbeMCzQ==
   </data>
  </layer>
- <layer name="AttackTopLeft1" width="17" height="30">
+ <layer name="AttackLeft1" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrkNACAMwMDsvyyEr463ACSf5N4Rkn7TqFPSoEmLNp2LX5LeV9QJB5U=
+   eJztzrkNACAMwMCsD+EbOV6ADonGJ7l3hHTXqFPSoEmLNp2PX5IkvVAfSgRl
   </data>
  </layer>
- <layer name="AttackTopLeft2" width="17" height="30">
+ <layer name="AttackLeft2" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjEjACERAzATEzEDMAsSsQMwGxOyMA+24UTAKRgGtAACUwAAl
+   eJztzscNACAAgED3H8HeBpUljA8huT8hmN0tIiGjoKKhY2BiYT/6MzOzfzvftAbW
   </data>
  </layer>
- <layer name="AttackTopLeft3" width="17" height="30">
+ <layer name="AttackLeft3" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALygCAjA4MQEAsDsQgQiwKxGBCLA7EE40C7bhSMglGADQAAfZ4ArQ==
+   eJztzskNACAMxMD03wpnONvDXQDSWpq/zZR6v4CIhIyCCkdDx8DEwr6zqZRS6rMOfqAI/g==
   </data>
  </layer>
- <layer name="RunBot" width="17" height="30">
+ <layer name="AttackTopRight1" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzccNwCAAwEBmoCaU/dfEMwBPW7q3Q7gvIiGjoKLhw4+OgYn14GdmZmZnbWpAARs=
+   eJztzrkNADAIwED2nykh32J4C4r4JPeOkP4waFLSok2HLr2+LUlSowJGRAX9
   </data>
  </layer>
- <layer name="AttackBotRight1" width="17" height="30">
+ <layer name="AttackTopRight2" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskJADAMxMB1K3Eu999g1IUh7ID+kszM+oyQkiYt2nToUkX3ndl/Hh48ATU=
+   eJztzrkNACAMwMDsvxuEb6B4BERD45PcO0LSrUadkgZNWrTpfPySJL0pwrMGhQ==
   </data>
  </layer>
- <layer name="AttackBotRight2" width="17" height="30">
+ <layer name="AttackTopRight3" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskNACAMxMBNTYQr/ReGuwCkHcl/S2Zmf2shJXUaNGnRporbd2ZvOXaLAb0=
+   eJztzrkNACAMwMDsPySEb494CijwSe4dIemmRp2SBk1atOm825KkLxX24gcN
   </data>
  </layer>
- <layer name="AttackBotRight3" width="17" height="30">
+ <layer name="AttackTopLeft1" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzrkNACAMwMBkN37Yfx48BBKNT3LvCElSyYhKjToNmrRo08nfh9IbF14EApI=
+   eJztzrkJADAMwEDvv2zifLW1RTDoQL0iJHUzaFLSok2HLr2PX5LUTQHi0QeV
   </data>
  </layer>
- <layer name="AttackBotLeft1" width="17" height="30">
+ <layer name="AttackTopLeft2" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRQA0QysjAEAbE4UAcAcSRQBwFxNFAHMM40K4bBaMAAgBOaQLN
+   eJztzrkRACAMxEAb8/TfMarCBGjnlF+EpC8lo0FFkxZtOvn6nCT1uLwQACU=
   </data>
  </layer>
- <layer name="AttackBotLeft2" width="17" height="30">
+ <layer name="AttackTopLeft3" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskNACAMxMBNs4Qr/X9xFyC0I/lvyczMXtFCSuo0aNKiTRW37+wHB83pA1U=
+   eJztzrsNACAMxNDLCIRf9p+U2wCJhsZPcm8JAN60kNJ1N9x0y21X8fsOAO4ONX0ArQ==
   </data>
  </layer>
- <layer name="AttackBotLeft3" width="17" height="30">
+ <layer name="RunBot" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskNACAMxMBN1VwBWsddREI7kv+WzMzsJy2kToMmLUradOhG9aFVegVGBF0=
+   eJztzccNACAAgEBnsNf915Qd9AnJvQnhvYiEjIKKho6BiYWN8+FnZmZm9qMLlv8BGw==
+  </data>
+ </layer>
+ <layer name="AttackBotRight1" width="17" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztzskJADAMxMB1K3Eu999gtgtD0ID+kgCgzwgp3XTLbXfcdRXddwB+9wBmmwE1
+  </data>
+ </layer>
+ <layer name="AttackBotRight2" width="17" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztzskNACAMxMBNTYQr/RfGdgFIHsl/SwDwtxZSuu6Gm2657Spu3wF42QFPeQG9
+  </data>
+ </layer>
+ <layer name="AttackBotRight3" width="17" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNACAMwMBkN37Yfx68BKLxSe4dIUkqGVGpUadBkxZtOvn7UNILFxlRApI=
+  </data>
+ </layer>
+ <layer name="AttackBotLeft1" width="17" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztzrsNACAMxNDLkIRf9p+DG4ASicZPcm8JAPBCCyldd8NNt9x2Fb/vANwcSGYCzQ==
+  </data>
+ </layer>
+ <layer name="AttackBotLeft2" width="17" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztzskNACAMxMBNs4Qr/X/ZLkDII/lvCQDwihZSuu6Gm2657Spu3wH/OVh1A1U=
+  </data>
+ </layer>
+ <layer name="AttackBotLeft3" width="17" height="34">
+  <data encoding="base64" compression="zlib">
+   eJztzskNACAQw8Bs1VwLtI67AKGM5L8lMzP7SQmpUqNOg5ImLdpx+9DsHQeoUgRd
   </data>
  </layer>
  <objectgroup name="AttackTopRight1">
@@ -337,44 +449,44 @@
   <object id="523" name="Hitbox" type="2" x="150.5" y="1320.06" width="19.25" height="11.6875"/>
   <object id="524" name="Hitbox" type="3" x="223" y="1303.27" width="12.2727" height="29.2727"/>
  </objectgroup>
- <layer name="DashTop" width="17" height="30">
+ <layer name="DashTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApQQQcjA0MnEHcxDrRLRgG1AQADagGf
+   eJxjYBgFo2AUjIJRMApQQQcjA0MnEHcxDrRLRsEooC0AALxpAZ8=
   </data>
  </layer>
- <layer name="DashEndTop" width="17" height="30">
+ <layer name="DashEndTop" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApwgx5GBoZeIO4D4n4gngDEE4F4EuNAu2wUkAMA+5sD8Q==
+   eJztzrERACAMw0BnfwiEieMFqCho9HfqJQEAcDdCmi7dctuVO/H7DHjXK/YD8Q==
   </data>
  </layer>
- <layer name="DashLeft" width="17" height="30">
+ <layer name="DashLeft" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAqoD2YyMjDMAuLZQDyHcaBdMwpgAADYyQJv
+   eJxjYBgFo2AUjIJRMAqoD2YyMjDMAuLZQDyHcaBdMwpGAXYAAG7mAm8=
   </data>
  </layer>
- <layer name="DashEndLeft" width="17" height="30">
+ <layer name="DashEndLeft" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzskJACAAxMC1/xq8rzZNEyLIBuYfyTnnnLtfDFJCRkFFQ8fAxMIOr0//7gA0PwcC
+   eJztzscNACAAw8Cw/wz0tiZeAvEglu5vyTnnnLtfDFJCRkFFQ8fAxMIOr0/dTx2myAcC
   </data>
  </layer>
- <layer name="DashRight" width="17" height="30">
+ <layer name="DashRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAoGJ1jFyMCwGojXAPFaxoF2zfAAAIxJArM=
+   eJxjYBgFo2AUjIJRMAoGJ1jFyMCwGojXAPFaxoF2zSgYjgAAaqYCsw==
   </data>
  </layer>
- <layer name="DashEndRight" width="17" height="30">
+ <layer name="DashEndRight" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzscNACAAw8Cw/y70Nh7eApBi6f6WnHPOuT+KQUrIKKho6BiYWNjh9um7HTX8B70=
+   eJztzskJADAQw0Bv/73kvsqLuggBC+YvyTnnnPujFFJGQUVDx8DEwsaJ16fuly5vRAe9
   </data>
  </layer>
- <layer name="DashBot" width="17" height="30">
+ <layer name="DashBot" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMAqGL9jNyMCwh3GgXTF4AACVoQF6
+   eJxjYBgFo2AUjIJRMAqGL9jNyMCwh3GgXTEKBisAACdfAXo=
   </data>
  </layer>
- <layer name="DashEndBot" width="17" height="30">
+ <layer name="DashEndBot" width="17" height="34">
   <data encoding="base64" compression="zlib">
-   eJztzssJACAQxNDZ/mvyt2pfpgoFmQe5RzIzM/tfCalSo06DkiYt2vH68I4DoskG0w==
+   eJztzskNACAMxMBN/zVxBeiL7SIS8kj+WwIA4H8tpO6Gm265dNsdd6P6EBUe42IG0w==
   </data>
  </layer>
  <objectgroup name="AttackBotLeft2">

@@ -16,6 +16,7 @@
 #include "CoinManager.h"
 #include "Coin.h"
 #include "Game.h"
+#include "Boss2.h"
 
 CollisionsManager* CollisionsManager::instance = nullptr;
 
@@ -195,9 +196,9 @@ void CollisionsManager::playerCollisions()
 						KnockbackMessage msg1(empuje);
 						e->sendMessage(&msg1);
 						e->setInvincibility(true);
-						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
+						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
 						if(mc->isLifeStealEnable())
-							mc->addHP(mc->getNormalAttackDamage() * mc->getLifeSteal() / 100);
+							mc->addHP(damage * mc->getLifeSteal() / 100);
 						MCAttackDamage msg2(damage);
 						e->sendMessage(&msg2);
 						hit = true;
@@ -209,7 +210,8 @@ void CollisionsManager::playerCollisions()
 		}
 	}
 
-	Boss* boss = EnemyManager::getInstance()->getActiveBoss();
+	//Colision con Boss activo
+	MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
 		if (!boss->getInvincibility()) {
 			MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
@@ -223,7 +225,7 @@ void CollisionsManager::playerCollisions()
 				for (uint j = 0; !hit && j < mcHitboxes.size(); j++) {
 					if (CollisionHandler::RectCollide(bossHurtboxes[i], mcHitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 
-						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
+						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
 						boss->setInvincibility(true);
 						MCAttackDamage msg(damage);
 						boss->sendMessage(&msg);
@@ -377,7 +379,7 @@ void CollisionsManager::enemyAttackCollision() {
 
 void CollisionsManager::bossCollisions()
 {
-	Boss* boss = EnemyManager::getInstance()->getActiveBoss();
+	MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
 	if (boss != nullptr) {
 		MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
 		if (!mc->getInvincibility()) {
@@ -393,7 +395,7 @@ void CollisionsManager::bossCollisions()
 						hit = true;
 						//Mandar mensaje de collision stalker / player
 						mc->setInvincibility(true);
-						Message msg(BOSS1_ATTACK);
+						BossAttack msg(boss->getDamage());
 						mc->sendMessage(&msg);
 						Vector2D empuje = mc->getCenterPos() - boss->getCenterPos();
 						empuje.normalize();
@@ -404,6 +406,41 @@ void CollisionsManager::bossCollisions()
 			}
 		}
 		layerCollisions(boss);
+
+		if (dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
+		{
+			vector<Wheel*> wheels = dynamic_cast<Boss2*>(boss)->returnWheel();
+			if (wheels.size() != 0)
+			{
+				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+				for (int i = 0; i < wheels.size(); i++)
+				{
+					if (!mc->getInvincibility()) {
+						bool hit = false;
+						vector<SDL_Rect> wheelsHitboxes = wheels[i]->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+						vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+						uint i = 0;
+
+						//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+						for (uint i = 0; !hit && i < wheelsHitboxes.size(); i++) {
+							for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
+								if (CollisionHandler::RectCollide(wheelsHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+									hit = true;
+									mc->setInvincibility(true);
+									//Mandar mensaje de collision stalker / player
+									Message msg(WHEEL_HIT);
+									mc->sendMessage(&msg);
+									Vector2D empuje = mc->getCenterPos() - wheels[i]->getCenterPos();
+									empuje.normalize();
+									KnockbackMessage msg1(empuje);
+									mc->sendMessage(&msg1);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 

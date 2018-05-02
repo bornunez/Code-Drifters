@@ -6,6 +6,8 @@
 #include "EnemyCharger.h"
 #include "MainCharacter.h"
 #include "EnemyTurret.h"
+#include "EnemyBomb.h"
+#include "EnemyBomber.h"
 #include "Map.h"
 #include "PlayState.h"
 
@@ -36,6 +38,11 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	case Turret:
 		e = new EnemyTurret(mc);
 		break;
+	case Bomb:
+		e = new EnemyBomb(mc);
+		break;
+	case Bomber: 
+		e = new EnemyBomber(mc);
 	default:
 		break;
 	}
@@ -79,13 +86,13 @@ void EnemyManager::update()
 	for (Enemy* e : actives) {
 		e->update();
 	}
-	if (activeBoss != nullptr)
+	if (actBoss1 != nullptr)
 	{
-		activeBoss->update();
+		actBoss1->update();
 	}
-	if (activeBoss2 != nullptr)
+	if (actBoss2 != nullptr)
 	{
-		activeBoss2->update();
+		actBoss2->update();
 	}
 }
 
@@ -94,13 +101,13 @@ void EnemyManager::render()
 	for (Enemy* e : actives) {
 		e->render();
 	}
-	if (activeBoss != nullptr)
+	if (actBoss1 != nullptr)
 	{
-		activeBoss->render();
+		actBoss1->render();
 	}
-	if (activeBoss2 != nullptr)
+	if (actBoss2 != nullptr)
 	{
-		activeBoss2->render();
+		actBoss2->render();
 	}
 }
 
@@ -130,11 +137,13 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	activeBoss = new Boss(mc, x, y, 200, 200);
+	actBoss2 = new Boss2(mc, x, y, 128, 128);
+	activeBoss = actBoss2;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {
-	activeBoss2 = new Boss2(mc, x, y, 200, 200);
+	actBoss2 = new Boss2(mc, x, y, 128, 128);
+	activeBoss = actBoss2;
 }
 void EnemyManager::ResetInstance()
 {

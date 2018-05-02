@@ -9,6 +9,7 @@
 #include "UpdateBoss2.h"
 #include "SkeletonRenderer.h"
 #include "PlayState.h"
+#include "Wheel.h"
 class MainCharacter;
 class Timer;
 class Vector2D;
@@ -23,7 +24,12 @@ public:
 	~Boss2();
 
 	virtual void death() {};
-	virtual void changeColor(int r, int g, int b) {};
+	virtual void changeColor(int r, int g, int b);
+	void updateEnemies();
+	void renderEnemies();
+	void createWheel(int posX, int posY, float velocidad, int dir);
+	vector<Wheel*> returnWheel() {return wheels;};
+	int returnWheelSize() { return wheels.size(); };
 private:
 
 	RenderBoss2* rend;
@@ -32,6 +38,8 @@ private:
 	Vector2D posProta;
 	Timer* Time;
 	MainCharacter* prota;
+	vector<Wheel*> wheels;
+
 	//RenderBoss* rend;
 	//UpdateBoss* updat;
 
