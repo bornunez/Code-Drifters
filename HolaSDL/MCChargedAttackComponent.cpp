@@ -20,7 +20,7 @@ void MCChargedAttackComponent::update()
 		if (chargeHold->TimeSinceTimerCreation >= chargeTime) {
 			if (mc->getMCState() != MCState::ChargingAttack) {
 				mc->setMCState(MCState::ChargingAttack);//Envía un mensaje para que empiece a cargar
-				Message msg(ATTACKCHARGING_TOP);
+				Message msg(ATTACKCHARGING);
 				mc->sendMessage(&msg);
 			}
 			
@@ -29,7 +29,7 @@ void MCChargedAttackComponent::update()
 	else {//Si deja de pulsar, el tiempo supera al límite y está cargando entonces suelta el ataque
 		if (chargeHold->TimeSinceTimerCreation >= chargeTime) {
 			if (mc->getMCState() == MCState::ChargingAttack) {
-				Message msg(ATTACKCHARGED_TOP);//Envía mensaje para que suelte el ataque
+				Message msg(ATTACKCHARGED);//Envía mensaje para que suelte el ataque
 				mc->setMCState(MCState::ChargedAttack);
 				mc->sendMessage(&msg);
 			}

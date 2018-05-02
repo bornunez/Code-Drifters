@@ -39,7 +39,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 
 
 	if (e.button.button == SDL_BUTTON_LEFT && e.type == SDL_MOUSEBUTTONDOWN) {
-		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt && mc->getMCState() != MCState::ChargingAttack) {
+		if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot && mc->getMCState() != MCState::Hurt 
+			&& mc->getMCState() != MCState::ChargingAttack && mc->getMCState() != MCState::ChargedAttack) {
 			
 			mc->setCharging(true);//Booleano que indica que está cargando el ataque
 

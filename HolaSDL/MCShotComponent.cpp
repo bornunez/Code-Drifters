@@ -29,36 +29,40 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 	if (e.button.button == SDL_BUTTON_RIGHT && e.type == SDL_MOUSEBUTTONDOWN) {
 		if (currentBullets >= 1) {//Si tiene balas en el cargador dispara
-			int mouseX, mouseY;
-			SDL_Point p;
-			SDL_Rect r;
-			SDL_GetMouseState(&p.x, &p.y);
-			aux.setX(p.x);
-			aux.setY(p.y);//Posición del cursor en pantalla
+			if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot
+				&& mc->getMCState() != MCState::Hurt && mc->getMCState() != MCState::ChargingAttack
+				&& mc->getMCState() != MCState::ChargedAttack) {
+				int mouseX, mouseY;
+				SDL_Point p;
+				SDL_Rect r;
+				SDL_GetMouseState(&p.x, &p.y);
+				aux.setX(p.x);
+				aux.setY(p.y);//Posición del cursor en pantalla
 
 
-			//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
-			Vector2D gunPosition = static_cast<MainCharacter*>(gameObject)->getGunPosition();
-			
-			Transform bulletTransform;
-			bulletTransform.body.w = bulletTransform.body.h = 10;
-			bulletTransform.position = gunPosition + PlayState::getInstance()->getCamera()->getTransform()->position;
-			bulletTransform.position.setX(bulletTransform.position.getX() - bulletTransform.body.w / 2);
-			bulletTransform.position.setY(bulletTransform.position.getY() - bulletTransform.body.h / 2);
+				//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
+				Vector2D gunPosition = static_cast<MainCharacter*>(gameObject)->getGunPosition();
 
-			Vector2D displayPosition;//Posición del personaje relativa a la cámara
-			displayPosition = (gunPosition);
-			bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
-			bulletTransform.direction.normalize();//Halla el vector de dirección 
-			bulletTransform.velocity = bulletTransform.direction;
-			bulletTransform.speed = 1000.0;
+				Transform bulletTransform;
+				bulletTransform.body.w = bulletTransform.body.h = 10;
+				bulletTransform.position = gunPosition + PlayState::getInstance()->getCamera()->getTransform()->position;
+				bulletTransform.position.setX(bulletTransform.position.getX() - bulletTransform.body.w / 2);
+				bulletTransform.position.setY(bulletTransform.position.getY() - bulletTransform.body.h / 2);
 
-			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);
+				Vector2D displayPosition;//Posición del personaje relativa a la cámara
+				displayPosition = (gunPosition);
+				bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
+				bulletTransform.direction.normalize();//Halla el vector de dirección 
+				bulletTransform.velocity = bulletTransform.direction;
+				bulletTransform.speed = 1000.0;
 
-			currentBullets -= 1;
-			mc->setCurrentBullets(currentBullets); //Le resta balas al personaje
-			Message msg(MC_SHOT);
-			gameObject->sendMessage(&msg);
+				BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);
+
+				currentBullets -= 1;
+				mc->setCurrentBullets(currentBullets); //Le resta balas al personaje
+				Message msg(MC_SHOT);
+				gameObject->sendMessage(&msg);
+			}
 		}
 	}
 

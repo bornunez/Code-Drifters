@@ -2,9 +2,6 @@
 #include "BomberComponent.h"
 #include "GameObject.h"
 #include <cmath>
-#include "Bullet.h"
-#include "MCBulletComponent.h"
-#include "MCBulletRenderComponent.h"
 #include "MainCharacter.h"
 #include"Enemy.h"
 
