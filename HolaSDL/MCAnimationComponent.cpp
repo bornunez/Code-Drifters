@@ -160,6 +160,10 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 	case MC_DEATH:
 		handleAnimationDeath();
 		break;
+	case ULTIMATE:
+		gameObject->changeCurrentAnimation("ULTIMATE");
+		gameObject->getCurrentAnimation()->startAnimation();
+		break;
 	}
 }
 
@@ -207,6 +211,9 @@ void MCAnimationComponent::handleAnimationStates()
 		mc->setMCState(MCState::Idle);
 	}
 	else if (mc->getMCState() == MCState::ChargedAttack && gameObject->getCurrentAnimation()->isFinished()) {
+		mc->setMCState(MCState::Idle);
+	}
+	else if (mc->getMCState() == MCState::Ultimate && gameObject->getCurrentAnimation()->isFinished()) {
 		mc->setMCState(MCState::Idle);
 	}
 	else if (mc->getMCState() == MCState::DashEnd && gameObject->getCurrentAnimation()->isFinished()) {

@@ -26,6 +26,7 @@ void MCUltimateInput::handleEvents(SDL_Event & e)
 					boss->sendMessage(&ulti);
 				}
 			}
+			mc->setMCState(MCState::Ultimate);
 			mc->sendMessage(&msg);
 			mc->sendMessage(&ulti);
 		}

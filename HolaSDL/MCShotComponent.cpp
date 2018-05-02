@@ -29,9 +29,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 	if (e.button.button == SDL_BUTTON_RIGHT && e.type == SDL_MOUSEBUTTONDOWN) {
 		if (currentBullets >= 1) {//Si tiene balas en el cargador dispara
-			if (mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::HookShot
-				&& mc->getMCState() != MCState::Hurt && mc->getMCState() != MCState::ChargingAttack
-				&& mc->getMCState() != MCState::ChargedAttack) {
+			if (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd) {
 				int mouseX, mouseY;
 				SDL_Point p;
 				SDL_Rect r;

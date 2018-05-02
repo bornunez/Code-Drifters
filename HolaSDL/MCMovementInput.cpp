@@ -35,7 +35,8 @@ void MCMovementInput::update()
 		mc->getMCState() != MCState::Dash && mc->getMCState() != MCState::Shot &&
 		mc->getMCState() != MCState::DashEnd  && mc->getMCState() != MCState::Death &&
 		mc->getMCState() != MCState::ChargedAttack &&
-		mc->getMCState() != MCState::ChargingAttack) {
+		mc->getMCState() != MCState::ChargingAttack &&
+		mc->getMCState() != MCState::Ultimate) {
 
 		mc->setMCState(MCState::Idle);		
 	}

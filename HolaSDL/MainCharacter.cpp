@@ -219,7 +219,7 @@ void MainCharacter::loadAnimations()
 	tileset = ResourceManager::getInstance()->getProtaTileset(1);
 	animationPath = "../Animations/Protagonist/tileset/UltimateAnimation.tmx";
 
-	Animation* ultimate = AnimationParser::parseAnimation(tileset, animationPath, "Ultimate", this, 0, offsetY,false);
+	Animation* ultimate = AnimationParser::parseAnimation(tileset, animationPath, "Ultimate", this, 0, offsetY - 50 * Game::getGame()->getScale(),false);
 
 	animations.emplace("ULTIMATE", ultimate);
 
