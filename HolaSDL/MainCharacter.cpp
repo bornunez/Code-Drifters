@@ -11,7 +11,6 @@
 #include "MCAnimationComponent.h"
 #include "ResourceManager.h"
 #include "MCMovementInput.h"
-#include "MCAttackCollisionComponent.h"
 #include "AnimationParser.h"
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
@@ -27,6 +26,7 @@
 #include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "MCChargedAttackComponent.h"
+#include "MCUltimateInput.h"
 
 //Personaje principal
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
@@ -52,7 +52,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
-	//addComponent(new MCAttackCollisionComponent(this));
 	addComponent(new LevelExplorer(this));
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
 	addComponent(hookShot);
@@ -65,6 +64,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new KnockbackComponent(this,1500));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new MCChargedAttackComponent(this, 0.4));
+	addComponent(new MCUltimateInput(this));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	maxBullets = 3;
@@ -72,6 +72,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	currentBullets = maxBullets;
 
 	normalAttackDamage = 50;
+	chargedAttackDamage = 100;
+	ultimateAttackDamage = 100;
 	movable = true;
 	
 }
@@ -82,7 +84,7 @@ MainCharacter::~MainCharacter()
 }
 void MainCharacter::loadAnimations()
 {
-	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset();
+	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset(0);
 	string animationPath = "../Animations/Protagonist/tileset/ProtaAnimation.tmx";
 	int offsetY = 0;
 	Animation* idleBot = AnimationParser::parseAnimation(tileset, animationPath, "IdleBot", this, 0, offsetY);
@@ -212,6 +214,15 @@ void MainCharacter::loadAnimations()
 
 	animations.emplace("ATTACKCHARGING_RIGHT", attackChargingRight);
 	animations.emplace("ATTACKCHARGED_RIGHT", attackChargedRight);
+
+	//Aquí se carga el Ultimate
+	tileset = ResourceManager::getInstance()->getProtaTileset(1);
+	animationPath = "../Animations/Protagonist/tileset/UltimateAnimation.tmx";
+
+	Animation* ultimate = AnimationParser::parseAnimation(tileset, animationPath, "Ultimate", this, 0, offsetY,false);
+
+	animations.emplace("ULTIMATE", ultimate);
+
 }
 
 //Getters & Setters
@@ -251,12 +262,23 @@ void MainCharacter::setChargedAttackDamage(float dmg)
 {
 	chargedAttackDamage = dmg;
 }
-float MainCharacter::getAttackDamage(string attackType)
+void MainCharacter::setUltimateAttackDamage(float dmg)
 {
-	if (attackType == "NORMAL_ATTACK") {
+	ultimateAttackDamage = dmg;
+}
+float MainCharacter::getUltimateAttackDamage()
+{
+	return ultimateAttackDamage;
+}
+float MainCharacter::getAttackDamage(MCAttackType attackType)
+{
+	if (attackType == MCAttackType::NORMAL) {
 		return getNormalAttackDamage();
 	}
-	else if (attackType == "CHARGED_ATTACK") {
+	else if (attackType == MCAttackType::CHARGED) {
+		return getChargedAttackDamage();
+	}
+	else if (attackType == MCAttackType::ULTIMATE) {
 		return getChargedAttackDamage();
 	}
 	else {
@@ -282,6 +304,19 @@ float MainCharacter::getActualHP()
 
 float MainCharacter::getMaxHP() {
 	return maxHP;
+}
+
+MCAttackType MainCharacter::getCurrentAttackType()
+{
+	if (getMCState() == MCState::ChargedAttack) {
+		return MCAttackType::CHARGED;
+	}
+	else if (getMCState() == MCState::Ultimate) {
+		return MCAttackType::ULTIMATE;
+	}
+	else {
+		return MCAttackType::NORMAL;
+	}
 }
 
 Vector2D MainCharacter::getGunPosition()

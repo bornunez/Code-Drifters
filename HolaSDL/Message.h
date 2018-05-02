@@ -41,6 +41,7 @@ enum MessageId {
 	ATTACKCHARGED,
 	MC_SHOT,
 	MC_HOOKSHOT,
+	ULTIMATE,
 
 	//Death
 	MC_DEATH,

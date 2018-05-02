@@ -9,8 +9,8 @@ class HookShotComponent;
 class PlayState;
 class MCAnimationComponent;
 
-enum MCState { Idle, Run, Attack, ChargingAttack, ChargedAttack, Shot, HookShot, Dash, Hurt, Heal, DashEnd, Death };
-
+enum class MCState { Idle, Run, Attack, ChargingAttack, ChargedAttack, Shot, HookShot, Dash, Hurt, Heal, DashEnd, Death , Ultimate};
+enum class MCAttackType{NORMAL,CHARGED,ULTIMATE};
 class MainCharacter : public GameObject
 {
 private:
@@ -21,6 +21,7 @@ private:
 	float maxVelocity;
 	float normalAttackDamage;
 	float chargedAttackDamage;
+	float ultimateAttackDamage;
 	MCState mcState = MCState::Idle;
 
 	bool charging = false;//Booleano si determina si se está pulsando el botón para cargar el ataque
@@ -52,6 +53,7 @@ public:
 	//Getters & Setters
 	void setNormalAttackDamage(float dmg);//Cambia el da�o que hace el ataque normal
 	void setChargedAttackDamage(float dmg);//Cambia el da�o que hace el ataque normal
+	void setUltimateAttackDamage(float dmg);
 	void setMaxVelocity(float vel);
 	void setGunPosition(Vector2D pos);
 	void setMCState(MCState state) { this->mcState = state; };
@@ -65,12 +67,16 @@ public:
 	float getReloadTime();
 
 	float getNormalAttackDamage();//Devuelve el da�o que hace el ataque normal
-	float getChargedAttackDamage();//Devuelve el da�o que hace el ataque normal
-	float getAttackDamage(std::string attackType);//Seg�n el ataque que sea, devuelve su da�o
+	float getChargedAttackDamage();//Devuelve el da�o que hace el ataque cargado
+	float getUltimateAttackDamage();
+	float getAttackDamage(MCAttackType attackType);//Seg�n el ataque que sea, devuelve su da�o
 	float getVelocity();
 	float getMaxVelocity();
 	float getActualHP();
 	float getMaxHP();
+
+	MCAttackType getCurrentAttackType();//Devuelve el tipo de ataque según el estado actual
+
 	int getMoney() { return money; };
 	void changeMoney(int mon);
 	Vector2D getGunPosition();
