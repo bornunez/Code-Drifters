@@ -108,9 +108,9 @@ void HUDManager::render() {
 	lifeBar->getTexture()->render(lifeBar->destRect, &lifeBar->srcRect);
 	lifeSkeleton->getTexture()->render(lifeSkeleton->destRect, &lifeSkeleton->srcRect);
 
-	ultBack->getTexture()->render(ultBack->destRect, &ultBack->srcRect);
-	ultBar->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
-	ultSkeleton->getTexture()->render(ultSkeleton->destRect, &ultSkeleton->srcRect);
+	//ultBack->getTexture()->render(ultBack->destRect, &ultBack->srcRect);
+	//ultBar->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
+	//ultSkeleton->getTexture()->render(ultSkeleton->destRect, &ultSkeleton->srcRect);
 
 	moneyTex->render(moneyDestRect);
 }
@@ -145,24 +145,24 @@ void HUDManager::update() {
 	}
 	//update the ult bar, but without parameter from the character we cant
 }
-
+///method which can increase maxHP or low it
 void HUDManager::setNewHP(int newL) {
-	lifeBack->destRect.w += newL*gameScale*0.75;
+	lifeBack->destRect.w += newL*gameScale;
 	lifeBack->srcRect.x -= newL;
 	lifeBack->srcRect.w += newL;
 
-	lifeBar->destRect.w += newL*gameScale*0.75;
+	lifeBar->destRect.w += newL*gameScale;
 	lifeBar->srcRect.x -= newL;
 	lifeBar->srcRect.w += newL;
 
-	lifeSkeleton->destRect.w += newL*gameScale*0.75;
+	lifeSkeleton->destRect.w += newL*gameScale;
 	lifeSkeleton->srcRect.x -= newL;
 	lifeSkeleton->srcRect.w += newL;
 }
-
+///method that changes actual life, but in maxHP interval
 void HUDManager::changeLife(int l) {
 
-	lifeBar->destRect.w += l * lifeUnit;
+	lifeBar->destRect.w += (int)((float)(l * lifeUnit));
 	lifeBar->srcRect.x -= l;
 	lifeBar->srcRect.w += l;
 	if (lifeBar->destRect.w > lifeBack->destRect.w) {

@@ -115,8 +115,9 @@ void MCManagerComponent::update()
 void MCManagerComponent::HurtMC(float dmg) {
 	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX() - 40, mc->getCenterPos().getY() - 40);
 	mc->setMCState(MCState::Hurt);
-	mc->substractHP(dmg);
-	HUDManager::getInstance()->changeLife(-dmg);
+	mc->addHP(-dmg);
+	//mc->substractHP(dmg);
+	//HUDManager::getInstance()->changeLife(-dmg);
 
 	if (mc->getActualHP() <= 0) {
 		Message msg(MC_DEATH);
