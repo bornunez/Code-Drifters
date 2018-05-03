@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="45" height="1" tilewidth="128" tileheight="128" nextobjectid="1">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="47" height="1" tilewidth="128" tileheight="128" nextobjectid="1">
  <tileset firstgid="1" source="Ultimate.tsx"/>
- <layer name="Ultimate" width="45" height="1">
+ <layer name="Ultimate" width="47" height="1">
   <data encoding="base64" compression="zlib">
-   eJwlw4kSgVAAAMA3lMoVlXKF3MT//56dsTM7CCEMjYwdmZiaOXbi1JlzcxcuLSytXFnbuHbj1p17Ww8ePdl59uLVm3cfPn35tvfjN/z9AA2TBAs=
+   eJwlw4kSgVAAAMA3rsiRqyKinDni///OztiZ7YQQuvbsOzBy6MjYsROnzkycu3DpyrWpmbkbtxbu3Ft68Ghl7cmzF6/evNv48OnLt60fv+HvBzGLBGg=
   </data>
  </layer>
 </map>
