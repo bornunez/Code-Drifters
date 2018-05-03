@@ -344,17 +344,16 @@ void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
 
 void MainCharacter::addHP(int life)
 {
+	HUDManager::getInstance()->changeLife(life);
 	HP += life;
 	if (HP > maxHP)
 		HP = maxHP;
-
-	HUDManager::getInstance()->changeLife(life);
 }
 
 void MainCharacter::addMaxHP(float life) {
+	HUDManager::getInstance()->setNewHP(life);
 	maxHP += life;
 	HP += life;
-	HUDManager::getInstance()->setNewHP(life);
 }
 
 void MainCharacter::changeMoney(int mon) {

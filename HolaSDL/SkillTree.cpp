@@ -287,15 +287,17 @@ void SkillTree::effect() {
 	case 32:
 		//add a bonus 10% max HP
 		character->addMaxHP(character->getMaxHP()*10 / 100);
+		cout << character->getMaxHP() << endl;
 		break;
 	case 321:
+		//add a bonus 33% max HP
 		character->addMaxHP(character->getMaxHP() / 3);
+		cout << character->getMaxHP() << endl;
 		break;
 	case 3211:
-		cout << character->getMaxHP() << endl;
-		cout << (character->getMaxHP() * (60.0 / 44.0)) << endl;
-		cout << (character->getMaxHP() * (60.0 / 44.0)) - character->getMaxHP() << endl;
+		//add a bonus to reach double of initial max HP
 		character->addMaxHP(((character->getMaxHP() * (60.0 / 44.0)) - character->getMaxHP()));
+		cout << character->getMaxHP() << endl;
 	default:
 		break;
 	}
