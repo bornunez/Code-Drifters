@@ -270,9 +270,11 @@ void SkillTree::effect() {
 		break;
 	case 1121:
 		character->setLifeSteal(2); //doubles life steal
+		break;
 	case 12:
 		character->addMaxHP(-(character->getMaxHP() / 2));
 		character->addPercentualDamage(100);
+		break;
 	case 221: //both add 1 bullet
 	case 22:
 		character->setMaxBullets(character->getMaxBullets() + 1);
