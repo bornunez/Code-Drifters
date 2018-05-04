@@ -86,11 +86,11 @@ void EnemyManager::update()
 	for (Enemy* e : actives) {
 		e->update();
 	}
-	if (actBoss1 != nullptr)
+	if (actBoss1 != nullptr && actBoss1->isActive())
 	{
 		actBoss1->update();
 	}
-	if (actBoss2 != nullptr)
+	if (actBoss2 != nullptr && actBoss2->isActive())
 	{
 		actBoss2->update();
 	}
@@ -101,11 +101,11 @@ void EnemyManager::render()
 	for (Enemy* e : actives) {
 		e->render();
 	}
-	if (actBoss1 != nullptr)
+	if (actBoss1 != nullptr && actBoss1->isActive())
 	{
 		actBoss1->render();
 	}
-	if (actBoss2 != nullptr)
+	if (actBoss2 != nullptr && actBoss2->isActive())
 	{
 		actBoss2->render();
 	}
