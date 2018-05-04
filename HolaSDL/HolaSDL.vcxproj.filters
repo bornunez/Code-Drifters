@@ -398,6 +398,7 @@
       <Filter>Prota\Source</Filter>
     </ClCompile>
     <ClCompile Include="EnemyHUDComponent.cpp" />
+    <ClCompile Include="BossHUDComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -777,6 +778,7 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="EnemyHUDComponent.h" />
+    <ClInclude Include="BossHUDComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
