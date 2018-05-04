@@ -2,8 +2,9 @@
 
 
 
-MasterBoss::MasterBoss():GameObject()
+MasterBoss::MasterBoss(int type_):GameObject()
 {
+	type = type_;
 }
 
 

@@ -407,7 +407,7 @@ void CollisionsManager::bossCollisions()
 		}
 		layerCollisions(boss);
 
-		if (dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
+		if ( dynamic_cast<MasterBoss*>(boss)->getBossType() == 2  && dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
 		{
 			vector<Wheel*> wheels = dynamic_cast<Boss2*>(boss)->returnWheel();
 			if (wheels.size() != 0)

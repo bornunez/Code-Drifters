@@ -14,14 +14,14 @@
 #include "BasicInvincibleComponent.h"
 
 using namespace std;
-Boss::Boss(Transform t) : MasterBoss()
+Boss::Boss(Transform t) : MasterBoss(1)
 {
 	transform.position.setX(t.position.getX());
 	transform.position.setY(t.position.getY());
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
 }
 
-Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss()
+Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 {
 
 	transform.position.setX(x);

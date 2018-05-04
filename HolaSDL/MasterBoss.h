@@ -11,7 +11,7 @@ struct CommonAttributes {
 class MasterBoss:public GameObject
 {
 public:
-	MasterBoss();
+	MasterBoss(int type);
 	~MasterBoss();
 	float getDefense() { return Attributes.defense; };
 	float getLife() { return Attributes.life; }
@@ -21,8 +21,12 @@ public:
 	bool isStunned() { return Attributes.stunned; }
 	virtual void death() = 0;
 	virtual void changeColor(int r, int g, int b) = 0;
+	int getBossType() { return type; };
 protected:
 
 	CommonAttributes Attributes;
+
+private:
+	int type;
 };
 
