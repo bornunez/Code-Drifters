@@ -2,8 +2,6 @@
 #include "Enemy.h"
 #include<map>
 #include "Animation.h"
-class GunnerAnimationComponent;
-enum GunnerStatez{IDLEs, RUNs, SHOOTs};
 class EnemyTurret : public Enemy
 {
 public:
@@ -11,6 +9,5 @@ public:
 
 	~EnemyTurret();
 	void loadAnimations();
-	GunnerStatez currentState;
 };
 

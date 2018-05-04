@@ -159,9 +159,10 @@ void GunnerShotComponent::shoot() {
 
 void GunnerShotComponent::update() {
 	if (!gameObject->isDead()) {
-		lastShotTime->update();
-		if (!static_cast<Enemy*>(gameObject)->isStunned())
+		if (!static_cast<Enemy*>(gameObject)->isStunned()){
 			shoot();
+			lastShotTime->update();
+		}
 		handleAnimation();
 	}
 }

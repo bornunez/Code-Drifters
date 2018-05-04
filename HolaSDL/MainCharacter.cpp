@@ -11,7 +11,6 @@
 #include "MCAnimationComponent.h"
 #include "ResourceManager.h"
 #include "MCMovementInput.h"
-#include "MCAttackCollisionComponent.h"
 #include "AnimationParser.h"
 #include "BoxRenderer.h"
 #include "LevelExplorer.h"
@@ -26,6 +25,8 @@
 #include "HUDManager.h"
 #include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
+#include "MCChargedAttackComponent.h"
+#include "MCUltimateInput.h"
 
 //Personaje principal
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
@@ -45,31 +46,34 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	//setMaxVelocity(0.5);
 
 	addComponent(new MCManagerComponent(this));
-	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new MCGunPosition(this));
 	addComponent(new BasicMovement(this));
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
-	//addComponent(new MCAttackCollisionComponent(this));
 	addComponent(new LevelExplorer(this));
 	hookShot = new HookShotComponent(this,&hook, 1000.0f);
 	addComponent(hookShot);
 	addComponent(new MCHookInputComponent(this));
 	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
+	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
-	addComponent(new BasicInvincibleComponent(this, 0.2));
+	addComponent(new BasicInvincibleComponent(this, 0.3));
 	addComponent(new KnockbackComponent(this,1500));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
+	addComponent(new MCChargedAttackComponent(this, 0.4));
+	addComponent(new MCUltimateInput(this));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	maxBullets = 3;
 	reloadTime = 5;
 	currentBullets = maxBullets;
 
 	normalAttackDamage = 50;
+	chargedAttackDamage = 100;
+	ultimateAttackDamage = 100;
 	movable = true;
 	
 }
@@ -80,7 +84,7 @@ MainCharacter::~MainCharacter()
 }
 void MainCharacter::loadAnimations()
 {
-	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset();
+	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset(0);
 	string animationPath = "../Animations/Protagonist/tileset/ProtaAnimation.tmx";
 	int offsetY = 0;
 	Animation* idleBot = AnimationParser::parseAnimation(tileset, animationPath, "IdleBot", this, 0, offsetY);
@@ -122,11 +126,7 @@ void MainCharacter::loadAnimations()
 	Animation*attackTopLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft1", this,0, -10 * Game::getGame()->getScale() + offsetY, false);
 	Animation*attackTopLeft2  = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft2", this, 0, -10 * Game::getGame()->getScale() + offsetY, false);
 	Animation*attackTopLeft3 = AnimationParser::parseAnimation(tileset, animationPath, "AttackTopLeft3", this, 0, -10 * Game::getGame()->getScale() + offsetY, false);
-	Animation*attackChargingTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingTop", this, 0,offsetY, false);
-	Animation*attackChargedTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedTop", this, 0, offsetY, false);
-
-	animations.emplace("ATTACKCHARGING_TOP", attackChargingTop);
-	animations.emplace("ATTACKCHARGED_TOP", attackChargedTop);
+	
 	animations.emplace("ATTACK1_TOPLEFT", attackTopLeft1);
 	animations.emplace("ATTACK2_TOPLEFT", attackTopLeft2);
 	animations.emplace("ATTACK3_TOPLEFT", attackTopLeft3);
@@ -196,6 +196,33 @@ void MainCharacter::loadAnimations()
 	animations.emplace("SHOT_LEFT", shotLeft);
 	animations.emplace("SHOT_RIGHT", shotRight);
 	animations.emplace("SHOT_BOT", shotBot);
+
+	Animation*attackChargingTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingTop", this, 0, offsetY, true);
+	Animation*attackChargedTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedTop", this, 0, offsetY, false);
+
+	Animation*attackChargingBot = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingBot", this, 0, offsetY, true);
+	Animation*attackChargedBot = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedBot", this, 0, offsetY, false);
+
+	Animation*attackChargingRight = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingRight", this, 0, offsetY, true);
+	Animation*attackChargedRight = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedRight", this, 0, offsetY, false);
+
+	animations.emplace("ATTACKCHARGING_TOP", attackChargingTop);
+	animations.emplace("ATTACKCHARGED_TOP", attackChargedTop);
+
+	animations.emplace("ATTACKCHARGING_BOT", attackChargingBot);
+	animations.emplace("ATTACKCHARGED_BOT", attackChargedBot);
+
+	animations.emplace("ATTACKCHARGING_RIGHT", attackChargingRight);
+	animations.emplace("ATTACKCHARGED_RIGHT", attackChargedRight);
+
+	//Aquí se carga el Ultimate
+	tileset = ResourceManager::getInstance()->getProtaTileset(1);
+	animationPath = "../Animations/Protagonist/tileset/UltimateAnimation.tmx";
+
+	Animation* ultimate = AnimationParser::parseAnimation(tileset, animationPath, "Ultimate", this, 0, offsetY - 50 * Game::getGame()->getScale(),false);
+
+	animations.emplace("ULTIMATE", ultimate);
+
 }
 
 //Getters & Setters
@@ -235,12 +262,23 @@ void MainCharacter::setChargedAttackDamage(float dmg)
 {
 	chargedAttackDamage = dmg;
 }
-float MainCharacter::getAttackDamage(string attackType)
+void MainCharacter::setUltimateAttackDamage(float dmg)
 {
-	if (attackType == "NORMAL_ATTACK") {
+	ultimateAttackDamage = dmg;
+}
+float MainCharacter::getUltimateAttackDamage()
+{
+	return ultimateAttackDamage;
+}
+float MainCharacter::getAttackDamage(MCAttackType attackType)
+{
+	if (attackType == MCAttackType::NORMAL) {
 		return getNormalAttackDamage();
 	}
-	else if (attackType == "CHARGED_ATTACK") {
+	else if (attackType == MCAttackType::CHARGED) {
+		return getChargedAttackDamage();
+	}
+	else if (attackType == MCAttackType::ULTIMATE) {
 		return getChargedAttackDamage();
 	}
 	else {
@@ -268,6 +306,19 @@ float MainCharacter::getMaxHP() {
 	return maxHP;
 }
 
+MCAttackType MainCharacter::getCurrentAttackType()
+{
+	if (getMCState() == MCState::ChargedAttack) {
+		return MCAttackType::CHARGED;
+	}
+	else if (getMCState() == MCState::Ultimate) {
+		return MCAttackType::ULTIMATE;
+	}
+	else {
+		return MCAttackType::NORMAL;
+	}
+}
+
 Vector2D MainCharacter::getGunPosition()
 {
 	return gunPosition;
@@ -293,17 +344,16 @@ void MainCharacter::shootHook(Vector2D originPos, Vector2D hookDir)
 
 void MainCharacter::addHP(int life)
 {
+	HUDManager::getInstance()->changeLife(life);
 	HP += life;
 	if (HP > maxHP)
 		HP = maxHP;
-
-	HUDManager::getInstance()->changeLife(life);
 }
 
 void MainCharacter::addMaxHP(float life) {
+	HUDManager::getInstance()->setNewHP(life);
 	maxHP += life;
 	HP += life;
-	HUDManager::getInstance()->setNewHP(life);
 }
 
 void MainCharacter::changeMoney(int mon) {

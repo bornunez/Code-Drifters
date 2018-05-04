@@ -18,7 +18,7 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 {
 	if (mc->getMCState() != MCState::Dash) {
 		if (e.key.keysym.sym == SDLK_SPACE && e.type == SDL_KEYDOWN) {
-			if (mc->getMCState() != MCState::Attack && !mc->getHook().isActive()) {
+			if ((mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd) && !mc->getHook().isActive()) {
 				int mouseX, mouseY;
 				SDL_Point p;
 				SDL_Rect r;

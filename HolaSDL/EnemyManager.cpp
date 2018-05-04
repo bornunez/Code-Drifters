@@ -6,6 +6,8 @@
 #include "EnemyCharger.h"
 #include "MainCharacter.h"
 #include "EnemyTurret.h"
+#include "EnemyBomb.h"
+#include "EnemyBomber.h"
 #include "Map.h"
 #include "PlayState.h"
 
@@ -36,6 +38,11 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	case Turret:
 		e = new EnemyTurret(mc);
 		break;
+	case Bomb:
+		e = new EnemyBomb(mc);
+		break;
+	case Bomber: 
+		e = new EnemyBomber(mc);
 	default:
 		break;
 	}
@@ -130,12 +137,12 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	actBoss2 = new Boss2(mc, x, y, 200, 200);
+	actBoss2 = new Boss2(mc, x, y, 128, 128);
 	activeBoss = actBoss2;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {
-	actBoss2 = new Boss2(mc, x, y, 200, 200);
+	actBoss2 = new Boss2(mc, x, y, 128, 128);
 	activeBoss = actBoss2;
 }
 void EnemyManager::ResetInstance()
