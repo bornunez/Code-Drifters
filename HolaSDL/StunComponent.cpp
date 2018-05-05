@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include <iostream>
 #include "Animation.h"
-
+#include "ParticlesManager.h"
 StunComponent::StunComponent(GameObject * o) : UpdateComponent(o)
 {
 	enemy = static_cast<Enemy*>(gameObject);
@@ -39,6 +39,7 @@ void StunComponent::receiveMessage(Message * msg)
 			Message msg(GUN_STUN);
 			enemy->sendMessage(&msg);
 			enemy->setStun(true);
+			ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
 			std::cout << "AAAAAA QUE ME ATURDEN COÑO ES DESESPERANTEEEEE" << std::endl;
 		}
 	}

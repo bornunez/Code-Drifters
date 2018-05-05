@@ -1,7 +1,7 @@
 #include "ParticlesManager.h"
 #include "ResourceManager.h"
 #include "Random.h"
-#include "SimpleAnimationComponent.h"
+#include "ParticleAnimation.h"
 #include "Game.h"
 ParticlesManager* ParticlesManager::instance = nullptr;
 
@@ -26,14 +26,16 @@ void ParticlesManager::randomizeParticle(Particle * p, int animations)
 {
 	Uint32 rndAnim = Random::randomInt(0, animations-1);
 	Uint32 rndAngle = Random::randomInt(0, 359);
-	p->simpleAnimation->setAngle(rndAngle);
-	p->simpleAnimation->setAnimationNumber(rndAnim);
+	p->particleAnimation->setAngle(rndAngle);
+	p->particleAnimation->setAnimationNumber(rndAnim);
 }
 
-Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y)
+Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y, double time)
 {
 	for (Particle* particle : particles) {
 		if (!particle->isActive() && particle->getType() == particleName) {
+			particle->particleAnimation->finish = false;
+			particle->particleAnimation->deactivate->restart();
 			particle->setActive(true);
 			particle->getTransform()->position.setX(x);
 			particle->getTransform()->position.setY(y);
@@ -42,6 +44,9 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 			}
 			else if (particleName == ParticleType::GunnerBulletExplosion) {
 				randomizeParticle(particle, 2);
+			}
+			else if (particleName == ParticleType::Stun) {
+				
 			}
 			return particle;
 		}
@@ -53,13 +58,19 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 	if (particleName == ParticleType::Blood) {
 		newParticle = new Particle(ResourceManager::getInstance()->getTexture(Blood), ParticleType::Blood, x, y);
 		randomizeParticle(newParticle, 3);
-		newParticle->simpleAnimation->setSize(25 * Game::getGame()->getScale(), 25 * Game::getGame()->getScale());
+		newParticle->particleAnimation->setSize(25 * Game::getGame()->getScale(), 25 * Game::getGame()->getScale());
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}
 	else if (particleName == ParticleType::GunnerBulletExplosion) {
 		newParticle = new Particle(ResourceManager::getInstance()->getTexture(GunnerBulletExplosion), ParticleType::GunnerBulletExplosion, x, y);
 		randomizeParticle(newParticle, 2);
+		newParticle->setActive(true);
+		particles.push_back(newParticle);
+	}
+	else if (particleName == ParticleType::Stun) {
+		newParticle = new Particle(ResourceManager::getInstance()->getTexture(StunParticle), ParticleType::Stun, x, y,true, time );
+		
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}
