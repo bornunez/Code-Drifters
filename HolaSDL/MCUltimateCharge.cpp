@@ -26,7 +26,6 @@ void MCUltimateCharge::update()
 		mc->setUltiCharge(currentUlti + 1);
 		ultiCharge->restart();
 	}
-	cout << mc->getUltiCharge() << endl;
 }
 
 

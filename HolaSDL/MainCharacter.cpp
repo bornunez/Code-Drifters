@@ -23,7 +23,6 @@
 #include "MCGunPosition.h"
 #include "MCManagerComponent.h"
 #include "HUDManager.h"
-#include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "MCChargedAttackComponent.h"
 #include "MCUltimateInput.h"
@@ -61,7 +60,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
-	addComponent(new BasicInvincibleComponent(this, 0.3));
 	addComponent(new KnockbackComponent(this,1500));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new MCChargedAttackComponent(this, 0.4));
@@ -77,8 +75,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	chargedAttackDamage = 100;
 	ultimateAttackDamage = 100;
 	movable = true;
-
-	ultiCharge = 100;
 	
 }
 

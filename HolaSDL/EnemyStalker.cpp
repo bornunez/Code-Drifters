@@ -15,7 +15,6 @@
 #include "BasicMovement.h"
 #include "BoxRenderer.h"
 #include "DamageableEnemyComponent.h"
-#include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "StalkerComponent.h"
 #include "StunComponent.h"
@@ -31,11 +30,10 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new KnockbackComponent(this, 1000));
 	this->addComponent(new BasicMovement(this));
-	this->addComponent(new DamageableEnemyComponent(this, getMC()));
+	this->addComponent(new DamageableEnemyComponent(this, getMC(),.2));
 	//parametros: tiempo entre cargas, tiempo de delay al cargar, tiempo de movimiento en carga, multiplicador velocidad
 	this->addComponent(new StalkerComponent(this, getMC(), 4, .5, 1, 1.2));
 	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations, .2, .5));
-	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new StunComponent(this));
 	/*addComponent(new SkeletonRendered(this,playState->getCamera()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));*/

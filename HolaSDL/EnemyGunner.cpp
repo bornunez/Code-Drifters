@@ -16,7 +16,6 @@
 #include "BasicMovement.h"
 #include "DamageableEnemyComponent.h"
 #include "BoxRenderer.h"
-#include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "StunComponent.h"
 #include "SkeletonRenderer.h"
@@ -25,15 +24,13 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	type = Gunner;
 	transform.body.w = transform.body.h = 96;
 	loadAnimations();
-	Attributes.defense = 30;
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new KnockbackComponent(this, 1000));
 	addComponent(new BasicMovement(this));
-	addComponent(new DamageableEnemyComponent(this, getMC()));
+	addComponent(new DamageableEnemyComponent(this, getMC(),0.2));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
-	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new StunComponent(this));
 	/*addComponent(new SkeletonRendered(this, playState->getCamera()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));*/
