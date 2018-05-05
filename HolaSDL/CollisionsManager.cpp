@@ -196,9 +196,9 @@ void CollisionsManager::playerCollisions()
 						KnockbackMessage msg1(empuje);
 						e->sendMessage(&msg1);
 						e->setInvincibility(true);
-						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
+						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
 						if(mc->isLifeStealEnable())
-							mc->addHP(mc->getNormalAttackDamage() * mc->getLifeSteal() / 100);
+							mc->addHP(damage * mc->getLifeSteal() / 100);
 						MCAttackDamage msg2(damage);
 						e->sendMessage(&msg2);
 						hit = true;
@@ -225,7 +225,7 @@ void CollisionsManager::playerCollisions()
 				for (uint j = 0; !hit && j < mcHitboxes.size(); j++) {
 					if (CollisionHandler::RectCollide(bossHurtboxes[i], mcHitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 
-						float damage = mc->getAttackDamage("NORMAL_ATTACK");//El valor de ataque del jugador
+						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
 						boss->setInvincibility(true);
 						MCAttackDamage msg(damage);
 						boss->sendMessage(&msg);

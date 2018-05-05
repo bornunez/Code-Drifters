@@ -97,14 +97,11 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("ATTACK3_BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
-	case ATTACKCHARGED_TOP:
-		gameObject->changeCurrentAnimation("ATTACKCHARGED_TOP");
-		gameObject->getCurrentAnimation()->startAnimation();
+	case ATTACKCHARGED:
+		handleAnimationChargedAttack();		
 		break;
-	case ATTACKCHARGING_TOP:
-		gameObject->changeCurrentAnimation("ATTACKCHARGING_TOP");
-		gameObject->getCurrentAnimation()->startAnimation();
-		cout << "CARGANDO" << endl;
+	case ATTACKCHARGING:
+		handleAnimationChargingAttack();
 		break;
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUN_LEFT");
@@ -163,6 +160,10 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 	case MC_DEATH:
 		handleAnimationDeath();
 		break;
+	case ULTIMATE:
+		gameObject->changeCurrentAnimation("ULTIMATE");
+		gameObject->getCurrentAnimation()->startAnimation();
+		break;
 	}
 }
 
@@ -212,6 +213,9 @@ void MCAnimationComponent::handleAnimationStates()
 	else if (mc->getMCState() == MCState::ChargedAttack && gameObject->getCurrentAnimation()->isFinished()) {
 		mc->setMCState(MCState::Idle);
 	}
+	else if (mc->getMCState() == MCState::Ultimate && gameObject->getCurrentAnimation()->isFinished()) {
+		mc->setMCState(MCState::Idle);
+	}
 	else if (mc->getMCState() == MCState::DashEnd && gameObject->getCurrentAnimation()->isFinished()) {
 		mc->setMCState(MCState::Idle);
 	}
@@ -254,6 +258,9 @@ void MCAnimationComponent::handleAnimationStates()
 		}
 		//Envia el mensaje
 		gameObject->sendMessage(&msg);
+	}
+	if (mc->getMCState() == MCState::ChargingAttack) {
+		handleAnimationChargingAttack();
 	}
 	
 }
@@ -403,6 +410,112 @@ void MCAnimationComponent::handleAnimationGun()
 	center.y = dstrect.h / 2;
 
 	gunTexture->render(dstrect, angle, &center, &srcrect, flip);
+}
+
+void MCAnimationComponent::handleAnimationChargingAttack()
+{
+	int mouseX, mouseY;
+	SDL_Point p;
+	SDL_Rect r;
+	SDL_GetMouseState(&p.x, &p.y);
+
+	Vector2D displayPosition;			//Posición del personaje relativa a la cámara
+	displayPosition = mc->getDisplayCenterPos();
+	float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));			//Angulo entre el cursor y el jugador, en grados
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+
+	Transform* t = mc->getTransform();
+
+	if (angle > 210 && angle <= 270) {//Arriba izquierda
+
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_TOP");
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		t->direction.set(0, -1);
+	}
+	else if (angle > 270 && angle < 330) {//Arriba derecha
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_TOP");
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		t->direction.set(0, -1);
+	}
+	else if (angle > 150 && angle < 210) {//Izquierda
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_RIGHT");
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		t->direction.set(-1, 0);
+	}
+	else if (angle >= 90 && angle < 150) {//Abajo a la izquierda
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_BOT");
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		t->direction.set(0, 1);
+	}
+	else if (angle > 30 && angle < 90) {//Abajo a la derecha
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_BOT");
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		t->direction.set(0, 1);
+	}
+	else {//Derecha
+		gameObject->changeCurrentAnimation("ATTACKCHARGING_RIGHT");
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		t->direction.set(1, 0);
+	}
+
+
+}
+
+void MCAnimationComponent::handleAnimationChargedAttack()
+{
+	int mouseX, mouseY;
+	SDL_Point p;
+	SDL_Rect r;
+	SDL_GetMouseState(&p.x, &p.y);
+
+	Vector2D displayPosition;			//Posición del personaje relativa a la cámara
+	displayPosition = mc->getDisplayCenterPos();
+	float angle = (atan2(p.y - displayPosition.getY(), p.x - displayPosition.getX()));			//Angulo entre el cursor y el jugador, en grados
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+
+	Transform* t = mc->getTransform();
+
+	if (angle > 210 && angle <= 270) {//Arriba izquierda
+
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_TOP");
+		gameObject->getCurrentAnimation()->startAnimation();
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		t->direction.set(0, -1);
+	}
+	else if (angle > 270 && angle < 330) {//Arriba derecha
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_TOP");
+		gameObject->getCurrentAnimation()->startAnimation();
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		t->direction.set(0, -1);
+	}
+	else if (angle > 150 && angle < 210) {//Izquierda
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_RIGHT");
+		gameObject->getCurrentAnimation()->startAnimation();
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		t->direction.set(-1, 0);
+	}
+	else if (angle >= 90 && angle < 150) {//Abajo a la izquierda
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_BOT");
+		gameObject->getCurrentAnimation()->startAnimation();
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		t->direction.set(0, 1);
+	}
+	else if (angle > 30 && angle < 90) {//Abajo a la derecha
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_BOT");
+		gameObject->getCurrentAnimation()->startAnimation();
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		t->direction.set(0, 1);
+	}
+	else {//Derecha
+		gameObject->changeCurrentAnimation("ATTACKCHARGED_RIGHT");
+		gameObject->getCurrentAnimation()->startAnimation();
+		gameObject->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		t->direction.set(1, 0);
+	}
 }
 
 float MCAnimationComponent::handleGunAngle()

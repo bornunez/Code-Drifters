@@ -53,7 +53,7 @@ void TurretShotComponent::updateGunPosition()
 
 
 void TurretShotComponent::shoot() {
-	Transform* gunnerT = gameObject->getTransform();
+	Transform* turretT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
 	EnemyTurret* et = static_cast<EnemyTurret*>(gameObject);
 	if (et->enemyState == EnemyState::Attack){
@@ -62,7 +62,7 @@ void TurretShotComponent::shoot() {
 			updateGunPosition();
 			Transform bulletTransform;
 
-			bulletTransform.direction = (targetT->position - gunnerT->position);
+			bulletTransform.direction = (targetT->position - turretT->position);
 			bulletTransform.direction.normalize();
 			bulletTransform.body.w = 50;
 			bulletTransform.body.h = 15;

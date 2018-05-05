@@ -6,6 +6,8 @@
 #include "EnemyCharger.h"
 #include "MainCharacter.h"
 #include "EnemyTurret.h"
+#include "EnemyBomb.h"
+#include "EnemyBomber.h"
 #include "Map.h"
 #include "PlayState.h"
 
@@ -36,6 +38,11 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 	case Turret:
 		e = new EnemyTurret(mc);
 		break;
+	case Bomb:
+		e = new EnemyBomb(mc);
+		break;
+	case Bomber: 
+		e = new EnemyBomber(mc);
 	default:
 		break;
 	}
@@ -79,11 +86,11 @@ void EnemyManager::update()
 	for (Enemy* e : actives) {
 		e->update();
 	}
-	if (actBoss1 != nullptr)
+	if (actBoss1 != nullptr && actBoss1->isActive())
 	{
 		actBoss1->update();
 	}
-	if (actBoss2 != nullptr)
+	if (actBoss2 != nullptr && actBoss2->isActive())
 	{
 		actBoss2->update();
 	}
@@ -94,11 +101,11 @@ void EnemyManager::render()
 	for (Enemy* e : actives) {
 		e->render();
 	}
-	if (actBoss1 != nullptr)
+	if (actBoss1 != nullptr && actBoss1->isActive())
 	{
 		actBoss1->render();
 	}
-	if (actBoss2 != nullptr)
+	if (actBoss2 != nullptr && actBoss2->isActive())
 	{
 		actBoss2->render();
 	}

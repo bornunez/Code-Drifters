@@ -87,15 +87,17 @@ Tileset* ResourceManager::loadTileset(string path)
 
 void ResourceManager::loadProtaTileset()
 {
-	string filename = protaTilesetName;
-	XMLDocument doc;
-	doc.LoadFile((PROTATILESET_PATH + filename).c_str());
-	//Raiz del tileset
-	XMLElement* root = doc.FirstChildElement();
-	string imageSrc = root->FirstChildElement("image")->Attribute("source");
-	Texture* tileTex = new Texture(renderer, PROTATILESET_PATH + imageSrc);
-	//Y cargamos el tileset
-	protaTileset = new Tileset(tileTex, root);
+	for (int i = 0; i < NUM_PROTATILESET; i++) {
+		string filename = protaTilesetName[i];
+		XMLDocument doc;
+		doc.LoadFile((PROTATILESET_PATH + filename).c_str());
+		//Raiz del tileset
+		XMLElement* root = doc.FirstChildElement();
+		string imageSrc = root->FirstChildElement("image")->Attribute("source");
+		Texture* tileTex = new Texture(renderer, PROTATILESET_PATH + imageSrc);
+		//Y cargamos el tileset
+		protaTileset.push_back( new Tileset(tileTex, root));
+	}
 }
 
 void ResourceManager::loadEnemyTilesets()

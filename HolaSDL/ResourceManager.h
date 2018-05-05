@@ -4,9 +4,9 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 71;
+const int NUM_TEXTURES = 75;
 const int NUM_TILESET = 1;
-const int NUM_PROTATILESET = 1;
+const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 5;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
@@ -26,8 +26,11 @@ typedef struct {
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
 enum TextureId {
-	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, LifeBarra, LifeBorde, LifeFondo,
-	UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
+	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, 
+	
+	//TEXTURAS DEL HUD
+	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
+	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo, BossSecondFill,
 
 	//TEXTURAS DEL MINIMAPA
 	MinimapBorder, MinimapBase, //Borde
@@ -61,6 +64,8 @@ private:
 		{"HookHead.png", 1 ,2},
 		{"Particles\\Blood.png", 3, 3},
 		{ "Particles\\GunnerBulletExplosion.png", 2, 7 },
+
+		//HUD
 		{"Interfaz\\Barra.png", 1, 1},
 		{"Interfaz\\Borde.png", 1, 1},
 		{"Interfaz\\Fondo.png",1,1},
@@ -70,6 +75,10 @@ private:
 		{"Interfaz\\BalaBarra2.png", 1, 1},
 		{"Interfaz\\BalaFondo2.png", 1, 1},
 		{"Interfaz\\BalaBorde2.png", 1, 1},
+		{"Interfaz\\EnemigoBorde.png", 1, 1},
+		{"Interfaz\\EnemigoRelleno.png", 1, 1},
+		{"Interfaz\\EnemigoFondo.png", 1, 1},
+		{"Interfaz\\BossSegundoRelleno.png", 1, 1},
 
 		//MINIMAPA
 		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},
@@ -142,8 +151,8 @@ private:
 	Texture* textures[NUM_TEXTURES];
 	//Vector de tilesets
 	vector<Tileset*> tilesets;
-	const string protaTilesetName = "ProtaAnimation.tsx";
-	Tileset* protaTileset;
+	const string protaTilesetName[NUM_PROTATILESET] = { "ProtaAnimation.tsx", "Ultimate.tsx" };
+	vector<Tileset*> protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
 	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
 	const string enemyTilesetNames[NUM_ENEMYTILESET]
@@ -177,7 +186,7 @@ public:
 	//Devuelve la textura dado su numero en la enum
 	Texture * getTexture(TextureId id);
 	Tileset* getTileset(string path);
-	Tileset* getProtaTileset() { return protaTileset; };
+	Tileset* getProtaTileset(int numTileset) { return protaTileset[numTileset]; };
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };

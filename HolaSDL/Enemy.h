@@ -5,12 +5,13 @@ class MainCharacter;
 class Game;
 class PlayState;
 class Spawner;
+class EnemyHUDComponent;
 enum EnemyType;
 enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death, Attack, Hooked};
 
 //################## ATRIBUTOS COMUNES ####################
 struct CommonBossAttributes {
-	float life; float defense;
+	float life,maxLife; float defense;
 	float speed;
 	float meleeDmg; float rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
@@ -21,7 +22,7 @@ struct CommonBossAttributes {
 class Enemy : public GameObject
 {
 protected:
-
+	EnemyHUDComponent * hud;
 	CommonBossAttributes Attributes;
 	GameObject* mainCharacter;
 
@@ -53,6 +54,7 @@ public:
 	void knockBack();
 	float getDefense() { return Attributes.defense; };
 	float getLife() { return Attributes.life; }
+	float getMaxLife() { return Attributes.maxLife; }
 	void setLife(int life) { Attributes.life = life; };
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }

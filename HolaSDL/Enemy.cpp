@@ -11,10 +11,14 @@
 #include "ItemManager.h"
 #include "CoinManager.h"
 
+#include"EnemyHUDComponent.h"
+
 Enemy::Enemy(MainCharacter* mc) : GameObject()
 {
 	this->mainCharacter = mc;
 	transform.position.set(10, 10);
+	hud = new EnemyHUDComponent(this);
+	this->addComponent(hud);
 	//this->addComponent(new StunComponent(this));
 	//this->addComponent(new ChaseComponent(this, mainCharacter, 0.1));
 }
@@ -33,7 +37,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 
 	//Y ponemos sus valores por defecto
 	EnemyParams params = EnemyManager::getInstance()->getParams(type);
-	Attributes.life = params.life;
+	Attributes.maxLife = Attributes.life = params.life;
 	transform.speed = params.speed;
 	baseSpeed = params.speed;
 	Attributes.meleeDmg = params.meleDmg; Attributes.rangedDmg = params.rangedDmg ;
@@ -50,6 +54,7 @@ void Enemy::render() {
 void Enemy::update()
 {
 	GameObject::update();
+	//hud->update();
 }
 
 GameObject* Enemy::getMC() {

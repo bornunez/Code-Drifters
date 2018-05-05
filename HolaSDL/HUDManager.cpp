@@ -26,8 +26,8 @@ void HUDManager::init(MainCharacter* MC) {
 		bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletFondo)));
 	}
 
-	ultBack->destRect.w = ultBack->getTexture()->getWidth()*gameScale*0.75;
-	ultBack->destRect.h = ultBack->getTexture()->getHeight()*gameScale*0.75;
+	ultBack->destRect.w = ultBack->getTexture()->getWidth()*gameScale*0.7;
+	ultBack->destRect.h = ultBack->getTexture()->getHeight()*gameScale*0.7;
 	ultBack->destRect.x = 50;
 	ultBack->destRect.y = 25;
 
@@ -37,10 +37,10 @@ void HUDManager::init(MainCharacter* MC) {
 	ultSkeleton->destRect = ultBack->destRect;
 
 	lifeBack->destRect = ultBack->destRect;
-	lifeBack->destRect.x += ultBar->destRect.w / 2;
+	lifeBack->destRect.x += ultBar->destRect.w*3/4;
 	lifeBack->srcRect.x = lifeBack->getTexture()->getWidth() / 3;
 	lifeBack->srcRect.w = lifeBack->getTexture()->getWidth() - lifeBack->srcRect.x;
-	lifeBack->destRect.w = lifeBack->srcRect.w * gameScale * 0.75;
+	lifeBack->destRect.w = lifeBack->srcRect.w * gameScale * 0.65;
 	lifeBar->destRect = lifeBack->destRect;
 	lifeBar->srcRect = lifeBack->srcRect;
 	lifeSkeleton->destRect = lifeBack->destRect;
@@ -145,24 +145,24 @@ void HUDManager::update() {
 	}
 	//update the ult bar, but without parameter from the character we cant
 }
-
+///method which can increase maxHP or low it
 void HUDManager::setNewHP(int newL) {
-	lifeBack->destRect.w += newL*gameScale*0.75;
+	lifeBack->destRect.w += (int)((float)(newL*lifeUnit));
 	lifeBack->srcRect.x -= newL;
 	lifeBack->srcRect.w += newL;
 
-	lifeBar->destRect.w += newL*gameScale*0.75;
+	lifeBar->destRect.w += (int)((float)(newL*lifeUnit));
 	lifeBar->srcRect.x -= newL;
 	lifeBar->srcRect.w += newL;
 
-	lifeSkeleton->destRect.w += newL*gameScale*0.75;
+	lifeSkeleton->destRect.w += (int)((float)(newL*lifeUnit));
 	lifeSkeleton->srcRect.x -= newL;
 	lifeSkeleton->srcRect.w += newL;
 }
-
+///method that changes actual life, but in maxHP interval
 void HUDManager::changeLife(int l) {
-
-	lifeBar->destRect.w += l * lifeUnit;
+	//cout << lifeBar->destRect.w << "londgi" << endl;
+	lifeBar->destRect.w += (int)((float)(l * lifeUnit));
 	lifeBar->srcRect.x -= l;
 	lifeBar->srcRect.w += l;
 	if (lifeBar->destRect.w > lifeBack->destRect.w) {

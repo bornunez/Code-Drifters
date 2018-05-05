@@ -145,7 +145,7 @@ Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFi
 	for (XMLElement* e = root->FirstChildElement(); e != nullptr; e = e->NextSiblingElement()) {
 		if (e->Value() == string("layer"))
 			/*parseTileLayer(root, e, anim, game->getResourceManager()->getCurrTileset());*/
-			parseAnimationLayer(animationName,root, e, anim, ResourceManager::getInstance()->getProtaTileset());
+			parseAnimationLayer(animationName,root, e, anim, ResourceManager::getInstance()->getProtaTileset(0));
 		if (e->Value() == string("objectgroup")) {
 			string name = e->Attribute("name");
 			if (name == animationName) {
