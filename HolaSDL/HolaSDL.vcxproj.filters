@@ -399,6 +399,7 @@
     </ClCompile>
     <ClCompile Include="EnemyHUDComponent.cpp" />
     <ClCompile Include="BossHUDComponent.cpp" />
+    <ClCompile Include="MCUltimateCharge.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -779,6 +780,7 @@
     </ClInclude>
     <ClInclude Include="EnemyHUDComponent.h" />
     <ClInclude Include="BossHUDComponent.h" />
+    <ClInclude Include="MCUltimateCharge.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

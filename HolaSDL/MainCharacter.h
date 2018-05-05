@@ -34,6 +34,8 @@ private:
 	bool lifeStealEnabled = false;
 	float lifeStealPercentual = 10.0; //percentage of the damage done that is healed
 
+	float ultiCharge = 0;//[0,100]
+
 	Vector2D gunPosition;//Posici�n de donde sale la bala
 	Hook hook;
 	
@@ -96,6 +98,14 @@ public:
 	//HOOK
 	Hook getHook() { return hook; }
 	void shootHook(Vector2D originPos, Vector2D hookDir);
+
+	//ULTIMATE CHARGE
+	float getUltiCharge() { return ultiCharge; }
+	void setUltiCharge(float num) { 
+		ultiCharge = num; 
+		ultiCharge = min(100.0f, ultiCharge);
+		ultiCharge = max(ultiCharge, 0.0f);
+	}
 };
 
 

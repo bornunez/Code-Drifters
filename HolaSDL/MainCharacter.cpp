@@ -27,6 +27,7 @@
 #include "KnockbackComponent.h"
 #include "MCChargedAttackComponent.h"
 #include "MCUltimateInput.h"
+#include "MCUltimateCharge.h"
 
 //Personaje principal
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
@@ -65,6 +66,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new MCChargedAttackComponent(this, 0.4));
 	addComponent(new MCUltimateInput(this));
+	addComponent(new MCUltimateCharge(this));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	maxBullets = 3;
@@ -279,7 +281,7 @@ float MainCharacter::getAttackDamage(MCAttackType attackType)
 		return getChargedAttackDamage();
 	}
 	else if (attackType == MCAttackType::ULTIMATE) {
-		return getChargedAttackDamage();
+		return getUltimateAttackDamage();
 	}
 	else {
 		return 0.0f;

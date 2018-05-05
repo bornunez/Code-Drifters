@@ -98,6 +98,7 @@
     <ClCompile Include="MCManagerComponent.cpp" />
     <ClCompile Include="MCMovementInput.cpp" />
     <ClCompile Include="MCShotComponent.cpp" />
+    <ClCompile Include="MCUltimateCharge.cpp" />
     <ClCompile Include="MCUltimateInput.cpp" />
     <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Minimap.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="MCManagerComponent.h" />
     <ClInclude Include="MCMovementInput.h" />
     <ClInclude Include="MCShotComponent.h" />
+    <ClInclude Include="MCUltimateCharge.h" />
     <ClInclude Include="MCUltimateInput.h" />
     <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Message.h" />
