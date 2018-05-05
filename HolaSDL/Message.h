@@ -49,6 +49,7 @@ enum MessageId {
 	//GameObjects
 	HURT,
 	ENEMY_DEATH,
+	GUN_STUN,
 
 	//Gunner Shot
 	SHOT_LEFT,

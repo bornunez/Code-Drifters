@@ -100,6 +100,9 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 	case HURT:
 		hurtAnimations();
 		break;
+	case GUN_STUN:
+		stunAnimations();
+		break;
 	case ENEMY_DEATH:
 		deathAnimations();
 		break;
@@ -110,113 +113,113 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 void GunnerAnimationComponent::handleAnimations()
 {
 	if (!gameObject->isDead()) {
-
 		EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
-
-		if (eg->enemyState == EnemyState::Hurt) {//Timer relacionado con la animación de recibir daño
-			hurtTimer->update();
-			if (hurtTimer->TimeSinceTimerCreation > 0.2) {
-				eg->enemyState = EnemyState::Idle;
+		if (!eg->isStunned()) {
+			if (eg->enemyState == EnemyState::Hurt) {//Timer relacionado con la animación de recibir daño
+				hurtTimer->update();
+				if (hurtTimer->TimeSinceTimerCreation > 0.2) {
+					eg->enemyState = EnemyState::Idle;
+				}
 			}
-		}
-
-
-		Transform* gunnerT = gameObject->getTransform();
-		if (eg->enemyState != EnemyState::Shoot && eg->enemyState != EnemyState::Hurt) {
-			if (gunnerT->velocity.getX() != 0 && gunnerT->velocity.getY() != 0) {
-				eg->enemyState = EnemyState::Run;
-			}
-			else {
-				eg->enemyState = EnemyState::Idle;
-			}
-		}
 
 
-		//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
-		Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
-		float angle = (atan2(target->getDisplayCenterPos().getY() - displayCenterPos.getY(), target->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
-		angle = angle * 180 / M_PI;
-		if (angle < 0)
-			angle += 360;
+			Transform* gunnerT = gameObject->getTransform();
+			if (eg->enemyState != EnemyState::Shoot && eg->enemyState != EnemyState::Hurt) {
+				if (gunnerT->velocity.getX() != 0 && gunnerT->velocity.getY() != 0) {
+					eg->enemyState = EnemyState::Run;
+				}
+				else {
+					eg->enemyState = EnemyState::Idle;
+				}
+			}
 
-		if (eg->enemyState == EnemyState::Idle) {
-			if (angle > 297 && angle < 342) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_TOPRIGHT);
-					gameObject->sendMessage(&msg);
+
+			//CÁLCULO DEL ÁNGULO ENTRE EL TARGET Y EL ENEMIGO
+			Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
+			float angle = (atan2(target->getDisplayCenterPos().getY() - displayCenterPos.getY(), target->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
+			angle = angle * 180 / M_PI;
+			if (angle < 0)
+				angle += 360;
+
+			if (eg->enemyState == EnemyState::Idle) {
+				if (angle > 297 && angle < 342) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_TOPRIGHT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(1, -1);
 				}
-				gameObject->getTransform()->direction.set(1, -1);
-			}
-			else if (angle > 252 && angle < 297) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_TOP);
-					gameObject->sendMessage(&msg);
+				else if (angle > 252 && angle < 297) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_TOP);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(0, -1);
 				}
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 207 && angle <= 252) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_TOPLEFT);
-					gameObject->sendMessage(&msg);
+				else if (angle > 207 && angle <= 252) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_TOPLEFT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(-1, -1);
 				}
-				gameObject->getTransform()->direction.set(-1, -1);
-			}
-			else if (angle > 162 && angle < 207) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_LEFT);
-					gameObject->sendMessage(&msg);
+				else if (angle > 162 && angle < 207) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_LEFT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(-1, 0);
 				}
-				gameObject->getTransform()->direction.set(-1, 0);
-			}
-			else if (angle >= 117 && angle < 162) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_BOTLEFT);
-					gameObject->sendMessage(&msg);
+				else if (angle >= 117 && angle < 162) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_BOTLEFT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(-1, 1);
 				}
-				gameObject->getTransform()->direction.set(-1, 1);
-			}
-			else if (angle > 72 && angle < 117) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_BOT);
-					gameObject->sendMessage(&msg);
+				else if (angle > 72 && angle < 117) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_BOT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(0, 1);
 				}
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else if (angle > 27 && angle < 72) {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_BOTRIGHT);
-					gameObject->sendMessage(&msg);
+				else if (angle > 27 && angle < 72) {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_BOTRIGHT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(1, 1);
 				}
-				gameObject->getTransform()->direction.set(1, 1);
-			}
-			else {
-				if (eg->enemyState == EnemyState::Idle) {
-					Message msg(IDLE_RIGHT);
-					gameObject->sendMessage(&msg);
+				else {
+					if (eg->enemyState == EnemyState::Idle) {
+						Message msg(IDLE_RIGHT);
+						gameObject->sendMessage(&msg);
+					}
+					gameObject->getTransform()->direction.set(1, 0);
 				}
-				gameObject->getTransform()->direction.set(1, 0);
 			}
-		}
-		else if (eg->enemyState == EnemyState::Run) {
-			if (angle > 225 && angle < 315) {
-				Message msg(RUN_TOP);
-				gameObject->sendMessage(&msg);
-				gameObject->getTransform()->direction.set(0, -1);
-			}
-			else if (angle > 135 && angle < 225) {
-				Message msg(RUN_LEFT);
-				gameObject->sendMessage(&msg);
-				gameObject->getTransform()->direction.set(-1, 0);
-			}
-			else if (angle > 45 && angle < 135) {
-				Message msg(RUN_BOT);
-				gameObject->sendMessage(&msg);
-				gameObject->getTransform()->direction.set(0, 1);
-			}
-			else {
-				Message msg(RUN_RIGHT);
-				gameObject->sendMessage(&msg);
-				gameObject->getTransform()->direction.set(1, 0);
+			else if (eg->enemyState == EnemyState::Run) {
+				if (angle > 225 && angle < 315) {
+					Message msg(RUN_TOP);
+					gameObject->sendMessage(&msg);
+					gameObject->getTransform()->direction.set(0, -1);
+				}
+				else if (angle > 135 && angle < 225) {
+					Message msg(RUN_LEFT);
+					gameObject->sendMessage(&msg);
+					gameObject->getTransform()->direction.set(-1, 0);
+				}
+				else if (angle > 45 && angle < 135) {
+					Message msg(RUN_BOT);
+					gameObject->sendMessage(&msg);
+					gameObject->getTransform()->direction.set(0, 1);
+				}
+				else {
+					Message msg(RUN_RIGHT);
+					gameObject->sendMessage(&msg);
+					gameObject->getTransform()->direction.set(1, 0);
+				}
 			}
 		}
 	}
@@ -239,6 +242,25 @@ void GunnerAnimationComponent::hurtAnimations()
 			gameObject->changeCurrentAnimation("DAMAGE_LEFT1");
 		}
 		else  gameObject->changeCurrentAnimation("DAMAGE_LEFT2");
+	}
+	gameObject->getCurrentAnimation()->startAnimation();
+}
+
+void GunnerAnimationComponent::stunAnimations()
+{
+	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
+	int rnd = Random::randomInt(0, 1);
+	if (gameObject->getTransform()->direction.getX() == 1) {
+		if (rnd == 1) {
+			gameObject->changeCurrentAnimation("STUN_RIGHT1");
+		}
+		else gameObject->changeCurrentAnimation("STUN_RIGHT2");
+	}
+	else {
+		if (rnd == 1) {
+			gameObject->changeCurrentAnimation("STUN_LEFT1");
+		}
+		else  gameObject->changeCurrentAnimation("STUN_LEFT2");
 	}
 	gameObject->getCurrentAnimation()->startAnimation();
 }

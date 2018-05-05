@@ -21,7 +21,6 @@ void StunComponent::update()
 	if (enemy->isStunned() && (stunTimer.TimeSinceTimerCreation > stunTime))
 	{
 		stunTimer.restart();
-		enemy->getCurrentAnimation()->changeColor(255, 255, 255);
 		enemy->setStun(false);
 		std::cout << "Ya no estoy stuneado" << std::endl;
 	}
@@ -35,7 +34,8 @@ void StunComponent::receiveMessage(Message * msg)
 		if (!enemy->isStunned()) {
 			stunTime = static_cast<MCBulletStun*>(msg)->stunTime;
 			stunTimer.restart();
-			enemy->getCurrentAnimation()->changeColor(0, 0, 200);
+			Message msg(GUN_STUN);
+			enemy->sendMessage(&msg);
 			enemy->setStun(true);
 			std::cout << "AAAAAA QUE ME ATURDEN COÑO ES DESESPERANTEEEEE" << std::endl;
 		}
