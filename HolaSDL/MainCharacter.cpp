@@ -77,6 +77,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	chargedAttackDamage = 100;
 	ultimateAttackDamage = 100;
 	movable = true;
+
+	ultiCharge = 100;
 	
 }
 

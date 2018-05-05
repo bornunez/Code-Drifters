@@ -125,6 +125,10 @@ struct MCAttackDamage : Message {
 	MCAttackDamage(float dmg) : Message(MC_ATTACK_DAMAGE), damage(dmg) {}
 	float damage;
 };
+struct MCUltimateDamage : Message {
+	MCUltimateDamage(float dmg) : Message(ULTIMATE), damage(dmg) {}
+	float damage;
+};
 struct MCBulletStun : Message {
 	MCBulletStun(int stunTime) : Message(MC_BULLET_COLLISION), stunTime(stunTime) {}
 	float stunTime;
