@@ -52,12 +52,14 @@ void EnemyStalker::loadAnimations()
 	Animation* run = AnimationParser::parseAnimation(tileset, animationPath, "Run", this);
 	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Attack", this, 0, 0, false, 0.2);
 	Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false);
+	Animation* stun = AnimationParser::parseAnimation(tileset, animationPath, "Stun", this, 0, 0, false);
 	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this);
 	Animation* charge = AnimationParser::parseAnimation(tileset, animationPath, "Charge", this, 0, 0, false);
 
 	animations.emplace("RUN", run);
 	animations.emplace("ATTACK", attack);
 	animations.emplace("HURT", hurt);
+	animations.emplace("STUN", stun);
 	animations.emplace("DEATH", death);
 	animations.emplace("CHARGE", charge);
 }

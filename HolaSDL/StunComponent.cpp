@@ -21,6 +21,8 @@ void StunComponent::update()
 	if (enemy->isStunned() && (stunTimer.TimeSinceTimerCreation > stunTime))
 	{
 		stunTimer.restart();
+		Message msg(STUN_OFF);
+		enemy->sendMessage(&msg);
 		enemy->setStun(false);
 		std::cout << "Ya no estoy stuneado" << std::endl;
 	}

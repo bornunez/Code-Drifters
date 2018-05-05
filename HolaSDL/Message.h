@@ -50,6 +50,7 @@ enum MessageId {
 	HURT,
 	ENEMY_DEATH,
 	GUN_STUN,
+	STUN_OFF,
 
 	//Gunner Shot
 	SHOT_LEFT,

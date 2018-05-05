@@ -53,6 +53,7 @@ void StalkerComponent::update()
 			}
 			else if ((es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
 				es->enemyState = EnemyState::Run;
+				es->getTransform()->speed = es->baseSpeed;
 				timer->restart();
 				Message msg(STALKER_RUN);
 				es->sendMessage(&msg);
