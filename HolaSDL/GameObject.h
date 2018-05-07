@@ -54,6 +54,7 @@ public:
 	void updateDisplayPosition();
 	void updateDisplayCenterPosition();
 	void updateBody();
+	void updateOverlapBody();
 	void allUpdates();
 	//Gets y sets
 	bool isActive() { return active; }

@@ -21,8 +21,16 @@
 #include "SkeletonRenderer.h"
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
-	type = Gunner;
-	transform.body.w = transform.body.h = 96;
+	type = Gunner;	
+	transform.body.w = 96 / 2;
+	transform.body.h = 96 / 2.5;
+	setSpriteOffset(0, -8 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = 96 / 5;
+	transform.overlapBody.h = 96 / 1.2;
+
+	transform.overlapOffset.setX(4);
+	transform.overlapOffset.setY(-14);
 	loadAnimations();
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
@@ -32,8 +40,8 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new DamageableEnemyComponent(this, getMC(),0.2));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 	addComponent(new StunComponent(this));
-	/*addComponent(new SkeletonRendered(this, playState->getCamera()));
-	addComponent(new BoxRenderer(this, playState->getCamera()));*/
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 }
 
 

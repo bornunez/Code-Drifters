@@ -95,6 +95,13 @@ void GameObject::updateDisplayCenterPosition()
 void GameObject::updateBody() {
 	transform.body.x = transform.position.getX(); 
 	transform.body.y = transform.position.getY();
+	updateOverlapBody();
+}
+
+void GameObject::updateOverlapBody()
+{
+	transform.overlapBody.x = transform.body.x + transform.overlapOffset.getX()*Game::getGame()->getScale();
+	transform.overlapBody.y = transform.body.y + transform.overlapOffset.getY()*Game::getGame()->getScale();
 }
 
 Animation * GameObject::getCurrentAnimation()
