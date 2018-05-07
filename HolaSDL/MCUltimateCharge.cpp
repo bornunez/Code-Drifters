@@ -13,7 +13,7 @@ void MCUltimateCharge::receiveMessage(Message * msg)
 	switch (msg->id) {
 	case ENEMY_DEATH:
 		float currentUlti = mc->getUltiCharge();
-		mc->setUltiCharge(currentUlti + 5);
+		mc->setUltiCharge(currentUlti + (5.0/ mc->getUltiBonusCD()));
 		break;
 	}
 }
@@ -21,9 +21,9 @@ void MCUltimateCharge::receiveMessage(Message * msg)
 void MCUltimateCharge::update()
 {
 	ultiCharge->update();
-	if (ultiCharge->TimeSinceTimerCreation > 5) {//Cada 5 segundos aumenta el valor de la ulti
+	if (ultiCharge->TimeSinceTimerCreation > 1) {//Cada segundo aumenta el valor de la ulti
 		float currentUlti = mc->getUltiCharge();
-		mc->setUltiCharge(currentUlti + 1);
+		mc->setUltiCharge(currentUlti + (0.2/mc->getUltiBonusCD()));
 		ultiCharge->restart();
 	}
 }

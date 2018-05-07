@@ -78,6 +78,7 @@
     <ClCompile Include="ItemManager.cpp" />
     <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
+    <ClCompile Include="LastResortComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="LevelManager.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="HUDObject.h" />
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="KnockbackComponent.h" />
+    <ClInclude Include="LastResortComponent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="Managers.h" />
     <ClInclude Include="InputComponent.h" />

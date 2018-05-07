@@ -132,6 +132,9 @@ void MCManagerComponent::HurtMC(float dmg) {
 	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX() - 40, mc->getCenterPos().getY() - 40);
 	mc->setMCState(MCState::Hurt);
 	mc->addHP(-dmg);
+	Message msg2(HURT);
+	this->gameObject->sendMessage(&msg2);
+	
 	hurt = true;
 	//mc->substractHP(dmg);
 	//HUDManager::getInstance()->changeLife(-dmg);
