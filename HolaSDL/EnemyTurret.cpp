@@ -17,10 +17,20 @@
 EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Turret;
-	transform.body.w = transform.body.h = 96;
+	transform.body.w = 96 / 2;
+	transform.body.h = 96 / 2;
+	setSpriteOffset(0, 0 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = 96 / 2.1;
+	transform.overlapBody.h = 96 / 1.5;
+
+	transform.overlapOffset.setX(0);
+	transform.overlapOffset.setY(0);
 	loadAnimations();
+
 	this->addComponent(new TurretShotComponent(this, getMC(), 500, 1));
 	addComponent(new TurretAnimationComponent(this, getMC(), animations));
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
 }
 
 

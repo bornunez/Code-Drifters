@@ -54,6 +54,34 @@ void SkeletonRendered::render() {
 	Vector2D dir = (t->direction) * (t->body.h / 2);
 	SDL_RenderDrawLine(renderer, x, y, dir.getX() + x, dir.getY() + y);
 
+	//PINTA EL OVERLAPBODY
+
+	lu = { -t->overlapBody.w / 2.0, -t->overlapBody.h / 2.0 };
+	ru = { t->overlapBody.w / 2.0, -t->overlapBody.h / 2.0};
+	rb = { t->overlapBody.w / 2.0, t->overlapBody.h / 2.0};
+	lb = { -t->overlapBody.w / 2.0, t->overlapBody.h / 2.0 };
+
+	//// rotate the corners
+	//lu.rotate(angle);
+	//ru.rotate(angle);
+	//rb.rotate(angle);
+	//lb.rotate(angle);
+
+	// the center of the object
+	x = t->overlapBody.x + t->overlapBody.w / 2 - camera->getTransform()->position.getX();
+	y = t->overlapBody.y + t->overlapBody.h / 2 - camera->getTransform()->position.getY();
+
+	// draw lines between the corners, after shifting them by (x,y)
+	SDL_SetRenderDrawColor(renderer, 0, 0, 255, color_.a);
+	SDL_RenderDrawLine(renderer, lu.getX() + x, lu.getY() + y, ru.getX() + x,
+		ru.getY() + y);
+	SDL_RenderDrawLine(renderer, ru.getX() + x, ru.getY() + y, rb.getX() + x,
+		rb.getY() + y);
+	SDL_RenderDrawLine(renderer, rb.getX() + x, rb.getY() + y, lb.getX() + x,
+		lb.getY() + y);
+	SDL_RenderDrawLine(renderer, lb.getX() + x, lb.getY() + y, lu.getX() + x,
+		lu.getY() + y);
+
 	// draw velocity vector
 	SDL_SetRenderDrawColor(renderer, 100, 255, 100, 100);
 

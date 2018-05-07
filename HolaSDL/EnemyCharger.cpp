@@ -23,7 +23,18 @@
 EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Charger;
-	transform.body.w = transform.body.h = 96;
+	transform.body.w = 96/2;
+	transform.body.h = 96/1.3;
+
+	setSpriteOffset(2 * Game::getGame()->getScale(), 0 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = 96 / 2;
+	transform.overlapBody.h = 96 / 1.3;
+
+	transform.overlapOffset.setX(0);
+	transform.overlapOffset.setY(0);
+
+
 	loadAnimations();
 	
 	//this->addComponent(new ChaseComponent(this, getMC()));
@@ -33,8 +44,10 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations, .2, .5));
 	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 2));
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new ChargerDamageableEnemyComponent(this, getMC(), 0.2));
+
 }
 
 

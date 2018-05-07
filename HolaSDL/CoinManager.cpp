@@ -20,7 +20,7 @@ void CoinManager::Drop(int valueToDrop, int x, int y)
 	int NumTCoins = 0,
 		NumFCoins = 0,
 		NumOCoins = 0,
-		auxValue = valueToDrop;
+		auxValue = valueToDrop * bonusMultiplier;
 	//algorithm to randomize the quantity of coins dropped (up to the same value)
 	int MaxOneCoins = auxValue / 10;
 	if (MaxOneCoins > 0) {
@@ -37,9 +37,9 @@ void CoinManager::Drop(int valueToDrop, int x, int y)
 	//we can't randomize the last coin due to value loss
 	NumOCoins = auxValue;
 
-	cout << NumTCoins << " Numero de monedas de 10" << endl;
+	/*cout << NumTCoins << " Numero de monedas de 10" << endl;
 	cout << NumFCoins << " Numero de monedas de 5" << endl;
-	cout << NumOCoins << " Numero de monedas de 1" << endl;
+	cout << NumOCoins << " Numero de monedas de 1" << endl;*/
 
 	//now we use getCoin to create the active coins
 	for (int i = 0; i < NumTCoins; i++) {
@@ -156,4 +156,7 @@ void CoinManager::update() {
 	}
 }
 
+void CoinManager::setBonusMultiplier(float multiplicator) {
+	bonusMultiplier = multiplicator;
+}
 
