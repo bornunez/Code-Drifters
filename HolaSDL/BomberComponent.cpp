@@ -5,11 +5,12 @@
 #include "MainCharacter.h"
 #include "Enemy.h"
 
-BomberComponent::BomberComponent(GameObject* o, GameObject* target, float dist) : UpdateComponent(o)
+BomberComponent::BomberComponent(Enemy* e, GameObject* target, float dist) : UpdateComponent(e)
 {
 	targetObject = target;
 	distancia = dist;
-	eg = static_cast<Enemy*>(gameObject);
+	eb = e;
+	eb->enemyState = EnemyState::Run;
 }
 
 
@@ -21,44 +22,44 @@ BomberComponent::~BomberComponent()
 void BomberComponent::update() {
 
 	if (!gameObject->isDead()) {
-		Transform* gunnerT = gameObject->getTransform();
+		Transform* bomberT = gameObject->getTransform();
 		Transform* targetT = targetObject->getTransform();
 		if (angle > 365) angle = 0;
 
-		if (!eg->isStunned()) {
+		if (!eb->isStunned()) {
 			Vector2D auxVel;
 			Vector2D auxPos;
-			if ((abs(targetT->position.getX() - gunnerT->position.getX() - 25) + abs(targetT->position.getY() - gunnerT->position.getY() - 25)) <= distancia + 50) {
+			if ((abs(targetT->position.getX() - bomberT->position.getX() - 25) + abs(targetT->position.getY() - bomberT->position.getY() - 25)) <= distancia + 50) {
 				if (!rotating) {
 					rotating = true;
-					angle = targetT->position.angle(gunnerT->position);
+					angle = targetT->position.angle(bomberT->position);
 				}
-				if (eg->enemyState == EnemyState::Run) {
+				if (eb->enemyState == EnemyState::Run) {
 					//Circular Movement
 					//Auxpos marca punto en trayectoria circular alrededor del target, bomber asume esa position como target y lo persigue
 					angle += angleVel;
 					auxPos.set(targetT->position.getX() - 25 + cos(angle)*(distancia - 50), targetT->position.getY() - 25 + sin(angle)*(distancia - 50));
-					auxVel.set(auxPos - gunnerT->position);
+					auxVel.set(auxPos - bomberT->position);
 					auxVel.normalize();
-					gunnerT->velocity.set(auxVel);
-					eg->setMovable(true);
+					bomberT->velocity.set(auxVel);
+					eb->setMovable(true);
 				}
 			}
 
 			//Regular chase
-			else {
+			else if(eb->enemyState == EnemyState::Run) {
 				if (rotating) {
 					rotating = false;
 				}	
 				//vectorentre enemigo y objetivo
-				auxVel.set(targetT->position - gunnerT->position);
+				auxVel.set(targetT->position - bomberT->position);
 
 				//se normaliza y se multiplica por la magnitud de la velocidad
 				auxVel.normalize();
 
 				//se asigna la velocidad del enemigo y se actualiza la posicion
-				gunnerT->velocity.set(auxVel);
-				eg->setMovable(true);
+				bomberT->velocity.set(auxVel);
+				eb->setMovable(true);
 
 			}
 		}

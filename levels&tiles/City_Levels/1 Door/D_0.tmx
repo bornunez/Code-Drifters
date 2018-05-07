@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" nextobjectid="39">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" nextobjectid="40">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="44" height="36">
   <data encoding="base64" compression="zlib">
@@ -118,6 +118,15 @@
     <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="false"/>
     <property name="Turret" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="39" name="Spawner" gid="240" x="224" y="464" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="false"/>
+    <property name="Gunner" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="false"/>
+    <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

@@ -399,6 +399,9 @@
     <ClCompile Include="MCUltimateCharge.cpp" />
     <ClCompile Include="ParticleAnimation.cpp" />
     <ClCompile Include="LastResortComponent.cpp" />
+    <ClCompile Include="BombAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -779,6 +782,9 @@
     <ClInclude Include="MCUltimateCharge.h" />
     <ClInclude Include="ParticleAnimation.h" />
     <ClInclude Include="LastResortComponent.h" />
+    <ClInclude Include="BombAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

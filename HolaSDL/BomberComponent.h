@@ -9,7 +9,7 @@ class BomberComponent :
 public:
 	void update();
 	void receiveMessage(std::string msg) {};
-	BomberComponent(GameObject* o, GameObject* target, float dist);
+	BomberComponent(Enemy* e, GameObject* target, float dist);
 	virtual ~BomberComponent();
 
 private:
@@ -19,7 +19,7 @@ private:
 	float distancia;
 	float angle=0;
 	float angleVel = 0.007;
-	Enemy* eg;
+	Enemy* eb;
 	Timer* bombTimer;
 
 };

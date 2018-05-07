@@ -200,6 +200,8 @@ EnemyType LevelParser::parseEnemyTypes(string enemyType)
 		eType = Charger;
 	else if (enemyType == "Turret")
 		eType = Turret;
+	else if (enemyType == "Bomber")
+		eType = Bomber;
 	return eType;
 }
 

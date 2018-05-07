@@ -39,11 +39,11 @@ void BomberAnimationComponent::receiveMessage(Message* msg)
 
 
 	case SHOT_LEFT:
-		gameObject->changeCurrentAnimation("CHARGELEFT");
+		gameObject->changeCurrentAnimation("ATTACKLEFT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	case SHOT_RIGHT:
-		gameObject->changeCurrentAnimation("CHARGERIGHT");
+		gameObject->changeCurrentAnimation("ATTACKRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 

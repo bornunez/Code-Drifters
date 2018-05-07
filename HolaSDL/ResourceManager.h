@@ -7,7 +7,7 @@ class Tileset;
 const int NUM_TEXTURES = 76;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
-const int NUM_ENEMYTILESET = 5;
+const int NUM_ENEMYTILESET = 7;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
@@ -65,6 +65,7 @@ private:
 		{"Particles\\Blood.png", 3, 3},
 		{ "Particles\\GunnerBulletExplosion.png", 2, 7 },
 		{ "Particles\\StunParticle.png", 1, 7 },
+
 
 		//HUD
 		{"Interfaz\\Barra.png", 1, 1},
@@ -162,7 +163,9 @@ private:
 		"Stalker.tsx", 
 		"Torreta.tsx", 
 		"Charger.tsx" , 
-		"Wheel.tsx"
+		"Wheel.tsx",
+		"Bomber.tsx",
+		"Bomb.tsx"
 	};
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;

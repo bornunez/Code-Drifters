@@ -15,6 +15,7 @@
 #include "BoxRenderer.h"
 #include "DamageableEnemyComponent.h"
 #include "BomberComponent.h"
+#include "BomberShotComponent.h"
 #include "BomberAnimationComponent.h"
 #include "KnockbackComponent.h"
 
@@ -30,6 +31,7 @@ EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
 	setCollisionsLayers({ "Paredes","Aire" });
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new BomberAnimationComponent(this, getMC(), animations, .2));
+	this->addComponent(new BomberShotComponent(this, getMC(), 200, 3));
 	this->addComponent(new BomberComponent(this, getMC(), 200));
 	addComponent(new KnockbackComponent(this, 1000));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
@@ -43,8 +45,8 @@ EnemyBomber::~EnemyBomber()
 
 void EnemyBomber::loadAnimations()
 {
-	string animationPath = "../Animations/Enemies/ChargerAnimation.tmx";
-	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(3);
+	string animationPath = "../Animations/Enemies/BomberAnimation.tmx";
+	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(5);
 
 	Animation* runRight = AnimationParser::parseAnimation(tileset, animationPath, "RunRight", this, 0, 0, true, 0.1);
 	Animation* runLeft = AnimationParser::parseAnimation(tileset, animationPath, "RunLeft", this, 0, 0, true, 0.1);

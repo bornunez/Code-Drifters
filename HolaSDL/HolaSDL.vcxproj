@@ -15,6 +15,7 @@
     <ClCompile Include="AnimationFrame.cpp" />
     <ClCompile Include="AnimationParser.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
+    <ClCompile Include="BombAnimationComponent.cpp" />
     <ClCompile Include="BombComponent.cpp" />
     <ClCompile Include="BomberAnimationComponent.cpp" />
     <ClCompile Include="BomberComponent.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="AnimationParser.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BasicObject.h" />
+    <ClInclude Include="BombAnimationComponent.h" />
     <ClInclude Include="BombComponent.h" />
     <ClInclude Include="BomberAnimationComponent.h" />
     <ClInclude Include="BomberComponent.h" />
