@@ -15,7 +15,10 @@ public:
 
 	virtual void render();
 	virtual void update();
+	void setBonusMultiplier(float multiplicator);
 protected:
+	float bonusMultiplier = 1.0;
+
 	CoinManager();
 	std::vector<Coin*> coins;
 	static CoinManager* instance;

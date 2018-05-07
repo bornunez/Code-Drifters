@@ -83,6 +83,20 @@ vector<bool> CollisionHandler::Collide(std::vector<SDL_Rect> rects, TileLayer * 
 	return collisions;
 }
 
+vector<bool> CollisionHandler::Collide(std::vector<SDL_Rect> rects, SDL_Rect rectB)
+{
+	vector<bool> collisions(rects.size(), false);
+	int k = 0;
+	for (SDL_Rect rect : rects) {
+		if (RectCollide(rect, rectB)) {
+			collisions[k] = true;
+		}
+		k++;
+	}
+
+	return collisions;
+}
+
 
 CollisionHandler::CollisionHandler()
 {

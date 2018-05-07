@@ -15,9 +15,10 @@
 #include "EnemyManager.h"
 
 
-BomberShotComponent::BomberShotComponent(GameObject* o, GameObject* target, float dist, float delay)
-	: UpdateComponent(o)
+BomberShotComponent::BomberShotComponent(Enemy* e, GameObject* target, float dist, float delay)
+	: UpdateComponent(e)
 {
+	eb = e;
 	targetObject = target;
 	distance = dist;
 	shotDelay = delay;
@@ -33,8 +34,8 @@ BomberShotComponent::~BomberShotComponent()
 	
 void BomberShotComponent::handleAnimation()
 {
-	EnemyBomber* eb = static_cast<EnemyBomber*>(gameObject);
-	float angle = (atan2(targetObject->getCenterPos().getY() - gunPosition.getY(), targetObject->getCenterPos().getX() - gunPosition.getX()));//Angulo entre el enemigo y el target, en grados
+
+	float angle = (atan2(targetObject->getCenterPos().getY() - gameObject->getCenterPos().getY() , targetObject->getCenterPos().getX() - gameObject->getCenterPos().getX()));//Angulo entre el enemigo y el target, en grados
 	angle = angle * 180 / M_PI;
 
 
@@ -42,27 +43,24 @@ void BomberShotComponent::handleAnimation()
 		angle += 360;
 
 	if (shotAnimationTime->TimeSinceTimerCreation == 0) {
-		
-		 if (angle > 90 && angle < 270) {
-			if (eb->enemyState == EnemyState::Shoot) {
+		if (eb->enemyState == EnemyState::Shoot) {
+			if (angle > 90 && angle < 270) {
 				Message msg(SHOT_LEFT);
 				gameObject->sendMessage(&msg);
 			}
-		}
-		else if (angle > 27 && angle < 72) {
-			if (eb->enemyState == EnemyState::Shoot) {
+			else {
 				Message msg(SHOT_RIGHT);
 				gameObject->sendMessage(&msg);
 			}
 		}
 	}
-
 	if (eb->enemyState == EnemyState::Shoot) {
 		shotAnimationTime->update();
 
-		if (shotAnimationTime->TimeSinceTimerCreation > 0.45) {
-			
+		if (shotAnimationTime->TimeSinceTimerCreation > 1) {
+			EnemyManager::getInstance()->spawn(gameObject->getCenterPos().getX(), gameObject->getCenterPos().getY(), Bomb);
 			eb->enemyState = EnemyState::Run;
+
 		}
 	}
 
@@ -73,26 +71,21 @@ void BomberShotComponent::handleAnimation()
 void BomberShotComponent::shoot() {
 	Transform* bomberT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
-	EnemyBomber* eb = static_cast<EnemyBomber*>(gameObject);
 	if (lastShotTime->TimeSinceTimerCreation > shotDelay && 
 		(abs(targetT->position.getX() - bomberT->position.getX()) + abs(targetT->position.getY() - bomberT->position.getY())) <= distance) {
-		if (eb->enemyState == EnemyState::Idle) {
 			lastShotTime->restart();
-			
-			
-			EnemyManager::getInstance()->spawn(gameObject->getCenterPos().getX(), gameObject->getCenterPos().getY(), Bomb);
-	
 
 			shotAnimationTime->restart();
+			eb->setMovable(false);
 			eb->enemyState = EnemyState::Shoot;
-		}		
+			
 	}
 
 }
 
 void BomberShotComponent::update() {
 	if (!gameObject->isDead()) {
-		if (!static_cast<Enemy*>(gameObject)->isStunned()) {
+		if (!eb->isStunned()) {
 			lastShotTime->update();
 			shoot();
 		}

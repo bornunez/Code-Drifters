@@ -10,10 +10,10 @@
 #include "Camera.h"
 
 
-BombComponent::BombComponent(GameObject* o, int bulletsNumber, float time, float speed)
-	: UpdateComponent(o)
+BombComponent::BombComponent(Enemy* e, int bulletsNumber, float time, float speed)
+	: UpdateComponent(e)
 {
-	eb = static_cast<EnemyBomb*>(gameObject);
+	eb = e;
 	nBullets = bulletsNumber;
 	explodeTime = time;
 	bombTimer = new Timer();

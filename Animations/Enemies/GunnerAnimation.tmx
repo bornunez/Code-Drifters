@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="17" height="16" tilewidth="64" tileheight="64" infinite="0" nextobjectid="110">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="16" tilewidth="64" tileheight="64" nextobjectid="128">
  <tileset firstgid="1" source="Gunner.tsx"/>
  <layer name="RunBot" width="17" height="16">
   <data encoding="base64" compression="zlib">
@@ -56,6 +56,50 @@
    eJxjYBgFo4D2YBsQbwfiHQPtkFFAVQAA8AkCJg==
   </data>
  </layer>
+ <layer name="StunLeft1" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B4sBOIdwHxbiDeM8BuGQUDDwD1mwLr
+  </data>
+ </layer>
+ <objectgroup name="StunLeft1">
+  <object id="127" name="Hurtbox" type="3" x="473.333" y="528.682" width="12.6666" height="29.9698"/>
+  <object id="126" name="Hurtbox" type="2" x="410.667" y="527.348" width="13.9999" height="29.9698"/>
+  <object id="125" name="Hurtbox" type="1" x="347.333" y="528.348" width="14.6666" height="29.9698"/>
+  <object id="124" name="Hurtbox" type="0" x="282.667" y="527.682" width="12.6666" height="29.9698"/>
+ </objectgroup>
+ <layer name="StunLeft2" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4B8sBeI9wHxfiA+MLBOGQUDAADmmwL7
+  </data>
+ </layer>
+ <objectgroup name="StunLeft2">
+  <object id="123" name="Hurtbox" type="3" x="728.667" y="527.015" width="12.6666" height="29.9698"/>
+  <object id="122" name="Hurtbox" type="2" x="664.667" y="527.348" width="12.6666" height="29.9698"/>
+  <object id="121" name="Hurtbox" type="1" x="600.667" y="528.348" width="12.6666" height="29.9698"/>
+  <object id="120" name="Hurtbox" type="0" x="536" y="527.682" width="12.6666" height="29.9698"/>
+ </objectgroup>
+ <layer name="StunRight1" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4C+YCkQLwPi5UC8YoDdMgooAwChhAKb
+  </data>
+ </layer>
+ <objectgroup name="StunRight1">
+  <object id="118" name="Hurtbox" type="3" x="473.333" y="592.682" width="12.6666" height="29.9698"/>
+  <object id="117" name="Hurtbox" type="2" x="408.667" y="593.682" width="12.6666" height="29.9698"/>
+  <object id="116" name="Hurtbox" type="1" x="344.333" y="593.348" width="12.6666" height="29.9698"/>
+  <object id="115" name="Hurtbox" type="0" x="281.333" y="592.015" width="12.6666" height="29.9698"/>
+ </objectgroup>
+ <layer name="StunRight2" width="17" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BgwUogXgXEq4F4zQC7ZRSQBgCTRAKr
+  </data>
+ </layer>
+ <objectgroup name="StunRight2">
+  <object id="110" name="Hurtbox" type="3" x="729.333" y="589.848" width="14.3333" height="34.3031"/>
+  <object id="111" name="Hurtbox" type="2" x="666.167" y="592.515" width="14.3333" height="31.3031"/>
+  <object id="112" name="Hurtbox" type="1" x="602.5" y="593.515" width="12.6666" height="29.9698"/>
+  <object id="113" name="Hurtbox" type="0" x="539.667" y="592.682" width="12.6666" height="29.9698"/>
+ </objectgroup>
  <layer name="DamageLeft1" width="17" height="16">
   <data encoding="base64" compression="zlib">
    eJxjYBgFIwVkAnEWEGcDcc4Au2UUDA8AANolAas=

@@ -143,7 +143,12 @@ void HUDManager::update() {
 		bullets_[currentBullet]->destRect.h =
 			bulletBack[currentBullet]->destRect.h + bulletBack[currentBullet]->destRect.y - bullets_[currentBullet]->destRect.y;
 	}
-	//update the ult bar, but without parameter from the character we cant
+	//update the ult bar
+	ultBar->srcRect.y = ultBack->srcRect.h * (1-(character->getUltiCharge() / 100));
+	ultBar->srcRect.h = ultBack->srcRect.h - ultBar->srcRect.y;
+
+	ultBar->destRect.y = ultBack->destRect.y + ultBack->destRect.h * (1-(character->getUltiCharge() / 100));
+	ultBar->destRect.h = ultBack->destRect.h + ultBack->destRect.y - ultBar->destRect.y;
 }
 ///method which can increase maxHP or low it
 void HUDManager::setNewHP(int newL) {

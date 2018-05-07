@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="17" height="4" tilewidth="64" tileheight="64" infinite="0" nextobjectid="70">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="4" tilewidth="64" tileheight="64" nextobjectid="71">
  <tileset firstgid="1" source="Stalker.tsx"/>
+ <layer name="Stun" width="17" height="4">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhcQGuA7QcAFhAAKw==
+  </data>
+ </layer>
+ <objectgroup name="Stun">
+  <object id="70" name="Hurtbox" type="0" x="149.75" y="146.5" width="20" height="21"/>
+ </objectgroup>
  <layer name="Run" width="17" height="4">
   <data encoding="base64" compression="zlib">
    eJxjZGBgYAJiZiBmAWJWIGYDYnYg5gBiTiDmAmJuhpEBAEBQAEM=

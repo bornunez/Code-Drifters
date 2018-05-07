@@ -3,13 +3,14 @@
 #include "GameObject.h"
 #include <cmath>
 #include "MainCharacter.h"
-#include"Enemy.h"
+#include "Enemy.h"
 
-BomberComponent::BomberComponent(GameObject* o, GameObject* target, float dist) : UpdateComponent(o)
+BomberComponent::BomberComponent(Enemy* e, GameObject* target, float dist) : UpdateComponent(e)
 {
 	targetObject = target;
 	distancia = dist;
-
+	eb = e;
+	eb->enemyState = EnemyState::Run;
 }
 
 
@@ -21,39 +22,44 @@ BomberComponent::~BomberComponent()
 void BomberComponent::update() {
 
 	if (!gameObject->isDead()) {
-		Transform* gunnerT = gameObject->getTransform();
+		Transform* bomberT = gameObject->getTransform();
 		Transform* targetT = targetObject->getTransform();
-		//angle = gunnerT->position.angle(targetT->position);
-		angle+=.05;
 		if (angle > 365) angle = 0;
 
-		Enemy* eg = static_cast<Enemy*>(gameObject);
-
-		if (!eg->isStunned()) {
+		if (!eb->isStunned()) {
 			Vector2D auxVel;
-			if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
-				//Circular Movement
-				//Auxpos marca punto en trayectoria circular alrededor del target, bomber asume esa position como target y lo persigue
-				Vector2D auxPos;
-				auxPos.set(targetT->position.getX() + cos(angle)*(distancia - 10), targetT->position.getY() + sin(angle)*(distancia - 10));
-				auxVel.set(targetT->position - auxPos);
-				auxVel.normalize();
-				gunnerT->velocity.set(auxVel);
-				eg->setMovable(true);
+			Vector2D auxPos;
+			if ((abs(targetT->position.getX() - bomberT->position.getX() - 25) + abs(targetT->position.getY() - bomberT->position.getY() - 25)) <= distancia + 50) {
+				if (!rotating) {
+					rotating = true;
+					angle = targetT->position.angle(bomberT->position);
+				}
+				if (eb->enemyState == EnemyState::Run) {
+					//Circular Movement
+					//Auxpos marca punto en trayectoria circular alrededor del target, bomber asume esa position como target y lo persigue
+					angle += angleVel;
+					auxPos.set(targetT->position.getX() - 25 + cos(angle)*(distancia - 50), targetT->position.getY() - 25 + sin(angle)*(distancia - 50));
+					auxVel.set(auxPos - bomberT->position);
+					auxVel.normalize();
+					bomberT->velocity.set(auxVel);
+					eb->setMovable(true);
+				}
 			}
 
 			//Regular chase
-			else {
-				
+			else if(eb->enemyState == EnemyState::Run) {
+				if (rotating) {
+					rotating = false;
+				}	
 				//vectorentre enemigo y objetivo
-				auxVel.set(targetT->position - gunnerT->position);
+				auxVel.set(targetT->position - bomberT->position);
 
 				//se normaliza y se multiplica por la magnitud de la velocidad
 				auxVel.normalize();
 
 				//se asigna la velocidad del enemigo y se actualiza la posicion
-				gunnerT->velocity.set(auxVel);
-				eg->setMovable(true);
+				bomberT->velocity.set(auxVel);
+				eb->setMovable(true);
 
 			}
 		}

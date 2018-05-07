@@ -6,6 +6,7 @@
 
 MCManagerComponent::MCManagerComponent(MainCharacter* o) : UpdateComponent(static_cast<GameObject*>(o)) {
 	mc = o;
+	hurtTimer = new Timer();
 }
 
 MCManagerComponent::~MCManagerComponent()
@@ -110,7 +111,19 @@ void MCManagerComponent::receiveMessage(Message * msg)
 
 void MCManagerComponent::update()
 {
-
+	if (hurt) {//Solo entra cuando el personaje es invencible
+		gameObject->setInvincibility(true);
+		hurtTimer->update();//Activa el contador, y cuando pasa el tiempo límite lo vuelve vulnerable
+		if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
+			gameObject->setInvincibility(false);
+			hurtTimer->restart();
+			hurt= false;
+		}
+	}
+	else {
+		gameObject->setInvincibility(false);
+		hurtTimer->restart();
+	}
 	//Aqui va lo de HandleANimationstates con el hurtTimer etc.
 }
 
@@ -119,6 +132,10 @@ void MCManagerComponent::HurtMC(float dmg) {
 	ParticlesManager::getInstance()->getParticle(ParticleType::Blood, mc->getCenterPos().getX() - 40, mc->getCenterPos().getY() - 40);
 	mc->setMCState(MCState::Hurt);
 	mc->addHP(-dmg);
+	Message msg2(HURT);
+	this->gameObject->sendMessage(&msg2);
+	
+	hurt = true;
 	//mc->substractHP(dmg);
 	//HUDManager::getInstance()->changeLife(-dmg);
 

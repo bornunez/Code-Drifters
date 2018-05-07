@@ -11,7 +11,7 @@ enum class EnemyState {Idle, Run, Hurt, Shoot, Charge, Death, Attack, Hooked};
 
 //################## ATRIBUTOS COMUNES ####################
 struct CommonBossAttributes {
-	float life,maxLife; float defense;
+	float life,maxLife;
 	float speed;
 	float meleeDmg; float rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
@@ -52,7 +52,6 @@ public:
 	GameObject* getMC();
 	EnemyType getType() { return type; }
 	void knockBack();
-	float getDefense() { return Attributes.defense; };
 	float getLife() { return Attributes.life; }
 	float getMaxLife() { return Attributes.maxLife; }
 	void setLife(int life) { Attributes.life = life; };

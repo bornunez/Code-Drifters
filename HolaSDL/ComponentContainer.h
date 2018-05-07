@@ -35,6 +35,7 @@ public:
 
 	virtual void update();
 	virtual void render();
+	virtual void lateRender();
 	virtual void handleEvents(SDL_Event& e);
 private:
 	std::list< Component*>* components;

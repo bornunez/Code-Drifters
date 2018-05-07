@@ -11,7 +11,6 @@
 #include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
 #include "DamageableBossComponent.h"
-#include "BasicInvincibleComponent.h"
 
 using namespace std;
 Boss::Boss(Transform t) : MasterBoss(1)
@@ -26,8 +25,16 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 
 	transform.position.setX(x);
 	transform.position.setY(y);
+
 	transform.body.w = w;
 	transform.body.h = h;
+	setSpriteOffset(0, 0 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = w /1;
+	transform.overlapBody.h = h / 1;
+	transform.overlapOffset.setX(0);
+	transform.overlapOffset.setY(0);
+
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
 	Attributes.life = 1500;
@@ -41,12 +48,12 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 	addComponent(updat);
 	rend = new RenderBoss(this);
 	addComponent(rend);
-	addComponent(new DamageableBossComponent(this, prota));
+	addComponent(new DamageableBossComponent(this, prota,0.2));
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
 
 
     BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);
-	addComponent(new BasicInvincibleComponent(this, 0.2));
 }
 Boss::~Boss()
 {

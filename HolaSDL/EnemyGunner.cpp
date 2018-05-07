@@ -16,27 +16,32 @@
 #include "BasicMovement.h"
 #include "DamageableEnemyComponent.h"
 #include "BoxRenderer.h"
-#include "BasicInvincibleComponent.h"
 #include "KnockbackComponent.h"
 #include "StunComponent.h"
 #include "SkeletonRenderer.h"
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
-	type = Gunner;
-	transform.body.w = transform.body.h = 96;
+	type = Gunner;	
+	transform.body.w = 96 / 2;
+	transform.body.h = 96 / 2.5;
+	setSpriteOffset(0, -8 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = 96 / 5;
+	transform.overlapBody.h = 96 / 1.2;
+
+	transform.overlapOffset.setX(4);
+	transform.overlapOffset.setY(-14);
 	loadAnimations();
-	Attributes.defense = 30;
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new KnockbackComponent(this, 1000));
 	addComponent(new BasicMovement(this));
-	addComponent(new DamageableEnemyComponent(this, getMC()));
+	addComponent(new DamageableEnemyComponent(this, getMC(),0.2));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
-	addComponent(new BasicInvincibleComponent(this, 0.2));
 	addComponent(new StunComponent(this));
-	/*addComponent(new SkeletonRendered(this, playState->getCamera()));
-	addComponent(new BoxRenderer(this, playState->getCamera()));*/
+	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 }
 
 
@@ -94,6 +99,16 @@ void EnemyGunner::loadAnimations()
 	animations.emplace("SHOT_TOPLEFT", shotTopLeft);
 	animations.emplace("SHOT_BOTRIGHT", shotBotRight);
 	animations.emplace("SHOT_TOPRIGHT", shotTopRight);
+
+	Animation* stunRight1 = AnimationParser::parseAnimation(tileset, animationPath, "StunRight1", this, 0, 0, false, 0.15);
+	Animation* stunRight2 = AnimationParser::parseAnimation(tileset, animationPath, "StunRight2", this, 0, 0, false, 0.15);
+	Animation* stunLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft1", this, 0, 0, false, 0.15);
+	Animation* stunLeft2 = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft2", this, 0, 0, false, 0.15);
+
+	animations.emplace("STUN_RIGHT1", stunRight1);
+	animations.emplace("STUN_RIGHT2", stunRight2);
+	animations.emplace("STUN_LEFT1", stunLeft1);
+	animations.emplace("STUN_LEFT2", stunLeft2);
 
 	Animation* damageRight1 = AnimationParser::parseAnimation(tileset, animationPath, "DamageRight1", this, 0, 0, false, 0.15);
 	Animation* damageRight2 = AnimationParser::parseAnimation(tileset, animationPath, "DamageRight2", this, 0, 0, false, 0.15);

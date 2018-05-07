@@ -155,9 +155,6 @@
     <ClCompile Include="ChargeComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
-    <ClCompile Include="BasicInvincibleComponent.cpp">
-      <Filter>UpdateComponent\Source</Filter>
-    </ClCompile>
     <ClCompile Include="BasicMovement.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
@@ -399,6 +396,12 @@
     </ClCompile>
     <ClCompile Include="EnemyHUDComponent.cpp" />
     <ClCompile Include="BossHUDComponent.cpp" />
+    <ClCompile Include="MCUltimateCharge.cpp" />
+    <ClCompile Include="ParticleAnimation.cpp" />
+    <ClCompile Include="LastResortComponent.cpp" />
+    <ClCompile Include="BombAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -576,9 +579,6 @@
       <Filter>Includes</Filter>
     </ClInclude>
     <ClInclude Include="Minimap.h" />
-    <ClInclude Include="BasicInvincibleComponent.h">
-      <Filter>UpdateComponent\Header</Filter>
-    </ClInclude>
     <ClInclude Include="BasicMovement.h">
       <Filter>UpdateComponent\Header</Filter>
     </ClInclude>
@@ -779,6 +779,12 @@
     </ClInclude>
     <ClInclude Include="EnemyHUDComponent.h" />
     <ClInclude Include="BossHUDComponent.h" />
+    <ClInclude Include="MCUltimateCharge.h" />
+    <ClInclude Include="ParticleAnimation.h" />
+    <ClInclude Include="LastResortComponent.h" />
+    <ClInclude Include="BombAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

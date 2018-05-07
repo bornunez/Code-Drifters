@@ -32,7 +32,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	//Lo spawneamos en la posicion que digan
 	transform.position.setX(x); transform.position.setY(y);
 	transform.body.x = x; transform.body.y = y;
-	updatePreviousPosition();
+	updatePreviousPosition();	
 	updateBody();
 
 	//Y ponemos sus valores por defecto
@@ -95,6 +95,7 @@ void Enemy::death()
 
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
+	mainCharacter->sendMessage(&msg);
 	cout << "me he morido";
 }
 

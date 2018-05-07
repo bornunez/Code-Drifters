@@ -11,7 +11,8 @@ private:
 	float gunAngle = 0;
 	Timer* gunTimer;
 	Timer* hurtTimer;
-	float hurtTime = 0.2;
+	float hurtTime = 0.4;
+	bool hurt = false;//Si ha recibido daño
 
 	void HurtMC(float dmg);
 public:

@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector2D.h"
 #include "sdl_includes.h"
+
 struct Transform
 {
 	Vector2D position;
@@ -8,5 +9,7 @@ struct Transform
 	Vector2D velocity;
 	Vector2D direction;
 	SDL_Rect body;
+	SDL_Rect overlapBody;
+	Vector2D overlapOffset;
 	float speed;
 };

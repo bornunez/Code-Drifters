@@ -105,9 +105,24 @@ void EnemyManager::render()
 	{
 		actBoss1->render();
 	}
-	if (actBoss2 != nullptr && actBoss2->isActive())
+	if (actBoss2 != nullptr && actBoss2	->isActive())
 	{
 		actBoss2->render();
+	}
+}
+
+void EnemyManager::lateRender()
+{
+	for (Enemy* e : actives) {
+		e->lateRender();
+	}
+	if (actBoss1 != nullptr && actBoss1->isActive())
+	{
+		actBoss1->lateRender();
+	}
+	if (actBoss2 != nullptr && actBoss2->isActive())
+	{
+		actBoss2->lateRender();
 	}
 }
 
@@ -132,6 +147,7 @@ void EnemyManager::spawn(Spawner * spawner)
 	if (e == nullptr)
 		e = createEnemy(spawner->getEnemy());
 	//Lo spawneamos y lo añadimos a la lista de activos
+	e->setMovable(true);
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
 	actives.push_back(e);
 }

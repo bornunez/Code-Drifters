@@ -27,7 +27,7 @@ BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 	bossBar->destRect = bossBarBack->destRect = bossSkeleton->destRect = bossBack->destRect;
 }
 
-void BossHUDComponent::render() {
+void BossHUDComponent::lateRender() {
 	if (boss->getLife() > 0) {
 		bossBar->destRect.w = (boss->getLife() * bossBack->destRect.w) / boss->getMaxHP();
 		if (bossBarBack->destRect.w > bossBar->destRect.w) bossBarBack->destRect.w--;

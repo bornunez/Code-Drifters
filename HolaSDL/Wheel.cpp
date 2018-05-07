@@ -11,7 +11,6 @@
 #include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
 #include "DamageableBossComponent.h"
-#include "BasicInvincibleComponent.h"
 
 using namespace std;
 Wheel::Wheel(Transform t) : Enemy(prota)
@@ -30,7 +29,6 @@ Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h, float velocidad, i
 	transform.body.h = h;
 	allUpdates();
 	loadAnimations();
-	Attributes.defense = 30;
 	this->changeCurrentAnimation("SALE");
 	this->getCurrentAnimation()->startAnimation();
 
@@ -42,7 +40,6 @@ Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h, float velocidad, i
 
 	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	//addComponent(skel);
-	addComponent(new BasicInvincibleComponent(this, 0.2));
 }
 Wheel::~Wheel()
 {

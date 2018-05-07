@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include<map>
 #include "Animation.h"
-class GunnerAnimationComponent;
+class BombAnimationComponent;
 class EnemyBomb : public Enemy
 {
 public:
