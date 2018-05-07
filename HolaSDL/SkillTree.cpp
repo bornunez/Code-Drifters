@@ -5,6 +5,8 @@
 
 #include"PlayState.h"
 #include"HUDManager.h"
+#include"CoinManager.h"
+#include"LastResortComponent.h"
 
 SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopSta) {
 	//initial values for destRect
@@ -257,7 +259,7 @@ void SkillTree::effect() {
 	switch (skill.id)
 	{
 	case 11:
-		character->addPercentualDamage((float)100/(float)3);
+		character->addPercentualDamage((100.0/3.0));
 		break;
 	case 111:
 		character->addPercentualDamage(50);
@@ -268,38 +270,48 @@ void SkillTree::effect() {
 	case 112:
 		character->setLifeStealEnable(true);
 		break;
-	case 1121:
-		character->setLifeSteal(2); //doubles life steal
+	case 1121:	//doubles life steal
+		character->setLifeSteal(2);
 		break;
-	case 12:
+	case 12:	//double life, divides hp
 		character->addMaxHP(-(character->getMaxHP() / 2));
 		character->addPercentualDamage(100);
+		break;
+	case 21:	//1 more second of stun
+		character->setStunTime(3.5);
+		break;
+	case 211:	//whenever you get hit having low bullets and hp, you get a free bullet
+		character->addComponent(new LastResortComponent(character));
 		break;
 	case 221: //both add 1 bullet
 	case 22:
 		character->setMaxBullets(character->getMaxBullets() + 1);
 		HUDManager::getInstance()->addBullet();
 		break;
+	case 231:	//both get a 33% cdr on current reload time
 	case 23:
 		character->setReloadTime(character->getReloadTime() * 2 / 3);
 		break;
-	case 231:
-		character->setReloadTime(character->getReloadTime() * 2 / 3);
+	case 31:	//25% more coins
+		CoinManager::getInstance()->setBonusMultiplier(1.25); 
 		break;
-	case 32:
-		//add a bonus 10% max HP
+	case 32:	//add a bonus 10% max HP
 		character->addMaxHP(character->getMaxHP()*10 / 100);
 		cout << character->getMaxHP() << endl;
 		break;
-	case 321:
-		//add a bonus 33% max HP
+	case 321:	//add a bonus 33% max HP
 		character->addMaxHP(character->getMaxHP() / 3);
 		cout << character->getMaxHP() << endl;
 		break;
-	case 3211:
-		//add a bonus to reach double of initial max HP
+	case 3211:	//add a bonus to reach double of initial max HP (calculated)
 		character->addMaxHP(((character->getMaxHP() * (60.0 / 44.0)) - character->getMaxHP()));
 		cout << character->getMaxHP() << endl;
+	case 33:	//25% ult cdr
+		character->setUltiBonusCD(25);
+		break;
+	case 331:	//50% ult damage
+		character->setUltiDmg(character->getUltiDmg() * 1.5);
+		break;
 	default:
 		break;
 	}

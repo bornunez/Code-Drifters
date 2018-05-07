@@ -398,6 +398,7 @@
     <ClCompile Include="BossHUDComponent.cpp" />
     <ClCompile Include="MCUltimateCharge.cpp" />
     <ClCompile Include="ParticleAnimation.cpp" />
+    <ClCompile Include="LastResortComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -777,6 +778,7 @@
     <ClInclude Include="BossHUDComponent.h" />
     <ClInclude Include="MCUltimateCharge.h" />
     <ClInclude Include="ParticleAnimation.h" />
+    <ClInclude Include="LastResortComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
