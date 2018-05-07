@@ -27,8 +27,8 @@ EnemyHUDComponent::~EnemyHUDComponent()
 {
 }
 
-void EnemyHUDComponent::render() {
-	if (enemy->getLife() > 0) {
+void EnemyHUDComponent::lateRender() {
+	if (enemy->getLife() > 0 && enemy->getLife() < enemy->getMaxLife()) {
 		HPBarRect.w = (enemy->getLife() * destRect.w) / enemy->getMaxLife();
 		//to keep the hud in the same relative pos to their enemy
 		destRect.x = HPBarRect.x = enemy->getDisplayCenterPos().getX() - destRect.w /2;

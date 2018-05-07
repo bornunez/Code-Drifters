@@ -23,8 +23,18 @@
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
 	type = Stalker;
-	transform.body.w =32*Game::getGame()->getScale()/3;
-	transform.body.h = 32 * Game::getGame()->getScale() / 2;
+	transform.body.w = 96 / 3;
+	transform.body.h = 96 / 1.3;
+
+	setSpriteOffset(1 * Game::getGame()->getScale(), 0 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = 96 / 3;
+	transform.overlapBody.h = 96 / 1.3;
+
+	transform.overlapOffset.setX(0);
+	transform.overlapOffset.setY(0);
+
+
 	loadAnimations();
 	facing = RIGHT;
 	setCollisionsLayers({ "Paredes","Aire" });
@@ -35,8 +45,8 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new StalkerComponent(this, getMC(), 4, .5, 1, 1.2));
 	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations, .2, .5));
 	addComponent(new StunComponent(this));
-	/*addComponent(new SkeletonRendered(this,playState->getCamera()));
-	addComponent(new BoxRenderer(this, playState->getCamera()));*/
+	addComponent(new SkeletonRendered(this,playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 
 }
 

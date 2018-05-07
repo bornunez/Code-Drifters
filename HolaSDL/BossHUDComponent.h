@@ -13,7 +13,7 @@ protected:
 		*bossSkeleton;
 public:
 	BossHUDComponent(MasterBoss* bossy);
-	void render();
+	void lateRender();
 	~BossHUDComponent();
 };
 

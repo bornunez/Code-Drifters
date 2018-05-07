@@ -37,8 +37,12 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.body.x = x; transform.body.y = y + h - (h/2.5);
 	transform.body.w = w/2;
 	transform.body.h = h/2.5;
-
 	setSpriteOffset(0, -10 * Game::getGame()->getScale());
+
+	transform.overlapBody.w = w / 3;
+	transform.overlapBody.h = h / 1.5;
+	transform.overlapOffset.setX(2);
+	transform.overlapOffset.setY(-12);
 
 	loadAnimations();
 

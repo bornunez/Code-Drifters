@@ -3,7 +3,8 @@
 class RenderComponent : public Component
 {
 public:
-	virtual void render() = 0;
+	virtual void render() {};
+	virtual void lateRender() {};
 	RenderComponent(GameObject* o);
 	~RenderComponent();
 };
