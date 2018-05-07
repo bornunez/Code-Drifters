@@ -147,6 +147,7 @@ void EnemyManager::spawn(Spawner * spawner)
 	if (e == nullptr)
 		e = createEnemy(spawner->getEnemy());
 	//Lo spawneamos y lo añadimos a la lista de activos
+	e->setMovable(true);
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
 	actives.push_back(e);
 }

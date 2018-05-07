@@ -45,7 +45,8 @@ void AnimationFrame::addGunPosition(Vector2D gunPos, int offsetX, int offsetY)
 
 void AnimationFrame::render(SDL_RendererFlip flip)
 {
-	//Coloca el sprite correctamente 64 es el tamaño del frame 
+	//Coloca el sprite correctamente 64 es el tamaño del frame
+	gameObject->allUpdates();
 	destRect.x = gameObject->getCenterPos().getX() - frameWidth* Game::getGame()->getScale() /2  -
 		PlayState::getInstance()->getCamera()->getTransform()->position.getX() 
 		+ frameOffsetX;

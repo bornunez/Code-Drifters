@@ -20,6 +20,7 @@ protected:
 	Texture * texture = nullptr; //Puntero a la textura
 	Transform transform; //Informacion del objeto en el mundo
 	Vector2D prevPosition; //Posicion antigua
+	Vector2D overlapPrevPos;
 	Vector2D centerPosition;//Centro del objeto
 	Vector2D displayPosition;//Posición respecto a la cámara
 	Vector2D displayCenterPosition;//Centro del objeto respecto a la cámara
@@ -62,7 +63,11 @@ public:
 	void setActive(bool active) { this->active = active; }
 	Transform* getTransform() { return &transform; }
 	Vector2D getPreviousPosition() { return prevPosition; }
-	void updatePreviousPosition() { prevPosition = transform.position; }
+	Vector2D getOverlapPrevPos() { return overlapPrevPos; }
+	void updatePreviousPosition() {
+		prevPosition = transform.position;
+		overlapPrevPos.set(transform.overlapBody.x, transform.overlapBody.y);
+	}
 
 	Texture* getTexture() { return texture; }
 	Vector2D getCenterPos() { return centerPosition; }

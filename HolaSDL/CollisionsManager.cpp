@@ -243,7 +243,8 @@ void CollisionsManager::enemyCollisions()
 	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 	for (Enemy* e : enemies) {
 		if (e->isActive()) {
-			layerCollisions(e);
+			if(!e->isDead())
+				layerCollisions(e);
 		}
 	}
 }
@@ -311,6 +312,7 @@ void CollisionsManager::layerCollisions(GameObject* o) {
 
 	vector<SDL_Rect> rects = { bodyX, bodyY };
 	vector<bool> collisions = { false,false };
+	vector<bool> oCollisions = { false,false };
 	//Colisionamos
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collisionX = false;
@@ -324,12 +326,13 @@ void CollisionsManager::layerCollisions(GameObject* o) {
 			collisionY = collisions[1] || collisionY;
 		}
 	}
-	if (collisionX || collisionY) {
+	oCollisions = overlapCollisions(o);
+	if (collisionX || collisionY || oCollisions[0] || oCollisions[1]) {
 		//Si hay colision, cogemos la antigua posicion
-		if (collisionX) {
+		if (collisionX || oCollisions[0]) {
 			t->position.setX(prevPosition.getX());
 		}
-		if (collisionY){
+		if (collisionY || oCollisions[1]){
 			t->position.setY(prevPosition.getY());
 		}
 		//Finalmente lo notificamos
@@ -374,6 +377,63 @@ void CollisionsManager::enemyAttackCollision() {
 	}
 }
 
+vector<bool> CollisionsManager::overlapCollisions(GameObject* o)
+{
+
+	Transform* t = o->getTransform();
+	Vector2D prevPosition = o->getOverlapPrevPos();
+	SDL_Rect bodyX, bodyY;
+	bodyX = bodyY = t->overlapBody;
+
+	bodyX.y = prevPosition.getY();
+	bodyY.x = prevPosition.getX();
+
+	vector<SDL_Rect> rects = { bodyX, bodyY };
+	vector<bool> auxCollisions = { false,false };
+	vector<bool> collisions = { false,false };
+	//Colisionamos
+	bool collisionX = false;
+	bool collisionY = false;
+	GameObject* mc = PlayState::getInstance()->getMainCharacter();
+	
+
+	if (mc != o) {
+		auxCollisions = CollisionHandler::Collide(rects, mc->getTransform()->overlapBody);
+		collisionX = auxCollisions[0] || collisionX;
+		collisionY = auxCollisions[1] || collisionY;
+		if (collisionX)	collisions[0] = true;
+		if (collisionY)	collisions[1] = true;
+	}
+
+	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
+
+	for (GameObject* e : enemies) {
+		if (e != o) {
+			if (!e->isDead()) {
+				auxCollisions = CollisionHandler::Collide(rects, e->getTransform()->overlapBody);
+				collisionX = auxCollisions[0] || collisionX;
+				collisionY = auxCollisions[1] || collisionY;
+				if (collisionX)	collisions[0] = true;
+				if (collisionY)	collisions[1] = true;
+			}
+		}
+	}
+
+	GameObject* boss = EnemyManager::getInstance()->getActiveBoss();
+	if (boss != nullptr) {
+		if (boss != o) {
+			if (!boss->isDead()) {
+				auxCollisions = CollisionHandler::Collide(rects, boss->getTransform()->overlapBody);
+				collisionX = auxCollisions[0] || collisionX;
+				collisionY = auxCollisions[1] || collisionY;
+				if (collisionX)	collisions[0] = true;
+				if (collisionY)	collisions[1] = true;
+			}
+		}
+	}
+	return collisions;
+}
+
 void CollisionsManager::bossCollisions()
 {
 	MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
@@ -401,7 +461,8 @@ void CollisionsManager::bossCollisions()
 				}
 			}
 		}
-		layerCollisions(boss);
+		if (!boss->isDead())
+			layerCollisions(boss);
 
 		if ( dynamic_cast<MasterBoss*>(boss)->getBossType() == 2  && dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
 		{
