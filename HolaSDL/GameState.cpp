@@ -46,6 +46,14 @@ void GameState::render()
 	}
 }
 
+void GameState::lateRender()
+{
+	for (GameObject* o : gameObjects) {
+		if (o->isActive())
+			o->lateRender();
+	}
+}
+
 void GameState::handleEvent(SDL_Event & e)
 {
 	for (GameObject* o : gameObjects) {

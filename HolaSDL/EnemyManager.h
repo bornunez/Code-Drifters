@@ -53,6 +53,7 @@ public:
 	static void ResetInstance();
 	void update();
 	void render();
+	void lateRender();
 
 	EnemyParams getParams(EnemyType type) { return eParams[type]; }
 

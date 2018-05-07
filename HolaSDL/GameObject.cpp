@@ -69,6 +69,11 @@ void GameObject::render()
 	ComponentContainer::render();
 }
 
+void GameObject::lateRender()
+{
+	ComponentContainer::lateRender();
+}
+
 void GameObject::handleEvents(SDL_Event & e)
 {
 	ComponentContainer::handleEvents(e);

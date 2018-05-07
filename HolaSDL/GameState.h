@@ -21,6 +21,7 @@ public:
 	virtual ~GameState();
 	virtual void update();
 	virtual void render();
+	virtual void lateRender();
 	virtual void handleEvent(SDL_Event& e);
 	void addGameObject(GameObject* go);
 	void removeGameObject(GameObject* go);

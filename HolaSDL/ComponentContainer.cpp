@@ -96,6 +96,14 @@ void ComponentContainer::render()
 	}
 }
 
+void ComponentContainer::lateRender()
+{
+	for (Component* c : components[RenderC]) {
+		if (c->isActive())
+			static_cast<RenderComponent*>(c)->lateRender();
+	}
+}
+
 void ComponentContainer::handleEvents(SDL_Event & e)
 {
 	for (Component* c : components[InputC])

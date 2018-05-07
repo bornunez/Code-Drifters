@@ -48,6 +48,7 @@ public:
 	//Ciclo del Objeto
 	virtual void update();
 	virtual void render();
+	virtual void lateRender();
 	virtual void handleEvents(SDL_Event& e);
 
 	void updateCenterPosition();

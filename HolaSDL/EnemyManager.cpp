@@ -111,6 +111,21 @@ void EnemyManager::render()
 	}
 }
 
+void EnemyManager::lateRender()
+{
+	for (Enemy* e : actives) {
+		e->lateRender();
+	}
+	if (actBoss1 != nullptr && actBoss1->isActive())
+	{
+		actBoss1->lateRender();
+	}
+	if (actBoss2 != nullptr && actBoss2->isActive())
+	{
+		actBoss2->lateRender();
+	}
+}
+
 void EnemyManager::spawn(int x, int y, EnemyType eType)
 {
 	//Primero miramos por si hay un enemigo

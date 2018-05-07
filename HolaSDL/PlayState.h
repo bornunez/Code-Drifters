@@ -38,6 +38,7 @@ public:
 	~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	void render();
+	void lateRender();
 	void handleEvent(SDL_Event& e);
 	void update();	
 	DungeonGenerator* getLevel() { return this->level; }

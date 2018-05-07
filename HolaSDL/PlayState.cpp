@@ -55,6 +55,12 @@ void PlayState::render()
 	ParticlesManager::getInstance()->render();
 }
 
+void PlayState::lateRender()
+{
+	GameState::lateRender();
+	EnemyManager::getInstance()->lateRender();
+}
+
 void PlayState::handleEvent(SDL_Event & e)
 {
 	if (e.type == SDL_KEYDOWN)//Provisional para debug de dialogos
