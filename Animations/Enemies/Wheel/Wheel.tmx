@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="Wheel.tsx"/>
  <layer name="Wheel-Sale" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztztsNgCAAwEAQlYci7j8t3UJM2uT+G4KZmdm/itiQsOPAiYyCioYLNzoeDLwf/JqZma3aBN2dAIk=
+   eJztztsNgCAAwEAQlYci7j8t3UJM2uT+G4KZmdk/itiQsOPAiYyCioYLNzoeDLwf/JqZma3eBOHdAIk=
   </data>
  </layer>
  <layer name="Wheel-Gira" width="30" height="30">

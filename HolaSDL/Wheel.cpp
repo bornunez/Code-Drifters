@@ -55,6 +55,7 @@ void Wheel::loadAnimations()
 	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(4);
 	string animationPath = "../Animations/Enemies/Wheel/Wheel.tmx";
 
+
 	//Animaciones
 	Animation* sale = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Sale", this, 0, 0, false, 0.075);
 	Animation* gira = AnimationParser::parseAnimation(tileset, animationPath, "Wheel-Gira", this, 0, 0, true, 0.05);
