@@ -105,7 +105,7 @@ void EnemyManager::render()
 	{
 		actBoss1->render();
 	}
-	if (actBoss2 != nullptr && actBoss2->isActive())
+	if (actBoss2 != nullptr && actBoss2	->isActive())
 	{
 		actBoss2->render();
 	}

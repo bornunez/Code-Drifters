@@ -90,7 +90,7 @@ void CollisionsManager::bulletCollisions()
 			switch (b->getType())
 			{
 			case (BulletType::MCBullet):
-			{
+			{ 
 				//COLISION CON ENEMIGOS
 				list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 				for (GameObject* e : enemies) {//Itera la lista de enemigos activos
