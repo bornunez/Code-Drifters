@@ -2,7 +2,7 @@
 #include "Enemy.h"
 #include <iostream>
 #include "Animation.h"
-
+#include "ParticlesManager.h"
 StunComponent::StunComponent(GameObject * o) : UpdateComponent(o)
 {
 	enemy = static_cast<Enemy*>(gameObject);
@@ -21,7 +21,8 @@ void StunComponent::update()
 	if (enemy->isStunned() && (stunTimer.TimeSinceTimerCreation > stunTime))
 	{
 		stunTimer.restart();
-		enemy->getCurrentAnimation()->changeColor(255, 255, 255);
+		Message msg(STUN_OFF);
+		enemy->sendMessage(&msg);
 		enemy->setStun(false);
 		std::cout << "Ya no estoy stuneado" << std::endl;
 	}
@@ -35,8 +36,10 @@ void StunComponent::receiveMessage(Message * msg)
 		if (!enemy->isStunned()) {
 			stunTime = static_cast<MCBulletStun*>(msg)->stunTime;
 			stunTimer.restart();
-			enemy->getCurrentAnimation()->changeColor(0, 0, 200);
+			Message msg(GUN_STUN);
+			enemy->sendMessage(&msg);
 			enemy->setStun(true);
+			ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
 			std::cout << "AAAAAA QUE ME ATURDEN COÑO ES DESESPERANTEEEEE" << std::endl;
 		}
 	}

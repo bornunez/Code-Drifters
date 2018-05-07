@@ -19,6 +19,6 @@ public:
 	void render();
 	void randomizeParticle(Particle* p, int animations);
 	//Crea en X,Y  una particula del tipo argumento.
-	Particle * getParticle(ParticleType particleName, int x, int y);
+	Particle * getParticle(ParticleType particleName, int x, int y, double time=0);
 };
 

@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 75;
+const int NUM_TEXTURES = 76;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 5;
@@ -26,7 +26,7 @@ typedef struct {
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
 enum TextureId {
-	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, 
+	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
@@ -64,6 +64,7 @@ private:
 		{"HookHead.png", 1 ,2},
 		{"Particles\\Blood.png", 3, 3},
 		{ "Particles\\GunnerBulletExplosion.png", 2, 7 },
+		{ "Particles\\StunParticle.png", 1, 7 },
 
 		//HUD
 		{"Interfaz\\Barra.png", 1, 1},

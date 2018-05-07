@@ -2,7 +2,7 @@
 #include "GameObject.h"
 //################## ATRIBUTOS COMUNES ####################
 struct CommonAttributes {
-	float life; float defense;
+	float life;
 	float maxHP;
 	float speed;
 	float meleeDmg; float rangedDmg;
@@ -14,7 +14,6 @@ class MasterBoss:public GameObject
 public:
 	MasterBoss(int type);
 	~MasterBoss();
-	float getDefense() { return Attributes.defense; };
 	float getLife() { return Attributes.life; }
 	float getMaxHP() { return Attributes.maxHP; };
 	int getDamage() { return Attributes.meleeDmg; };

@@ -76,7 +76,6 @@ void BomberShotComponent::shoot() {
 	EnemyBomber* eb = static_cast<EnemyBomber*>(gameObject);
 	if (lastShotTime->TimeSinceTimerCreation > shotDelay && 
 		(abs(targetT->position.getX() - bomberT->position.getX()) + abs(targetT->position.getY() - bomberT->position.getY())) <= distance) {
-		if (eb->enemyState == EnemyState::Idle) {
 			lastShotTime->restart();
 			
 			
@@ -85,7 +84,7 @@ void BomberShotComponent::shoot() {
 
 			shotAnimationTime->restart();
 			eb->enemyState = EnemyState::Shoot;
-		}		
+			
 	}
 
 }

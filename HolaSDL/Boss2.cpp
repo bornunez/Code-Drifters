@@ -11,7 +11,6 @@
 #include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
 #include "DamageableBossComponent.h"
-#include "BasicInvincibleComponent.h"
 
 using namespace std;
 Boss2::Boss2(Transform t) : MasterBoss(2)
@@ -40,12 +39,11 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 	addComponent(updat);
 	rend = new RenderBoss2(this);
 	addComponent(rend);
-	addComponent(new DamageableBossComponent(this, prota));
+	addComponent(new DamageableBossComponent(this, prota,0.2));
 
 
 	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	//addComponent(skel);
-	addComponent(new BasicInvincibleComponent(this, 0.2));
 
 }
 Boss2::~Boss2()

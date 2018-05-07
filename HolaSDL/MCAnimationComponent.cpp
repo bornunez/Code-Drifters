@@ -128,7 +128,6 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		gameObject->changeCurrentAnimation("IDLE_BOT");
 		break;
 	case HOOK_WALL:
-		//mc->setMCState(MCState::Dash);
 		handleAnimationDash();
 		break;
 	case HOOK_ENEMY:

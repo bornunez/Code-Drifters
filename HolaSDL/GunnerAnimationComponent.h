@@ -12,6 +12,7 @@ public:
 	void receiveMessage(Message* msg);
 	void handleAnimations();
 	void hurtAnimations();
+	void stunAnimations();
 	void deathAnimations();
 private:
 	std::map<const char*, Animation*> animations;

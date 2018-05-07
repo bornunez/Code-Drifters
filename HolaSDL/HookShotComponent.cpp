@@ -106,6 +106,7 @@ void HookShotComponent::update()
 			else {
 				Message msg(HOOK_STOP);
 				mc->sendMessage(&msg);
+				mc->setMCState(MCState::Idle);
 			}
 		}
 	}
@@ -244,7 +245,8 @@ void HookShotComponent::stop()
 {
 	hook->setHookStatus(HookStatus::STOP);
 	hook->setActive(false);
-	
+	mc->setMCState(MCState::Idle);
+	mc->setMovable(true);
 }
 
 

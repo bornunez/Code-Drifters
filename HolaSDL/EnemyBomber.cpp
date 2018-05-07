@@ -13,7 +13,6 @@
 #include "AnimationParser.h"
 #include "BasicMovement.h"
 #include "BoxRenderer.h"
-#include "BasicInvincibleComponent.h"
 #include "DamageableEnemyComponent.h"
 #include "BomberComponent.h"
 #include "BomberAnimationComponent.h"
@@ -33,9 +32,8 @@ EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new BomberAnimationComponent(this, getMC(), animations, .2));
 	this->addComponent(new BomberComponent(this, getMC(), 200));
 	addComponent(new KnockbackComponent(this, 1000));
-	addComponent(new BasicInvincibleComponent(this, .2));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
-	addComponent(new DamageableEnemyComponent(this, getMC()));
+	addComponent(new DamageableEnemyComponent(this, getMC(), .2));
 }
 
 

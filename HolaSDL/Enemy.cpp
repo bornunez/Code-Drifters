@@ -95,6 +95,7 @@ void Enemy::death()
 
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
+	mainCharacter->sendMessage(&msg);
 	cout << "me he morido";
 }
 

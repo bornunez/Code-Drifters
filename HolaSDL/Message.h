@@ -49,6 +49,8 @@ enum MessageId {
 	//GameObjects
 	HURT,
 	ENEMY_DEATH,
+	GUN_STUN,
+	STUN_OFF,
 
 	//Gunner Shot
 	SHOT_LEFT,
@@ -123,6 +125,10 @@ struct KnockbackMessage : Message {
 
 struct MCAttackDamage : Message {
 	MCAttackDamage(float dmg) : Message(MC_ATTACK_DAMAGE), damage(dmg) {}
+	float damage;
+};
+struct MCUltimateDamage : Message {
+	MCUltimateDamage(float dmg) : Message(ULTIMATE), damage(dmg) {}
 	float damage;
 };
 struct MCBulletStun : Message {
