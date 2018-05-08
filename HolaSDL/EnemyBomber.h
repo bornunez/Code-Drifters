@@ -9,5 +9,7 @@ public:
 	EnemyBomber(MainCharacter* mc);
 	~EnemyBomber();
 	void loadAnimations();
+	void spawn(int x, int y, Spawner* spawner = nullptr);
+
 };
 

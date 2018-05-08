@@ -6,8 +6,9 @@
 #include "MainCharacter.h"
 #include "EnemyGunner.h"
 #include "Random.h"
-GunnerAnimationComponent::GunnerAnimationComponent(GameObject* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
+GunnerAnimationComponent::GunnerAnimationComponent(Enemy* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
+	eg = o;
 	animations = anim;
 	this->target = target;
 	gameObject->changeCurrentAnimation("IDLE_BOT");
@@ -29,6 +30,9 @@ void GunnerAnimationComponent::render()
 void GunnerAnimationComponent::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
+	case ENEMY_SPAWN:
+		hurtTimer->restart();
+		break;
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUN_LEFT");
 		break;
@@ -113,7 +117,6 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 void GunnerAnimationComponent::handleAnimations()
 {
 	if (!gameObject->isDead()) {
-		EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 		if (!eg->isStunned()) {
 			if (eg->enemyState == EnemyState::Hurt) {//Timer relacionado con la animación de recibir daño
 				hurtTimer->update();
@@ -227,7 +230,6 @@ void GunnerAnimationComponent::handleAnimations()
 
 void GunnerAnimationComponent::hurtAnimations()
 {
-	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	int rnd = Random::randomInt(0, 1);
 	hurtTimer->restart();
 	eg->enemyState = EnemyState::Hurt;
@@ -248,7 +250,6 @@ void GunnerAnimationComponent::hurtAnimations()
 
 void GunnerAnimationComponent::stunAnimations()
 {
-	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	int rnd = Random::randomInt(0, 1);
 	if (gameObject->getTransform()->direction.getX() == 1) {
 		if (rnd == 1) {

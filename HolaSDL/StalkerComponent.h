@@ -1,18 +1,17 @@
 #pragma once
 #include "ChaseComponent.h"
 #include "ChargeComponent.h"
-class EnemyStalker;
 
 class StalkerComponent : public ChaseComponent, public ChargeComponent
 {
 private:
 	Timer* timer;
-	EnemyStalker* es;
+	Enemy* es;
 	float chargeDelay, attackDelay, attackTime;
 	GameObject* target;
 
 public:
-	StalkerComponent(GameObject* o, GameObject* target, float cDelay, float aDelay, float aTime, float velMultiplier);
+	StalkerComponent(Enemy* e, GameObject* target, float cDelay, float aDelay, float aTime, float velMultiplier);
 	virtual ~StalkerComponent();
 	void update();
 	void receiveMessage(Message* msg);

@@ -9,5 +9,7 @@ public:
 	EnemyCharger(MainCharacter* mc);
 	~EnemyCharger();
 	void loadAnimations();
+	void spawn(int x, int y, Spawner* spawner = nullptr);
+
 };
 

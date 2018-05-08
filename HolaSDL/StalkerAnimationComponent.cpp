@@ -31,6 +31,10 @@ void StalkerAnimationComponent::render()
 void StalkerAnimationComponent::receiveMessage(Message* msg)
 {
 	switch (msg->id) {
+		case ENEMY_SPAWN:
+			hurtTimer->restart();
+			chargeTimer->restart();
+			break;
 		case STALKER_RUN:
 			gameObject->changeCurrentAnimation("RUN");
 			gameObject->getCurrentAnimation()->startAnimation();

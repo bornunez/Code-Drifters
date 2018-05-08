@@ -106,3 +106,11 @@ void EnemyCharger::loadAnimations()
 
 }
 
+void EnemyCharger::spawn(int x, int y, Spawner * spawner)
+{
+	Enemy::spawn(x, y, spawner);
+	enemyState = EnemyState::Run;
+	Message msg(RUN_LEFT);
+	sendMessage(&msg);
+}
+
