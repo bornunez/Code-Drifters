@@ -59,6 +59,7 @@
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateMachine.cpp" />
     <ClCompile Include="EnemyGunner.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="Font.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOverState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateMachine.h" />
     <ClInclude Include="EnemyGunner.h" />

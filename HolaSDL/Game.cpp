@@ -17,6 +17,7 @@
 #include "Time.h"
 #include "LevelManager.h"
 #include "DialogsState.h"
+#include "GameOverState.h"
 
 Game* Game::game = nullptr;
 Game::Game()
@@ -71,7 +72,7 @@ void Game::run()
 		
 		//playState->loadState();
 		//stateMachine->pushState(playState);
-		MainMenuState* mm = new MainMenuState();
+		GameOverState* mm = new GameOverState();
 		stateMachine->pushState(mm);
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();

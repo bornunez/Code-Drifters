@@ -397,6 +397,9 @@
     <ClCompile Include="MCUltimateInput.cpp">
       <Filter>Prota\Source</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -774,6 +777,9 @@
     </ClInclude>
     <ClInclude Include="ChargerDamageableEnemyComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>Estados\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

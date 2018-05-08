@@ -54,7 +54,7 @@ void MainMenuState::handleEvent(SDL_Event & e)
 			else 
 			{
 				selectedOp--;
-				if (selectedOp < 0) 
+				if (selectedOp < 1) 
 				{
 					selectedOp = 4;
 				}
@@ -79,7 +79,7 @@ void MainMenuState::handleEvent(SDL_Event & e)
 			changeColors();
 
 		}
-		else if (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_INSERT)
+		else if (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_RETURN)
 		{
 			switch (selectedOp)
 			{
@@ -208,28 +208,28 @@ void MainMenuState::changeColors()
 {
 	if (selectedOp == 1)
 	{
-		op1Tex->loadFromText("NEW GAME", *font2, pink);
+		op1Tex->loadFromText("NEW GAME", *font2, blue);
 		op2Tex->loadFromText("TUTORIAL", *font2, white);
 		op3Tex->loadFromText("CREDITS", *font2, white);
 		op4Tex->loadFromText("EXIT", *font2, white);
 	}
 	else if (selectedOp == 2)
 	{
-		op2Tex->loadFromText("TUTORIAL", *font2, pink);
+		op2Tex->loadFromText("TUTORIAL", *font2, blue);
 		op1Tex->loadFromText("NEW GAME", *font2, white);
 		op3Tex->loadFromText("CREDITS", *font2, white);
 		op4Tex->loadFromText("EXIT", *font2, white);
 	}
 	else if (selectedOp == 3)
 	{
-		op3Tex->loadFromText("CREDITS", *font2, pink);
+		op3Tex->loadFromText("CREDITS", *font2, blue);
 		op2Tex->loadFromText("TUTORIAL", *font2, white);
 		op1Tex->loadFromText("NEW GAME", *font2, white);
 		op4Tex->loadFromText("EXIT", *font2, white);
 	}
 	else if (selectedOp == 4)
 	{
-		op4Tex->loadFromText("EXIT", *font2, pink);
+		op4Tex->loadFromText("EXIT", *font2, blue);
 		op2Tex->loadFromText("TUTORIAL", *font2, white);
 		op3Tex->loadFromText("CREDITS", *font2, white);
 		op1Tex->loadFromText("NEW GAME", *font2, white);
