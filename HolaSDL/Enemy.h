@@ -24,7 +24,7 @@ class Enemy : public GameObject
 protected:
 	EnemyHUDComponent * hud;
 	CommonBossAttributes Attributes;
-	GameObject* mainCharacter;
+	MainCharacter* mainCharacter;
 
 	//Necesario para el ciclo de salas
 	Spawner* spawner = nullptr;
@@ -49,9 +49,8 @@ public:
 	virtual void update();
 	void onDestroy();
 	void death();
-	GameObject* getMC();
+	MainCharacter* getMC();
 	EnemyType getType() { return type; }
-	void knockBack();
 	float getLife() { return Attributes.life; }
 	float getMaxLife() { return Attributes.maxLife; }
 	void setLife(int life) { Attributes.life = life; };

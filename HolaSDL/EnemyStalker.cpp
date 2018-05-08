@@ -74,3 +74,12 @@ void EnemyStalker::loadAnimations()
 	animations.emplace("CHARGE", charge);
 }
 
+void EnemyStalker::spawn(int x, int y, Spawner * spawner)
+{
+	Enemy::spawn(x, y, spawner);
+	enemyState = EnemyState::Run;
+	Message msg(STALKER_RUN);
+	sendMessage(&msg);
+}
+
+

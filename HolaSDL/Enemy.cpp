@@ -44,7 +44,10 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	Attributes.minDrop = params.minDrop; Attributes.maxDrop = params.maxDrop;
 	this->spawner = spawner;
 	Attributes.stunned = false;
+	setMovable(true);
 	setDeath(false);
+	Message msg(ENEMY_SPAWN);
+	sendMessage(&msg);
 }
 
 void Enemy::render() {
@@ -57,15 +60,11 @@ void Enemy::update()
 	//hud->update();
 }
 
-GameObject* Enemy::getMC() {
+MainCharacter* Enemy::getMC() {
 	return mainCharacter;
 }
 
-void Enemy::knockBack()
-{
-	MainCharacter* mc = static_cast<MainCharacter*>(mainCharacter);
 
-}
 
 
 
