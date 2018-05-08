@@ -41,7 +41,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	transform.speed = params.speed;
 	baseSpeed = params.speed;
 	Attributes.meleeDmg = params.meleDmg; Attributes.rangedDmg = params.rangedDmg ;
-	Attributes.minDrop = params.minDrop; Attributes.maxDrop = params.maxDrop;
+	Attributes.minDrop = params.minDrop; Attributes.maxDrop = params.maxDrop; Attributes.healDrop = params.healDrop;
 	this->spawner = spawner;
 	Attributes.stunned = false;
 	setMovable(true);
@@ -86,7 +86,10 @@ void Enemy::death()
 {
 	setMovable(false);
 	setDeath(true);
-	ItemManager::getInstance()->AddItem(Enemies,centerPosition);
+
+	if (Random::randomInt(0, 100) < Attributes.healDrop) {
+		ItemManager::getInstance()->AddItem(Enemies, centerPosition);
+	}
 
 	int maxCoins = Attributes.maxDrop; int minCoins = Attributes.minDrop;
 	int drop = rand() % (maxCoins - minCoins + 1) + minCoins;
