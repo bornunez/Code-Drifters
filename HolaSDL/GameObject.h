@@ -66,7 +66,7 @@ public:
 	Vector2D getOverlapPrevPos() { return overlapPrevPos; }
 	void updatePreviousPosition() {
 		prevPosition = transform.position;
-		overlapPrevPos.set(transform.overlapBody.x, transform.overlapBody.y);
+		overlapPrevPos.set(transform.overlapCollision.overlapBody.x, transform.overlapCollision.overlapBody.y);
 	}
 
 	Texture* getTexture() { return texture; }

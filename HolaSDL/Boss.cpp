@@ -30,10 +30,10 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 	transform.body.h = h;
 	setSpriteOffset(0, 0 * Game::getGame()->getScale());
 
-	transform.overlapBody.w = w /1;
-	transform.overlapBody.h = h / 1;
-	transform.overlapOffset.setX(0);
-	transform.overlapOffset.setY(0);
+	transform.overlapCollision.overlapBody.w = w /1;
+	transform.overlapCollision.overlapBody.h = h / 1;
+	transform.overlapCollision.overlapOffset.setX(0);
+	transform.overlapCollision.overlapOffset.setY(0);
 
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());

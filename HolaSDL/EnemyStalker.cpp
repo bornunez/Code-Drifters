@@ -28,11 +28,11 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 
 	setSpriteOffset(1 * Game::getGame()->getScale(), 0 * Game::getGame()->getScale());
 
-	transform.overlapBody.w = 96 / 3;
-	transform.overlapBody.h = 96 / 1.3;
+	transform.overlapCollision.overlapBody.w = 96 / 3;
+	transform.overlapCollision.overlapBody.h = 96 / 1.3;
 
-	transform.overlapOffset.setX(0);
-	transform.overlapOffset.setY(0);
+	transform.overlapCollision.overlapOffset.setX(0);
+	transform.overlapCollision.overlapOffset.setY(0);
 
 
 	loadAnimations();

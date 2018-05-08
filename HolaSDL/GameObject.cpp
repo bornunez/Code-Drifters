@@ -105,8 +105,8 @@ void GameObject::updateBody() {
 
 void GameObject::updateOverlapBody()
 {
-	transform.overlapBody.x = transform.body.x + transform.overlapOffset.getX()*Game::getGame()->getScale();
-	transform.overlapBody.y = transform.body.y + transform.overlapOffset.getY()*Game::getGame()->getScale();
+	transform.overlapCollision.overlapBody.x = transform.body.x + transform.overlapCollision.overlapOffset.getX()*Game::getGame()->getScale();
+	transform.overlapCollision.overlapBody.y = transform.body.y + transform.overlapCollision.overlapOffset.getY()*Game::getGame()->getScale();
 }
 
 Animation * GameObject::getCurrentAnimation()
