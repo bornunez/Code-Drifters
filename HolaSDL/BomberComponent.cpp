@@ -4,6 +4,7 @@
 #include <cmath>
 #include "MainCharacter.h"
 #include "Enemy.h"
+#include "Time.h"
 
 BomberComponent::BomberComponent(Enemy* e, GameObject* target, float dist) : UpdateComponent(e)
 {
@@ -37,7 +38,7 @@ void BomberComponent::update() {
 				if (eb->enemyState == EnemyState::Run) {
 					//Circular Movement
 					//Auxpos marca punto en trayectoria circular alrededor del target, bomber asume esa position como target y lo persigue
-					angle += angleVel;
+					angle += Time::getInstance()->DeltaTime*.7;
 					auxPos.set(targetT->position.getX() - 25 + cos(angle)*(distancia - 50), targetT->position.getY() - 25 + sin(angle)*(distancia - 50));
 					auxVel.set(auxPos - bomberT->position);
 					auxVel.normalize();
