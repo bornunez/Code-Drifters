@@ -484,7 +484,7 @@ void CollisionsManager::bossCollisions()
 								if (CollisionHandler::RectCollide(wheelsHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 									hit = true;
 									//Mandar mensaje de collision stalker / player
-									Message msg(WHEEL_HIT);
+									WheelHit msg(wheels[0]->GetDamage());
 									mc->sendMessage(&msg);
 									Vector2D empuje = mc->getCenterPos() - wheels[i]->getCenterPos();
 									empuje.normalize();
