@@ -26,11 +26,11 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	transform.body.h = 96 / 2.5;
 	setSpriteOffset(0, -8 * Game::getGame()->getScale());
 
-	transform.overlapBody.w = 96 / 5;
-	transform.overlapBody.h = 96 / 1.2;
+	transform.overlapCollision.overlapBody.w = 96 / 5;
+	transform.overlapCollision.overlapBody.h = 96 / 1.2;
 
-	transform.overlapOffset.setX(4);
-	transform.overlapOffset.setY(-14);
+	transform.overlapCollision.overlapOffset.setX(4);
+	transform.overlapCollision.overlapOffset.setY(-14);
 	loadAnimations();
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));

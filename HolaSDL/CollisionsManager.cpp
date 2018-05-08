@@ -233,7 +233,7 @@ void CollisionsManager::playerCollisions()
 			}
 		}
 	}
-
+	overlapCollisions(mc);
 	layerCollisions(mc);
 
 }
@@ -243,8 +243,10 @@ void CollisionsManager::enemyCollisions()
 	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 	for (Enemy* e : enemies) {
 		if (e->isActive()) {
-			if(!e->isDead())
+			if (!e->isDead()) {
+				overlapCollisions(e);
 				layerCollisions(e);
+			}
 		}
 	}
 }
@@ -312,7 +314,6 @@ void CollisionsManager::layerCollisions(GameObject* o) {
 
 	vector<SDL_Rect> rects = { bodyX, bodyY };
 	vector<bool> collisions = { false,false };
-	vector<bool> oCollisions = { false,false };
 	//Colisionamos
 	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 	bool collisionX = false;
@@ -326,13 +327,12 @@ void CollisionsManager::layerCollisions(GameObject* o) {
 			collisionY = collisions[1] || collisionY;
 		}
 	}
-	oCollisions = overlapCollisions(o);
-	if (collisionX || collisionY || oCollisions[0] || oCollisions[1]) {
+	if (collisionX || collisionY) {
 		//Si hay colision, cogemos la antigua posicion
-		if (collisionX || oCollisions[0]) {
+		if (collisionX) {
 			t->position.setX(prevPosition.getX());
 		}
-		if (collisionY || oCollisions[1]){
+		if (collisionY){
 			t->position.setY(prevPosition.getY());
 		}
 		//Finalmente lo notificamos
@@ -377,32 +377,25 @@ void CollisionsManager::enemyAttackCollision() {
 	}
 }
 
-vector<bool> CollisionsManager::overlapCollisions(GameObject* o)
+bool CollisionsManager::overlapCollisions(GameObject* o)
 {
-
 	Transform* t = o->getTransform();
-	Vector2D prevPosition = o->getOverlapPrevPos();
-	SDL_Rect bodyX, bodyY;
-	bodyX = bodyY = t->overlapBody;
-
-	bodyX.y = prevPosition.getY();
-	bodyY.x = prevPosition.getX();
-
-	vector<SDL_Rect> rects = { bodyX, bodyY };
-	vector<bool> auxCollisions = { false,false };
-	vector<bool> collisions = { false,false };
-	//Colisionamos
-	bool collisionX = false;
-	bool collisionY = false;
+	SDL_Rect overlapBody = t->overlapCollision.overlapBody;
 	GameObject* mc = PlayState::getInstance()->getMainCharacter();
-	
+	bool auxCollision = false;
+	bool collision = false;
+
 
 	if (mc != o) {
-		auxCollisions = CollisionHandler::Collide(rects, mc->getTransform()->overlapBody);
-		collisionX = auxCollisions[0] || collisionX;
-		collisionY = auxCollisions[1] || collisionY;
-		if (collisionX)	collisions[0] = true;
-		if (collisionY)	collisions[1] = true;
+		if (mc->getTransform()->overlapCollision.active) {
+			auxCollision = CollisionHandler::RectCollide(overlapBody, mc->getTransform()->overlapCollision.overlapBody);
+			if (auxCollision) {
+				collision = true;
+				Vector2D empuje = o->getCenterPos() - mc->getCenterPos();
+				empuje.normalize();
+				t->position.set(t->position + empuje * 500 * Time::getInstance()->DeltaTime);
+			}
+		}
 	}
 
 	list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
@@ -410,11 +403,15 @@ vector<bool> CollisionsManager::overlapCollisions(GameObject* o)
 	for (GameObject* e : enemies) {
 		if (e != o) {
 			if (!e->isDead()) {
-				auxCollisions = CollisionHandler::Collide(rects, e->getTransform()->overlapBody);
-				collisionX = auxCollisions[0] || collisionX;
-				collisionY = auxCollisions[1] || collisionY;
-				if (collisionX)	collisions[0] = true;
-				if (collisionY)	collisions[1] = true;
+				if (e->getTransform()->overlapCollision.active) {
+					auxCollision = CollisionHandler::RectCollide(overlapBody, e->getTransform()->overlapCollision.overlapBody);
+					if (auxCollision) {
+						collision = true;
+						Vector2D empuje = o->getCenterPos() - e->getCenterPos();
+						empuje.normalize();
+						t->position.set(t->position + empuje * 500 * Time::getInstance()->DeltaTime);
+					}
+				}
 			}
 		}
 	}
@@ -423,15 +420,19 @@ vector<bool> CollisionsManager::overlapCollisions(GameObject* o)
 	if (boss != nullptr) {
 		if (boss != o) {
 			if (!boss->isDead()) {
-				auxCollisions = CollisionHandler::Collide(rects, boss->getTransform()->overlapBody);
-				collisionX = auxCollisions[0] || collisionX;
-				collisionY = auxCollisions[1] || collisionY;
-				if (collisionX)	collisions[0] = true;
-				if (collisionY)	collisions[1] = true;
+				if (boss->getTransform()->overlapCollision.active) {
+					auxCollision = CollisionHandler::RectCollide(overlapBody, boss->getTransform()->overlapCollision.overlapBody);
+					if (auxCollision) {
+						collision = true;
+						Vector2D empuje = o->getCenterPos() - boss->getCenterPos();
+						empuje.normalize();
+						t->position.set(t->position + empuje * 500 * Time::getInstance()->DeltaTime);
+					}
+				}
 			}
 		}
 	}
-	return collisions;
+	return collision;
 }
 
 void CollisionsManager::bossCollisions()
