@@ -6,7 +6,7 @@
 class GunnerAnimationComponent : public RenderComponent
 {
 public:
-	GunnerAnimationComponent(GameObject* o, GameObject* target, std::map<const char*, Animation*> anim);
+	GunnerAnimationComponent(Enemy* o, GameObject* target, std::map<const char*, Animation*> anim);
 	virtual ~GunnerAnimationComponent();
 	void render();
 	void receiveMessage(Message* msg);
@@ -17,5 +17,6 @@ public:
 private:
 	std::map<const char*, Animation*> animations;
 	GameObject* target;
+	Enemy* eg;
 	Timer* hurtTimer;
 };

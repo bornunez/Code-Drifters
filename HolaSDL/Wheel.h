@@ -28,6 +28,8 @@ public:
 	virtual void changeColor(int r, int g, int b);
 	void setInvisible(bool inv);
 
+    float GetDamage() { return Attributes.meleeDmg; };
+
 private:
 
 	RenderWheel* rend;

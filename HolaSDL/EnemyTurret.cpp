@@ -21,11 +21,11 @@ EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 	transform.body.h = 96 / 2;
 	setSpriteOffset(0, 0 * Game::getGame()->getScale());
 
-	transform.overlapBody.w = 96 / 2.1;
-	transform.overlapBody.h = 96 / 1.5;
+	transform.overlapCollision.overlapBody.w = 96 / 2.1;
+	transform.overlapCollision.overlapBody.h = 96 / 1.5;
 
-	transform.overlapOffset.setX(0);
-	transform.overlapOffset.setY(0);
+	transform.overlapCollision.overlapOffset.setX(0);
+	transform.overlapCollision.overlapOffset.setY(0);
 	loadAnimations();
 
 	this->addComponent(new TurretShotComponent(this, getMC(), 500, 1));

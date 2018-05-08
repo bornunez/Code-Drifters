@@ -111,7 +111,7 @@ void UpdateWheel::fase2()
 	else if (dir == 8) direccion = Vector2D(-1, 0);
 
 	float auxVel = vel;
-	if (dir == 5 && (wheel->getCenterPos().getY() >= boss->getCenterPos().getY() + posInic))
+	if (dir == 5 && (wheel->getCenterPos().getY() >= boss->getCenterPos().getY() + posInic-40))
 	{
 		dir = 6;
 		//auxVel = abs(wheel->getCenterPos().getX() - boss->getCenterPos().getX()) * 2/((1/vel)*100);
@@ -121,7 +121,7 @@ void UpdateWheel::fase2()
 		dir = 7;
 		//auxVel = abs(wheel->getCenterPos().getY() - boss->getCenterPos().getY()) * 2 / ((1 / vel) * 100);
 	}
-	if (dir == 7 && (wheel->getCenterPos().getY() <= boss->getCenterPos().getY() - posInic))
+	if (dir == 7 && (wheel->getCenterPos().getY() <= boss->getCenterPos().getY() - posInic-40))
 	{
 		dir = 8;
 		//auxVel = abs(wheel->getCenterPos().getX() - boss->getCenterPos().getX()) * 2 / ((1 / vel) * 100);
@@ -132,7 +132,7 @@ void UpdateWheel::fase2()
 		//auxVel = abs(wheel->getCenterPos().getY() - boss->getCenterPos().getY()) * 2 / ((1 / vel) * 100);
 	}
 
-	wheel->getTransform()->position = wheel->getTransform()->position + direccion*vel;
+	wheel->getTransform()->position = wheel->getTransform()->position + direccion*vel* Time::getInstance()->DeltaTime*45;
 }
 void UpdateWheel::fase3()
 {

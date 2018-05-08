@@ -31,6 +31,16 @@ BomberShotComponent::~BomberShotComponent()
 {
 }
 
+void BomberShotComponent::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case ENEMY_SPAWN:
+		lastShotTime->restart();
+		shotAnimationTime->restart();
+		break;
+	}
+}
+
 	
 void BomberShotComponent::handleAnimation()
 {
@@ -47,10 +57,13 @@ void BomberShotComponent::handleAnimation()
 			if (angle > 90 && angle < 270) {
 				Message msg(SHOT_LEFT);
 				gameObject->sendMessage(&msg);
+				bombPosition.set(100, 0);
 			}
 			else {
 				Message msg(SHOT_RIGHT);
 				gameObject->sendMessage(&msg);
+				bombPosition.set(0, 0);
+
 			}
 		}
 	}
@@ -58,7 +71,7 @@ void BomberShotComponent::handleAnimation()
 		shotAnimationTime->update();
 
 		if (shotAnimationTime->TimeSinceTimerCreation > 1) {
-			EnemyManager::getInstance()->spawn(gameObject->getCenterPos().getX(), gameObject->getCenterPos().getY(), Bomb);
+			EnemyManager::getInstance()->spawn(gameObject->getCenterPos().getX() - bombPosition.getX(), gameObject->getCenterPos().getY() - bombPosition.getY(), Bomb);
 			eb->enemyState = EnemyState::Run;
 
 		}

@@ -55,11 +55,10 @@ void SkeletonRendered::render() {
 	SDL_RenderDrawLine(renderer, x, y, dir.getX() + x, dir.getY() + y);
 
 	//PINTA EL OVERLAPBODY
-
-	lu = { -t->overlapBody.w / 2.0, -t->overlapBody.h / 2.0 };
-	ru = { t->overlapBody.w / 2.0, -t->overlapBody.h / 2.0};
-	rb = { t->overlapBody.w / 2.0, t->overlapBody.h / 2.0};
-	lb = { -t->overlapBody.w / 2.0, t->overlapBody.h / 2.0 };
+	lu = { -t->overlapCollision.overlapBody.w / 2.0, -t->overlapCollision.overlapBody.h / 2.0 };
+	ru = { t->overlapCollision.overlapBody.w / 2.0, -t->overlapCollision.overlapBody.h / 2.0};
+	rb = { t->overlapCollision.overlapBody.w / 2.0, t->overlapCollision.overlapBody.h / 2.0};
+	lb = { -t->overlapCollision.overlapBody.w / 2.0, t->overlapCollision.overlapBody.h / 2.0 };
 
 	//// rotate the corners
 	//lu.rotate(angle);
@@ -68,8 +67,8 @@ void SkeletonRendered::render() {
 	//lb.rotate(angle);
 
 	// the center of the object
-	x = t->overlapBody.x + t->overlapBody.w / 2 - camera->getTransform()->position.getX();
-	y = t->overlapBody.y + t->overlapBody.h / 2 - camera->getTransform()->position.getY();
+	x = t->overlapCollision.overlapBody.x + t->overlapCollision.overlapBody.w / 2 - camera->getTransform()->position.getX();
+	y = t->overlapCollision.overlapBody.y + t->overlapCollision.overlapBody.h / 2 - camera->getTransform()->position.getY();
 
 	// draw lines between the corners, after shifting them by (x,y)
 	SDL_SetRenderDrawColor(renderer, 0, 0, 255, color_.a);

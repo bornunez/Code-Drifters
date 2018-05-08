@@ -51,6 +51,7 @@ enum MessageId {
 	ENEMY_DEATH,
 	GUN_STUN,
 	STUN_OFF,
+	ENEMY_SPAWN,
 
 	//Gunner Shot
 	SHOT_LEFT,
@@ -144,6 +145,11 @@ struct HookEnemyMessage : Message {
 struct BossAttack : Message
 {
 	BossAttack(float dmg) : Message(BOSS1_ATTACK), damage(dmg) {}
+	int damage;
+};
+struct WheelHit : Message
+{
+	WheelHit(float dmg) : Message(WHEEL_HIT), damage(dmg) {}
 	int damage;
 };
 #endif /* MESSAGE_H_ */

@@ -24,13 +24,14 @@ BombComponent::~BombComponent()
 {
 }
 
-
-void BombComponent::handleAnimation()
+void BombComponent::receiveMessage(Message * msg)
 {
-	
+	switch(msg->id) {
+		case ENEMY_SPAWN:
+			bombTimer->restart();
+		
+	}
 }
-
-
 
 
 void BombComponent::explode() {
@@ -60,6 +61,5 @@ void BombComponent::update() {
 	if (!gameObject->isDead()) {
 		bombTimer->update();
 		explode();
-		handleAnimation();
 	}
 }

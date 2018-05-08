@@ -13,7 +13,7 @@ private:
 	void enemyCollisions();
 	void hookCollisions();
 	void enemyAttackCollision();
-	vector<bool> overlapCollisions(GameObject* o);
+	bool overlapCollisions(GameObject* o);
 	void bossCollisions();
 	void coinCollision();
 public:

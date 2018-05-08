@@ -28,11 +28,11 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 
 	setSpriteOffset(2 * Game::getGame()->getScale(), 0 * Game::getGame()->getScale());
 
-	transform.overlapBody.w = 96 / 2;
-	transform.overlapBody.h = 96 / 1.3;
+	transform.overlapCollision.overlapBody.w = 96 / 2;
+	transform.overlapCollision.overlapBody.h = 96 / 1.3;
 
-	transform.overlapOffset.setX(0);
-	transform.overlapOffset.setY(0);
+	transform.overlapCollision.overlapOffset.setX(0);
+	transform.overlapCollision.overlapOffset.setY(0);
 
 
 	loadAnimations();
@@ -104,5 +104,13 @@ void EnemyCharger::loadAnimations()
 	animations.emplace("STUNLEFT", stunLeft);
 
 
+}
+
+void EnemyCharger::spawn(int x, int y, Spawner * spawner)
+{
+	Enemy::spawn(x, y, spawner);
+	enemyState = EnemyState::Run;
+	Message msg(RUN_LEFT);
+	sendMessage(&msg);
 }
 

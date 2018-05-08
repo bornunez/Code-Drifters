@@ -39,10 +39,10 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	transform.body.h = h/2.5;
 	setSpriteOffset(0, -10 * Game::getGame()->getScale());
 
-	transform.overlapBody.w = w / 3;
-	transform.overlapBody.h = h / 1.5;
-	transform.overlapOffset.setX(2);
-	transform.overlapOffset.setY(-12);
+	transform.overlapCollision.overlapBody.w = w / 3;
+	transform.overlapCollision.overlapBody.h = h / 1.5;
+	transform.overlapCollision.overlapOffset.setX(2);
+	transform.overlapCollision.overlapOffset.setY(-12);
 
 	loadAnimations();
 
@@ -52,7 +52,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCManagerComponent(this));
 	setCollisionsLayers({ "Paredes","Aire" });
 	addComponent(new MCGunPosition(this));
-	addComponent(new BasicMovement(this));
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
@@ -69,6 +68,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCChargedAttackComponent(this, 0.4));
 	addComponent(new MCUltimateInput(this));
 	addComponent(new MCUltimateCharge(this));
+	addComponent(new BasicMovement(this));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));
 
 	maxBullets = 3;

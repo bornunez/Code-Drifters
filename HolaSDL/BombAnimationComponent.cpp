@@ -16,6 +16,19 @@ BombAnimationComponent::~BombAnimationComponent()
 {
 }
 
+void BombAnimationComponent::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case ENEMY_DEATH:
+		gameObject->changeCurrentAnimation("DEATH");
+		gameObject->getCurrentAnimation()->startAnimation();
+		break;
+	case ENEMY_SPAWN:
+		gameObject->changeCurrentAnimation("BOMBLOOP");
+		gameObject->getCurrentAnimation()->startAnimation();
+	}
+}
+
 void BombAnimationComponent::render()
 {
 	gameObject->getCurrentAnimation()->runAnimation();

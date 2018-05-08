@@ -12,9 +12,10 @@
 #include "Camera.h"
 
 
-GunnerShotComponent::GunnerShotComponent(GameObject* o, GameObject* target, float dist, float delay) 
+GunnerShotComponent::GunnerShotComponent(Enemy* o, GameObject* target, float dist, float delay) 
 	: UpdateComponent(o)
 {
+	eg = o;
 	targetObject = target;
 	distance = dist;
 	shotDelay = delay;
@@ -27,10 +28,18 @@ GunnerShotComponent::~GunnerShotComponent()
 {
 }
 
+void GunnerShotComponent::receiveMessage(Message * msg)
+{
+	switch (msg->id) {
+	case ENEMY_SPAWN:;
+		lastShotTime->restart();
+		shotAnimationTime->restart();
+		break;
+	}
+}
 	
 void GunnerShotComponent::handleAnimation()
 {
-	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	float angle = (atan2(targetObject->getCenterPos().getY() - gunPosition.getY(), targetObject->getCenterPos().getX() - gunPosition.getX()));//Angulo entre el enemigo y el target, en grados
 	angle = angle * 180 / M_PI;
 
@@ -113,7 +122,6 @@ void GunnerShotComponent::handleAnimation()
 
 void GunnerShotComponent::updateGunPosition()
 {
-	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	Vector2D aux = eg->getCurrentAnimation()->getCurrentFrame()->getGunPosition();
 	gunPosition = aux;
 }
@@ -122,7 +130,6 @@ void GunnerShotComponent::updateGunPosition()
 void GunnerShotComponent::shoot() {
 	Transform* gunnerT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
-	EnemyGunner* eg = static_cast<EnemyGunner*>(gameObject);
 	if (lastShotTime->TimeSinceTimerCreation > shotDelay && 
 		(abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distance) {
 		if (eg->enemyState == EnemyState::Idle) {
@@ -159,7 +166,7 @@ void GunnerShotComponent::shoot() {
 
 void GunnerShotComponent::update() {
 	if (!gameObject->isDead()) {
-		if (!static_cast<Enemy*>(gameObject)->isStunned()){
+		if (!eg->isStunned()){
 			shoot();
 			lastShotTime->update();
 		}

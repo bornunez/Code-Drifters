@@ -27,6 +27,7 @@ Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h, float velocidad, i
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
+	Attributes.meleeDmg = 10;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("SALE");

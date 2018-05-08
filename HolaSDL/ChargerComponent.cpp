@@ -2,7 +2,7 @@
 #include "ChargerComponent.h"
 #include "EnemyCharger.h"
 
-ChargerComponent::ChargerComponent(GameObject* o, GameObject* target, float cDelay, float aDelay, float aTime, float velMultiplier) :
+ChargerComponent::ChargerComponent(Enemy* o, GameObject* target, float cDelay, float aDelay, float aTime, float velMultiplier) :
 			ChaseComponent(o, target), ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
 {
 
@@ -10,7 +10,7 @@ ChargerComponent::ChargerComponent(GameObject* o, GameObject* target, float cDel
 	attackDelay = aDelay;
 	attackTime = aTime;
 	targetObject = target;
-	ec = static_cast<EnemyCharger*>(o);
+	ec = o;
 	ec->enemyState = EnemyState::Run;
 	timer = new Timer();
 }
@@ -31,6 +31,8 @@ void ChargerComponent::receiveMessage(Message * msg)
 
 		}
 		break;
+	case ENEMY_SPAWN:
+		timer->restart();
 	}
 }
 

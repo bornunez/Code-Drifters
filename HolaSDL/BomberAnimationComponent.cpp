@@ -30,6 +30,10 @@ void BomberAnimationComponent::render()
 void BomberAnimationComponent::receiveMessage(Message* msg)
 {
 	switch (msg->id) {
+	case ENEMY_SPAWN:
+		hurtTimer->restart();
+		break;
+
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUNLEFT");
 		break;
