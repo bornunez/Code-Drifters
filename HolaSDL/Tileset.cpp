@@ -6,8 +6,14 @@ Tileset::Tileset(Texture* tileImg, XMLElement* root) : tilesetImg(tileImg)
 {
 	name = root->Attribute("name");
 	tileSize = atoi( root->Attribute("tilewidth"));
-	spacing = atoi(root->Attribute("spacing"));
-	margin = atoi(root->Attribute("margin"));
+	if (root->Attribute("spacing"))
+		spacing = atoi(root->Attribute("spacing"));
+	else
+		spacing = 0;
+	if(root->Attribute("margin"))
+		margin = atoi(root->Attribute("margin"));
+	else
+		margin = 0;
 	tileCount = atoi(root->Attribute("tilecount"));
 	cols = atoi(root->Attribute("columns"));
 	rows = tileCount / cols;

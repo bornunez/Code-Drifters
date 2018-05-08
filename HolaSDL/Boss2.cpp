@@ -49,7 +49,7 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 	rend = new RenderBoss2(this);
 	addComponent(rend);
 	addComponent(new DamageableBossComponent(this, prota,0.2));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 
 
 	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());

@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 76;
+const int NUM_TEXTURES = 78;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -44,6 +44,7 @@ enum TextureId {
 	ClosedUp, ClosedRight, ClosedDown, ClosedLeft,
 
 	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
+	BaseLifepack, HighLifepack,
 	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
 };
 
@@ -122,6 +123,9 @@ private:
 		{ "coin.png", 1, 4},
 		{ "coin_five.png", 1, 4 },
 		{ "coin_ten.png", 1, 4 },
+
+		{"life.png",1,4},
+		{"life_high.png",1,4 },
 
 		{ "Tree\\1.png", 1, 1 },
 		{ "Tree\\2.png", 1, 1 },
