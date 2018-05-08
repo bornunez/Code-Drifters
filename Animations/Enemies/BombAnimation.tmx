@@ -6,5 +6,9 @@
    eJxjZGBgYAJiZiBmYSAdAAACcAAL
   </data>
  </layer>
- <objectgroup name="BombLoop"/>
+ <layer name="Death" width="8" height="2">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFrAykAQABMAAG
+  </data>
+ </layer>
 </map>
