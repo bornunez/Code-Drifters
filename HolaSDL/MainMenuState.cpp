@@ -39,7 +39,7 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::handleEvent(SDL_Event & e)
 {
-	if (!flag && e.type == SDL_KEYDOWN) 
+	if (!flag && (e.type == SDL_KEYDOWN || e.type == SDL_MOUSEBUTTONDOWN))
 	{
 		flag = true;
 	}
@@ -78,6 +78,42 @@ void MainMenuState::handleEvent(SDL_Event & e)
 			}
 			changeColors();
 
+		}
+		else if (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_INSERT)
+		{
+			switch (selectedOp)
+			{
+			case 1:
+				playState(game);
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				exitGame(game);
+				break;
+			}
+		}
+	}
+	else if (flag && e.type == SDL_MOUSEBUTTONDOWN) 
+	{
+		SDL_GetMouseState(&mouse.x, &mouse.y);
+		if (SDL_PointInRect(&mouse, &op1Rect) || SDL_PointInRect(&mouse, &op2Rect) || SDL_PointInRect(&mouse, &op3Rect) || SDL_PointInRect(&mouse, &op4Rect)) 
+		{
+			switch (selectedOp)
+			{
+			case 1:
+				playState(game);
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				exitGame(game);
+				break;
+			}
 		}
 	}
 }
