@@ -4,7 +4,7 @@
 #include "Enemy.h"
 #include "Hook.h"
 
-StalkerComponent::StalkerComponent(Enemy * e, GameObject * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(e, target),
+StalkerComponent::StalkerComponent(Enemy * e, GameObject * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(e, target, 200),
 ChargeComponent(e, target, aDelay, aTime, velMultiplier), UpdateComponent(e)
 {
 	timer = new Timer();

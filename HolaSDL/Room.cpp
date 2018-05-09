@@ -30,7 +30,11 @@ void Room::load() {
 	string levelPath;
 	if (type == BossRoom) {
 		loadFile = "boss_";
-		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + to_string(0) + " Door\\";
+		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath()  + "0 Door\\";
+	}
+	else if (type == Shop) {
+		loadFile = "tienda_";
+		levelPath = ResourceManager::getInstance()->getLevelPath() + LevelManager::getInstance()->getActiveLevelPath() + "1 Door\\";
 	}
 	else {
 		loadFile = getPath();

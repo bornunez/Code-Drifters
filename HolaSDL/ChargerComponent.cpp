@@ -3,7 +3,7 @@
 #include "EnemyCharger.h"
 
 ChargerComponent::ChargerComponent(Enemy* o, GameObject* target, float cDelay, float aDelay, float aTime, float velMultiplier) :
-			ChaseComponent(o, target), ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
+			ChaseComponent(o, target, 75), ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
 {
 
 	chargeDelay = cDelay;

@@ -10,5 +10,6 @@ public:
 
 	~EnemyBomb();
 	void loadAnimations();
+
 };
 

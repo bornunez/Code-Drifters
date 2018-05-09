@@ -15,6 +15,7 @@ struct CommonBossAttributes {
 	float speed;
 	float meleeDmg; float rangedDmg;
 	int minDrop; int maxDrop; //Drop de dinero
+	int healDrop;
 	bool stunned = false;
 };
 //#########################################################

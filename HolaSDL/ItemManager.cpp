@@ -38,9 +38,9 @@ void ItemManager::AddItem(ItemPool pool, Vector2D position)
 		int max = 50;
 		int rando = Random::randomInt(25, 50);
 		if (rando >= ((max + min) / 2))
-			itemO = new LifeItemObject(ResourceManager::getInstance()->getTexture(MCBullet), rando);
+			itemO = new LifeItemObject(ResourceManager::getInstance()->getTexture(BaseLifepack), rando);
 		else
-			itemO = new LifeItemObject(ResourceManager::getInstance()->getTexture(GunnerBullet), rando);
+			itemO = new LifeItemObject(ResourceManager::getInstance()->getTexture(HighLifepack), rando);
 		break;
 	}
 	default:
