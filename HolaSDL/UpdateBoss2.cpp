@@ -158,6 +158,7 @@ void UpdateBoss2::fase0()
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->changeCurrentAnimation("STATIC_DOWN");
+		boss->getTransform()->overlapCollision.active = false;
 		boss->getCurrentAnimation()->startAnimation();
 		RondaWheels();
 		fasesPast = 1;
@@ -187,6 +188,8 @@ void UpdateBoss2::fase8()
 		boss->changeCurrentAnimation("ENTRA");
 		boss->getCurrentAnimation()->startAnimation();
 		fasesPast = 1;
+		boss->getTransform()->overlapCollision.active = false;
+
 		static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel, 4);
 	}
 }
@@ -196,6 +199,7 @@ void UpdateBoss2::fase9()
 	{
 		boss->changeCurrentAnimation("SALE");
 		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->overlapCollision.active = true;
 		fasesPast = 1;
 		RondaWheels2();
 		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
@@ -207,6 +211,7 @@ void UpdateBoss2::fase1()
 	{
 		boss->changeCurrentAnimation("SALE");
 		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->overlapCollision.active = true;
 	}
 }
 
@@ -276,6 +281,7 @@ void UpdateBoss2::fase7()
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->changeCurrentAnimation("ENTRA");
+		boss->getTransform()->overlapCollision.active = false;
 		boss->getCurrentAnimation()->startAnimation();
 	}
 }

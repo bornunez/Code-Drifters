@@ -7,11 +7,14 @@ class ChaseComponent : virtual public UpdateComponent
 public:
 	void update();
 	void receiveMessage(Message* msg) {};
-	ChaseComponent(GameObject* o, GameObject* target);
+	ChaseComponent(Enemy* o, GameObject* target, float distance);
 	virtual ~ChaseComponent();
 
 private:
 	GameObject* targetObject;
-	float angle;
+	Enemy* ec;
+	bool rotating = false;
+	float distancia;
+	float angle = 0;
 };
 

@@ -64,7 +64,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));
 	addComponent(new KnockbackComponent(this,1500));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));	
+	//addComponent(new SkeletonRendered(this, playState->getCamera()));	
 	addComponent(new MCChargedAttackComponent(this, 0.4));
 	addComponent(new MCUltimateInput(this));
 	addComponent(new MCUltimateCharge(this));

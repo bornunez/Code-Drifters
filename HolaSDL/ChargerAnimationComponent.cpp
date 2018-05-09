@@ -8,7 +8,6 @@
 ChargerAnimationComponent::ChargerAnimationComponent(EnemyCharger* o, GameObject* target, std::map<const char*, Animation*> anim, float hTime, float delayTime) : RenderComponent(o)
 {
 	animations = anim;
-	gameObject->changeCurrentAnimation("RUN");
 	this->target = target;
 	this->ec = o;
 	hurtTimer = new Timer();
@@ -33,6 +32,9 @@ void ChargerAnimationComponent::render()
 void ChargerAnimationComponent::receiveMessage(Message* msg)
 {
 	switch (msg->id) {
+	case ENEMY_SPAWN:
+		hurtTimer->restart();
+		chargeTimer->restart();
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUNLEFT");
 		break;

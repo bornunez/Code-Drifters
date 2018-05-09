@@ -31,13 +31,13 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 	setSpriteOffset(1 * Game::getGame()->getScale(), -8 * Game::getGame()->getScale());
 
 	transform.overlapCollision.overlapBody.w = w *1.6;
-	transform.overlapCollision.overlapBody.h = h / 1.2;
-	transform.overlapCollision.overlapOffset.setX(0);
-	transform.overlapCollision.overlapOffset.setY(0);
+	transform.overlapCollision.overlapBody.h = h*1.1;
+	transform.overlapCollision.overlapOffset.setX(1);
+	transform.overlapCollision.overlapOffset.setY(-20);
 
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 1000;
+	Attributes.life = 2000;
 	Attributes.maxHP = Attributes.life;
 	Attributes.meleeDmg = 8;
 	allUpdates();
@@ -49,7 +49,7 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 	rend = new RenderBoss2(this);
 	addComponent(rend);
 	addComponent(new DamageableBossComponent(this, prota,0.2));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 
 
 	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());

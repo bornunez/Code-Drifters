@@ -1,17 +1,17 @@
 #pragma once
 #include "StalkerComponent.h"
-#include "EnemyStalker.h"
 #include "MainCharacter.h"
+#include "Enemy.h"
 #include "Hook.h"
 
-StalkerComponent::StalkerComponent(GameObject * o, GameObject * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(o, target),
-ChargeComponent(o, target, aDelay, aTime, velMultiplier), UpdateComponent(o)
+StalkerComponent::StalkerComponent(Enemy * e, GameObject * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(e, target, 200),
+ChargeComponent(e, target, aDelay, aTime, velMultiplier), UpdateComponent(e)
 {
 	timer = new Timer();
 	chargeDelay = cDelay;
 	attackDelay = aDelay;
 	attackTime = aTime;
-	es = static_cast<EnemyStalker*>(gameObject);
+	es = e;
 	es->enemyState = EnemyState::Run;
 	this->target = target;
 }
@@ -22,16 +22,19 @@ StalkerComponent::~StalkerComponent()
 void StalkerComponent::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
-	case HIT_WALL:
-		EnemyStalker * eg = static_cast<EnemyStalker*>(gameObject);
-		if (eg->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
+	case HIT_WALL:;
+		if (es->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
 			static_cast<MainCharacter*>(target)->getHook().setHookStatus(HookStatus::STOP);
 			Message msg(HOOK_STOP);
 			static_cast<MainCharacter*>(target)->sendMessage(&msg);
-			eg->getEnemyState() == EnemyState::Idle;
+			es->getEnemyState() == EnemyState::Idle;
 			static_cast<MainCharacter*>(target)->setMCState(MCState::Idle);
 
 		}
+		break;
+
+	case ENEMY_SPAWN:
+		timer->restart();
 		break;
 	}
 }
@@ -59,22 +62,6 @@ void StalkerComponent::update()
 				es->sendMessage(&msg);
 
 			}
-
-
-
-
-
-			//if (timer->TimeSinceTimerCreation >= 8.0) {
-			//	charge = !charge;
-			//	timer->restart();
-			//	if (charge) {
-			//		mc->sendMessage("ATTACK");
-			//		ChargeComponent::resetTimer();		//Reset del timer para que no se lance antes de cargar
-			//	}
-			//	else 
-			//		mc->sendMessage("RUN");
-			//}
-
 			if (es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack)
 				ChargeComponent::update();
 

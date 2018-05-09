@@ -39,8 +39,8 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 	{
 		GameObject * bossSpawn = room->getMap()->getBossSpawn();
 		GameObject * ePoint = room->getMap()->getEntryPoint();
-		if (bossSpawn != nullptr);
-		EnemyManager::getInstance()->spawnBoss(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY());
+		if (bossSpawn != nullptr)
+			EnemyManager::getInstance()->spawnBoss(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY());
 		if (ePoint != nullptr)
 			mc->getTransform()->position.set(ePoint->getTransform()->position);
 	}
@@ -84,7 +84,10 @@ Room * LevelManager::getRoom(int x, int y)
 
 Room * LevelManager::getRoom(Direction dir)
 {
-	return getRoom(roomX + directions[dir].x, roomY + directions[dir].y);
+	int auxX = roomX + directions[dir].x;
+	int auxY = roomY + directions[dir].y;
+	return auxX >= 0 && auxX < dungeon->getLevelWidth() && auxY >= 0 && auxY < dungeon->getLevelHeight() ? getRoom(auxX,auxY ) : nullptr;
+	//return getRoom(auxX, auxY);
 }
 
 void LevelManager::changeRoom(Room * room)
@@ -114,6 +117,8 @@ void LevelManager::changeRoom(Direction dir)
 		Room* room = getRoom(dir);
 		if (room != nullptr && !room->isVoid()) {
 			//Si hay sala, la cambiamos
+			if (room->getType() == Shop)
+				cout << "Tienda!";
 			currentRoom = room;
 			roomX += directions[dir].x;
 			roomY += directions[dir].y;

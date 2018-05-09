@@ -51,6 +51,7 @@ enum MessageId {
 	ENEMY_DEATH,
 	GUN_STUN,
 	STUN_OFF,
+	ENEMY_SPAWN,
 
 	//Gunner Shot
 	SHOT_LEFT,

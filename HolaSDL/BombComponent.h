@@ -9,8 +9,7 @@ public:
 	void update();
 	BombComponent(Enemy* e, int bulletsNumber, float time, float speed);
 	~BombComponent();
-	void receiveMessage(std::string msg) {};
-	void handleAnimation();
+	void receiveMessage(Message* msg);
 private:
 	Enemy* eb;
 	Timer* bombTimer;

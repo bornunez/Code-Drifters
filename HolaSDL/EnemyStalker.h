@@ -11,5 +11,6 @@ public:
 	FacingDirection facing;
 	~EnemyStalker();
 	void loadAnimations();
+	void spawn(int x, int y, Spawner* spawner = nullptr);
 };
 

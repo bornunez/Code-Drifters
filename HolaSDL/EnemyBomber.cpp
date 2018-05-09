@@ -71,7 +71,12 @@ void EnemyBomber::loadAnimations()
 
 	animations.emplace("DEATHRIGHT", deathRight);
 	animations.emplace("DEATHLEFT", deathLeft);
-
-
 }
 
+void EnemyBomber::spawn(int x, int y, Spawner * spawner)
+{
+	Enemy::spawn(x, y, spawner);
+	enemyState = EnemyState::Run;
+	Message msg(RUN_LEFT);
+	sendMessage(&msg);
+}

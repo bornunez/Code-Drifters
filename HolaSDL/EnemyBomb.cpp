@@ -38,10 +38,16 @@ void EnemyBomb::loadAnimations()
 	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(6);
 
 	Animation* bombLoop = AnimationParser::parseAnimation(tileset, animationPath, "BombLoop", this);
+	Animation* death = AnimationParser::parseAnimation(tileset, animationPath, "Death", this);
+
 	
 
 	animations.emplace("BOMBLOOP", bombLoop);
+	animations.emplace("DEATH", death);
+
 
 }
+
+
 
 

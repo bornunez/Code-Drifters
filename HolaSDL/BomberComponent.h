@@ -18,7 +18,6 @@ private:
 	float velocity;
 	float distancia;
 	float angle=0;
-	float angleVel = 0.007;
 	Enemy* eb;
 	Timer* bombTimer;
 
