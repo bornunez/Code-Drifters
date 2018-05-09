@@ -32,7 +32,7 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 
 	transform.overlapCollision.overlapBody.w = w /1;
 	transform.overlapCollision.overlapBody.h = h / 1;
-	transform.overlapCollision.overlapOffset.setX(0);
+	transform.overlapCollision.overlapOffset.setX(2);
 	transform.overlapCollision.overlapOffset.setY(0);
 
 	prota = prot;
