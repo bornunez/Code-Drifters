@@ -98,6 +98,7 @@ void UpdateBoss::fase1()
 		direccion = boss->getCenterPos() - posProta;
 		vel = direccion.magnitude() / tiempoFase1;
 		direccion.normalize();
+		boss->getTransform()->overlapCollision.active = false;
 	}
 	boss->getTransform()->position.set(boss->getTransform()->position-direccion*Time::getInstance()->DeltaTime*vel);
 }
@@ -108,6 +109,7 @@ void UpdateBoss::fase2()
 	{
 		boss->changeCurrentAnimation("ATTACK_FALL");
 		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->overlapCollision.active = true;
 	}
 }
 void UpdateBoss::fase3()
@@ -125,6 +127,7 @@ void UpdateBoss::fase4()
 	{
 		boss->changeCurrentAnimation("DESVANECE");
 		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->overlapCollision.active = false;
 	}
 }
 void UpdateBoss::fase5()
@@ -137,6 +140,7 @@ void UpdateBoss::fase5()
 		boss->getTransform()->position.set(direccion);
 		boss->getTransform()->position.setX(boss->getTransform()->position.getX() - boss->getTransform()->body.w / 2);
 		boss->getTransform()->position.setY(boss->getTransform()->position.getY() - boss->getTransform()->body.h / 2);
+		boss->getTransform()->overlapCollision.active = true;
 	}
 	else if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() != "Boss1-NormalAttack")
 	{
@@ -160,6 +164,7 @@ void UpdateBoss::changeColor(int r, int g, int b)
 
 void UpdateBoss::Hit()
 {
+
 	if (auxTimeHit >= timeHit)
 	{
 		hit = false;
