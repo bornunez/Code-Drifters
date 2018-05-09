@@ -6,17 +6,24 @@
 BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 {
 	boss = bossy;
-
-	bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(EnemyHUDFondo));//cambiar las textures
-	bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(BossSecondFill));
-	bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(EnemyHUDBarra));
-	bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(EnemyHUDBorde));
+	if (boss->getBossType() == 1) {
+		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
+		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
+		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
+		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
+	}
+	else if (boss->getBossType() == 2) {
+		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
+		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
+		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
+		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
+	}
 	//el resto de texturas de los demas hudobjects
 
 	bossBack->destRect.x = Game::getGame()->getWinW() / 8;
-	bossBack->destRect.y = Game::getGame()->getWinH() * 4 / 5;
+	bossBack->destRect.y = Game::getGame()->getWinH() * 3 / 5;
 	bossBack->destRect.w = Game::getGame()->getWinW() * 3 / 4;
-	bossBack->destRect.h = Game::getGame()->getWinH() / 12;
+	bossBack->destRect.h = Game::getGame()->getWinH() / 2;
 
 	bossBack->srcRect.x = bossBack->srcRect.y = 0;
 	bossBack->srcRect.w = bossBack->getTexture()->getWidth();

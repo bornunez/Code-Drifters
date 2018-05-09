@@ -1,6 +1,7 @@
 #include "EnemyHUDComponent.h"
 #include"ResourceManager.h"
 #include"EnemyManager.h"
+#include"MasterBoss.h"
 
 EnemyHUDComponent::EnemyHUDComponent(Enemy* enem) : RenderComponent(enem)
 {
@@ -12,7 +13,6 @@ EnemyHUDComponent::EnemyHUDComponent(Enemy* enem) : RenderComponent(enem)
 	destRect.h = 15;
 
 	HPBarRect = destRect;
-
 	EnemyBack = ResourceManager::getInstance()->getTexture(EnemyHUDFondo);
 	EnemyBar = ResourceManager::getInstance()->getTexture(EnemyHUDBarra);
 	EnemySkeleton = ResourceManager::getInstance()->getTexture(EnemyHUDBorde);
