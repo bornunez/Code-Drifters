@@ -43,7 +43,14 @@ void Game::run()
 {
 	winX = winY = 100;
 	SDL_Init(SDL_INIT_EVERYTHING);
+
+	//SDL Fonts
 	TTF_Init();
+
+	// SDL Mixer (Music, Sound, etc)
+	Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Neon Blade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);

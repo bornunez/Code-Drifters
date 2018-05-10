@@ -21,7 +21,7 @@ PlayState* PlayState::instance = nullptr;
 
 PlayState::PlayState():GameState ()
 {
-	
+	ResourceManager::getInstance()->getMusic(Music1)->play();
 }
 
 
