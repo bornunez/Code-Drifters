@@ -33,6 +33,11 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 		Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
 		mc->getTransform()->position.set(entry);
 	}
+
+	if (room->getType() == Shop) {
+		ResourceManager::getInstance()->getMusic(Music1)->close();
+		ResourceManager::getInstance()->getMusic(Burdel)->play();
+	}
 	
 	//Si la sala es de tipo boss, lo spawneamos
 	if (room->getType() == BossRoom)

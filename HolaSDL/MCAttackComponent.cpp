@@ -173,6 +173,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}			
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
+			ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(25);
+			ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 		}
 		
 	}
