@@ -58,7 +58,8 @@ enum TextureId {
 // Music -- each file is loaded as an instance of Music
 //
 enum MusicId {
-	Music1
+	Music1,
+	Burdel
 };
 
 
@@ -186,7 +187,9 @@ private:
 	//Sounds
 
 
-	std::vector<std::string> ResourceManager::musicFiles{ "..\\music\\cosa.wav"};
+	std::vector<std::string> ResourceManager::musicFiles{ 
+		"..\\music\\cosa.wav",
+		"..\\music\\Puticlub.wav"};
 
 	std::vector<std::string> ResourceManager::soundEffectFiles{
 		"..\\music\\Sonidos\cosa.wav",
