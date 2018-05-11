@@ -65,9 +65,10 @@ private:
 	vector<Room*> unvisitedRooms_;
 	vector<vector<Room*>> Dungeon_;
 
+	void loadTexts();
 	LoadBar loadbar;
 	void RenderProgresBar(int current, int max, string text);
 	Font* neonFont;
-	TextRect randText, loadText;
+	TextRect randText, loadText,levelText;
 };
 

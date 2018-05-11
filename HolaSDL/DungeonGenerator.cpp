@@ -49,42 +49,7 @@ using namespace std;
 DungeonGenerator::DungeonGenerator(int mapWidth, int mapHeight, int maxRooms) : 
 	mapWidth_(mapWidth), mapHeight_(mapHeight),maxRooms_(maxRooms)
 {
-	int scale = 1;
-	ResourceManager* re = ResourceManager::getInstance();
-	randText.texture = new Texture(Game::getGame()->getRenderer());
-
-	neonFont = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
-	Game* g = Game::getGame();
-	//Cargamos las texturas
-	loadbar.borderTex = re->getTexture(LoadbarBarra);
-	loadbar.barTex = re->getTexture(LoadbarBarra);
-	loadbar.BottomTex = re->getTexture(LoadBarFondo);
-	loadbar.backGroundTex = re->getTexture(LoadingScreenBG);
-	randText.texture->loadFromText(Random::fraseAleatoria(), *neonFont, { COLOR(0xff00ffff) });
-	//"Level " + to_string(LevelManager::getInstance()->getLevelNumber())
-
-	//Ajustamos las posiciones
-	loadbar.currentSrc.x = loadbar.currentSrc.y = 0;
-	loadbar.currentSrc.w = loadbar.borderTex->getWidth();
-	loadbar.currentSrc.h = loadbar.borderTex->getHeight();
-
-	//Todas las texturas comparten el mismo dst rect
-	loadbar.backGroundDst.w = loadbar.backGroundTex->getWidth() * g->getScale() * scale;
-	loadbar.backGroundDst.h = loadbar.backGroundTex->getHeight() * g->getScale() * scale;
-
-	loadbar.dst.w = loadbar.currDst.w = loadbar.currentSrc.w * g->getScale() * scale;
-	loadbar.dst.h = loadbar.currDst.h = loadbar.currentSrc.h * g->getScale() * scale;
-
-	//Situaremos la barra en mitad de la pantalla, y el texto en el cuarto superior
-	randText.dest.w = randText.texture->getWidth() * 0.6; randText.dest.h = randText.texture->getHeight() * 0.6;
-	randText.dest.x = (g->getWinW() - randText.dest.w) / 2;
-	randText.dest.y = g->getWinH() - (g->getWinH() - randText.dest.h) / 8;
-
-	loadbar.backGroundDst.x = (g->getWinW() - loadbar.backGroundDst.w) / 2;
-	loadbar.backGroundDst.y = (g->getWinH() - loadbar.backGroundDst.h) / 2;
-
-	loadbar.dst.x = loadbar.currDst.x = (g->getWinW() - loadbar.dst.w) / 2;
-	loadbar.dst.y = loadbar.currDst.y =(g->getWinH() - loadbar.dst.h) / 2;
+	loadTexts();
 }
 DungeonGenerator::~DungeonGenerator()
 {
@@ -171,7 +136,7 @@ void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 		i++;
 		system("cls");
 		std::cout << "Creating rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
-		RenderProgresBar(i, maxRooms_, "");
+		RenderProgresBar(i, maxRooms_, "Creating Rooms...");
 	}
 	
 }
@@ -345,7 +310,7 @@ void DungeonGenerator::load() {//Cada sala carga su textura correspondiente
 		vr->load();
 		system("cls");
 		cout << "Loading rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
-		RenderProgresBar(i, maxRooms_, "");
+		RenderProgresBar(i, maxRooms_, "Loading Rooms...");
 		i++;
 	}
 }
@@ -359,9 +324,57 @@ bool DungeonGenerator::AvailableCell(int x, int y)//Determina si la celda está d
 }
 
 
+void DungeonGenerator::loadTexts()
+{
+	int scale = 1;
+	Game* g = Game::getGame();
+	ResourceManager* re = ResourceManager::getInstance();
+	randText.texture = new Texture(g->getRenderer());
+	levelText.texture = new Texture(g->getRenderer());
+	loadText.texture = new Texture(g->getRenderer());
+
+	neonFont = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
+	//Cargamos las texturas
+	loadbar.borderTex = re->getTexture(LoadbarBarra);
+	loadbar.barTex = re->getTexture(LoadbarBarra);
+	loadbar.BottomTex = re->getTexture(LoadBarFondo);
+	loadbar.backGroundTex = re->getTexture(LoadingScreenBG);
+	randText.texture->loadFromText(Random::fraseAleatoria(), *neonFont, { COLOR(0xff00ffff) });
+	levelText.texture->loadFromText("Level " + to_string(LevelManager::getInstance()->getLevelNumber()), *neonFont, { COLOR(0xff00ffff) });
+	//"Level " + to_string(LevelManager::getInstance()->getLevelNumber())
+
+	//Ajustamos las posiciones
+	loadbar.currentSrc.x = loadbar.currentSrc.y = 0;
+	loadbar.currentSrc.w = loadbar.borderTex->getWidth();
+	loadbar.currentSrc.h = loadbar.borderTex->getHeight();
+
+	//Todas las texturas comparten el mismo dst rect
+	loadbar.backGroundDst.w = loadbar.backGroundTex->getWidth() * g->getScale() * scale;
+	loadbar.backGroundDst.h = loadbar.backGroundTex->getHeight() * g->getScale() * scale;
+
+	loadbar.dst.w = loadbar.currDst.w = loadbar.currentSrc.w * g->getScale() * scale;
+	loadbar.dst.h = loadbar.currDst.h = loadbar.currentSrc.h * g->getScale() * scale;
+
+	//Situaremos la barra en mitad de la pantalla, y el texto en el cuarto superior
+	randText.dest.w = randText.texture->getWidth() * 0.6; randText.dest.h = randText.texture->getHeight() * 0.6;
+	randText.dest.x = (g->getWinW() - randText.dest.w) / 2;
+	randText.dest.y = g->getWinH() - (g->getWinH() - randText.dest.h) / 8;
+
+	levelText.dest.w = levelText.texture->getWidth();  levelText.dest.h = levelText.texture->getHeight();
+	levelText.dest.x = (g->getWinW() - levelText.dest.w) / 2; levelText.dest.y = (g->getWinH() - levelText.dest.h) / 4;
+
+
+	loadbar.backGroundDst.x = (g->getWinW() - loadbar.backGroundDst.w) / 2;
+	loadbar.backGroundDst.y = (g->getWinH() - loadbar.backGroundDst.h) / 2;
+
+	loadbar.dst.x = loadbar.currDst.x = (g->getWinW() - loadbar.dst.w) / 2;
+	loadbar.dst.y = loadbar.currDst.y = (g->getWinH() - loadbar.dst.h) / 2;
+}
+
 void DungeonGenerator::RenderProgresBar(int current, int max, string text)
 {
-	SDL_Renderer* r = Game::getGame()->getRenderer();
+	Game* g = Game::getGame();
+	SDL_Renderer* r = g->getRenderer();
 	SDL_RenderClear(r);
 	loadbar.currentSrc.w = loadbar.barTex->getWidth() * ((float)current / (float)max);
 	loadbar.currDst.w = loadbar.dst.w * ((float)current / (float)max);
@@ -370,8 +383,16 @@ void DungeonGenerator::RenderProgresBar(int current, int max, string text)
 	loadbar.barTex->render(loadbar.currDst, &loadbar.currentSrc);
 	loadbar.backGroundTex->render(loadbar.backGroundDst);
 
+	//TEXTS
+	loadText.texture->loadFromText(text, *neonFont, { COLOR(0x7e7effff) });
+	loadText.dest.w = loadText.texture->getWidth(); loadText.dest.h = loadText.texture->getHeight();
+	loadText.dest.x = (g->getWinW() - loadText.dest.w) / 2;
+	loadText.dest.y = ((g->getWinW() - loadText.dest.h) / 2);
+	
+	loadText.texture->render(loadText.dest);
 	randText.texture->render(randText.dest);
-	//randTex->loadFromText("AAAAAA", *neonFont, { COLOR(0xff00ffff) });
+	levelText.texture->render(levelText.dest);
+
 
 	SDL_RenderPresent(r);
 }
