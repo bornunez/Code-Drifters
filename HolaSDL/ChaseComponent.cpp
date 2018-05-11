@@ -31,7 +31,7 @@ void ChaseComponent::update() {
 	if ((abs(targetT->position.getX() - chaserT->position.getX() - 25) + abs(targetT->position.getY() - chaserT->position.getY() - 25)) <= distancia + 50) {
 		if (!rotating) {
 			rotating = true;
-			chaserT->speed *= (float)(rand()%70 + 40)/(float)100;
+			chaserT->speed *= (float)(rand()%50 + 20)/(float)100;
 			angle = targetT->position.angle(chaserT->position);
 		}
 		//Circular Movement

@@ -15,6 +15,7 @@ struct EnemyParams {
 	int speed;
 	int meleDmg; int rangedDmg;
 	int minDrop; int maxDrop; int healDrop;
+	bool hookable;
 };
 
 class EnemyManager
@@ -27,13 +28,13 @@ private:
 	static EnemyManager* instance;
 	//Donde van a estar los datos por defecto de los enemigos (Lo suyo seria leerlo de un XML )
 	vector<EnemyParams> eParams = { 
-		{100,350,10,0,5,7,33},
-		{75,100,5,10,7,8,33},
-		{75,200,15,0,7,8,33},
-		{10,100,10,0,8,10,33},
-		{10,100,0,10,8,10,33},
-		{10,100,0,10,0,0,0},
-		{75,100,5,10,7,8,100} };
+		{100,350,10,0,5,7,33,true},
+		{75,100,5,10,7,8,33,true},
+		{75,200,15,0,7,8,33,true},
+		{10,100,10,0,8,10,33,false},
+		{10,100,0,10,8,10,33,false},
+		{10,100,0,10,0,0,0,false},
+		{75,100,5,10,7,8,100,true} };
 	//Donde van a estal almacenados todos los enemigos del juego
 	list<Enemy*> inactives;
 	list<Enemy*> actives;

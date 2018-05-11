@@ -259,22 +259,30 @@ void CollisionsManager::hookCollisions()
 		if (hook.getHookStatus() == HookStatus::EXTEND) {
 			list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 			SDL_Rect hookColl = mc->getHook().getTransform()->body;
-			for (GameObject* e : enemies) {//Itera la lista de enemigos activos
+			for (Enemy* e : enemies) {//Itera la lista de enemigos activos
 				if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
 					vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
 					bool hit = false;
 					uint i = 0;
 					while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo				
 						if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
-
-							HookEnemyMessage msg(static_cast<Enemy*>(e));
-							mc->sendMessage(&msg);
-							e->setMovable(false);
+							if (e->isHookable()) {
+								//METER SONIDO DE FUISTE COGIDO BOLUDO
+								HookEnemyMessage msg(static_cast<Enemy*>(e));
+								mc->sendMessage(&msg);
+								e->setMovable(false);
+							}
+							else {
+								//METER SONIDO DE GANCHO FALLO BOLUDO
+								Message msg(HOOK_STOP);
+								mc->sendMessage(&msg);
+							}
 						}
 						i++;
 					}
 				}
 			}
+
 		}
 
 
