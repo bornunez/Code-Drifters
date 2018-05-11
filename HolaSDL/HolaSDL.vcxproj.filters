@@ -408,6 +408,8 @@
     <ClCompile Include="SoundEffect.cpp">
       <Filter>Arquitectura\Source</Filter>
     </ClCompile>
+    <ClCompile Include="PressToInteract.cpp" />
+    <ClCompile Include="ShopInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -800,6 +802,8 @@
     <ClInclude Include="SDL_mixer.h">
       <Filter>Arquitectura\Header</Filter>
     </ClInclude>
+    <ClInclude Include="PressToInteract.h" />
+    <ClInclude Include="ShopInput.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

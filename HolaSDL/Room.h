@@ -20,6 +20,8 @@ public:
 	~Room();
 	void load();
 	void render();
+	void lateRender();
+
 	void setAllDoors(bool set);
 
 	int getX();

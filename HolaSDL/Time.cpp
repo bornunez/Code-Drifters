@@ -25,6 +25,6 @@ Time::~Time()
 void Time::Ticks()
 {
 	tick_Time = SDL_GetTicks();
-	DeltaTime = (tick_Time - lastTickTime) / 1000;
+	DeltaTime = fmin((tick_Time - lastTickTime) / 1000,0.5);
 	lastTickTime = tick_Time;
 }
