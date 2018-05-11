@@ -402,6 +402,12 @@
     <ClCompile Include="BombAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundEffect.cpp">
+      <Filter>Arquitectura\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -784,6 +790,15 @@
     <ClInclude Include="LastResortComponent.h" />
     <ClInclude Include="BombAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundEffect.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL_mixer.h">
+      <Filter>Arquitectura\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
