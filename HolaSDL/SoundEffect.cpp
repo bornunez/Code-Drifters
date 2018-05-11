@@ -43,3 +43,7 @@ void SoundEffect::close() {
 		chunck_ = nullptr;
 	}
 }
+
+void SoundEffect::changeVolume(int volume) {
+	Mix_VolumeChunk(chunck_, volume);
+}
