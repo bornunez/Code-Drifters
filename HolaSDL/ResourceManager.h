@@ -34,8 +34,9 @@ enum TextureId {
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
 	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo,
-	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
 	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
+
+	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
 
 	//TEXTURAS DEL MINIMAPA
 	MinimapBorder, MinimapBase, //Borde
