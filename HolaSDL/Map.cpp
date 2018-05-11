@@ -31,8 +31,26 @@ void Map::render()
 {
 	for (Layer* l : layers)
 		l->render(camera);
-	for (GameObject* o : objects)
-		o->render();
+	for (GameObject* o : objects) {
+		if(o->isActive())
+			o->render();
+	}
+}
+
+void Map::handleEvents(SDL_Event & e)
+{
+	for (GameObject* o : objects) {
+		if (o->isActive())
+			o->handleEvents(e);
+	}
+}
+
+void Map::lateRender()
+{
+	for (GameObject* o : objects) {
+		if (o->isActive())
+			o->lateRender();
+	}
 }
 
 Layer * Map::GetLayer(string LayerID)

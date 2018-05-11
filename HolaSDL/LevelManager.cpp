@@ -141,10 +141,38 @@ Room * LevelManager::getBossRoom()
 
 }
 
+Room * LevelManager::getShopRoom()
+{
+	Room* r = nullptr;
+	bool found = false;
+	for (int i = 0; !found && i < dungeon->getLevelHeight(); i++) {
+		for (int j = 0; !found && j < dungeon->getLevelWidth(); j++) {
+			r = dungeon->getRoom(j, i);
+			found = r->getType() == Shop;
+		}
+	}
+	return found ? r : nullptr;
+
+}
+
+
+void LevelManager::update()
+{
+}
+
+void LevelManager::handleEvents(SDL_Event & e)
+{
+	currentRoom->getMap()->handleEvents(e);
+}
 
 void LevelManager::render()
 {
 	currentRoom->render();
+}
+
+void LevelManager::lateRender()
+{
+	currentRoom->lateRender();
 }
 
 bool LevelManager::getDoor(Direction dir)
