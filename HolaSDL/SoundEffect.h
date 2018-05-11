@@ -2,6 +2,7 @@
 #define SOUNDEFFECT_H_
 
 #include "sdl_includes.h"
+#include "SDL_mixer.h"
 #include <string>
 
 class SoundEffect {
@@ -11,10 +12,11 @@ public:
 	virtual ~SoundEffect();
 	bool load(std::string fileName);
 	void play(int repetirions = 0);
+	void playChannel(int channel = -1, int rep = 0);
 	void pause();
 	void close();
 private:
-	//Mix_Chunk *chunck_ = nullptr;
+	Mix_Chunk *chunck_ = nullptr;
 };
 
 #endif /* SOUNDEFFECT_H_ */

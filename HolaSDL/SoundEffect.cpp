@@ -26,6 +26,14 @@ void SoundEffect::play(int repetirions) {
 	}
 }
 
+//Metodo para seleccionar en que canal se quiere el sonido, para que no se acoplen varios del mismo tipo
+void SoundEffect::playChannel(int channel, int rep)
+{
+	if (chunck_ != nullptr) {
+		Mix_PlayChannel(channel, chunck_, rep);
+	}
+}
+
 void SoundEffect::pause() {
 }
 

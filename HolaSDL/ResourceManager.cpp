@@ -10,14 +10,18 @@ using namespace tinyxml2;
 ResourceManager* ResourceManager::instance = nullptr;
 
 //Ver si declararle un renderer propio o usar el de game
-ResourceManager::ResourceManager(SDL_Renderer* renderer)
+ResourceManager::ResourceManager(SDL_Renderer* renderer) : numOfMusic(0), music(nullptr), numOfSoundEffects(0), soundEffects(nullptr)
 {
 	this->renderer = renderer;
 	loadTextures();
+	setMusic(musicFiles);
+	setSoundEffects(soundEffectFiles);
 	loadProtaTileset();
 	loadEnemyTilesets();
 	loadBoss1Tilesets();
 	loadBoss2Tilesets();
+
+
 }
 
 void ResourceManager::createInstance(SDL_Renderer * renderer)
@@ -28,6 +32,8 @@ void ResourceManager::createInstance(SDL_Renderer * renderer)
 
 ResourceManager::~ResourceManager()
 {
+	closeMusic();
+	closeSoundEffects();
 }
 
 Texture * ResourceManager::getTexture(TextureId id)
@@ -142,4 +148,58 @@ void ResourceManager::loadBoss2Tilesets()
 		//Y cargamos el tileset
 		boss2Tilesets.push_back(new Tileset(tileTex, root));
 	}
+}
+
+void ResourceManager::setMusic(std::vector<std::string> musicVect) {
+	closeMusic();
+	numOfMusic = musicVect.size();
+	music = new Music*[numOfMusic];
+	for (int i = 0; i < numOfMusic; i++) {
+		music[i] = new Music(musicVect[i]);
+	}
+}
+
+void ResourceManager::closeMusic()
+{
+	for (int i = 0; i < numOfMusic; i++) {
+		if (music[i] != nullptr) {
+			delete music[i];
+		}
+	}
+	delete[] music;
+	numOfMusic = 0;
+}
+
+Music* ResourceManager::getMusic(MusicId i) const {
+	if (i < numOfMusic)
+		return music[i];
+	else
+		return nullptr;
+}
+
+void ResourceManager::setSoundEffects(std::vector<std::string> soundEffectsVect) {
+	closeSoundEffects();
+	numOfSoundEffects = soundEffectsVect.size();
+	soundEffects = new SoundEffect*[numOfSoundEffects];
+	for (int i = 0; i < numOfSoundEffects; i++) {
+		soundEffects[i] = new SoundEffect(soundEffectsVect[i]);
+	}
+}
+
+
+void ResourceManager::closeSoundEffects() {
+	for (int i = 0; i < numOfSoundEffects; i++) {
+		if (soundEffects[i] != nullptr) {
+			delete soundEffects[i];
+		}
+	}
+	delete[] soundEffects;
+	numOfSoundEffects = 0;
+}
+
+SoundEffect*  ResourceManager::getSoundEffect(SoundEffectId i) const {
+	if (i < numOfSoundEffects)
+		return soundEffects[i];
+	else
+		return nullptr;
 }

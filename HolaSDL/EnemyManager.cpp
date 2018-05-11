@@ -135,8 +135,7 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 		e = createEnemy(eType);
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->spawn(x, y);
-	actives.push_back(e);
-		
+	actives.push_back(e);	
 }
 
 void EnemyManager::spawn(Spawner * spawner)
@@ -153,12 +152,12 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	actBoss2 = new Boss2(mc, x, y, 128, 128);
-	activeBoss = actBoss2;
+	actBoss1 = new Boss(mc, x, y, 128, 128);
+	activeBoss = actBoss1;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {
-	actBoss2 = new Boss2(mc, x, y, 128, 128);
+	actBoss2= new Boss2(mc, x, y, 128, 128);
 	activeBoss = actBoss2;
 }
 void EnemyManager::ResetInstance()

@@ -1,10 +1,13 @@
 #pragma once
 #include "Texture.h"
 #include <vector>
+#include "Music.h"
+#include "SoundEffect.h"
+
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 81;
+const int NUM_TEXTURES = 84;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -30,7 +33,8 @@ enum TextureId {
 	
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
-	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo, BossSecondFill,
+	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo,
+	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
 	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
 
 	//TEXTURAS DEL MINIMAPA
@@ -47,6 +51,20 @@ enum TextureId {
 	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
 	BaseLifepack, HighLifepack,
 	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
+};
+
+
+// Music -- each file is loaded as an instance of Music
+//
+enum MusicId {
+	Music1
+};
+
+
+// Sound Effects -- each file is loaded as an instance of SoundEffect
+//
+enum SoundEffectId {
+	SoundEffect1
 };
 
 //IMPORTANTE//
@@ -82,12 +100,17 @@ private:
 		{"Interfaz\\EnemigoBorde.png", 1, 1},
 		{"Interfaz\\EnemigoRelleno.png", 1, 1},
 		{"Interfaz\\EnemigoFondo.png", 1, 1},
-		{"Interfaz\\BossSegundoRelleno.png", 1, 1},
 
 		{ "Interfaz\\Carga_Borde.png", 1, 1 },
 		{ "Interfaz\\Carga_Barra.png", 1, 1 },
 		{ "Interfaz\\Carga_Fondo.png", 1, 1 },
 
+
+		//First Boss
+		{"Interfaz\\PerroBorde.png", 1, 1},
+		{"Interfaz\\PerroRelleno.png", 1, 1},
+		{"Interfaz\\PerroBack.png", 1, 1},
+		{"Interfaz\\PerroSegundoRelleno.png", 1, 1},
 
 		//MINIMAPA
 		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},
@@ -157,7 +180,18 @@ private:
 		{ "Tree\\Line.png", 1, 1 },
 	};
 
+	//Sounds
 
+
+	std::vector<std::string> ResourceManager::musicFiles{ "..\\music\\cosa.wav"};
+
+	std::vector<std::string> ResourceManager::soundEffectFiles{ "..\\sound\cosa.wav"};
+
+	int numOfMusic;
+	Music** music;
+
+	int numOfSoundEffects;
+	SoundEffect** soundEffects;
 
 	//Array que contiene punteros a todas las texturas del juego.
 	Texture* textures[NUM_TEXTURES];
@@ -180,6 +214,8 @@ private:
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	vector<Tileset*> boss2Tilesets;
+
+
 	SDL_Renderer* renderer;
 	static ResourceManager* instance;
 
@@ -189,6 +225,15 @@ private:
 	void loadEnemyTilesets();
 	void loadBoss1Tilesets();
 	void loadBoss2Tilesets();
+
+	//Music
+	void setMusic(std::vector<std::string> musicVect);
+	void closeMusic();
+	void setSoundEffects(std::vector<std::string> soundEffectsVect);
+	void closeSoundEffects();
+
+
+	//Constructor
 	ResourceManager(SDL_Renderer* renderer);
 
 public:
@@ -205,5 +250,7 @@ public:
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };
+	Music* getMusic(MusicId i) const;
+	SoundEffect* getSoundEffect(SoundEffectId i) const;
 };
 

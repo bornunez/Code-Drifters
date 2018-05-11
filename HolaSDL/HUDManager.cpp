@@ -149,6 +149,9 @@ void HUDManager::update() {
 
 	ultBar->destRect.y = ultBack->destRect.y + ultBack->destRect.h * (1-(character->getUltiCharge() / 100));
 	ultBar->destRect.h = ultBack->destRect.h + ultBack->destRect.y - ultBar->destRect.y;
+	/*if (character->getUltiCharge() >= 100) {
+		ultBar->getTexture()->setColor(200, 162, 200);
+	}*/
 }
 ///method which can increase maxHP or low it
 void HUDManager::setNewHP(int newL) {
