@@ -12,6 +12,7 @@ public:
 	virtual ~SoundEffect();
 	bool load(std::string fileName);
 	void play(int repetirions = 0);
+	void playChannel(int channel = -1, int rep = 0);
 	void pause();
 	void close();
 private:
