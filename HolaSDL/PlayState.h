@@ -24,6 +24,7 @@ private:
 	Room* currentRoom;
 	Minimap* minimap;
 
+
 	//HUDManager* hud;
 
 	static PlayState* instance;

@@ -4,6 +4,28 @@
 class Room;
 class Game;
 class PlayState;
+class Texture;
+class Font;
+
+
+struct LoadBar {
+	SDL_Rect dst;
+	SDL_Rect currDst;
+
+	SDL_Rect currentSrc;
+
+	SDL_Rect backGroundDst;
+	Texture* backGroundTex;
+
+	Texture* borderTex;
+	Texture* barTex;
+	Texture* BottomTex;
+};
+struct TextRect
+{
+	SDL_Rect dest;
+	Texture* texture;
+};
 
 using namespace std;
 class DungeonGenerator
@@ -43,5 +65,9 @@ private:
 	vector<Room*> unvisitedRooms_;
 	vector<vector<Room*>> Dungeon_;
 
+	LoadBar loadbar;
+	void RenderProgresBar(int current, int max, string text);
+	Font* neonFont;
+	TextRect randText, loadText;
 };
 

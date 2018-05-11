@@ -73,6 +73,11 @@ void Room::render() {
 	map->render();
 }
 
+void Room::lateRender()
+{
+	map->lateRender();
+}
+
 void Room::setAllDoors(bool set)
 {
 	for (int i = 0; i < doors.size(); i++)

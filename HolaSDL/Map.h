@@ -56,6 +56,8 @@ public:
 	~Map();
 	void update();
 	void render();
+	void handleEvents(SDL_Event & e);
+	void lateRender();
 
 	vector<Layer*>* getLayers() { return &layers; }
 	vector<Tileset*> getTilesets() { return tilesets; }

@@ -402,6 +402,8 @@
     <ClCompile Include="BombAnimationComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="PressToInteract.cpp" />
+    <ClCompile Include="ShopInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -785,6 +787,8 @@
     <ClInclude Include="BombAnimationComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
+    <ClInclude Include="PressToInteract.h" />
+    <ClInclude Include="ShopInput.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

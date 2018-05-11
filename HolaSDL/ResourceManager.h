@@ -4,7 +4,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 78;
+const int NUM_TEXTURES = 81;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -31,6 +31,7 @@ enum TextureId {
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
 	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo, BossSecondFill,
+	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
 
 	//TEXTURAS DEL MINIMAPA
 	MinimapBorder, MinimapBase, //Borde
@@ -82,6 +83,11 @@ private:
 		{"Interfaz\\EnemigoRelleno.png", 1, 1},
 		{"Interfaz\\EnemigoFondo.png", 1, 1},
 		{"Interfaz\\BossSegundoRelleno.png", 1, 1},
+
+		{ "Interfaz\\Carga_Borde.png", 1, 1 },
+		{ "Interfaz\\Carga_Barra.png", 1, 1 },
+		{ "Interfaz\\Carga_Fondo.png", 1, 1 },
+
 
 		//MINIMAPA
 		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},

@@ -58,6 +58,7 @@ void PlayState::render()
 void PlayState::lateRender()
 {
 	GameState::lateRender();
+	LevelManager::getInstance()->lateRender();
 	EnemyManager::getInstance()->lateRender();
 }
 
@@ -69,12 +70,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			game->startDialogue("1");
 		}
-		if (e.key.keysym.sym == SDLK_o)
-		{
-			openShop();
-		}
+		
 	}
 	GameState::handleEvent(e);
+	LevelManager::getInstance()->handleEvents(e);
 	//mainCharacter->handleEvents(e);
 }
 
@@ -137,6 +136,9 @@ void PlayState::loadState()
 	CoinManager::getInstance();
 	//ItemManager::getInstance()->AddItem(Enemies);
 	HUDManager::getInstance()->init(mainCharacter);
+
+	//Al final ajustamos el deltaTime
+	Time::getInstance()->DeltaTime = 0.001;
 	//HUDManager::getInstance()->addBullet();
 	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
 	//addGameObject(boss);
