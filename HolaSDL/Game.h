@@ -71,5 +71,6 @@ public:
 	void pushState(GameState* state);
 	void quitState();
 	void quitToMenu();
+	void pause(GameState* state);
 };
 

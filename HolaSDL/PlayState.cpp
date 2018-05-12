@@ -67,6 +67,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			openShop();
 		}
+		if (e.key.keysym.sym == SDLK_m)
+		{
+			game->pause(this);
+		}
 	}
 	GameState::handleEvent(e);
 	//mainCharacter->handleEvents(e);

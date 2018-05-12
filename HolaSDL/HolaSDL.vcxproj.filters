@@ -400,6 +400,7 @@
     <ClCompile Include="GameOverState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
+    <ClCompile Include="PauseState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -781,6 +782,7 @@
     <ClInclude Include="GameOverState.h">
       <Filter>Estados\Header</Filter>
     </ClInclude>
+    <ClInclude Include="PauseState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -18,6 +18,7 @@
 #include "LevelManager.h"
 #include "DialogsState.h"
 #include "GameOverState.h"
+#include "PauseState.h"
 
 Game* Game::game = nullptr;
 Game::Game()
@@ -186,6 +187,12 @@ void Game::quitToMenu()
 {
 	stateMachine->popState();
 	stateMachine->popState();
+}
+
+void Game::pause(GameState* state)
+{
+	PauseState* pauseState = new PauseState(state);
+	stateMachine->pushState(pauseState);
 }
 
 
