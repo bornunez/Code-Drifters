@@ -38,6 +38,10 @@ void BomberShotComponent::receiveMessage(Message * msg)
 		lastShotTime->restart();
 		shotAnimationTime->restart();
 		break;
+	case STUN_OFF:
+		lastShotTime->restart();
+		shotAnimationTime->restart();
+		eb->enemyState = EnemyState::Idle;
 	}
 }
 
@@ -72,7 +76,7 @@ void BomberShotComponent::handleAnimation()
 
 		if (shotAnimationTime->TimeSinceTimerCreation > 1) {
 			EnemyManager::getInstance()->spawn(gameObject->getCenterPos().getX() - bombPosition.getX(), gameObject->getCenterPos().getY() - bombPosition.getY(), Bomb);
-			eb->enemyState = EnemyState::Run;
+			eb->enemyState = EnemyState::Idle;
 
 		}
 	}
@@ -101,8 +105,8 @@ void BomberShotComponent::update() {
 		if (!eb->isStunned()) {
 			lastShotTime->update();
 			shoot();
+			handleAnimation();
 		}
-		handleAnimation();
 	}
 }
 

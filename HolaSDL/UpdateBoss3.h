@@ -1,0 +1,82 @@
+#pragma once
+#include "UpdateComponent.h"
+#include "GameObject.h"
+#include "Timer.h"
+#include "MainCharacter.h"
+#include "Time.h"
+#include "BulletManager.h"
+
+class UpdateBoss3 : public UpdateComponent
+{
+public:
+	UpdateBoss3(GameObject* o, MainCharacter* prota);
+	~UpdateBoss3();
+	void receiveMessage(Message * msg);
+	void changeColor(int r, int b, int g);
+protected:
+	virtual void update();
+private:
+	Vector2D direccion;
+	float vel;
+	float velWheel = 4.75;
+	int dirWheel = 0;
+
+	GameObject* boss;
+	//FASES
+	void fase0();
+	void fase1();
+	void fase2();
+	void fase3();
+	void fase4();
+	void fase5();
+	void fase6();
+	void fase7();
+	void fase8();
+	void fase9();
+	bool updateado = false;
+
+	void Hit();
+	bool hit = false;
+
+	void RondaWheels();
+	void RondaWheels2();
+
+	//TIEMPOS
+	float tiempoAct = 0;
+	float velocidad = 10;
+	float tiempoRetraso = 0.3f;
+	float auxVelocidad = 1;
+	int faseAct = 0;
+	int fasesPast = 0;
+	float tiempoLucian = 4;
+	float auxLucian = 0;
+	float tiempoIntervalLucian = 0.2f;
+	float auxInterval = 0;
+
+	float tiempoBomb = 0.5f;
+	float auxBomb = 0;
+	bool arriba = true;
+	bool giroDir = true;
+	int dir = -1;
+	int auxX = 0;
+	const float tiempoFase0 = 0.5;
+	const float tiempoFase1 = 2;
+	const float tiempoFase2 = 2;
+	const float tiempoFase3 = 6;
+	const float tiempoFase4 = 15;
+	const float tiempoFase5 = 1;
+	const float tiempoFase6 = 1;
+	const float tiempoFase7 = 2;
+	const float tiempoFase8 = 7;
+	const float tiempoFase9 = 8;
+
+	const float timeHit = 0.1f;
+	float auxTimeHit = 0;
+	void auxShoot(Transform aux);
+
+	Vector2D posInic;
+	Vector2D posProta;
+	Timer* Tiempo;
+	MainCharacter* prota;
+};
+

@@ -19,7 +19,7 @@ LevelManager::LevelManager()
 	directions = { {0,-1},{1,0},{0,1},{-1,0} };
 }
 
-void LevelManager::onRoomChange(Room* room, Direction dir)
+void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 {
 	//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
 	//Antes de Spawnear, despawneamos los que hubiera
@@ -32,6 +32,15 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 	if (dir != None) {
 		Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
 		mc->getTransform()->position.set(entry);
+	}
+
+	if (room->getType() == Shop) {
+		ResourceManager::getInstance()->getMusic(Music1)->stop();
+		ResourceManager::getInstance()->getMusic(Burdel)->play();
+	}
+	if (prevRoom->getType() == Shop && room->getType() != Shop) {
+		ResourceManager::getInstance()->getMusic(Burdel)->stop();
+		ResourceManager::getInstance()->getMusic(Music1)->play();
 	}
 	
 	//Si la sala es de tipo boss, lo spawneamos
@@ -93,9 +102,10 @@ Room * LevelManager::getRoom(Direction dir)
 void LevelManager::changeRoom(Room * room)
 {
 	if (!room->isVoid()) {
+		Room* prevRoom = currentRoom;
 		currentRoom = room;
 		roomX = room->getX(); roomY = room->getY();
-		onRoomChange(room, None);
+		onRoomChange(room,prevRoom, None);
 	}
 }
 
@@ -103,9 +113,10 @@ void LevelManager::changeRoom(int x, int y)
 {
 	Room* room = getRoom(x, y);
 	if (room != nullptr && !room->isVoid()) {
+		Room* prevRoom = currentRoom;
 		currentRoom = room;
 		roomX = x; roomY = y;
-		onRoomChange(room, None);
+		onRoomChange(room,prevRoom, None);
 	}
 }
 
@@ -117,12 +128,11 @@ void LevelManager::changeRoom(Direction dir)
 		Room* room = getRoom(dir);
 		if (room != nullptr && !room->isVoid()) {
 			//Si hay sala, la cambiamos
-			if (room->getType() == Shop)
-				cout << "Tienda!";
+			Room* prevRoom = currentRoom;
 			currentRoom = room;
 			roomX += directions[dir].x;
 			roomY += directions[dir].y;
-			onRoomChange(room, dir);
+			onRoomChange(room,prevRoom, dir);
 		}
 	}
 }
@@ -141,10 +151,38 @@ Room * LevelManager::getBossRoom()
 
 }
 
+Room * LevelManager::getShopRoom()
+{
+	Room* r = nullptr;
+	bool found = false;
+	for (int i = 0; !found && i < dungeon->getLevelHeight(); i++) {
+		for (int j = 0; !found && j < dungeon->getLevelWidth(); j++) {
+			r = dungeon->getRoom(j, i);
+			found = r->getType() == Shop;
+		}
+	}
+	return found ? r : nullptr;
+
+}
+
+
+void LevelManager::update()
+{
+}
+
+void LevelManager::handleEvents(SDL_Event & e)
+{
+	currentRoom->getMap()->handleEvents(e);
+}
 
 void LevelManager::render()
 {
 	currentRoom->render();
+}
+
+void LevelManager::lateRender()
+{
+	currentRoom->lateRender();
 }
 
 bool LevelManager::getDoor(Direction dir)

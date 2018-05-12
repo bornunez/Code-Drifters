@@ -9,6 +9,10 @@
 #include "EnemyManager.h"
 #include "SimpleAnimationComponent.h"
 #include "LevelManager.h"
+#include "PressToInteract.h"
+#include "SkeletonRenderer.h"
+#include "Camera.h"
+#include "ShopInput.h"
 
 void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, vector<Tileset*> tilesets)
 
@@ -147,8 +151,10 @@ void LevelParser::parseObjects(XMLElement * root, XMLElement * objectsElement, M
 		string objectName = object->Attribute("name");
 		int x = atoi(object->Attribute("x"))* scale;
 		int y = atoi(object->Attribute("y"))* scale;
+		int w = atoi(object->Attribute("width"))* scale;
+		int h = atoi(object->Attribute("height"))* scale;
 		//Guardamos la posicion
-		GameObject* go = stringToObject(objectName,x,y);
+		GameObject* go = stringToObject(objectName,x,y,w,h);
 		objects.push_back(go);
 	}
 	map->setObjects(objects);
@@ -237,13 +243,19 @@ string LevelParser::dirToString(Direction dir)
 	return direction;
 }
 
-GameObject * LevelParser::stringToObject(string objName, int x, int y)
+GameObject * LevelParser::stringToObject(string objName, int x, int y,int w,int h)
 {
-	GameObject* obj = new GameObject(nullptr, x, y, 0, 0);
+	GameObject* obj = new GameObject(nullptr, x, y, w, h);
 
 	//Aqui hacer el switch largo para ver cual es
 	if (objName == "Turret")
-		obj->addComponent(new SimpleAnimationComponent(obj,ResourceManager::getInstance()->getTexture(GunnerBullet)));
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GunnerBullet)));
+	else if (objName == "Tienda") {
+		obj->addComponent(new PressToInteract(obj));
+		obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
+		obj->addComponent(new ShopInput(obj));
+
+	}
 	return obj;
 }
 

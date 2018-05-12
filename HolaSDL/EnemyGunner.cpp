@@ -39,7 +39,7 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new BasicMovement(this));
 	addComponent(new DamageableEnemyComponent(this, getMC(),0.2));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
-	addComponent(new StunComponent(this));
+	addComponent(new StunComponent(this, 0));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 }

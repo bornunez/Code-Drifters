@@ -20,7 +20,7 @@ ResourceManager::ResourceManager(SDL_Renderer* renderer) : numOfMusic(0), music(
 	loadEnemyTilesets();
 	loadBoss1Tilesets();
 	loadBoss2Tilesets();
-
+	loadBoss3Tilesets();
 
 }
 
@@ -147,6 +147,20 @@ void ResourceManager::loadBoss2Tilesets()
 		Texture* tileTex = new Texture(renderer, BOSS2_PATH + imageSrc);
 		//Y cargamos el tileset
 		boss2Tilesets.push_back(new Tileset(tileTex, root));
+	}
+}
+void ResourceManager::loadBoss3Tilesets()
+{
+	for (int i = 0; i < NUM_BOSS3TILESET; i++) {
+		string filename = boss3TilesetNames[i];
+		XMLDocument doc;
+		doc.LoadFile((BOSS3_PATH + filename).c_str());
+		//Raiz del tileset
+		XMLElement* root = doc.FirstChildElement();
+		string imageSrc = root->FirstChildElement("image")->Attribute("source");
+		Texture* tileTex = new Texture(renderer, BOSS3_PATH + imageSrc);
+		//Y cargamos el tileset
+		boss3Tilesets.push_back(new Tileset(tileTex, root));
 	}
 }
 

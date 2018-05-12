@@ -42,10 +42,10 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 		gameObject->changeCurrentAnimation("RUNRIGHT");
 		break;
 	case RUN_TOP:
-		gameObject->changeCurrentAnimation("RUNTOP");
+		gameObject->changeCurrentAnimation("RUNRIGHT");
 		break;
 	case RUN_BOT:
-		gameObject->changeCurrentAnimation("RUNBOT");
+		gameObject->changeCurrentAnimation("RUNLEFT");
 		break;
 
 	case CHARGE_LEFT:
@@ -76,12 +76,12 @@ void ChargerAnimationComponent::receiveMessage(Message* msg)
 		chargeTimer->restart();
 		break;
 	case PRECHARGE_TOP:
-		gameObject->changeCurrentAnimation("PRECHARGETOP");
+		gameObject->changeCurrentAnimation("PRECHARGERIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		chargeTimer->restart();
 		break;
 	case PRECHARGE_BOT:
-		gameObject->changeCurrentAnimation("PRECHARGEBOT");
+		gameObject->changeCurrentAnimation("PRECHARGELEFT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		chargeTimer->restart();
 		break;

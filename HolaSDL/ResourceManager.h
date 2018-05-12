@@ -7,12 +7,13 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 81;
+const int NUM_TEXTURES = 84;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
+const int NUM_BOSS3TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels&tiles\\";
 const string TILESET_PATH = "..\\levels&tiles\\";
@@ -20,6 +21,7 @@ const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
 const string BOSS1_PATH = "..\\Animations\\Bosses\\Boss1\\";
 const string BOSS2_PATH = "..\\Animations\\Bosses\\Boss2\\";
+const string BOSS3_PATH = "..\\Animations\\Bosses\\Boss3\\";
 // Estructura para las texturas
 typedef struct {
 	string filename;
@@ -34,6 +36,8 @@ enum TextureId {
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
 	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo,
+	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
+
 	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
 
 	//TEXTURAS DEL MINIMAPA
@@ -56,14 +60,17 @@ enum TextureId {
 // Music -- each file is loaded as an instance of Music
 //
 enum MusicId {
-	Music1
+	Music1,
+	Burdel
 };
 
 
 // Sound Effects -- each file is loaded as an instance of SoundEffect
 //
 enum SoundEffectId {
-	SoundEffect1
+	SoundEffect1,
+	MCGunShot,
+	MCSwordNormalAttack
 };
 
 //IMPORTANTE//
@@ -99,6 +106,11 @@ private:
 		{"Interfaz\\EnemigoBorde.png", 1, 1},
 		{"Interfaz\\EnemigoRelleno.png", 1, 1},
 		{"Interfaz\\EnemigoFondo.png", 1, 1},
+
+		{ "Interfaz\\Carga_Borde.png", 1, 1 },
+		{ "Interfaz\\Carga_Barra.png", 1, 1 },
+		{ "Interfaz\\Carga_Fondo.png", 1, 1 },
+
 
 		//First Boss
 		{"Interfaz\\PerroBorde.png", 1, 1},
@@ -177,9 +189,14 @@ private:
 	//Sounds
 
 
-	std::vector<std::string> ResourceManager::musicFiles{ "..\\music\\cosa.wav"};
+	std::vector<std::string> ResourceManager::musicFiles{ 
+		"..\\music\\cosa.wav",
+		"..\\music\\Puticlub.wav"};
 
-	std::vector<std::string> ResourceManager::soundEffectFiles{ "..\\sound\cosa.wav"};
+	std::vector<std::string> ResourceManager::soundEffectFiles{
+		"..\\music\\Sonidos\cosa.wav",
+		"..\\music\\Sonidos\\PistolaProta.wav",
+		"..\\music\\Sonidos\\EspadaTest.wav" };
 
 	int numOfMusic;
 	Music** music;
@@ -195,6 +212,7 @@ private:
 	vector<Tileset*> protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
 	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
+	const string boss3TilesetNames[NUM_BOSS3TILESET]{ "Boss3.tsx" };
 	const string enemyTilesetNames[NUM_ENEMYTILESET]
 	{ 
 		"Gunner.tsx", 
@@ -208,6 +226,7 @@ private:
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	vector<Tileset*> boss2Tilesets;
+	vector<Tileset*> boss3Tilesets;
 
 
 	SDL_Renderer* renderer;
@@ -219,6 +238,7 @@ private:
 	void loadEnemyTilesets();
 	void loadBoss1Tilesets();
 	void loadBoss2Tilesets();
+	void loadBoss3Tilesets();
 
 	//Music
 	void setMusic(std::vector<std::string> musicVect);
@@ -243,6 +263,7 @@ public:
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };
+	Tileset* getBoss3Tileset(int numTileset) { return boss3Tilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;

@@ -3,7 +3,11 @@
 #include "Room.h"
 #include "LevelManager.h"
 #include <ctime>
-
+#include <iostream>
+#include "ResourceManager.h"
+#include "Game.h"
+#include "Random.h"
+#include "Texture.h"
 
 /*Generador de mazmorras
 Descripción del algoritmo:
@@ -45,6 +49,7 @@ using namespace std;
 DungeonGenerator::DungeonGenerator(int mapWidth, int mapHeight, int maxRooms) : 
 	mapWidth_(mapWidth), mapHeight_(mapHeight),maxRooms_(maxRooms)
 {
+	loadTexts();
 }
 DungeonGenerator::~DungeonGenerator()
 {
@@ -90,6 +95,7 @@ void DungeonGenerator::ClearMap()//Reinicia los valores de los vectores y de la 
 }
 void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 {
+
 	AddFirstRoom();//Crea la sala principal
 	int i = 0;
 	while (unvisitedRooms_.size()>0 && roomsLeft_ > 0)//Va creando salas hasta que no quedan más por procesar
@@ -129,7 +135,8 @@ void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 		unvisitedRooms_.erase(unvisitedRooms_.begin());//Borra la sala actual de las salas sin visitar
 		i++;
 		system("cls");
-		//cout << "Creating rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
+		std::cout << "Creating rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
+		RenderProgresBar(i, maxRooms_, "Creating Rooms...");
 	}
 	
 }
@@ -297,11 +304,14 @@ vector<string> DungeonGenerator::CheckDirections(int x, int y)//Comprueba las di
 
 void DungeonGenerator::load() {//Cada sala carga su textura correspondiente
 	//for (int i = 0; i < visitedRooms_.size(); i++)
+	int i = 0;
 	for(auto & vr : visitedRooms_)
 	{
 		vr->load();
-		//system("cls");
-		//cout << "Loading rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
+		system("cls");
+		cout << "Loading rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
+		RenderProgresBar(i, maxRooms_, "Loading Rooms...");
+		i++;
 	}
 }
 bool DungeonGenerator::AvailableCell(int x, int y)//Determina si la celda está disponible
@@ -312,6 +322,82 @@ bool DungeonGenerator::AvailableCell(int x, int y)//Determina si la celda está d
 	}
 	else return false;
 }
+
+
+void DungeonGenerator::loadTexts()
+{
+	int scale = 1;
+	Game* g = Game::getGame();
+	ResourceManager* re = ResourceManager::getInstance();
+	randText.texture = new Texture(g->getRenderer());
+	levelText.texture = new Texture(g->getRenderer());
+	loadText.texture = new Texture(g->getRenderer());
+
+	neonFont = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
+	//Cargamos las texturas
+	loadbar.borderTex = re->getTexture(LoadbarBarra);
+	loadbar.barTex = re->getTexture(LoadbarBarra);
+	loadbar.BottomTex = re->getTexture(LoadBarFondo);
+	loadbar.backGroundTex = re->getTexture(LoadingScreenBG);
+	randText.texture->loadFromText(Random::fraseAleatoria(), *neonFont, { COLOR(0xff00ffff) });
+	levelText.texture->loadFromText("Level " + to_string(LevelManager::getInstance()->getLevelNumber()), *neonFont, { COLOR(0xff00ffff) });
+	//"Level " + to_string(LevelManager::getInstance()->getLevelNumber())
+
+	//Ajustamos las posiciones
+	loadbar.currentSrc.x = loadbar.currentSrc.y = 0;
+	loadbar.currentSrc.w = loadbar.borderTex->getWidth();
+	loadbar.currentSrc.h = loadbar.borderTex->getHeight();
+
+	//Todas las texturas comparten el mismo dst rect
+	loadbar.backGroundDst.w = loadbar.backGroundTex->getWidth() * g->getScale() * scale;
+	loadbar.backGroundDst.h = loadbar.backGroundTex->getHeight() * g->getScale() * scale;
+
+	loadbar.dst.w = loadbar.currDst.w = loadbar.currentSrc.w * g->getScale() * scale;
+	loadbar.dst.h = loadbar.currDst.h = loadbar.currentSrc.h * g->getScale() * scale;
+
+	//Situaremos la barra en mitad de la pantalla, y el texto en el cuarto superior
+	randText.dest.w = randText.texture->getWidth() * 0.6; randText.dest.h = randText.texture->getHeight() * 0.6;
+	randText.dest.x = (g->getWinW() - randText.dest.w) / 2;
+	randText.dest.y = g->getWinH() - (g->getWinH() - randText.dest.h) / 8;
+
+	levelText.dest.w = levelText.texture->getWidth();  levelText.dest.h = levelText.texture->getHeight();
+	levelText.dest.x = (g->getWinW() - levelText.dest.w) / 2; levelText.dest.y = (g->getWinH() - levelText.dest.h) / 4;
+
+
+	loadbar.backGroundDst.x = (g->getWinW() - loadbar.backGroundDst.w) / 2;
+	loadbar.backGroundDst.y = (g->getWinH() - loadbar.backGroundDst.h) / 2;
+
+	loadbar.dst.x = loadbar.currDst.x = (g->getWinW() - loadbar.dst.w) / 2;
+	loadbar.dst.y = loadbar.currDst.y = (g->getWinH() - loadbar.dst.h) / 2;
+}
+
+void DungeonGenerator::RenderProgresBar(int current, int max, string text)
+{
+	Game* g = Game::getGame();
+	SDL_Renderer* r = g->getRenderer();
+	SDL_RenderClear(r);
+	loadbar.currentSrc.w = loadbar.barTex->getWidth() * ((float)current / (float)max);
+	loadbar.currDst.w = loadbar.dst.w * ((float)current / (float)max);
+
+	loadbar.BottomTex->render(loadbar.dst);
+	loadbar.barTex->render(loadbar.currDst, &loadbar.currentSrc);
+	loadbar.backGroundTex->render(loadbar.backGroundDst);
+
+	//TEXTS
+	loadText.texture->loadFromText(text, *neonFont, { COLOR(0x7e7effff) });
+	loadText.dest.w = loadText.texture->getWidth(); loadText.dest.h = loadText.texture->getHeight();
+	loadText.dest.x = (g->getWinW() - loadText.dest.w) / 2;
+	loadText.dest.y = ((g->getWinW() - loadText.dest.h) / 2);
+	
+	loadText.texture->render(loadText.dest);
+	randText.texture->render(randText.dest);
+	levelText.texture->render(levelText.dest);
+
+
+	SDL_RenderPresent(r);
+}
+
+
 bool DungeonGenerator::CellInsideBounds(int x, int y)//Determina si la posición dada se encuentra dentro de la matriz del mapa
 {
 	if (x < 0 || x >= mapWidth_ || y<0 || y >= mapHeight_)

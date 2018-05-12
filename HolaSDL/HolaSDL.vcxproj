@@ -22,6 +22,7 @@
     <ClCompile Include="BomberShotComponent.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Boss2.cpp" />
+    <ClCompile Include="Boss3.cpp" />
     <ClCompile Include="BossHUDComponent.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -112,16 +113,19 @@
     <ClCompile Include="ParticleAnimation.cpp" />
     <ClCompile Include="ParticlesManager.cpp" />
     <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="PressToInteract.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ReloadComponent.cpp" />
     <ClCompile Include="RenderBoss.cpp" />
     <ClCompile Include="RenderBoss2.cpp" />
+    <ClCompile Include="RenderBoss3.cpp" />
     <ClCompile Include="RenderComponent.cpp" />
     <ClCompile Include="RenderWheel.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Shop.cpp" />
     <ClCompile Include="ShopBox.cpp" />
+    <ClCompile Include="ShopInput.cpp" />
     <ClCompile Include="ShopState.cpp" />
     <ClCompile Include="SimpleAnimationComponent.cpp" />
     <ClCompile Include="SkeletonRenderer.cpp" />
@@ -142,6 +146,7 @@
     <ClCompile Include="TurretShotComponent.cpp" />
     <ClCompile Include="UpdateBoss.cpp" />
     <ClCompile Include="UpdateBoss2.cpp" />
+    <ClCompile Include="UpdateBoss3.cpp" />
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="UpdateWheel.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
@@ -162,6 +167,7 @@
     <ClInclude Include="BomberShotComponent.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Boss2.h" />
+    <ClInclude Include="Boss3.h" />
     <ClInclude Include="BossHUDComponent.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
@@ -253,10 +259,12 @@
     <ClInclude Include="ParticleAnimation.h" />
     <ClInclude Include="ParticlesManager.h" />
     <ClInclude Include="PlayState.h" />
+    <ClInclude Include="PressToInteract.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="ReloadComponent.h" />
     <ClInclude Include="RenderBoss.h" />
     <ClInclude Include="RenderBoss2.h" />
+    <ClInclude Include="RenderBoss3.h" />
     <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="RenderWheel.h" />
     <ClInclude Include="resource.h" />
@@ -266,6 +274,7 @@
     <ClInclude Include="SDL_mixer.h" />
     <ClInclude Include="Shop.h" />
     <ClInclude Include="ShopBox.h" />
+    <ClInclude Include="ShopInput.h" />
     <ClInclude Include="ShopState.h" />
     <ClInclude Include="SimpleAnimationComponent.h" />
     <ClInclude Include="SkeletonRenderer.h" />
@@ -286,6 +295,7 @@
     <ClInclude Include="TurretShotComponent.h" />
     <ClInclude Include="UpdateBoss.h" />
     <ClInclude Include="UpdateBoss2.h" />
+    <ClInclude Include="UpdateBoss3.h" />
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="UpdateWheel.h" />
     <ClInclude Include="UpperGameState.h" />

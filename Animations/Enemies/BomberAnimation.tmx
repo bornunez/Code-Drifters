@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="6" tilewidth="64" tileheight="64" nextobjectid="120">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="6" tilewidth="64" tileheight="64" nextobjectid="122">
  <tileset firstgid="1" source="Bomber.tsx"/>
  <layer name="StunLeft" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFtAL8FOgFAAUcABA=
+   eJxjYBgFtAJSFOgFAAewABs=
   </data>
  </layer>
+ <objectgroup name="StunLeft">
+  <object id="121" name="Hurtbox" type="0" x="147" y="344" width="28" height="24"/>
+ </objectgroup>
  <layer name="StunRight" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF2ADbANsPAASYAAc=
+   eJxjYBgF2IDyANsPABMYACQ=
   </data>
  </layer>
+ <objectgroup name="StunRight">
+  <object id="120" name="Hurtbox" type="0" x="144" y="280" width="28" height="24"/>
+ </objectgroup>
  <layer name="HurtLeft" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFtAb8ZOgBAASkABA=
+   eJxjYBgFtAZ8ZOgBAARwAA8=
   </data>
  </layer>
  <layer name="HurtRight" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF+ADbANkLAARoAAc=
+   eJxjYBgF+ADrANkLAAPwAAY=
   </data>
  </layer>
  <layer name="DeathLeft" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF1AZ8VDADAAVQAA8=
+   eJxjYBgF1AZKVDADAAqgACM=
   </data>
  </layer>
  <layer name="DeathRight" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFyIB1oB0ABQAEQAAG
+   eJxjYBgFyEByoB0ABQAO4AAa
   </data>
  </layer>
  <layer name="RunLeft" width="17" height="6">

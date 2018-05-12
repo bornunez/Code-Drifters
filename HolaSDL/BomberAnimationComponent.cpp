@@ -59,6 +59,10 @@ void BomberAnimationComponent::receiveMessage(Message* msg)
 		deathAnimations();
 		break;
 
+	case GUN_STUN:
+		stunAnimations();
+		break;
+
 	}
 }
 
@@ -76,11 +80,11 @@ void BomberAnimationComponent::handleAnimation()
 		if (eb->enemyState == EnemyState::Hurt) {
 			hurtTimer->update();
 			if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
-				eb->enemyState = EnemyState::Run;
+				eb->enemyState = EnemyState::Idle;
 			}
 		}
 
-		if (eb->enemyState == EnemyState::Run) {
+		if (eb->enemyState == EnemyState::Idle) {
 				//Animacion run según ángulo
 				if (angle > 90 && angle < 270) {
 					Message msg(RUN_LEFT);
@@ -128,3 +132,17 @@ void BomberAnimationComponent::deathAnimations()
 	gameObject->getCurrentAnimation()->startAnimation();
 }
 
+void BomberAnimationComponent::stunAnimations()
+{
+	Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
+	float angle = (atan2(target->getDisplayCenterPos().getY() - displayCenterPos.getY(), target->getDisplayCenterPos().getX() - displayCenterPos.getX()));//Angulo entre el enemigo y el target, en grados
+	angle = angle * 180 / M_PI;
+	if (angle < 0)
+		angle += 360;
+
+	if (angle > 90 && angle < 270)	gameObject->changeCurrentAnimation("STUNLEFT");
+
+	else gameObject->changeCurrentAnimation("STUNRIGHT");
+
+	gameObject->getCurrentAnimation()->startAnimation();
+}

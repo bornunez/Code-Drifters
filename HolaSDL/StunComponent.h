@@ -10,9 +10,10 @@ class StunComponent :
 protected:
 	Timer stunTimer;
 	float stunTime;
+	float specificTime;
 	Enemy* enemy;
 public:
-	StunComponent(GameObject * o);
+	StunComponent(GameObject * o, float time);
 	virtual ~StunComponent();
 	virtual void update();
 	virtual void receiveMessage(Message* msg);

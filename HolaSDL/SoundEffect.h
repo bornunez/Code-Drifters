@@ -14,6 +14,7 @@ public:
 	void play(int repetirions = 0);
 	void playChannel(int channel = -1, int rep = 0);
 	void pause();
+	void changeVolume(int volume);
 	void close();
 private:
 	Mix_Chunk *chunck_ = nullptr;

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "sdl_includes.h"
 using namespace std;
 
 class Room;
@@ -16,7 +17,7 @@ private:
 	static LevelManager * instance;
 	LevelManager();
 
-	void onRoomChange(Room * room, Direction dir);
+	void onRoomChange(Room * room,Room* prevRoom, Direction dir);
 
 	//Cosas de puertas
 	vector<DirPair> directions;
@@ -37,6 +38,7 @@ public:
 	static LevelManager * getInstance();
 
 	DungeonGenerator* getLevel() { return dungeon; }
+	int getLevelNumber() { return level; }
 	Room* getCurrentRoom() { return currentRoom; }
 	Room* getFirstRoom() { return firstRoom; }
 	void enterMap();
@@ -48,8 +50,12 @@ public:
 	void changeRoom(int x, int y);
 	void changeRoom(Direction dir);
 	Room* getBossRoom();
+	Room* getShopRoom();
 
+	void update();
+	void handleEvents(SDL_Event & e);
 	void render();
+	void lateRender();
 
 	bool getDoor(Direction dir);
 
