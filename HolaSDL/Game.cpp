@@ -182,4 +182,10 @@ void Game::quitState()
 	stateMachine->quitState();
 }
 
+void Game::quitToMenu()
+{
+	stateMachine->popState();
+	stateMachine->popState();
+}
+
 
