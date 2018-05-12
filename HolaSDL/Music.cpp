@@ -33,3 +33,7 @@ void Music::close() {
 		music_ = nullptr;
 	}
 }
+
+void Music::stop() {
+	Mix_HaltMusic();
+}
