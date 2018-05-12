@@ -42,113 +42,120 @@ void UpdateBoss2::Hit()
 
 void UpdateBoss2::update()
 {
-	boss->allUpdates();
-	updateado = false;
-	static_cast<Boss2*>(boss)->updateEnemies();
-	//cout << auxVelocidad;
-	if (faseAct == 0 && (Tiempo->TimeSinceTimerCreation < tiempoFase0) && !updateado)
+	if (!boss->isDead())
 	{
-		fase0();
-	}
-	else if (faseAct == 0 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 9;
-		updateado = true;
-	}
-	if (faseAct == 1 && (Tiempo->TimeSinceTimerCreation < tiempoFase1) && !updateado)
-	{
-		fase1();
-	}
-	else if (faseAct == 1 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 2;
-		updateado = true;
-	}
-	if (faseAct == 2 && Tiempo->TimeSinceTimerCreation < tiempoFase2 && !updateado)
-	{
-		fase2();
-	}
-	else if (faseAct == 2 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 3;
-		updateado = true;
-	}
-	if (faseAct == 3 && Tiempo->TimeSinceTimerCreation < tiempoFase3 && !updateado)
-	{
-		fase3();
-	}
-	else if (faseAct == 3 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 4;
-		updateado = true;
-	}
-	if (faseAct == 4 && Tiempo->TimeSinceTimerCreation < tiempoFase4 && !updateado)
-	{
-		fase4();
-	}
-	else if (faseAct == 4 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 5;
-		updateado = true;
-	}
-	if (faseAct == 5 && Tiempo->TimeSinceTimerCreation < tiempoFase5 && !updateado)
-	{
-		fase5();
-	}
-	else if (faseAct == 5 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 6;
-		updateado = true;
-	}
-	if (faseAct == 6 && Tiempo->TimeSinceTimerCreation < tiempoFase6 && !updateado)
-	{
-		fase6();
-	}
-	else if (faseAct == 6 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 7;
-		updateado = true;
-	}
-	if (faseAct == 7 && Tiempo->TimeSinceTimerCreation < tiempoFase7 && !updateado)
-	{
-		fase7();
-	}
-	else if (faseAct == 7 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 0;
-		updateado = true;
-	}
-	if (faseAct == 8 && Tiempo->TimeSinceTimerCreation < tiempoFase8 && !updateado)
-	{
-		fase8();
-	}
-	else if (faseAct == 8 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 1;
-		updateado = true;
-	}
-	if (faseAct == 9 && Tiempo->TimeSinceTimerCreation < tiempoFase9 && !updateado)
-	{
-		fase9();
-	}
-	else if (faseAct == 9 && !updateado)
-	{
-		Tiempo->restart();
-		faseAct = 8;
-		updateado = true;
-	}
+		boss->allUpdates();
+		updateado = false;
+		static_cast<Boss2*>(boss)->updateEnemies();
+		//cout << auxVelocidad;
+		if (faseAct == 0 && (Tiempo->TimeSinceTimerCreation < tiempoFase0) && !updateado)
+		{
+			fase0();
+		}
+		else if (faseAct == 0 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 9;
+			updateado = true;
+		}
+		if (faseAct == 1 && (Tiempo->TimeSinceTimerCreation < tiempoFase1) && !updateado)
+		{
+			fase1();
+		}
+		else if (faseAct == 1 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 2;
+			updateado = true;
+		}
+		if (faseAct == 2 && Tiempo->TimeSinceTimerCreation < tiempoFase2 && !updateado)
+		{
+			fase2();
+		}
+		else if (faseAct == 2 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 3;
+			updateado = true;
+		}
+		if (faseAct == 3 && Tiempo->TimeSinceTimerCreation < tiempoFase3 && !updateado)
+		{
+			fase3();
+		}
+		else if (faseAct == 3 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 4;
+			updateado = true;
+		}
+		if (faseAct == 4 && Tiempo->TimeSinceTimerCreation < tiempoFase4 && !updateado)
+		{
+			fase4();
+		}
+		else if (faseAct == 4 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 5;
+			updateado = true;
+		}
+		if (faseAct == 5 && Tiempo->TimeSinceTimerCreation < tiempoFase5 && !updateado)
+		{
+			fase5();
+		}
+		else if (faseAct == 5 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 6;
+			updateado = true;
+		}
+		if (faseAct == 6 && Tiempo->TimeSinceTimerCreation < tiempoFase6 && !updateado)
+		{
+			fase6();
+		}
+		else if (faseAct == 6 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 7;
+			updateado = true;
+		}
+		if (faseAct == 7 && Tiempo->TimeSinceTimerCreation < tiempoFase7 && !updateado)
+		{
+			fase7();
+		}
+		else if (faseAct == 7 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 0;
+			updateado = true;
+		}
+		if (faseAct == 8 && Tiempo->TimeSinceTimerCreation < tiempoFase8 && !updateado)
+		{
+			fase8();
+		}
+		else if (faseAct == 8 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 1;
+			updateado = true;
+		}
+		if (faseAct == 9 && Tiempo->TimeSinceTimerCreation < tiempoFase9 && !updateado)
+		{
+			fase9();
+		}
+		else if (faseAct == 9 && !updateado)
+		{
+			Tiempo->restart();
+			faseAct = 8;
+			updateado = true;
+		}
 
-	if (hit) Hit();
-	Tiempo->update();
+		if (hit) Hit();
+		Tiempo->update();
+	}
+	else if (boss->getCurrentAnimation()->isFinished())
+	{
+		boss->getCurrentAnimation()->changeColor(100, 100, 100);
+	}
 }
 
 
