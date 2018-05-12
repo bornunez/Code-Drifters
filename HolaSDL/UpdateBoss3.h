@@ -23,6 +23,7 @@ private:
 
 	GameObject* boss;
 	//FASES
+	void faseTP();
 	void fase0();
 	void fase1();
 	void fase2();
@@ -43,17 +44,18 @@ private:
 
 	//TIEMPOS
 	float tiempoAct = 0;
-	float velocidad = 10;
+	float velocidad = 150;
 	float tiempoRetraso = 0.3f;
 	float auxVelocidad = 1;
 	int faseAct = 0;
 	int fasesPast = 0;
+	int fasesPast0 = 0;
 	float tiempoLucian = 4;
 	float auxLucian = 0;
-	float tiempoIntervalLucian = 0.2f;
+	float tiempoIntervalLucian = 0.3f;
 	float auxInterval = 0;
 
-	float tiempoBomb = 0.5f;
+	float tiempoBomb = 0.75f;
 	float auxBomb = 0;
 	bool arriba = true;
 	bool giroDir = true;

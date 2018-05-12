@@ -152,7 +152,17 @@ void UpdateBoss3::update()
 	Tiempo->update();
 }
 
-
+void UpdateBoss3::faseTP()
+{
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		boss->changeCurrentAnimation("DESVANECE");
+		boss->getTransform()->overlapCollision.active = true;
+		boss->getCurrentAnimation()->startAnimation();
+		fasesPast = 1;
+		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
+	}
+}
 
 void UpdateBoss3::fase0()
 {
@@ -181,9 +191,9 @@ void UpdateBoss3::fase1()
 		auxShoot(auxTrans);
 		fasesPast = 0;
 	}
-	else if (Tiempo->TimeSinceTimerCreation >= tiempoFase1/5 && fasesPast == 0)
+	else if (Tiempo->TimeSinceTimerCreation >= tiempoFase1/5 && fasesPast0 == 0)
 	{
-		fasesPast++;
+		fasesPast0++;
 		Transform auxTrans;
 		auxTrans.body.w = auxTrans.body.h = 20;
 		auxTrans.position.set(boss->getCenterPos());
@@ -206,7 +216,6 @@ void UpdateBoss3::fase2()
 }
 void UpdateBoss3::fase3()
 {
-	velocidad = 100;
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->getTransform()->position = Vector2D(1650, 1000);
@@ -284,6 +293,11 @@ void UpdateBoss3::fase4()
 	{
 		EnemyManager::getInstance()->spawn(boss->getCenterPos().getX(), boss->getCenterPos().getY(), Bomb);
 		auxBomb = 0;
+	}
+	if (boss->getTransform()->position.getY() >= posInic.getY() + 500)
+	{
+		faseAct = 5;
+		Tiempo->restart();
 	}
 
 
