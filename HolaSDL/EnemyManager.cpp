@@ -94,6 +94,10 @@ void EnemyManager::update()
 	{
 		actBoss2->update();
 	}
+	if (actBoss3 != nullptr && actBoss3->isActive())
+	{
+		actBoss3->update();
+	}
 }
 
 void EnemyManager::render()
@@ -108,6 +112,10 @@ void EnemyManager::render()
 	if (actBoss2 != nullptr && actBoss2	->isActive())
 	{
 		actBoss2->render();
+	}
+	if (actBoss3 != nullptr && actBoss3->isActive())
+	{
+		actBoss3->render();
 	}
 }
 
@@ -124,6 +132,10 @@ void EnemyManager::lateRender()
 	{
 		actBoss2->lateRender();
 	}
+	if (actBoss3 != nullptr && actBoss3->isActive())
+	{
+		actBoss3->lateRender();
+	}
 }
 
 void EnemyManager::spawn(int x, int y, EnemyType eType)
@@ -137,6 +149,7 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 	e->spawn(x, y);
 	actives.push_back(e);	
 }
+
 
 void EnemyManager::spawn(Spawner * spawner)
 {
@@ -152,13 +165,18 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	actBoss1 = new Boss(mc, x, y, 128, 128);
-	activeBoss = actBoss1;
+	actBoss3 = new Boss3(mc, x, y, 128, 128);
+	activeBoss = actBoss3;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {
 	actBoss2= new Boss2(mc, x, y, 128, 128);
 	activeBoss = actBoss2;
+}
+void EnemyManager::spawnBoss3(int x, int y)
+{
+	actBoss3 = new Boss3(mc, x, y, 128, 128);
+	activeBoss = actBoss3;
 }
 void EnemyManager::ResetInstance()
 {

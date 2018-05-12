@@ -13,6 +13,7 @@ const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
+const int NUM_BOSS3TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels&tiles\\";
 const string TILESET_PATH = "..\\levels&tiles\\";
@@ -20,6 +21,7 @@ const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
 const string BOSS1_PATH = "..\\Animations\\Bosses\\Boss1\\";
 const string BOSS2_PATH = "..\\Animations\\Bosses\\Boss2\\";
+const string BOSS3_PATH = "..\\Animations\\Bosses\\Boss3\\";
 // Estructura para las texturas
 typedef struct {
 	string filename;
@@ -202,6 +204,7 @@ private:
 	vector<Tileset*> protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
 	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
+	const string boss3TilesetNames[NUM_BOSS3TILESET]{ "Boss3.tsx" };
 	const string enemyTilesetNames[NUM_ENEMYTILESET]
 	{ 
 		"Gunner.tsx", 
@@ -215,6 +218,7 @@ private:
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	vector<Tileset*> boss2Tilesets;
+	vector<Tileset*> boss3Tilesets;
 
 
 	SDL_Renderer* renderer;
@@ -226,6 +230,7 @@ private:
 	void loadEnemyTilesets();
 	void loadBoss1Tilesets();
 	void loadBoss2Tilesets();
+	void loadBoss3Tilesets();
 
 	//Music
 	void setMusic(std::vector<std::string> musicVect);
@@ -250,6 +255,7 @@ public:
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };
+	Tileset* getBoss3Tileset(int numTileset) { return boss3Tilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;

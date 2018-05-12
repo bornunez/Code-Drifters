@@ -18,6 +18,12 @@ BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
 		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
 	}
+	else if (boss->getBossType() == 3) {
+		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
+		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
+		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
+		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
+	}
 	//el resto de texturas de los demas hudobjects
 
 	bossBack->destRect.x = Game::getGame()->getWinW() / 8;

@@ -3,6 +3,7 @@
 #include <list>
 #include "Boss.h"
 #include "Boss2.h"
+#include "Boss3.h"
 
 using namespace std;
 class Enemy;
@@ -43,6 +44,7 @@ private:
 	Enemy* getInactiveEnemy(EnemyType eType);
 	Boss* actBoss1;
 	Boss2* actBoss2;
+	Boss3* actBoss3;
 	MasterBoss* activeBoss;
 
 	MainCharacter* mc;
@@ -63,6 +65,7 @@ public:
 
 	void spawnBoss(int x, int y);
 	void spawnBoss2(int x, int y);
+	void spawnBoss3(int x, int y);
 	MasterBoss* getActiveBoss() { return activeBoss; }
 
 	//Desactiva un enemigo

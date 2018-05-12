@@ -410,6 +410,15 @@
     </ClCompile>
     <ClCompile Include="PressToInteract.cpp" />
     <ClCompile Include="ShopInput.cpp" />
+    <ClCompile Include="Boss3.cpp">
+      <Filter>Bosses\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderBoss3.cpp">
+      <Filter>Bosses\Boss3</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateBoss3.cpp">
+      <Filter>Bosses\Boss3</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -804,6 +813,15 @@
     </ClInclude>
     <ClInclude Include="PressToInteract.h" />
     <ClInclude Include="ShopInput.h" />
+    <ClInclude Include="Boss3.h">
+      <Filter>Bosses\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderBoss3.h">
+      <Filter>Bosses\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateBoss3.h">
+      <Filter>Bosses\Boss3</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -892,6 +910,9 @@
     </Filter>
     <Filter Include="Bosses\WheelEnemy">
       <UniqueIdentifier>{6ffbd8e4-18be-412d-9a5c-a35d074c7038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\Boss3">
+      <UniqueIdentifier>{eac12731-2770-41b4-aaf9-13e804e0133c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
