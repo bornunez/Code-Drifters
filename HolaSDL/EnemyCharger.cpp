@@ -43,7 +43,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new WallStunComponent(this, 4.0));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations, .2, .5));
-	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 2));
+	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 4));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new ChargerDamageableEnemyComponent(this, getMC(), 0.2));
