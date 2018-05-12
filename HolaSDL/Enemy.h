@@ -17,6 +17,7 @@ struct CommonBossAttributes {
 	int minDrop; int maxDrop; //Drop de dinero
 	int healDrop;
 	bool stunned = false;
+	bool hookable = true;
 };
 //#########################################################
 
@@ -57,6 +58,7 @@ public:
 	void setLife(int life) { Attributes.life = life; };
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }
+	bool isHookable() { return Attributes.hookable; }
 	EnemyState enemyState;		//PROTECTED
 	EnemyState getEnemyState() { return this->enemyState; }
 	double baseSpeed;

@@ -10,6 +10,7 @@
 #include "EnemyManager.h"
 #include "AnimationParser.h"
 #include "TurretAnimationComponent.h"
+#include "StunComponent.h"
 #include "Tileset.h"
 #include "ResourceManager.h"
 #include "BoxRenderer.h"
@@ -28,8 +29,9 @@ EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 	transform.overlapCollision.overlapOffset.setY(0);
 	loadAnimations();
 
-	this->addComponent(new TurretShotComponent(this, getMC(), 500, 1));
+	addComponent(new TurretShotComponent(this, getMC(), 500, 1));
 	addComponent(new TurretAnimationComponent(this, getMC(), animations));
+	addComponent(new StunComponent(this, 4));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 }
 

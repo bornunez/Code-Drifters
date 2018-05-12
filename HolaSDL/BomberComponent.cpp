@@ -11,7 +11,7 @@ BomberComponent::BomberComponent(Enemy* e, GameObject* target, float dist) : Upd
 	targetObject = target;
 	distancia = dist;
 	eb = e;
-	eb->enemyState = EnemyState::Run;
+	eb->enemyState = EnemyState::Idle;
 }
 
 
@@ -35,7 +35,7 @@ void BomberComponent::update() {
 					rotating = true;
 					angle = targetT->position.angle(bomberT->position);
 				}
-				if (eb->enemyState == EnemyState::Run) {
+				if (eb->enemyState == EnemyState::Idle) {
 					//Circular Movement
 					//Auxpos marca punto en trayectoria circular alrededor del target, bomber asume esa position como target y lo persigue
 					angle += Time::getInstance()->DeltaTime*.7;
@@ -48,7 +48,7 @@ void BomberComponent::update() {
 			}
 
 			//Regular chase
-			else if(eb->enemyState == EnemyState::Run) {
+			else if(eb->enemyState == EnemyState::Idle) {
 				if (rotating) {
 					rotating = false;
 				}	
@@ -63,6 +63,10 @@ void BomberComponent::update() {
 				eb->setMovable(true);
 
 			}
+		}
+		else {
+			gameObject->getTransform()->velocity.set({ 0,0 });
+			eb->setMovable(false);
 		}
 	}
 

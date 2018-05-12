@@ -60,6 +60,9 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 				mc->setCurrentBullets(currentBullets); //Le resta balas al personaje
 				Message msg(MC_SHOT);
 				gameObject->sendMessage(&msg);
+
+				ResourceManager::getInstance()->getSoundEffect(MCGunShot)->changeVolume(50);
+				ResourceManager::getInstance()->getSoundEffect(MCGunShot)->play();
 			}
 		}
 	}

@@ -18,6 +18,7 @@
 #include "BomberShotComponent.h"
 #include "BomberAnimationComponent.h"
 #include "KnockbackComponent.h"
+#include "StunComponent.h"
 
 
 
@@ -36,6 +37,7 @@ EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new KnockbackComponent(this, 1000));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new DamageableEnemyComponent(this, getMC(), .2));
+	addComponent(new StunComponent(this, 0));
 }
 
 
@@ -57,6 +59,9 @@ void EnemyBomber::loadAnimations()
 	Animation* hurtRight = AnimationParser::parseAnimation(tileset, animationPath, "HurtRight", this, 0, 0, false, 0.2);
 	Animation* hurtLeft = AnimationParser::parseAnimation(tileset, animationPath, "HurtLeft", this, 0, 0, false, 0.2);
 
+	Animation* stunRight = AnimationParser::parseAnimation(tileset, animationPath, "StunRight", this, 0, 0, false, 0.2);
+	Animation* stunLeft = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft", this, 0, 0, false, 0.2);
+
 	Animation* deathRight = AnimationParser::parseAnimation(tileset, animationPath, "DeathRight", this, 0, 0, false, 0.2);
 	Animation* deathLeft = AnimationParser::parseAnimation(tileset, animationPath, "DeathLeft", this, 0, 0, false, 0.2);
 
@@ -69,6 +74,9 @@ void EnemyBomber::loadAnimations()
 	animations.emplace("HURTRIGHT", hurtRight);
 	animations.emplace("HURTLEFT", hurtLeft);
 
+	animations.emplace("STUNRIGHT", stunRight);
+	animations.emplace("STUNLEFT", stunLeft);
+
 	animations.emplace("DEATHRIGHT", deathRight);
 	animations.emplace("DEATHLEFT", deathLeft);
 }
@@ -76,7 +84,7 @@ void EnemyBomber::loadAnimations()
 void EnemyBomber::spawn(int x, int y, Spawner * spawner)
 {
 	Enemy::spawn(x, y, spawner);
-	enemyState = EnemyState::Run;
+	enemyState = EnemyState::Idle;
 	Message msg(RUN_LEFT);
 	sendMessage(&msg);
 }
