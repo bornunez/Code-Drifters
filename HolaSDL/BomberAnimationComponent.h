@@ -13,6 +13,7 @@ public:
 	void handleAnimation();
 	void hurtAnimations();
 	void deathAnimations();
+	void stunAnimations();
 
 private:
 	GameObject* target;
