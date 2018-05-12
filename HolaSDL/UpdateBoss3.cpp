@@ -260,9 +260,19 @@ void UpdateBoss3::fase4()
 		//boss->getCurrentAnimation()->startAnimation();
 		auxX = 600;
 		boss->getTransform()->position = Vector2D(posInic.getX()+auxX, 500);
+		boss->changeCurrentAnimation("CARGA");
+		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 	}
-	if (boss->getTransform()->position.getX() < (posInic.getX()-auxX)) dir = 1;
-	else if (boss->getTransform()->position.getX() > (posInic.getX() + auxX)) dir = -1;
+	if (boss->getTransform()->position.getX() < (posInic.getX() - auxX))
+	{
+		dir = 1;
+		boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+	}
+	else if (boss->getTransform()->position.getX() > (posInic.getX() + auxX))
+	{
+		dir = -1;
+		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+	}
 	boss->getTransform()->position.setY(boss->getTransform()->position.getY()+Time::getInstance()->DeltaTime*velocidad/2);
 	boss->getTransform()->position.setX(boss->getTransform()->position.getX() + Time::getInstance()->DeltaTime*velocidad*10*dir);
 
@@ -283,9 +293,9 @@ void UpdateBoss3::fase5()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("SACA_RAYOS");
+		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		//boss->getCurrentAnimation()->setTime(-0.1);
-		//boss->getCurrentAnimation()->startAnimation();
+		boss->getCurrentAnimation()->startAnimation();
 
 	}
 }

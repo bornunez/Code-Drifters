@@ -165,8 +165,8 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	actBoss2 = new Boss2(mc, x, y, 128, 128);
-	activeBoss = actBoss2;
+	actBoss3 = new Boss3(mc, x, y, 128, 128);
+	activeBoss = actBoss3;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" infinite="0" nextobjectid="11">
- <tileset firstgid="1" source="boss3.tsx"/>
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" infinite="0" nextobjectid="15">
+ <tileset firstgid="1" source="Boss3.tsx"/>
+ <layer name="Carga" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrENACAMBLHUEPZflx+BAimNLV1/VQDAi5V26nSGXwDghwtIfwAv
+  </data>
+ </layer>
+ <objectgroup name="Carga">
+  <object id="11" name="Hurtbox" type="0" x="727" y="968.25" width="16.25" height="47"/>
+  <object id="12" name="Hurtbox" type="1" x="789.75" y="969.5" width="19.5" height="43"/>
+  <object id="13" name="Hurtbox" type="2" x="848" y="985.75" width="36" height="26.25"/>
+  <object id="14" name="Hitbox" type="3" x="911.75" y="981.75" width="38.75" height="31.75"/>
+ </objectgroup>
  <layer name="AbreBrazos" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztztsJACAMwMD6rO6/sNlCCjnIfyIkSaqlUadBkxZtSjp0/61JklTKA1QjAC4=

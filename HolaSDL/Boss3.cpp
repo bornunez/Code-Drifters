@@ -30,9 +30,9 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 	transform.body.h = h;
 	setSpriteOffset(1 * Game::getGame()->getScale(), -8 * Game::getGame()->getScale());
 
-	transform.overlapCollision.overlapBody.w = w;
+	transform.overlapCollision.overlapBody.w = w/1.25f;
 	transform.overlapCollision.overlapBody.h = h;
-	transform.overlapCollision.overlapOffset.setX(0);
+	transform.overlapCollision.overlapOffset.setX(5);
 	transform.overlapCollision.overlapOffset.setY(0);
 
 	prota = prot;
@@ -69,16 +69,16 @@ void Boss3::loadAnimations()
 
 	//Animaciones
 	Animation* abreBrazos = AnimationParser::parseAnimation(tileset, animationPath, "AbreBrazos", this, 0, 0, false, 0.04);
-	/*Animation* gira = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Gira", this, 0, 0, true, 0.8);
-	Animation* warning = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Warning", this, 0, 0, true, 0.1);
+	Animation* carga = AnimationParser::parseAnimation(tileset, animationPath, "Carga", this, 0, 0, false, 0.1);
+	/*Animation* warning = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Warning", this, 0, 0, true, 0.1);
 	Animation* sacaRayos = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-SacaRayos", this, 0, 0, false, 0.1);
 	Animation* entra = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Entra", this, 0, 0, false, 0.1);
 	Animation* staticDown = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-StaticDown", this, 0, 0, true, 0.1);
 	*/
 	//Nombres de animaciones
 	animations.emplace("ABRE_BRAZOS", abreBrazos);
+	animations.emplace("CARGA", carga);
 	/*
-	animations.emplace("GIRA", gira);
 	animations.emplace("WARNING", warning);
 	animations.emplace("SACA_RAYOS", sacaRayos);
 	animations.emplace("ENTRA", entra);
