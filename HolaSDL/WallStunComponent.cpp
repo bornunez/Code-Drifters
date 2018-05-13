@@ -2,9 +2,9 @@
 #include "Enemy.h"
 #include <iostream>
 
-WallStunComponent::WallStunComponent(GameObject * o, float time) : UpdateComponent(o)
+WallStunComponent::WallStunComponent(Enemy * o, float time) : UpdateComponent(o)
 {
-	enemy = static_cast<Enemy*>(gameObject);
+	enemy = o;
 	stunTime = time;
 }
 

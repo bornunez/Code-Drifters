@@ -17,7 +17,7 @@
 #include "CollisionHandler.h"
 #include "Time.h"
 
-MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(static_cast<GameObject*>(mc))
+MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(mc)
 {
 	//ResetAttack y AttackDelay
 	this->mc = mc;

@@ -4,7 +4,7 @@
 #include "PlayState.h"
 #include "Camera.h"
 #include "Hook.h"
-MCHookInputComponent::MCHookInputComponent(MainCharacter * mc) : InputComponent(static_cast<GameObject*>(mc))
+MCHookInputComponent::MCHookInputComponent(MainCharacter * mc) : InputComponent(mc)
 {
 	this->mc = mc;
 }

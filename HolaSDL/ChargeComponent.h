@@ -19,7 +19,7 @@ private:
 public:
 	void update();
 	void startCharge();
-	ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier);
+	ChargeComponent(Enemy* o, GameObject* target, float delay, float time, float velMultiplier);
 	virtual ~ChargeComponent();
 
 protected:

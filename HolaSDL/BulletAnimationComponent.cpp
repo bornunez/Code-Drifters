@@ -6,7 +6,7 @@
 #include "Camera.h"
 #include "MainCharacter.h"
 #include "Bullet.h"
-BulletAnimationComponent::BulletAnimationComponent(Bullet * o, Texture * texture, double angle, int fps, SDL_RendererFlip flip) : RenderComponent(static_cast<GameObject*>(o))
+BulletAnimationComponent::BulletAnimationComponent(Bullet * o, Texture * texture, double angle, int fps, SDL_RendererFlip flip) : RenderComponent(o)
 {
 	bullet = o;
 	this->texture = texture;

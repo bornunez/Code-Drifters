@@ -2,10 +2,10 @@
 #include "GameObject.h"
 #include "MainCharacter.h"
 
-DamageableBossComponent::DamageableBossComponent(MasterBoss* o, GameObject* mc, float invincibleTime) : UpdateComponent(static_cast<GameObject*>(o))
+DamageableBossComponent::DamageableBossComponent(MasterBoss* o, MainCharacter* mc, float invincibleTime) : UpdateComponent(static_cast<GameObject*>(o))
 {
 	boss = o;
-	this->mc = static_cast<MainCharacter*>(mc);
+	this->mc = mc;
 	damageTimer = new Timer();
 	this->invincibleTime = invincibleTime;
 	attackedTimer = new Timer();
