@@ -32,10 +32,17 @@ void ResourceManager::createInstance(SDL_Renderer * renderer)
 
 ResourceManager::~ResourceManager()
 {
-	closeMusic();
+	closeTilesets();
 	closeSoundEffects();
+	closeMusic();
+	closeTextures();
 }
 
+void ResourceManager::ResetInstance() 
+{
+	delete instance;
+	instance = NULL;
+}
 Texture * ResourceManager::getTexture(TextureId id)
 {
 	if (id < NUM_TEXTURES)
@@ -72,6 +79,41 @@ void ResourceManager::loadTextures()
 		const TextureAtributes atributes = TEXTURE_ATRIBUTES[i];
 		textures[i] = new Texture(renderer, TEXT_PATH + atributes.filename, atributes.numRows, atributes.numCols);
 	}
+}
+
+void ResourceManager::closeTextures() {
+	for (int i = 0; i < NUM_TEXTURES; i++) {
+		if (textures[i] != nullptr) {
+			delete textures[i];
+		}
+	}
+	//delete[] textures;
+}
+
+void ResourceManager::closeTilesets() {
+	for (Tileset* obj : tilesets)
+		delete obj;
+	tilesets.clear();
+
+	for (Tileset* obj : protaTileset)
+		delete obj;
+	protaTileset.clear();
+
+	for (Tileset* obj : enemyTilesets)
+		delete obj;
+	enemyTilesets.clear();
+
+	for (Tileset* obj : boss1Tilesets)
+		delete obj;
+	boss1Tilesets.clear();
+
+	for (Tileset* obj : boss2Tilesets)
+		delete obj;
+	boss2Tilesets.clear();
+
+	for (Tileset* obj : boss3Tilesets)
+		delete obj;
+	boss3Tilesets.clear();
 }
 
 Tileset* ResourceManager::loadTileset(string path)

@@ -5,7 +5,9 @@ class CoinManager
 {
 public:
 	static CoinManager* getInstance();
+	static void ResetInstance();
 	virtual ~CoinManager();
+
 	std::vector<Coin*> getCoins();
 	Coin* getCoin(CoinType type);
 	void clean();
@@ -23,5 +25,6 @@ protected:
 	std::vector<Coin*> coins;
 	static CoinManager* instance;
 	void spawnCoin(Coin* c, int x, int y);
+
 };
 

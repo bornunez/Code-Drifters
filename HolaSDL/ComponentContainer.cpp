@@ -13,11 +13,11 @@ ComponentContainer::ComponentContainer()
 ComponentContainer::~ComponentContainer()
 {
 	cleanGarbage();
-	for (int i = 0; i < NUMCOMP; i++) {
+	/*for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
 			delete c;
 		}
-	}
+	}*/
 	components->clear();
 }
 

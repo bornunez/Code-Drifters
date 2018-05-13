@@ -19,6 +19,17 @@ LevelManager::LevelManager()
 	directions = { {0,-1},{1,0},{0,1},{-1,0} };
 }
 
+void LevelManager::ResetInstance()
+{
+	delete instance;
+	instance = NULL;
+}
+
+LevelManager::~LevelManager()
+{
+	delete dungeon;
+}
+
 void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 {
 	//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
@@ -211,6 +222,3 @@ void LevelManager::newMap()
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 }
 
-LevelManager::~LevelManager()
-{
-}

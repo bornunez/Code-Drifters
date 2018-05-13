@@ -43,17 +43,30 @@ que estén abiertas.
 
 using namespace std;
 
-
-
-
 DungeonGenerator::DungeonGenerator(int mapWidth, int mapHeight, int maxRooms) : 
 	mapWidth_(mapWidth), mapHeight_(mapHeight),maxRooms_(maxRooms)
 {
 	loadTexts();
 }
+
 DungeonGenerator::~DungeonGenerator()
 {
+	//Revisar
+	for (int i = 0; i < mapHeight_; i++) {
+		Dungeon_[i].resize(mapWidth_);
+		for (int j = 0; j < mapWidth_; j++) {
+			delete Dungeon_[i][j];
+		}
+	}
+
+	Dungeon_.clear();
+
+	delete randText.texture;
+	delete levelText.texture;
+	delete loadText.texture;
+	delete neonFont;
 }
+
 void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas abiertas, si la mazmorra es válida entonces asigna las salas especiales
 {
 	vector<Room*> deadEnds_;

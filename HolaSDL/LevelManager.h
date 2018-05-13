@@ -36,6 +36,7 @@ private:
 
 public:
 	static LevelManager * getInstance();
+	static void ResetInstance();
 
 	DungeonGenerator* getLevel() { return dungeon; }
 	int getLevelNumber() { return level; }
