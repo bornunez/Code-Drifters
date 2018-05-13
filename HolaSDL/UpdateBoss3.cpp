@@ -47,6 +47,23 @@ void UpdateBoss3::update()
 	updateado = false;
 	boss->updateEnemies();
 	//cout << auxVelocidad;
+	if (faseAct == -1 && (Tiempo->TimeSinceTimerCreation < tiempoFaseTP) && !updateado && auxFasesTp < fasesTp)
+	{
+		faseTP();
+	}
+	else if (faseAct == -1 && !updateado && auxFasesTp < fasesTp)
+	{
+		Tiempo->restart();
+		faseAct = 0;
+		updateado = true;
+	}
+	else if(faseAct == -1 && !updateado)
+	{
+		Tiempo->restart();
+		faseAct = 2;
+		updateado = true;
+		auxFasesTp = 0;
+	}
 	if (faseAct == 0 && (Tiempo->TimeSinceTimerCreation < tiempoFase0) && !updateado)
 	{
 		fase0();
@@ -64,7 +81,7 @@ void UpdateBoss3::update()
 	else if (faseAct == 1 && !updateado)
 	{
 		Tiempo->restart();
-		faseAct = 2;
+		faseAct = -1;
 		updateado = true;
 	}
 	if (faseAct == 2 && Tiempo->TimeSinceTimerCreation < tiempoFase2 && !updateado)
@@ -156,11 +173,27 @@ void UpdateBoss3::faseTP()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		boss->changeCurrentAnimation("DESVANECE");
+		//boss->changeCurrentAnimation("DESVANECE");
+		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getTransform()->overlapCollision.active = true;
 		boss->getCurrentAnimation()->startAnimation();
-		fasesPast = 1;
+		fasesPast = 0;
+		auxFasesTp++;
 		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
+	}
+	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 0)
+	{
+		int randX = rand() % (1000) -500;
+		int randY = rand() % (1000) - 500;
+		boss->getTransform()->position = Vector2D(posInic.getX()+randX, posInic.getY()+randY);
+		boss->changeCurrentAnimation("ABRE_BRAZOS");
+		boss->getCurrentAnimation()->startAnimation();
+		fasesPast = 1;
+		//boss->changeCurrentAnimation("APARECE");
+	}
+	if (fasesPast == 1 && boss->getCurrentAnimation()->isFinished())
+	{
+		faseAct = 0;
 	}
 }
 
@@ -171,7 +204,7 @@ void UpdateBoss3::fase0()
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getTransform()->overlapCollision.active = true;
 		boss->getCurrentAnimation()->startAnimation();
-		fasesPast = 1;
+		fasesPast = 0;
 		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
 	}
 }
@@ -188,18 +221,18 @@ void UpdateBoss3::fase1()
 		auxTrans.velocity = Vector2D(0, -1);
 		auxTrans.direction = Vector2D(0, -1);
 		auxTrans.speed = 400;
+		int rot = rand() % 360;
+		auxTrans.direction.rotate(rot);
+		auxTrans.velocity.rotate(rot);
 		auxShoot(auxTrans);
-		fasesPast = 0;
+		fasesPast0 = 0;
+		auxDir = auxTrans;
 	}
 	else if (Tiempo->TimeSinceTimerCreation >= tiempoFase1/5 && fasesPast0 == 0)
 	{
 		fasesPast0++;
 		Transform auxTrans;
-		auxTrans.body.w = auxTrans.body.h = 20;
-		auxTrans.position.set(boss->getCenterPos());
-		auxTrans.velocity = Vector2D(0, -1);
-		auxTrans.direction = Vector2D(0, -1);
-		auxTrans.speed = 400;
+		auxTrans = auxDir;
 		auxTrans.direction.rotate(30);
 		auxTrans.velocity.rotate(30);
 		auxShoot(auxTrans);
