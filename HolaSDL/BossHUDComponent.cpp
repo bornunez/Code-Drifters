@@ -2,6 +2,13 @@
 #include"ResourceManager.h"
 #include"Game.h"
 
+BossHUDComponent::~BossHUDComponent()
+{
+	delete bossBack,
+		bossBar,
+		bossBarBack,
+		bossSkeleton;
+}
 
 BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 {
@@ -50,12 +57,4 @@ void BossHUDComponent::lateRender() {
 		bossBar->getTexture()->render(bossBar->destRect, &bossBar->srcRect);
 		bossSkeleton->getTexture()->render(bossSkeleton->destRect, &bossSkeleton->srcRect);
 	}
-}
-
-BossHUDComponent::~BossHUDComponent()
-{
-	delete bossBack,
-		bossBar,
-		bossBarBack,
-		bossSkeleton;
 }

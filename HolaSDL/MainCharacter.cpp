@@ -84,8 +84,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 MainCharacter::~MainCharacter()
 {
-	//animations.clear();
 }
+
 void MainCharacter::loadAnimations()
 {
 	Tileset* tileset = ResourceManager::getInstance()->getProtaTileset(0);

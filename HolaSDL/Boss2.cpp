@@ -58,6 +58,10 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 }
 Boss2::~Boss2()
 {
+	for (Wheel* obj : wheels)
+		delete obj;
+
+	wheels.clear();
 }
 
 

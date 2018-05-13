@@ -266,13 +266,15 @@ private:
 	void setSoundEffects(std::vector<std::string> soundEffectsVect);
 	void closeSoundEffects();
 
-
+	void closeTextures();
+	void closeTilesets();
 	//Constructor
 	ResourceManager(SDL_Renderer* renderer);
 
 public:
 	static ResourceManager* getInstance() { return instance; }
 	static void createInstance(SDL_Renderer* renderer);
+	static void ResetInstance();
 
 	~ResourceManager();
 
@@ -288,4 +290,3 @@ public:
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;
 };
-

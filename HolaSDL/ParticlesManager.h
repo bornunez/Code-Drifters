@@ -14,6 +14,7 @@ private:
 
 public:
 	static  ParticlesManager * getInstance();
+	static void ResetInstance();
 	~ParticlesManager();
 
 	void render();

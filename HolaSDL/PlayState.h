@@ -36,7 +36,7 @@ public:
 	void loadState();
 	static PlayState* getInstance();
 	static void ResetInstance();
-	~PlayState();
+	virtual ~PlayState();
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	void render();
 	void lateRender();

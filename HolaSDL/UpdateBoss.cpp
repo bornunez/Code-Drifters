@@ -13,6 +13,7 @@ UpdateBoss::UpdateBoss(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
 
 UpdateBoss::~UpdateBoss()
 {
+	delete Tiempo;
 }
 void UpdateBoss::receiveMessage(Message * msg)
 {
