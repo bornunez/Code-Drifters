@@ -16,6 +16,7 @@ public:
 protected:
 	virtual void update();
 private:
+	Transform auxDir;
 	Vector2D direccion;
 	float vel;
 	float velWheel = 4.75;
@@ -55,12 +56,16 @@ private:
 	float tiempoIntervalLucian = 0.3f;
 	float auxInterval = 0;
 
+	int fasesTp = 5;
+	int auxFasesTp = 0;
+
 	float tiempoBomb = 0.75f;
 	float auxBomb = 0;
 	bool arriba = true;
 	bool giroDir = true;
 	int dir = -1;
 	int auxX = 0;
+	const float tiempoFaseTP = 1;
 	const float tiempoFase0 = 0.5;
 	const float tiempoFase1 = 2;
 	const float tiempoFase2 = 2;
