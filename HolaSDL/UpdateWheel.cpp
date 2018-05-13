@@ -3,7 +3,7 @@
 #include "EnemyManager.h"
 
 
-UpdateWheel::UpdateWheel(GameObject* o, MainCharacter* prot, float velocidad, int direccion) : UpdateComponent(o)
+UpdateWheel::UpdateWheel(Wheel* o, MainCharacter* prot, float velocidad, int direccion) : UpdateComponent(o)
 {
 	dir = direccion;
 	wheel = o;
@@ -68,7 +68,7 @@ void UpdateWheel::update()
 		tiempo->restart();
 		faseAct = 0;
 		updateado = true;
-		static_cast<Wheel*>(wheel)->setInvisible(false);
+		wheel->setInvisible(false);
 		setActive(false);
 	}
 
@@ -83,7 +83,7 @@ void UpdateWheel::fase1()
 	{
 		wheel->changeCurrentAnimation("SALE");
 		wheel->getCurrentAnimation()->startAnimation();
-		static_cast<Wheel*>(wheel)->setInvisible(true);
+		wheel->setInvisible(true);
 	}
 }
 

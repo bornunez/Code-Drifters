@@ -2,7 +2,7 @@
 #include "MainCharacter.h"
 #include "Game.h"
 
-MCGunPosition::MCGunPosition(MainCharacter* mc ) : UpdateComponent(static_cast<GameObject*>(mc))
+MCGunPosition::MCGunPosition(MainCharacter* mc ) : UpdateComponent(mc)
 {
 	this->mc = mc;
 }

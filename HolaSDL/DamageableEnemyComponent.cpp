@@ -3,10 +3,10 @@
 #include "Enemy.h"
 
 
-DamageableEnemyComponent::DamageableEnemyComponent(Enemy* o, GameObject* mc, float invincibleTime) : UpdateComponent(o)
+DamageableEnemyComponent::DamageableEnemyComponent(Enemy* o, MainCharacter* mc, float invincibleTime) : UpdateComponent(o)
 {
 	enemy = o;
-	this->mc = static_cast<MainCharacter*>(mc);
+	this->mc = mc;
 	damageTimer = new Timer();
 	this->invincibleTime = invincibleTime;
 	attackedTimer = new Timer();

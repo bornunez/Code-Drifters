@@ -98,6 +98,13 @@ void PlayState::openShop()
 
 void PlayState::endState()
 {
+	delete camera;
+	delete mainCharacter;
+	delete level;
+	delete currentRoom;
+	delete minimap;
+	delete shopState;
+	
 	/*camera = nullptr;
 	mainCharacter = nullptr;
 	EnemyManager::getInstance()->killAll();

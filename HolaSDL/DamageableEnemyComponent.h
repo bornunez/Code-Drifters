@@ -7,7 +7,7 @@ class Enemy;
 class DamageableEnemyComponent : virtual public UpdateComponent
 {
 public:
-	DamageableEnemyComponent(Enemy* o, GameObject* mc, float invincibleTime);
+	DamageableEnemyComponent(Enemy* o, MainCharacter* mc, float invincibleTime);
 	~DamageableEnemyComponent();
 	void receiveMessage(Message* msg);
 	void update();

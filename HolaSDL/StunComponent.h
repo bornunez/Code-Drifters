@@ -13,7 +13,7 @@ protected:
 	float specificTime;
 	Enemy* enemy;
 public:
-	StunComponent(GameObject * o, float time);
+	StunComponent(Enemy * o, float time);
 	virtual ~StunComponent();
 	virtual void update();
 	virtual void receiveMessage(Message* msg);

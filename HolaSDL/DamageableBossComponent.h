@@ -8,7 +8,7 @@ class Boss;
 class DamageableBossComponent : virtual public UpdateComponent
 {
 public:
-	DamageableBossComponent(MasterBoss* o, GameObject* mc, float invincibleTime);
+	DamageableBossComponent(MasterBoss* o, MainCharacter* mc, float invincibleTime);
 	~DamageableBossComponent();
 	void receiveMessage(Message* msg);
 	void update();

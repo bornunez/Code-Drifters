@@ -7,7 +7,7 @@
 #include "ResourceManager.h"
 #include "ParticlesManager.h"
 #include "Hook.h"
-MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(static_cast<GameObject*>(o))
+MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	mc = o;
 	animations = anim;

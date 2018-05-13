@@ -16,6 +16,7 @@
 MCShotComponent::MCShotComponent(MainCharacter * o) : InputComponent(o), mc(o)
 {
 	this->bulletManager = bulletManager;
+	mc = o;
 }
 
 MCShotComponent::~MCShotComponent()
@@ -39,7 +40,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 
 				//Cambia la posición de donde sala la bala, es temporal hasta que tengamos los frames de la animación definidos
-				Vector2D gunPosition = static_cast<MainCharacter*>(gameObject)->getGunPosition();
+				Vector2D gunPosition = mc->getGunPosition();
 
 				Transform bulletTransform;
 				bulletTransform.body.w = bulletTransform.body.h = 10;

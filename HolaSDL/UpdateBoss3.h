@@ -5,11 +5,11 @@
 #include "MainCharacter.h"
 #include "Time.h"
 #include "BulletManager.h"
-
+class Boss3;
 class UpdateBoss3 : public UpdateComponent
 {
 public:
-	UpdateBoss3(GameObject* o, MainCharacter* prota);
+	UpdateBoss3(Boss3* o, MainCharacter* prota);
 	~UpdateBoss3();
 	void receiveMessage(Message * msg);
 	void changeColor(int r, int b, int g);
@@ -22,7 +22,7 @@ private:
 	float velWheel = 4.75;
 	int dirWheel = 0;
 
-	GameObject* boss;
+	Boss3* boss;
 	//FASES
 	void faseTP();
 	void fase0();

@@ -3,9 +3,9 @@
 #include <iostream>
 #include "Animation.h"
 #include "ParticlesManager.h"
-StunComponent::StunComponent(GameObject * o, float time) : UpdateComponent(o)
+StunComponent::StunComponent(Enemy * o, float time) : UpdateComponent(o)
 {
-	enemy = static_cast<Enemy*>(gameObject);
+	enemy = o;
 	specificTime = time;
 	stunTime = 0;
 }
