@@ -20,6 +20,6 @@ public:
 	Component(GameObject* o) : gameObject(o) {};
 	bool isActive() { return active; }
 	void setActive(bool set) { active = set; }
-	~Component();
+	virtual ~Component();
 };
 

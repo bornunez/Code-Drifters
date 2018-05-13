@@ -15,7 +15,7 @@ protected:
 	int NUMCOMP = ItemC - RenderC;
 public:
 	ComponentContainer();
-	~ComponentContainer();
+	virtual ~ComponentContainer();
 	void addComponent(Component* c);
 
 	//Definimos tres: Si tiene una instancia concreta, si tiene una clase de componente, y si tiene una clase de componente sabiendo el tipo de dicha clase
