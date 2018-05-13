@@ -7,7 +7,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 84;
+const int NUM_TEXTURES = 99;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -54,6 +54,9 @@ enum TextureId {
 	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
 	BaseLifepack, HighLifepack,
 	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
+
+	Burbujas1, Burbujas2, Burbujas3, Burbujas4, FetoIngeniero1, FetoIngeniero2, HologramaHaro, HologramaBase, HologramaWanted,
+	Prop1, Prop2, Prop3, Prop4, Prop5, Prop6
 };
 
 
@@ -184,6 +187,23 @@ private:
 		{ "Tree\\GreenLine.png", 1, 1 },
 		{ "Tree\\RedLine.png", 1, 1 },
 		{ "Tree\\Line.png", 1, 1 },
+
+			//Props
+		{ "Props\\burbujas1.png", 1, 6 },
+		{ "Props\\burbujas2.png", 1, 6 },
+		{ "Props\\burbujas3.png", 1, 6 },
+		{ "Props\\burbujas4.png", 1, 6 },
+		{ "Props\\EngineerFetus1.png", 1, 6 },
+		{ "Props\\EngineerFetus2.png", 1, 6 },
+		{ "Props\\HologramaHaro.png", 1, 8 },
+		{ "Props\\HologramaBase.png", 1, 8 },
+		{ "Props\\HologramaWanted.png", 1, 8 },
+		{ "Props\\Prop1.png", 1, 8 },
+		{ "Props\\Prop2.png", 1, 8 },
+		{ "Props\\Prop3.png", 1, 2 },
+		{ "Props\\Prop4.png", 1, 2 },
+		{ "Props\\Prop5.png", 1, 10 },
+		{ "Props\\Prop6.png", 1, 10 },
 	};
 
 	//Sounds

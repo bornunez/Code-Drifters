@@ -256,6 +256,36 @@ GameObject * LevelParser::stringToObject(string objName, int x, int y,int w,int 
 		obj->addComponent(new ShopInput(obj));
 
 	}
+	else if (objName == "Burbujas1")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas1),0,60));
+	else if (objName == "Burbujas2")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas2), 0, 60));
+	else if (objName == "Burbujas3")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas3), 0, 60));
+	else if (objName == "Burbujas4")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas4), 0, 60));
+	else if (objName == "FetoIngeniero2")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(FetoIngeniero2), 0, 60));
+	else if (objName == "FetoIngeniero1")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(FetoIngeniero1), 0, 60));
+	else if (objName == "HologramaHaro")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(HologramaHaro), 0, 60));
+	else if (objName == "HologramaBase")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(HologramaBase), 0, 60));
+	else if (objName == "HologramaWanted")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(HologramaWanted), 0, 60));
+	else if (objName == "Prop1")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Prop1), 0, 60));
+	else if (objName == "Prop2")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Prop2), 0, 60));
+	else if (objName == "Prop3")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Prop3), 0, 60));
+	else if (objName == "Prop4")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Prop4), 0, 60));
+	else if (objName == "Prop5")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Prop5), 0, 60));
+	else if (objName == "Prop6")
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Prop6), 0, 60));
 	return obj;
 }
 
