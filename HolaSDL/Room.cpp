@@ -69,6 +69,16 @@ void Room::load() {
 	voidRoom = false;
 	map = LevelParser::parseLevel(level.c_str(),doors);
 }
+void Room::loadFromFile(string root)
+{
+	if (filename == "boss")
+		type = BossRoom;
+	else if (filename == "puti")
+		type = Shop;
+	else if (filename == "empty")
+		type = First;
+	map = LevelParser::parseLevel(root + filename+".tmx", doors);
+}
 void Room::render() {
 
 	map->render();

@@ -4,6 +4,7 @@
 #include "LevelManager.h"
 #include <ctime>
 #include <iostream>
+#include <fstream>
 #include "ResourceManager.h"
 #include "Game.h"
 #include "Random.h"
@@ -79,6 +80,14 @@ void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas 
 	CreateSpecialRooms();
 	load();
 }
+void DungeonGenerator::CreateMapFromFile()
+{
+	vector<Room*> deadEnds_;
+	ClearMap();
+	GenerateFromFile(ResourceManager::getInstance()->getLevelPath() + "Tutorial\\tutorial.txt"); //Leer el archivo
+	SetMapDoors();//Poner en las salas sus correspondientes puertas
+	LoadRoomsFromFile(); //Cargar salas
+}
 Room * DungeonGenerator::getRoom(int x, int y)
 {
 	return Dungeon_[y][x];
@@ -152,6 +161,80 @@ void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 		RenderProgresBar(i, maxRooms_, "Creating Rooms...");
 	}
 	
+}
+void DungeonGenerator::GenerateFromFile(string file)
+{
+	ifstream ifile;
+	ifile.open(file);
+
+	int k = 0;
+	RenderProgresBar(k, maxRooms_, "Generating map... [ " + to_string(k) + " / " + to_string(maxRooms_)+" ]");
+	if (ifile.is_open()) {
+		string roomName;
+		for (int i = 0; i < mapHeight_; i++) {
+			for (int j = 0; j < mapWidth_; j++) {
+				//Aqui solo vamos a asignar a cada sala en nombre del archivo del que tiene que cargar el mapa
+				ifile >> roomName;
+				if (roomName != "null") {
+					Dungeon_[i][j]->setFile(roomName);
+					visitedRooms_.push_back(Dungeon_[i][j]);
+					RenderProgresBar(k, maxRooms_, "Generating map... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+					k++;
+				}
+			}
+		}
+	}
+
+}
+void DungeonGenerator::SetMapDoors()
+{
+	int k = 0;
+	RenderProgresBar(k, maxRooms_, "Opening doors... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+	for (int i = 0; i < mapHeight_; i++) {
+		for (int j = 0; j < mapWidth_; j++) {
+			//A cada sala le ponemos las puertas correspondientes
+			if (!Dungeon_[i][j]->isVoid()) {
+				SetDoors(i, j);
+				RenderProgresBar(k, maxRooms_, "Opening doors... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+				k++;
+			}
+		}
+	}
+}
+void DungeonGenerator::SetDoors(int i, int j)
+{
+	Room* r = Dungeon_[i][j];
+	if (i - 1 >= 0) {
+		if (!Dungeon_[i - 1][j]->isVoid())
+			r->setDoor(Up, true);
+	}
+	if (i + 1 < mapHeight_) {
+		if (!Dungeon_[i + 1][j]->isVoid())
+			r->setDoor(Down, true);
+	}
+	if (j - 1 >= 0) {
+		if (!Dungeon_[i][j-1]->isVoid())
+			r->setDoor(Left, true);
+	}
+	if (j+1 < mapWidth_) {
+		if (!Dungeon_[i][j+1]->isVoid())
+			r->setDoor(Right, true);
+	}
+		
+}
+void DungeonGenerator::LoadRoomsFromFile()
+{
+	int k = 0;
+	RenderProgresBar(k, maxRooms_, "Loading Rooms... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+	for (int i = 0; i < mapHeight_; i++) {
+		for (int j = 0; j < mapWidth_; j++) {
+			if (!Dungeon_[i][j]->isVoid()) {
+				Dungeon_[i][j]->loadFromFile(ResourceManager::getInstance()->getLevelPath() + "Tutorial\\levels\\");
+				RenderProgresBar(k, maxRooms_, "Loading Rooms... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+				k++;
+			}
+		}
+	}
 }
 void DungeonGenerator::AddFirstRoom()//Crea la sala inicial de la mazmora
 {

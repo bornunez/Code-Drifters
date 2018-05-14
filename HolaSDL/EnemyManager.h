@@ -43,9 +43,9 @@ private:
 	//Metodo aux para coger un enemigo del vector de inactivos, Coste O(n) con n = numero de enemigos inactivos
 	Enemy* createEnemy(EnemyType eType);
 	Enemy* getInactiveEnemy(EnemyType eType);
-	Boss* actBoss1;
-	Boss2* actBoss2;
-	Boss3* actBoss3;
+	Boss* actBoss1 = nullptr;
+	Boss2* actBoss2 = nullptr;
+	Boss3* actBoss3 = nullptr;
 	MasterBoss* activeBoss;
 
 	MainCharacter* mc;
@@ -67,6 +67,7 @@ public:
 	void spawnBoss(int x, int y);
 	void spawnBoss2(int x, int y);
 	void spawnBoss3(int x, int y);
+	void enterBossRoom(int x, int y, int level);
 	MasterBoss* getActiveBoss() { return activeBoss; }
 
 	//Desactiva un enemigo

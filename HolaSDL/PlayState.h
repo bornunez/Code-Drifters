@@ -33,7 +33,7 @@ private:
 	//enemigo temporal
 	PlayState();
 public:
-	void loadState();
+	void loadState(bool tutorial);
 	static PlayState* getInstance();
 	static void ResetInstance();
 	virtual ~PlayState();

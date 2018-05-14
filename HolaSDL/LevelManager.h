@@ -63,7 +63,7 @@ public:
 	string getActiveLevelPath() { return levelTypePath[City]; }
 
 	//Metodos de control
-	void init();
+	void init(bool tutorial);
 	void newMap();
 	~LevelManager();
 };

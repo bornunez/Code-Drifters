@@ -179,7 +179,7 @@ void Game::startGame()
 {
 	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
-	playState->loadState();
+	playState->loadState(true);
 }
 
 
