@@ -6,6 +6,8 @@
 GameOverState::GameOverState()
 {
 
+	blue = { COLOR(0xFE1B0AFF) };
+	white = { COLOR(0x990606FF) };
 	font = new Font("..\\images\\Polentical Neon Regular.ttf", 100);
 	font2 = new Font("..\\images\\Polentical Neon Bold.ttf", 100);
 	op1Tex = new Texture(game->getRenderer());
@@ -18,8 +20,8 @@ GameOverState::GameOverState()
 	op2Tex->loadFromText("MAIN MENU", *font2, white);
 	op3Tex->loadFromText("EXIT", *font2, white);
 
-	title1->loadFromText("GAME OVER", *font2, white);
-	title2->loadFromText("GAME OVER", *font2, blue);
+	title1->loadFromText("GAME OVER", *font2, blue);
+	title2->loadFromText("GAME OVER", *font2, white);
 
 	op1Rect = RECT(450, 550, 30 * 7, 70);
 	op2Rect = RECT(125, 550, 30 * 8, 70);
@@ -42,7 +44,7 @@ void GameOverState::handleEvent(SDL_Event & e)
 {
 	if(e.type == SDL_KEYDOWN) 
 	{
-		if (e.key.keysym.sym == SDLK_w || e.key.keysym.sym == SDLK_UP) 
+		if (e.key.keysym.sym == SDLK_d || e.key.keysym.sym == SDLK_RIGHT) 
 		{
 			if (selectedOp == 0) 
 			{
@@ -53,13 +55,13 @@ void GameOverState::handleEvent(SDL_Event & e)
 				selectedOp--;
 				if (selectedOp < 1) 
 				{
-					selectedOp = 4;
+					selectedOp = 3;
 				}
 			}
 			changeColors();
 
 		}
-		else if (e.key.keysym.sym == SDLK_s || e.key.keysym.sym == SDLK_DOWN)
+		else if (e.key.keysym.sym == SDLK_a || e.key.keysym.sym == SDLK_LEFT)
 		{
 			if (selectedOp == 0)
 			{
@@ -68,7 +70,7 @@ void GameOverState::handleEvent(SDL_Event & e)
 			else
 			{
 				selectedOp++;
-				if (selectedOp > 4)
+				if (selectedOp > 3)
 				{
 					selectedOp = 1;
 				}

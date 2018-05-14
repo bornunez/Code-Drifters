@@ -73,7 +73,7 @@ void Game::run()
 		
 		//playState->loadState();
 		//stateMachine->pushState(playState);
-		GameOverState* mm = new GameOverState();
+		MainMenuState* mm = new MainMenuState();
 		stateMachine->pushState(mm);
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
@@ -150,6 +150,7 @@ Game * Game::getGame()
 void Game::startGame()
 {
 	playState = PlayState::getInstance();
+	playState->ResetInstance();
 	stateMachine->pushState(playState);
 	playState->loadState();
 }

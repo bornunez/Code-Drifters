@@ -20,14 +20,14 @@ private:
 	SDL_Rect op2Rect;
 	SDL_Rect op3Rect;
 
-	Texture* title2;
+//	Texture* title2;
 	Texture* title1;
 
 	SDL_Rect title1Rect;
-	SDL_Rect title2Rect;
+//	SDL_Rect title2Rect;
 
-	SDL_Color white = { COLOR(0xF615E0ff) };
-	SDL_Color blue = { COLOR(0x34D6F6ff) };
+	SDL_Color white;
+	SDL_Color blue;
 
 	SDL_Point mouse;
 	int selectedOp = 0;

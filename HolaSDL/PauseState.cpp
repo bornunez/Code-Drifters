@@ -5,28 +5,30 @@
 
 PauseState::PauseState(GameState* upper): UpperGameState(upper)
 {
+	white = { COLOR(0x30CCF8ff) };
+	blue = { COLOR(0x46FFECff) };
 	font = new Font("..\\images\\Polentical Neon Regular.ttf", 100);
 	font2 = new Font("..\\images\\Polentical Neon Bold.ttf", 100);
 	op1Tex = new Texture(game->getRenderer());
 	op2Tex = new Texture(game->getRenderer());
 	op3Tex = new Texture(game->getRenderer());
 	title1 = new Texture(game->getRenderer());
-	title2 = new Texture(game->getRenderer());
+//	title2 = new Texture(game->getRenderer());
 	background = new Texture(game->getRenderer(), "..\\Arbol\\Central.png");
 	op1Tex->loadFromText("RESUME", *font2, white);
 	op2Tex->loadFromText("MAIN MENU", *font2, white);
 	op3Tex->loadFromText("EXIT", *font2, white);
 	title1->loadFromText("PAUSE", *font2, white);
-	title2->loadFromText("PAUSE", *font2, blue);
+//	title2->loadFromText("PAUSE", *font2, blue);
 
-	bckgrndRect = RECT(0, 0, 300, 450);
+	bckgrndRect = RECT(345, 85, 350, 550);
 
-	op1Rect = RECT(450, 550, 30 * 7, 70);
-	op2Rect = RECT(125, 550, 30 * 8, 70);
-	op3Rect = RECT(750, 550, 30 * 4, 70);
+	op1Rect = RECT(418, 280, 30 * 7, 50);
+	op2Rect = RECT(405, 390, 30 * 8, 50);
+	op3Rect = RECT(465, 500, 30 * 4, 50);
 
-	title1Rect = RECT(180, 80, 680, 170);
-	title2Rect = RECT(175, 75, 680, 170);
+	title1Rect = RECT(415, 130, 45*5, 70);
+//	title2Rect = RECT(393, 128, 45*5, 70);
 }
 
 
@@ -49,7 +51,7 @@ void PauseState::handleEvent(SDL_Event & e)
 				selectedOp--;
 				if (selectedOp < 1)
 				{
-					selectedOp = 4;
+					selectedOp = 3;
 				}
 			}
 			changeColors();
@@ -64,7 +66,7 @@ void PauseState::handleEvent(SDL_Event & e)
 			else
 			{
 				selectedOp++;
-				if (selectedOp > 4)
+				if (selectedOp > 3)
 				{
 					selectedOp = 1;
 				}
@@ -140,7 +142,7 @@ void PauseState::render()
 	SDL_RenderClear(Game::getGame()->getRenderer());
 	UpperGameState::render();
 	background->render(bckgrndRect);
-	title2->render(title2Rect);
+//	title2->render(title2Rect);
 	title1->render(title1Rect);
 	op1Tex->render(op1Rect);
 	op2Tex->render(op2Rect);

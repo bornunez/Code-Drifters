@@ -1,5 +1,6 @@
 #include "MainMenuState.h"
 #include "Game.h"
+#include "Time.h"
 
 
 MainMenuState::MainMenuState()
@@ -17,7 +18,7 @@ MainMenuState::MainMenuState()
 	op2Tex->loadFromText("TUTORIAL", *font2, white);
 	op3Tex->loadFromText("CREDITS", *font2, white);
 	op4Tex->loadFromText("EXIT", *font2, white);
-	c.a = 0;
+	c.a = 255;
 	c.b = 200;
 	c.g = 50;
 	c.r = 200;
@@ -121,27 +122,33 @@ void MainMenuState::handleEvent(SDL_Event & e)
 void MainMenuState::update()
 {
 	if (!flag) {
+		openText->loadFromText("Press any Key to continue", *font, c);
 		if (!alfaUp)
 		{
-			c.r -= 4;
-			c.b -= 4;
-			c.g--;
-			if (c.r == 0)
+			c.r -= 4 * Time::getInstance()->DeltaTime;
+			c.b -= 4 * Time::getInstance()->DeltaTime;
+			c.g-= 1 * Time::getInstance()->DeltaTime;
+			if (c.r <= 0)
 			{
+				c.b = 0;
+				c.g = 0;
+				c.r = 0;
 				alfaUp = true;
 			}
 		}
 		else
 		{
-			c.r += 4;
-			c.b += 4;
-			c.g++;
-			if (c.r == 200)
+			c.r += 4 * Time::getInstance()->DeltaTime*40;
+			c.b += 4 * Time::getInstance()->DeltaTime*40;
+			c.g+= 1 * Time::getInstance()->DeltaTime*24;
+			if (c.r >= 200)
 			{
+				c.b = 200;
+				c.g = 50;
+				c.r = 200;
 				alfaUp = false;
 			}
 		}
-		openText->loadFromText("Press any Key to continue", *font, c);
 	}
 	else 
 	{
