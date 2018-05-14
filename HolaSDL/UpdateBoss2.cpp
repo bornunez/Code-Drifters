@@ -155,6 +155,7 @@ void UpdateBoss2::update()
 	else if (boss->getCurrentAnimation()->isFinished())
 	{
 		boss->getCurrentAnimation()->changeColor(100, 100, 100);
+		//levelManager::siguienteNivel();
 	}
 }
 
