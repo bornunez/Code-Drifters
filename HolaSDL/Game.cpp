@@ -17,6 +17,8 @@
 #include "Time.h"
 #include "LevelManager.h"
 #include "DialogsState.h"
+#include "GameOverState.h"
+#include "PauseState.h"
 
 Game* Game::game = nullptr;
 
@@ -203,5 +205,20 @@ void Game::quitState()
 {
 	stateMachine->quitState();
 }
+
+void Game::quitToMenu()
+{
+	stateMachine->popState();
+	endGame();
+	EnemyManager::ResetInstance();
+	BulletManager::ResetInstance();
+}
+
+void Game::pause(GameState* state)
+{
+	PauseState* pauseState = new PauseState(state);
+	stateMachine->pushState(pauseState);
+}
+
 
 
