@@ -52,7 +52,6 @@ void Game::endGame()//Termina el PlayState y resetea sus instancias.
 	BulletManager::ResetInstance();
 	LevelManager::ResetInstance();
 	ResourceManager::ResetInstance();
-	stateMachine->popState();
 }
 
 
@@ -209,7 +208,8 @@ void Game::quitState()
 void Game::quitToMenu()
 {
 	stateMachine->popState();
-	endGame();
+	stateMachine->popState();
+	PlayState::ResetInstance();
 	EnemyManager::ResetInstance();
 	BulletManager::ResetInstance();
 }

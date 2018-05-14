@@ -8,9 +8,7 @@ GameStateMachine::~GameStateMachine()
 {
 	while (!stateStack.empty())
 	{
-		GameState* gs = stateStack.top();
-		stateStack.pop();
-		delete gs;
+		popState();
 	}
 }
 
