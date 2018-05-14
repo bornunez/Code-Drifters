@@ -60,6 +60,9 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 
     BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	addComponent(skel);
+
+	ResourceManager::getInstance()->getMusic(Level1)->stop();
+	ResourceManager::getInstance()->getMusic(Dog)->play();
 }
 
 void Boss::loadAnimations()
