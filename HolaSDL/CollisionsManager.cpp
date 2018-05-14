@@ -254,11 +254,11 @@ void CollisionsManager::enemyCollisions()
 void CollisionsManager::hookCollisions()
 {
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-	Hook hook = mc->getHook();
-	if (hook.isActive()) {//Solo mira las colisiones si el gancho está activo
-		if (hook.getHookStatus() == HookStatus::EXTEND) {
+	Hook* hook = mc->getHook();
+	if (hook->isActive()) {//Solo mira las colisiones si el gancho está activo
+		if (hook->getHookStatus() == HookStatus::EXTEND) {
 			list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
-			SDL_Rect hookColl = mc->getHook().getTransform()->body;
+			SDL_Rect hookColl = mc->getHook()->getTransform()->body;
 			for (Enemy* e : enemies) {//Itera la lista de enemigos activos
 				if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
 					vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
@@ -286,17 +286,17 @@ void CollisionsManager::hookCollisions()
 		}
 
 
-		if (hook.getHookStatus() == HookStatus::EXTEND) {//Solo hace las comprobaciones del gancho con la pared si no está enganchado ya
+		if (hook->getHookStatus() == HookStatus::EXTEND) {//Solo hace las comprobaciones del gancho con la pared si no está enganchado ya
 			//Colisionamos
 			Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 			bool collision = false;
-			vector<string> collisionsLayer = hook.getCollisionsLayers();
+			vector<string> collisionsLayer = hook->getCollisionsLayers();
 
 			vector<string>::iterator it;
 			for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
 				TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
 				if (tl != nullptr) {
-					if (CollisionHandler::Collide(hook.getTransform(), tl)) {//Si colisiona el gancho con las paredes cambia a MOVE_MC
+					if (CollisionHandler::Collide(hook->getTransform(), tl)) {//Si colisiona el gancho con las paredes cambia a MOVE_MC
 						collision = true;
 						Message msg(HOOK_WALL);
 						mc->sendMessage(&msg);
