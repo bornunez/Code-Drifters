@@ -12,11 +12,11 @@ LevelExplorer::~LevelExplorer()
 void LevelExplorer::handleEvents(SDL_Event & e)
 {
 	if (e.type == SDL_KEYDOWN) {
-		if(e.key.keysym.sym == SDLK_DOWN)
+		if (e.key.keysym.sym == SDLK_DOWN)
 			LevelManager::getInstance()->changeRoom(Down);
 		else if (e.key.keysym.sym == SDLK_UP)
 			LevelManager::getInstance()->changeRoom(Up);
-		else if(e.key.keysym.sym == SDLK_LEFT)
+		else if (e.key.keysym.sym == SDLK_LEFT)
 			LevelManager::getInstance()->changeRoom(Left);
 		else if (e.key.keysym.sym == SDLK_RIGHT)
 			LevelManager::getInstance()->changeRoom(Right);
@@ -24,5 +24,7 @@ void LevelExplorer::handleEvents(SDL_Event & e)
 			LevelManager::getInstance()->changeRoom(LevelManager::getInstance()->getBossRoom());
 		else if (e.key.keysym.sym == SDLK_o)
 			LevelManager::getInstance()->changeRoom(LevelManager::getInstance()->getShopRoom());
+		else if (e.key.keysym.sym == SDLK_8)
+			PlayState::getInstance()->nextLevel();
 	}
 }
