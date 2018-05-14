@@ -28,8 +28,7 @@ void GunnerComponent::update() {
 	if (!gameObject->isDead()) {
 		Transform* gunnerT = gameObject->getTransform();
 		Transform* targetT = targetObject->getTransform();
-
-		if (!eg->isStunned()) {
+		if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= 800 && !eg->isStunned()) {
 			if ((abs(targetT->position.getX() - gunnerT->position.getX()) + abs(targetT->position.getY() - gunnerT->position.getY())) <= distancia) {
 				gameObject->getTransform()->velocity.set(0.0, 0.0);
 				eg->setMovable(false);
@@ -55,8 +54,8 @@ void GunnerComponent::update() {
 			gameObject->getTransform()->velocity.set({ 0,0 });
 			eg->setMovable(false);
 		}
+
 	}
-	
 }
 
 void GunnerComponent::receiveMessage(Message * msg)

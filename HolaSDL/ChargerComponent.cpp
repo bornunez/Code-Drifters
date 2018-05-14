@@ -35,7 +35,8 @@ void ChargerComponent::update()
 	timer->update();
 
 	if (!ec->isDead()) {
-		if (!ec->isStunned()) {
+		if ((abs(targetObject->getTransform()->position.getX() - ec->getTransform()->position.getX()) +
+			abs(targetObject->getTransform()->position.getY() - ec->getTransform()->position.getY())) <= 900 && !ec->isStunned()) {
 			ec->setMovable(true);
 			if ((ec->enemyState != EnemyState::Charge && ec->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
 				Vector2D displayCenterPos = gameObject->getDisplayCenterPos();
