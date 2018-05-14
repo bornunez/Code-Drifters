@@ -31,7 +31,7 @@
  <objectgroup name="Entradas">
   <object id="10" name="Up" gid="56" x="160" y="80" width="16" height="16"/>
   <object id="11" name="Right" gid="56" x="272" y="96" width="16" height="16"/>
-  <object id="12" name="Left" gid="56" x="48" y="160" width="16" height="16"/>
+  <object id="12" name="Left" gid="56" x="64" y="160" width="16" height="16"/>
   <object id="13" name="Down" gid="56" x="176" y="224" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">

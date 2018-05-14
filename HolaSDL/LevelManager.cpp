@@ -45,13 +45,33 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 		mc->getTransform()->position.set(entry);
 	}
 
+	//stops current music and plays shop one
 	if (room->getType() == Shop) {
-		ResourceManager::getInstance()->getMusic(Music1)->stop();
+		switch (level){
+		case 0:
+		case 1:
+			ResourceManager::getInstance()->getMusic(Level1)->stop();
+			break;
+		case 2:
+			ResourceManager::getInstance()->getMusic(Level2)->stop();
+		default:
+			break;
+		}
 		ResourceManager::getInstance()->getMusic(Burdel)->play();
 	}
+	//stops shop music and restarts the current level one
 	if (prevRoom->getType() == Shop && room->getType() != Shop) {
 		ResourceManager::getInstance()->getMusic(Burdel)->stop();
-		ResourceManager::getInstance()->getMusic(Music1)->play();
+		switch (level) {
+		case 0:
+		case 1:
+			ResourceManager::getInstance()->getMusic(Level1)->play();
+			break;
+		case 2:
+			ResourceManager::getInstance()->getMusic(Level2)->play();
+		default:
+			break;
+		};
 	}
 	
 	//Si la sala es de tipo boss, lo spawneamos
@@ -225,5 +245,17 @@ void LevelManager::newMap()
 	currentRoom->setExplored(true);
 	
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
+}
+
+void LevelManager::nextLevel()
+{
+	delete dungeon;
+	level++;
+	if (level <= maxLevel) {
+		newMap();
+	}
+	else {
+		//Ir a los creditos
+	}
 }
 

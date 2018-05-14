@@ -61,21 +61,20 @@ void BomberShotComponent::handleAnimation()
 			if (angle > 90 && angle < 270) {
 				Message msg(SHOT_LEFT);
 				gameObject->sendMessage(&msg);
-				bombPosition.set(100, 0);
 			}
 			else {
 				Message msg(SHOT_RIGHT);
 				gameObject->sendMessage(&msg);
-				bombPosition.set(0, 0);
-
 			}
 		}
 	}
 	if (eb->enemyState == EnemyState::Shoot) {
 		shotAnimationTime->update();
 
+
 		if (shotAnimationTime->TimeSinceTimerCreation > 1) {
-			EnemyManager::getInstance()->spawn(gameObject->getCenterPos().getX() - bombPosition.getX(), gameObject->getCenterPos().getY() - bombPosition.getY(), Bomb);
+			updateGunPosition();
+			EnemyManager::getInstance()->spawn(gunPosition.getX(), gunPosition.getY(), Bomb);
 			eb->enemyState = EnemyState::Idle;
 
 		}
@@ -88,6 +87,7 @@ void BomberShotComponent::handleAnimation()
 void BomberShotComponent::shoot() {
 	Transform* bomberT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
+
 	if (lastShotTime->TimeSinceTimerCreation > shotDelay && 
 		(abs(targetT->position.getX() - bomberT->position.getX()) + abs(targetT->position.getY() - bomberT->position.getY())) <= distance) {
 			lastShotTime->restart();
@@ -99,6 +99,13 @@ void BomberShotComponent::shoot() {
 	}
 
 }
+
+void BomberShotComponent::updateGunPosition()
+{
+	Vector2D aux = eb->getCurrentAnimation()->getCurrentFrame()->getGunPosition();
+	gunPosition = aux;
+}
+
 
 void BomberShotComponent::update() {
 	if (!gameObject->isDead()) {

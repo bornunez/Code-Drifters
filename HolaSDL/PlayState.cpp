@@ -21,7 +21,7 @@ PlayState* PlayState::instance = nullptr;
 
 PlayState::PlayState():GameState ()
 {
-	ResourceManager::getInstance()->getMusic(Music1)->play();
+	ResourceManager::getInstance()->getMusic(Level1)->play();
 
 }
 
@@ -86,6 +86,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			game->startDialogue("1");
 		}
+		if (e.key.keysym.sym == SDLK_m)
+		{
+			game->pause(this);
+		}
 		
 	}
 	GameState::handleEvent(e);
@@ -104,6 +108,26 @@ void PlayState::update()
 	HUDManager::getInstance()->update(); //de momento peta
 	CollisionsManager::getInstance()->update();
 	camera->update();
+}
+
+void PlayState::nextLevel()
+{
+	//Creamos el puntero, es todo lo que hace falta
+	delete camera;
+	camera = new Camera();
+
+	//IMPORTANTE: Crear primero la camara. El mapa la requiere
+	LevelManager::getInstance()->nextLevel();
+	delete minimap;
+	minimap = new Minimap(1, 1, 10, 10);
+
+	camera->load();
+
+	//Al final ajustamos el deltaTime
+	Time::getInstance()->DeltaTime = 0.001;
+	//HUDManager::getInstance()->addBullet();
+	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
+	//addGameObject(boss);
 }
 
 void PlayState::openShop()
