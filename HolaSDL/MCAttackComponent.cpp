@@ -76,6 +76,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			Message msg(NO_ID);
 
 			if (attackCD->TimeSinceTimerCreation == 0 && comboAttack == First) {
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(25);
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 				//Pasa el estado a atacando
 				mc->setMCState(MCState::Attack);
 
@@ -107,6 +109,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}
 			//else if (attackCD->TimeSinceTimerCreation >= 0.25 && comboAttack == Second) {
 			else if (comboAttack == Second) {
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(25);
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 				attackCD->restart();
 				//Pasa el estado a atacando
 				mc->setMCState(MCState::Attack);
@@ -139,6 +143,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}
 			//else if (attackCD->TimeSinceTimerCreation >= 0.5 && comboAttack == Third) {
 			else if (comboAttack == Third) {
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(25);
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 				attackCD->restart();
 				//Pasa el estado a atacando
 				mc->setMCState(MCState::Attack);
@@ -173,8 +179,6 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}			
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
-			ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(25);
-			ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 		}
 		
 	}

@@ -81,7 +81,9 @@ enum MusicId {
 enum SoundEffectId {
 	SoundEffect1,
 	MCGunShot,
-	MCSwordNormalAttack
+	MCSwordNormalAttack,
+
+	DogAttack1, DogAttack2
 };
 
 //IMPORTANTE//
@@ -230,7 +232,9 @@ private:
 	std::vector<std::string> ResourceManager::soundEffectFiles{
 		"..\\music\\Sonidos\cosa.wav",
 		"..\\music\\Sonidos\\PistolaProta.wav",
-		"..\\music\\Sonidos\\EspadaTest.wav" };
+		"..\\music\\Sonidos\\EspadaTest.wav",
+		"..\\music\\Sonidos\\PerroRugido1.wav",
+		"..\\music\\Sonidos\\PerroRugido2.wav"};
 
 	int numOfMusic;
 	Music** music;
