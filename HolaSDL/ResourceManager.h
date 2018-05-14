@@ -51,12 +51,15 @@ enum TextureId {
 	//Todas las puertas cerradas
 	ClosedUp, ClosedRight, ClosedDown, ClosedLeft,
 
+	//Props
+	Burbujas1, Burbujas2, Burbujas3, Burbujas4, FetoIngeniero1, FetoIngeniero2, HologramaHaro, HologramaBase, HologramaWanted,
+	Prop1, Prop2, Prop3, Prop4, Prop5, Prop6,
+
 	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
 	BaseLifepack, HighLifepack,
-	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
+	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton
 
-	Burbujas1, Burbujas2, Burbujas3, Burbujas4, FetoIngeniero1, FetoIngeniero2, HologramaHaro, HologramaBase, HologramaWanted,
-	Prop1, Prop2, Prop3, Prop4, Prop5, Prop6
+	
 };
 
 
@@ -157,6 +160,22 @@ private:
 		{ "Interfaz\\Minimapa\\ClosedDown.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedLeft.png",1,1 },
 
+			//Props
+		{ "Props\\burbujas1.png", 1, 6 },
+		{ "Props\\burbujas2.png", 1, 6 },
+		{ "Props\\burbujas3.png", 1, 6 },
+		{ "Props\\burbujas4.png", 1, 6 },
+		{ "Props\\EngineerFetus1.png", 1, 6 },
+		{ "Props\\EngineerFetus2.png", 1, 6 },
+		{ "Props\\HologramaHaro.png", 1, 8 },
+		{ "Props\\HologramaBase.png", 1, 8 },
+		{ "Props\\HologramaWanted.png", 1, 8 },
+		{ "Props\\Prop1.png", 1, 8 },
+		{ "Props\\Prop2.png", 1, 10 },
+		{ "Props\\Prop3.png", 1, 2 },
+		{ "Props\\Prop4.png", 1, 2 },
+		{ "Props\\Prop5.png", 1, 10 },
+		{ "Props\\Prop6.png", 1, 10 },
 
 		{ "coin.png", 1, 4},
 		{ "coin_five.png", 1, 4 },
@@ -188,22 +207,7 @@ private:
 		{ "Tree\\RedLine.png", 1, 1 },
 		{ "Tree\\Line.png", 1, 1 },
 
-			//Props
-		{ "Props\\burbujas1.png", 1, 6 },
-		{ "Props\\burbujas2.png", 1, 6 },
-		{ "Props\\burbujas3.png", 1, 6 },
-		{ "Props\\burbujas4.png", 1, 6 },
-		{ "Props\\EngineerFetus1.png", 1, 6 },
-		{ "Props\\EngineerFetus2.png", 1, 6 },
-		{ "Props\\HologramaHaro.png", 1, 8 },
-		{ "Props\\HologramaBase.png", 1, 8 },
-		{ "Props\\HologramaWanted.png", 1, 8 },
-		{ "Props\\Prop1.png", 1, 8 },
-		{ "Props\\Prop2.png", 1, 8 },
-		{ "Props\\Prop3.png", 1, 2 },
-		{ "Props\\Prop4.png", 1, 2 },
-		{ "Props\\Prop5.png", 1, 10 },
-		{ "Props\\Prop6.png", 1, 10 },
+		
 	};
 
 	//Sounds
