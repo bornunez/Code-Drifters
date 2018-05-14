@@ -100,7 +100,6 @@ void PlayState::update()
 	CoinManager::getInstance()->update();
 	BulletManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
-	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
 	CollisionsManager::getInstance()->update();
 	camera->update();

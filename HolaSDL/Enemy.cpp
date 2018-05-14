@@ -69,13 +69,6 @@ MainCharacter* Enemy::getMC() {
 
 
 
-//void Enemy::receiveDamage(int damage) {
-//	life -= damage;
-//	cout << "Vida enemigo: " << life << '\n';
-//	if (life <= 0) {
-//		onDestroy();
-//	}
-//}
 
 void Enemy::onDestroy() {
 	//Si tenemos un spawner asignado, nos destruimos
@@ -99,6 +92,5 @@ void Enemy::death()
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
 	mainCharacter->sendMessage(&msg);
-	cout << "me he morido";
 }
 
