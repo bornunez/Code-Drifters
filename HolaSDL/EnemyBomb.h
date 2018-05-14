@@ -8,7 +8,7 @@ class EnemyBomb : public Enemy
 public:
 	EnemyBomb(MainCharacter* mc);
 
-	~EnemyBomb();
+	virtual ~EnemyBomb();
 	void loadAnimations();
 
 };

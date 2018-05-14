@@ -7,6 +7,7 @@ class PlayState;
 class Texture;
 class Font;
 
+using namespace std;
 
 struct LoadBar {
 	SDL_Rect dst;
@@ -34,6 +35,7 @@ public:
 	DungeonGenerator(int mapWidth, int mapHeight, int maxRooms);
 	~DungeonGenerator();
 	void CreateMap();
+	void CreateMapFromFile();
 
 	int getLevelWidth() { return mapWidth_; }
 	int getLevelHeight() { return mapHeight_; }
@@ -64,6 +66,12 @@ private:
 	vector<Room*> visitedRooms_;
 	vector<Room*> unvisitedRooms_;
 	vector<vector<Room*>> Dungeon_;
+
+	//Carga del tutorial
+	void GenerateFromFile(string file);
+	void SetMapDoors();
+	void SetDoors(int i, int j);
+	void LoadRoomsFromFile();
 
 	void loadTexts();
 	LoadBar loadbar;

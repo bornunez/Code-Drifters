@@ -6,6 +6,6 @@ public:
 	virtual void render() {};
 	virtual void lateRender() {};
 	RenderComponent(GameObject* o);
-	~RenderComponent();
+	virtual ~RenderComponent();
 };
 

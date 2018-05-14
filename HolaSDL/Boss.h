@@ -20,7 +20,7 @@ public:
 	void damage(int life);
 	Boss(Transform t);
 	Boss(MainCharacter* prota, int x, int y, int w, int h);
-	~Boss();
+	virtual ~Boss();
 
 	virtual void death();
 	virtual void changeColor(int r, int g, int b);

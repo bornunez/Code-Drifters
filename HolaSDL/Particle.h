@@ -9,7 +9,7 @@ private:
 	ParticleType type;
 public:
 	Particle(Texture* texture, ParticleType type, int x, int y, bool loop=false, double time=0);
-	~Particle();
+	virtual ~Particle();
 	ParticleType getType() { return type; }
 	ParticleAnimation* particleAnimation;
 };

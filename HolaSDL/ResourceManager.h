@@ -7,7 +7,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 84;
+const int NUM_TEXTURES = 99;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -51,17 +51,28 @@ enum TextureId {
 	//Todas las puertas cerradas
 	ClosedUp, ClosedRight, ClosedDown, ClosedLeft,
 
+	//Props
+	Burbujas1, Burbujas2, Burbujas3, Burbujas4, FetoIngeniero1, FetoIngeniero2, HologramaHaro, HologramaBase, HologramaWanted,
+	Prop1, Prop2, Prop3, Prop4, Prop5, Prop6,
+
 	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
 	BaseLifepack, HighLifepack,
-	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
+	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton
+
+	
 };
 
 
 // Music -- each file is loaded as an instance of Music
 //
 enum MusicId {
-	Music1,
-	Burdel
+	Level1,
+	Level2,
+	Burdel,
+	Dog,
+	Button,
+	FinalBoss1,
+	FinalBoss2
 };
 
 
@@ -70,7 +81,9 @@ enum MusicId {
 enum SoundEffectId {
 	SoundEffect1,
 	MCGunShot,
-	MCSwordNormalAttack
+	MCSwordNormalAttack,
+
+	DogAttack1, DogAttack2
 };
 
 //IMPORTANTE//
@@ -154,6 +167,22 @@ private:
 		{ "Interfaz\\Minimapa\\ClosedDown.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedLeft.png",1,1 },
 
+			//Props
+		{ "Props\\burbujas1.png", 1, 6 },
+		{ "Props\\burbujas2.png", 1, 6 },
+		{ "Props\\burbujas3.png", 1, 6 },
+		{ "Props\\burbujas4.png", 1, 6 },
+		{ "Props\\EngineerFetus1.png", 1, 6 },
+		{ "Props\\EngineerFetus2.png", 1, 6 },
+		{ "Props\\HologramaHaro.png", 1, 8 },
+		{ "Props\\HologramaBase.png", 1, 8 },
+		{ "Props\\HologramaWanted.png", 1, 8 },
+		{ "Props\\Prop1.png", 1, 8 },
+		{ "Props\\Prop2.png", 1, 10 },
+		{ "Props\\Prop3.png", 1, 2 },
+		{ "Props\\Prop4.png", 1, 2 },
+		{ "Props\\Prop5.png", 1, 10 },
+		{ "Props\\Prop6.png", 1, 10 },
 
 		{ "coin.png", 1, 4},
 		{ "coin_five.png", 1, 4 },
@@ -184,19 +213,28 @@ private:
 		{ "Tree\\GreenLine.png", 1, 1 },
 		{ "Tree\\RedLine.png", 1, 1 },
 		{ "Tree\\Line.png", 1, 1 },
+
+		
 	};
 
 	//Sounds
 
 
 	std::vector<std::string> ResourceManager::musicFiles{ 
-		"..\\music\\cosa.wav",
-		"..\\music\\Puticlub.wav"};
+		"..\\music\\Nivel1.wav",
+		"..\\music\\Nivel2.wav",
+		"..\\music\\Puticlub.wav",
+		"..\\music\\PERR.wav",
+		"..\\music\\Boton.wav",
+		"..\\music\\BossFinal_Parte1.wav",
+		"..\\music\\BossFinal_Parte2.wav"};
 
 	std::vector<std::string> ResourceManager::soundEffectFiles{
 		"..\\music\\Sonidos\cosa.wav",
 		"..\\music\\Sonidos\\PistolaProta.wav",
-		"..\\music\\Sonidos\\EspadaTest.wav" };
+		"..\\music\\Sonidos\\EspadaTest.wav",
+		"..\\music\\Sonidos\\PerroRugido1.wav",
+		"..\\music\\Sonidos\\PerroRugido2.wav"};
 
 	int numOfMusic;
 	Music** music;
@@ -246,13 +284,15 @@ private:
 	void setSoundEffects(std::vector<std::string> soundEffectsVect);
 	void closeSoundEffects();
 
-
+	void closeTextures();
+	void closeTilesets();
 	//Constructor
 	ResourceManager(SDL_Renderer* renderer);
 
 public:
 	static ResourceManager* getInstance() { return instance; }
 	static void createInstance(SDL_Renderer* renderer);
+	static void ResetInstance();
 
 	~ResourceManager();
 
@@ -268,4 +308,3 @@ public:
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;
 };
-

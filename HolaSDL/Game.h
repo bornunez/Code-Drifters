@@ -47,6 +47,7 @@ private:
 
 	Game();
 	~Game();
+	void ResetInstance();
 
 public:
 	bool exit = false;

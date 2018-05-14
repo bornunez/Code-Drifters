@@ -2,8 +2,7 @@
 #include "Layer.h"
 #include "Tileset.h"
 
-class TileLayer :
-	public Layer
+class TileLayer : public Layer
 {
 private:
 	int cols;
@@ -14,7 +13,7 @@ private:
 	vector<int> firstGids;
 public:
 	TileLayer(vector<Tileset*> tileSets,string name,int cols, int rows, int tileSize);
-	~TileLayer();
+	virtual ~TileLayer();
 	void seTileIDs(vector<vector<int>> tileID) { tileIDs = tileID; }
 	virtual void update();
 	virtual void render(Camera* camera);

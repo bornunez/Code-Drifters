@@ -21,7 +21,7 @@ private:
 	std::vector<SDL_Rect> tileRects;
 public:
 	Tileset(Texture* tileImg,XMLElement* root);
-	~Tileset() {};
+	~Tileset();
 
 	SDL_Rect setTileRect(int tileID);
 	SDL_Rect* getTileRect(int tileID);

@@ -21,10 +21,31 @@ PlayState* PlayState::instance = nullptr;
 
 PlayState::PlayState():GameState ()
 {
-	ResourceManager::getInstance()->getMusic(Music1)->play();
+	ResourceManager::getInstance()->getMusic(Level1)->play();
 
 }
 
+void PlayState::ResetInstance()
+{
+
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
+}
+
+PlayState::~PlayState()
+{
+	CoinManager::ResetInstance();
+	HUDManager::ResetInstance();
+	ParticlesManager::ResetInstance();
+
+	delete shopState;
+	delete minimap;
+	delete camera;
+	delete level;
+	delete currentRoom;
+	instance->destroyAllGameObjects();
+	//MainCharacter se borra en el destroyAllGameObjects
+}
 
 PlayState * PlayState::getInstance()
 {
@@ -33,13 +54,7 @@ PlayState * PlayState::getInstance()
 	return instance;
 }
 
-PlayState::~PlayState()
-{
-	/*delete minimap;
-	delete mainCharacter;
-	delete level;
-	delete currentRoom;*/
-}
+
 
 void PlayState::render()
 {
@@ -91,6 +106,26 @@ void PlayState::update()
 	camera->update();
 }
 
+void PlayState::nextLevel()
+{
+	//Creamos el puntero, es todo lo que hace falta
+	delete camera;
+	camera = new Camera();
+
+	//IMPORTANTE: Crear primero la camara. El mapa la requiere
+	LevelManager::getInstance()->nextLevel();
+	delete minimap;
+	minimap = new Minimap(1, 1, 10, 10);
+
+	camera->load();
+
+	//Al final ajustamos el deltaTime
+	Time::getInstance()->DeltaTime = 0.001;
+	//HUDManager::getInstance()->addBullet();
+	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
+	//addGameObject(boss);
+}
+
 void PlayState::openShop()
 {
 	game->pushState(shopState);
@@ -98,12 +133,12 @@ void PlayState::openShop()
 
 void PlayState::endState()
 {
-	delete camera;
-	delete mainCharacter;
-	delete level;
-	delete currentRoom;
-	delete minimap;
-	delete shopState;
+	//delete camera;
+	//delete mainCharacter;
+	//delete level;
+	//delete currentRoom;
+	//delete minimap;
+	//delete shopState;
 	
 	/*camera = nullptr;
 	mainCharacter = nullptr;
@@ -111,20 +146,13 @@ void PlayState::endState()
 	destroyAllGameObjects();*/
 }
 
-void PlayState::ResetInstance()
-{
-	instance->destroyAllGameObjects();
-	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = NULL; // so GetInstance will still work.
-}
-
-void PlayState::loadState()
+void PlayState::loadState(bool tutorial)
 {
 	//Creamos el puntero, es todo lo que hace falta
 	camera = new Camera();
 
 	//IMPORTANTE: Crear primero la camara. El mapa la requiere
-	LevelManager::getInstance()->init();
+	LevelManager::getInstance()->init(tutorial);
 	minimap = new Minimap(1,1, 10, 10);
 
 	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());

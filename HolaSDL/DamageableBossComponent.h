@@ -9,7 +9,7 @@ class DamageableBossComponent : virtual public UpdateComponent
 {
 public:
 	DamageableBossComponent(MasterBoss* o, MainCharacter* mc, float invincibleTime);
-	~DamageableBossComponent();
+	virtual ~DamageableBossComponent();
 	void receiveMessage(Message* msg);
 	void update();
 	void receiveDamage(MCAttackType attackType, float damage);

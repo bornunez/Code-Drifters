@@ -8,17 +8,20 @@ class BomberShotComponent :	public UpdateComponent
 public:
 	void update();
 	BomberShotComponent(Enemy* e, GameObject* target, float dist, float delay);
-	~BomberShotComponent();
+	virtual ~BomberShotComponent();
 	void receiveMessage(Message* msg);
 	void handleAnimation();
+	void updateGunPosition();
+
 private:
 	GameObject* targetObject;
 	Enemy* eb;
 	Timer* lastShotTime;
 	Timer* shotAnimationTime;
-	Vector2D bombPosition;
 	float distance;
 	float shotDelay;
+	Vector2D gunPosition;
+
 	void shoot();
 
 };

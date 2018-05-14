@@ -19,19 +19,40 @@
 #include "DialogsState.h"
 
 Game* Game::game = nullptr;
+
 Game::Game()
 {
-	
-
 }
-Game::~Game()
+
+void Game::ResetInstance()
 {
+	delete game;
+	game = NULL;
+}
+
+Game::~Game()
+
+{	//Termina el juego llama a las destructoras de playState etc...
+	endGame();
 	delete stateMachine;
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 
 }
+
+void Game::endGame()//Termina el PlayState y resetea sus instancias.
+{
+	delete mouseIcon;
+	delete levP;
+	EnemyManager::ResetInstance();
+	PlayState::ResetInstance();
+	BulletManager::ResetInstance();
+	LevelManager::ResetInstance();
+	ResourceManager::ResetInstance();
+	stateMachine->popState();
+}
+
 
 SDL_Renderer * Game::getRenderer()
 {
@@ -82,7 +103,6 @@ void Game::run()
 		stateMachine->pushState(mm);
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
-		mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
 
 		//Este int no se que pinta aqui
 		int roomNumber = 20;
@@ -102,6 +122,8 @@ void Game::run()
 		this->mouseIcon->drawIcon(event);
 		SDL_RenderPresent(this->getRenderer());
 	}
+	//Sale del juego liberando la memoria ocupada.
+	ResetInstance();
 }
 
 void Game::handleEvents()
@@ -157,16 +179,9 @@ void Game::startGame()
 {
 	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
-	playState->loadState();
+	playState->loadState(true);
 }
 
-void Game::endGame()//Termina el PlayState y resetea sus instancias.
-{
-	EnemyManager::ResetInstance();
-	PlayState::ResetInstance(); 
-	BulletManager::ResetInstance();
-	stateMachine->popState();
-}
 
 void Game::startDialogue(string filename)
 {

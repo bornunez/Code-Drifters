@@ -13,7 +13,7 @@ class MasterBoss:public GameObject
 {
 public:
 	MasterBoss(int type);
-	~MasterBoss();
+	virtual ~MasterBoss();
 	float getLife() { return Attributes.life; }
 	float getMaxHP() { return Attributes.maxHP; };
 	int getDamage() { return Attributes.meleeDmg; };

@@ -42,11 +42,11 @@ void StalkerComponent::receiveMessage(Message * msg)
 void StalkerComponent::update()
 {
 	if (!gameObject->isDead()) {
-		timer->update();
 
-		;
 
-		if (!es->isStunned()) {
+		if ((abs(target->getTransform()->position.getX() - es->getTransform()->position.getX()) + 
+			abs(target->getTransform()->position.getY() - es->getTransform()->position.getY())) <= 900	&& !es->isStunned()) {
+			timer->update();
 			if ((es->enemyState != EnemyState::Charge && es->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
 				es->enemyState = EnemyState::Charge;
 				ChargeComponent::startCharge();

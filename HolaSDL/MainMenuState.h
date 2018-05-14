@@ -28,7 +28,7 @@ private:
 
 public:
 	MainMenuState();
-	~MainMenuState();
+	virtual ~MainMenuState();
 	
 	virtual void handleEvent(SDL_Event& e);
 	virtual void update();

@@ -27,7 +27,8 @@ void BomberComponent::update() {
 		Transform* targetT = targetObject->getTransform();
 		if (angle > 365) angle = 0;
 
-		if (!eb->isStunned()) {
+		if ((abs(targetT->position.getX() - bomberT->position.getX()) +
+			abs(targetT->position.getY() - bomberT->position.getY())) <= 900 && !eb->isStunned()) {
 			Vector2D auxVel;
 			Vector2D auxPos;
 			if ((abs(targetT->position.getX() - bomberT->position.getX() - 25) + abs(targetT->position.getY() - bomberT->position.getY() - 25)) <= distancia + 50) {

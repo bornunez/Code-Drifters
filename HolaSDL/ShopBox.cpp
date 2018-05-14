@@ -32,6 +32,7 @@ ShopBox::~ShopBox()
 	delete boxTex;
 	delete descriptionTex;
 	delete priceTex;
+	delete font;
 }
 
 void ShopBox::render()

@@ -74,9 +74,14 @@ void GameState::removeGameObject(GameObject * go)
 
 void GameState::destroyAllGameObjects()
 {
-	for (GameObject* o : gameObjects) {
+	/*for (GameObject* o : gameObjects) {
 		delete o;
 	}
+	for (list<GameObject*>::const_iterator it = gameObjects.begin(); it != gameObjects.end(); ++it)
+	{
+		delete *it;
+	}
+	gameObjects.clear();*/
 }
 
 

@@ -32,6 +32,7 @@ public:
 	HUDManager();
 	~HUDManager();
 	static HUDManager* getInstance();
+	static void ResetInstance();
 
 	void update();
 	void render();

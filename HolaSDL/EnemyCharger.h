@@ -7,7 +7,7 @@ class EnemyCharger : public Enemy
 {
 public:
 	EnemyCharger(MainCharacter* mc);
-	~EnemyCharger();
+	virtual ~EnemyCharger();
 	void loadAnimations();
 	void spawn(int x, int y, Spawner* spawner = nullptr);
 

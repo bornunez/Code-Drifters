@@ -9,9 +9,18 @@ ParticlesManager::ParticlesManager()
 {
 }
 
+void ParticlesManager::ResetInstance()
+{
+	delete instance;
+	instance = NULL;
+}
 
 ParticlesManager::~ParticlesManager()
 {
+	for (Particle* obj : particles)
+		delete obj;
+
+	particles.clear();
 }
 
 void ParticlesManager::render()

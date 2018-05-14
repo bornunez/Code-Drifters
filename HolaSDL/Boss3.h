@@ -21,7 +21,7 @@ public:
 
 	Boss3(Transform t);
 	Boss3(MainCharacter* prota, int x, int y, int w, int h);
-	~Boss3();
+	virtual ~Boss3();
 
 	virtual void death() {};
 	virtual void changeColor(int r, int g, int b);

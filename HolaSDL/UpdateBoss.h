@@ -9,7 +9,7 @@ class UpdateBoss : public UpdateComponent
 {
 public:
 	UpdateBoss(GameObject* o, MainCharacter* prota);
-	~UpdateBoss();
+	virtual ~UpdateBoss();
 	void receiveMessage(Message * msg);
 	void changeColor(int r, int b, int g);
 protected:

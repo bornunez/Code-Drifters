@@ -48,7 +48,7 @@ public:
 
 	MainCharacter(Texture* tex, int x, int y, int w, int h);
 
-	~MainCharacter();
+	virtual ~MainCharacter();
 	
 	//Animations
 	void loadAnimations();
