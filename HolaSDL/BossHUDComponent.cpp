@@ -2,6 +2,13 @@
 #include"ResourceManager.h"
 #include"Game.h"
 
+BossHUDComponent::~BossHUDComponent()
+{
+	delete bossBack,
+		bossBar,
+		bossBarBack,
+		bossSkeleton;
+}
 
 BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 {
@@ -13,6 +20,12 @@ BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
 	}
 	else if (boss->getBossType() == 2) {
+		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
+		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
+		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
+		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
+	}
+	else if (boss->getBossType() == 3) {
 		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
 		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
 		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
@@ -44,12 +57,4 @@ void BossHUDComponent::lateRender() {
 		bossBar->getTexture()->render(bossBar->destRect, &bossBar->srcRect);
 		bossSkeleton->getTexture()->render(bossSkeleton->destRect, &bossSkeleton->srcRect);
 	}
-}
-
-BossHUDComponent::~BossHUDComponent()
-{
-	delete bossBack,
-		bossBar,
-		bossBarBack,
-		bossSkeleton;
 }

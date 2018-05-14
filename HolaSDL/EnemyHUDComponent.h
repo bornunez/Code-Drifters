@@ -15,7 +15,7 @@ protected:
 
 public:
 	EnemyHUDComponent(Enemy* enem);
-	~EnemyHUDComponent();
+	virtual ~EnemyHUDComponent();
 	void lateRender();
 };
 

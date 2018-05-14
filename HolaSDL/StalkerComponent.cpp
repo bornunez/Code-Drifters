@@ -4,7 +4,7 @@
 #include "Enemy.h"
 #include "Hook.h"
 
-StalkerComponent::StalkerComponent(Enemy * e, GameObject * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(e, target, 200),
+StalkerComponent::StalkerComponent(Enemy * e, MainCharacter * target, float cDelay, float aDelay, float aTime, float velMultiplier) : ChaseComponent(e, target, 200),
 ChargeComponent(e, target, aDelay, aTime, velMultiplier), UpdateComponent(e)
 {
 	timer = new Timer();
@@ -24,11 +24,11 @@ void StalkerComponent::receiveMessage(Message * msg)
 	switch (msg->id) {
 	case HIT_WALL:;
 		if (es->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
-			static_cast<MainCharacter*>(target)->getHook().setHookStatus(HookStatus::STOP);
+			target->getHook().setHookStatus(HookStatus::STOP);
 			Message msg(HOOK_STOP);
-			static_cast<MainCharacter*>(target)->sendMessage(&msg);
+			target->sendMessage(&msg);
 			es->getEnemyState() == EnemyState::Idle;
-			static_cast<MainCharacter*>(target)->setMCState(MCState::Idle);
+			target->setMCState(MCState::Idle);
 
 		}
 		break;

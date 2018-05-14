@@ -42,6 +42,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	baseSpeed = params.speed;
 	Attributes.meleeDmg = params.meleDmg; Attributes.rangedDmg = params.rangedDmg ;
 	Attributes.minDrop = params.minDrop; Attributes.maxDrop = params.maxDrop; Attributes.healDrop = params.healDrop;
+	Attributes.hookable = params.hookable;
 	this->spawner = spawner;
 	Attributes.stunned = false;
 	setMovable(true);

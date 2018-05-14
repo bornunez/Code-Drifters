@@ -14,6 +14,7 @@ public:
 	void play(int repetitions = -1);
 	void pause();
 	void close();
+	void stop();
 private:
 	Mix_Music* music_;
 };

@@ -7,7 +7,7 @@
 #include "Hook.h"
 
 
-HookAnimationComponent::HookAnimationComponent(Hook* o, Texture* hookChainTex, Texture* hookChainFailTex,  Texture* hookHeadTex, double angle, int fps, SDL_RendererFlip flip) : RenderComponent(static_cast<GameObject*>(o))
+HookAnimationComponent::HookAnimationComponent(Hook* o, Texture* hookChainTex, Texture* hookChainFailTex,  Texture* hookHeadTex, double angle, int fps, SDL_RendererFlip flip) : RenderComponent(o)
 {
 	hook = o;
 	this->hookChainTex = hookChainTex;

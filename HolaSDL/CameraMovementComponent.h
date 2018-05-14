@@ -9,7 +9,7 @@ private:
 public:
 	void update();
 	CameraMovementComponent(GameObject* camera, GameObject* mainCharacter);
-	~CameraMovementComponent();
+	virtual ~CameraMovementComponent();
 	void receiveMessage(std::string msg) {};
 };
 

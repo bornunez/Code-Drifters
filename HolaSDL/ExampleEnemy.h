@@ -6,8 +6,6 @@ class ExampleEnemy : public Enemy
 public:
 	ExampleEnemy(MainCharacter* mc);
 
-	~ExampleEnemy();
-
-
+	virtual ~ExampleEnemy();
 };
 

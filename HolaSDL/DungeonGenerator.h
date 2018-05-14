@@ -50,7 +50,6 @@ private:
 	void AddFirstRoom();
 	vector<string> CheckDirections(int x, int y);
 	void GenerateDungeon();
-	void GenerateFromFile(string file);
 	void CreateRoom(int x, int y);
 	void FixDoors();
 	void UnvisitedRoomToQueue(vector<string> posibleDirections_, string direction, int x, int y);
@@ -67,6 +66,12 @@ private:
 	vector<Room*> visitedRooms_;
 	vector<Room*> unvisitedRooms_;
 	vector<vector<Room*>> Dungeon_;
+
+	//Carga del tutorial
+	void GenerateFromFile(string file);
+	void SetMapDoors();
+	void SetDoors(int i, int j);
+	void LoadRoomsFromFile();
 
 	void loadTexts();
 	LoadBar loadbar;

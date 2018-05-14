@@ -22,6 +22,7 @@ Room::Room() {
 
 Room::~Room()
 {
+	delete map;
 }
 void Room::load() {
 
@@ -67,6 +68,16 @@ void Room::load() {
 		level = ResourceManager::getInstance()->getLevelPath() + "template.tmx"; //Si no encontramos cargaremos el de defecto
 	voidRoom = false;
 	map = LevelParser::parseLevel(level.c_str(),doors);
+}
+void Room::loadFromFile(string root)
+{
+	if (filename == "boss")
+		type = BossRoom;
+	else if (filename == "puti")
+		type = Shop;
+	else if (filename == "empty")
+		type = First;
+	map = LevelParser::parseLevel(root + filename+".tmx", doors);
 }
 void Room::render() {
 

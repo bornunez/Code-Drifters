@@ -32,7 +32,7 @@ private:
 	void drawFill(SDL_Rect destRect, SDL_Rect srcRect, Room * room, bool on);
 public:
 	Minimap(float scale, float rScale, int mWidth,int mHeight);
-	~Minimap();
+	virtual ~Minimap();
 	void render();
 };
 

@@ -10,6 +10,27 @@ HUDManager::HUDManager()
 	
 }
 
+void HUDManager::ResetInstance()
+{
+	delete instance;
+	instance = NULL;
+}
+
+HUDManager::~HUDManager()
+{
+	delete lifeBack,
+		lifeBar,
+		lifeSkeleton;
+	delete ultSkeleton,
+		ultBack,
+		ultBar;
+	for (int i = 0; i < character->getMaxBullets(); i++) {
+		delete bulletBack[i],
+			bullets_[i],
+			bulletSkeleton[i];
+	}
+}
+
 void HUDManager::init(MainCharacter* MC) {
 	character = MC;
 	gameScale = Game::getGame()->getScale();
@@ -81,21 +102,6 @@ void HUDManager::init(MainCharacter* MC) {
 	moneyDestRect.y = Game::getGame()->getWinH() / 5;
 	//cout << to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() << endl;
 	moneyDestRect.x = Game::getGame()->getWinW() / 15 - ((to_string(PlayState::getInstance()->getMainCharacter()->getMoney()).size() - 1) * 15) + 50;
-}
-
-HUDManager::~HUDManager()
-{
-	delete lifeBack,
-		lifeBar,
-		lifeSkeleton;
-	delete ultSkeleton,
-		ultBack,
-		ultBar;
-	for (int i = 0; i < character->getMaxBullets(); i++) {
-		delete bulletBack[i],
-			bullets_[i],
-			bulletSkeleton[i];
-	}
 }
 
 void HUDManager::render() {

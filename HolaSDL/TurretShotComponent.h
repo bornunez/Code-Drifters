@@ -2,19 +2,18 @@
 #include "UpdateComponent.h"
 #include "Vector2D.h"
 #include "Timer.h"
-class EnemyTurret;
 
 class TurretShotComponent :	public UpdateComponent
 {
 public:
 	void update();
-	TurretShotComponent(GameObject* o, GameObject* target, float dist, float delay);
-	~TurretShotComponent();
+	TurretShotComponent(Enemy* o, GameObject* target, float dist, float delay);
+	virtual ~TurretShotComponent();
 	void receiveMessage(std::string msg) {};
 	void handleAnimation();
 	void updateGunPosition();
 private:
-	EnemyTurret* et;
+	Enemy* et;
 	GameObject* targetObject;
 	Timer* lastShotTimer;
 	float distance;

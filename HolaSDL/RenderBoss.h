@@ -6,7 +6,7 @@ class RenderBoss : public RenderComponent
 {
 public:
 	RenderBoss(GameObject* o);
-	~RenderBoss();
+	virtual ~RenderBoss();
 protected:
 	virtual void render();
 private:

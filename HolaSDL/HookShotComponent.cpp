@@ -13,7 +13,7 @@
 #include "PlayState.h"
 #include "Camera.h"
 #include "Game.h"
-HookShotComponent::HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed) : UpdateComponent(static_cast<GameObject*>(h))
+HookShotComponent::HookShotComponent(MainCharacter* mc, Hook* h, float hookSpeed) : UpdateComponent(h)
 {
 	h->setActive(false);
 	hook = h;

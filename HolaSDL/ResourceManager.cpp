@@ -20,7 +20,7 @@ ResourceManager::ResourceManager(SDL_Renderer* renderer) : numOfMusic(0), music(
 	loadEnemyTilesets();
 	loadBoss1Tilesets();
 	loadBoss2Tilesets();
-
+	loadBoss3Tilesets();
 
 }
 
@@ -32,10 +32,17 @@ void ResourceManager::createInstance(SDL_Renderer * renderer)
 
 ResourceManager::~ResourceManager()
 {
-	closeMusic();
+	closeTilesets();
 	closeSoundEffects();
+	closeMusic();
+	closeTextures();
 }
 
+void ResourceManager::ResetInstance() 
+{
+	delete instance;
+	instance = NULL;
+}
 Texture * ResourceManager::getTexture(TextureId id)
 {
 	if (id < NUM_TEXTURES)
@@ -72,6 +79,41 @@ void ResourceManager::loadTextures()
 		const TextureAtributes atributes = TEXTURE_ATRIBUTES[i];
 		textures[i] = new Texture(renderer, TEXT_PATH + atributes.filename, atributes.numRows, atributes.numCols);
 	}
+}
+
+void ResourceManager::closeTextures() {
+	for (int i = 0; i < NUM_TEXTURES; i++) {
+		if (textures[i] != nullptr) {
+			delete textures[i];
+		}
+	}
+	//delete[] textures;
+}
+
+void ResourceManager::closeTilesets() {
+	for (Tileset* obj : tilesets)
+		delete obj;
+	tilesets.clear();
+
+	for (Tileset* obj : protaTileset)
+		delete obj;
+	protaTileset.clear();
+
+	for (Tileset* obj : enemyTilesets)
+		delete obj;
+	enemyTilesets.clear();
+
+	for (Tileset* obj : boss1Tilesets)
+		delete obj;
+	boss1Tilesets.clear();
+
+	for (Tileset* obj : boss2Tilesets)
+		delete obj;
+	boss2Tilesets.clear();
+
+	for (Tileset* obj : boss3Tilesets)
+		delete obj;
+	boss3Tilesets.clear();
 }
 
 Tileset* ResourceManager::loadTileset(string path)
@@ -147,6 +189,20 @@ void ResourceManager::loadBoss2Tilesets()
 		Texture* tileTex = new Texture(renderer, BOSS2_PATH + imageSrc);
 		//Y cargamos el tileset
 		boss2Tilesets.push_back(new Tileset(tileTex, root));
+	}
+}
+void ResourceManager::loadBoss3Tilesets()
+{
+	for (int i = 0; i < NUM_BOSS3TILESET; i++) {
+		string filename = boss3TilesetNames[i];
+		XMLDocument doc;
+		doc.LoadFile((BOSS3_PATH + filename).c_str());
+		//Raiz del tileset
+		XMLElement* root = doc.FirstChildElement();
+		string imageSrc = root->FirstChildElement("image")->Attribute("source");
+		Texture* tileTex = new Texture(renderer, BOSS3_PATH + imageSrc);
+		//Y cargamos el tileset
+		boss3Tilesets.push_back(new Tileset(tileTex, root));
 	}
 }
 

@@ -2,14 +2,15 @@
 #include "RenderComponent.h"
 #include "GameObject.h"
 #include "Animation.h"
+class Boss2;
 class RenderBoss2 : public RenderComponent
 {
 public:
-	RenderBoss2(GameObject* o);
-	~RenderBoss2();
+	RenderBoss2(Boss2* o);
+	virtual ~RenderBoss2();
 protected:
 	virtual void render();
 private:
-	GameObject* boss;
+	Boss2* boss;
 };
 

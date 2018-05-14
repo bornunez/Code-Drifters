@@ -17,6 +17,32 @@ EnemyManager::EnemyManager()
 {
 }
 
+void EnemyManager::ResetInstance()
+{
+	instance->killAll();
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
+}
+
+EnemyManager::~EnemyManager()
+{
+	for (Enemy* e : actives)
+		kill(e);
+	for (Enemy* e : inactives)
+		PlayState::getInstance()->removeGameObject(e);
+
+	delete actBoss1;
+	delete actBoss2;
+	delete actBoss3;
+}
+
+//Get Singleton instance
+EnemyManager * EnemyManager::getInstance()
+{
+	if (instance == nullptr)
+		instance = new EnemyManager();
+	return instance;
+}
 
 Enemy * EnemyManager::createEnemy(EnemyType eType)
 {
@@ -65,22 +91,6 @@ Enemy * EnemyManager::getInactiveEnemy(EnemyType eType)
 	return nullptr;
 }
 
-EnemyManager::~EnemyManager()
-{
-	for (Enemy* e : actives)
-		kill(e);
-	for (Enemy* e : inactives)
-		PlayState::getInstance()->removeGameObject(e);
-}
-
-//Get Singleton instance
-EnemyManager * EnemyManager::getInstance()
-{
-	if (instance == nullptr)
-		instance = new EnemyManager();
-	return instance;
-}
-
 void EnemyManager::update()
 {
 	for (Enemy* e : actives) {
@@ -93,6 +103,10 @@ void EnemyManager::update()
 	if (actBoss2 != nullptr && actBoss2->isActive())
 	{
 		actBoss2->update();
+	}
+	if (actBoss3 != nullptr && actBoss3->isActive())
+	{
+		actBoss3->update();
 	}
 }
 
@@ -109,6 +123,10 @@ void EnemyManager::render()
 	{
 		actBoss2->render();
 	}
+	if (actBoss3 != nullptr && actBoss3->isActive())
+	{
+		actBoss3->render();
+	}
 }
 
 void EnemyManager::lateRender()
@@ -124,6 +142,10 @@ void EnemyManager::lateRender()
 	{
 		actBoss2->lateRender();
 	}
+	if (actBoss3 != nullptr && actBoss3->isActive())
+	{
+		actBoss3->lateRender();
+	}
 }
 
 void EnemyManager::spawn(int x, int y, EnemyType eType)
@@ -137,6 +159,7 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 	e->spawn(x, y);
 	actives.push_back(e);	
 }
+
 
 void EnemyManager::spawn(Spawner * spawner)
 {
@@ -152,19 +175,42 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	actBoss1 = new Boss(mc, x, y, 128, 128);
+	if (actBoss1 == nullptr) {
+		actBoss1 = new Boss(mc, x, y, 128, 128);
+	}
 	activeBoss = actBoss1;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {
-	actBoss2= new Boss2(mc, x, y, 128, 128);
+	if(actBoss2 == nullptr)
+		actBoss2= new Boss2(mc, x, y, 128, 128);
 	activeBoss = actBoss2;
 }
-void EnemyManager::ResetInstance()
+void EnemyManager::spawnBoss3(int x, int y)
 {
-	instance->killAll();
-	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = NULL; // so GetInstance will still work.
+	if(actBoss3 == nullptr)
+		actBoss3 = new Boss3(mc, x, y, 128, 128);
+	
+	activeBoss = actBoss3;
+}
+
+void EnemyManager::enterBossRoom(int x, int y, int level)
+{
+	switch (level)
+	{
+	case 0:
+		spawnBoss(x, y);
+		break;
+	case 1:
+		spawnBoss2(x, y);
+		break;
+	case 2:
+		spawnBoss3(x, y);
+		break;
+	default:
+		break;
+	}
+	activeBoss->setActive(true);
 }
 
 void EnemyManager::kill(Enemy * enemy)

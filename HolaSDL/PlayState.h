@@ -36,12 +36,14 @@ public:
 	void loadState(bool tutorial);
 	static PlayState* getInstance();
 	static void ResetInstance();
-	~PlayState();
-	MainCharacter* getMainCharacter() { return mainCharacter; }
+	virtual ~PlayState();
+
 	void render();
 	void lateRender();
 	void handleEvent(SDL_Event& e);
 	void update();	
+
+	MainCharacter* getMainCharacter() { return mainCharacter; }
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
 	void openShop();

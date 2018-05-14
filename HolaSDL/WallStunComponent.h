@@ -12,7 +12,7 @@ protected:
 	float stunTime;
 	Enemy* enemy;
 public:
-	WallStunComponent(GameObject * o, float time);
+	WallStunComponent(Enemy * o, float time);
 	virtual ~WallStunComponent();
 	virtual void update();
 	virtual void receiveMessage(Message* msg);

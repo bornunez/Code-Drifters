@@ -3,6 +3,7 @@
 #include <list>
 #include "Boss.h"
 #include "Boss2.h"
+#include "Boss3.h"
 
 using namespace std;
 class Enemy;
@@ -15,6 +16,7 @@ struct EnemyParams {
 	int speed;
 	int meleDmg; int rangedDmg;
 	int minDrop; int maxDrop; int healDrop;
+	bool hookable;
 };
 
 class EnemyManager
@@ -27,13 +29,13 @@ private:
 	static EnemyManager* instance;
 	//Donde van a estar los datos por defecto de los enemigos (Lo suyo seria leerlo de un XML )
 	vector<EnemyParams> eParams = { 
-		{200,350,10,0,5,7,33},
-		{150,100,5,10,7,8,33},
-		{150,200,15,0,7,8,33},
-		{300,100,10,0,8,10,33},
-		{300,100,0,10,8,10,33},
-		{10,100,0,10,0,0,0},
-		{375,100,5,10,7,8,100} };
+		{100,350,10,0,5,7,33,true},
+		{75,100,5,10,7,8,33,true},
+		{75,200,15,0,7,8,33,true},
+		{10,100,10,0,8,10,33,false},
+		{10,100,0,10,8,10,33,false},
+		{10,100,0,10,0,0,0,false},
+		{75,100,5,10,7,8,100,true} };
 	//Donde van a estal almacenados todos los enemigos del juego
 	list<Enemy*> inactives;
 	list<Enemy*> actives;
@@ -41,8 +43,9 @@ private:
 	//Metodo aux para coger un enemigo del vector de inactivos, Coste O(n) con n = numero de enemigos inactivos
 	Enemy* createEnemy(EnemyType eType);
 	Enemy* getInactiveEnemy(EnemyType eType);
-	Boss* actBoss1;
-	Boss2* actBoss2;
+	Boss* actBoss1 = nullptr;
+	Boss2* actBoss2 = nullptr;
+	Boss3* actBoss3 = nullptr;
 	MasterBoss* activeBoss;
 
 	MainCharacter* mc;
@@ -63,6 +66,8 @@ public:
 
 	void spawnBoss(int x, int y);
 	void spawnBoss2(int x, int y);
+	void spawnBoss3(int x, int y);
+	void enterBossRoom(int x, int y, int level);
 	MasterBoss* getActiveBoss() { return activeBoss; }
 
 	//Desactiva un enemigo

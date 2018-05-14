@@ -7,12 +7,13 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 84;
+const int NUM_TEXTURES = 99;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
+const int NUM_BOSS3TILESET = 1;
 const string TEXT_PATH = "..\\images\\";
 const string LEVEL_PATH = "..\\levels&tiles\\";
 const string TILESET_PATH = "..\\levels&tiles\\";
@@ -20,6 +21,7 @@ const string ENEMY_PATH = "..\\Animations\\Enemies\\";
 const string PROTATILESET_PATH = "..\\Animations\\Protagonist\\tileset\\";
 const string BOSS1_PATH = "..\\Animations\\Bosses\\Boss1\\";
 const string BOSS2_PATH = "..\\Animations\\Bosses\\Boss2\\";
+const string BOSS3_PATH = "..\\Animations\\Bosses\\Boss3\\";
 // Estructura para las texturas
 typedef struct {
 	string filename;
@@ -52,20 +54,26 @@ enum TextureId {
 	OneCoinSprite, FiveCoinSprite,TenCoinSprite,
 	BaseLifepack, HighLifepack,
 	SwordButton, GunButton, MemexButton, MaxAttackButton, SwordChargeButton,
+
+	Burbujas1, Burbujas2, Burbujas3, Burbujas4, FetoIngeniero1, FetoIngeniero2, HologramaHaro, HologramaBase, HologramaWanted,
+	Prop1, Prop2, Prop3, Prop4, Prop5, Prop6
 };
 
 
 // Music -- each file is loaded as an instance of Music
 //
 enum MusicId {
-	Music1
+	Music1,
+	Burdel
 };
 
 
 // Sound Effects -- each file is loaded as an instance of SoundEffect
 //
 enum SoundEffectId {
-	SoundEffect1
+	SoundEffect1,
+	MCGunShot,
+	MCSwordNormalAttack
 };
 
 //IMPORTANTE//
@@ -179,14 +187,36 @@ private:
 		{ "Tree\\GreenLine.png", 1, 1 },
 		{ "Tree\\RedLine.png", 1, 1 },
 		{ "Tree\\Line.png", 1, 1 },
+
+			//Props
+		{ "Props\\burbujas1.png", 1, 6 },
+		{ "Props\\burbujas2.png", 1, 6 },
+		{ "Props\\burbujas3.png", 1, 6 },
+		{ "Props\\burbujas4.png", 1, 6 },
+		{ "Props\\EngineerFetus1.png", 1, 6 },
+		{ "Props\\EngineerFetus2.png", 1, 6 },
+		{ "Props\\HologramaHaro.png", 1, 8 },
+		{ "Props\\HologramaBase.png", 1, 8 },
+		{ "Props\\HologramaWanted.png", 1, 8 },
+		{ "Props\\Prop1.png", 1, 8 },
+		{ "Props\\Prop2.png", 1, 8 },
+		{ "Props\\Prop3.png", 1, 2 },
+		{ "Props\\Prop4.png", 1, 2 },
+		{ "Props\\Prop5.png", 1, 10 },
+		{ "Props\\Prop6.png", 1, 10 },
 	};
 
 	//Sounds
 
 
-	std::vector<std::string> ResourceManager::musicFiles{ "..\\music\\cosa.wav"};
+	std::vector<std::string> ResourceManager::musicFiles{ 
+		"..\\music\\cosa.wav",
+		"..\\music\\Puticlub.wav"};
 
-	std::vector<std::string> ResourceManager::soundEffectFiles{ "..\\sound\cosa.wav"};
+	std::vector<std::string> ResourceManager::soundEffectFiles{
+		"..\\music\\Sonidos\cosa.wav",
+		"..\\music\\Sonidos\\PistolaProta.wav",
+		"..\\music\\Sonidos\\EspadaTest.wav" };
 
 	int numOfMusic;
 	Music** music;
@@ -202,6 +232,7 @@ private:
 	vector<Tileset*> protaTileset;
 	const string boss1TilesetNames[NUM_BOSS1TILESET]{ "Boss1.tsx" };
 	const string boss2TilesetNames[NUM_BOSS2TILESET]{ "Boss2-Entero.tsx" };
+	const string boss3TilesetNames[NUM_BOSS3TILESET]{ "Boss3.tsx" };
 	const string enemyTilesetNames[NUM_ENEMYTILESET]
 	{ 
 		"Gunner.tsx", 
@@ -215,6 +246,7 @@ private:
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
 	vector<Tileset*> boss2Tilesets;
+	vector<Tileset*> boss3Tilesets;
 
 
 	SDL_Renderer* renderer;
@@ -226,6 +258,7 @@ private:
 	void loadEnemyTilesets();
 	void loadBoss1Tilesets();
 	void loadBoss2Tilesets();
+	void loadBoss3Tilesets();
 
 	//Music
 	void setMusic(std::vector<std::string> musicVect);
@@ -233,13 +266,15 @@ private:
 	void setSoundEffects(std::vector<std::string> soundEffectsVect);
 	void closeSoundEffects();
 
-
+	void closeTextures();
+	void closeTilesets();
 	//Constructor
 	ResourceManager(SDL_Renderer* renderer);
 
 public:
 	static ResourceManager* getInstance() { return instance; }
 	static void createInstance(SDL_Renderer* renderer);
+	static void ResetInstance();
 
 	~ResourceManager();
 
@@ -250,8 +285,8 @@ public:
 	Tileset* getEnemyTileset(int numTileset) { return enemyTilesets[numTileset]; };
 	Tileset* getBoss1Tileset(int numTileset) { return boss1Tilesets[numTileset]; };
 	Tileset* getBoss2Tileset(int numTileset) { return boss2Tilesets[numTileset]; };
+	Tileset* getBoss3Tileset(int numTileset) { return boss3Tilesets[numTileset]; };
 	string getLevelPath() { return LEVEL_PATH; };
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;
 };
-

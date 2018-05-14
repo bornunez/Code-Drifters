@@ -17,6 +17,7 @@ struct CommonBossAttributes {
 	int minDrop; int maxDrop; //Drop de dinero
 	int healDrop;
 	bool stunned = false;
+	bool hookable = true;
 };
 //#########################################################
 
@@ -41,10 +42,7 @@ protected:
 	Enemy(MainCharacter* mc);
 	
 public:
-	/*void receiveDamage(int damage);*/
-
-	
-	~Enemy();
+	virtual ~Enemy();
 	virtual void spawn(int x, int y, Spawner* spawner = nullptr);
 	virtual void render();
 	virtual void update();
@@ -57,6 +55,7 @@ public:
 	void setLife(int life) { Attributes.life = life; };
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }
+	bool isHookable() { return Attributes.hookable; }
 	EnemyState enemyState;		//PROTECTED
 	EnemyState getEnemyState() { return this->enemyState; }
 	double baseSpeed;

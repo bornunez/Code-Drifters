@@ -5,9 +5,9 @@
 #include "Enemy.h"
 
 
-ChargeComponent::ChargeComponent(GameObject* o, GameObject* target, float delay, float time, float velMultiplier) : UpdateComponent(o)
+ChargeComponent::ChargeComponent(Enemy* o, GameObject* target, float delay, float time, float velMultiplier) : UpdateComponent(o)
 {
-	e = static_cast<Enemy*>(o);
+	e = o;
 	chargeDelay = delay;
 	chargeTime = time;
 	velocityMult = velMultiplier;

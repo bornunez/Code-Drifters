@@ -4,7 +4,7 @@ class UpdateComponent : public Component
 {
 public:
 	UpdateComponent(GameObject * o);
-	~UpdateComponent(); 
+	virtual ~UpdateComponent(); 
 	virtual void update() = 0;
 };
 

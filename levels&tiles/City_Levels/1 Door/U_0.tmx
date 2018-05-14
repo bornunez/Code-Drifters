@@ -1,38 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="16" tileheight="16" nextobjectid="14">
- <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
- <tileset firstgid="65" source="../../tileset/Decoracion.tsx"/>
- <layer name="Suelo" width="20" height="20">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" nextobjectid="24">
+ <tileset firstgid="1" source="../../tileset/city.tsx"/>
+ <tileset firstgid="257" source="../../tileset/City2.tsx"/>
+ <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
+ <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
+ <layer name="Suelo" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJztklEKwCAMQ7X6Nbz/ebfBCiGkVdjHNlghiFqfabWUb0cFvZk3aN0OtYXzgzw5y2BuwOuXMi+ey5xTG9yZMZWvFSETfXE9Kl9xfKzEU/d6rvMa7GOdFvQt89Zhj72p95gxo56xtxlT9Q/9RX8FmexJvVVWa8a9y/nj2dgBBhsBcA==
+   eJztwwEJAAAMBKHrn+DjrsdQcNVUVVVVVVUfPT1jti4=
   </data>
  </layer>
- <layer name="Decoracion" width="20" height="20">
+ <layer name="DecoracionSuelo" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJxjYBjawHmImQsDXkDsTQV1jkDsiSYWhEMtujpiQRQQO6GJofORAalhR667kAEbFjFc4UAICKDxeaF0FBa1+MIBBrC5jRWNT2yYobsNn5nIAN2dsLDBZx7MTJj/0c1AdnMUVB02v+IzFxcm1pxRMLAAAJ3ZB8I=
+   eJztlmsSgyAMhLn/DXoOHxeoegPv08kMO7OTEqoCYpXvj1YyZNlAqHONRqNxDwb/XI3x/mQdTOef70DsQOM56I137UtIJ2P5uOxWlI6sQ/ROkRjoyuklsLwQRJulC7UdIzElmHxOAE+w3wDH5NJnecV5kQv5Oz8+um2k1Fjqpc8hvsM37YX8nlVMKaw+BQ1ANCyB+Jm+/zrjpdCaQnuLY2QtpbTmmDdnzWO9JJRjioxjrFdjKWtejXcmpLPGvXAU1HOgJ3uZE2s+q0bQhJou7rtvl9DDcK8JnV35tqrYWvVHv4aGUE9kjvqY4v/WuxU5Xgm59uS7CrXuqbth+Ri7c85C70n+L1Or/qxpNqOejdX///3M1tKfus/O1G3luspZ2eNFiTsxx5y8hqv4+gQ+EFBn7w==
   </data>
  </layer>
- <layer name="Aire" width="20" height="20">
+ <layer name="Paredes" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJxjYKAvMEDCo2AUDFZgAsQ2VDQPZpYlEBtSaJYJGh9kpjEF5mHzJyXuxJW3YWYaEWkOyE/ofsVmphWSucjYGIkNMseagfg4hZmLjK2R2NRMG0MZAACYrwja
+   eJzN10VsHVcUANAfO38crsLmqhzutrwur8vr8roslblS2MEqzKmSGEJ2lRgDdpXYYagSOwxVmNOeRRZV/T3SSB39udJZ/OeZe69G7z49p1LZj/x0KlVAIUUUU0JpuvOzn1v7gi/5iq/5hm8zPPt/xTC5hzOCkYxiNGMy1BxrbRzjmcBEJjE5xv4ekftRHuNxnuBJnspQc5a12cxhLvOYz4IY+3ta7md4lud4nhd4MUPNFdZWsopyKqikKsb+XpL7ZV7hVV7jdd7IUHODtY3UUkc9DTTG2N+bcr/F27zDu7zH+wmZjw/k/pCP+JhP+JTPEjIf38n9PT/wIz/xM78kZD7K5J7CVKYxnRnMTMh8LJR7EYtZwlKWsTwh87Fa7jWsZR3rqaYmIfPRJPcmNrOFrTTTkpD52C33Hvayj/0c4GBC5uO43Cc4ySlOc4azCZmPq3Jf4zo3uMktbidkPnoEqVRPetGbPvSlX9D52WzMR74+CiikiGJKKM3QXzbmo6soy+m8lo35iNJfNuYjSn9xzUfYvo5yPwjLM9Z+Hcd4JjCRSUymjClMZRrTmcFMfg3C93WU+0FYnlnqzGYOc5nHfBawkEUsZglLWcZyfgvC93WU+0FYnhXqrGQV5VRQSRWrWcNa1rGeamr4PQjf11HuB2F5NqizkVrqqKeBRprYxGa2sJVmWvgjCN/XUe4HYXm2qbOdVtrYwU52sZs97GUf+znAQf5km/e300obO9jJrnS0+0FYnkPqHKadDo5wlGMc5wQnOcVpznCWvzjk/cO008ERjnIsHe1+EJbnnDrnucBFLnGZK1zlGte5wU1ucZu/Oef981zgIpe4zJV0tPtBWJ5uealUDrl0J01AHj3oSS9604e+9OMuuukxh1y6kyYgL4h2PwjL01+dAQxkEIMZwlDyKaCQIoopoZS76e/9AQxkEIMZwtAg/H4Qdnb/N8896tzLfdzPAzzIQwxjOCMYyShGM4aH8zp/h39HVa4zJjfz36Kc3XFFo96auugvytkdV4R9vyhnd1wR9v2inN1xRbXearroL8rZHVc0662li/6inN1xRave2qigklWU3/kd5eyOK9r10UE9DdRSd+d3lLM7GxHlf7tsxD9AZ7kx
   </data>
  </layer>
- <layer name="Paredes" width="20" height="20">
+ <layer name="Decoracion" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJztkLEKwDAIRPMzTae2k+kU+/9/1QoKh7iEOJU8uOU432Ap42xfqss+uTk10T7aSS7nO6BvGuvsHl24k9zOR9CzhsBbnQt3ksf5etBbR4HL34/QwTfrMuyPGS6hqTMLVmcmnOxbLP7EC87ID/k=
+   eJzt2DkKwkAYBeA/TFxAQUtBb6OgvR7G1iN4Iu0V3GqXC7g0LqVPtFEySRij8xfvgwfZYF6mCD8RIfqtfkw0KAUiZUs0qKNHwxKbEe6N/9y/jfU6Kdec4bm5kv2NskC3leJ+RFm6GpGbeR4XQpFi6LcPZatp3s9bJvo5X7offXrK+hG5WGOG2CBbZKdwntij0wE5IieF/R5z2PIVzmPxaoF70hoo/y4PM+5XwRxU/XIWOqPTxSRf8yWH98uHydd8mWCfpkr2ioiI3Pn4N2lzBz/NIXA=
+  </data>
+ </layer>
+ <layer name="Decoracion2" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt1bENACAQAsBP3EDdf1ZrWwuV5G4CGqAKODHb6wQApPMlsNMJgL+NgJ3uARkBuGcBorwAcQ==
+  </data>
+ </layer>
+ <layer name="Sombra" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt1TlPAkEchvFJyBIvqFGR7yKfTg6tUcFaQK05jSWiUuNZAwI1l8SnsCCEiVkWxkn8v8mvnX2yO8kqJZPJZH+/wx+2Tvq8Tfq8Tfq8Tfq87b/2RWfOnudm63x/ukY3W/f3XdToZrbfP5lMJpOZ25GjVAxxJJDEMU6c1T5H9///TYqOU5zhHGlkcOEsf+YqXdKRRQ55XOEaN5b0FegoooQyKqjidqbPxHR9NTruUccDHvGEhuE+3Zp0POMFr3jDOz4s6WvR0UYHn+iih74lfQM6hhhhjAm+MLWkb8Ov1Ca2sI0dBBD0m+278y0WomMXe9hHGAeIGO7T7Rtuk1bG
+  </data>
+ </layer>
+ <layer name="Aire" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="5" name="Up" x="128" y="32" width="48" height="16"/>
+  <object id="22" name="Up" x="112" y="-5" width="417" height="21"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="10" name="Up" gid="56" x="144" y="80" width="16" height="16"/>
+  <object id="23" name="Up" x="321" y="55" width="59" height="15"/>
  </objectgroup>
- <objectgroup name="Spawners">
-  <object id="1" name="Spawn" gid="64" x="230" y="109" width="16" height="16">
+ <objectgroup name="Spawners" offsetx="-60" offsety="33">
+  <object id="20" name="Spawner" gid="240" x="427" y="183" width="16" height="16">
    <properties>
+    <property name="Bomber" type="bool" value="false"/>
+    <property name="Charger" type="bool" value="false"/>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="21" name="Spawner" gid="240" x="381" y="295" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="false"/>
+    <property name="Charger" type="bool" value="false"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

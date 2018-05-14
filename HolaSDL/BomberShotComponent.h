@@ -8,7 +8,7 @@ class BomberShotComponent :	public UpdateComponent
 public:
 	void update();
 	BomberShotComponent(Enemy* e, GameObject* target, float dist, float delay);
-	~BomberShotComponent();
+	virtual ~BomberShotComponent();
 	void receiveMessage(Message* msg);
 	void handleAnimation();
 private:

@@ -6,12 +6,13 @@
 #include "Transform.h"
 #include "Vector2D.h"
 
-MCMovementInput::MCMovementInput(GameObject * o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left): 
+MCMovementInput::MCMovementInput(MainCharacter* o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left):
 	UpdateComponent (o), upKey(up), rightKey(right), downKey(down), leftKey(left)
 {
-	maxVelocity = dynamic_cast<MainCharacter*>(gameObject)->getMaxVelocity();//La velocidad máxima es la del personaje
+	maxVelocity = o->getMaxVelocity();//La velocidad máxima es la del personaje
 	velocity.set(0, 0);
 	direction.set(0, 1);//Empieza mirando hacia abajo
+	mc = o;
 }
 
 MCMovementInput::~MCMovementInput()
@@ -21,7 +22,6 @@ MCMovementInput::~MCMovementInput()
 void MCMovementInput::update()
 {
 	const Uint8* keystate = SDL_GetKeyboardState(NULL);
-	MainCharacter* mc = static_cast<MainCharacter*>(gameObject);
 	SDL_PumpEvents();
 	//continuous-response keys
 	if (keystate[debugKey]) {

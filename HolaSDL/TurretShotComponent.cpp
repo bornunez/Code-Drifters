@@ -7,14 +7,14 @@
 #include "MainCharacter.h"
 #include "PlayState.h"
 #include "ResourceManager.h"
-#include "EnemyTurret.h"
+#include "Enemy.h"
 #include "Camera.h"
 
 
-TurretShotComponent::TurretShotComponent(GameObject* o, GameObject* target, float dist, float delay)
+TurretShotComponent::TurretShotComponent(Enemy* o, GameObject* target, float dist, float delay)
 	: UpdateComponent(o)
 {
-	et = static_cast<EnemyTurret*>(gameObject);
+	et = o;
 	targetObject = target;
 	distance = dist;
 	shotDelay = delay;
@@ -23,13 +23,11 @@ TurretShotComponent::TurretShotComponent(GameObject* o, GameObject* target, floa
 
 TurretShotComponent::~TurretShotComponent()
 {
+	delete lastShotTimer;
 }
-
 
 void TurretShotComponent::handleAnimation()
 {
-	et = static_cast<EnemyTurret*>(gameObject);
-
 	if ((abs(targetObject->getTransform()->position.getX() - getGameObject()->getTransform()->position.getX()) +
 		abs(targetObject->getTransform()->position.getY() - getGameObject()->getTransform()->position.getY())) <= distance) {
 		if (et->enemyState == EnemyState::Idle) { 
@@ -51,11 +49,9 @@ void TurretShotComponent::updateGunPosition()
 	gunPosition = aux;
 }
 
-
 void TurretShotComponent::shoot() {
 	Transform* turretT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
-	EnemyTurret* et = static_cast<EnemyTurret*>(gameObject);
 	if (et->enemyState == EnemyState::Attack){
 		if (lastShotTimer->TimeSinceTimerCreation > shotDelay) {
 			lastShotTimer->restart();
@@ -74,14 +70,14 @@ void TurretShotComponent::shoot() {
 
 		}
 	}
-
 }
 
 void TurretShotComponent::update() {
 	if (!gameObject->isDead()) {
-		lastShotTimer->update();
-		if (!static_cast<Enemy*>(gameObject)->isStunned())
+		if (!et->isStunned()) {
+			lastShotTimer->update();
 			shoot();
-		handleAnimation();
+			handleAnimation();
+		}
 	}
 }

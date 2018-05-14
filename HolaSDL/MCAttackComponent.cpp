@@ -17,7 +17,7 @@
 #include "CollisionHandler.h"
 #include "Time.h"
 
-MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(static_cast<GameObject*>(mc))
+MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(mc)
 {
 	//ResetAttack y AttackDelay
 	this->mc = mc;
@@ -173,6 +173,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}			
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
+			ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(25);
+			ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 		}
 		
 	}

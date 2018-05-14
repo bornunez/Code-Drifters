@@ -25,6 +25,27 @@ PlayState::PlayState():GameState ()
 
 }
 
+void PlayState::ResetInstance()
+{
+
+	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+	instance = NULL; // so GetInstance will still work.
+}
+
+PlayState::~PlayState()
+{
+	CoinManager::ResetInstance();
+	HUDManager::ResetInstance();
+	ParticlesManager::ResetInstance();
+
+	delete shopState;
+	delete minimap;
+	delete camera;
+	delete level;
+	delete currentRoom;
+	instance->destroyAllGameObjects();
+	//MainCharacter se borra en el destroyAllGameObjects
+}
 
 PlayState * PlayState::getInstance()
 {
@@ -33,13 +54,7 @@ PlayState * PlayState::getInstance()
 	return instance;
 }
 
-PlayState::~PlayState()
-{
-	/*delete minimap;
-	delete mainCharacter;
-	delete level;
-	delete currentRoom;*/
-}
+
 
 void PlayState::render()
 {
@@ -98,17 +113,17 @@ void PlayState::openShop()
 
 void PlayState::endState()
 {
+	//delete camera;
+	//delete mainCharacter;
+	//delete level;
+	//delete currentRoom;
+	//delete minimap;
+	//delete shopState;
+	
 	/*camera = nullptr;
 	mainCharacter = nullptr;
 	EnemyManager::getInstance()->killAll();
 	destroyAllGameObjects();*/
-}
-
-void PlayState::ResetInstance()
-{
-	instance->destroyAllGameObjects();
-	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = NULL; // so GetInstance will still work.
 }
 
 void PlayState::loadState(bool tutorial)

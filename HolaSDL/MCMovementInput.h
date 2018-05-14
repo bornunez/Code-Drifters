@@ -2,6 +2,7 @@
 #include "Vector2D.h"
 #include "Timer.h"
 #include "UpdateComponent.h"
+class MainCharacter;
 class MCMovementInput :
 	public UpdateComponent
 {
@@ -16,8 +17,9 @@ private:
 	Vector2D velocity;
 	Vector2D direction;
 	bool keyPressed;
+	MainCharacter* mc;
 public:
-	MCMovementInput(GameObject* o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left);
+	MCMovementInput(MainCharacter* o, SDL_Scancode up, SDL_Scancode right, SDL_Scancode down, SDL_Scancode left);
 	virtual ~MCMovementInput();
 	Vector2D aux;
 	Timer* lastReloadTime;

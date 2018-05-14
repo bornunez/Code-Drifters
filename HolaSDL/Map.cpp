@@ -17,6 +17,29 @@ Map::Map(string filename, Camera* camera) : filename(filename),camera(camera)
 
 Map::~Map()
 {
+	for (Layer* obj : layers)
+		delete obj;
+	layers.clear();
+
+	for (Spawner* obj : spawners)
+		delete obj;
+	spawners.clear();
+
+	for (Door* obj : doors)
+		delete obj;
+	doors.clear();
+
+	delete EntryPoint;
+	delete BossSpawn;
+
+	for (GameObject* obj : objects)
+		delete obj;
+	objects.clear();
+
+	//ESTE QUIZA SE BORRA EN OTRO SITIO
+	/*for (Tileset* obj : tilesets)
+		delete obj;
+	tilesets.clear();*/
 }
 
 void Map::update()

@@ -1,6 +1,6 @@
 #include "MCChargedAttackComponent.h"
 #include "MainCharacter.h"
-MCChargedAttackComponent::MCChargedAttackComponent(MainCharacter * mc, float chargeTime) : UpdateComponent(static_cast<GameObject*>(mc))
+MCChargedAttackComponent::MCChargedAttackComponent(MainCharacter * mc, float chargeTime) : UpdateComponent(mc)
 {
 	this->mc = mc;
 	this->chargeTime = chargeTime;

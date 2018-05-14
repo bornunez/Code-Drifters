@@ -5,7 +5,7 @@ class HUDObject : public GameObject
 public:
 	HUDObject(Texture* text);
 	HUDObject();
-	~HUDObject();
+	virtual ~HUDObject();
 
 	SDL_Rect destRect,
 		srcRect;

@@ -4,13 +4,14 @@
 #include "ParticlesManager.h"
 #include "HUDManager.h"
 
-MCManagerComponent::MCManagerComponent(MainCharacter* o) : UpdateComponent(static_cast<GameObject*>(o)) {
+MCManagerComponent::MCManagerComponent(MainCharacter* o) : UpdateComponent(o) {
 	mc = o;
 	hurtTimer = new Timer();
 }
 
 MCManagerComponent::~MCManagerComponent()
 {
+	delete hurtTimer;
 }
 
 void MCManagerComponent::receiveMessage(Message * msg)

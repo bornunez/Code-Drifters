@@ -19,7 +19,18 @@ LevelManager::LevelManager()
 	directions = { {0,-1},{1,0},{0,1},{-1,0} };
 }
 
-void LevelManager::onRoomChange(Room* room, Direction dir)
+void LevelManager::ResetInstance()
+{
+	delete instance;
+	instance = NULL;
+}
+
+LevelManager::~LevelManager()
+{
+	delete dungeon;
+}
+
+void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 {
 	//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
 	//Antes de Spawnear, despawneamos los que hubiera
@@ -33,6 +44,15 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 		Vector2D entry = room->getMap()->getDoor((Direction)((dir + 2) % 4))->getEntry();
 		mc->getTransform()->position.set(entry);
 	}
+
+	if (room->getType() == Shop) {
+		ResourceManager::getInstance()->getMusic(Music1)->stop();
+		ResourceManager::getInstance()->getMusic(Burdel)->play();
+	}
+	if (prevRoom->getType() == Shop && room->getType() != Shop) {
+		ResourceManager::getInstance()->getMusic(Burdel)->stop();
+		ResourceManager::getInstance()->getMusic(Music1)->play();
+	}
 	
 	//Si la sala es de tipo boss, lo spawneamos
 	if (room->getType() == BossRoom)
@@ -40,7 +60,7 @@ void LevelManager::onRoomChange(Room* room, Direction dir)
 		GameObject * bossSpawn = room->getMap()->getBossSpawn();
 		GameObject * ePoint = room->getMap()->getEntryPoint();
 		if (bossSpawn != nullptr)
-			EnemyManager::getInstance()->spawnBoss(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY());
+			EnemyManager::getInstance()->enterBossRoom(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY(),level);
 		if (ePoint != nullptr)
 			mc->getTransform()->position.set(ePoint->getTransform()->position);
 	}
@@ -93,9 +113,10 @@ Room * LevelManager::getRoom(Direction dir)
 void LevelManager::changeRoom(Room * room)
 {
 	if (!room->isVoid()) {
+		Room* prevRoom = currentRoom;
 		currentRoom = room;
 		roomX = room->getX(); roomY = room->getY();
-		onRoomChange(room, None);
+		onRoomChange(room,prevRoom, None);
 	}
 }
 
@@ -103,9 +124,10 @@ void LevelManager::changeRoom(int x, int y)
 {
 	Room* room = getRoom(x, y);
 	if (room != nullptr && !room->isVoid()) {
+		Room* prevRoom = currentRoom;
 		currentRoom = room;
 		roomX = x; roomY = y;
-		onRoomChange(room, None);
+		onRoomChange(room,prevRoom, None);
 	}
 }
 
@@ -117,12 +139,11 @@ void LevelManager::changeRoom(Direction dir)
 		Room* room = getRoom(dir);
 		if (room != nullptr && !room->isVoid()) {
 			//Si hay sala, la cambiamos
-			if (room->getType() == Shop)
-				cout << "Tienda!";
+			Room* prevRoom = currentRoom;
 			currentRoom = room;
 			roomX += directions[dir].x;
 			roomY += directions[dir].y;
-			onRoomChange(room, dir);
+			onRoomChange(room,prevRoom, dir);
 		}
 	}
 }
@@ -191,7 +212,7 @@ void LevelManager::init(bool tutorial)
 void LevelManager::newMap()
 {
 	if (level <= 0) {
-		dungeon = new DungeonGenerator(5, 5, 6);
+		dungeon = new DungeonGenerator(4, 4, 7);
 		dungeon->CreateMapFromFile();
 	}
 	else {
@@ -206,6 +227,3 @@ void LevelManager::newMap()
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 }
 
-LevelManager::~LevelManager()
-{
-}

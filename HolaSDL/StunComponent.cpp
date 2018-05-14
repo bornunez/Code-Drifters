@@ -3,9 +3,10 @@
 #include <iostream>
 #include "Animation.h"
 #include "ParticlesManager.h"
-StunComponent::StunComponent(GameObject * o) : UpdateComponent(o)
+StunComponent::StunComponent(Enemy * o, float time) : UpdateComponent(o)
 {
-	enemy = static_cast<Enemy*>(gameObject);
+	enemy = o;
+	specificTime = time;
 	stunTime = 0;
 }
 
@@ -34,7 +35,7 @@ void StunComponent::receiveMessage(Message * msg)
 	{
 	case MC_BULLET_COLLISION: {
 		if (!enemy->isStunned()) {
-			stunTime = static_cast<MCBulletStun*>(msg)->stunTime;
+			stunTime = static_cast<MCBulletStun*>(msg)->stunTime + specificTime;
 			stunTimer.restart();
 			Message msg(GUN_STUN);
 			enemy->sendMessage(&msg);

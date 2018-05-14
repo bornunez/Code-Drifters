@@ -17,7 +17,7 @@ private:
 	static LevelManager * instance;
 	LevelManager();
 
-	void onRoomChange(Room * room, Direction dir);
+	void onRoomChange(Room * room,Room* prevRoom, Direction dir);
 
 	//Cosas de puertas
 	vector<DirPair> directions;
@@ -36,6 +36,7 @@ private:
 
 public:
 	static LevelManager * getInstance();
+	static void ResetInstance();
 
 	DungeonGenerator* getLevel() { return dungeon; }
 	int getLevelNumber() { return level; }

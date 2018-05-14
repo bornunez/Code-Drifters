@@ -58,6 +58,10 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 }
 Boss2::~Boss2()
 {
+	for (Wheel* obj : wheels)
+		delete obj;
+
+	wheels.clear();
 }
 
 
@@ -74,6 +78,7 @@ void Boss2::loadAnimations()
 	Animation* sacaRayos = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-SacaRayos", this, 0, 0, false, 0.1);
 	Animation* entra = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Entra", this, 0, 0, false, 0.1);
 	Animation* staticDown = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-StaticDown", this, 0, 0, true, 0.1);
+	Animation* muere = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Muere", this, 0, 0, false, 0.1);
 
 	//Nombres de animaciones
 	animations.emplace("SALE", sale);
@@ -82,6 +87,7 @@ void Boss2::loadAnimations()
 	animations.emplace("SACA_RAYOS", sacaRayos);
 	animations.emplace("ENTRA", entra);
 	animations.emplace("STATIC_DOWN", staticDown);
+	animations.emplace("MUERE", muere);
 }
 
 void Boss2::changeColor(int r, int g, int b)
@@ -126,6 +132,23 @@ void Boss2::createWheel(int posX, int posY, float velocidad, int dir)
 	if (i == wheels.size())
 	{
 		wheels.push_back(new Wheel(prota, posX, posY, 50, 50, velocidad, dir));
+	}
+}
+
+void Boss2::death()
+{
+	dead = true;
+	changeCurrentAnimation("MUERE");
+	changeColor(255, 255, 255);
+	for (int i = 0; i < wheels.size(); i++)
+	{
+		if (wheels[i] != nullptr)
+		{
+			wheels[i]->setActive(false);
+			wheels[i]->changeCurrentAnimation("ENTRA");
+			wheels[i]->getCurrentAnimation()->setTime(0.1);
+			wheels[i]->getCurrentAnimation()->startAnimation();
+		}
 	}
 }
 

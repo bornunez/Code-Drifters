@@ -7,7 +7,7 @@
 #include "ResourceManager.h"
 #include "ParticlesManager.h"
 #include "Hook.h"
-MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(static_cast<GameObject*>(o))
+MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	mc = o;
 	animations = anim;
@@ -20,6 +20,8 @@ MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char
 
 MCAnimationComponent::~MCAnimationComponent()
 {
+	delete hurtTimer;
+	delete gunTimer;
 }
 
 void MCAnimationComponent::receiveMessage(Message* msg) {

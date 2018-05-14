@@ -44,17 +44,30 @@ que estén abiertas.
 
 using namespace std;
 
-
-
-
 DungeonGenerator::DungeonGenerator(int mapWidth, int mapHeight, int maxRooms) : 
 	mapWidth_(mapWidth), mapHeight_(mapHeight),maxRooms_(maxRooms)
 {
 	loadTexts();
 }
+
 DungeonGenerator::~DungeonGenerator()
 {
+	//Revisar
+	for (int i = 0; i < mapHeight_; i++) {
+		Dungeon_[i].resize(mapWidth_);
+		for (int j = 0; j < mapWidth_; j++) {
+			delete Dungeon_[i][j];
+		}
+	}
+
+	Dungeon_.clear();
+
+	delete randText.texture;
+	delete levelText.texture;
+	delete loadText.texture;
+	delete neonFont;
 }
+
 void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas abiertas, si la mazmorra es válida entonces asigna las salas especiales
 {
 	vector<Room*> deadEnds_;
@@ -70,14 +83,10 @@ void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas 
 void DungeonGenerator::CreateMapFromFile()
 {
 	vector<Room*> deadEnds_;
-	do {
-		ClearMap();
-		GenerateDungeon();
-		FixDoors();//Cierra las puertas que se han quedado abiertas sin salas contiguas
-		deadEnds_ = FindDeadEnds();
-	} while (deadEnds_.size() < 3);//Si se crea un mapa circular no valido, entonces se genera otro mapa
-	CreateSpecialRooms();
-	load();
+	ClearMap();
+	GenerateFromFile(ResourceManager::getInstance()->getLevelPath() + "Tutorial\\tutorial.txt"); //Leer el archivo
+	SetMapDoors();//Poner en las salas sus correspondientes puertas
+	LoadRoomsFromFile(); //Cargar salas
 }
 Room * DungeonGenerator::getRoom(int x, int y)
 {
@@ -157,15 +166,75 @@ void DungeonGenerator::GenerateFromFile(string file)
 {
 	ifstream ifile;
 	ifile.open(file);
-	if (ifile.is_open()) {
-		int rows, cols;
-		ifile >> rows;
-		ifile >> cols;
-		for (int i = 0; i < rows; i++) {
 
+	int k = 0;
+	RenderProgresBar(k, maxRooms_, "Generating map... [ " + to_string(k) + " / " + to_string(maxRooms_)+" ]");
+	if (ifile.is_open()) {
+		string roomName;
+		for (int i = 0; i < mapHeight_; i++) {
+			for (int j = 0; j < mapWidth_; j++) {
+				//Aqui solo vamos a asignar a cada sala en nombre del archivo del que tiene que cargar el mapa
+				ifile >> roomName;
+				if (roomName != "null") {
+					Dungeon_[i][j]->setFile(roomName);
+					visitedRooms_.push_back(Dungeon_[i][j]);
+					RenderProgresBar(k, maxRooms_, "Generating map... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+					k++;
+				}
+			}
 		}
 	}
 
+}
+void DungeonGenerator::SetMapDoors()
+{
+	int k = 0;
+	RenderProgresBar(k, maxRooms_, "Opening doors... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+	for (int i = 0; i < mapHeight_; i++) {
+		for (int j = 0; j < mapWidth_; j++) {
+			//A cada sala le ponemos las puertas correspondientes
+			if (!Dungeon_[i][j]->isVoid()) {
+				SetDoors(i, j);
+				RenderProgresBar(k, maxRooms_, "Opening doors... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+				k++;
+			}
+		}
+	}
+}
+void DungeonGenerator::SetDoors(int i, int j)
+{
+	Room* r = Dungeon_[i][j];
+	if (i - 1 >= 0) {
+		if (!Dungeon_[i - 1][j]->isVoid())
+			r->setDoor(Up, true);
+	}
+	if (i + 1 < mapHeight_) {
+		if (!Dungeon_[i + 1][j]->isVoid())
+			r->setDoor(Down, true);
+	}
+	if (j - 1 >= 0) {
+		if (!Dungeon_[i][j-1]->isVoid())
+			r->setDoor(Left, true);
+	}
+	if (j+1 < mapWidth_) {
+		if (!Dungeon_[i][j+1]->isVoid())
+			r->setDoor(Right, true);
+	}
+		
+}
+void DungeonGenerator::LoadRoomsFromFile()
+{
+	int k = 0;
+	RenderProgresBar(k, maxRooms_, "Loading Rooms... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+	for (int i = 0; i < mapHeight_; i++) {
+		for (int j = 0; j < mapWidth_; j++) {
+			if (!Dungeon_[i][j]->isVoid()) {
+				Dungeon_[i][j]->loadFromFile(ResourceManager::getInstance()->getLevelPath() + "Tutorial\\levels\\");
+				RenderProgresBar(k, maxRooms_, "Loading Rooms... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+				k++;
+			}
+		}
+	}
 }
 void DungeonGenerator::AddFirstRoom()//Crea la sala inicial de la mazmora
 {

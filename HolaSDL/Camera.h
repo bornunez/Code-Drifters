@@ -11,9 +11,8 @@ class Camera : public GameObject
 private:
 
 public:
-
-	bool isInsideCamera(Transform* t);
 	Camera();
+	virtual ~Camera();
 	void load();
-	~Camera();
+	bool isInsideCamera(Transform* t);
 };

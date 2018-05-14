@@ -7,6 +7,26 @@
 
 CoinManager* CoinManager::instance = nullptr;
 
+CoinManager::CoinManager()
+{
+}
+
+void CoinManager::ResetInstance()
+{
+	delete instance;
+	instance = NULL;
+}
+
+CoinManager::~CoinManager()
+{
+	//for (int i = 0; i < coins.size(); i++)
+	//	delete coins[i];
+	for (Coin* obj : coins)
+		delete obj;
+
+	coins.clear();
+}
+
 CoinManager * CoinManager::getInstance()
 {
 	if (instance == nullptr)
@@ -76,10 +96,6 @@ void CoinManager::Pick(Coin * c)
 	}
 }
 
-CoinManager::CoinManager()
-{
-}
-
 void CoinManager::spawnCoin(Coin * c, int x, int y)
 {
 	Transform* t = c->getTransform();
@@ -95,12 +111,6 @@ void CoinManager::spawnCoin(Coin * c, int x, int y)
 
 	c->addComponent(new DecelerationComponent(c, 1,0.5));
 
-}
-
-CoinManager::~CoinManager()
-{
-	for (int i = 0; i < coins.size(); i++)
-		delete coins[i];
 }
 
 std::vector<Coin*> CoinManager::getCoins() { return coins; }

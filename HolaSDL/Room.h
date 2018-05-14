@@ -19,9 +19,11 @@ public:
 	Room();
 	~Room();
 	void load();
+	void loadFromFile(string root);
 	void render();
 	void lateRender();
 
+	void setFile(string file) { filename = file; voidRoom = false;}
 	void setAllDoors(bool set);
 
 	int getX();
@@ -42,6 +44,7 @@ public:
 	void setExplored(bool explored) { this->explored = explored; }
 	void spawn();
 	void update();
+
 
 private:
 	string filename;

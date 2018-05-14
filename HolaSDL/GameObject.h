@@ -44,7 +44,7 @@ public:
 	GameObject(Texture* tex, Transform t, bool active = true);
 	GameObject(Texture* tex, Vector2D position, float bodyHeight, float bodyWidth, bool active = true);
 	GameObject(Texture* tex, int x, int y, int bodyWidth, int bodyHeight, bool active = true);
-	~GameObject();
+	virtual ~GameObject();
 
 	//Ciclo del Objeto
 	virtual void update();

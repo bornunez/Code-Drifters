@@ -13,6 +13,7 @@ UpdateBoss::UpdateBoss(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
 
 UpdateBoss::~UpdateBoss()
 {
+	delete Tiempo;
 }
 void UpdateBoss::receiveMessage(Message * msg)
 {
@@ -140,13 +141,13 @@ void UpdateBoss::fase5()
 		boss->getTransform()->position.set(direccion);
 		boss->getTransform()->position.setX(boss->getTransform()->position.getX() - boss->getTransform()->body.w / 2);
 		boss->getTransform()->position.setY(boss->getTransform()->position.getY() - boss->getTransform()->body.h / 2);
-		boss->getTransform()->overlapCollision.active = true;
 	}
 	else if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() != "Boss1-NormalAttack")
 	{
 		boss->changeCurrentAnimation("NORMAL_ATTACK");
 		boss->getCurrentAnimation()->startAnimation();
 		boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		boss->getTransform()->overlapCollision.active = true;
 	}
 	else if (boss->getCurrentAnimation()->isFinished())
 	{

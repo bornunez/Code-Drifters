@@ -6,11 +6,12 @@
 #include "Time.h"
 #include "Vector2D.h"
 #include "Random.h"
+class Wheel;
 class UpdateWheel : public UpdateComponent
 {
 public:
-	UpdateWheel(GameObject* o, MainCharacter* prota, float velocidad, int dir);
-	~UpdateWheel();
+	UpdateWheel(Wheel* o, MainCharacter* prota, float velocidad, int dir);
+	virtual ~UpdateWheel();
 	void receiveMessage(Message * msg);
 	void changeColor(int r, int b, int g);
 protected:
@@ -40,7 +41,7 @@ private:
 
 
 	bool updateado = false;
-	GameObject* wheel;
+	Wheel* wheel;
 	Timer* tiempo;
 	MainCharacter* prota;
 	GameObject* boss;
