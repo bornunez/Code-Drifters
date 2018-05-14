@@ -4,6 +4,7 @@
 #include "LevelManager.h"
 #include <ctime>
 #include <iostream>
+#include <fstream>
 #include "ResourceManager.h"
 #include "Game.h"
 #include "Random.h"
@@ -55,6 +56,18 @@ DungeonGenerator::~DungeonGenerator()
 {
 }
 void DungeonGenerator::CreateMap()//Genera una estructura, "cierra" las puertas abiertas, si la mazmorra es válida entonces asigna las salas especiales
+{
+	vector<Room*> deadEnds_;
+	do {
+		ClearMap();
+		GenerateDungeon();
+		FixDoors();//Cierra las puertas que se han quedado abiertas sin salas contiguas
+		deadEnds_ = FindDeadEnds();
+	} while (deadEnds_.size() < 3);//Si se crea un mapa circular no valido, entonces se genera otro mapa
+	CreateSpecialRooms();
+	load();
+}
+void DungeonGenerator::CreateMapFromFile()
 {
 	vector<Room*> deadEnds_;
 	do {
@@ -139,6 +152,20 @@ void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 		RenderProgresBar(i, maxRooms_, "Creating Rooms...");
 	}
 	
+}
+void DungeonGenerator::GenerateFromFile(string file)
+{
+	ifstream ifile;
+	ifile.open(file);
+	if (ifile.is_open()) {
+		int rows, cols;
+		ifile >> rows;
+		ifile >> cols;
+		for (int i = 0; i < rows; i++) {
+
+		}
+	}
+
 }
 void DungeonGenerator::AddFirstRoom()//Crea la sala inicial de la mazmora
 {

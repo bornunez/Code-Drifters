@@ -180,9 +180,9 @@ bool LevelManager::getDoor(Direction dir)
 	return currentRoom->getDoor(dir);
 }
 
-void LevelManager::init()
+void LevelManager::init(bool tutorial)
 {
-	level = 0;
+	level = tutorial ? 0 : 1;
 	baseRooms = 20;
 	roomsPerLevel = 5;
 	newMap();
@@ -190,9 +190,14 @@ void LevelManager::init()
 
 void LevelManager::newMap()
 {
-
-	dungeon = new DungeonGenerator(20, 20, baseRooms + (level * roomsPerLevel));
-	dungeon->CreateMap();
+	if (level <= 0) {
+		dungeon = new DungeonGenerator(5, 5, 6);
+		dungeon->CreateMapFromFile();
+	}
+	else {
+		dungeon = new DungeonGenerator(20, 20, baseRooms + (level * roomsPerLevel));
+		dungeon->CreateMap();
+	}
 	firstRoom = dungeon->getFirstRoom();
 	currentRoom = firstRoom;
 	roomX = currentRoom->getX(); roomY = currentRoom->getY();
