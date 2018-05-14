@@ -298,68 +298,35 @@ void UpdateBoss2::fase7()
 void UpdateBoss2::RondaWheels()
 {
 	dirWheel = Random::randomInt(0, 3);
-	if (dirWheel == 0)
-	{
-		int salto = Random::randomInt(0, 7);
-		if (salto != 0)boss->createWheel(625, 550, velWheel, dirWheel);
-		if (salto != 1)boss->createWheel(625, 675, velWheel, dirWheel);
-		if (salto != 2)boss->createWheel(625, 800, velWheel, dirWheel);
-		if (salto != 3)boss->createWheel(625, 925, velWheel, dirWheel);
-		if (salto != 4)boss->createWheel(625, 1050, velWheel, dirWheel);
-		if (salto != 5)boss->createWheel(625, 1175, velWheel, dirWheel);
-		if (salto != 6)boss->createWheel(625, 1300, velWheel, dirWheel);
-		if (salto != 7)boss->createWheel(625, 1425, velWheel, dirWheel);
-	}
-	else if (dirWheel == 1)
-	{
-		int salto = Random::randomInt(0, 7);
-		if (salto != 0)boss->createWheel(625, 550, velWheel, dirWheel);
-		if (salto != 1)boss->createWheel(775, 550, velWheel, dirWheel);
-		if (salto != 2)boss->createWheel(925, 550, velWheel, dirWheel);
-		if (salto != 3)boss->createWheel(1075, 550, velWheel, dirWheel);
-		if (salto != 4)boss->createWheel(1225, 550, velWheel, dirWheel);
-		if (salto != 5)boss->createWheel(1375, 550, velWheel, dirWheel);
-		if (salto != 6)boss->createWheel(1525, 550, velWheel, dirWheel);
-		if (salto != 7)boss->createWheel(1675, 550, velWheel, dirWheel);
-	}
-	else if (dirWheel == 2)
-	{
-		int salto = Random::randomInt(0, 7);
-		if (salto != 0)boss->createWheel(1675, 550, velWheel, dirWheel);
-		if (salto != 1)boss->createWheel(1675, 675, velWheel, dirWheel);
-		if (salto != 2)boss->createWheel(1675, 800, velWheel, dirWheel);
-		if (salto != 3)boss->createWheel(1675, 925, velWheel, dirWheel);
-		if (salto != 4)boss->createWheel(1675, 1050, velWheel, dirWheel);
-		if (salto != 5)boss->createWheel(1675, 1175, velWheel, dirWheel);
-		if (salto != 6)boss->createWheel(1675, 1300, velWheel, dirWheel);
-		if (salto != 7)boss->createWheel(1675, 1425, velWheel, dirWheel);
-	}
-	else if (dirWheel == 3)
-	{
-		int salto = Random::randomInt(0, 7);
-		if (salto != 0)boss->createWheel(625, 1425, velWheel, dirWheel);
-		if (salto != 1)boss->createWheel(775, 1425, velWheel, dirWheel);
-		if (salto != 2)boss->createWheel(925, 1425, velWheel, dirWheel);
-		if (salto != 3)boss->createWheel(1075, 1425, velWheel, dirWheel);
-		if (salto != 4)boss->createWheel(1225, 1425, velWheel, dirWheel);
-		if (salto != 5)boss->createWheel(1375, 1425, velWheel, dirWheel);
-		if (salto != 6)boss->createWheel(1525, 1425, velWheel, dirWheel);
-		if (salto != 7)boss->createWheel(1675, 1425, velWheel, dirWheel);
+	int salto = Random::randomInt(0, 7);
+
+	switch (dirWheel) {
+	case 0:
+		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625, 550 + 125 * i, velWheel, dirWheel);
+		break;
+
+	case 1:
+		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150 * i, 550, velWheel, dirWheel);
+		break;
+
+	case 2:
+		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(1675, 550 + 125 * i, velWheel, dirWheel);
+		break;
+
+	case 3:
+		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150 * i, 1425, velWheel, dirWheel);
+		break;
 	}
 }
 
 void UpdateBoss2::RondaWheels2()
 {
 	Vector2D pos = boss->getCenterPos();
-	//Izquierda
-	boss->createWheel(pos.getX() - 180, pos.getY()-50, velWheel, 5);
-	boss->createWheel(pos.getX() - 280, pos.getY()-50, velWheel*1.5, 5);
-	boss->createWheel(pos.getX() - 380, pos.getY()-50, velWheel*2, 5);
-	boss->createWheel(pos.getX() - 480, pos.getY() - 50, velWheel*2.5, 5);
+	for (int i = 0; i < 4; i++) {
+		//Izquierda
+		boss->createWheel(pos.getX() - (180 + 100 * i), pos.getY() - 50, velWheel *(1 + (i*.5)), 5);
+		//Derecha
+		boss->createWheel(pos.getX() + (112 + 100 * i), pos.getY() - 50, velWheel *(1 + (i*.5)), 7);
 
-	//Derecha
-	boss->createWheel(pos.getX() + 112, pos.getY() - 50, velWheel, 7);
-	boss->createWheel(pos.getX() + 212, pos.getY() - 50, velWheel*1.5, 7);
-	boss->createWheel(pos.getX() + 312, pos.getY() - 50, velWheel * 2, 7);
-	boss->createWheel(pos.getX() + 412, pos.getY() - 50, velWheel*2.5, 7);
+	}
 }
