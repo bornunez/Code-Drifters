@@ -80,7 +80,7 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 		GameObject * bossSpawn = room->getMap()->getBossSpawn();
 		GameObject * ePoint = room->getMap()->getEntryPoint();
 		if (bossSpawn != nullptr)
-			EnemyManager::getInstance()->spawnBoss(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY());
+			EnemyManager::getInstance()->enterBossRoom(bossSpawn->getTransform()->position.getX(), bossSpawn->getTransform()->position.getY(),level);
 		if (ePoint != nullptr)
 			mc->getTransform()->position.set(ePoint->getTransform()->position);
 	}
@@ -221,9 +221,9 @@ bool LevelManager::getDoor(Direction dir)
 	return currentRoom->getDoor(dir);
 }
 
-void LevelManager::init()
+void LevelManager::init(bool tutorial)
 {
-	level = 0;
+	level = tutorial ? 0 : 1;
 	baseRooms = 20;
 	roomsPerLevel = 5;
 	newMap();
@@ -231,9 +231,14 @@ void LevelManager::init()
 
 void LevelManager::newMap()
 {
-
-	dungeon = new DungeonGenerator(20, 20, baseRooms + (level * roomsPerLevel));
-	dungeon->CreateMap();
+	if (level <= 0) {
+		dungeon = new DungeonGenerator(4, 4, 7);
+		dungeon->CreateMapFromFile();
+	}
+	else {
+		dungeon = new DungeonGenerator(20, 20, baseRooms + (level * roomsPerLevel));
+		dungeon->CreateMap();
+	}
 	firstRoom = dungeon->getFirstRoom();
 	currentRoom = firstRoom;
 	roomX = currentRoom->getX(); roomY = currentRoom->getY();

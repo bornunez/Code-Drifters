@@ -126,13 +126,13 @@ void PlayState::endState()
 	destroyAllGameObjects();*/
 }
 
-void PlayState::loadState()
+void PlayState::loadState(bool tutorial)
 {
 	//Creamos el puntero, es todo lo que hace falta
 	camera = new Camera();
 
 	//IMPORTANTE: Crear primero la camara. El mapa la requiere
-	LevelManager::getInstance()->init();
+	LevelManager::getInstance()->init(tutorial);
 	minimap = new Minimap(1,1, 10, 10);
 
 	mainCharacter = new MainCharacter(nullptr,32*Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale(), 32 * Game::getGame()->getScale());
