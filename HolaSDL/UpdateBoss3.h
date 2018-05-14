@@ -10,7 +10,7 @@ class UpdateBoss3 : public UpdateComponent
 {
 public:
 	UpdateBoss3(Boss3* o, MainCharacter* prota);
-	~UpdateBoss3();
+	virtual ~UpdateBoss3();
 	void receiveMessage(Message * msg);
 	void changeColor(int r, int b, int g);
 protected:

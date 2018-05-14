@@ -20,6 +20,8 @@ MCAnimationComponent::MCAnimationComponent(MainCharacter* o, std::map<const char
 
 MCAnimationComponent::~MCAnimationComponent()
 {
+	delete hurtTimer;
+	delete gunTimer;
 }
 
 void MCAnimationComponent::receiveMessage(Message* msg) {

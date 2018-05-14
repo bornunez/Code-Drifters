@@ -8,7 +8,7 @@ class TurretShotComponent :	public UpdateComponent
 public:
 	void update();
 	TurretShotComponent(Enemy* o, GameObject* target, float dist, float delay);
-	~TurretShotComponent();
+	virtual ~TurretShotComponent();
 	void receiveMessage(std::string msg) {};
 	void handleAnimation();
 	void updateGunPosition();

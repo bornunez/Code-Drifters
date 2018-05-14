@@ -8,7 +8,7 @@ class EnemyGunner : public Enemy
 public:
 	EnemyGunner(MainCharacter* mc);
 
-	~EnemyGunner();
+	virtual ~EnemyGunner();
 	void loadAnimations();
 };
 

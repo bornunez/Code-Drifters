@@ -6,7 +6,7 @@ class RenderWheel : public RenderComponent
 {
 public:
 	RenderWheel(GameObject* o);
-	~RenderWheel();
+	virtual ~RenderWheel();
 protected:
 	virtual void render();
 private:

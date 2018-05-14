@@ -17,7 +17,7 @@ private:
 	void HurtMC(float dmg);
 public:
 	MCManagerComponent(MainCharacter* o);
-	~MCManagerComponent();
+	virtual ~MCManagerComponent();
 	void receiveMessage(Message* msg);
 	virtual void update();
 };

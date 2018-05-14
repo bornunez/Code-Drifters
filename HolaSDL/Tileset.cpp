@@ -23,6 +23,11 @@ Tileset::Tileset(Texture* tileImg, XMLElement* root) : tilesetImg(tileImg)
 	}
 }
 
+Tileset::~Tileset()
+{
+	delete tilesetImg;
+}
+
 SDL_Rect Tileset::setTileRect(int tileID)
 {
 	SDL_Rect srcRect;

@@ -15,7 +15,7 @@ private:
 
 public:
 	Button(SkillTree* skill);
-	~Button();
+	virtual ~Button();
 	void handleEvents(SDL_Event& e);
 	void update();
 };

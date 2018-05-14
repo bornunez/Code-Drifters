@@ -9,6 +9,11 @@ MouseIcon::MouseIcon(string iconFileName){
 	this->texture = new Texture(game->getRenderer(), iconFileName);
 }
 
+MouseIcon::~MouseIcon()
+{
+	delete texture;
+}
+
 
 void MouseIcon::drawIcon(SDL_Event & e)
 {

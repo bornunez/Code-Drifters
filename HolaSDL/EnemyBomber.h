@@ -7,7 +7,7 @@ class EnemyBomber : public Enemy
 {
 public:
 	EnemyBomber(MainCharacter* mc);
-	~EnemyBomber();
+	virtual ~EnemyBomber();
 	void loadAnimations();
 	void spawn(int x, int y, Spawner* spawner = nullptr);
 

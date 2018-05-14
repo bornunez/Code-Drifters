@@ -7,7 +7,7 @@ class EnemyTurret : public Enemy
 public:
 	EnemyTurret(MainCharacter* mc);
 
-	~EnemyTurret();
+	virtual ~EnemyTurret();
 	void loadAnimations();
 };
 

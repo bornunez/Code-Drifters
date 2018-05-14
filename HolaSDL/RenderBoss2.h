@@ -7,7 +7,7 @@ class RenderBoss2 : public RenderComponent
 {
 public:
 	RenderBoss2(Boss2* o);
-	~RenderBoss2();
+	virtual ~RenderBoss2();
 protected:
 	virtual void render();
 private:

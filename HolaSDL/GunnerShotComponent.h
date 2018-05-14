@@ -8,7 +8,7 @@ class GunnerShotComponent :	public UpdateComponent
 public:
 	void update();
 	GunnerShotComponent(Enemy* o, GameObject* target, float dist, float delay);
-	~GunnerShotComponent();
+	virtual ~GunnerShotComponent();
 	void receiveMessage(Message * msg);
 	void handleAnimation();
 	void updateGunPosition();

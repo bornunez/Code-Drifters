@@ -22,7 +22,7 @@ public:
 	void damage(int life);
 	Wheel(Transform t);
 	Wheel(MainCharacter* prota, int x, int y, int w, int h, float velocidad, int dir);
-	~Wheel();
+	virtual ~Wheel();
 
 	virtual void death();
 	virtual void changeColor(int r, int g, int b);

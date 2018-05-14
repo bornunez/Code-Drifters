@@ -26,7 +26,7 @@ private:
 
 public:
 	SimpleAnimationComponent(GameObject* o, Texture* texture, double angle = 0, int fps = 100, SDL_RendererFlip flip = SDL_FLIP_NONE, bool loop = true);
-	~SimpleAnimationComponent();
+	virtual ~SimpleAnimationComponent();
 	void render();
 
 	//Sets

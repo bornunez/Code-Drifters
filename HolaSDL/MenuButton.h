@@ -11,7 +11,7 @@ private:
 	SDL_Point mouse;
 public:
 	MenuButton(Texture* t, SDL_Rect r, CallBackOnClick* cb);
-	~MenuButton();
+	virtual ~MenuButton();
 	void render();
 	void handleEvents(SDL_Event& e);
 	void update() {};

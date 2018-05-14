@@ -8,7 +8,7 @@ class BombComponent :	public UpdateComponent
 public:
 	void update();
 	BombComponent(Enemy* e, int bulletsNumber, float time, float speed);
-	~BombComponent();
+	virtual ~BombComponent();
 	void receiveMessage(Message* msg);
 private:
 	Enemy* eb;

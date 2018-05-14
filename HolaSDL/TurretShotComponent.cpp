@@ -23,8 +23,8 @@ TurretShotComponent::TurretShotComponent(Enemy* o, GameObject* target, float dis
 
 TurretShotComponent::~TurretShotComponent()
 {
+	delete lastShotTimer;
 }
-
 
 void TurretShotComponent::handleAnimation()
 {
@@ -49,7 +49,6 @@ void TurretShotComponent::updateGunPosition()
 	gunPosition = aux;
 }
 
-
 void TurretShotComponent::shoot() {
 	Transform* turretT = gameObject->getTransform();
 	Transform* targetT = targetObject->getTransform();
@@ -71,7 +70,6 @@ void TurretShotComponent::shoot() {
 
 		}
 	}
-
 }
 
 void TurretShotComponent::update() {

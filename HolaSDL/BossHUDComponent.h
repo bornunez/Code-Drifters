@@ -14,6 +14,6 @@ protected:
 public:
 	BossHUDComponent(MasterBoss* bossy);
 	void lateRender();
-	~BossHUDComponent();
+	virtual ~BossHUDComponent();
 };
 

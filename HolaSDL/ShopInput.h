@@ -5,7 +5,7 @@ class ShopInput :
 {
 public:
 	ShopInput(GameObject* o);
-	~ShopInput();
+	virtual ~ShopInput();
 
 	void handleEvents(SDL_Event & e);
 };

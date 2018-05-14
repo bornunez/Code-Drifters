@@ -8,6 +8,10 @@ TileLayer::TileLayer(vector<Tileset*> tileSets,string name, int cols, int rows, 
 
 TileLayer::~TileLayer()
 {
+	/*for (Tileset* tileset : tileSets)
+		delete tileset;
+
+	tileSets.clear();*/
 }
 
 void TileLayer::update()

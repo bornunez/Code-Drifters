@@ -13,7 +13,7 @@ public:
 	Bullet(Texture * tex, Transform t, bool active, BulletType type);
 	Bullet(Texture * tex, int x, int y, int width, int height, bool active, BulletType type);
 	BulletType getType(){ return type; }
-	~Bullet();
+	virtual ~Bullet();
 
 	float getAngle() { return angle; }
 	void setAngle(float a) { angle = a; }

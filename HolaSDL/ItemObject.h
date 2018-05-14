@@ -10,7 +10,7 @@ private:
 public:
 
 	ItemObject(Texture* tex, ItemType type);
-	~ItemObject();
+	virtual ~ItemObject();
 	ItemType getType() {return type;};
 };
 

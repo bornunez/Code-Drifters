@@ -11,6 +11,7 @@ MCManagerComponent::MCManagerComponent(MainCharacter* o) : UpdateComponent(o) {
 
 MCManagerComponent::~MCManagerComponent()
 {
+	delete hurtTimer;
 }
 
 void MCManagerComponent::receiveMessage(Message * msg)
