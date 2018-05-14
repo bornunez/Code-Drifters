@@ -227,3 +227,15 @@ void LevelManager::newMap()
 	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
 }
 
+void LevelManager::nextLevel()
+{
+	delete dungeon;
+	level++;
+	if (level <= maxLevel) {
+		newMap();
+	}
+	else {
+		//Ir a los creditos
+	}
+}
+

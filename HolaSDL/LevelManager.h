@@ -9,6 +9,7 @@ class DungeonGenerator;
 enum Direction{Up,Right,Down,Left, None};
 struct DirPair { int x; int y; };
 enum LevelType{ City, Red};
+const int maxLevel = 2;
 
 class LevelManager
 {
@@ -65,5 +66,6 @@ public:
 	//Metodos de control
 	void init(bool tutorial);
 	void newMap();
+	void nextLevel();
 	~LevelManager();
 };
