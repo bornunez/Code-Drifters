@@ -40,7 +40,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
 	setCollisionsLayers({ "Paredes","Aire" });
-	addComponent(new WallStunComponent(this, 4.0));
+	addComponent(new WallStunComponent(this, 4));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations, .2, .5));
 	this->addComponent(new ChargerComponent(this, getMC(), 4, .6, 10, 4));
@@ -78,8 +78,8 @@ void EnemyCharger::loadAnimations()
 	//Animation* hurt = AnimationParser::parseAnimation(tileset, animationPath, "Hurt", this, 0, 0, false, 0.2);
 	Animation* deathRight = AnimationParser::parseAnimation(tileset, animationPath, "DeathRight", this, 0, 0, false, 0.2);
 	Animation* deathLeft = AnimationParser::parseAnimation(tileset, animationPath, "DeathLeft", this, 0, 0, false, 0.2);
-	Animation* stunRight = AnimationParser::parseAnimation(tileset, animationPath, "StunRight", this);
-	Animation* stunLeft = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft", this);
+	Animation* stunRight = AnimationParser::parseAnimation(tileset, animationPath, "StunRight", this, 0, 0, true, 0.2);
+	Animation* stunLeft = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft", this, 0, 0, true, 0.2);
 
 
 	animations.emplace("RUNBOT", runBot);
