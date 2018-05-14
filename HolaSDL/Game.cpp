@@ -150,7 +150,9 @@ Game * Game::getGame()
 void Game::startGame()
 {
 	playState = PlayState::getInstance();
-	playState->ResetInstance();
+	//EnemyManager::ResetInstance();
+	//BulletManager::ResetInstance();
+	PlayState::ResetInstance();
 	stateMachine->pushState(playState);
 	playState->loadState();
 }
@@ -188,6 +190,8 @@ void Game::quitToMenu()
 {
 	stateMachine->popState();
 	stateMachine->popState();
+	EnemyManager::ResetInstance();
+	BulletManager::ResetInstance();
 }
 
 void Game::pause(GameState* state)
