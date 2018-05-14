@@ -82,8 +82,10 @@ enum SoundEffectId {
 	SoundEffect1,
 	MCGunShot,
 	MCSwordNormalAttack,
+	EnemyStuned,
 
-	DogAttack1, DogAttack2
+	DogAttack1, DogAttack2,
+	ButtonExplosion
 };
 
 //IMPORTANTE//
@@ -233,8 +235,10 @@ private:
 		"..\\music\\Sonidos\cosa.wav",
 		"..\\music\\Sonidos\\PistolaProta.wav",
 		"..\\music\\Sonidos\\EspadaTest.wav",
+		"..\\music\\Sonidos\\Stuned.wav",
 		"..\\music\\Sonidos\\PerroRugido1.wav",
-		"..\\music\\Sonidos\\PerroRugido2.wav"};
+		"..\\music\\Sonidos\\PerroRugido2.wav",
+	    "..\\music\\Sonidos\\BotonOut.wav"};
 
 	int numOfMusic;
 	Music** music;
