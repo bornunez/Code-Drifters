@@ -51,6 +51,9 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 	addComponent(new DamageableBossComponent(this, prota, 0.2));
 	addComponent(new SkeletonRendered(this, playState->getCamera()));
 
+	ResourceManager::getInstance()->getMusic(Level2)->stop();
+	ResourceManager::getInstance()->getMusic(FinalBoss1)->play();
+
 
 	//BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
 	//addComponent(skel);
