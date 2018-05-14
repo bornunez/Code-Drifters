@@ -43,6 +43,8 @@ public:
 	void handleEvent(SDL_Event& e);
 	void update();	
 
+	void nextLevel();
+
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	DungeonGenerator* getLevel() { return this->level; }
 	Camera* getCamera() { return this->camera; }
