@@ -34,6 +34,11 @@ MainMenuState::MainMenuState()
 
 MainMenuState::~MainMenuState()
 {
+	delete font;
+	delete exitButtonTex;
+	delete background;
+	delete openText;
+	delete exit;
 }
 
 void MainMenuState::handleEvent(SDL_Event & e)

@@ -22,6 +22,7 @@ Room::Room() {
 
 Room::~Room()
 {
+	delete map;
 }
 void Room::load() {
 

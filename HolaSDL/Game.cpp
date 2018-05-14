@@ -103,7 +103,6 @@ void Game::run()
 		stateMachine->pushState(mm);
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
-		mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
 
 		//Este int no se que pinta aqui
 		int roomNumber = 20;

@@ -305,6 +305,7 @@ Direction LevelParser::stringToDir(string direction)
 
 LevelParser::~LevelParser()
 {
+
 }
 
 Map * LevelParser::parseLevel(string levelFile, vector<bool> doors)
