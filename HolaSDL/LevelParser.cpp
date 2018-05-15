@@ -254,7 +254,9 @@ GameObject * LevelParser::stringToObject(string objName, int x, int y,int w,int 
 		obj->addComponent(new PressToInteract(obj));
 		obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
 		obj->addComponent(new ShopInput(obj));
-
+		}
+	else if (objName == "ChicaFumando") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GirlSmoking),0.0,200));
 	}
 	else if (objName == "Burbujas1")
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas1),0,300));

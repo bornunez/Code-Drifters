@@ -7,7 +7,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 99;
+const int NUM_TEXTURES = 100;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -33,6 +33,9 @@ typedef struct {
 enum TextureId {
 	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
+	//TIENDA
+	GirlSmoking,
+
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
 	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo,
@@ -104,6 +107,9 @@ private:
 		{"Particles\\Blood.png", 3, 3},
 		{ "Particles\\GunnerBulletExplosion.png", 2, 7 },
 		{ "Particles\\StunParticle.png", 1, 7 },
+
+		//Cosas de la tienda
+		{"Puti\\ProstitutaSmokingLove.png",1,7},
 
 
 		//HUD
