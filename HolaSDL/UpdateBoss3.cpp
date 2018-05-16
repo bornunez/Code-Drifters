@@ -216,8 +216,8 @@ void UpdateBoss3::fase1()
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getCurrentAnimation()->startAnimation();
 		Transform auxTrans;
-		auxTrans.body.w = auxTrans.body.h = 20;
-		auxTrans.position.set(boss->getCenterPos());
+		auxTrans.body.w = auxTrans.body.h = 40;
+		auxTrans.position.set(boss->getCenterPos() - Vector2D(auxTrans.body.w / 2, auxTrans.body.h / 2));
 		auxTrans.velocity = Vector2D(0, -1);
 		auxTrans.direction = Vector2D(0, -1);
 		auxTrans.speed = 400;
@@ -251,11 +251,16 @@ void UpdateBoss3::fase3()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		boss->getTransform()->position = Vector2D(1650, 1000);
+		int auxDir = rand() % 3;
+		if (auxDir == 1) dirLucian = 1;
+		else if (auxDir == 2) dirLucian = -1;
+		boss->getTransform()->position = Vector2D(posInic.getX()+550 * dirLucian, 1000);
 		//boss->changeCurrentAnimation("SACA_RAYOS");
 		//boss->getCurrentAnimation()->setTime(0.1);
 		//boss->getCurrentAnimation()->startAnimation();
 		auxLucian = 0;
+
+
 	}
 	if (auxInterval < tiempoIntervalLucian) 
 	{
@@ -265,30 +270,30 @@ void UpdateBoss3::fase3()
 	{
 		auxLucian += Time::getInstance()->DeltaTime;
 		Transform auxTrans;
-		auxTrans.body.w = auxTrans.body.h = 20;
+		auxTrans.body.w = auxTrans.body.h = 40;
 
-		auxTrans.velocity = Vector2D(-1, 0);
-		auxTrans.direction = Vector2D(-1, 0);
+		auxTrans.velocity = Vector2D(-1*dirLucian, 0);
+		auxTrans.direction = Vector2D(-1*dirLucian, 0);
 		auxTrans.speed = 400;
 		if (arriba)
 		{
 			arriba = false;
-			auxTrans.position.set(boss->getCenterPos() + Vector2D(0, 10));
+			auxTrans.position.set(boss->getCenterPos() + Vector2D(0, 15) - Vector2D(auxTrans.body.w / 2, auxTrans.body.h / 2));
 		}
 		else
 		{
 			arriba = true;
-			auxTrans.position.set(boss->getCenterPos() - Vector2D(0, 10));
+			auxTrans.position.set(boss->getCenterPos() - Vector2D(0, 15) - Vector2D(auxTrans.body.w / 2, auxTrans.body.h / 2));
 		}
-		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::GunnerBullet);
+		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
 		auxInterval = 0;
 	}
 
-	if (prota->getTransform()->position.getY() > boss->getTransform()->position.getY())
+	if (prota->getTransform()->position.getY() > boss->getCenterPos().getY())
 	{
 		boss->getTransform()->position.setY(boss->getTransform()->position.getY()+Time::getInstance()->DeltaTime*velocidad);
 	}
-	else if (prota->getTransform()->position.getY() < boss->getTransform()->position.getY())
+	else if (prota->getTransform()->position.getY() < boss->getCenterPos().getY())
 	{
 		boss->getTransform()->position.setY(boss->getTransform()->position.getY()-Time::getInstance()->DeltaTime*velocidad);
 	}
@@ -338,12 +343,52 @@ void UpdateBoss3::fase4()
 }
 void UpdateBoss3::fase5()
 {
+
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		//boss->getCurrentAnimation()->setTime(-0.1);
 		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->position.set(posInic);
+		Transform auxTrans;
+		auxTrans.body.w = auxTrans.body.h = 40;
+		auxTrans.position.set(boss->getCenterPos()-Vector2D(auxTrans.body.w/2, auxTrans.body.h/2));
+		auxTrans.velocity = Vector2D(-1, 0);
+		auxTrans.direction = Vector2D(-1, 0);
+		auxTrans.speed = 400;
 
+		int randGiro = rand() % 360;
+		auxTrans.velocity.rotate(randGiro);
+		auxTrans.direction.rotate(randGiro);
+		auxDir = auxTrans;
+
+		
+
+	}
+	if (auxInterval < auxTiempoGiro)
+	{
+		auxInterval += Time::getInstance()->DeltaTime;
+	}
+	else
+	{
+		Transform auxTrans;
+		auxTrans = auxDir;
+		auxTrans.position.set(boss->getCenterPos() - Vector2D(auxTrans.body.w / 2, auxTrans.body.h / 2));
+		auxTrans.velocity.rotate(2);
+		auxTrans.direction.rotate(2);
+		auxDir.velocity.rotate(5);
+		auxDir.direction.rotate(5);
+		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
+		auxTrans.velocity.rotate(90);
+		auxTrans.direction.rotate(90);
+		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
+		auxTrans.velocity.rotate(90);
+		auxTrans.direction.rotate(90);
+		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
+		auxTrans.velocity.rotate(90);
+		auxTrans.direction.rotate(90);
+		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
+		auxInterval = 0;
 	}
 }
 void UpdateBoss3::fase6()
@@ -390,7 +435,7 @@ void UpdateBoss3::fase9()
 }
 void UpdateBoss3::RondaWheels()
 {
-	dirWheel = Random::randomInt(0, 3);
+	/*dirWheel = Random::randomInt(0, 3);
 	int salto = Random::randomInt(0, 7);
 
 	switch (dirWheel) {
@@ -410,6 +455,7 @@ void UpdateBoss3::RondaWheels()
 		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150*i, 1425, velWheel, dirWheel);
 		break;
 	}
+	*/
 }
 
 void UpdateBoss3::RondaWheels2()
@@ -427,7 +473,7 @@ void UpdateBoss3::RondaWheels2()
 void UpdateBoss3::auxShoot(Transform auxTrans)
 {
 	for (int i = 0; i < 6; i++) {
-		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::GunnerBullet);
+		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
 		auxTrans.direction.rotate(60);
 		auxTrans.velocity.rotate(60);
 	}

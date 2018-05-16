@@ -140,6 +140,33 @@ void CollisionsManager::bulletCollisions()
 					i++;
 				}
 			}
+
+			case BulletType::BossBullet:
+			{
+				//Colisionamos la bala con las hurtboxes del player
+				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+				vector<SDL_Rect> hurtBoxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+				SDL_Rect hitbox = t->body;
+				int i = 0;
+				while (!hit && i < hurtBoxes.size())
+				{
+					if (!mc->getInvincibility()) {
+						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de la hitbox de la bala con la hurtbox del MC
+							hit = true;
+							//Mandar mensaje de collision bala / player
+							Message msg(BOSS_BULLET_HIT);
+							mc->sendMessage(&msg);
+							Vector2D empuje = Vector2D(b->getTransform()->direction.getX(), b->getTransform()->direction.getY());
+							empuje.normalize();
+							KnockbackMessage msg1(empuje);
+							mc->sendMessage(&msg1);
+
+						}
+
+					}
+					i++;
+				}
+			}
 			default:
 				break;
 			}

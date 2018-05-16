@@ -75,6 +75,8 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 	
 	else if(bulletType == BulletType::GunnerBullet)
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);
+	else if (bulletType == BulletType::BossBullet)
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BossBullet), true, bulletType);
 
 	bullets.push_back(newBullet);
 	return newBullet;
