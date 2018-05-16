@@ -88,6 +88,8 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 	mc->getTransform()->velocity.set(0, 0);
 	mc->updatePreviousPosition();
 	mc->updateBody();
+	mc->getHook()->setHookStatus(HookStatus::STOP);
+	mc->setMCState(MCState::Idle);
 
 	room->spawn();
 	room->setExplored(true);
