@@ -69,6 +69,7 @@ SkillTree::~SkillTree()
 {
 	delete skill.HLineToFather;
 	delete skill.VLineToFather;
+	delete skill.text;
 
 	for (SkillTree* st : sons_) {
 		delete st;

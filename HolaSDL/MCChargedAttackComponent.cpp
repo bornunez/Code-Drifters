@@ -9,6 +9,7 @@ MCChargedAttackComponent::MCChargedAttackComponent(MainCharacter * mc, float cha
 
 MCChargedAttackComponent::~MCChargedAttackComponent()
 {
+	delete chargeHold;
 }
 
 void MCChargedAttackComponent::update()

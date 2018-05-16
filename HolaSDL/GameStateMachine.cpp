@@ -10,7 +10,7 @@ GameStateMachine::~GameStateMachine()
 	{
 		popState();
 	}
-	//cleanGarbage();
+	cleanGarbage();
 }
 
 GameState* GameStateMachine::currentState()
@@ -29,15 +29,15 @@ void GameStateMachine::pushState(GameState* ge)
 
 void GameStateMachine::popState()
 {
-	if (!stateStack.empty()) {
+	/*if (!stateStack.empty()) {
 		GameState* top = stateStack.top();
 		stateStack.pop();
 		delete top;
 	}
-
-	/*GameState* gs = stateStack.top();
+*/
+	GameState* gs = stateStack.top();
 	stateStack.pop();
-	garbage.push(gs);*/
+	garbage.push(gs);
 }
 
 void GameStateMachine::quitState()

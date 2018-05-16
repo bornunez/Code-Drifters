@@ -14,6 +14,10 @@ ItemManager::ItemManager()
 
 ItemManager::~ItemManager()
 {
+	for (ItemObject* item : items)
+		delete item;
+
+	items.clear();
 }
 
 void ItemManager::AddItem(ItemPool pool, Vector2D position)
