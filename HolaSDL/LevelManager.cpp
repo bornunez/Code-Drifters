@@ -254,6 +254,12 @@ void LevelManager::nextLevel()
 	delete dungeon;
 	level++;
 	if (level <= maxLevel) {
+		if (level == 2) {
+			currentLevelType = Lab;
+		}
+		else if (level == 1) {
+			currentLevelType = City;
+		}
 		newMap();
 	}
 	else {
