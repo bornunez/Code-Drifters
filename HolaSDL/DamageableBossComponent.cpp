@@ -14,6 +14,8 @@ DamageableBossComponent::DamageableBossComponent(MasterBoss* o, MainCharacter* m
 
 DamageableBossComponent::~DamageableBossComponent()
 {
+	delete damageTimer;
+	delete attackedTimer;
 }
 
 void DamageableBossComponent::receiveMessage(Message* msg)
