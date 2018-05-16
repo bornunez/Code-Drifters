@@ -18,16 +18,19 @@ void HUDManager::ResetInstance()
 
 HUDManager::~HUDManager()
 {
-	delete lifeBack,
-		lifeBar,
-		lifeSkeleton;
+	delete lifeBack;
+	delete lifeBar;
+	delete lifeSkeleton;
 	delete ultSkeleton,
-		ultBack,
-		ultBar;
+	delete ultBack;
+	delete ultBar;
+	delete moneyFont;
+	delete moneyTex;
+
 	for (int i = 0; i < character->getMaxBullets(); i++) {
-		delete bulletBack[i],
-			bullets_[i],
-			bulletSkeleton[i];
+		delete bulletBack[i];
+		delete bullets_[i];
+		delete bulletSkeleton[i];
 	}
 }
 

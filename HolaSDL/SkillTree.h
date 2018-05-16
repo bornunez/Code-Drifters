@@ -43,7 +43,7 @@ private:
 
 public:
 	SkillTree(SkillTree* parent, string source, string TextSource, ShopState* shopState);
-	virtual ~SkillTree() {};
+	virtual ~SkillTree();
 
 	void HandleEvents(SDL_Event e);
 	void render(SDL_Rect destination, int size, int TotalWidth);

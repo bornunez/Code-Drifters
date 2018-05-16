@@ -20,6 +20,11 @@ Animation::Animation(string animationName, Tileset* tileset,  GameObject* o, int
 
 Animation::~Animation()
 {
+	for (AnimationFrame* animFrame : animFrames)
+		delete animFrame;
+
+	animFrames.clear();
+
 	delete lastFrame;
 }
 

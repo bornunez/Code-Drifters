@@ -36,7 +36,8 @@ Game::~Game()
 
 {	//Termina el juego llama a las destructoras de playState etc...
 	endGame();
-	delete stateMachine;
+	delete stateMachine;			//Llama ademas a las destructoras de todos los estados que tenga pusheados
+	delete Time::getInstance();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
@@ -48,7 +49,7 @@ void Game::endGame()//Termina el PlayState y resetea sus instancias.
 	delete mouseIcon;
 	delete levP;
 	//EnemyManager::ResetInstance();
-	PlayState::ResetInstance();
+	//PlayState::ResetInstance();			El destruir la pila llama a este destructor asi como al de mainmenu etc
 	//BulletManager::ResetInstance();
 	//LevelManager::ResetInstance();
 	ResourceManager::ResetInstance();
