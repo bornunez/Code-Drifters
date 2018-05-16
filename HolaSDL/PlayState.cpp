@@ -34,15 +34,19 @@ void PlayState::ResetInstance()
 
 PlayState::~PlayState()
 {
+	BulletManager::ResetInstance();
+	//EnemyManager::ResetInstance();
 	CoinManager::ResetInstance();
 	HUDManager::ResetInstance();
 	ParticlesManager::ResetInstance();
-
+	LevelManager::ResetInstance();
+	
+	delete ItemManager::getInstance();	//Se usa??
 	delete shopState;
 	delete minimap;
 	delete camera;
-	delete level;
-	delete currentRoom;
+	//delete level;
+	//delete currentRoom;
 	instance->destroyAllGameObjects();
 	//MainCharacter se borra en el destroyAllGameObjects
 }
@@ -85,6 +89,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		if (e.key.keysym.sym == SDLK_l)
 		{
 			game->startDialogue("1");
+		}
+		if (e.key.keysym.sym == SDLK_m)
+		{
+			game->pause(this);
 		}
 		
 	}

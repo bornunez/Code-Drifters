@@ -30,7 +30,7 @@
 
 //Personaje principal
 MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
-	: GameObject(tex, x, y, w, h), hook(500), HP(100), maxHP(100)
+	: GameObject(tex, x, y, w, h), HP(100), maxHP(100)
 {
 	transform.position.setX(x);
 	transform.position.setY(y);
@@ -46,6 +46,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	loadAnimations();
 
+	hook = new Hook(500);
+
 	transform.speed = 400;
 	//setMaxVelocity(0.5);
 
@@ -56,10 +58,10 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new MCShotComponent(this));
 	addComponent(new MCAttackComponent(this));
 	addComponent(new LevelExplorer(this));
-	hookShot = new HookShotComponent(this,&hook, 1000.0f);
+	hookShot = new HookShotComponent(this,hook, 1000.0f);
 	addComponent(hookShot);
 	addComponent(new MCHookInputComponent(this));
-	addComponent(new HookAnimationComponent(&hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
+	addComponent(new HookAnimationComponent(hook, ResourceManager::getInstance()->getTexture(HookChain), ResourceManager::getInstance()->getTexture(HookChainFail),ResourceManager::getInstance()->getTexture(HookHead)));
 	addComponent(new MCMovementInput(this, SDL_SCANCODE_W, SDL_SCANCODE_D, SDL_SCANCODE_S, SDL_SCANCODE_A));
 	addComponent(new MCAnimationComponent(this, animations));
 	addComponent(new DoorsCollision(this));

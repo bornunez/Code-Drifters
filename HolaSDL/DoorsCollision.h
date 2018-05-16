@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include "UpdateComponent.h"
 class DoorsCollision :
 	public UpdateComponent

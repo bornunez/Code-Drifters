@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include "Component.h"
 class RenderComponent : public Component
 {

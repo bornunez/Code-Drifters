@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="42" height="42" tilewidth="16" tileheight="16" infinite="0" nextobjectid="47">
+ <tileset firstgid="1" source="../../tileset/city.tsx"/>
+ <tileset firstgid="257" source="../../tileset/City2.tsx"/>
+ <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
+ <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
+ <layer name="Aire" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJzt2UsKgDAMANHmqp6qx3UlBhWhZBYpzINAwc2spJ8x1syfOT4mfy+L5pM7u7KTZSfLTpadLDtZm3XOtG4p0n7Lzrq497bdO689t50AO1lxnwe7d+70X7ITEumOws46O1l2sjY7d7zW3djJspNlJ+vZ2XkAK+9clbeuE7VcHaU=
+  </data>
+ </layer>
+ <layer name="Suelo" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJztzjENADAMwLDyR1C4o5FqjpTfM3fa+Jyc5Tk5y3NylufkLM/JWZ6TszwnZ3lOzvKcnOU5/3Ze6AG3QrYu
+  </data>
+ </layer>
+ <layer name="DecoracionSuelo" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJztmG0OwiAMhjmrZ1FPYEz2X73APk6w7VyOSCMhVEopG3O8yZtFI/LQLrSpUsfSbfHJ4/uWUB5VTlwXhs8I55XxXxRhcVnTlBxUzsoJfi1+ZvJDkDP1bumZ+80rc9rq1Id7JOzXCnH+Oi/GODrfceMSk4eByGf/DmLUG+fgTBGwtoYPPof28+Weej5qHH3SeZ/U9x2IiUuoTufsJXycbk8Akrh3JTldV87KuQdOib5AktPte1zNyDqbs2OwTObp1kyMc8t6pKXrA9zzswrHhdtnSYjahwBjE8npy5mESsy75H574BwC61L6JEnOlHVcHZGTMyNKmUv9+5yhcvI4sXpbGidIak6kzZlN5VQJ83nKfKYETor2wplbb3vBbLw=
+  </data>
+ </layer>
+ <layer name="Paredes" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJztmElLA0EQhVvtcdf/GrfEFdSocQX3uIJezMmrOXlVEAS96EnQi54EvehJfE0YLJsZp2fsztSgDx4kXZWeD7qLTJUQ2VFeCuF5QjTDLXAD3Ag3wdL7HvuNfto3aO0AXIfy6/czMnzvNJUDVw9h22TKOQ6uCcKWZ8q5DK6VDJy7fj+5nrt+P4+Ycur384Qpp34/z5hy6vfzxpCzgLxBeAgehkfgUYO1oPiYwTOvkHNN8h4NOUvIm7PkJYNn3iPngeS9MeV8Qc4ryTP93643p/8+EFf15kyqf86/yVnG3lvwNrwD78J72uegeNDavkPOCva+sORjh5xVi5ynDjnPLXJeOuS8tch555DzySLnc0bO3WUd2Tz3JHVk2m+mXUem/WbadWTab6ZdR6b95rtFzo8EnKb9ZiveWdvgdrgD7gz43hWSo691J3j/5dpvKhUIG9f5klKJsHGdLymVCRvX+ZISPXeu8yUleu5c50tK9Nw513tFq3d/1tgL98H98ICMjrlWVat3f9Y4CRfhKXhaRsfiKmyWpuZiYTFfqt79WeMqvAavwxsyOhZXqi5mZa03nocX4EVZ65PDYlnSJ71pYnE=
+  </data>
+ </layer>
+ <layer name="Decoracion" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJztmEEOgjAQRWGnnkBdq1HXgLoHFG+gN9AlK9ceQS/sX3QxgSkhkTYN+S95yZDOpJPQloYoIqFSx21D5B23JYQQQggZCx/cbb4B3W9s/YytzwSmJj7Ck4kzeBB58rkrz1WfOSxMfIGViUt4FnnyuSvPVZ+++Lcf+d5sa6A5ZlsDLpHvzbYGmmO2NUD673c5JmNZ75K++12OyVjWu+I1sK5Z4bxYw41ybkzgFM6Uugr5V49nX4K5Upgpc87hAi6Vuhvy7x77zDFXAUtlzi3cwb1S90D+M6BvCSGEhAL/z5Oh+QHdozUN
+  </data>
+ </layer>
+ <objectgroup name="Animados"/>
+ <layer name="Decoracion2" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNgDAAwMAUmYi/5q/5958Et0xAIvkk9w5BkiRJyk8RQyipopoaaqmLf5999fwMNNJEMy20Jva58bPTQSdddNOT2KckSZIkSTl6AdRBBf4=
+  </data>
+ </layer>
+ <layer name="Sombra" width="42" height="42">
+  <data encoding="base64" compression="zlib">
+   eJzt2DEKwCAUBFGvltz/UGlSi4ZZzZcZsBN8YqHY2pld79i9/uj40g2sscI5a+05/55ONp1sOtl0slVwEvfhiqo4rR/1Bkunk00nm042nWwnO3fsSSdbyjn7j5X4sxqdm7SSzqSVdqasCeeudNpMVc6hinNVDwg0Pjw=
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="19" name="Right" x="638" y="223" width="19.6667" height="269"/>
+  <object id="31" name="Down" x="256.667" y="625.667" width="194" height="28"/>
+  <object id="45" name="Left" x="11.1667" y="224" width="19.6667" height="191"/>
+  <object id="46" name="Up" x="190" y="14" width="241" height="28"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="26" name="Right" gid="255" x="563.333" y="327.667" width="16" height="16"/>
+  <object id="28" name="Down" gid="255" x="343.333" y="570.667" width="16" height="16"/>
+  <object id="43" name="Up" gid="255" x="338" y="99" width="16" height="16"/>
+  <object id="44" name="Left" gid="255" x="103" y="316" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners" offsetx="-60" offsety="33">
+  <object id="20" name="Spawner" gid="240" x="607" y="87" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="21" name="Spawner" gid="240" x="626" y="535" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="false"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="32" name="Spawner" gid="240" x="148.5" y="75.167" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="false"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="false"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="33" name="Spawner" gid="240" x="150.333" y="531.667" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

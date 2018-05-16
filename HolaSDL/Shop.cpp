@@ -6,7 +6,7 @@
 Shop::Shop(ShopState* shopState)
 {
 	//lecture of different trees from file
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < TREE_NUMBER; i++) {
 		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + ".txt", "..\\Arbol\\Textures\\"+ to_string(i+1) +".png", shopState);
 		fondos_[i] = new Texture(Game::getGame()->getRenderer());
 	}
@@ -43,6 +43,10 @@ bool Shop::LoadTextures() {
 
 Shop::~Shop()
 {
+	for (int i = 0; i < TREE_NUMBER; i++) {
+		delete Skills_[i];
+		delete fondos_[i];
+	}
 }
 
 void Shop::update() {

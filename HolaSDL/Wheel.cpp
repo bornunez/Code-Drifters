@@ -51,7 +51,7 @@ Wheel::~Wheel()
 void Wheel::loadAnimations()
 {
 	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(4);
-	string animationPath = "../Animations/Enemies/Wheel/Wheel.tmx";
+	string animationPath = "../Animations/Enemies/Wheel.tmx";
 
 
 	//Animaciones

@@ -9,10 +9,11 @@
 #include "EnemyManager.h"
 #include "Animation.h"
 
-
+TileLayer* AnimationParser::tileLayer = nullptr;
 
 AnimationParser::~AnimationParser()
 {
+	delete tileLayer;
 }
 
 void AnimationParser::parseAnimationLayer(string animationName, XMLElement * root, XMLElement * animationElement, Animation * anim, Tileset * tileset)
@@ -23,7 +24,12 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 	int width = atoi(root->Attribute("width"));
 	int height = atoi(root->Attribute("height"));
 	string name = animationElement->Attribute("name");
-	TileLayer* tileLayer = new TileLayer({ tileset }, name, width, height, tileSize);
+
+	//Si no es null se borra para que no quede memoria suelta
+	if (tileLayer != nullptr)
+		delete tileLayer;
+
+	tileLayer = new TileLayer({ tileset }, name, width, height, tileSize);
 	//Vector de los datos de tiles
 	vector<vector<int>> data;
 	string decodedID;
