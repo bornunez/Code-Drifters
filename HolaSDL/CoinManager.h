@@ -1,5 +1,5 @@
 #pragma once
-//#include "checkML.h"
+#include "checkML.h"
 #include"Coin.h"
 
 class CoinManager

@@ -86,6 +86,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 MainCharacter::~MainCharacter()
 {
+	delete hook;
+	hook = nullptr;
 }
 
 void MainCharacter::loadAnimations()

@@ -13,13 +13,12 @@ ChargeComponent::ChargeComponent(Enemy* o, GameObject* target, float delay, floa
 	velocityMult = velMultiplier;
 	targetObject = target;
 	timer = new Timer();
-	
-	
 }
 
 
 ChargeComponent::~ChargeComponent()
 {
+	delete timer;
 }
 
 void ChargeComponent::update() {
