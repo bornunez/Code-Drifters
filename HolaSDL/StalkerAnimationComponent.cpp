@@ -11,8 +11,6 @@ StalkerAnimationComponent::StalkerAnimationComponent(EnemyStalker* o, GameObject
 	gameObject->changeCurrentAnimation("RUN");
 	this->target = target;
 	this->es = o;
-	hurtTimer = new Timer();
-	chargeTimer = new Timer();
 	attackDelay = delayTime;
 	hurtTime = hTime;
 }
@@ -32,8 +30,8 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 {
 	switch (msg->id) {
 		case ENEMY_SPAWN:
-			hurtTimer->restart();
-			chargeTimer->restart();
+			hurtTimer.restart();
+			chargeTimer.restart();
 			break;
 		case STALKER_RUN:
 			gameObject->changeCurrentAnimation("RUN");
@@ -42,7 +40,7 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 		case STALKER_CHARGE:
 			gameObject->changeCurrentAnimation("CHARGE");
 			gameObject->getCurrentAnimation()->startAnimation();
-			chargeTimer->restart();
+			chargeTimer.restart();
 			break;
 		case STALKER_ATTACK:
 			gameObject->changeCurrentAnimation("ATTACK");
@@ -51,7 +49,7 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 		case HURT:
 			gameObject->changeCurrentAnimation("HURT");
 			gameObject->getCurrentAnimation()->startAnimation();
-			hurtTimer->restart();
+			hurtTimer.restart();
 			es->enemyState = EnemyState::Hurt;
 			break;
 		case GUN_STUN:
@@ -74,16 +72,16 @@ void StalkerAnimationComponent::handleAnimation()
 	if (!gameObject->isDead()) {
 		if (!es->isStunned()) {
 			if (es->enemyState == EnemyState::Hurt) {
-				hurtTimer->update();
-				if (hurtTimer->TimeSinceTimerCreation > hurtTime) {
+				hurtTimer.update();
+				if (hurtTimer.TimeSinceTimerCreation > hurtTime) {
 					es->enemyState = EnemyState::Run;
 					gameObject->changeCurrentAnimation("RUN");
 				}
 			}
 
 			else if (es->enemyState == EnemyState::Charge) {
-				chargeTimer->update();
-				if (chargeTimer->TimeSinceTimerCreation > attackDelay) {
+				chargeTimer.update();
+				if (chargeTimer.TimeSinceTimerCreation > attackDelay) {
 					es->enemyState = EnemyState::Attack;
 					Message msg(STALKER_ATTACK);
 					es->sendMessage(&msg);

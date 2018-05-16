@@ -26,10 +26,20 @@ void EnemyManager::ResetInstance()
 
 EnemyManager::~EnemyManager()
 {
-	for (Enemy* e : actives)
-		kill(e);
-	for (Enemy* e : inactives)
-		PlayState::getInstance()->removeGameObject(e);
+	for (Enemy* enemy : inactives) {
+		delete enemy;
+		enemy = nullptr;
+	}
+
+	for (Enemy* enemy : actives) {
+		delete enemy;
+		enemy = nullptr;
+	}
+
+	//for (Enemy* e : actives)
+	//	kill(e);
+	//for (Enemy* e : inactives)
+	//	PlayState::getInstance()->removeGameObject(e);
 
 	delete actBoss1;
 	delete actBoss2;

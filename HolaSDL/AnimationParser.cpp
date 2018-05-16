@@ -16,6 +16,11 @@ AnimationParser::~AnimationParser()
 	delete tileLayer;
 }
 
+void AnimationParser::deleteAnimationParser()
+{
+	delete tileLayer;
+}
+
 void AnimationParser::parseAnimationLayer(string animationName, XMLElement * root, XMLElement * animationElement, Animation * anim, Tileset * tileset)
 {
 	
@@ -26,8 +31,11 @@ void AnimationParser::parseAnimationLayer(string animationName, XMLElement * roo
 	string name = animationElement->Attribute("name");
 
 	//Si no es null se borra para que no quede memoria suelta
-	if (tileLayer != nullptr)
+	if (tileLayer != nullptr) {
 		delete tileLayer;
+		tileLayer == nullptr;
+	}
+
 
 	tileLayer = new TileLayer({ tileset }, name, width, height, tileSize);
 	//Vector de los datos de tiles
@@ -163,3 +171,5 @@ Animation * AnimationParser::parseAnimation(Tileset* tileset, string animationFi
 
 	return anim;
 }
+
+

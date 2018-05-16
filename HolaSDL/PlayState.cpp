@@ -34,8 +34,9 @@ void PlayState::ResetInstance()
 
 PlayState::~PlayState()
 {
+	delete CollisionsManager::getInstance();
 	BulletManager::ResetInstance();
-	//EnemyManager::ResetInstance();
+	delete EnemyManager::getInstance();
 	CoinManager::ResetInstance();
 	HUDManager::ResetInstance();
 	ParticlesManager::ResetInstance();
