@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include "Game.h"
 #include "GameStateMachine.h"
 #include "Camera.h"
@@ -38,6 +39,7 @@ Game::~Game()
 	endGame();
 	delete stateMachine;			//Llama ademas a las destructoras de todos los estados que tenga pusheados
 	delete Time::getInstance();
+
 	SDL_DestroyRenderer(renderer);
 	renderer = nullptr;
 	SDL_DestroyWindow(window);
