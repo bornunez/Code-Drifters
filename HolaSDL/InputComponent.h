@@ -1,5 +1,5 @@
 #pragma once
-#include "checkML.h"
+//#include "checkML.h"
 #include "Component.h"
 class InputComponent :
 	public Component
