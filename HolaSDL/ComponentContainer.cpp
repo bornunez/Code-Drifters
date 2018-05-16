@@ -6,7 +6,7 @@
 ComponentContainer::ComponentContainer()
 {
 	//Inicializamos el array
-	components = new std::list<Component*>[NUMCOMP];
+	//components = new std::list<Component*>[NUMCOMP];
 }
 
 
