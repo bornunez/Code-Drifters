@@ -1,5 +1,6 @@
 #include "UpdateBoss2.h"
 #include "Boss2.h"
+#include "PlayState.h"
 
 
 UpdateBoss2::UpdateBoss2(Boss2* o, MainCharacter* prot) : UpdateComponent(o)
@@ -157,7 +158,8 @@ void UpdateBoss2::update()
 	else if (boss->getCurrentAnimation()->isFinished())
 	{
 		boss->getCurrentAnimation()->changeColor(100, 100, 100);
-		//levelManager::siguienteNivel();
+		boss->setActive(false);
+		PlayState::getInstance()->nextLevel();
 	}
 }
 

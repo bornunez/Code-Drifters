@@ -150,6 +150,7 @@ void Boss2::death()
 			wheels[i]->getCurrentAnimation()->startAnimation();
 		}
 	}
+
 }
 
 

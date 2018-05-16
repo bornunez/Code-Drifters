@@ -119,6 +119,7 @@ void PlayState::nextLevel()
 
 	camera->load();
 
+	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;
 	//HUDManager::getInstance()->addBullet();

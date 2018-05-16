@@ -1,6 +1,6 @@
 #include "UpdateBoss.h"
 #include"ResourceManager.h"
-
+#include "PlayState.h"
 
 UpdateBoss::UpdateBoss(GameObject* o, MainCharacter* prot) : UpdateComponent(o)
 {
@@ -92,7 +92,7 @@ void UpdateBoss::update()
 	}
 	else if (boss->getCurrentAnimation()->isFinished())
 	{
-		//levelManager::siguienteNivel();
+		PlayState::getInstance()->nextLevel();
 	}
 }
 

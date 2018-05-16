@@ -104,6 +104,8 @@ void Boss::death()
 	{
 		it->second->changeColor(0, 0, 0);
 	}
+	setActive(false);
+	PlayState::getInstance()->nextLevel();
 }
 
 void Boss::changeColor(int r, int g, int b)
