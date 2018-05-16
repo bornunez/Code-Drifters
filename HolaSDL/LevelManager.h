@@ -8,7 +8,7 @@ class DungeonGenerator;
 
 enum Direction{Up,Right,Down,Left, None};
 struct DirPair { int x; int y; };
-enum LevelType{ City, Red};
+enum LevelType{ City, Lab};
 const int maxLevel = 2;
 
 class LevelManager
@@ -27,7 +27,7 @@ private:
 	int level;
 	int baseRooms;
 	int roomsPerLevel;
-	vector<string> levelTypePath { "City_Levels\\" , "Red_Levels\\" };
+	vector<string> levelTypePath { "City_Levels\\" , "Lab_Levels\\" };
 
 	//Posicion del jugador
 	int roomX, roomY;
@@ -61,7 +61,7 @@ public:
 
 	bool getDoor(Direction dir);
 
-	string getActiveLevelPath() { return levelTypePath[City]; }
+	string getActiveLevelPath() { return level >= 2 ? levelTypePath[City] : levelTypePath[City]; }
 
 	//Metodos de control
 	void init(bool tutorial);

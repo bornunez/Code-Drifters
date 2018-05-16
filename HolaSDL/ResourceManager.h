@@ -7,7 +7,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 100;
+const int NUM_TEXTURES = 101;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -34,6 +34,7 @@ enum TextureId {
 	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
 	//TIENDA
+	Madam_P_Idle,
 	GirlSmoking,
 
 	//TEXTURAS DEL HUD
@@ -109,6 +110,7 @@ private:
 		{ "Particles\\StunParticle.png", 1, 7 },
 
 		//Cosas de la tienda
+		{"Puti\\Phernelia_Waiting.png",1,2},
 		{"Puti\\ProstitutaSmokingLove.png",1,7},
 
 

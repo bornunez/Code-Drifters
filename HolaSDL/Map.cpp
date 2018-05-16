@@ -46,8 +46,10 @@ void Map::update()
 {
 	for (Layer* l : layers)
 		l->update();
-	for (GameObject* o : objects)
-		o->update();
+	for (GameObject* o : objects) {
+		if (o->isActive())
+			o->update();
+	}
 }
 
 void Map::render()

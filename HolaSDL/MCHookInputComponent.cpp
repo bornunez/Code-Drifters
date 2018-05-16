@@ -18,7 +18,7 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 {
 	if (mc->getMCState() != MCState::Dash) {
 		if (e.key.keysym.sym == SDLK_SPACE && e.type == SDL_KEYDOWN) {
-			if ((mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd) && !mc->getHook().isActive()) {
+			if ((mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd) && !mc->getHook()->isActive()) {
 				int mouseX, mouseY;
 				SDL_Point p;
 				SDL_Rect r;
@@ -34,8 +34,8 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 
 				Vector2D targetPosition;//Es la posición donde llega el gancho, se tiene en cuenta que el centro del gancho debe llegar al punto justo del cursor
 				targetPosition = cursorPos;
-				targetPosition.setX(targetPosition.getX()-mc->getHook().getTransform()->body.w/2);
-				targetPosition.setY(targetPosition.getY() - mc->getHook().getTransform()->body.h / 2);
+				targetPosition.setX(targetPosition.getX()-mc->getHook()->getTransform()->body.w/2);
+				targetPosition.setY(targetPosition.getY() - mc->getHook()->getTransform()->body.h / 2);
 
 				Vector2D hookDirection;
 				hookDirection = targetPosition - gunDisplayPosition ;

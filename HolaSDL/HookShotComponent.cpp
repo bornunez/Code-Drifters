@@ -114,7 +114,7 @@ void HookShotComponent::update()
 
 void HookShotComponent::updateHookPos()//Actualiza la posición del gancho
 {
-	mc->getHook().getTransform()->position.set(mc->getGunPosition());
+	//mc->getHook()->getTransform()->position.set(mc->getGunPosition());
 	hook->getTransform()->body.x = hook->getTransform()->position.getX();
 	hook->getTransform()->body.y = hook->getTransform()->position.getY();
 }

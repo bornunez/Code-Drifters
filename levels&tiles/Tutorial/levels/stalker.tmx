@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="36" height="40" tilewidth="16" tileheight="16" nextobjectid="31">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="36" height="40" tilewidth="16" tileheight="16" nextobjectid="33">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -39,6 +39,13 @@
    eJzt2MEJADAIxVC7/9LdILUUPkLzwLM5eLJquBWeTk+KPe+7fu853Xayp8MeZg+zh9nD7GH2MHuYPcweZg+zh9nD7GH2sPS/7uZ3p3E25TMAZg==
   </data>
  </layer>
+ <objectgroup name="Animados">
+  <object id="31" name="Tuto_Text" x="192" y="144" width="187" height="50">
+   <properties>
+    <property name="Text" value="stalker_text"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Puertas">
   <object id="22" name="Up" x="192" y="32" width="192" height="27"/>
   <object id="26" name="Right" x="544" y="272" width="16" height="144"/>
@@ -48,7 +55,16 @@
   <object id="25" name="Up" gid="255" x="288" y="96" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="30" name="Spawner" gid="240" x="256" y="224" width="16" height="16">
+  <object id="30" name="Spawner" gid="240" x="272" y="256" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="false"/>
+    <property name="Charger" type="bool" value="false"/>
+    <property name="Gunner" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="32" name="Spawner" gid="240" x="448" y="368" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>

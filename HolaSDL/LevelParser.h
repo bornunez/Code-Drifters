@@ -25,7 +25,7 @@ private:
 
 	static void initDoors(Map * map, vector<bool> doors);
 	static string dirToString(Direction dir);
-	static GameObject * stringToObject(string objName, int x, int y, int w, int h);
+	static GameObject * stringToObject(string objName, XMLElement* e, int x, int y, int w, int h);
 	static Direction stringToDir(string direction);
 public:
 	LevelParser()  {}

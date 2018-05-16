@@ -39,7 +39,7 @@ private:
 	float UltiBonusCD = 1; //[ultiCharge / ultiBonus], which leads to bonus in range (0, 1]
 
 	Vector2D gunPosition;//Posici�n de donde sale la bala
-	Hook hook;
+	Hook* hook;
 	
 	HookShotComponent* hookShot;
 
@@ -104,7 +104,7 @@ public:
 	void setUltiBonusCD(float cdReduction) { UltiBonusCD -= (cdReduction / 100); if (UltiBonusCD <= 0) UltiBonusCD = 0.01; };
 	
 	//HOOK
-	Hook getHook() { return hook; }
+	Hook* getHook() { return hook; }
 	void shootHook(Vector2D originPos, Vector2D hookDir);
 
 	//ULTIMATE CHARGE

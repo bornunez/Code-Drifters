@@ -60,7 +60,7 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 		ResourceManager::getInstance()->getMusic(Burdel)->play();
 	}
 	//stops shop music and restarts the current level one
-	if (prevRoom->getType() == Shop && room->getType() != Shop) {
+	if (prevRoom != nullptr && prevRoom->getType() == Shop && room->getType() != Shop) {
 		ResourceManager::getInstance()->getMusic(Burdel)->stop();
 		switch (level) {
 		case 0:
@@ -102,6 +102,7 @@ LevelManager * LevelManager::getInstance()
 
 void LevelManager::enterMap()
 {
+	onRoomChange(getFirstRoom(), nullptr, None);
 	getFirstRoom()->spawn();
 	GameObject* ePoint = currentRoom->getMap()->getEntryPoint();
 	if (ePoint != nullptr) {
@@ -199,6 +200,7 @@ Room * LevelManager::getShopRoom()
 
 void LevelManager::update()
 {
+	currentRoom->getMap()->update();
 }
 
 void LevelManager::handleEvents(SDL_Event & e)

@@ -86,6 +86,10 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			game->startDialogue("1");
 		}
+		if (e.key.keysym.sym == SDLK_m)
+		{
+			game->pause(this);
+		}
 		
 	}
 	GameState::handleEvent(e);
@@ -99,6 +103,7 @@ void PlayState::update()
 	GameState::update();
 	CoinManager::getInstance()->update();
 	BulletManager::getInstance()->update();
+	LevelManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
@@ -118,7 +123,7 @@ void PlayState::nextLevel()
 	minimap = new Minimap(1, 1, 10, 10);
 
 	camera->load();
-
+	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;
 	//HUDManager::getInstance()->addBullet();

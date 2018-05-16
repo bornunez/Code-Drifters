@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="16" tilewidth="64" tileheight="64" nextobjectid="200">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="16" tilewidth="64" tileheight="64" nextobjectid="216">
  <tileset firstgid="1" source="Charger.tsx"/>
  <layer name="ChargeLeft" width="17" height="16">
   <data encoding="base64" compression="zlib">
@@ -188,29 +188,41 @@
  </layer>
  <layer name="DeathLeft" width="17" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBg5wBmIXYDYFYjdgNgdiD2A2BOIvYDYe+CcNgpGwZAEACqEAoA=
+   eJxjYBg5wA2I3YHYA4g9gdgLiL2B2AeIfYHYb+CcNgpGwZAEAIKwAps=
   </data>
  </layer>
  <layer name="DeathRight" width="17" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgawAeIfYHYD4j9gTgAiAOBOAiIg4E4ZOCcNgpGwYgFAPJXAtE=
+   eJxjYBgaIAiIg4E4BIhDgTgMiMOBOAKII4E4auCcNgpGwYgFALEWAwc=
   </data>
  </layer>
  <layer name="StunRight" width="17" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYCAMfIDYlwh1o2AUjIKRBQB35gCa
+   eJxjYCAM/IE4AIgDgTgIiIOhdCBUfBSMglEwMgEASCYCiQ==
   </data>
  </layer>
  <objectgroup name="StunRight">
+  <object id="210" name="Hurtbox" type="4" x="855.52" y="22.24" width="18.63" height="28.85"/>
+  <object id="211" name="Hurtbox" type="3" x="791.52" y="22.24" width="18.63" height="28.85"/>
+  <object id="209" name="Hurtbox" type="2" x="727.52" y="22.24" width="18.63" height="28.85"/>
   <object id="199" name="Hurtbox" type="1" x="661.521" y="22.24" width="20.63" height="28.85"/>
   <object id="195" name="Hurtbox" type="0" x="597.521" y="22.24" width="20.63" height="28.85"/>
+  <object id="213" name="Hurtbox" type="3" x="919.52" y="22.24" width="18.63" height="28.85"/>
+  <object id="214" name="Hurtbox" type="2" x="983.52" y="22.24" width="18.63" height="28.85"/>
+  <object id="215" name="Hurtbox" type="1" x="1045.52" y="22.24" width="20.63" height="28.85"/>
  </objectgroup>
  <layer name="StunLeft" width="17" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYKAPcAZiFzrZNQpGwSigDwAACjYAiA==
+   eJxjYKAPcAZiFyB2BWI3IHaH0q5Q8VEwCkbB0AMAMCgCKQ==
   </data>
  </layer>
  <objectgroup name="StunLeft">
+  <object id="208" name="Hurtbox" type="7" x="1045.54" y="86.68" width="19.63" height="28.85"/>
+  <object id="207" name="Hurtbox" type="6" x="981.54" y="86.68" width="18.63" height="28.85"/>
+  <object id="206" name="Hurtbox" type="5" x="915.54" y="88.68" width="19.63" height="25.85"/>
+  <object id="202" name="Hurtbox" type="4" x="850.54" y="89.68" width="19.63" height="24.85"/>
+  <object id="201" name="Hurtbox" type="3" x="787.54" y="88.68" width="19.63" height="25.85"/>
+  <object id="200" name="Hurtbox" type="2" x="725.54" y="86.68" width="18.63" height="28.85"/>
   <object id="198" name="Hurtbox" type="1" x="661.54" y="86.68" width="19.63" height="28.85"/>
   <object id="194" name="Hurtbox" type="0" x="597.54" y="86.68" width="19.63" height="28.85"/>
  </objectgroup>

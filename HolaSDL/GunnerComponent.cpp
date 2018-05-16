@@ -63,7 +63,7 @@ void GunnerComponent::receiveMessage(Message * msg)
 	switch (msg->id) {
 	case HIT_WALL:
 		if (eg->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
-			targetObject->getHook().setHookStatus(HookStatus::STOP);
+			targetObject->getHook()->setHookStatus(HookStatus::STOP);
 			Message msg(HOOK_STOP);
 			targetObject->sendMessage(&msg);
 			eg->getEnemyState() == EnemyState::Idle;
