@@ -22,7 +22,7 @@ LevelManager::LevelManager()
 void LevelManager::ResetInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 
 LevelManager::~LevelManager()

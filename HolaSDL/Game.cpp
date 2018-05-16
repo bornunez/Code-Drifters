@@ -47,10 +47,10 @@ void Game::endGame()//Termina el PlayState y resetea sus instancias.
 {
 	delete mouseIcon;
 	delete levP;
-	EnemyManager::ResetInstance();
+	//EnemyManager::ResetInstance();
 	PlayState::ResetInstance();
-	BulletManager::ResetInstance();
-	LevelManager::ResetInstance();
+	//BulletManager::ResetInstance();
+	//LevelManager::ResetInstance();
 	ResourceManager::ResetInstance();
 }
 

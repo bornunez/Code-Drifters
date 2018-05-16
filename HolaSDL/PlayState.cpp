@@ -34,15 +34,18 @@ void PlayState::ResetInstance()
 
 PlayState::~PlayState()
 {
+	BulletManager::ResetInstance();
+	EnemyManager::ResetInstance();
 	CoinManager::ResetInstance();
 	HUDManager::ResetInstance();
 	ParticlesManager::ResetInstance();
+	LevelManager::ResetInstance();
 
 	delete shopState;
 	delete minimap;
 	delete camera;
-	delete level;
-	delete currentRoom;
+	//delete level;
+	//delete currentRoom;
 	instance->destroyAllGameObjects();
 	//MainCharacter se borra en el destroyAllGameObjects
 }
