@@ -8,12 +8,10 @@
 #include "RenderComponent.h"
 #include "InputComponent.h"
 
-
+const int NUMCOMP = 3;
 
 class ComponentContainer
 {
-protected:
-	int NUMCOMP = ItemC - RenderC;
 public:
 	ComponentContainer();
 	virtual ~ComponentContainer();
@@ -39,7 +37,7 @@ public:
 	virtual void lateRender();
 	virtual void handleEvents(SDL_Event& e);
 private:
-	std::list< Component*>* components;
+	std::list< Component*> components[NUMCOMP];
 	std::queue<Component*> garbage;
 	void cleanGarbage();
 };
