@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="54" height="47" tilewidth="16" tileheight="16" nextobjectid="38">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="54" height="47" tilewidth="16" tileheight="16" infinite="0" nextobjectid="38">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="54" height="47">
   <data encoding="base64" compression="zlib">
@@ -13,7 +13,7 @@
  </layer>
  <layer name="Aire" width="54" height="47">
   <data encoding="base64" compression="zlib">
-   eJzt08EJwCAUBcGf/ptOEWZUwg54fCErOM/M3HpWrO6VusxeqcvslbrMXqnL7JW6zF6py+yVusxeOd2l7uX0f9W197u9r73qMnulLrNX6jJ7pS6zV+oye6Uus1fqMnulLrNXvui69SRJkl94AV2RAJo=
+   eJztz7EJACAQBMG3/6atwEgGRHbgwg1u1sy8uhu3vdIv0yv9Mr3SL9Mr/TK90i/TK/0yvdIv0yv9Mr3SL9Mr/TK90i/TK/0yvdIv0yv9Mr3SL9Mr/TK90i/TK/06968uSZJ8YQMSZACX
   </data>
  </layer>
  <layer name="Paredes" width="54" height="47">

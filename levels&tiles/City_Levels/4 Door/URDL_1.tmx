@@ -1,56 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="32" height="30" tilewidth="16" tileheight="16" nextobjectid="16">
- <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
- <tileset firstgid="65" source="../../tileset/Decoracion.tsx"/>
- <layer name="Suelo" width="32" height="30">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="47">
+ <tileset firstgid="1" source="../../tileset/city.tsx"/>
+ <tileset firstgid="257" source="../../tileset/City2.tsx"/>
+ <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
+ <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
+ <layer name="Aire" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJztkk0OhSAMhIHnQgnncOnSpfc/ljHhJY3hp9NCYOEkswHab2o1Zn5ZYuQtUof2Qz2SLeGvzL6hU6bn3sf+fztiS8578UPMYCMzvEx7+cy5Mzq+Zj76rRB+br8byOYyW/7nb/5SmZXLR/fgmOwSv7S7nH3iTMrP5UkxNvKG5pYKnfdh/hL3Gkn2spj+fMRaffyxGWbmI+9b8SU1mgzS+hYZdkVtKQO33zGYfyr5tRw1XY34n+bVDYaOA60=
+   eJztzrEJAEEQxLC5/pv+IpzsgwTOvbftelf5a/w1/hp/jb/GX+Ov8df4a/w1/hp/jb/GX+Ov8df4a/w1f/k73Ae4BQCd
   </data>
  </layer>
- <layer name="Decoracion" width="32" height="30">
+ <layer name="Suelo" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF5AA+JDwQwHmA7CUEvIDYewiZSykYrPGAC/AiYVqCICz2suFQy0+GeaQAXPaSYj+5QIAINbS0n5DfaWk/MX6nJRi1f9T+gQYcA2z/aBhAwKgbIADWZh1otwx0uiTWfnq1l0bBwAAAnXAEDA==
+   eJztwwEJAAAMBKHrn+DjrsdQcNVUVVVVVVUfPT1jti4=
   </data>
  </layer>
- <layer name="Aire" width="32" height="30">
+ <layer name="DecoracionSuelo" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJxjYBiawAAJj4JRMAqGBjAGYiMobcJAv/xrBLXPGoitoLQNnew3gdppg0WOHvZjs5de9pvQ2HxCAJ/f6QEGun4atX/gwUC7YaDtB4FRN0DAYGq3DrQbRrr9xIDBlF6GIwAANaIH9Q==
+   eJztl2EOgjAMhXdWz6KewJj4X73AgAso3oD7aOMam9l2hU0wupc0GIT68TrX4ly+do9YMbEvkLuEKl+eKl+eKl+exvC14TgIuZridHY+H46X6HwbwrvPSONrlftAko+3YnR2/6B2wHtVciEX5yV91tQ6oM9n4WsULqxtp1yTUux3Z+Sj16EnuN64XFP5NKX8w9/3gauLEwiiNYb7sKZabbnc1vUH3vTuVWsL56ZArAW+bYHcXN4aNWo841QgjkLuc4HcKK4fx71d2he1/a8P13B9Ac4N5HMvcOTKsj9jb0UGCK0PcHPP1PlrTP+wCNkOwvd0fvSGvEvM96m5kuqX3j+mis4S3H9ImzWqf+8Cv6xr8Bv80/bNufnGvgN8g3+aluZL9cQ5+HL68tL+pVT5ZFnq/s/+3QFmNxrx
   </data>
  </layer>
- <layer name="Paredes" width="32" height="30">
+ <layer name="Paredes" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJztltEOgyAMRfmZuSfck+xJ9/9/NUjWpN4UC1hwD57kZgmhXoqdrXN2PKKmCj0bn4lxfI+Pmgs1VXjzuBfs82x9iQqFmgtzniHuDfsXtr5GbYUKB748pwBxH4hbM+sa5I/5kmcuXyvI37t9vsmPv8favGr9F7d/h8mv9U5r2H6/6yC/mxuJ1t5ghdQXtN5gidQXRt6B1BdG3wGe50p/9wf+JfNJT6gGEG3Gs6pZqgHJW5vprM6A/pSjNtNZnUHyT8/XZjqr2sH5lObQI/j34yzoRXOoBv9+nDkHepV4E9hLJPWE12NOPeH1mNMIjv4riS9hezFY
+   eJzt2OVvU1EcxvECG8P/F9whuENwh+AOgbkAATaYk7mPzH1kPmaEbcw3gjsJ7iS4E74NPcndTdbbnm7lTX/JJ+dFd55zKkn7TKczfaLN+Nvu2NfVuNnpdO7wgCe8cBhH7CzLU2bKZunHl71+8EcAAhGEYMlMkafMlM3STzR7YxCLOMQjAYmSmSJPmSmbpZ9M9mYhGznIRR7yJTPL2XdOlSmyDrIegiOc4AwXuBo5S+RVoBJVqEaN5P2a2NesyhRZx1iP4wS84YOTOGXkLJHXgla0oR0dkve7xb7bqkyRFcIaijCEIwKRiDJylsi7g7u4h/t4IHm/F+x7qcoUWUmsyUhBKtKQjgwjZ4m8V3iNN3iLd5L3+8a+76pMkVXAWogiFKMEpSiz4v1Env6OP/BT8fm7wFqLOtTjIhrQaMX3V7x+ykzx+bvMegVXcQ3XcQM3/8Prp8wUz/Uh6yM8xhM8xTM8N3KWeL7ivfiF3/hj4eunzBRZ71k/4CM+4TO+4Kvhcf13d3Tvzms/e52uPwZgIAZhMIbYy91P5Ckz9Vn6s3qx9kYf2MEefeFg3/2/K2xjG9vYxjadR923LOlGPTHqvmVJN+qJUfctc7qR/jvOWEfRetyUUfctc3uWVkeR6TDKUfctc3uWVkeR6TDKUfctc3uWVkeR6TDKUf8eN/d3uFZHkekwyhnqoNMNw3CMwEiMwmiMwViMw3hMwERMwmSHf/u1OopMh1HOFM6ZimmYjhmYiVmYjTmYi3mYjwVYiEWG+2l1FJkOo5zFnLMES7EMy7ECK7EKq7EGa7EO67EBGw330+ooMh1GOZs4ZzO2YCu2YTt2YCd2YTf2YC/2YT8OGO6n1VG0Hteag5xzCI5wgjNc4Ao3uMMDnvDCYRzBUSu9fsc45zhOwBs+OIlT8IUf/BGAQAQhGKetdL8QzglFGMIRgUhEIRoxiEUc4pGARJyx0vubxDnJSEEq0pCODGQiC9nIQS7ykI+zhvsZ66CmPK41BZxTiCIUowSlKEM5zqEClahCNWpw3sG0/K7G1P58gXNqUYd6XEQDGtGEZrSgFW1oRwcuWel+lvwf4C/HepsO
+  </data>
+ </layer>
+ <layer name="Decoracion" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztmDsLwjAUhe3mc/e5+dbRt45V0V1BdwUdBcFZ8A/oH/YsgWCaRGOStrQfHJJwm3vTnrS0TSRigsDFYRUk7g6rIPKwtK4G6jQdtq9KB/O7UAtqaziHIXKMHLavyhTzZ9AYmvjovS1/aR90eEL2CPGZJoNxllLui1q0Dzo8IXuE+ExTwrhMqSKpdRVIhpe/N45EsRubhqGKWjWormlPrZBnzcmlUquHY/vQQNP6dsiz5+RSqeXi2Dm0+GGO6P49IXbmxFVqxXzPE9f1peHa/vt85q1D1/r+Jerri6q/UcHW+1WMP4TV3/1HGzTOH61fmPJ3IxlvOa0tDpLxkdOGDVP+9qC+R58wgIaCuGlcaO7RJyygpSBuEtn37i/fwyafz0koBaUV46bJQwWoqBC38f+0CbWgtkI8LP9Po8YbVFBCXQ==
+  </data>
+ </layer>
+ <objectgroup name="Animados"/>
+ <layer name="Decoracion2" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztzsENgCAQAMHD9m1HrQD5qw15BfAHzUyy/40AthKxZ0cZfdJX8+vM2qR/V37d2TPpHwAAwJesy+gDAPiHF6teB3s=
+  </data>
+ </layer>
+ <layer name="Sombra" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt10EOgCAMRFGupvc/FHtDYdohasJ/CauG5seN2hoA/MP1OO6u3ejT59Ed+rR5dIe++fwedERHkdmn7ld3qqqN7s6MSqO7MyvbCADAiZRvtC/fl/R56PPQ56Fvzfk/fev57WqMdld1hQA2ow==
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="5" name="Up" x="224" y="32" width="48" height="16"/>
-  <object id="7" name="Right" x="480" y="368.5" width="16" height="47.5"/>
-  <object id="8" name="Down" x="128" y="416" width="48" height="16"/>
-  <object id="9" name="Left" x="16" y="144" width="16" height="64"/>
+  <object id="19" name="Right" x="619" y="220" width="19.6667" height="248"/>
+  <object id="31" name="Down" x="222.667" y="609.667" width="202" height="28"/>
+  <object id="45" name="Left" x="-4.83335" y="161" width="19.6667" height="238"/>
+  <object id="46" name="Up" x="192" y="-3" width="209" height="28"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="10" name="Up" gid="56" x="240" y="80" width="16" height="16"/>
-  <object id="11" name="Right" gid="56" x="432" y="384" width="16" height="16"/>
-  <object id="12" name="Left" gid="56" x="48" y="176" width="16" height="16"/>
-  <object id="13" name="Down" gid="56" x="144" y="384" width="16" height="16"/>
+  <object id="26" name="Right" gid="255" x="532.333" y="298.667" width="16" height="16"/>
+  <object id="28" name="Down" gid="255" x="327.333" y="554.667" width="16" height="16"/>
+  <object id="43" name="Up" gid="255" x="322" y="83" width="16" height="16"/>
+  <object id="44" name="Left" gid="255" x="87" y="300" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Spawners">
-  <object id="1" name="Spawn" gid="64" x="400" y="96" width="16" height="16">
+ <objectgroup name="Spawners" offsetx="-60" offsety="33">
+  <object id="20" name="Spawner" gid="240" x="438" y="265" width="16" height="16">
    <properties>
-    <property name="Gunner" type="bool" value="true"/>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="14" name="Spawn" gid="64" x="240" y="304" width="16" height="16">
+  <object id="21" name="Spawner" gid="240" x="365" y="354" width="16" height="16">
    <properties>
-    <property name="Gunner" type="bool" value="true"/>
+    <property name="Bomber" type="bool" value="false"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="15" name="Spawn" gid="64" x="160" y="144" width="16" height="16">
+  <object id="32" name="Spawner" gid="240" x="326.5" y="226.167" width="16" height="16">
    <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="false"/>
     <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="false"/>
+    <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
