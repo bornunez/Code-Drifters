@@ -57,6 +57,7 @@ DungeonGenerator::~DungeonGenerator()
 		Dungeon_[i].resize(mapWidth_);
 		for (int j = 0; j < mapWidth_; j++) {
 			delete Dungeon_[i][j];
+			Dungeon_[i][j] = nullptr;
 		}
 	}
 
