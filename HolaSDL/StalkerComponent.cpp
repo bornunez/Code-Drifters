@@ -18,6 +18,7 @@ ChargeComponent(e, target, aDelay, aTime, velMultiplier), UpdateComponent(e)
 
 StalkerComponent::~StalkerComponent()
 {
+	delete timer;
 }
 void StalkerComponent::receiveMessage(Message * msg)
 {

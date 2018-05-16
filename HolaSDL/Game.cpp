@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include "Game.h"
 #include "GameStateMachine.h"
 #include "Camera.h"
@@ -38,10 +39,16 @@ Game::~Game()
 	endGame();
 	delete stateMachine;			//Llama ademas a las destructoras de todos los estados que tenga pusheados
 	delete Time::getInstance();
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
 
+	SDL_DestroyRenderer(renderer);
+	renderer = nullptr;
+	SDL_DestroyWindow(window);
+	window = nullptr;
+
+	Mix_Quit();
+	TTF_Quit();
+	IMG_Quit();
+	SDL_Quit();
 }
 
 void Game::endGame()//Termina el PlayState y resetea sus instancias.
@@ -52,6 +59,7 @@ void Game::endGame()//Termina el PlayState y resetea sus instancias.
 	//PlayState::ResetInstance();			El destruir la pila llama a este destructor asi como al de mainmenu etc
 	//BulletManager::ResetInstance();
 	//LevelManager::ResetInstance();
+	AnimationParser::deleteAnimationParser();
 	ResourceManager::ResetInstance();
 }
 

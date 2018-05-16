@@ -1,6 +1,6 @@
 #ifndef MUSIC_H_
 #define MUSIC_H_
-//#include "checkML.h"
+#include "checkML.h"
 #include "SDL_mixer.h"
 #include <string>
 
