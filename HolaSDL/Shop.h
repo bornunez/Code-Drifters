@@ -1,9 +1,11 @@
 #pragma once
+#include "checkML.h"
 #include"SkillTree.h"
 #include"GameObject.h"
 #include<vector>
 
 //using namespace std;
+const int TREE_NUMBER = 3;
 
 class Shop: public GameObject
 {

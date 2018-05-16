@@ -1,4 +1,5 @@
 #pragma once
+#include "checkML.h"
 #include <string>
 #include "tinyxml2.h"
 #include "Tileset.h"
@@ -18,6 +19,8 @@ public:
 	~AnimationParser();
 
 private:
+	//Este puntero se va liberando cada vez que se deja de usar una tileLayer
+	static TileLayer * tileLayer;
 	static void parseAnimationLayer(string animationName, XMLElement* root, XMLElement* animationElement, Animation* anim, Tileset* tileset);
 	static void parseHitbox(string animationName, XMLElement* root, XMLElement* hitboxElements, Animation* anim, GameObject* o, int offsetX, int offsetY, int frameSize);
 public:
