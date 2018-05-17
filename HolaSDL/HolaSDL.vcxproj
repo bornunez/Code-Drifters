@@ -23,6 +23,8 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Boss2.cpp" />
     <ClCompile Include="Boss3.cpp" />
+    <ClCompile Include="BossBombAnimationComponent.cpp" />
+    <ClCompile Include="BossBombComponent.cpp" />
     <ClCompile Include="BossHUDComponent.cpp" />
     <ClCompile Include="BoxRenderer.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -53,6 +55,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBomb.cpp" />
     <ClCompile Include="EnemyBomber.cpp" />
+    <ClCompile Include="EnemyBossBomb.cpp" />
     <ClCompile Include="EnemyCharger.cpp" />
     <ClCompile Include="EnemyHUDComponent.cpp" />
     <ClCompile Include="EnemyManager.cpp" />
@@ -170,6 +173,8 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Boss2.h" />
     <ClInclude Include="Boss3.h" />
+    <ClInclude Include="BossBombAnimationComponent.h" />
+    <ClInclude Include="BossBombComponent.h" />
     <ClInclude Include="BossHUDComponent.h" />
     <ClInclude Include="BoxRenderer.h" />
     <ClInclude Include="Bullet.h" />
@@ -202,6 +207,7 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBomb.h" />
     <ClInclude Include="EnemyBomber.h" />
+    <ClInclude Include="EnemyBossBomb.h" />
     <ClInclude Include="EnemyCharger.h" />
     <ClInclude Include="EnemyHUDComponent.h" />
     <ClInclude Include="EnemyManager.h" />

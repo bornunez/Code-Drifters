@@ -7,6 +7,7 @@
 #include "MainCharacter.h"
 #include "EnemyTurret.h"
 #include "EnemyBomb.h"
+#include "EnemyBossBomb.h"
 #include "EnemyBomber.h"
 #include "Map.h"
 #include "PlayState.h"
@@ -76,6 +77,9 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 		break;
 	case Bomb:
 		e = new EnemyBomb(mc);
+		break;
+	case BossBomb:
+		e = new EnemyBossBomb(mc);
 		break;
 	case Bomber: 
 		e = new EnemyBomber(mc);
