@@ -12,7 +12,6 @@ GunnerAnimationComponent::GunnerAnimationComponent(Enemy* o, GameObject* target,
 	animations = anim;
 	this->target = target;
 	gameObject->changeCurrentAnimation("IDLE_BOT");
-	hurtTimer = new Timer();
 }
 
 
@@ -31,7 +30,7 @@ void GunnerAnimationComponent::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
 	case ENEMY_SPAWN:
-		hurtTimer->restart();
+		hurtTimer.restart();
 		break;
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUN_LEFT");
@@ -119,8 +118,8 @@ void GunnerAnimationComponent::handleAnimations()
 	if (!gameObject->isDead()) {
 		if (!eg->isStunned()) {
 			if (eg->enemyState == EnemyState::Hurt) {//Timer relacionado con la animación de recibir daño
-				hurtTimer->update();
-				if (hurtTimer->TimeSinceTimerCreation > 0.2) {
+				hurtTimer.update();
+				if (hurtTimer.TimeSinceTimerCreation > 0.2) {
 					eg->enemyState = EnemyState::Idle;
 				}
 			}
@@ -231,7 +230,7 @@ void GunnerAnimationComponent::handleAnimations()
 void GunnerAnimationComponent::hurtAnimations()
 {
 	int rnd = Random::randomInt(0, 1);
-	hurtTimer->restart();
+	hurtTimer.restart();
 	eg->enemyState = EnemyState::Hurt;
 	if (gameObject->getTransform()->direction.getX() == 1) {
 		if (rnd == 1) {

@@ -19,5 +19,5 @@ private:
 	std::map<const char*, Animation*> animations;
 	GameObject* target;
 	Enemy* eg;
-	Timer* hurtTimer;
+	Timer hurtTimer;
 };

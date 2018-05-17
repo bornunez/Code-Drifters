@@ -21,6 +21,8 @@ ChargerAnimationComponent::ChargerAnimationComponent(EnemyCharger* o, GameObject
 
 ChargerAnimationComponent::~ChargerAnimationComponent()
 {
+	delete hurtTimer;
+	delete chargeTimer;
 }
 
 void ChargerAnimationComponent::render()
