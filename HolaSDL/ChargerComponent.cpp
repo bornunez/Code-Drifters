@@ -17,6 +17,7 @@ ChargerComponent::ChargerComponent(Enemy* o, GameObject* target, float cDelay, f
 
 ChargerComponent::~ChargerComponent()
 {
+	delete timer;
 }
 void ChargerComponent::receiveMessage(Message * msg)
 {

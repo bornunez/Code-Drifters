@@ -15,6 +15,7 @@ UpdateBoss3::UpdateBoss3(Boss3* o, MainCharacter* prot) : UpdateComponent(o)
 
 UpdateBoss3::~UpdateBoss3()
 {
+	delete Tiempo;
 }
 void UpdateBoss3::receiveMessage(Message * msg)
 {

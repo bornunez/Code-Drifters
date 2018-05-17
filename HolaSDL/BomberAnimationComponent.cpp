@@ -19,6 +19,7 @@ BomberAnimationComponent::BomberAnimationComponent(EnemyBomber* o, GameObject* t
 
 BomberAnimationComponent::~BomberAnimationComponent()
 {
+	delete hurtTimer;
 }
 
 void BomberAnimationComponent::render()

@@ -22,6 +22,9 @@ ParticleAnimation::ParticleAnimation(GameObject * o, Texture * texture, double a
 
 ParticleAnimation::~ParticleAnimation()
 {
+	delete lastFrame;
+	delete deactivate;
+
 }
 
 void ParticleAnimation::render()
