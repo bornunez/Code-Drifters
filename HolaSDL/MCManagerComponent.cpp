@@ -95,6 +95,9 @@ void MCManagerComponent::receiveMessage(Message * msg)
 	case ENEMY_BULLET_COLLISION:
 		HurtMC(5.0);
 		break;
+	case BOSS_BULLET_HIT:
+		HurtMC(20.0);
+		break;
 	case STALKER_ATTACK:
 		HurtMC(10.0);
 		break;

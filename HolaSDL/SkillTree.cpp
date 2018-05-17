@@ -65,6 +65,18 @@ SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopSt
 	
 }
 
+SkillTree::~SkillTree()
+{
+	delete skill.HLineToFather;
+	delete skill.VLineToFather;
+	delete skill.text;
+
+	for (SkillTree* st : sons_) {
+		delete st;
+	}
+	sons_.clear();
+}
+
 SkillTree* SkillTree::FindSon(int n) {
 	//id to recognize them
 	if (n != skill.id) {

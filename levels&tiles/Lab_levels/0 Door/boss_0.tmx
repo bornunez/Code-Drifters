@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" nextobjectid="39">
+ <tileset firstgid="1" source="../../tileset/city.tsx"/>
+ <layer name="Suelo" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt10EOQDAQRuFeFYfhBjgBbmnsREiqYzITfS/5d418sWpTIqII9bKhcB6NsqlwHuG1TeNtZG3Gusq984ffs+7OW/q/tXvj9TLW4o1g/rPX24oXL96Y3uPs+d3gYc29w2juZ3jx4sUbybvIVsNdXU/ntkwvUfR2P1vdwA==
+  </data>
+ </layer>
+ <layer name="Rotos de suelo" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztV2vSgjAMzP2vA3IBhAvwuIDgOT4ykx3WWPwsrcoPdqZjH2nYbpOAIidOnDgKrktrltbaeLA2/ozRa/TyyG+2dpfHcxwFk6z8mLc/h8Lfxa8B3orJjRWhM3wT0Cs0Bw25HzrDNwG9QnPQ0Ot55Fw8kQ4fvyl7mxdrORCK3z17GxpPiX7fQYoWnpv60vpRJTHaRiVpWuhe5TgH1nLHRI73FccA18BPxESO91Uh693ruSda+0TOVYl+OU4573guJ1LvrTIffFeI5dwxkSuHvR+NCeiqteJo729oPLi+B+JF8xxx30icbtBB/agupfVjamhhfmqaa23usrROnt8vF5qbbfwfYF/as9TPzX7hG+v4nq+MS2v9K/mBTU1z2N8ZJ9SQXLENPzdZa6vyKOx5k6xajMR/oj0d8R+tYR1a1LL+58J5jgZoAW7KdW8u8v2gH/r+Qs5wY7ue7EJA7YAdamBsnfbxhDHe2cwvZOdttjjDnnMtZyxv8dyyG+SZs+fta8UeeL99hG3sczRHuYa8U8sYrA3XY/71tuAc862wpWsZyffEiaPiD7jX/F4=
+  </data>
+ </layer>
+ <layer name="Aire" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt0tsJACAMwEDdf2kXEBFsatEc9FfjozXpgp6wfuZE9EZaNVbspff6rTf7j2fe7w57Wfay7GXZy7KXZS/LXpa9LHtZ9rLsZe30VpuT85yarb/as9p7P2oAVKQAlg==
+  </data>
+ </layer>
+ <layer name="Paredes" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztl8ERQDAQRUMHqACdKUFndEBlWTfMcoj83TH5b+YdM/8dsyE8U4m1s4u4vjSeacTW2U3cP/QOBt43u8Te491koLbLXvayl72l984G5uy1gL1Y2IuFvVjYi6WU3j5c76oRUpdvV/uLWJC6y17sLnuxu+zF7v6tV7utLPDaJQRNBD7UkvU=
+  </data>
+ </layer>
+ <layer name="Sombras" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAC+DBjAAAE=
+  </data>
+ </layer>
+ <layer name="Puertas" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztzsEJgDAUBcEcFIwVqBUY+y/QV0JuX3AG9r6tAcD3LWlNW+ppr92ZdqQzXdUjk+400lM9AgAAAPzeC7TZAOs=
+  </data>
+ </layer>
+ <layer name="Ventanas" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztl+ltwzAMhTlUz/89/3eEAt2h1wC9Bug1QK8pJE9gaQLbc/QF4IPl1DICR3YRQA/4oIAmRIqmCEckK2u8tsA22AG7YA/sj7BfDDxLqQNwCI7AMTgBpyPsQ3ulVKwmz+AFvII38A4uwRW4BjfgNuLHPbmmVKwmH+ATfIFv8APuwD14AI/gKeLHPblmbY5Szoc5lGo+nM2UbyqdzxjL6FoM+DQRu1fmktFcnK61/i6UCpRq68vLqk81R7IaxwU51WprFNbPBbktfHgWkfZ8Xn24zxQyGqMO8vJqrzSPUnO38rfGTn3ZS6X6FD2+KcT3bTR22AsueM5e4Tn66melexdMj08qeen2RtgLrD9ztAN78IxT3kG+U685ldLt0UZtVGyOsLeYc2ymrCvWkT3Md+mlW2sJbH1qpO0lI+3ZU/ZFLW0dbBDPSnvHKCer1YznYz+nnBXh3Fy+I5xhXKe8P6sqnJ2Ld8eZxTnG58s9PIfW/e6PzYWp4v7Xd//YuFP+r5oi7qbVNysrKysri/oFoBm+5w==
+  </data>
+ </layer>
+ <layer name="Decoracion de edificio" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAC+DBjAAAE=
+  </data>
+ </layer>
+ <layer name="Cosas de encima" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJzt17ENACAMA0FvDdmeBRCiogh30teunQD8aT4IAACAeyP7b1VNdwE4W4y1Ekk=
+  </data>
+ </layer>
+ <layer name="Techo" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20ND6AAAAAAAAC+DBjAAAE=
+  </data>
+ </layer>
+ <layer name="Carteles" width="44" height="36">
+  <data encoding="base64" compression="zlib">
+   eJztzrEJACAQBMHvvx3FBhTr0sACTOQDZ2DhwosAAOC1sqtnt8wjl/punD0zjwAAAPCtBfVnBGs=
+  </data>
+ </layer>
+ <objectgroup name="Puertas"/>
+ <objectgroup name="Entradas"/>
+ <objectgroup name="Spawners"/>
+ <objectgroup name="Inicio">
+  <object id="36" name="Start" gid="255" x="368" y="464" width="16" height="16"/>
+  <object id="37" name="Boss" gid="255" x="368" y="304" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Animados"/>
+</map>

@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "UpdateComponent.h"
 #include "GameObject.h"
 #include "Timer.h"
@@ -20,7 +21,7 @@ private:
 	Vector2D direccion;
 	float vel;
 	float velWheel = 4.75;
-	int dirWheel = 0;
+	int dirLucian = 1;
 
 	Boss3* boss;
 	//FASES
@@ -53,8 +54,11 @@ private:
 	int fasesPast0 = 0;
 	float tiempoLucian = 4;
 	float auxLucian = 0;
-	float tiempoIntervalLucian = 0.3f;
+	float tiempoIntervalLucian = 0.4f;
 	float auxInterval = 0;
+	float auxTiempoGiro = 0.15f;
+	float auxTime;
+	bool para = false;
 
 	int fasesTp = 5;
 	int auxFasesTp = 0;
@@ -70,8 +74,8 @@ private:
 	const float tiempoFase1 = 2;
 	const float tiempoFase2 = 2;
 	const float tiempoFase3 = 6;
-	const float tiempoFase4 = 15;
-	const float tiempoFase5 = 1;
+	const float tiempoFase4 = 20;
+	const float tiempoFase5 = 7.5;
 	const float tiempoFase6 = 1;
 	const float tiempoFase7 = 2;
 	const float tiempoFase8 = 7;

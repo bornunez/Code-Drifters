@@ -22,7 +22,7 @@ LevelManager::LevelManager()
 void LevelManager::ResetInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 
 LevelManager::~LevelManager()
@@ -88,6 +88,8 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 	mc->getTransform()->velocity.set(0, 0);
 	mc->updatePreviousPosition();
 	mc->updateBody();
+	mc->getHook()->setHookStatus(HookStatus::STOP);
+	mc->setMCState(MCState::Idle);
 
 	room->spawn();
 	room->setExplored(true);
@@ -252,6 +254,12 @@ void LevelManager::nextLevel()
 	delete dungeon;
 	level++;
 	if (level <= maxLevel) {
+		if (level == 2) {
+			currentLevelType = Lab;
+		}
+		else if (level == 1) {
+			currentLevelType = City;
+		}
 		newMap();
 	}
 	else {

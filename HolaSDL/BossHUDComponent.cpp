@@ -4,10 +4,10 @@
 
 BossHUDComponent::~BossHUDComponent()
 {
-	delete bossBack,
-		bossBar,
-		bossBarBack,
-		bossSkeleton;
+	delete bossBack;
+	delete bossBar;
+	delete bossBarBack;
+	delete bossSkeleton;
 }
 
 BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)

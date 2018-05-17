@@ -22,6 +22,7 @@ BombComponent::BombComponent(Enemy* e, int bulletsNumber, float time, float spee
 
 BombComponent::~BombComponent()
 {
+	delete bombTimer;
 }
 
 void BombComponent::receiveMessage(Message * msg)

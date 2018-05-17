@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "RenderComponent.h"
 #include <map>
 #include "Animation.h"
@@ -18,5 +19,5 @@ private:
 	std::map<const char*, Animation*> animations;
 	GameObject* target;
 	Enemy* eg;
-	Timer* hurtTimer;
+	Timer hurtTimer;
 };

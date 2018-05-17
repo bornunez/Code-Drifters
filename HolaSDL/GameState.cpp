@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "GameState.h"
 #include "Game.h"
 
@@ -12,6 +13,8 @@ void GameState::cleanGarbage()
 		if (aux != nullptr) 
 		{
 			gameObjects.remove(aux);
+			delete aux;
+			aux = nullptr;
 		}
 	}
 }
@@ -25,9 +28,9 @@ GameState::GameState()
 GameState::~GameState()
 {
 	for(GameObject* o : gameObjects){
-		removeGameObject(o);
+		delete o;
+		o = nullptr;
 	}
-	cleanGarbage();
 }
 
 void GameState::update()

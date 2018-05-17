@@ -39,9 +39,12 @@ void BulletManager::update()
 		if (bullet->isActive()) {
 			bullet->update();
 			//Si la bala sale de pantalla se desactiva
-			if (bullet->getDisplayCenterPos().getX() > Game::getGame()->getWinW() || bullet->getDisplayCenterPos().getX() < 0
-				|| bullet->getDisplayCenterPos().getY() > Game::getGame()->getWinH() || bullet->getDisplayCenterPos().getY() < 0)
-				bullet->setActive(false);
+			if (bullet->getType() != BulletType::BossBullet)
+			{
+				if (bullet->getDisplayCenterPos().getX() > Game::getGame()->getWinW() || bullet->getDisplayCenterPos().getX() < 0
+					|| bullet->getDisplayCenterPos().getY() > Game::getGame()->getWinH() || bullet->getDisplayCenterPos().getY() < 0)
+					bullet->setActive(false);
+			}
 		}
 	}
 }
@@ -75,6 +78,8 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 	
 	else if(bulletType == BulletType::GunnerBullet)
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);
+	else if (bulletType == BulletType::BossBullet)
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BossBullet), true, bulletType);
 
 	bullets.push_back(newBullet);
 	return newBullet;

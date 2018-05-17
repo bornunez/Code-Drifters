@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include <vector>
 #include <list>
 #include "Boss.h"
@@ -46,7 +47,7 @@ private:
 	Boss* actBoss1 = nullptr;
 	Boss2* actBoss2 = nullptr;
 	Boss3* actBoss3 = nullptr;
-	MasterBoss* activeBoss;
+	MasterBoss* activeBoss = nullptr;
 
 	MainCharacter* mc;
 

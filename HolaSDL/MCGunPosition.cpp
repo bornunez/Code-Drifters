@@ -24,8 +24,8 @@ float MCGunPosition::handleGunAngle()
 
 	if (mc->getMCState() == MCState::HookShot) {
 
-		targetX = mc->getHook().getDisplayCenterPos().getX();
-		targetY = mc->getHook().getDisplayCenterPos().getY();
+		targetX = mc->getHook()->getDisplayCenterPos().getX();
+		targetY = mc->getHook()->getDisplayCenterPos().getY();
 	}
 	else {
 		SDL_Point p;//El target aquí es el cursor

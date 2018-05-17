@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "RenderComponent.h"
 #include <map>
 #include "Animation.h"
@@ -17,8 +18,8 @@ private:
 	GameObject* target;
 	EnemyStalker* es;
 	std::map<const char*, Animation*> animations;
-	Timer* hurtTimer;
-	Timer* chargeTimer;
+	Timer hurtTimer;
+	Timer chargeTimer;
 	float hurtTime;
 	float attackDelay;
 };

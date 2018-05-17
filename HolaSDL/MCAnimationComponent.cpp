@@ -533,8 +533,8 @@ float MCAnimationComponent::handleGunAngle()
 	}
 	else if (mc->getMCState() == MCState::HookShot) {
 
-		targetX = mc->getHook().getDisplayCenterPos().getX();
-		targetY = mc->getHook().getDisplayCenterPos().getY();
+		targetX = mc->getHook()->getDisplayCenterPos().getX();
+		targetY = mc->getHook()->getDisplayCenterPos().getY();
 	}
 
 	Vector2D mcDisplayPos = mc->getDisplayCenterPos();

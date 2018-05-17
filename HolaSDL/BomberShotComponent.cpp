@@ -29,6 +29,8 @@ BomberShotComponent::BomberShotComponent(Enemy* e, GameObject* target, float dis
 
 BomberShotComponent::~BomberShotComponent()
 {
+	delete lastShotTime;
+	delete shotAnimationTime;
 }
 
 void BomberShotComponent::receiveMessage(Message * msg)

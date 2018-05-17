@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "Texture.h"
 #include <vector>
 #include "Music.h"
@@ -7,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 99;
+const int NUM_TEXTURES = 100;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -31,7 +32,7 @@ typedef struct {
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
 enum TextureId {
-	MCBullet, MCGun, GunnerBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
+	MCBullet, MCGun, GunnerBullet, BossBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
@@ -98,6 +99,7 @@ private:
 		{ "MCBullet.png", 1, 1 },
 		{"GunRight.png",1,1},
 		{ "GunnerBullet.png", 1, 5 },
+		{ "BossBullet.png", 1, 4},
 		{ "HookChain.png", 1,2},
 		{"HookChainFail.png",2,13},
 		{"HookHead.png", 1 ,2},
