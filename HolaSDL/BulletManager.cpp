@@ -39,9 +39,12 @@ void BulletManager::update()
 		if (bullet->isActive()) {
 			bullet->update();
 			//Si la bala sale de pantalla se desactiva
-			if (bullet->getDisplayCenterPos().getX() > Game::getGame()->getWinW() || bullet->getDisplayCenterPos().getX() < 0
-				|| bullet->getDisplayCenterPos().getY() > Game::getGame()->getWinH() || bullet->getDisplayCenterPos().getY() < 0)
-				bullet->setActive(false);
+			if (bullet->getType() != BulletType::BossBullet)
+			{
+				if (bullet->getDisplayCenterPos().getX() > Game::getGame()->getWinW() || bullet->getDisplayCenterPos().getX() < 0
+					|| bullet->getDisplayCenterPos().getY() > Game::getGame()->getWinH() || bullet->getDisplayCenterPos().getY() < 0)
+					bullet->setActive(false);
+			}
 		}
 	}
 }

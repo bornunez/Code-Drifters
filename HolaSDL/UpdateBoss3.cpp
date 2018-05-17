@@ -9,6 +9,7 @@ UpdateBoss3::UpdateBoss3(Boss3* o, MainCharacter* prot) : UpdateComponent(o)
 	Tiempo = new Timer();
 	prota = prot;
 	posInic = Vector2D(boss->getTransform()->position.getX(), boss->getTransform()->position.getY());
+	auxTime = tiempoBomb;
 }
 
 
@@ -310,32 +311,37 @@ void UpdateBoss3::fase4()
 		boss->changeCurrentAnimation("CARGA");
 		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
 	}
-	if (boss->getTransform()->position.getX() < (posInic.getX() - auxX))
+	if (!para)
 	{
-		dir = 1;
-		boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
-	}
-	else if (boss->getTransform()->position.getX() > (posInic.getX() + auxX))
-	{
-		dir = -1;
-		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
-	}
-	boss->getTransform()->position.setY(boss->getTransform()->position.getY()+Time::getInstance()->DeltaTime*velocidad/2);
-	boss->getTransform()->position.setX(boss->getTransform()->position.getX() + Time::getInstance()->DeltaTime*velocidad*10*dir);
+		if (boss->getTransform()->position.getX() < (posInic.getX() - auxX))
+		{
+			dir = 1;
+			boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		}
+		else if (boss->getTransform()->position.getX() > (posInic.getX() + auxX))
+		{
+			dir = -1;
+			boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		}
+		boss->getTransform()->position.setY(boss->getTransform()->position.getY() + Time::getInstance()->DeltaTime*velocidad / 2);
+		boss->getTransform()->position.setX(boss->getTransform()->position.getX() + Time::getInstance()->DeltaTime*velocidad * 10 * dir);
 
-	if (auxBomb < tiempoBomb)
-	{
-		auxBomb += Time::getInstance()->DeltaTime;
-	}
-	else
-	{
-		EnemyManager::getInstance()->spawn(boss->getCenterPos().getX(), boss->getCenterPos().getY(), Bomb);
-		auxBomb = 0;
+		if (auxBomb < tiempoBomb)
+		{
+			auxBomb += Time::getInstance()->DeltaTime;
+		}
+		else
+		{
+			EnemyManager::getInstance()->spawn(boss->getCenterPos().getX(), boss->getCenterPos().getY(), Bomb);
+			auxBomb = 0;
+			tiempoBomb = (rand() % (int(auxTime*1.5f) * 1000 - int(auxTime*0.5f) * 1000) + auxTime*0.5 * 1000) / 1000;
+		}
 	}
 	if (boss->getTransform()->position.getY() >= posInic.getY() + 500)
 	{
-		faseAct = 5;
-		Tiempo->restart();
+		para = true;
+		boss->changeCurrentAnimation("ABRE_BRAZOS");
+		//boss->changeCurrentAnimation("DESVANECE");
 	}
 
 
@@ -374,20 +380,27 @@ void UpdateBoss3::fase5()
 		Transform auxTrans;
 		auxTrans = auxDir;
 		auxTrans.position.set(boss->getCenterPos() - Vector2D(auxTrans.body.w / 2, auxTrans.body.h / 2));
-		auxTrans.velocity.rotate(2);
-		auxTrans.direction.rotate(2);
-		auxDir.velocity.rotate(5);
-		auxDir.direction.rotate(5);
+		if (Tiempo->TimeSinceTimerCreation > tiempoFase5 / 2)
+		{
+			auxTrans.velocity.rotate(10);
+			auxTrans.direction.rotate(10);
+			auxDir.velocity.rotate(10);
+			auxDir.direction.rotate(10);
+		}
+		else
+		{
+			auxTrans.velocity.rotate(-10);
+			auxTrans.direction.rotate(-10);
+			auxDir.velocity.rotate(-10);
+			auxDir.direction.rotate(-10);
+		}
 		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
-		auxTrans.velocity.rotate(90);
-		auxTrans.direction.rotate(90);
-		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
-		auxTrans.velocity.rotate(90);
-		auxTrans.direction.rotate(90);
-		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
-		auxTrans.velocity.rotate(90);
-		auxTrans.direction.rotate(90);
-		BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
+		for (int i = 0; i < 3; i++)
+		{
+			auxTrans.velocity.rotate(120);
+			auxTrans.direction.rotate(120);
+			BulletManager::getInstance()->shoot(boss, auxTrans, BulletType::BossBullet);
+		}
 		auxInterval = 0;
 	}
 }
