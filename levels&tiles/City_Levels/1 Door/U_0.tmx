@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="40" height="41" tilewidth="16" tileheight="16" infinite="0" nextobjectid="24">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="40" height="46" tilewidth="16" tileheight="16" infinite="0" nextobjectid="24">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
- <layer name="Suelo" width="40" height="41">
+ <layer name="Suelo" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJztwwEJAAAMA6D1T7C4q3GOgsltVVVVVVVVfXY+A7Yu
+   eJztzrEJAAAIA0H3n8Bx7W1tFO/h2pCIX2WzLf9mffvX9wAAAAAAAK4reljCDg==
   </data>
  </layer>
- <layer name="DecoracionSuelo" width="40" height="41">
+ <layer name="DecoracionSuelo" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJztlusNgzAMhLP/Bp2jwAIFNmCfylJOOqV2CuRFS74/UGLFl3Pi1LlOp9Pp1GD0z80YHyrrYJ7++VJiRxrPwWC8h75oOhnLx/WwonRkHaJ3jsRAV04vgeWFINosXajtFIkpwexzAniC/QY4Jpc+yyvOi1zI//Tjk9tHSo2lXuE5xHf4Fnohv5cgphRWn4IGIBpWJX6h79/OeClCTdre4hhZSymtOebNWfNYL9FyzJFxjA3BWMqaN+Od0XS2uBfOgnqO9GQvc2LNZ9UImlDT1X327RJ6GO412tmVb1sQ26r+6NfQoPVE5qyPKf7vvVuR45GQ60i+q9Dqnvo3LB9jd04twj3J/2Va1Z81LWbUvbH6/6+f2Vb6U/dZTd1WrquclSNelLgTc8zJa7iKr3fgDRDwZ+8=
+   eJztlmEOgyAMhbn/DXaOqReYegPvszTxJS9dy1RA3OT7o5OGPl6hLIRGo9FoNBqNuvTrc3HGu5N1MM/1+TJiexrPQee8a18snYzn47xbUTqyDtE7RmKgK6eXwPNCEG2eLtR2iMSUYFxzAniC/QY4Jpc+zyvOi1zI/1zHh7CNlBpLvfQ5xHf4pr2Q35OKKYXXp6ABiIbZiJ/o+7czXgqtydpbHCNrKaU1x7w5ax7rJVaOMTKOsU6Npax5cd4ZS2eNe+EoqGdPT/YyJ958Xo2gCTWdw2ffLqGH4V5jnV35tqjYWvVHv4YGqycyR31M8X/r3Yocj4Rce/JdhVr31L/h+Ri7c85C70n+L1Or/qxpcqPujdf/f/3M1tKfus/O1O3luspZ2eNFiTsxx5y8hqv4egfeFBBn7w==
   </data>
  </layer>
- <layer name="Paredes" width="40" height="41">
+ <layer name="Paredes" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
- <layer name="Decoracion" width="40" height="41">
+ <layer name="Decoracion" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJzt2DkKwkAYBeA/TFxAQUtBb6OgvR7G1iN4Iu0V3GqXC7g0LqVPtFEySRiD84PvgwfZYF6mCD8RIfpv/ZhoUApEypZoUEePhiU2I9wb/7h/G+t1Uq45w3NzJfsbZYFuK8X9iLJ0NSI38zwuhCLF0G8fylbTvJ+3TPRzvnQ/+vSU9SNyscYMsUG2yE7hPLFHpwNyRE4K+z3msOUrnMfi1QL3pDVQ/l0eZtyvgjmo+uUsdEani0m+5ksO75cPk6/5MsE+TZXsFRERufPxb9LmDkBtIXA=
+   eJzt2DkKwkAYBeA/zLiAgpaC3kZBez2MrUfwRNorqLF2uYBL41L6RBslk4QYnL94HzzIBvMyRfiJCBERUbRhTDSoBCJVRzRookfLEZcJ7k3/3L+L9Xop11zguaWS/Y2yQre14n5EeboZkbt5HZesSNn67UP5apvP846Jfs6X/lefgbJ+RFlsMENskR2yVzhPHNDpiJyQs8J+zzksfIfzWLxGkD1pjZR/l8c596thDqr/OAtd0Olqkq/5UsD7FW3yNV9m2Ke5kr0iIqLsfPybdHkAQ40hcA==
   </data>
  </layer>
- <layer name="Decoracion2" width="40" height="41">
+ <layer name="Decoracion2" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJzt1cENACAQArBL3EDdf1bfLqBi2gn4AFXAj2a7nQCAdL4EdjoB8LYRsNM9ICMA5yyjXABx
+   eJzt1cENACAQArBL3EDdf1bfLqAS2wn4AFUA8JfZbicAIJ0vgZ1OALxtBOx0D8gIwDkLpnwAcQ==
   </data>
  </layer>
- <layer name="Sombra" width="40" height="41">
+ <layer name="Sombra" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJzt1btOAkEYhuFJzBIRsQYE7kWuThCpPYC1gFpzNJbigVpFrQGBmoMa34JiY5iQdWEyif+XPO3sm91JVimZTCaTLdvenK2TPn+TPn+TPn+TPn/7r30p19m/edk635+u0cvW/X0XNXqZ7fdPJpPJZOa27yiVRgYHyOIQOWe1z9H9/5c5ouMYJzhFHgWcOX8/c5XO6SiihDIucIkrS/oqdFRRQx0NNHHt6jMxXd8tHS3c4R4PeETbcJ9uT3Q84wUdvOIN75b0denooY8PDDDEyJK+MR0TTDHDJ77wbUnfZkCpILYQwjbC2AmY7bvZWCxCRxQx7CKOBJKG+3T7AW8zVsY=
+   eJzt1TlPAkEAhuFJzBJPajz/i/w6RaD2QGvvGkWMpcpR41mDB7UCGt/CYmOYkGVhMonfmzzt7JfdSdYYpZRSSqnhW/3la9oXL+2Ll/bFS/vi9V/3pUNn/xWlcb4/28Yojfv79tsYJd/vn1JKKXetBcasI4MNZJFDPhjtc2z//0E22bGFbeyggF3sBcOfOUr77DjAIY5wjBOcerKvyI4znKOEC5RxGdrnItu+a3bc4BYVVFFD3fE+Ww123OEeD3jEE5492ddkRwsveMUb3tH2ZN8HOz7RQRc9fOHbk32TCWOmMI0ZzGIOyYTbfVcT/aXYMY8FLGIJy1hxvM/WD3JTVsY=
   </data>
  </layer>
- <layer name="Aire" width="40" height="41">
+ <layer name="Aire" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAIA7D5V4BcFOzloU2adHMUAAAAAADgkwUSaQ9x
+   eJzt0rEJADAIRUGz/9JZIEIIFkHv4LfyCiMKrWS/OLXouzexL/vp11XfBwAAAAAAaGYDLc0AMw==
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="22" name="Up" x="112" y="11" width="417" height="21"/>
+  <object id="22" name="Up" x="318.667" y="17" width="63.6667" height="15.6667"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="23" name="Up" x="321" y="71" width="59" height="15"/>
+  <object id="23" name="Up" x="310.333" y="105.667" width="59" height="15"/>
  </objectgroup>
  <objectgroup name="Spawners" offsetx="-60" offsety="33">
-  <object id="20" name="Spawner" gid="240" x="427" y="199" width="16" height="16">
+  <object id="20" name="Spawner" gid="240" x="451.667" y="277.667" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -55,7 +55,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="21" name="Spawner" gid="240" x="381" y="311" width="16" height="16">
+  <object id="21" name="Spawner" gid="240" x="347" y="329" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
