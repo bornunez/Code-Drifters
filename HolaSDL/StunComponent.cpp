@@ -42,7 +42,7 @@ void StunComponent::receiveMessage(Message * msg)
 				enemy->sendMessage(&msg);
 				enemy->setStun(true);
 				ResourceManager::getInstance()->getSoundEffect(EnemyStuned)->play();
-				ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
+				
 			}
 		}
 	}
