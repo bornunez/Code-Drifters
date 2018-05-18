@@ -19,6 +19,11 @@ SimpleAnimationComponent::SimpleAnimationComponent(GameObject* o, Texture* textu
 	lastFrame = new Timer();
 }
 
+SimpleAnimationComponent::~SimpleAnimationComponent()
+{
+	delete lastFrame;
+}
+
 void SimpleAnimationComponent::setAnimationNumber(Uint32 animNumber)
 {
 	this->animationNumber = animNumber;
@@ -34,9 +39,6 @@ void SimpleAnimationComponent::setFlip(SDL_RendererFlip flip)
 	this->flip = flip;
 }
 
-SimpleAnimationComponent::~SimpleAnimationComponent()
-{
-}
 
 void SimpleAnimationComponent::render()
 {
