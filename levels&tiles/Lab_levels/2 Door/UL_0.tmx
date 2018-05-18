@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" nextobjectid="20">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="20">
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlN1qwzAMhZ0fGHZyNXqxJ9j7P+Jq8Ee/aE5pOtqLEYGwkyg6PtKRU3reytXHq69tHf+Q64hNDWtovrwJt/KcG2Zp6ztxq+e2vsqG4LXOU8Os68fBXJ9XvzQflIu8zt/7XveV//dB3EvDNo+4mlcPd34St4cJV/ZT2uq3pG3dvw7ixp6ZS+Rbn5nZHN4XrfgjuHA1L3K7vvBFx/jYsFbFTIq9h7tqj5OD/g7pNj9TywMeOIs49OasV2fvuQ/dX89sT2/mj9Y5H5ZDbdzLpfPOZ8D9r3tAvcoO7nwH29oyZm+2HEfevFNnaoIWjcU5S6jdlLZnhTPn5g41j6gr9wrtg0mt3GufBV1Zu6ti+d7D9f3uewJtkYscOd36Bzc0PIb4Wf9Ecx7mCD1l5YErfBbFksPv4LJ2MKkz8bG37mcO33P63Vtm4xFz/7LcnMD3ne0ZK+LYq+kRo7b0znqjfmC/0pgxerx3D5122mn/234ABCEI0Q==
+   eJztlNtqwzAQROULFMl+KnnoF/T/P7ER6JDjrRzilOSheGGR48g7mp1ZpfR8lGuO11zbOv6h1pGYGtbQcnkTbuU5N8zS1nfi1sxtfVUMIWufp4ZZ14+DtT6veWk5qBZ1Xb/3f32u/L8P4l4atnnE1bx6uPOTuD1MuPI8pa1/S9r2/esgbtTMXCLf+puZzeF90Uo+ggtX86K2+wtffEyODWvVnkl77+Gueiapgb5Dus0PWoAHziIOvTnr9dnP3IfW1zPb85v54/Up4ObQG2u5dN75DKS/tQb0q+zgznew7S1j9mbL+6ibd/pMT/CisThnCb2b0vascObc3KHmEX1lrfA+mPTKWvss+MreXbXXvou4vt99T+AtalEjp5t+cMPDY9g/65sYrsMc4aesOnCFz6K91PA7uKwdTPrM/qit9czh/5x+a8tsPBLWLyvNCXzf2Z6xIo69nh4Jeot29hv9A/uVwYyh8d49dMYZZ/zv+AEWUQjT
   </data>
  </layer>
  <layer name="Aire" width="30" height="30">
@@ -46,7 +46,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="15" name="Spawner" gid="672" x="354" y="198" width="16" height="16">
+  <object id="15" name="Spawner" gid="672" x="334" y="223" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="true"/>
     <property name="Charger" type="bool" value="true"/>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" nextobjectid="19">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="19">
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlFtOxDAMRdNJJNQ2X2jWwP6XSCt8xMGkoIKYH2rJapqH77V9k1Iu+86mzVv49EDcuvkS3/ogzCn5LbD33J/Cz8R63vwePikWcR1/tL6PX8LP4N4D23nkL/FrGeOCfRZ3hEmujKv2reWtz657TWO0cISbe+Zccr77f4+5Oc0v+uLwIy5azJiZN7FrwlhjrclvgdG1p2rvWt7vXsbtGuPEgC93GE5FeOCAUcVvjnhHdfaYGrm/TbFGenP+TXzgX+K8a+NeroM5c8B91j2gXrwzjMFtX2BbW8Yc3S3vc20Zo8eimqBFY8FzSbWr5SNXcoZ3Fw5csq7cK7QPJrVyr80FXVm7XXtZBzcbufid8P3vigHvWbmh4Vva33RmZNZ4Vz3A6sqVfFbthYvnyKUfYGLmR53dz7w+l8+95W78xNCfcwLfb7bvGO8hdfuNUVt6Z71RP+vzr4w7Ro/9Dl122WX/x14BWWYIyQ==
+   eJztlVtqxDAMRZ3YUJL4q8wauv8lNqE69FT1UNLS+ZkIhD22onv18pRyyU8y7dpCpwfi1l3XWOuDMKekc2Afsb+EnvH1uustdJIv/Nr/6P7Yv4Wewb0FtuPIK/5rGeOCfRZ3hEms7KvstvJRZ+e9pj29cA8318yx5HiP3z3OlnS+akXhh196MWNm3viuCWOLuyadA6PLpsp2K5+zl3G79ig+4MsMw6kIDxwwqvgt4e9enr0nR65vk69Rvzn+Jj7wL/H9Gmuu5TY4MwfUOXINyBfvDHtwW6pLnhvnvcpHjtV2zi17+rEoJ/SiseC5ptzV8pUrMcO7Cwcuua9cK3ofTHLlWpsLfeXe7bLl3jNnIRa/E57/ru/gTT+4h+dk3/TN6D/EPd6Vj0V+iJV4NtnCxWfE0gd4FvMjz65nvl/K99oyG78R+s8xge832zPGe0je/iLkltq538if+/O/hBmjxn6HLrnkkueRd2ZuCMw=
   </data>
  </layer>
  <layer name="Aire" width="30" height="30">

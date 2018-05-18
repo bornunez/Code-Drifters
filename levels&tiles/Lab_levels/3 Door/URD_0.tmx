@@ -12,7 +12,7 @@
  </layer>
  <layer name="Aire" width="28" height="28">
   <data encoding="base64" compression="zlib">
-   eJztlc0KwjAQhPcQKVVv/uADiGJPKr1UfP/ncoIpLJLSZLMbFBz4TiU7O9t0S/R9ujL+qq/ac8/1WziiTeDg7P2a4LUDrbLf57O9e+drgp9Fvhu4g575ObAFF4HfnAbwAE9wRP0TOIPOwIvL4h73jBp+fmbj7DQl7TWWW6qUWoOiX+oMNTOmKJYx9x+Y23Npxtz7WPIepb1Kzvkz0m8tN2OJF68xtY+0vbz4Lo95jr1o7yuaqGmxG7lasAQrsDb0+VW9AHMyDpU=
+   eJztVcsOgCAM4+rjY9Rwwfj/32U5kOwwIxts0WiTHlm7MkYIz8NC+MMf3rl/Wc/Cy13NFdzAaKDNIYE7eDjpFVhkGwk99HJmFtlpvfacmZpaqaNebYZe76KA61H6B0o9t/YonceWe9R61ZzLZ7RvTdpjixatcbWPemtl0F3OaRYvFrueq2n9rwzgCE7gbKjzVpyqQAx8
   </data>
  </layer>
  <layer name="Paredes" width="28" height="28">
@@ -22,7 +22,7 @@
  </layer>
  <layer name="Decoracion" width="28" height="28">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFhMA2Ruqa54xD/CIjdkxtsB2HmY1MDAwCUHY7UE0HEHcSYb80CwODDBDLAjEvAbWJQDuSgDgZiCci2TcdaM8MIJ5Jhn/5iVQXxYCwbznQnhVAvJKAfWx47MMVj8hAgLASBlYGSLhhswvZPkIAnxmkAGLsI8ZfxAB2ND6uMCXXXyDz+ZAwIRDEQJnfWNHMIgSQ0yQldvJCzcIFnKA0tdIIsr3Ied4JSYxa9mADoDQKSivUSoeEAKE8OgpGwSgYBSMNAACuYhNp
+   eJxjYBgFhMA2Ruqa4YxDzUVG7JjaYDsOMxuZGBgEoOx2oJoOIO4kwn5pFgYGGSCWBWJeAmoTgXYkAXEyEE9Esm860J4ZQDyTDP/yE6kuigFh33KgPSuAeCUB+9jw2IcrHpGBAGElDKwMkHDDZheyfYQAPjNIAcTYR4y/iAHsaHxcYUquv0Dm8yFhQiCIgTK/saKZRQggp0lK7OSFmoULOEFpaqURZHuR87wTkhi17MEGQGkUlFaolQ4JAUJ5dBSMglEwCkYaAABvQRQg
   </data>
  </layer>
  <layer name="Decoracion2" width="28" height="28">
@@ -60,13 +60,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Animados">
-  <object id="16" name="Burbujas1" gid="1078" x="66.5" y="142" width="16" height="16"/>
-  <object id="17" name="Burbujas4" gid="1078" x="75" y="165.5" width="16" height="16"/>
-  <object id="18" name="Burbujas3" gid="1078" x="84" y="144" width="16" height="16"/>
-  <object id="19" name="Burbujas2" gid="1078" x="91" y="161" width="16" height="16"/>
-  <object id="21" name="Burbujas3" gid="1078" x="71" y="155.5" width="16" height="16"/>
-  <object id="22" name="Burbujas2" gid="1078" x="102" y="168.5" width="16" height="16"/>
-  <object id="23" name="Burbujas1" gid="1078" x="124" y="142" width="16" height="16"/>
- </objectgroup>
+ <objectgroup name="Animados" visible="0"/>
 </map>
