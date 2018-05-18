@@ -34,14 +34,16 @@ void StunComponent::receiveMessage(Message * msg)
 	switch (msg->id)
 	{
 	case MC_BULLET_COLLISION: {
-		if (!enemy->isStunned()) {
-			stunTime = static_cast<MCBulletStun*>(msg)->stunTime + specificTime;
-			stunTimer.restart();
-			Message msg(GUN_STUN);
-			enemy->sendMessage(&msg);
-			enemy->setStun(true);
-			ResourceManager::getInstance()->getSoundEffect(EnemyStuned)->play();
-			ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
+		if (!enemy->isDead()) {
+			if (!enemy->isStunned()) {
+				stunTime = static_cast<MCBulletStun*>(msg)->stunTime + specificTime;
+				stunTimer.restart();
+				Message msg(GUN_STUN);
+				enemy->sendMessage(&msg);
+				enemy->setStun(true);
+				ResourceManager::getInstance()->getSoundEffect(EnemyStuned)->play();
+				ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
+			}
 		}
 	}
 	default:

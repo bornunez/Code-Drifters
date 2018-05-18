@@ -13,7 +13,7 @@ void MCUltimateInput::handleEvents(SDL_Event & e)
 
 			if (mc->getMCState() == MCState::Idle || mc->getMCState() == MCState::Run || mc->getMCState() == MCState::DashEnd) {
 			
-				MCUltimateDamage ulti(mc->getUltimateAttackDamage());
+				MCUltimateDamage ulti(mc->getAttackDamage(MCAttackType::ULTIMATE));
 				list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
 				for (GameObject* e : enemies) {//Manda el mensaje de ultimate a todos los enemigos activos
 					if (!e->isDead()) {

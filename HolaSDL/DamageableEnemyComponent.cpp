@@ -24,11 +24,27 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 	if (msg->id == MC_ATTACK_DAMAGE) {
 		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);		
 		attacked = true;
+		if (enemy->isStunned()) {
+			Message msg(STUN_OFF);
+			enemy->sendMessage(&msg);
+			enemy->setStun(false);
+		}
 	}
+
+	if (msg->id == MC_BULLET_COLLISION) {
+		receiveDamage(MCAttackType::SHOT, static_cast<MCBulletStun*>(msg)->damage);
+		attacked = true;
+	}
+
 	else if (msg->id == ULTIMATE) {
 		timerOn=true;
 		damage = static_cast<MCAttackDamage*>(msg)->damage;
 		damageTimer->restart();
+		if (enemy->isStunned()) {
+			Message msg(STUN_OFF);
+			enemy->sendMessage(&msg);
+			enemy->setStun(false);
+		}
 	}
 }
 
