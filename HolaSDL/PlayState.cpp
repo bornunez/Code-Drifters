@@ -22,14 +22,16 @@ PlayState* PlayState::instance = nullptr;
 PlayState::PlayState():GameState ()
 {
 	ResourceManager::getInstance()->getMusic(Level1)->play();
-
+	stype = StateType::PlayState;
 }
 
 void PlayState::ResetInstance()
 {
-
-	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = nullptr; // so GetInstance will still work.
+	if (instance != nullptr) {
+		delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+		instance = nullptr; // so GetInstance will still work.
+	}
+	
 }
 
 PlayState::~PlayState()

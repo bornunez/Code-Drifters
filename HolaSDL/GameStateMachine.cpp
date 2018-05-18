@@ -37,7 +37,8 @@ void GameStateMachine::popState()
 */
 	GameState* gs = stateStack.top();
 	stateStack.pop();
-	garbage.push(gs);
+	if(gs->getType() != StateType::PlayState)
+		garbage.push(gs);
 }
 
 void GameStateMachine::quitState()
@@ -61,6 +62,7 @@ void GameStateMachine::cleanGarbage()
 		if (aux != nullptr)
 		{
 			delete aux;
+			aux = nullptr;
 		}
 	}
 }

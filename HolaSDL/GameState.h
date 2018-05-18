@@ -5,7 +5,7 @@
 #include <queue>
 #include "GameObject.h"
 
-
+enum class StateType {RegularState, PlayState};
 using namespace std;
 
 class Game;
@@ -14,6 +14,7 @@ class GameState
 private:
 	queue<GameObject*>garbage;
 protected:
+	StateType stype = StateType::RegularState;
 	list<GameObject*>gameObjects;
 	Game* game;
 	void cleanGarbage();
@@ -27,4 +28,5 @@ public:
 	void addGameObject(GameObject* go);
 	void removeGameObject(GameObject* go);
 	void destroyAllGameObjects();
+	StateType getType() { return stype; };
 };
