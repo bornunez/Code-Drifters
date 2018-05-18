@@ -219,8 +219,8 @@ void Game::quitToMenu()
 	stateMachine->popState();
 	stateMachine->popState();
 	PlayState::ResetInstance();
-	EnemyManager::ResetInstance();
-	BulletManager::ResetInstance();
+	//EnemyManager::ResetInstance();
+	//BulletManager::ResetInstance();
 }
 
 void Game::pause(GameState* state)
