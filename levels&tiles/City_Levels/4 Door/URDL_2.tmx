@@ -6,12 +6,12 @@
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
  <layer name="Aire" width="48" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt2VsKgDAMRNG61e5/EeKfVvsQmsyknQv5EuwBRSumZNDRmAjVnPL31500Ob1n2vkd/KbT87MmPzb5scmPTX5s8mPbwc/eav7RvSlLjf10xoh+9TDK75782D79kZ8/5TH2Vnt/jR5jKfL+7Up+bPJji+zf4ftRfrvkxyY/tl387OPgh/y/nlVtDeZ7894KfqdrfwKUDQjk
+   eJzt11sOgCAMBVHc/6ZdgSDYevuYSfplAscQExzDoWsyGXpy4l/vazWe61f3Rw2/Nvza8GvDrw2/tg7+6FXzv72bRmnnPh09/Nrwa8v4Lc+8Wfwnz6JU3R/9HfBrw68ts7/D/yN+v/Brw6+ti/90Tj1W+3z1r/bwXNuymT9DFfw/nf0Nmg0BKw==
   </data>
  </layer>
  <layer name="Suelo" width="48" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt2jEKwCAQRUHP6qlyXAsbCRIEQ9Yl8+D30y5sKZpVJ8tUdn9U1+Hj5+fn5+fn5+fn59/zj/dRtG/Ff7/n+Pn/7B+L9q34n4r28Z89fn5+fn5+fn5+fv73/Opl/x/I7v+qBteNxX4=
+   eJzt2TEKACEMRUHP6qn2uNtaBAKuGGXnwe+nDWlNUT3YTfHP9Rw+fn5+fn5+fn5+fv5v/vHGqPZli+4hfv4/+8eqfdmyqn38Z4+fn5+fn5+fn5+ff51/Vf7vtd3u39ULBhbNJg==
   </data>
  </layer>
  <layer name="DecoracionSuelo" width="48" height="48">
