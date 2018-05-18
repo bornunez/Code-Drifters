@@ -9,7 +9,7 @@
  </layer>
  <layer name="Aire" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGwVAHAAfQAAE=
+   eJxjYBgFo2AUjCjASCU1A23HKBgFowAFAAAWLAAF
   </data>
  </layer>
  <layer name="Paredes" width="25" height="20">
@@ -33,7 +33,7 @@
   <object id="51" name="Tienda" x="120.5" y="54.25" width="64.75" height="43.5"/>
   <object id="52" name="ChicaFumando" x="192" y="160" width="16" height="32"/>
   <object id="53" name="MadamP" x="138" y="41" width="16" height="16"/>
-  <object id="54" name="BlackLove" x="47" y="160" width="16" height="48"/>
+  <object id="54" name="BlackLove" x="46.5" y="160" width="16" height="48"/>
   <object id="61" name="SafeSex" x="336" y="160" width="16" height="32"/>
  </objectgroup>
 </map>
