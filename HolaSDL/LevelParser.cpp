@@ -13,6 +13,7 @@
 #include "SkeletonRenderer.h"
 #include "Camera.h"
 #include "ShopInput.h"
+#include "TextTrigger.h"
 
 void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, vector<Tileset*> tilesets)
 
@@ -154,7 +155,7 @@ void LevelParser::parseObjects(XMLElement * root, XMLElement * objectsElement, M
 		int w = atoi(object->Attribute("width"))* scale;
 		int h = atoi(object->Attribute("height"))* scale;
 		//Guardamos la posicion
-		GameObject* go = stringToObject(objectName,x,y,w,h);
+		GameObject* go = stringToObject(objectName,object, x,y,w,h);
 		objects.push_back(go);
 	}
 	map->setObjects(objects);
@@ -243,7 +244,7 @@ string LevelParser::dirToString(Direction dir)
 	return direction;
 }
 
-GameObject * LevelParser::stringToObject(string objName, int x, int y,int w,int h)
+GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, int y,int w,int h)
 {
 	GameObject* obj = new GameObject(nullptr, x, y, w, h);
 
@@ -252,9 +253,25 @@ GameObject * LevelParser::stringToObject(string objName, int x, int y,int w,int 
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GunnerBullet)));
 	else if (objName == "Tienda") {
 		obj->addComponent(new PressToInteract(obj));
-		obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
+		//obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
 		obj->addComponent(new ShopInput(obj));
-
+		}
+	else if (objName == "ChicaFumando") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GirlSmoking),0.0,200));
+	}
+	else if (objName == "BlackLove") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(BlackLove), 0.0, 200));
+	}
+	else if (objName == "SafeSex") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(SafeSex), 0.0, 200));
+	}
+	else if (objName == "MadamP") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Madam_P_Idle), 0.0, 200));
+	}
+	else if (objName == "Tuto_Text") {
+		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
+		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
+		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
 	}
 	else if (objName == "Burbujas1")
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas1),0,300));

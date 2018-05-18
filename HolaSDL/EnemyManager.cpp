@@ -189,10 +189,10 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	if (actBoss3 == nullptr) {
-		actBoss3 = new Boss3(mc, x, y, 128, 128);
+	if (actBoss1 == nullptr) {
+		actBoss1 = new Boss(mc, x, y, 128, 128);
 	}
-	activeBoss = actBoss3;
+	activeBoss = actBoss1;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {

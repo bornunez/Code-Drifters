@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" nextobjectid="19">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="19">
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlu1qwzAMRZ3YMBL71+gz7P0fcQnzgTPNS2lpAoMJRFxH0dXVF03pX+7JtGnpOl2Imzdd+zNfhDkFnTv2zv2t6yO+3je9dZ3kC7/2P3q/nz+6PoJ769jmEZ/4z2mMC/ajuCNMuHLOsqvpq87Oew5neuE33Fgzc4l899+t3y3hftUTJT78jnDh6rjxnQNG7e+KdO4YTTZZtvUAt+mM4oP6MsPElIQHThWHRfZHefaZHLm+Rb5G/Wb+RfF4zywhN65lHdw5BtTfugbkiz0zB9xygO3eMuZotmzn3HJuwiUn9KKxiHMNucvpe6xwJu4mHGKJfeVa0ftgkivX2rHQV+7dJlvegxsFLt4Tnv8mH8S9iBs9PAf7om9GAmfmiH4Cq4krfKpsicV3cHFNR+L4yLPrGd8v6WdtmY1nhP4zJ/C9sz1j7MO4G54Rckvt3G/kD+wzhRmjxt5DZwuzQs7v9cyrhN3JbNZj85eJ54seuwoXzuzAK8T/6Y720Bm4sZ+vEO8I9vFfkk9Q0QmW
+   eJztlu1qwzAMRZPYMBz71+gz7P0fcQnzgTPNS2lpAoMJRFxH0dXVF52mf7kn86a563whbtp07c90EeYcdOnYO/e3ro/4et/01nWWL/za/+j9fv7o+gjurWObR3ziP01jXLAfxR1hwpVzkl2dvursvKdwphd+w401M5fId//d+l0J96ueKPHhd4QLV8eN7xQwan+XpUvHaLJJsq0HuE1nFB/Ulxku8gsev6s4FNkf5dlncuT6Zvka9Zv5Z8XjPVNCblzLOrhzDKi/dQ3IF3tmCbj5ANu9ZczRbNnOueXchEtO6EVjEecacpem77HCmbibcIgl9pVrRe+DSa5ca8dCX7l3m2x5D24UuHhPeP6bfBB3ETd6eAn2Wd+MBM7MEf0EVhNX+FTZEovv4OKajsTxkWfXM74v08/aMhvPCP1nTuB7Z3vG2IdxNzwj5Nb7yHlwPc4UZowaew+dLcwKOb/XM68SdiezWY/NXyaeL3rsKlw4swOvEP+nO9pDZ+DGfr5CvCPYx39JPgG02Qmh
   </data>
  </layer>
  <layer name="Aire" width="30" height="30">
@@ -33,15 +33,15 @@
    eJxjYBgFMLB51F662rsViDciYWLAUyB+RqG9pPj7PRB/AOKvQPwNiT8KRsEoGAWjYBSMglEwCkbBcAAASowObw==
   </data>
  </layer>
- <objectgroup name="Puertas">
+ <objectgroup name="Puertas" visible="0">
   <object id="9" name="Up" x="207" y="44" width="65.5" height="15.5"/>
   <object id="17" name="Down" x="193" y="430" width="78" height="32"/>
  </objectgroup>
- <objectgroup name="Entradas">
+ <objectgroup name="Entradas" visible="0">
   <object id="16" name="Up" gid="687" x="232.5" y="120.5" width="16" height="16"/>
   <object id="18" name="Down" gid="687" x="221" y="365" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Spawners">
+ <objectgroup name="Spawners" visible="0">
   <object id="14" name="Spawner" gid="672" x="116" y="244" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="true"/>

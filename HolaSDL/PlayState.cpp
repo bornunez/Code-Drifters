@@ -108,6 +108,7 @@ void PlayState::update()
 	GameState::update();
 	CoinManager::getInstance()->update();
 	BulletManager::getInstance()->update();
+	LevelManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
 	HUDManager::getInstance()->update(); //de momento peta
 	CollisionsManager::getInstance()->update();
@@ -126,7 +127,7 @@ void PlayState::nextLevel()
 	minimap = new Minimap(1, 1, 10, 10);
 
 	camera->load();
-
+	LevelManager::getInstance()->enterMap();
 	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;

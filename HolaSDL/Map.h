@@ -59,6 +59,7 @@ public:
 	void render();
 	void handleEvents(SDL_Event & e);
 	void lateRender();
+	void sendMessage(Message* msg);
 
 	vector<Layer*>* getLayers() { return &layers; }
 	vector<Tileset*> getTilesets() { return tilesets; }

@@ -33,7 +33,7 @@
    eJxjYBgFo2AUUAKYR+0dtXfUXqrYOxB2g+zkGWH2sowweznpaJ8xEJvQ0T4YsAZiGzrbSY4/LYHYigESTuQCSvwJst+QAv2UAJjdRkSqp2ZagoU7zH5kbIzEBtlHi7QEsx8ZWyOx6Z12RwEmAACzQghv
   </data>
  </layer>
- <objectgroup name="Puertas">
+ <objectgroup name="Puertas" visible="0">
   <object id="7" name="Right" x="447.5" y="96" width="16" height="206.5"/>
   <object id="17" name="Left" x="0.5" y="224" width="16.5" height="96"/>
  </objectgroup>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="41" height="42" tilewidth="16" tileheight="16" nextobjectid="46">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="41" height="42" tilewidth="16" tileheight="16" infinite="0" nextobjectid="46">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -37,7 +37,7 @@
  </layer>
  <layer name="Aire" width="41" height="42">
   <data encoding="base64" compression="zlib">
-   eJzt0NEJgFAIQFE/miJogaAF4k0Q7T9PztBTKDgHxD+RGwEAAADw3rpEnDljcnfa8/6Vc0/uTlvz/QrHD37UsYaONXSsoWMNHWvo+D0PIS8L9w==
+   eJzt2cEJgDAQRNEcUoVgA4INqFiAith/NeaqsBjCbCD4Hyy5LGGYUyAh5LsKBwAAAKilhfcnGTXIqEFGjb9n7GIIU5rFOOf43F+NPc+MQ7p/S3MY5/7KeBp7nhn7+L2TwzPj2EDGP/XoSdWjJ3rUoEcNetSgR40aPZb+F3n8Jd2gERmh
   </data>
  </layer>
  <objectgroup name="Puertas">

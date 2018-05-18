@@ -21,6 +21,7 @@ public:
 	~Room();
 	void load();
 	void loadFromFile(string root);
+
 	void render();
 	void lateRender();
 
