@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "GameState.h"
 #include "Texture.h"
 #include "MenuButton.h"
@@ -38,7 +39,7 @@ private:
 
 public:
 	MainMenuState();
-	~MainMenuState();
+	virtual ~MainMenuState();
 	
 	virtual void handleEvent(SDL_Event& e);
 	virtual void update();

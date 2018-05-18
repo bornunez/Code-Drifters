@@ -9,6 +9,7 @@
 #include"MainCharacter.h"
 #include "CoinManager.h"
 #include "ItemManager.h"
+#include "Message.h"
 #include <iostream>
 
 LevelManager* LevelManager::instance = nullptr;
@@ -22,9 +23,8 @@ LevelManager::LevelManager()
 void LevelManager::ResetInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
-
 LevelManager::~LevelManager()
 {
 	delete dungeon;
@@ -34,6 +34,9 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 {
 	//COSAS QUE PASAN CUANDO CAMBIAS DE SALA AQUI
 	//Antes de Spawnear, despawneamos los que hubiera
+	Message auxMsg(ROOM_EXIT);
+	if(prevRoom != nullptr)
+		prevRoom->getMap()->sendMessage(&auxMsg);
 	EnemyManager::getInstance()->killAll();
 	ItemManager::getInstance()->reset();
 	CoinManager::getInstance()->clean();
@@ -91,6 +94,8 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 
 	room->spawn();
 	room->setExplored(true);
+	Message msg(ROOM_ENTER);
+	sendMessageCurrent(&msg);
 }
 
 LevelManager * LevelManager::getInstance()
@@ -258,6 +263,23 @@ void LevelManager::nextLevel()
 	}
 	else {
 		//Ir a los creditos
+	}
+}
+
+void LevelManager::sendMessageCurrent(Message * msg)
+{
+	currentRoom->getMap()->sendMessage(msg);
+}
+
+void LevelManager::sendMessageAll(Message * msg)
+{
+	Room* r = nullptr;
+	for (int i = 0;i < dungeon->getLevelHeight(); i++) {
+		for (int j = 0;j < dungeon->getLevelWidth(); j++) {
+			r = dungeon->getRoom(j, i);
+			if (r != nullptr && !r->isVoid())
+				r->getMap()->sendMessage(msg);
+		}
 	}
 }
 

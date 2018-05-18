@@ -37,7 +37,7 @@ int Texture::getFrameHeight()
 
 int Texture::getNumCols()
 {
-	return width/frameWidth;
+		return width/frameWidth;
 }
 
 int Texture::getNumRows()

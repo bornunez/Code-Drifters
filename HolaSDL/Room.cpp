@@ -22,8 +22,10 @@ Room::Room() {
 
 Room::~Room()
 {
-	delete map;
+	if (!isVoid())
+		delete map;
 }
+
 void Room::load() {
 
 	//A partir de ahora seleccionaremos una sala aleatoria con las puertas dadas

@@ -24,6 +24,11 @@ MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(mc)
 	attackCD = new Timer();
 }
 
+MCAttackComponent::~MCAttackComponent()
+{
+	delete attackCD;
+}
+
 void MCAttackComponent::handleEvents(SDL_Event & e)
 {
 
@@ -186,8 +191,4 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 		mc->setCharging(false);
 		
 	}	
-}
-
-MCAttackComponent::~MCAttackComponent()
-{
 }

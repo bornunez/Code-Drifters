@@ -185,6 +185,7 @@
     <ClInclude Include="ChargerComponent.h" />
     <ClInclude Include="ChargerDamageableEnemyComponent.h" />
     <ClInclude Include="ChaseComponent.h" />
+    <ClInclude Include="checkML.h" />
     <ClInclude Include="Coin.h" />
     <ClInclude Include="CoinManager.h" />
     <ClInclude Include="CollisionHandler.h" />

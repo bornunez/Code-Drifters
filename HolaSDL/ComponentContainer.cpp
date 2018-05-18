@@ -6,7 +6,7 @@
 ComponentContainer::ComponentContainer()
 {
 	//Inicializamos el array
-	components = new std::list<Component*>[NUMCOMP];
+	//components = new std::list<Component*>[NUMCOMP];
 }
 
 
@@ -65,7 +65,7 @@ void ComponentContainer::sendMessage(Message * msg)
 {
 	for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
-			if(c->isActive())
+			if (c->isActive())
 				c->receiveMessage(msg);
 		}
 	}
@@ -108,7 +108,7 @@ void ComponentContainer::handleEvents(SDL_Event & e)
 {
 	for (Component* c : components[InputC])
 	{
-		if(c->isActive())
+		if (c->isActive())
 			static_cast<InputComponent*>(c)->handleEvents(e);
 	}
 	cleanGarbage();

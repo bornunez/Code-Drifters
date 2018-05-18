@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include <vector>
 #include "tinyxml2.h"
 #include "LevelParser.h"
@@ -58,6 +59,7 @@ public:
 	void render();
 	void handleEvents(SDL_Event & e);
 	void lateRender();
+	void sendMessage(Message* msg);
 
 	vector<Layer*>* getLayers() { return &layers; }
 	vector<Tileset*> getTilesets() { return tilesets; }

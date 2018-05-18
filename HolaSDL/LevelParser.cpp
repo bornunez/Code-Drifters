@@ -259,12 +259,18 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 	else if (objName == "ChicaFumando") {
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GirlSmoking),0.0,200));
 	}
+	else if (objName == "BlackLove") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(BlackLove), 0.0, 200));
+	}
+	else if (objName == "SafeSex") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(SafeSex), 0.0, 200));
+	}
 	else if (objName == "MadamP") {
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Madam_P_Idle), 0.0, 200));
 	}
 	else if (objName == "Tuto_Text") {
 		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
-		obj->addComponent(new TextTrigger(obj, ".\\dialogues\\" + (string)p->Attribute("value")+ ".txt"));
+		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
 		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
 	}
 	else if (objName == "Burbujas1")

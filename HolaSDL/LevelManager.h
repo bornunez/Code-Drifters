@@ -1,6 +1,8 @@
 #pragma once
+//#include "checkML.h"
 #include <vector>
 #include "sdl_includes.h"
+class Message;
 using namespace std;
 
 class Room;
@@ -67,5 +69,8 @@ public:
 	void init(bool tutorial);
 	void newMap();
 	void nextLevel();
+
+	void sendMessageCurrent(Message* msg);
+	void sendMessageAll(Message* msg);
 	~LevelManager();
 };

@@ -1,3 +1,7 @@
+1
+death Forman
+2
 0
-0
-asdasd
+Hola Haro, veo que te has despertado.
+0 
+Estaras un poco perdido, prueba a moverte (W,S,A,D)

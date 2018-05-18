@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "Texture.h"
 #include <vector>
 #include "Music.h"
@@ -7,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 101;
+const int NUM_TEXTURES = 104;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -35,7 +36,10 @@ enum TextureId {
 	
 	//TIENDA
 	Madam_P_Idle,
+	Madam_P_Drinking,
 	GirlSmoking,
+	BlackLove,
+	SafeSex,
 
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
@@ -111,8 +115,10 @@ private:
 
 		//Cosas de la tienda
 		{"Puti\\Phernelia_Waiting.png",1,2},
+		{ "Puti\\Phernelia_Drinking.png",1,2 },
 		{"Puti\\ProstitutaSmokingLove.png",1,7},
-
+		{ "Puti\\BlackLove1.png",1,3 },
+		{ "Puti\\SafeSex.png",1,2 },
 
 		//HUD
 		{"Interfaz\\Barra.png", 1, 1},

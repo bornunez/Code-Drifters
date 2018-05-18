@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" nextobjectid="18">
+ <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../../tileset/Decoracion.tsx"/>
+ <layer name="Suelo" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztld0KwzAIhW0tbBSv9/6P2gUmiDtHkpBdbEwIKfHnyzFCRb7PNrI+VZP5VnBZ/ZXceyfXwPn+XBr22wC35Z/pTAHTAgsx2/4Y5BpgC+DpK86//bytY5Jrhd81xv5m3ccA0+s622shf2Rm3swso5ncO+N7tMb3YHVajJG4nBN1My56o+jL85v7l3NzXKUz57se1mcVPE8q73qZ1hzH5gDdzTWxO1Rvi3pZxbL+zMxxzO2xquaqf8DfftMurfkCGg==
+  </data>
+ </layer>
+ <layer name="Decoracion" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztkzEOgCAMRVkUF9QrKZO6MXr/g9gBkqZpS0lw4yU/ouL/Ni3ODQY8N+jJ6wN0dvCcQCH7YVK+Xh0yavmY9+c8mh2QJPZGX9ynFbQY/oNjbszlqGVv5F6r1TtbPZZsmivV6hVP2ruI3q2CMFKtJTOS51w9Uu/otwmtpdzWOZD2Y8p5CooP52WZPXp+qKzzW3x6zPtgoPEB5JMGmA==
+  </data>
+ </layer>
+ <layer name="Aire" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztVEEOgCAM40kIXhD//y4hstgQtgwkxgNNeoBg60aHMf+FBS4svMGW6D70o9yGxKP49+Ds8JH2g3lq94n7gF5rDqWZRO9cezR3PVwPvOI/LLPf+q5mYM7WPZZ6OesNqvuv0cX7G4W2VgTeX29+JR9Oq5VNzK8GUsZJq/bkZg1n1wF9Ia2zBmWcA9Yhebb8ibGQ1to3gnS05xfm4QL5HBO4
+  </data>
+ </layer>
+ <layer name="Paredes" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAPqAKxGhasTqZ56Oaim4Nsny4Q66FhNQrthZmpj0fcFIjN0DAp9mLzG8xMczS1yOK2QGyHhkmxF5vfYGbao6nFJQ4DeiTYi8tv5ACzAbLXjgS1hMJuFIyCUTAKRsHIAQDAcAzv
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="5" name="Up" x="144" y="32" width="48" height="16"/>
+  <object id="9" name="Left" x="16" y="128" width="16" height="64"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="10" name="Up" gid="56" x="160" y="80" width="16" height="16"/>
+  <object id="12" name="Left" gid="56" x="48" y="160" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="1" name="Spawn" gid="64" x="272" y="112" width="16" height="16">
+   <properties>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

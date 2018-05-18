@@ -34,15 +34,19 @@ void PlayState::ResetInstance()
 
 PlayState::~PlayState()
 {
+	BulletManager::ResetInstance();
+	//EnemyManager::ResetInstance();
 	CoinManager::ResetInstance();
 	HUDManager::ResetInstance();
 	ParticlesManager::ResetInstance();
-
+	LevelManager::ResetInstance();
+	
+	delete ItemManager::getInstance();	//Se usa??
 	delete shopState;
 	delete minimap;
 	delete camera;
-	delete level;
-	delete currentRoom;
+	//delete level;
+	//delete currentRoom;
 	instance->destroyAllGameObjects();
 	//MainCharacter se borra en el destroyAllGameObjects
 }
@@ -123,6 +127,7 @@ void PlayState::nextLevel()
 	minimap = new Minimap(1, 1, 10, 10);
 
 	camera->load();
+	LevelManager::getInstance()->enterMap();
 	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;

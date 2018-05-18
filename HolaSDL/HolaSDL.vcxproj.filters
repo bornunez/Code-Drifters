@@ -836,6 +836,9 @@
       <Filter>Estados\Header</Filter>
     </ClInclude>
     <ClInclude Include="TextTrigger.h" />
+    <ClInclude Include="checkML.h">
+      <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

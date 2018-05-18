@@ -100,6 +100,10 @@ enum MessageId {
 	//Wheels
 	WHEEL_HIT,
 
+	//Sala
+	ROOM_ENTER,
+	ROOM_EXIT,
+
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID
 };
