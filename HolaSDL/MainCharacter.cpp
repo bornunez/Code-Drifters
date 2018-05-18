@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "MainCharacter.h"
 #include "Game.h"
 #include "Camera.h"
@@ -47,7 +48,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	loadAnimations();
 
 	hook = new Hook(500);
-
+	PlayState::getInstance()->addGameObject(hook);
 	transform.speed = 400;
 	//setMaxVelocity(0.5);
 
@@ -86,6 +87,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 MainCharacter::~MainCharacter()
 {
+	/*delete hook;
+	hook = nullptr;*/
 }
 
 void MainCharacter::loadAnimations()

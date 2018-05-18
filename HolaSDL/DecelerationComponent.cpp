@@ -20,7 +20,7 @@ void DecelerationComponent::update()
 	}
 	if (t->speed <= t->speed * (1-reductionFactor)){
 		t->speed = t->speed * (1 - reductionFactor);
-		gameObject->removeComponent(this);
+		this->setActive(false);
 	}
 }
 void DecelerationComponent::receiveMessage(Message* msg) {
@@ -30,7 +30,7 @@ void DecelerationComponent::receiveMessage(Message* msg) {
 	{
 		Transform * t = gameObject->getTransform();
 		t->speed = t->speed * (1 - reductionFactor);
-		gameObject->removeComponent(this);
+		this->setActive(false);
 		break;
 	}
 	default:

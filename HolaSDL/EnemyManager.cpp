@@ -7,6 +7,7 @@
 #include "MainCharacter.h"
 #include "EnemyTurret.h"
 #include "EnemyBomb.h"
+#include "EnemyBossBomb.h"
 #include "EnemyBomber.h"
 #include "Map.h"
 #include "PlayState.h"
@@ -21,15 +22,25 @@ void EnemyManager::ResetInstance()
 {
 	//instance->killAll();
 	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = NULL; // so GetInstance will still work.
+	instance = nullptr; // so GetInstance will still work.
 }
 
 EnemyManager::~EnemyManager()
 {
-	for (Enemy* e : actives)
-		kill(e);
-	for (Enemy* e : inactives)
-		PlayState::getInstance()->removeGameObject(e);
+	for (Enemy* enemy : inactives) {
+		delete enemy;
+		enemy = nullptr;
+	}
+
+	for (Enemy* enemy : actives) {
+		delete enemy;
+		enemy = nullptr;
+	}
+
+	//for (Enemy* e : actives)
+	//	kill(e);
+	//for (Enemy* e : inactives)
+	//	PlayState::getInstance()->removeGameObject(e);
 
 	delete actBoss1;
 	delete actBoss2;
@@ -66,6 +77,9 @@ Enemy * EnemyManager::createEnemy(EnemyType eType)
 		break;
 	case Bomb:
 		e = new EnemyBomb(mc);
+		break;
+	case BossBomb:
+		e = new EnemyBossBomb(mc);
 		break;
 	case Bomber: 
 		e = new EnemyBomber(mc);
@@ -175,10 +189,10 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
-	if (actBoss1 == nullptr) {
-		actBoss1 = new Boss(mc, x, y, 128, 128);
+	if (actBoss3 == nullptr) {
+		actBoss3 = new Boss3(mc, x, y, 128, 128);
 	}
-	activeBoss = actBoss1;
+	activeBoss = actBoss3;
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {

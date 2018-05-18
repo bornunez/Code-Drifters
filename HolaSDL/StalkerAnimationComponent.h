@@ -18,8 +18,8 @@ private:
 	GameObject* target;
 	EnemyStalker* es;
 	std::map<const char*, Animation*> animations;
-	Timer* hurtTimer;
-	Timer* chargeTimer;
+	Timer hurtTimer;
+	Timer chargeTimer;
 	float hurtTime;
 	float attackDelay;
 };

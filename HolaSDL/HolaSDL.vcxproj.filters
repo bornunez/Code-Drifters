@@ -426,6 +426,15 @@
       <Filter>Estados\Source</Filter>
     </ClCompile>
     <ClCompile Include="TextTrigger.cpp" />
+    <ClCompile Include="EnemyBossBomb.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBombAnimationComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBombComponent.cpp">
+      <Filter>Enemigos\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -838,6 +847,15 @@
     <ClInclude Include="TextTrigger.h" />
     <ClInclude Include="checkML.h">
       <Filter>Arquitectura\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBossBomb.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBombAnimationComponent.h">
+      <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BossBombComponent.h">
+      <Filter>Enemigos\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

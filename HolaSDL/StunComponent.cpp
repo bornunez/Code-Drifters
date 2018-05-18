@@ -25,7 +25,6 @@ void StunComponent::update()
 		Message msg(STUN_OFF);
 		enemy->sendMessage(&msg);
 		enemy->setStun(false);
-		std::cout << "Ya no estoy stuneado" << std::endl;
 	}
 }
 
@@ -41,7 +40,6 @@ void StunComponent::receiveMessage(Message * msg)
 			enemy->sendMessage(&msg);
 			enemy->setStun(true);
 			ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
-			std::cout << "AAAAAA QUE ME ATURDEN COÑO ES DESESPERANTEEEEE" << std::endl;
 		}
 	}
 	default:

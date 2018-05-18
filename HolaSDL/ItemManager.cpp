@@ -117,3 +117,9 @@ ItemManager * ItemManager::getInstance()
 		instance = new ItemManager();
 	return instance;
 }
+
+void ItemManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
+}

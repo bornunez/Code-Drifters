@@ -22,6 +22,7 @@ BombComponent::BombComponent(Enemy* e, int bulletsNumber, float time, float spee
 
 BombComponent::~BombComponent()
 {
+	delete bombTimer;
 }
 
 void BombComponent::receiveMessage(Message * msg)
@@ -37,7 +38,6 @@ void BombComponent::receiveMessage(Message * msg)
 void BombComponent::explode() {
 	if (bombTimer->TimeSinceTimerCreation > explodeTime) {
 		bombTimer->restart();
-		cout << "kabom";
 		Transform bulletTransform;
 		bulletTransform.body.w = 50;
 		bulletTransform.body.h = 15;

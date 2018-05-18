@@ -99,6 +99,7 @@ enum MessageId {
 	BOSS1_ATTACK,
 	//Wheels
 	WHEEL_HIT,
+	BOSS_BULLET_HIT,
 
 	//Sala
 	ROOM_ENTER,

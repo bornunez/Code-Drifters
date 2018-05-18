@@ -15,6 +15,8 @@ DamageableEnemyComponent::DamageableEnemyComponent(Enemy* o, MainCharacter* mc, 
 
 DamageableEnemyComponent::~DamageableEnemyComponent()
 {
+	delete damageTimer;
+	delete attackedTimer;
 }
 
 void DamageableEnemyComponent::receiveMessage(Message* msg)

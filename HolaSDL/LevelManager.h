@@ -30,7 +30,7 @@ private:
 	int baseRooms;
 	int roomsPerLevel;
 	vector<string> levelTypePath { "City_Levels\\" , "Lab_Levels\\" };
-
+	LevelType currentLevelType;
 	//Posicion del jugador
 	int roomX, roomY;
 	Room* currentRoom;
@@ -63,7 +63,7 @@ public:
 
 	bool getDoor(Direction dir);
 
-	string getActiveLevelPath() { return level >= 2 ? levelTypePath[City] : levelTypePath[City]; }
+	string getActiveLevelPath() { return levelTypePath[currentLevelType]; }
 
 	//Metodos de control
 	void init(bool tutorial);

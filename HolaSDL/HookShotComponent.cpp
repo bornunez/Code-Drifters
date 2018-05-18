@@ -1,3 +1,4 @@
+//#include "checkML.h"
 #include "HookShotComponent.h"
 #include "GameObject.h"
 #include "Hook.h"
@@ -121,7 +122,7 @@ void HookShotComponent::updateHookPos()//Actualiza la posición del gancho
 
 void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la dirección que va a tomar el gancho
 {
-	PlayState::getInstance()->addGameObject(hook);
+	//PlayState::getInstance()->addGameObject(hook);
 	hook->setActive(true);
 	hook->setHookStatus(HookStatus::EXTEND);
 	mc->setMCState(MCState::Dash);
