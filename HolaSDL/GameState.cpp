@@ -13,6 +13,7 @@ void GameState::cleanGarbage()
 		if (aux != nullptr) 
 		{
 			gameObjects.remove(aux);
+
 			delete aux;
 			aux = nullptr;
 		}

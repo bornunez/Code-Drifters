@@ -16,22 +16,22 @@
  </layer>
  <layer name="Aire" width="37" height="20">
   <data encoding="base64" compression="zlib">
-   eJztlNEKgzAMRbvHbeK3TOeLnf//XTYQ4RKTdNPabeCFS2gMeGiahPCfuiVf2KdOfaL22wCKiKlL7tm/IGIakyO7q/DPhzjflZoWTHxHc0mmxqjTuKiXTyPmcnjeyiTZln6+jJjL4Vneu2S6vslU0qPDNHDEvpSWxWUxTRyxL0e8Z48HmQblGwnfcy0RE/FMTs1yb9bu7MN6lry5yinHo7FFkY9hPUveXJXikWrY2o6Vwv57O20PzxbhHVs7rSbPXs1rUBy8
+   eJztlNEKwyAMRd3jtuK3bG1fqv3/71pkkYW7dJqWOQYeuMRqCocIOvefXCgnTqdjwf9aQKE7PbnB91Xp8SItQKdho6+lV61TpoUXOp0L/d69zwz3SrE4zVzvlJEyVfxvpcZTOq1cF0qgRPb7theSnWblLLG419xakZySz/qhJ88tu6HfCJlgbaXko7kF2A+QCGvL/Vt8kIGjvbGIvH85R6xHfPYgZxw3akufozwAVzkR5g==
   </data>
  </layer>
  <layer name="Paredes" width="37" height="20">
   <data encoding="base64" compression="zlib">
-   eJztk0sKgDAMRONhqit1VV2pJ9H7H8O6GBgGXBjBusiDoZA2yfRn5icVtU51L3ppbqJ4XzQ49dQX544y11M8F01OocadtyRznDvL2kzxpWh1CjXgTX3x3k1yN1m7UHxvzI7m+WhUA97UF5/L18AbfAF+F7WAL5wV30dNrv76p/6A/qk/UPuugiAIgvecFqAfBw==
+   eJztlEsOgzAMRM1hQleBFXRFOQnc/xhkM9JoRNTGpLSLjDSKZMfOU35mfoXk3unHhbW0NlA8Jg9Ol3Jx7Si5SPEpeXYaPXJsQXJc+5S5E8WX5JfT6AE25YqS49pV5i4U3zqzvSsfjXqATbl4X7CfnnvoEdjABfG9QA6+g8uIC+vxeSAH382lb4pzyuX9h0r/JH1TysVsYyW/49I3leOu6Rp3Yb3oHNcvdcb1yfl8W7p3TU1N/6cDhr02QA==
   </data>
  </layer>
  <layer name="Decoracion" width="37" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBheQJeRgUGPkXSalsAWaL4dI+k0LYEv0Hw/RtJpWgIvIPZGE3MkwPcEYicK7fLEIo9NjBxAjtuwgSAC8s5EilETRFHRLEL+o1Z8kAKo6b9RAAGE4nkgwGCPZ1rnY3qC4eSXUTAKqA0AkaEQpg==
+   eJxjYBheQJeRgUGPkXSalsAWaL4dI+k0LYEv0Hw/RtJpegNHAnxPIHai0A5PIsXIAZS6DQaCCMg7EylGTRBFRbMI+Y9a8UEKoKb/Bhp8pBBTCxCKZ3IApe4c7PFM63xMTzCc/DIKRgG1AQBIviFf
   </data>
  </layer>
  <layer name="Decoracion3" width="37" height="20">
   <data encoding="base64" compression="zlib">
-   eJztzMsJgEAMRdGkGh1177cD7UALtRlLsAcvzMDAbNXdu3AWCSRm6u+CmzWoUHuey32LDis2nNxeydeN/J/QY/A8l/sZC3YcHm/vRCmllFJKve8BSpQKUw==
+   eJxjYBgFtAaajAwMWkCsDsQajAg+urg2EOsAsTcQ+wDxDqDeu1BMbWAJNN8KiM2B2IIRwUcXtwZiGyCOBuIYRojet1A8CkbBKBg64C+FNC0ALyNlNHLZSItykhzwFgd7FIyCUTAK8AEARO4WPw==
   </data>
  </layer>
  <layer name="Decoracion2" width="37" height="20">

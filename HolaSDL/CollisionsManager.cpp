@@ -301,6 +301,7 @@ void CollisionsManager::hookCollisions()
 						if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
 							if (e->isHookable()) {
 								//METER SONIDO DE FUISTE COGIDO BOLUDO
+								ResourceManager::getInstance()->getSoundEffect(HookHit)->playChannel(7, 0);
 								HookEnemyMessage msg(static_cast<Enemy*>(e));
 								mc->sendMessage(&msg);
 								e->setMovable(false);
