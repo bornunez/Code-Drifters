@@ -26,6 +26,8 @@ GunnerShotComponent::GunnerShotComponent(Enemy* o, GameObject* target, float dis
 
 GunnerShotComponent::~GunnerShotComponent()
 {
+	delete lastShotTime;
+	delete shotAnimationTime;
 }
 
 void GunnerShotComponent::receiveMessage(Message * msg)

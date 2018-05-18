@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "Game.h"
 #include "GameStateMachine.h"
 #include "Camera.h"
@@ -29,28 +30,36 @@ Game::Game()
 void Game::ResetInstance()
 {
 	delete game;
-	game = NULL;
+	game = nullptr;
 }
 
 Game::~Game()
 
 {	//Termina el juego llama a las destructoras de playState etc...
 	endGame();
-	delete stateMachine;
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
+	delete stateMachine;			//Llama ademas a las destructoras de todos los estados que tenga pusheados
+	delete Time::getInstance();
 
+	SDL_DestroyRenderer(renderer);
+	renderer = nullptr;
+	SDL_DestroyWindow(window);
+	window = nullptr;
+
+	Mix_Quit();
+	TTF_Quit();
+	IMG_Quit();
+	SDL_Quit();
 }
 
 void Game::endGame()//Termina el PlayState y resetea sus instancias.
 {
 	delete mouseIcon;
 	delete levP;
-	EnemyManager::ResetInstance();
-	PlayState::ResetInstance();
-	BulletManager::ResetInstance();
-	LevelManager::ResetInstance();
+	//EnemyManager::ResetInstance();
+	//PlayState::ResetInstance();			El destruir la pila llama a este destructor asi como al de mainmenu etc
+	//BulletManager::ResetInstance();
+	//LevelManager::ResetInstance();
+	AnimationParser::deleteAnimationParser();
 	ResourceManager::ResetInstance();
 }
 
@@ -105,7 +114,6 @@ void Game::run()
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
 
-		//Este int no se que pinta aqui
 		int roomNumber = 20;
 		//MainMenuState* mm = new MainMenuState(this);
 		//stateMachine->pushState(mm);
@@ -210,8 +218,8 @@ void Game::quitToMenu()
 	stateMachine->popState();
 	stateMachine->popState();
 	PlayState::ResetInstance();
-	EnemyManager::ResetInstance();
-	BulletManager::ResetInstance();
+	//EnemyManager::ResetInstance();
+	//BulletManager::ResetInstance();
 }
 
 void Game::pause(GameState* state)

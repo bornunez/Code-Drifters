@@ -37,6 +37,12 @@ CollisionsManager * CollisionsManager::getInstance()
 	return instance;
 }
 
+void CollisionsManager::ResetInstance()
+{
+	delete instance; 
+	instance = nullptr; 
+}
+
 void CollisionsManager::handleInput(const SDL_Event & event)
 {
 }
@@ -136,6 +142,33 @@ void CollisionsManager::bulletCollisions()
 							
 						}
 						
+					}
+					i++;
+				}
+			}
+
+			case BulletType::BossBullet:
+			{
+				//Colisionamos la bala con las hurtboxes del player
+				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+				vector<SDL_Rect> hurtBoxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+				SDL_Rect hitbox = t->body;
+				int i = 0;
+				while (!hit && i < hurtBoxes.size())
+				{
+					if (!mc->getInvincibility()) {
+						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de la hitbox de la bala con la hurtbox del MC
+							hit = true;
+							//Mandar mensaje de collision bala / player
+							Message msg(BOSS_BULLET_HIT);
+							mc->sendMessage(&msg);
+							Vector2D empuje = Vector2D(b->getTransform()->direction.getX(), b->getTransform()->direction.getY());
+							empuje.normalize();
+							KnockbackMessage msg1(empuje);
+							mc->sendMessage(&msg1);
+
+						}
+
 					}
 					i++;
 				}
@@ -254,11 +287,11 @@ void CollisionsManager::enemyCollisions()
 void CollisionsManager::hookCollisions()
 {
 	MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
-	Hook hook = mc->getHook();
-	if (hook.isActive()) {//Solo mira las colisiones si el gancho está activo
-		if (hook.getHookStatus() == HookStatus::EXTEND) {
+	Hook* hook = mc->getHook();
+	if (hook->isActive()) {//Solo mira las colisiones si el gancho está activo
+		if (hook->getHookStatus() == HookStatus::EXTEND) {
 			list<Enemy*> enemies = EnemyManager::getInstance()->getActiveEnemies();
-			SDL_Rect hookColl = mc->getHook().getTransform()->body;
+			SDL_Rect hookColl = mc->getHook()->getTransform()->body;
 			for (Enemy* e : enemies) {//Itera la lista de enemigos activos
 				if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
 					vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
@@ -268,6 +301,7 @@ void CollisionsManager::hookCollisions()
 						if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
 							if (e->isHookable()) {
 								//METER SONIDO DE FUISTE COGIDO BOLUDO
+								ResourceManager::getInstance()->getSoundEffect(HookHit)->playChannel(7, 0);
 								HookEnemyMessage msg(static_cast<Enemy*>(e));
 								mc->sendMessage(&msg);
 								e->setMovable(false);
@@ -286,17 +320,17 @@ void CollisionsManager::hookCollisions()
 		}
 
 
-		if (hook.getHookStatus() == HookStatus::EXTEND) {//Solo hace las comprobaciones del gancho con la pared si no está enganchado ya
+		if (hook->getHookStatus() == HookStatus::EXTEND) {//Solo hace las comprobaciones del gancho con la pared si no está enganchado ya
 			//Colisionamos
 			Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
 			bool collision = false;
-			vector<string> collisionsLayer = hook.getCollisionsLayers();
+			vector<string> collisionsLayer = hook->getCollisionsLayers();
 
 			vector<string>::iterator it;
 			for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
 				TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
 				if (tl != nullptr) {
-					if (CollisionHandler::Collide(hook.getTransform(), tl)) {//Si colisiona el gancho con las paredes cambia a MOVE_MC
+					if (CollisionHandler::Collide(hook->getTransform(), tl)) {//Si colisiona el gancho con las paredes cambia a MOVE_MC
 						collision = true;
 						Message msg(HOOK_WALL);
 						mc->sendMessage(&msg);

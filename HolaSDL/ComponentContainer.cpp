@@ -6,18 +6,19 @@
 ComponentContainer::ComponentContainer()
 {
 	//Inicializamos el array
-	components = new std::list<Component*>[NUMCOMP];
+	//components = new std::list<Component*>[NUMCOMP];
 }
 
 
 ComponentContainer::~ComponentContainer()
 {
-	cleanGarbage();
 	for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
 			delete c;
+			c = nullptr;
 		}
 	}
+	//cleanGarbage();
 	components->clear();
 }
 
@@ -43,29 +44,11 @@ bool ComponentContainer::hasComponent(Component * c)
 	return it != components[c->getType()].end();
 }
 
-/////<summary>Manda un mensaje a todos los componentes del objeto</summary>
-//void ComponentContainer::sendMessage(std::string msg)
-//{
-//	for (int i = 0; i < NUMCOMP;i++) {
-//		for (Component* c : components[i]) {
-//			c->receiveMessage(msg);
-//		}
-//	}
-//}
-//
-/////<summary> Manda un mensaje al grupo de componentes de tipo <para> type </para> </summary>
-//void ComponentContainer::sendMessage(std::string msg, ComponentType type)
-//{
-//	for (Component* c : components[type]) {
-//		c->receiveMessage(msg);
-//	}
-//}
-
 void ComponentContainer::sendMessage(Message * msg)
 {
 	for (int i = 0; i < NUMCOMP; i++) {
 		for (Component* c : components[i]) {
-			if(c->isActive())
+			if (c->isActive())
 				c->receiveMessage(msg);
 		}
 	}
@@ -108,7 +91,7 @@ void ComponentContainer::handleEvents(SDL_Event & e)
 {
 	for (Component* c : components[InputC])
 	{
-		if(c->isActive())
+		if (c->isActive())
 			static_cast<InputComponent*>(c)->handleEvents(e);
 	}
 	cleanGarbage();
@@ -122,5 +105,7 @@ void ComponentContainer::cleanGarbage()
 		Component* aux = garbage.front();
 		garbage.pop();
 		components[aux->getType()].remove(aux);
+		delete aux;
+		aux = nullptr;
 	}
 }

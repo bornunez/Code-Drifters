@@ -8,6 +8,11 @@ MCUltimateCharge::MCUltimateCharge(MainCharacter* mc) : UpdateComponent(mc)
 	ultiCharge = new Timer();
 }
 
+MCUltimateCharge::~MCUltimateCharge()
+{
+	delete ultiCharge;
+}
+
 void MCUltimateCharge::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
@@ -29,6 +34,4 @@ void MCUltimateCharge::update()
 }
 
 
-MCUltimateCharge::~MCUltimateCharge()
-{
-}
+

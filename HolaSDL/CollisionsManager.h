@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "GameObject.h"
 #include "MainCharacter.h"
 //
@@ -19,6 +20,7 @@ private:
 public:
 	virtual ~CollisionsManager();
 	static CollisionsManager* getInstance();
+	static void ResetInstance();
 	virtual void handleInput(const SDL_Event& event);
 	virtual void update();
 	virtual void render();

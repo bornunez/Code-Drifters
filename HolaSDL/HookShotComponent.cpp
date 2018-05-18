@@ -1,3 +1,4 @@
+//#include "checkML.h"
 #include "HookShotComponent.h"
 #include "GameObject.h"
 #include "Hook.h"
@@ -63,6 +64,7 @@ void HookShotComponent::update()
 				
 			}
 			else {
+				ResourceManager::getInstance()->getSoundEffect(HookMiss)->playChannel(7, 0);
 				hook->setHookStatus(HookStatus::EMPTY);
 				Message msg(HOOK_EMPTY);
 				mc->sendMessage(&msg);
@@ -114,14 +116,14 @@ void HookShotComponent::update()
 
 void HookShotComponent::updateHookPos()//Actualiza la posición del gancho
 {
-	mc->getHook().getTransform()->position.set(mc->getGunPosition());
+	//mc->getHook()->getTransform()->position.set(mc->getGunPosition());
 	hook->getTransform()->body.x = hook->getTransform()->position.getX();
 	hook->getTransform()->body.y = hook->getTransform()->position.getY();
 }
 
 void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la dirección que va a tomar el gancho
 {
-	PlayState::getInstance()->addGameObject(hook);
+	//PlayState::getInstance()->addGameObject(hook);
 	hook->setActive(true);
 	hook->setHookStatus(HookStatus::EXTEND);
 	mc->setMCState(MCState::Dash);
@@ -182,6 +184,8 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->getTransform()->position.set(auxOrigin);
 	hook->getTransform()->velocity.set(hookDir);
 	hook->setAngle(angle);
+	
+	ResourceManager::getInstance()->getSoundEffect(HookThrow)->playChannel(7, 0);
 }
 
 void HookShotComponent::extend()//Extiende el gancho en la dirección de disparo

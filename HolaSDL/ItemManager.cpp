@@ -14,6 +14,10 @@ ItemManager::ItemManager()
 
 ItemManager::~ItemManager()
 {
+	for (ItemObject* item : items)
+		delete item;
+
+	items.clear();
 }
 
 void ItemManager::AddItem(ItemPool pool, Vector2D position)
@@ -112,4 +116,10 @@ ItemManager * ItemManager::getInstance()
 	if (instance == nullptr)
 		instance = new ItemManager();
 	return instance;
+}
+
+void ItemManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
 }

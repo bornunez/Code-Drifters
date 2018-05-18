@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include <vector>
 #include "sdl_includes.h"
 using namespace std;
@@ -8,7 +9,7 @@ class DungeonGenerator;
 
 enum Direction{Up,Right,Down,Left, None};
 struct DirPair { int x; int y; };
-enum LevelType{ City, Red};
+enum LevelType{ City, Lab};
 const int maxLevel = 2;
 
 class LevelManager
@@ -27,8 +28,8 @@ private:
 	int level;
 	int baseRooms;
 	int roomsPerLevel;
-	vector<string> levelTypePath { "City_Levels\\" , "Red_Levels\\" };
-
+	vector<string> levelTypePath { "City_Levels\\" , "Lab_Levels\\" };
+	LevelType currentLevelType;
 	//Posicion del jugador
 	int roomX, roomY;
 	Room* currentRoom;
@@ -61,7 +62,7 @@ public:
 
 	bool getDoor(Direction dir);
 
-	string getActiveLevelPath() { return levelTypePath[City]; }
+	string getActiveLevelPath() { return levelTypePath[currentLevelType]; }
 
 	//Metodos de control
 	void init(bool tutorial);

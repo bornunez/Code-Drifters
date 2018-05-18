@@ -20,6 +20,11 @@ HookAnimationComponent::HookAnimationComponent(Hook* o, Texture* hookChainTex, T
 	
 }
 
+HookAnimationComponent::~HookAnimationComponent()
+{
+	delete hookFailAnim;
+}
+
 void HookAnimationComponent::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
@@ -173,8 +178,4 @@ float HookAnimationComponent::getSpriteAngle(Vector2D origin, Vector2D target)
 		angle += 360;
 
 	return angle;
-}
-
-HookAnimationComponent::~HookAnimationComponent()
-{
 }

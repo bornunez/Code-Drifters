@@ -24,7 +24,7 @@ void HookCollisionComponent::checkCollision()
 	for (GameObject* e : enemies) {//Itera la lista de enemigos activos
 		if (!e->getInvincibility()) {//Solo puede atacar si son vulnerables
 			vector<SDL_Rect> enemyHurtboxes = e->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
-			SDL_Rect hook = mc->getHook().getTransform()->body;
+			SDL_Rect hook = mc->getHook()->getTransform()->body;
 			bool hit = false;
 			uint i = 0;
 			while (!hit && i < enemyHurtboxes.size()) {//Itera sobre las hurtboxes del enemigo				

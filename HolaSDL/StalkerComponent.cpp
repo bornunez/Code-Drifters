@@ -18,13 +18,14 @@ ChargeComponent(e, target, aDelay, aTime, velMultiplier), UpdateComponent(e)
 
 StalkerComponent::~StalkerComponent()
 {
+	delete timer;
 }
 void StalkerComponent::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
 	case HIT_WALL:;
 		if (es->getEnemyState() == EnemyState::Hooked) {//Si está siendo enganchado y choca con la pared, se desengancha
-			target->getHook().setHookStatus(HookStatus::STOP);
+			target->getHook()->setHookStatus(HookStatus::STOP);
 			Message msg(HOOK_STOP);
 			target->sendMessage(&msg);
 			es->getEnemyState() == EnemyState::Idle;

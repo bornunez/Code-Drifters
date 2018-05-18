@@ -37,9 +37,9 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 2000;
+	Attributes.life = 4000;
 	Attributes.maxHP = Attributes.life;
-	Attributes.meleeDmg = 8;
+	Attributes.meleeDmg = 25;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("STATIC_UP");

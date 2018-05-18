@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" nextobjectid="19">
+ <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
+ <tileset firstgid="433" source="../../tileset/city.tsx"/>
+ <layer name="Suelo" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlu1qwzAMRZ3YMBL71+gz7P0fcQnzgTPNS2lpAoMJRFxH0dXVF03pX+7JtGnpOl2Imzdd+zNfhDkFnTv2zv2t6yO+3je9dZ3kC7/2P3q/nz+6PoJ769jmEZ/4z2mMC/ajuCNMuHLOsqvpq87Oew5neuE33Fgzc4l899+t3y3hftUTJT78jnDh6rjxnQNG7e+KdO4YTTZZtvUAt+mM4oP6MsPElIQHThWHRfZHefaZHLm+Rb5G/Wb+RfF4zywhN65lHdw5BtTfugbkiz0zB9xygO3eMuZotmzn3HJuwiUn9KKxiHMNucvpe6xwJu4mHGKJfeVa0ftgkivX2rHQV+7dJlvegxsFLt4Tnv8mH8S9iBs9PAf7om9GAmfmiH4Cq4krfKpsicV3cHFNR+L4yLPrGd8v6WdtmY1nhP4zJ/C9sz1j7MO4G54Rckvt3G/kD+wzhRmjxt5DZwuzQs7v9cyrhN3JbNZj85eJ54seuwoXzuzAK8T/6Y720Bm4sZ+vEO8I9vFfkk9Q0QmW
+  </data>
+ </layer>
+ <layer name="Aire" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztl0EKgCAQRSdo12Uy25je/1wx5CI+mGjZRM4DUWT4jxFdSKTkGGAoyleYO/Mq/8UKeb2QdxVyhrg2L/gsOBnXwM15y8nnwYluQ8+cP+dtFz6sdbGu1I391RIKs0r6y4FZqTvQ+l24xP7d/hRFipGOvwnPE9X/U3bE+gsk
+  </data>
+ </layer>
+ <layer name="Paredes" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlEEKgzAQReNB6s52FbOyWan3v1Uj5MMQ/6RapYLMg4+gZp6Jkzh3nC7lmfI6OL4WVrvP+cUNZxB1tJS8c3yusQc4Y8ogarGUDCLaGmn/As5Y1GGpeZc5szXC/SDGdTuczDvm4DlboygCfOEcv0SDvTulzIpXzqVWdwuPxrm2WV/lN6D3znJuBXvin84F7AnWK+Y9D/Q0O4Pu6J0v8oLpIq9hGIZhgA/xpR6L
+  </data>
+ </layer>
+ <layer name="Decoracion" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMLBogO2tAuJKKE1Pe0kBb4H4HRaaFLAUiBdiwfjAXyD+h4XeiIRpAXgZGRj4GDHpUUAdwDYAdgqQqY8XCdPTXmTAOkD2wuwm1u8gddSOW5j9uPBApKVRMApGwSgYBaNgOAAAjt0V9w==
+  </data>
+ </layer>
+ <layer name="Decoracion3" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFyGDyqL10s3cvEqYEVBCQbwHiViBuY6Cuf9upaNYoGAWjYBSMglEwCkbBKBgFAwEAtdQHpQ==
+  </data>
+ </layer>
+ <layer name="Decoracion2" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMLB51F662rsViDciYWLAUyB+RqG9pPj7PRB/AOKvQPwNiT8KRsEoGAWjYBSMglEwCkbBcAAASowObw==
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="9" name="Up" x="207" y="44" width="65.5" height="15.5"/>
+  <object id="17" name="Down" x="193" y="430" width="78" height="32"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="16" name="Up" gid="687" x="232.5" y="120.5" width="16" height="16"/>
+  <object id="18" name="Down" gid="687" x="221" y="365" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="14" name="Spawner" gid="672" x="116" y="244" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="15" name="Spawner" gid="672" x="337.5" y="248.5" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -56,6 +56,7 @@ GameObject::~GameObject()
 	for (std::map<const char*, Animation*>::iterator itr = animations.begin(); itr != animations.end(); itr++)
 	{
 		delete itr->second;
+		itr->second = nullptr;
 	}
 
 	animations.clear();

@@ -1,8 +1,9 @@
 #pragma once
+//#include "checkML.h"
 #include "GameObject.h"
 
 //Tipo de la bala
-enum class BulletType { MCBullet, GunnerBullet, TurretBullet};
+enum class BulletType { MCBullet, GunnerBullet, TurretBullet, BossBullet};
 class Bullet : public GameObject
 {
 private:
