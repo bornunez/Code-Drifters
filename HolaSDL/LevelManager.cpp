@@ -110,7 +110,7 @@ LevelManager * LevelManager::getInstance()
 void LevelManager::enterMap()
 {
 	onRoomChange(getFirstRoom(), nullptr, None);
-	getFirstRoom()->spawn();
+	//getFirstRoom()->spawn();
 	GameObject* ePoint = currentRoom->getMap()->getEntryPoint();
 	if (ePoint != nullptr) {
 		//Y ponemos al jugador en la puerta contraria

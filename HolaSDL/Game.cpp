@@ -61,6 +61,9 @@ void Game::endGame()//Termina el PlayState y resetea sus instancias.
 	//LevelManager::ResetInstance();
 	AnimationParser::deleteAnimationParser();
 	ResourceManager::ResetInstance();
+
+	//PRUEBA
+	//PlayState::ResetInstance();
 }
 
 

@@ -22,14 +22,16 @@ PlayState* PlayState::instance = nullptr;
 PlayState::PlayState():GameState ()
 {
 	ResourceManager::getInstance()->getMusic(Level1)->play();
-
+	stype = StateType::PlayState;
 }
 
 void PlayState::ResetInstance()
 {
-
-	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = nullptr; // so GetInstance will still work.
+	if (instance != nullptr) {
+		delete instance; // REM : it works even if the pointer is NULL (does nothing then)
+		instance = nullptr; // so GetInstance will still work.
+	}
+	
 }
 
 PlayState::~PlayState()
@@ -127,7 +129,6 @@ void PlayState::nextLevel()
 	minimap = new Minimap(1, 1, 10, 10);
 
 	camera->load();
-	LevelManager::getInstance()->enterMap();
 	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;

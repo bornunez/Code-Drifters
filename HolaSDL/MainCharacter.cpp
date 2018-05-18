@@ -68,7 +68,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new DoorsCollision(this));
 	addComponent(new KnockbackComponent(this,1500));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	addComponent(new MCChargedAttackComponent(this, 0.4));
+	addComponent(new MCChargedAttackComponent(this, 1));
 	addComponent(new MCUltimateInput(this));
 	addComponent(new MCUltimateCharge(this));
 	addComponent(new BasicMovement(this));
@@ -81,6 +81,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	normalAttackDamage = 50;
 	chargedAttackDamage = 100;
 	ultimateAttackDamage = 100;
+	shotAttackDamage = 20;
 	movable = true;
 	
 }
@@ -255,18 +256,12 @@ int MainCharacter::getMaxBullets()
 {
 	return maxBullets;
 }
-float MainCharacter::getNormalAttackDamage()
-{
-	return normalAttackDamage;
-}
+
 void MainCharacter::setNormalAttackDamage(float dmg)
 {
 	normalAttackDamage = dmg;
 }
-float MainCharacter::getChargedAttackDamage()
-{
-	return chargedAttackDamage;
-}
+
 void MainCharacter::setChargedAttackDamage(float dmg)
 {
 	chargedAttackDamage = dmg;
@@ -275,24 +270,22 @@ void MainCharacter::setUltimateAttackDamage(float dmg)
 {
 	ultimateAttackDamage = dmg;
 }
-float MainCharacter::getUltimateAttackDamage()
-{
-	return ultimateAttackDamage;
-}
+
 float MainCharacter::getAttackDamage(MCAttackType attackType)
 {
-	if (attackType == MCAttackType::NORMAL) {
-		return getNormalAttackDamage();
-	}
-	else if (attackType == MCAttackType::CHARGED) {
-		return getChargedAttackDamage();
-	}
-	else if (attackType == MCAttackType::ULTIMATE) {
-		return getUltimateAttackDamage();
-	}
-	else {
+	switch (attackType) {
+	case MCAttackType::NORMAL:
+		return normalAttackDamage;
+	case MCAttackType::CHARGED:
+		return chargedAttackDamage;
+	case MCAttackType::ULTIMATE:
+		return ultimateAttackDamage;
+	case MCAttackType::SHOT:
+		return shotAttackDamage;
+	default:
 		return 0.0f;
 	}
+
 }
 void MainCharacter::setMaxVelocity(float vel)
 {
@@ -317,13 +310,14 @@ float MainCharacter::getMaxHP() {
 
 MCAttackType MainCharacter::getCurrentAttackType()
 {
-	if (getMCState() == MCState::ChargedAttack) {
+	switch (getMCState()) {
+	case MCState::ChargedAttack:
 		return MCAttackType::CHARGED;
-	}
-	else if (getMCState() == MCState::Ultimate) {
+	case MCState::Ultimate:
 		return MCAttackType::ULTIMATE;
-	}
-	else {
+	case MCState::Shot:
+		return MCAttackType::SHOT;
+	default:
 		return MCAttackType::NORMAL;
 	}
 }

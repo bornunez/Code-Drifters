@@ -58,8 +58,8 @@ Boss::Boss(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(1)
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 
 
-    BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
-	addComponent(skel);
+    //BoxRenderer* skel = new BoxRenderer(this, playState->getCamera());
+	//addComponent(skel);
 
 	ResourceManager::getInstance()->getMusic(Level1)->stop();
 	ResourceManager::getInstance()->getMusic(Dog)->play();
