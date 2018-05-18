@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 100;
+const int NUM_TEXTURES = 105;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -34,6 +34,13 @@ typedef struct {
 enum TextureId {
 	MCBullet, MCGun, GunnerBullet, BossBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
+	//TIENDA
+	Madam_P_Idle,
+	Madam_P_Drinking,
+	GirlSmoking,
+	BlackLove,
+	SafeSex,
+
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
 	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo,
@@ -83,8 +90,11 @@ enum SoundEffectId {
 	SoundEffect1,
 	MCGunShot,
 	MCSwordNormalAttack,
+	EnemyStuned,
+	HookThrow, HookHit, HookMiss,
 
-	DogAttack1, DogAttack2
+	DogAttack1, DogAttack2,
+	ButtonExplosion
 };
 
 //IMPORTANTE//
@@ -107,6 +117,12 @@ private:
 		{ "Particles\\GunnerBulletExplosion.png", 2, 7 },
 		{ "Particles\\StunParticle.png", 1, 7 },
 
+		//Cosas de la tienda
+		{"Puti\\Phernelia_Waiting.png",1,2},
+		{ "Puti\\Phernelia_Drinking.png",1,2 },
+		{"Puti\\ProstitutaSmokingLove.png",1,7},
+		{ "Puti\\BlackLove1.png",1,3 },
+		{ "Puti\\SafeSex.png",1,2 },
 
 		//HUD
 		{"Interfaz\\Barra.png", 1, 1},
@@ -235,8 +251,13 @@ private:
 		"..\\music\\Sonidos\cosa.wav",
 		"..\\music\\Sonidos\\PistolaProta.wav",
 		"..\\music\\Sonidos\\EspadaTest.wav",
+		"..\\music\\Sonidos\\Stuned.wav",
+		"..\\music\\Sonidos\\HookThrow.wav",
+		"..\\music\\Sonidos\\HookHit.wav",
+		"..\\music\\Sonidos\\HookMiss.wav",
 		"..\\music\\Sonidos\\PerroRugido1.wav",
-		"..\\music\\Sonidos\\PerroRugido2.wav"};
+		"..\\music\\Sonidos\\PerroRugido2.wav",
+	    "..\\music\\Sonidos\\BotonOut.wav"};
 
 	int numOfMusic;
 	Music** music;

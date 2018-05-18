@@ -1,5 +1,6 @@
 #include "Map.h"
 #include "Layer.h"
+#include "Message.h"
 
 
 void Map::parseLevel()
@@ -46,8 +47,10 @@ void Map::update()
 {
 	for (Layer* l : layers)
 		l->update();
-	for (GameObject* o : objects)
-		o->update();
+	for (GameObject* o : objects) {
+		if (o->isActive())
+			o->update();
+	}
 }
 
 void Map::render()
@@ -95,4 +98,12 @@ void Map::spawn()
 Spawner::Spawner(int x, int y, EnemyType eType,bool active) : x(x), y(y), enemy(eType), active(active)
 {
 
+}
+
+void Map::sendMessage(Message * msg)
+{
+	for (GameObject* o : objects) {
+		if (o->isActive())
+			o->sendMessage(msg);
+	}
 }

@@ -110,7 +110,7 @@ void CollisionsManager::bulletCollisions()
 								//Mandar mensaje de collision bala / enemigo
 								//Habria que cambiar el 1000 por el tiempo del arma
 								//MCBulletStun msg(2.5);
-								MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime());
+								MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), PlayState::getInstance()->getMainCharacter()->getAttackDamage(MCAttackType::SHOT));
 								e->sendMessage(&msg);
 							}
 							i++;
@@ -301,6 +301,7 @@ void CollisionsManager::hookCollisions()
 						if (CollisionHandler::RectCollide(enemyHurtboxes[i], hookColl)) {//Comprueba la colisión del gancho con las hurtbox					
 							if (e->isHookable()) {
 								//METER SONIDO DE FUISTE COGIDO BOLUDO
+								ResourceManager::getInstance()->getSoundEffect(HookHit)->playChannel(7, 0);
 								HookEnemyMessage msg(static_cast<Enemy*>(e));
 								mc->sendMessage(&msg);
 								e->setMovable(false);

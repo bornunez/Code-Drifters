@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="35" height="33" tilewidth="16" tileheight="16" nextobjectid="31">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="35" height="33" tilewidth="16" tileheight="16" nextobjectid="32">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -42,6 +42,13 @@
  <objectgroup name="Puertas">
   <object id="22" name="Left" x="48" y="48" width="16" height="144"/>
   <object id="26" name="Right" x="512" y="288" width="32" height="144"/>
+ </objectgroup>
+ <objectgroup name="Animados">
+  <object id="31" name="Tuto_Text" x="189" y="52" width="32" height="144">
+   <properties>
+    <property name="Text" value="gancho"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Entradas">
   <object id="28" name="Right" gid="255" x="464" y="352" width="16" height="16"/>

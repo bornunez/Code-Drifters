@@ -1,0 +1,7 @@
+1
+death Forman
+2
+0 
+Cuidado! Hay un enemigo delante
+0 
+Atacale con la espada! (Click izquierdo)

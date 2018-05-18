@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="16" tileheight="16" nextobjectid="52">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="16" tileheight="16" nextobjectid="62">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/puti.tsx"/>
+ <tileset firstgid="757" source="../../tileset/putiSinPuertas.tsx"/>
  <layer name="Suelo" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJwNwwNwJAgAALBtz7Zt27Zt27Zt27Zt27Zt+95MZhIUFAgEG8KQhjK0YQxrOMMbwYhGMrJRjGo0oxvDmMYytnGMazzjm8CEJjKxSUxqMpObwpSmMrVpTGs605vBjGYys1nMajazm8Oc5jK3ecxrPvNbwIIWsrBFLGoxi1vCkpaytGUsaznLW8GKVrKyVaxqNatbw5rWsrZ1rGs969vAhjaysU1sajOb28KWtrK1bWxrO9vbwY52srNd7Go3u9vDnvayt33saz/7O8CBDnKwQxzqMIc7wpGOcrRjHOs4xzvBiU5yslOc6jSnO8OZznK2c5zrPOe7wIUucrFLXOoyl7vCla5ytWtc6zrXu8GNbnKzW9zqNre7w53ucrd73Os+93vAgx7ysEc86jGPe8KTnvK0ZzzrOc97wYte8rJXvOo1r3vDm97ytne86z3v+8CHPvKxT3zqM5/7wpe+8rVvfOs73/vBj37ys1/86je/+8Of/uKv/ubv/uGf/uXf/uO//mcgOBAIMtgQhjSUoQ1jWMMZ3ghGNJKRjWJUoxndGMY0lrGNY1zjGd8EJjSRiU1iUpOZ3BSmNJWpTWNa05neDGY0k5nNYlazmd0c5jSXuc1jXvOZ3wIWtJCFLWJRi1ncEpa0lKUtY1nLWd4KVrSSla1iVatZ3RrWtJa1rWNd61nfBja0kY1tYlOb2dwWtrSVrW1jW9vZ3g52tJOd7WJXu9ndHva0l73tY1/72d8BDnSQgx3iUIc53BGOdJSjHeNYxzneCU50kpOd4lSnOd0ZznSWs53jXOc53wUudJGLXeJSl7ncFa50latd41rXud4NbnSTm93iVre53R3udJe73eNe97nfAx70kIc94lGPedwTnvSUpz3jWc953gte9JKXveJVr3ndG970lre9413ved8HPvSRj33iU5/53Be+9JWvfeNb3/neD370k5/94le/+d0f/vR/CUn3LA==
@@ -14,14 +15,14 @@
  </layer>
  <layer name="Paredes" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYGRgYKAlZqCx+fS0gwGNzYAmjs9d+MBgsoNY/aN2jBw7qJE/BtIOUtwyagdpdhCTDqllx1CvP+hgBwCcTQDh
+   eJzt0zVOBVEUgOFL8taErAJZBdLibi3u1uJuLe7W4m7L4CvJS+BNwQMSuMmXTCZnzj/FTEgJISRTSPL+72yEuOsQd/+z9/rs/KZG1Of/G3+n8RX/x082EpzUWAhppJMRS04j094ssslJUiPX3jzyKYjQKDRTRDEllFJGORVUUkU1NdRSRz0NNMZCwu+wyUwzLbTSRjsddNJFNz300kc/Awwy9L7xgWEzI4wyxjgTTDLFNDPMMsc8CyyyxHKExoqZVdZYZ4NNtthmh1322OeAQ4445iRC49TMGedccMkV19xwyx33PPDIE8+88MobfEk/vA==
   </data>
  </layer>
  <objectgroup name="Puertas">
   <object id="41" name="Left" x="14.75" y="90.5" width="19" height="45.5"/>
   <object id="45" name="Down" x="181.25" y="271.75" width="63" height="19.5"/>
   <object id="44" name="Right" x="367.75" y="213" width="16.5" height="43"/>
-  <object id="42" name="Up" x="50" y="35.75" width="40" height="12.75"/>
+  <object id="42" name="Up" x="50" y="35.75" width="40" height="17.9167"/>
  </objectgroup>
  <objectgroup name="Entradas">
   <object id="47" name="Up" gid="255" x="64" y="80" width="16" height="16"/>
@@ -29,8 +30,11 @@
   <object id="49" name="Down" gid="255" x="176" y="240" width="16" height="16"/>
   <object id="50" name="Right" gid="255" x="320" y="224" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Animados"/>
  <objectgroup name="Animados">
   <object id="51" name="Tienda" x="120.5" y="54.25" width="64.75" height="43.5"/>
+  <object id="52" name="ChicaFumando" x="192" y="160" width="16" height="32"/>
+  <object id="53" name="MadamP" x="138" y="41" width="16" height="16"/>
+  <object id="54" name="BlackLove" x="47" y="160" width="16" height="48"/>
+  <object id="61" name="SafeSex" x="336" y="160" width="16" height="32"/>
  </objectgroup>
 </map>

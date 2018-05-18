@@ -101,6 +101,10 @@ enum MessageId {
 	WHEEL_HIT,
 	BOSS_BULLET_HIT,
 
+	//Sala
+	ROOM_ENTER,
+	ROOM_EXIT,
+
 	//ID para crear mensajes vacios e inicializarlos con una ID mas tarde
 	NO_ID
 };
@@ -134,8 +138,9 @@ struct MCUltimateDamage : Message {
 	float damage;
 };
 struct MCBulletStun : Message {
-	MCBulletStun(int stunTime) : Message(MC_BULLET_COLLISION), stunTime(stunTime) {}
-	float stunTime;
+	MCBulletStun(int stunTime, float dmg) : Message(MC_BULLET_COLLISION), stunTime(stunTime), damage(dmg) {}
+	int stunTime;
+	float damage;
 };
 
 struct HookEnemyMessage : Message {
