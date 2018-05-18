@@ -110,7 +110,7 @@ void CollisionsManager::bulletCollisions()
 								//Mandar mensaje de collision bala / enemigo
 								//Habria que cambiar el 1000 por el tiempo del arma
 								//MCBulletStun msg(2.5);
-								MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime());
+								MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), PlayState::getInstance()->getMainCharacter()->getAttackDamage(MCAttackType::SHOT));
 								e->sendMessage(&msg);
 							}
 							i++;
