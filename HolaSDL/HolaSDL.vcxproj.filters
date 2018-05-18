@@ -230,9 +230,6 @@
     <ClCompile Include="WallStunComponent.cpp">
       <Filter>UpdateComponent\Source</Filter>
     </ClCompile>
-    <ClCompile Include="MainMenuState.cpp">
-      <Filter>Estados\Source</Filter>
-    </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Estados\Source</Filter>
     </ClCompile>
@@ -419,6 +416,15 @@
     <ClCompile Include="UpdateBoss3.cpp">
       <Filter>Bosses\Boss3</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseState.cpp">
+      <Filter>Estados\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -549,9 +555,6 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>UpdateComponent\Header</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenuState.h">
-      <Filter>Estados\Header</Filter>
     </ClInclude>
     <ClInclude Include="GunnerBulletComponent.h">
       <Filter>Enemigos\Header</Filter>
@@ -821,6 +824,15 @@
     </ClInclude>
     <ClInclude Include="UpdateBoss3.h">
       <Filter>Bosses\Boss3</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Estados\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseState.h">
+      <Filter>Estados\Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
