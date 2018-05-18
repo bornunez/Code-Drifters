@@ -2,7 +2,7 @@
 //#include "checkML.h"
 #include "GameObject.h"
 
-enum class ParticleType { Blood , GunnerBulletExplosion, Stun};
+enum class ParticleType { Blood , GunnerBulletExplosion};
 class ParticleAnimation;
 class Particle : public GameObject
 {

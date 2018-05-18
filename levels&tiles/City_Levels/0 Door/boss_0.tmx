@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="44" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="39">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
- <layer name="Suelo" width="44" height="40">
+ <layer name="Suelo" width="44" height="40" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt10sOQDAURuFuFYthB1gBdqlm0nRQfd2rPSf5Z1JfjMoYItLQbLdETqLVboucRHjLluId7MaATZ1794znlc7njf3eqfvilTL24tVgbtkrbcWLF69O7/Ps+79Bwhp6h0m5n+HFixevJu9hdzqr4XPfeQV6fdXw5gwv3j97qe1u62smtw==
   </data>
@@ -13,7 +13,7 @@
  </layer>
  <layer name="Aire" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztmFEKwyAQRO39j2P0AkbPVQOzRAItWjO20HmwaNYk+zT+ROeE+AKPBe9fGXf43sk7x1/0Zdf6N9/Ve3zl+vYgXy7y5SJfLvLlIl8u8uUiXy7y5SJfLvLlIt8hUo088kCP74v//1DDo2YvsXHcEUO1J9bX1iU1cVBqbBg/Wo9+gW9EPsF3ZL4zvlbPo83IBVyHJrfB1+4139jMj+3bYm4eDte8ran55Wa8oL+78xuwfUex/XLdvwHxsc/q8+rZ8z5xC09ymDMF
+   eJzt2FEKABAQBmHuf2k30KadnzJf7SuTeDGGdMEMrJ+cjt5Ou8YXe+m9futN3/Hk+VbYy7KXZS/LXpa9LHtZ9rLsZdnLspdlL6vS2/3HVeX/Q569rJP3dnuEW7PkAKU=
   </data>
  </layer>
  <layer name="Paredes" width="44" height="40">

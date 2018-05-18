@@ -59,8 +59,8 @@ void EnemyBomber::loadAnimations()
 	Animation* hurtRight = AnimationParser::parseAnimation(tileset, animationPath, "HurtRight", this, 0, 0, false, 0.2);
 	Animation* hurtLeft = AnimationParser::parseAnimation(tileset, animationPath, "HurtLeft", this, 0, 0, false, 0.2);
 
-	Animation* stunRight = AnimationParser::parseAnimation(tileset, animationPath, "StunRight", this, 0, 0, false, 0.2);
-	Animation* stunLeft = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft", this, 0, 0, false, 0.2);
+	Animation* stunRight = AnimationParser::parseAnimation(tileset, animationPath, "StunRight", this, 0, 0, true, 0.2);
+	Animation* stunLeft = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft", this, 0, 0, true, 0.2);
 
 	Animation* deathRight = AnimationParser::parseAnimation(tileset, animationPath, "DeathRight", this, 0, 0, false, 0.2);
 	Animation* deathLeft = AnimationParser::parseAnimation(tileset, animationPath, "DeathLeft", this, 0, 0, false, 0.2);
