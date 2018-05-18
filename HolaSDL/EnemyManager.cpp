@@ -22,7 +22,7 @@ void EnemyManager::ResetInstance()
 {
 	//instance->killAll();
 	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = NULL; // so GetInstance will still work.
+	instance = nullptr; // so GetInstance will still work.
 }
 
 EnemyManager::~EnemyManager()

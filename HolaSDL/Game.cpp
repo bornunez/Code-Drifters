@@ -30,7 +30,7 @@ Game::Game()
 void Game::ResetInstance()
 {
 	delete game;
-	game = NULL;
+	game = nullptr;
 }
 
 Game::~Game()

@@ -14,7 +14,7 @@ CoinManager::CoinManager()
 void CoinManager::ResetInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 
 CoinManager::~CoinManager()

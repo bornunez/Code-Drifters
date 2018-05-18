@@ -41,7 +41,7 @@ ResourceManager::~ResourceManager()
 void ResourceManager::ResetInstance() 
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 Texture * ResourceManager::getTexture(TextureId id)
 {
