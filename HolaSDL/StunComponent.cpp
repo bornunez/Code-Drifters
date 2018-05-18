@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Animation.h"
 #include "ParticlesManager.h"
+#include "ResourceManager.h"
 StunComponent::StunComponent(Enemy * o, float time) : UpdateComponent(o)
 {
 	enemy = o;
@@ -39,6 +40,7 @@ void StunComponent::receiveMessage(Message * msg)
 			Message msg(GUN_STUN);
 			enemy->sendMessage(&msg);
 			enemy->setStun(true);
+			ResourceManager::getInstance()->getSoundEffect(EnemyStuned)->play();
 			ParticlesManager::getInstance()->getParticle(ParticleType::Stun, enemy->getCenterPos().getX() - 40, enemy->getCenterPos().getY() - 40, stunTime);
 		}
 	}

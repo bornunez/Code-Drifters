@@ -64,6 +64,7 @@ void HookShotComponent::update()
 				
 			}
 			else {
+				ResourceManager::getInstance()->getSoundEffect(HookMiss)->playChannel(7, 0);
 				hook->setHookStatus(HookStatus::EMPTY);
 				Message msg(HOOK_EMPTY);
 				mc->sendMessage(&msg);
@@ -183,6 +184,8 @@ void HookShotComponent::shoot(Vector2D originPos, Vector2D hookDir)//Define la d
 	hook->getTransform()->position.set(auxOrigin);
 	hook->getTransform()->velocity.set(hookDir);
 	hook->setAngle(angle);
+	
+	ResourceManager::getInstance()->getSoundEffect(HookThrow)->playChannel(7, 0);
 }
 
 void HookShotComponent::extend()//Extiende el gancho en la dirección de disparo
