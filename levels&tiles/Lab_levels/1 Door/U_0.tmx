@@ -10,7 +10,7 @@
  </layer>
  <layer name="Aire" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztkEsKgDAMROuNjHUT2/ufSwpZyCCW+KvYeVDoIsybJARSY4BHyFcYO/OS/xIbeVMj79zIme0vL/giOAv6gLvkTRtfAie6Jdxz/5K3HPhwVm3O68b9zpKdWZ79amCWWIfo7HQVtQ5ppxMhPbMCuFsNLw==
+   eJztkEsKgDAMRIMnstZNbA/tEaWQRRlFib+gzYNCF2HeJETfYO7Wz3Fap2/M6/yXaORNRt7RyJnlH17wRXAW+AF3yRsqXwInugPdc/+SN+34cJZlTuvG/c6SlVma/Y7ArCAdorLTVVg6pI1OjtMyCwc6EKU=
   </data>
  </layer>
  <layer name="Paredes" width="30" height="30">
@@ -34,7 +34,7 @@
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="9" name="Up" x="207" y="44" width="65.5" height="15.5"/>
+  <object id="9" name="Up" x="207" y="33" width="65.5" height="15.5"/>
  </objectgroup>
  <objectgroup name="Entradas">
   <object id="16" name="Up" gid="687" x="232.5" y="120.5" width="16" height="16"/>
