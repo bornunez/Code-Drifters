@@ -114,7 +114,6 @@ void Game::run()
 		//Mouse Icon, maybe en playstate
 		levP = new LevelParser();
 
-		//Este int no se que pinta aqui
 		int roomNumber = 20;
 		//MainMenuState* mm = new MainMenuState(this);
 		//stateMachine->pushState(mm);

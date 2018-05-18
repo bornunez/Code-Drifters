@@ -34,15 +34,15 @@ void PlayState::ResetInstance()
 
 PlayState::~PlayState()
 {
-	delete CollisionsManager::getInstance();
+	CollisionsManager::ResetInstance();
 	BulletManager::ResetInstance();
-	delete EnemyManager::getInstance();
+	ItemManager::ResetInstance();
+	EnemyManager::ResetInstance();
 	CoinManager::ResetInstance();
 	HUDManager::ResetInstance();
 	ParticlesManager::ResetInstance();
 	LevelManager::ResetInstance();
 	
-	delete ItemManager::getInstance();	//Se usa??
 	delete shopState;
 	delete minimap;
 	delete camera;
