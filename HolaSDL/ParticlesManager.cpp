@@ -12,7 +12,7 @@ ParticlesManager::ParticlesManager()
 void ParticlesManager::ResetInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 
 ParticlesManager::~ParticlesManager()

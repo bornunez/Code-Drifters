@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" nextobjectid="18">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="18">
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
@@ -33,15 +33,15 @@
    eJxjYBgFo2AUUAKYR+0dtXfUXqrYOxB2g+zkGWH2sowweznpaJ8xEJvQ0T4YsAZiGzrbSY4/LYHYigESTuQCSvwJst+QAv2UAJjdRkSqp2ZagoU7zH5kbIzEBtlHi7QEsx8ZWyOx6Z12RwEmAACzQghv
   </data>
  </layer>
- <objectgroup name="Puertas">
+ <objectgroup name="Puertas" visible="0">
   <object id="7" name="Right" x="447.5" y="96" width="16" height="206.5"/>
   <object id="17" name="Left" x="0.5" y="224" width="16.5" height="96"/>
  </objectgroup>
- <objectgroup name="Entradas">
+ <objectgroup name="Entradas" visible="0">
   <object id="13" name="Right" gid="56" x="374" y="198" width="16" height="16"/>
   <object id="16" name="Left" gid="56" x="79" y="266" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Spawners">
+ <objectgroup name="Spawners" visible="0">
   <object id="14" name="Spawner" gid="672" x="218" y="221" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>

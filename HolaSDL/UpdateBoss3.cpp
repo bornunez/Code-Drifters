@@ -333,7 +333,7 @@ void UpdateBoss3::fase4()
 		}
 		else
 		{
-			EnemyManager::getInstance()->spawn(boss->getCenterPos().getX(), boss->getCenterPos().getY(), Bomb);
+			EnemyManager::getInstance()->spawn(boss->getCenterPos().getX(), boss->getCenterPos().getY(), BossBomb);
 			auxBomb = 0;
 			tiempoBomb = (rand() % (int(auxTime*1.5f) * 1000 - int(auxTime*0.5f) * 1000) + auxTime*0.5 * 1000) / 1000;
 		}

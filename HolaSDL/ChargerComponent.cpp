@@ -84,11 +84,11 @@ void ChargerComponent::update()
 		else {
 			gameObject->getTransform()->velocity.set({ 0,0 });
 			ec->setMovable(false);
+			timer->restart();
 			if (ec->enemyState == EnemyState::Attack) {
 				ec->enemyState = EnemyState::Run;
 				Message msg(STUN);
 				gameObject->sendMessage(&msg);
-				timer->restart();
 			}
 		}
 	}

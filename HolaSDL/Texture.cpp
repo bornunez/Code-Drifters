@@ -1,5 +1,6 @@
 #pragma once
 #include "Texture.h"
+#include <iostream>
 
 Texture::Texture(SDL_Renderer* renderer) :  renderer(renderer), width(0), height(0) {
 }
@@ -36,7 +37,7 @@ int Texture::getFrameHeight()
 
 int Texture::getNumCols()
 {
-	return width/frameWidth;
+		return width/frameWidth;
 }
 
 int Texture::getNumRows()
@@ -73,6 +74,8 @@ bool Texture::loadFromImg(string fileName, uint numRows, uint numCols) {
 		}
 		SDL_FreeSurface(surface);
 	}
+	else
+		std::cout << "Failed to load: [" << fileName << " ]" << endl;
 	return texture != nullptr;
 }
 

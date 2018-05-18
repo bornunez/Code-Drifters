@@ -13,7 +13,7 @@ HUDManager::HUDManager()
 void HUDManager::ResetInstance()
 {
 	delete instance;
-	instance = NULL;
+	instance = nullptr;
 }
 
 HUDManager::~HUDManager()

@@ -1,4 +1,5 @@
 #pragma once
+//#include "checkML.h"
 #include "ItemObject.h"
 #include <vector>
 #include "Random.h"
@@ -27,6 +28,7 @@ public:
 
 	vector<ItemObject*> getItems() { return items; }
 	static ItemManager* getInstance();
+	static void ResetInstance();
 
 private:
 	ItemManager();

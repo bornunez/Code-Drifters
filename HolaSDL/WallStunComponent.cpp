@@ -1,6 +1,5 @@
 #include "WallStunComponent.h"
 #include "Enemy.h"
-#include <iostream>
 
 WallStunComponent::WallStunComponent(Enemy * o, float time) : UpdateComponent(o)
 {
@@ -21,7 +20,6 @@ void WallStunComponent::update()
 	{
 		stunTimer.restart();
 		enemy->setStun(false);
-		std::cout << "Ya no estoy stuneado" << std::endl;
 	}
 }
 
@@ -33,7 +31,6 @@ void WallStunComponent::receiveMessage(Message * msg)
 		if (!enemy->isStunned() && enemy->enemyState == EnemyState::Attack) {
 			stunTimer.restart();
 			enemy->setStun(true);
-			std::cout << "Me reventé el cráneo contra la pared" << std::endl;
 		}
 	}
 	default:

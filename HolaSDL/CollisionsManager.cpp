@@ -37,6 +37,12 @@ CollisionsManager * CollisionsManager::getInstance()
 	return instance;
 }
 
+void CollisionsManager::ResetInstance()
+{
+	delete instance; 
+	instance = nullptr; 
+}
+
 void CollisionsManager::handleInput(const SDL_Event & event)
 {
 }

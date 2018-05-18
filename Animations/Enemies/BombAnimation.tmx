@@ -6,6 +6,11 @@
    eJxjZGBgYAJiZiBmYSAdAAACcAAL
   </data>
  </layer>
+ <layer name="BossBomb" width="8" height="2">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAP2IGYA4g5gZgLizwAA6AAIw==
+  </data>
+ </layer>
  <layer name="Death" width="8" height="2">
   <data encoding="base64" compression="zlib">
    eJxjYEAFrAykAQABMAAG

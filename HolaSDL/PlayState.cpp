@@ -29,20 +29,20 @@ void PlayState::ResetInstance()
 {
 
 	delete instance; // REM : it works even if the pointer is NULL (does nothing then)
-	instance = NULL; // so GetInstance will still work.
+	instance = nullptr; // so GetInstance will still work.
 }
 
 PlayState::~PlayState()
 {
-	delete CollisionsManager::getInstance();
+	CollisionsManager::ResetInstance();
 	BulletManager::ResetInstance();
-	delete EnemyManager::getInstance();
+	ItemManager::ResetInstance();
+	EnemyManager::ResetInstance();
 	CoinManager::ResetInstance();
 	HUDManager::ResetInstance();
 	ParticlesManager::ResetInstance();
 	LevelManager::ResetInstance();
 	
-	delete ItemManager::getInstance();	//Se usa??
 	delete shopState;
 	delete minimap;
 	delete camera;
@@ -108,8 +108,8 @@ void PlayState::update()
 	GameState::update();
 	CoinManager::getInstance()->update();
 	BulletManager::getInstance()->update();
+	LevelManager::getInstance()->update();
 	//level->getRoom(mainCharacter->getCurrentRoomX(), mainCharacter->getCurrentRoomY())->update();//Hace el update de la sala actual	
-	//cout << enemy->getTransform()->position;
 	HUDManager::getInstance()->update(); //de momento peta
 	CollisionsManager::getInstance()->update();
 	camera->update();
@@ -127,7 +127,7 @@ void PlayState::nextLevel()
 	minimap = new Minimap(1, 1, 10, 10);
 
 	camera->load();
-
+	LevelManager::getInstance()->enterMap();
 	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;
