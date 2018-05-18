@@ -5,12 +5,12 @@
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlu1qwzAMRZPYMBz71+gz7P0fcQnzgTPNS2lpAoMJRFxH0dXVF52mf7kn86a563whbtp07c90EeYcdOnYO/e3ro/4et/01nWWL/za/+j9fv7o+gjurWObR3ziP01jXLAfxR1hwpVzkl2dvursvKdwphd+w401M5fId//d+l0J96ueKPHhd4QLV8eN7xQwan+XpUvHaLJJsq0HuE1nFB/Ulxku8gsev6s4FNkf5dlncuT6Zvka9Zv5Z8XjPVNCblzLOrhzDKi/dQ3IF3tmCbj5ANu9ZczRbNnOueXchEtO6EVjEecacpem77HCmbibcIgl9pVrRe+DSa5ca8dCX7l3m2x5D24UuHhPeP6bfBB3ETd6eAn2Wd+MBM7MEf0EVhNX+FTZEovv4OKajsTxkWfXM74v08/aMhvPCP1nTuB7Z3vG2IdxNzwj5Nb7yHlwPc4UZowaew+dLcwKOb/XM68SdiezWY/NXyaeL3rsKlw4swOvEP+nO9pDZ+DGfr5CvCPYx39JPgG02Qmh
+   eJzVlu1qwzAMRZ3YMFzn1+gz7P0fcSn1gTPVy0hZDRWIOI6i66uvJKX3kS3oLFl2LV2Xibh510u/5kmYS9C1Y9+4f3Q94+tz12vXRb7wa/+j57f1V9czuNeObR7xiv+cxrhgn8UdYcKVdZZdS/c8O+45rKmF33Bjzswl8r3db32vhv2Lrijnw+8IF64+N75zwGj9WZGuHWOTTZZtO8DdtEbxQX7p4Sq/4HHfxKHK/ijOXhMj57fIV8xn5F90Hs+ZGmLjXLbBns8Qa801VxUv5swacMsBtmvLmKPesp1jy9rznJhQi8binJcQO3Mkhnwn2CvpJ49YV84VtQ8msXKufZYYW/BXvU9sanr8jsDFc8L1sskH567BpikW2Be9M/p2wZk+op6q/MAVPk22nMV7cPnrG+3zEWfnMz6v6TG39MYzQv2ZE/ie2e4x5mGcDc8IsfU8chycj1cKPUaOPYdeLfQKMZ/1X8fspDfbsfm/ifuLGpuFC2dm4AzxPx09PQs31vMM8YxgHr+TfAPWLAmh
   </data>
  </layer>
  <layer name="Aire" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztl0EKgCAQRSdo12Uy25je/1wx5CI+mGjZRM4DUWT4jxFdSKTkGGAoyleYO/Mq/8UKeb2QdxVyhrg2L/gsOBnXwM15y8nnwYluQ8+cP+dtFz6sdbGu1I391RIKs0r6y4FZqTvQ+l24xP7d/hRFipGOvwnPE9X/U3bE+gsk
+   eJztltEKgCAMRUdflNnL0o/uE0PwQRZLVq2B7cBAZNzDREEAGft0LsdxbJh/5nXGJRp5k5F3NXLmug4f+CJxFlDBXfKWxpeIk7oDvHP+JW+78NFerH1SN53vLlmYJZmvB83i7oD2u0Bm/+l8Pbi/svYf2r3je7mScgBsKRpX
   </data>
  </layer>
  <layer name="Paredes" width="30" height="30">
@@ -33,15 +33,15 @@
    eJxjYBgFMLB51F662rsViDciYWLAUyB+RqG9pPj7PRB/AOKvQPwNiT8KRsEoGAWjYBSMglEwCkbBcAAASowObw==
   </data>
  </layer>
- <objectgroup name="Puertas" visible="0">
-  <object id="9" name="Up" x="207" y="44" width="65.5" height="15.5"/>
-  <object id="17" name="Down" x="193" y="430" width="78" height="32"/>
+ <objectgroup name="Puertas">
+  <object id="9" name="Up" x="207" y="17" width="65.5" height="15.5"/>
+  <object id="17" name="Down" x="193" y="447" width="78" height="15"/>
  </objectgroup>
- <objectgroup name="Entradas" visible="0">
-  <object id="16" name="Up" gid="687" x="232.5" y="120.5" width="16" height="16"/>
-  <object id="18" name="Down" gid="687" x="221" y="365" width="16" height="16"/>
+ <objectgroup name="Entradas">
+  <object id="16" name="Up" gid="687" x="225.5" y="68.5" width="16" height="16"/>
+  <object id="18" name="Down" gid="687" x="217" y="410" width="16" height="16"/>
  </objectgroup>
- <objectgroup name="Spawners" visible="0">
+ <objectgroup name="Spawners">
   <object id="14" name="Spawner" gid="672" x="116" y="244" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="true"/>

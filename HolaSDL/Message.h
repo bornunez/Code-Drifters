@@ -138,8 +138,9 @@ struct MCUltimateDamage : Message {
 	float damage;
 };
 struct MCBulletStun : Message {
-	MCBulletStun(int stunTime) : Message(MC_BULLET_COLLISION), stunTime(stunTime) {}
-	float stunTime;
+	MCBulletStun(int stunTime, float dmg) : Message(MC_BULLET_COLLISION), stunTime(stunTime), damage(dmg) {}
+	int stunTime;
+	float damage;
 };
 
 struct HookEnemyMessage : Message {

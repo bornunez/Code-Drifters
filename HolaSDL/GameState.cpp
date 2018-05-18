@@ -60,7 +60,7 @@ void GameState::lateRender()
 
 void GameState::handleEvent(SDL_Event & e)
 {
-	for (GameObject* o : gameObjects) {
+ 	for (GameObject* o : gameObjects) {
 		if(o->isActive())
 			o->handleEvents(e);
 	}

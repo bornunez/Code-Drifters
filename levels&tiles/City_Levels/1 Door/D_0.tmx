@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" nextobjectid="40">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" infinite="0" nextobjectid="40">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="44" height="36">
   <data encoding="base64" compression="zlib">
@@ -13,7 +13,7 @@
  </layer>
  <layer name="Aire" width="44" height="36">
   <data encoding="base64" compression="zlib">
-   eJzt2FEOwBAUBVH2v+l2A4TUXC/pnMQXYSK+tCZd0AP7J8eJ3pNmjRV76bP+1pt+48n7XWEvy16WvSx7Wfay7GXZy7KXZS/LXpa9rJXe9J9Z5f+HUe/O+p35r4jeauP1AFrTALs=
+   eJzt2EEOABEUBFHuf2knIIJqJlOV2PKC1S/F7EI1sH9ynfCebGR80Uuf9Tdv+o8n73cmvWx62fSy6WXTy6aXTS+bXja9bHrZ9LLNeNMzM3rGtlPP+2pf9C68eQNLGgCY
   </data>
  </layer>
  <layer name="Paredes" width="44" height="36">
@@ -75,58 +75,11 @@
     <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="31" name="Spawner" gid="240" x="112" y="208" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="32" name="Spawner" gid="240" x="128" y="112" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="33" name="Spawner" gid="240" x="512" y="480" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="34" name="Spawner" gid="240" x="560" y="480" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="35" name="Spawner" gid="240" x="480" y="480" width="16" height="16">
-   <properties>
-    <property name="Gunner" type="bool" value="true"/>
-    <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
   <object id="37" name="Spawner" gid="240" x="320" y="433" width="16" height="16">
    <properties>
     <property name="Charger" type="bool" value="true"/>
     <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="38" name="Spawner" gid="240" x="207" y="399" width="16" height="16">
-   <properties>
-    <property name="Charger" type="bool" value="false"/>
-    <property name="Gunner" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="false"/>
-    <property name="Turret" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="39" name="Spawner" gid="240" x="224" y="464" width="16" height="16">
-   <properties>
-    <property name="Bomber" type="bool" value="true"/>
-    <property name="Charger" type="bool" value="false"/>
-    <property name="Gunner" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="false"/>
-    <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
