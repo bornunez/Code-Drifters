@@ -111,7 +111,7 @@ void BomberShotComponent::updateGunPosition()
 
 void BomberShotComponent::update() {
 	if (!gameObject->isDead()) {
-		if (!eb->isStunned()) {
+		if (!eb->isStunned()&&!eb->isStunned()) {
 			lastShotTime->update();
 			shoot();
 			handleAnimation();

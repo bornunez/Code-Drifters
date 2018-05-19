@@ -45,29 +45,37 @@ void StalkerComponent::update()
 	if (!gameObject->isDead()) {
 
 
-		if ((abs(target->getTransform()->position.getX() - es->getTransform()->position.getX()) + 
-			abs(target->getTransform()->position.getY() - es->getTransform()->position.getY())) <= 900	&& !es->isStunned()) {
-			timer->update();
-			if ((es->enemyState != EnemyState::Charge && es->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
-				es->enemyState = EnemyState::Charge;
+		if ((abs(target->getTransform()->position.getX() - es->getTransform()->position.getX()) +
+			abs(target->getTransform()->position.getY() - es->getTransform()->position.getY())) <= 900 && !es->isStunned()) {
+			if (es->isHooked()) {
 				ChargeComponent::startCharge();
-				timer->restart();
-				Message msg(STALKER_CHARGE);
-				es->sendMessage(&msg);
-			}
-			else if ((es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
 				es->enemyState = EnemyState::Run;
-				es->getTransform()->speed = es->baseSpeed;
-				timer->restart();
 				Message msg(STALKER_RUN);
 				es->sendMessage(&msg);
-
 			}
-			if (es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack)
-				ChargeComponent::update();
+			else {
+				timer->update();
+				if ((es->enemyState != EnemyState::Charge && es->enemyState != EnemyState::Attack) && timer->TimeSinceTimerCreation >= chargeDelay) {
+					es->enemyState = EnemyState::Charge;
+					ChargeComponent::startCharge();
+					timer->restart();
+					Message msg(STALKER_CHARGE);
+					es->sendMessage(&msg);
+				}
+				else if ((es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack) && timer->TimeSinceTimerCreation >= attackDelay + attackTime + .1) {
+					es->enemyState = EnemyState::Run;
+					es->getTransform()->speed = es->baseSpeed;
+					timer->restart();
+					Message msg(STALKER_RUN);
+					es->sendMessage(&msg);
 
-			else if (es->enemyState == EnemyState::Run)
-				ChaseComponent::update();
+				}
+				if (es->enemyState == EnemyState::Charge || es->enemyState == EnemyState::Attack)
+					ChargeComponent::update();
+
+				else if (es->enemyState == EnemyState::Run)
+					ChaseComponent::update();
+			}
 		}
 		else {
 			gameObject->getTransform()->velocity.set({ 0,0 });

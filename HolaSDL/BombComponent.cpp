@@ -39,7 +39,7 @@ void BombComponent::explode() {
 	if (bombTimer->TimeSinceTimerCreation > explodeTime) {
 		bombTimer->restart();
 		Transform bulletTransform;
-		bulletTransform.body.w = 50;
+		bulletTransform.body.w = 30;
 		bulletTransform.body.h = 15;
 		bulletTransform.position.set(gameObject->getCenterPos().getX() - bulletTransform.body.w / 2, gameObject->getCenterPos().getY() - bulletTransform.body.h / 2);
 		
@@ -50,7 +50,7 @@ void BombComponent::explode() {
 			bulletTransform.velocity = bulletTransform.direction = auxVel;
 			bulletTransform.speed = bombSpeed;
 
-			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::GunnerBullet);
+			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::BombBullet);
 		}
 		eb->death();
 		ResourceManager::getInstance()->getSoundEffect(BombSound)->play();

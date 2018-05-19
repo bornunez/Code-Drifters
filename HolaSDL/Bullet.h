@@ -3,7 +3,7 @@
 #include "GameObject.h"
 
 //Tipo de la bala
-enum class BulletType { MCBullet, GunnerBullet, TurretBullet, BossBullet};
+enum class BulletType { MCBullet, GunnerBullet, TurretBullet, BossBullet, BombBullet};
 class Bullet : public GameObject
 {
 private:

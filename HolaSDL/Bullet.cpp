@@ -6,7 +6,7 @@
 Bullet::Bullet(Texture * tex, bool active, BulletType type) : GameObject(tex, active)
 {
 	this->type = type;
-	if (type == BulletType::GunnerBullet || type == BulletType::BossBullet) {
+	if (type == BulletType::GunnerBullet || type == BulletType::BossBullet || type == BulletType::BombBullet) {
 		this->addComponent(new BulletAnimationComponent(this, texture));
 	}
 	else if (type == BulletType::MCBullet) {

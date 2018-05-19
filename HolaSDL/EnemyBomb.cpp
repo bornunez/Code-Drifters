@@ -20,8 +20,8 @@ EnemyBomb::EnemyBomb(MainCharacter* mc) :	Enemy(mc)
 	type = Bomb;
 	transform.body.w = transform.body.h = 0;
 	loadAnimations();
-	this->addComponent(new BoxRenderer(this, playState->getCamera()));
-	this->addComponent(new BombComponent(this, 6, 4.0, 300));
+	//this->addComponent(new BoxRenderer(this, playState->getCamera()));
+	this->addComponent(new BombComponent(this, 6, 3.0, 300));
 	this->addComponent(new BombAnimationComponent(this, animations));
 
 }
