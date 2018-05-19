@@ -8,7 +8,7 @@ DialogObject::DialogObject(string filename )
 {
 	boxRect = RECT(70, 470, 900, 250);
 	namesRect = RECT(150, 510, 150, 50);
-	pjRect = RECT(120, 120, 200, 350);
+	pjRect = RECT(120, 270, 200, 200);
 	for (int i = 0; i < 4; i++) 
 	{
 		SDL_Rect r = RECT(150, 550 + i * 25, 200, 40);
@@ -39,7 +39,7 @@ DialogObject::DialogObject(string filename )
 	read >> i;
 	currentPj = i;
 	nameTex = new Texture(game->getRenderer());
-	nameTex->loadFromText(names[currentPj], *font);
+	nameTex->loadFromText(names[currentPj], *font, { COLOR(0x34D6F6ff) });
 	read.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	getline(read, currentText);
 	divideText();
@@ -109,6 +109,8 @@ void DialogObject::adjustRects()
 	{
 		linesRect[i].w = lines[i].size() * 15;
 	}
+	namesRect.w = names[currentPj].length()*18;
+	
 }
 
 void DialogObject::update()
@@ -146,7 +148,7 @@ void DialogObject::handleEvents(SDL_Event & e)
 				}
 				divideText();
 				adjustRects();
-				nameTex->loadFromText(names[currentPj], *font);
+				nameTex->loadFromText(names[currentPj], *font, { COLOR(0x34D6F6ff) });
 				for (int i = 0; i < linesTex.size(); i++)
 				{
 					linesTex[i]->loadFromText(lines[i], *font);
