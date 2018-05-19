@@ -11,8 +11,6 @@ private:
 
 	Font* font;
 	Font* font2;
-	Texture* openText;
-	SDL_Rect textRect;
 
 	Texture* background;
 	SDL_Rect bckgrndRect;
@@ -28,13 +26,10 @@ private:
 	SDL_Rect op3Rect;
 	SDL_Rect op4Rect;
 
-	SDL_Color c;
 	SDL_Color white = { COLOR(0xF615E0ff)};
 	SDL_Color blue = { COLOR(0x34D6F6ff) };
 
 	SDL_Point mouse;
-	bool alfaUp = false;
-	bool flag = false;
 	int selectedOp = 0;
 
 public:
