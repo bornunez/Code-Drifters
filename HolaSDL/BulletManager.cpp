@@ -73,13 +73,20 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 
 	Bullet* newBullet = nullptr;
 
-	if(bulletType == BulletType::MCBullet)
+	switch (bulletType) {
+	case BulletType::MCBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(MCBullet), true, bulletType);
-	
-	else if(bulletType == BulletType::GunnerBullet)
+		break;
+	case BulletType::GunnerBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);
-	else if (bulletType == BulletType::BossBullet)
+		break;
+	case BulletType::BossBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BossBullet), true, bulletType);
+		break;
+	case BulletType::BombBullet:
+		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BombBullet), true, bulletType);
+		break;
+	}
 
 	bullets.push_back(newBullet);
 	return newBullet;

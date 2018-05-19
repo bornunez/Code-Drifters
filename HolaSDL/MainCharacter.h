@@ -34,7 +34,7 @@ private:
 	bool lifeStealEnabled = false;
 	float lifeStealPercentual = 10.0; //percentage of the damage done that is healed
 
-	float ultiCharge = 0;//[0,100]
+	float ultiCharge = 50;//[0,100]
 	float UltiBonusCD = 1; //[ultiCharge / ultiBonus], which leads to bonus in range (0, 1]
 
 	Vector2D gunPosition;//Posici�n de donde sale la bala

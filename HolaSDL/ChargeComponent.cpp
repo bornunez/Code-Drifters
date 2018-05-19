@@ -71,6 +71,7 @@ void ChargeComponent::startCharge()
 {
 	gameObject->getTransform()->speed = e->baseSpeed;
 	timer->restart();
+	e->setMovable(true);
 	charging = false;
 
 }

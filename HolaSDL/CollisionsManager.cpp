@@ -120,7 +120,7 @@ void CollisionsManager::bulletCollisions()
 				break;
 			}
 			//COLISION CON JUGADOR
-			case BulletType::GunnerBullet:
+			case BulletType::GunnerBullet: case BulletType::BombBullet:
 			{
 				//Colisionamos la bala con las hurtboxes del player
 				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
