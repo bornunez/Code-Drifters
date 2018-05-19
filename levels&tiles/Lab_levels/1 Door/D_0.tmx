@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="17">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="18">
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
@@ -28,6 +28,9 @@
    eJxjYBgFgw3sBeK5UEwr4AXE3kDsgyR2FojXQjGtQBQQRwNxDJn6HRkhdBmJ+rKAOBuIc8i0NxBoryIQKwGxMiOZhowCDMA2AHYKkKmPFwnT015kwDpA9sLsJtbvIHXUjluY/bjwQKSlUTAKRsEoGAWjYDgAAOWlCbI=
   </data>
  </layer>
+ <objectgroup name="Inicio">
+  <object id="17" name="Start" gid="687" x="111" y="165" width="16" height="16"/>
+ </objectgroup>
  <objectgroup name="Puertas">
   <object id="9" name="Down" x="169.5" y="400.5" width="130" height="17.5"/>
  </objectgroup>
