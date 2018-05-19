@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 107;
+const int NUM_TEXTURES = 108;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 8;
@@ -32,7 +32,7 @@ typedef struct {
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
 enum TextureId {
-	MCBullet, MCGun, GunnerBullet, BossBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
+	A,MCBullet, MCGun, GunnerBullet, BossBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
 	//TIENDA
 	Madam_P_Idle,
@@ -111,6 +111,7 @@ class ResourceManager
 private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{
+		{ "ImFin.png", 1, 1 },
 		{ "MCBullet.png", 1, 4 },
 		{"GunRight.png",1,1},
 		{ "GunnerBullet.png", 1, 5 },
