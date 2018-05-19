@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "ShopInput.h"
 #include "TextTrigger.h"
+#include "HealInput.h"
 
 void LevelParser::parseTileLayer(XMLElement* root, XMLElement* tileElement, Map* map, vector<Tileset*> tilesets)
 
@@ -252,10 +253,17 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 	if (objName == "Turret")
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GunnerBullet)));
 	else if (objName == "Tienda") {
-		obj->addComponent(new PressToInteract(obj));
+		string text = "PRESS E TO ENTER THE SHOP";
+		obj->addComponent(new PressToInteract(obj,text));
 		//obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
 		obj->addComponent(new ShopInput(obj));
 		}
+	else if (objName == "Heal") {
+		string text = "PRESS E TO HEAL 25% (10$)";
+		obj->addComponent(new PressToInteract(obj,text));
+		//obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
+		obj->addComponent(new HealInput(obj));
+	}
 	else if (objName == "ChicaFumando") {
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GirlSmoking),0.0,200));
 	}
