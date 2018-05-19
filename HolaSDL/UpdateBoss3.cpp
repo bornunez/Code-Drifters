@@ -82,6 +82,9 @@ void UpdateBoss3::update()
 	}
 	else if (faseAct == 1 && !updateado)
 	{
+		boss->changeCurrentAnimation("DESAPARECE");
+		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->overlapCollision.active = false;
 		Tiempo->restart();
 		faseAct = -1;
 		updateado = true;
@@ -176,19 +179,19 @@ void UpdateBoss3::faseTP()
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
 		//boss->changeCurrentAnimation("DESVANECE");
-		boss->changeCurrentAnimation("ABRE_BRAZOS");
-		boss->getTransform()->overlapCollision.active = true;
-		boss->getCurrentAnimation()->startAnimation();
+		//boss->changeCurrentAnimation("APARECE");
+		//boss->getCurrentAnimation()->startAnimation();
 		fasesPast = 0;
 		auxFasesTp++;
 		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
 	}
 	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 0)
 	{
-		int randX = rand() % (1000) -500;
+		int randX = rand() % (1000) - 500;
 		int randY = rand() % (1000) - 500;
-		boss->getTransform()->position = Vector2D(posInic.getX()+randX, posInic.getY()+randY);
-		boss->changeCurrentAnimation("ABRE_BRAZOS");
+		boss->getTransform()->position = Vector2D(posInic.getX() + randX, posInic.getY() + randY);
+		boss->getTransform()->overlapCollision.active = true;
+		boss->changeCurrentAnimation("APARECE");
 		boss->getCurrentAnimation()->startAnimation();
 		fasesPast = 1;
 		//boss->changeCurrentAnimation("APARECE");
@@ -257,9 +260,9 @@ void UpdateBoss3::fase3()
 		if (auxDir == 1) dirLucian = 1;
 		else if (auxDir == 2) dirLucian = -1;
 		boss->getTransform()->position = Vector2D(posInic.getX()+550 * dirLucian, 1000);
-		//boss->changeCurrentAnimation("SACA_RAYOS");
+		boss->changeCurrentAnimation("WALL_SHOOT");
 		//boss->getCurrentAnimation()->setTime(0.1);
-		//boss->getCurrentAnimation()->startAnimation();
+		boss->getCurrentAnimation()->startAnimation();
 		auxLucian = 0;
 
 
@@ -417,34 +420,64 @@ void UpdateBoss3::fase7()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("ENTRA");
-		//boss->getTransform()->overlapCollision.active = false;
-		//boss->getCurrentAnimation()->startAnimation();
+		posProta = prota->getCenterPos();
+		direccion = boss->getCenterPos() - posProta;
+		vel = direccion.magnitude() / tiempoFase7;
+		if (vel < 300) vel = 300;
+		direccion.normalize();
+		boss->changeCurrentAnimation("SWORD_DASH_INIT");
+		boss->getCurrentAnimation()->startAnimation();
+		if (boss->getCenterPos().getX() > prota->getCenterPos().getX()) boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		else boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
 	}
+	if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() == "SwordDashIni")
+	{
+		boss->changeCurrentAnimation("SWORD_DASH_LOOP");
+		boss->getCurrentAnimation()->startAnimation();
+		if (boss->getCenterPos().getX() > prota->getCenterPos().getX()) boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		else boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		
+	}
+	boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*vel*1.25f);
 }
 
 void UpdateBoss3::fase8()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("ENTRA");
-		//boss->getCurrentAnimation()->startAnimation();
+		boss->changeCurrentAnimation("SWORD_DASH_END");
+		if (boss->getCenterPos().getX() > prota->getCenterPos().getX()) boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		else boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
+		boss->getCurrentAnimation()->startAnimation();
 		fasesPast = 1;
-		boss->getTransform()->overlapCollision.active = false;
+		//boss->getTransform()->overlapCollision.active = false;
 
-		boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel, 4);
+		//boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel, 4);
+	}
+	if (boss->getCurrentAnimation()->isFinished())
+	{
+		boss->changeCurrentAnimation("DESAPARECE");
+		boss->getCurrentAnimation()->startAnimation();
+		boss->getTransform()->overlapCollision.active = false;
 	}
 }
 void UpdateBoss3::fase9()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("SALE");
-		//boss->getCurrentAnimation()->startAnimation();
-		//boss->getTransform()->overlapCollision.active = true;
+		boss->getTransform()->position = Vector2D(posInic.getX(), posInic.getY());
+		boss->changeCurrentAnimation("APARECE");
+		boss->getTransform()->overlapCollision.active = true;
+		boss->getCurrentAnimation()->startAnimation();
 		fasesPast = 1;
-		RondaWheels2();
-		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
+		//RondaWheels2();
+		fasesPast0 = 0;
+	}
+	if (boss->getCurrentAnimation()->isFinished() && fasesPast0 == 0)
+	{
+		fasesPast0 = 1;
+		boss->changeCurrentAnimation("WAVE");
+		boss->getCurrentAnimation()->startAnimation();
 	}
 }
 void UpdateBoss3::RondaWheels()

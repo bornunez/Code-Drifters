@@ -18,6 +18,7 @@
 #include "BoxRenderer.h"
 #include "KnockbackComponent.h"
 #include "StunComponent.h"
+#include "AcidDeathComponent.h"
 #include "SkeletonRenderer.h"
 EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 {
@@ -34,12 +35,13 @@ EnemyGunner::EnemyGunner(MainCharacter* mc) :	Enemy(mc)
 	loadAnimations();
 	addComponent(new GunnerComponent(this, getMC(), 400));
 	addComponent(new GunnerShotComponent(this, getMC(), 400, 2));
-	setCollisionsLayers({ "Paredes","Aire" });
+	setCollisionsLayers({ "Paredes","Aire", "Acido" });
 	addComponent(new KnockbackComponent(this, 1000));
 	addComponent(new BasicMovement(this));
 	addComponent(new DamageableEnemyComponent(this, getMC(),0.2));
 	addComponent(new GunnerAnimationComponent(this, getMC(), animations));
 	addComponent(new StunComponent(this, 0));
+	addComponent(new AcidDeathComponent(this));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 }

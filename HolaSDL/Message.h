@@ -45,6 +45,7 @@ enum MessageId {
 
 	//Death
 	MC_DEATH,
+	ACID_DEATH,
 
 	//GameObjects
 	HURT,
@@ -52,6 +53,7 @@ enum MessageId {
 	GUN_STUN,
 	STUN_OFF,
 	ENEMY_SPAWN,
+	ENEMY_ATTACK,
 
 	//Gunner Shot
 	SHOT_LEFT,
@@ -146,6 +148,14 @@ struct MCBulletStun : Message {
 struct HookEnemyMessage : Message {
 	HookEnemyMessage(Enemy* o) : Message(HOOK_ENEMY), gameObject(o){}
 	Enemy* gameObject;
+};
+struct EnemyAttackMessage : Message {
+	EnemyAttackMessage(float dmg) : Message(ENEMY_ATTACK), damage(dmg) {}
+	float damage;
+};
+struct EnemyBulletMessage : Message {
+	EnemyBulletMessage(float dmg) : Message(ENEMY_BULLET_COLLISION ), damage(dmg){}
+	float damage;
 };
 
 struct BossAttack : Message

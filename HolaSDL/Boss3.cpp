@@ -73,20 +73,24 @@ void Boss3::loadAnimations()
 	//Animaciones
 	Animation* abreBrazos = AnimationParser::parseAnimation(tileset, animationPath, "AbreBrazos", this, 0, 0, false, 0.04);
 	Animation* carga = AnimationParser::parseAnimation(tileset, animationPath, "Carga", this, 0, 0, false, 0.1);
-	/*Animation* warning = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Warning", this, 0, 0, true, 0.1);
-	Animation* sacaRayos = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-SacaRayos", this, 0, 0, false, 0.1);
-	Animation* entra = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-Entra", this, 0, 0, false, 0.1);
-	Animation* staticDown = AnimationParser::parseAnimation(tileset, animationPath, "Boss2-StaticDown", this, 0, 0, true, 0.1);
-	*/
+	Animation* swordashini = AnimationParser::parseAnimation(tileset, animationPath, "SwordDashIni", this, 0, 0, false, 0.1);
+	Animation* swordDashLoop = AnimationParser::parseAnimation(tileset, animationPath, "SwordDashLoop", this, 0, 0, true, 0.1);
+	Animation* swordDashEnd = AnimationParser::parseAnimation(tileset, animationPath, "SwordDashEnd", this, 0, 0, false, 0.1);
+	Animation* aparece = AnimationParser::parseAnimation(tileset, animationPath, "Appear", this, 0, 0, false, 0.1);
+	Animation* desaparece = AnimationParser::parseAnimation(tileset, animationPath, "Dissapear", this, 0, 0, false, 0.1);
+	Animation* wall = AnimationParser::parseAnimation(tileset, animationPath, "WallShoot", this, 0, 0, true, 0.1);
+	Animation* wave = AnimationParser::parseAnimation(tileset, animationPath, "Wave", this, 0, 0, false, 0.1);
+	
 	//Nombres de animaciones
 	animations.emplace("ABRE_BRAZOS", abreBrazos);
 	animations.emplace("CARGA", carga);
-	/*
-	animations.emplace("WARNING", warning);
-	animations.emplace("SACA_RAYOS", sacaRayos);
-	animations.emplace("ENTRA", entra);
-	animations.emplace("STATIC_DOWN", staticDown);
-	*/
+	animations.emplace("SWORD_DASH_INIT", swordashini);
+	animations.emplace("SWORD_DASH_LOOP", swordDashLoop);
+	animations.emplace("SWORD_DASH_END", swordDashEnd);
+	animations.emplace("APARECE", aparece);
+	animations.emplace("DESAPARECE", desaparece);
+	animations.emplace("WALL_SHOOT", wall);
+	animations.emplace("WAVE", wave);
 }
 
 void Boss3::changeColor(int r, int g, int b)

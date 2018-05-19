@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="44" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="39">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
- <layer name="Suelo" width="44" height="40" visible="0">
+ <layer name="Suelo" width="44" height="40">
   <data encoding="base64" compression="zlib">
    eJzt10sOQDAURuFuFYthB1gBdqlm0nRQfd2rPSf5Z1JfjMoYItLQbLdETqLVboucRHjLluId7MaATZ1794znlc7njf3eqfvilTL24tVgbtkrbcWLF69O7/Ps+79Bwhp6h0m5n+HFixevJu9hdzqr4XPfeQV6fdXw5gwv3j97qe1u62smtw==
   </data>

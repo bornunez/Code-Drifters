@@ -17,7 +17,7 @@
 #include "ChargerComponent.h"
 #include "ChargerDamageableEnemyComponent.h"
 #include "WallStunComponent.h"
-
+#include "AcidDeathComponent.h"
 
 
 EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
@@ -39,7 +39,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	
 	//this->addComponent(new ChaseComponent(this, getMC()));
 	//this->addComponent(new ChargeComponent(this, getMC(), 2, 1, 2));
-	setCollisionsLayers({ "Paredes","Aire" });
+	setCollisionsLayers({ "Paredes","Aire", "Acido" });
 	addComponent(new WallStunComponent(this, 4));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new ChargerAnimationComponent(this, getMC(), animations, .2, .5));
@@ -47,7 +47,7 @@ EnemyCharger::EnemyCharger(MainCharacter* mc) :	Enemy(mc)
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new ChargerDamageableEnemyComponent(this, getMC(), 0.2));
-
+	addComponent(new AcidDeathComponent(this));
 }
 
 
