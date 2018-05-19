@@ -1,7 +1,9 @@
 1
-death Forman
-2
-0
-Hola Haro, veo que te has despertado.
+FormanG FormanGreeman
+3
 0 
-Estaras un poco perdido, prueba a moverte (W,S,A,D)
+Hola Haro, veo que te has despertado
+0 
+Imagino que estaras confuso despues de la paliza que te han dado... No te precupes, yo te ayudare a recuperarte
+0 
+Primero, vamos a ver que no te has olvidado de como moverte. Prueba a moverte (W,S,A,D)

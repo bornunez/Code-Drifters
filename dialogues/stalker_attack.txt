@@ -1,7 +1,9 @@
 1
-death Forman
-2
+FormanG Forman
+3
 0 
-Cuidado! Hay un enemigo delante
-0 
-Atacale con la espada! (Click izquierdo)
+Cuidado! Hay un enemigo delante. Vamos a ver si no te has olvidado de luchar
+0
+Primero, puedes atacar con la espada, Puedes dejarle la cara fina si le das varios seguidos!
+0
+Asi que vamos, atacale con la espada! (Click izquierdo)

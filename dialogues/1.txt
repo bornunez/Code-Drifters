@@ -1,10 +1,10 @@
-2
-loadbutton Tonto1
-playbutton Tonto2
-3
-0 
+Numero de personajes
+Sprite PJ1 Nombre PJ1
+Sprite PJ2 Nombre PJ2
+Numero de dialogos
+Personaje que habla 1
 aieiei eieeiei leiloleiloleiloleio yeyeyeyeyey xdxdxdxdxdxd lololololoololol olooollo aaaauuuueeeeeeeee leleleleelele popopopo lmaeeseano
-1 
+Personaje que habla 2
 Los grupos de investigación reconocidos por la Universidad Complutense que desarrollan su actividad en la Facultad de Informática:
-0 
+Personaje que habla 3	
 lelelele llilo
