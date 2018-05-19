@@ -1,1 +1,1 @@
-0 0 15 Dobla tu Poder, divide tu HP
+0 0 100 Dobla tu Poder, divide tu HP

@@ -1,1 +1,1 @@
-1 0 30 Curate golpeando enemigos
+1 0 50 Curate golpeando enemigos
