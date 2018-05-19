@@ -67,7 +67,7 @@ public:
 	int getLvl() { return level; }
 	static Game* getGame();
 
-	void startGame();
+	void startGame(bool tutorial);
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();

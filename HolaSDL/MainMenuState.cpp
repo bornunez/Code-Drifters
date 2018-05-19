@@ -93,9 +93,10 @@ void MainMenuState::handleEvent(SDL_Event & e)
 			switch (selectedOp)
 			{
 			case 1:
-				playState(game);
+				playState(game, false);
 				break;
 			case 2:
+				playState(game, true);
 				break;
 			case 3:
 				break;
@@ -113,9 +114,10 @@ void MainMenuState::handleEvent(SDL_Event & e)
 			switch (selectedOp)
 			{
 			case 1:
-				playState(game);
+				playState(game,false);
 				break;
 			case 2:
+				playState(game, true);
 				break;
 			case 3:
 				break;
@@ -209,9 +211,9 @@ void MainMenuState::render()
 	}
 }
 
-void MainMenuState::playState(Game* game)
+void MainMenuState::playState(Game* game,bool tutorial)
 {
-	game->startGame();
+	game->startGame(tutorial);
 	//game -> playIntro();
 }
 
