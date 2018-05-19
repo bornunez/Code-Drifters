@@ -432,17 +432,17 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="AcidDeathComponent.cpp" />
-    <ClCompile Include="Wave.cpp">
-      <Filter>Bosses\Wave</Filter>
-    </ClCompile>
     <ClCompile Include="Wheel.cpp">
       <Filter>Bosses\WheelEnemy</Filter>
     </ClCompile>
     <ClCompile Include="RenderWheel.cpp">
       <Filter>Bosses\WheelEnemy</Filter>
     </ClCompile>
+    <ClCompile Include="Wave.cpp">
+      <Filter>Bosses\Wave</Filter>
+    </ClCompile>
     <ClCompile Include="WaveAnimationComponent.cpp">
-      <Filter>Enemigos\Source</Filter>
+      <Filter>Bosses\Wave</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -864,6 +864,14 @@
     </ClInclude>
     <ClInclude Include="BossBombComponent.h">
       <Filter>Enemigos\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="AcidDeathComponent.h" />
+    <ClInclude Include="RenderWheel.h" />
+    <ClInclude Include="Wave.h">
+      <Filter>Bosses\Wave</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveAnimationComponent.h">
+      <Filter>Bosses\Wave</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

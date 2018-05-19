@@ -26,8 +26,7 @@ Wave::Wave(MainCharacter* prot, int x, int y, int w, int h) : Enemy(prot)
 	Attributes.meleeDmg = 10;
 	allUpdates();
 	loadAnimations();
-	this->changeCurrentAnimation("CARGA");
-	this->getCurrentAnimation()->startAnimation();
+
 
 	rend = new WaveAnimationComponent(this, animations, 3);
 	addComponent(rend);
@@ -42,7 +41,7 @@ Wave::~Wave()
 
 void Wave::loadAnimations()
 {
-	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(4);
+	Tileset* tileset = ResourceManager::getInstance()->getEnemyTileset(7);
 	string animationPath = "../Animations/Enemies/Wave.tmx";
 
 

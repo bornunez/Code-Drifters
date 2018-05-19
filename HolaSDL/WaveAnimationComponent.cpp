@@ -12,6 +12,8 @@ WaveAnimationComponent::WaveAnimationComponent(Wave* o, std::map<const char*, An
 	this->ew = o;
 	this->time = time;
 	timer.restart();
+	gameObject->changeCurrentAnimation("CARGA");
+	gameObject->getCurrentAnimation()->startAnimation();
 
 }
 

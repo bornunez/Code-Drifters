@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="5" tilewidth="64" tileheight="64" nextobjectid="18">
  <tileset firstgid="1" source="Wave.tsx"/>
- <objectgroup name="Explosion">
-  <object id="17" name="Hitbox" type="7" x="577" y="88" width="61.33" height="36.67"/>
-  <object id="16" name="Hitbox" type="6" x="513" y="88" width="61.33" height="36.67"/>
-  <object id="15" name="Hitbox" type="5" x="449" y="88" width="61.33" height="36.67"/>
-  <object id="14" name="Hitbox" type="4" x="385" y="88" width="61.33" height="36.67"/>
-  <object id="13" name="Hitbox" type="3" x="321" y="88" width="61.33" height="36.67"/>
-  <object id="12" name="Hitbox" type="2" x="257" y="88" width="61.33" height="36.67"/>
-  <object id="11" name="Hitbox" type="1" x="193" y="88" width="61.33" height="36.67"/>
-  <object id="10" name="Hitbox" type="0" x="129" y="88" width="61.33" height="36.67"/>
- </objectgroup>
+
  <layer name="Explosion" width="10" height="5">
   <data encoding="base64" compression="zlib">
    eJxjYCAOsAIxGxCzAzEHEHMCMRcQcwMxDxDzQuXYoGrpDQA14ABk
@@ -21,4 +12,14 @@
    eJxjZGBgYAJiZiBmYRi6AAAISAAL
   </data>
  </layer>
+  <objectgroup name="Explosion">
+  <object id="17" name="Hitbox" type="9" x="577" y="88" width="61.33" height="36.67"/>
+  <object id="16" name="Hitbox" type="8" x="513" y="88" width="61.33" height="36.67"/>
+  <object id="15" name="Hitbox" type="7" x="449" y="88" width="61.33" height="36.67"/>
+  <object id="14" name="Hitbox" type="6" x="385" y="88" width="61.33" height="36.67"/>
+  <object id="13" name="Hitbox" type="5" x="321" y="88" width="61.33" height="36.67"/>
+  <object id="12" name="Hitbox" type="4" x="257" y="88" width="61.33" height="36.67"/>
+  <object id="11" name="Hitbox" type="3" x="193" y="88" width="61.33" height="36.67"/>
+  <object id="10" name="Hitbox" type="2" x="129" y="88" width="61.33" height="36.67"/>
+ </objectgroup>
 </map>
