@@ -38,6 +38,7 @@ Game::~Game()
 {	//Termina el juego llama a las destructoras de playState etc...
 	endGame();
 	delete stateMachine;			//Llama ademas a las destructoras de todos los estados que tenga pusheados
+	PlayState::ResetInstance();
 	delete Time::getInstance();
 
 	SDL_DestroyRenderer(renderer);

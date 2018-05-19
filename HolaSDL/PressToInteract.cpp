@@ -18,6 +18,8 @@ PressToInteract::PressToInteract(GameObject* o) : RenderComponent(o)
 
 PressToInteract::~PressToInteract()
 {
+	delete font;
+	delete pressTex;
 }
 
 void PressToInteract::lateRender()
