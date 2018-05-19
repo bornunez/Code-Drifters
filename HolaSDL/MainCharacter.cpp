@@ -80,7 +80,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 
 	normalAttackDamage = 50;
 	chargedAttackDamage = 100;
-	ultimateAttackDamage = 100;
+	ultimateAttackDamage = 200;
 	shotAttackDamage = 20;
 	movable = true;
 	

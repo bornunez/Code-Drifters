@@ -1,5 +1,5 @@
 #include "SoundEffect.h"
-
+#include "Game.h"
 SoundEffect::SoundEffect() :
 		chunck_(nullptr) {
 
@@ -21,8 +21,11 @@ bool SoundEffect::load(std::string fileName) {
 }
 
 void SoundEffect::play(int repetirions) {
-	if (chunck_ != nullptr) {
-		Mix_PlayChannel(-1, chunck_, repetirions);
+	if (!Game::getGame()->getMute()) {
+		if (chunck_ != nullptr) {
+			Mix_PlayChannel(-1, chunck_, repetirions);
+		}
+
 	}
 }
 
