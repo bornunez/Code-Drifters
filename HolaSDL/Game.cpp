@@ -206,7 +206,7 @@ void Game::saveConfig()
 		file << "musicFalse" << endl;
 	}
 	else file << "musicTrue" << endl;
-	file << (language == English) ? "ENG" : "ESP";
+	file << ((language == English) ? "ENG" : "ESP") << endl;
 	file.close();
 }
 
