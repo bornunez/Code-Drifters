@@ -158,8 +158,10 @@ void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 		unvisitedRooms_.erase(unvisitedRooms_.begin());//Borra la sala actual de las salas sin visitar
 		i++;
 		system("cls");
-		std::cout << "Creating rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
-		RenderProgresBar(i, maxRooms_, "Generating map... [ " + to_string(i) + " / " + to_string(maxRooms_) + " ]");
+		string aux = Game::getGame()->getLanguage() == English ? "Creating rooms" : "Creando salas";
+		std::cout << aux + ": [ " << i << " / " << maxRooms_ << " ]" << endl;
+		aux = Game::getGame()->getLanguage() == English ? "Generating map" : "Generando mapa";
+		RenderProgresBar(i, maxRooms_, aux + ".. [ " + to_string(i) + " / " + to_string(maxRooms_) + " ]");
 	}
 	
 }
@@ -169,7 +171,8 @@ void DungeonGenerator::GenerateFromFile(string file)
 	ifile.open(file);
 
 	int k = 0;
-	RenderProgresBar(k, maxRooms_, "Generating map... [ " + to_string(k) + " / " + to_string(maxRooms_)+" ]");
+	string aux = Game::getGame()->getLanguage() == English ? "Generating map" : "Generando mapa";
+	RenderProgresBar(k, maxRooms_, aux + "... [ " + to_string(k) + " / " + to_string(maxRooms_)+" ]");
 	if (ifile.is_open()) {
 		string roomName;
 		for (int i = 0; i < mapHeight_; i++) {
@@ -179,7 +182,7 @@ void DungeonGenerator::GenerateFromFile(string file)
 				if (roomName != "null") {
 					Dungeon_[i][j]->setFile(roomName);
 					visitedRooms_.push_back(Dungeon_[i][j]);
-					RenderProgresBar(k, maxRooms_, "Generating map... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+					RenderProgresBar(k, maxRooms_, aux +"... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
 					k++;
 				}
 			}
@@ -190,13 +193,14 @@ void DungeonGenerator::GenerateFromFile(string file)
 void DungeonGenerator::SetMapDoors()
 {
 	int k = 0;
-	RenderProgresBar(k, maxRooms_, "Opening doors... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+	string aux = Game::getGame()->getLanguage() == English ? "Opening doors" : "Abriendo puertas";
+	RenderProgresBar(k, maxRooms_, aux + "... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
 	for (int i = 0; i < mapHeight_; i++) {
 		for (int j = 0; j < mapWidth_; j++) {
 			//A cada sala le ponemos las puertas correspondientes
 			if (!Dungeon_[i][j]->isVoid()) {
 				SetDoors(i, j);
-				RenderProgresBar(k, maxRooms_, "Opening doors... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+				RenderProgresBar(k, maxRooms_, aux + "... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
 				k++;
 			}
 		}
@@ -226,12 +230,13 @@ void DungeonGenerator::SetDoors(int i, int j)
 void DungeonGenerator::LoadRoomsFromFile()
 {
 	int k = 0;
-	RenderProgresBar(k, maxRooms_, "Loading Rooms... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+	string aux = Game::getGame()->getLanguage() == English ? "Loading rooms" : "Cargando salas";
+	RenderProgresBar(k, maxRooms_, aux + "... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
 	for (int i = 0; i < mapHeight_; i++) {
 		for (int j = 0; j < mapWidth_; j++) {
 			if (!Dungeon_[i][j]->isVoid()) {
 				Dungeon_[i][j]->loadFromFile(ResourceManager::getInstance()->getLevelPath() + "Tutorial\\levels\\");
-				RenderProgresBar(k, maxRooms_, "Loading Rooms... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
+				RenderProgresBar(k, maxRooms_, aux + "... [ " + to_string(k) + " / " + to_string(maxRooms_) + " ]");
 				k++;
 			}
 		}
@@ -406,9 +411,10 @@ void DungeonGenerator::load() {//Cada sala carga su textura correspondiente
 	{
 		vr->load();
 		system("cls");
-		cout << "Loading rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
+		string aux = Game::getGame()->getLanguage() == English ? "Loading rooms" : "Cargando salas";
+		cout << aux + ": [ " << i << " / " << maxRooms_ << " ]" << endl;
 		//RenderProgresBar(i, maxRooms_, "Loading Rooms...");
-		RenderProgresBar(i, maxRooms_, "Loading Rooms... [ " + to_string(i) + " / " + to_string(maxRooms_) + " ]");
+		RenderProgresBar(i, maxRooms_, aux + "... [ " + to_string(i) + " / " + to_string(maxRooms_) + " ]");
 		i++;
 	}
 }
