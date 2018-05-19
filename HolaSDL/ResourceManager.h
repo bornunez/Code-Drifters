@@ -111,7 +111,7 @@ class ResourceManager
 private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{
-		{ "ImFin.png", 1, 4 },
+		{ "ImFin.png", 1, 20 },
 		{ "MCBullet.png", 1, 4 },
 		{"GunRight.png",1,1},
 		{ "GunnerBullet.png", 1, 5 },
