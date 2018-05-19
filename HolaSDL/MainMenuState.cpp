@@ -1,6 +1,7 @@
 #include "MainMenuState.h"
 #include "Game.h"
 #include "Time.h"
+#include <fstream>
 
 
 MainMenuState::MainMenuState()
@@ -213,8 +214,27 @@ void MainMenuState::render()
 
 void MainMenuState::playState(Game* game,bool tutorial)
 {
-	game->startGame(tutorial);
+	if (tutorial) 
+	{
+		game->startGame(true);
+	}
+	//game->startGame(tutorial);
 	//game -> playIntro();
+	ifstream ifile;
+	ifile.open("..\\levels&tiles\\Tutorial\\intro_seen");
+	if (ifile.is_open()) {
+		ifile.close();
+		game->startGame(false);
+	}
+	else 
+	{
+		ofstream ofile;
+		ofile.open("..\\levels&tiles\\Tutorial\\intro_seen");
+		if (ofile.is_open()) {
+			ofile.close();
+		}
+		game->playIntro();
+	}
 }
 
 void MainMenuState::exitGame(Game* game)
