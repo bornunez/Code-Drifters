@@ -24,6 +24,7 @@ private:
 	DungeonGenerator* level;
 	Room* currentRoom;
 	Minimap* minimap;
+	bool tuto;
 
 
 	//HUDManager* hud;
@@ -45,6 +46,7 @@ public:
 	void update();	
 
 	void nextLevel();
+	bool isTutorial() { return tuto; }
 
 	MainCharacter* getMainCharacter() { return mainCharacter; }
 	DungeonGenerator* getLevel() { return this->level; }

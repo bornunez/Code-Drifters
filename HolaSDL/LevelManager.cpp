@@ -11,6 +11,7 @@
 #include "ItemManager.h"
 #include "Message.h"
 #include <iostream>
+#include <fstream>
 
 LevelManager* LevelManager::instance = nullptr;
 
@@ -246,9 +247,9 @@ bool LevelManager::getDoor(Direction dir)
 
 void LevelManager::init(bool tutorial)
 {
-	level = tutorial ? 0 : 1;
-	baseRooms = 20;
-	roomsPerLevel = 5;
+	level = 0;
+	baseRooms = 10;
+	roomsPerLevel = 4;
 	newMap();
 }
 
@@ -276,6 +277,13 @@ void LevelManager::nextLevel()
 	if (EnemyManager::getInstance()->getActiveBoss() != nullptr) {
 		EnemyManager::getInstance()->getActiveBoss()->setInvincibility(true);
 		EnemyManager::getInstance()->getActiveBoss()->getTransform()->overlapCollision.active = false;
+	}
+	if (level == 0) {
+		ofstream ofile;
+		ofile.open("..\\levels&tiles\\Tutorial\\tutorial_done");
+		if (ofile.is_open()) {
+			ofile.close();
+		}
 	}
 
 	delete dungeon;
