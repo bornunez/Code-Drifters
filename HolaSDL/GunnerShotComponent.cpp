@@ -169,7 +169,7 @@ void GunnerShotComponent::shoot() {
 
 void GunnerShotComponent::update() {
 	if (!gameObject->isDead()) {
-		if (!eg->isStunned()){
+		if (!eg->isStunned() && !eg->isHooked()){
 			shoot();
 			lastShotTime->update();
 		}

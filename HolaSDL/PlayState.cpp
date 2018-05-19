@@ -132,6 +132,7 @@ void PlayState::nextLevel()
 	LevelManager::getInstance()->enterMap();
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;
+	Game::getGame()->flushEvents();
 	//HUDManager::getInstance()->addBullet();
 	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
 	//addGameObject(boss);
@@ -186,6 +187,7 @@ void PlayState::loadState(bool tutorial)
 
 	//Al final ajustamos el deltaTime
 	Time::getInstance()->DeltaTime = 0.001;
+	Game::getGame()->flushEvents();
 	//HUDManager::getInstance()->addBullet();
 	//Boss* boss = new Boss(mainCharacter, 600, 600, 200, 200);
 	//addGameObject(boss);

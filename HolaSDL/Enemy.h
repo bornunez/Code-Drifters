@@ -58,6 +58,7 @@ public:
 	void setLife(int life) { Attributes.life = life; };
 	void setStun(bool set) { Attributes.stunned = set; }
 	bool isStunned() { return Attributes.stunned; }
+	bool isHooked() { return (this->enemyState==EnemyState::Hooked); }
 	bool isHookable() { return Attributes.hookable; }
 	EnemyState enemyState;		//PROTECTED
 	EnemyState getEnemyState() { return this->enemyState; }

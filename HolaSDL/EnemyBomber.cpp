@@ -32,10 +32,10 @@ EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
 	setCollisionsLayers({ "Paredes","Aire", "Acido" });
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new BomberAnimationComponent(this, getMC(), animations, .2));
-	this->addComponent(new BomberShotComponent(this, getMC(), 200, 3));
-	this->addComponent(new BomberComponent(this, getMC(), 200));
+	this->addComponent(new BomberShotComponent(this, getMC(), 250, 1.5));
+	this->addComponent(new BomberComponent(this, getMC(), 250));
 	addComponent(new KnockbackComponent(this, 1000));
-	addComponent(new BoxRenderer(this, playState->getCamera()));
+	//addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new DamageableEnemyComponent(this, getMC(), .2));
 	addComponent(new StunComponent(this, 0));
 	addComponent(new AcidDeathComponent(this));
