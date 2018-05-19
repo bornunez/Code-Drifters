@@ -3,6 +3,7 @@
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/puti.tsx"/>
  <tileset firstgid="757" source="../../tileset/putiSinPuertas.tsx"/>
+ <tileset firstgid="1257" source="../../tileset/clientes.tsx"/>
  <layer name="Suelo" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJwV0FOYFggUgOGabNu27drNnIzdbLuZmmqqNarxhDVzbbZt27bXaN//4n2ec/Gdc3ESJkyQIIhEJCYJSUlGclKQklSkJg1pSUd6MpCRTGQmC1nJRnZykJNc5CYPeclHfgpQkEIUpghFKUZxSlCSUpSmDGUpR3kqUJFKVKYKValGdWpQk1rUpg51qUd9GvAWb9OQRjSmCU1pRnNa0JJWtKYNwbSlHe3pQEc60ZkudKUb7/Au3elBT3rRmz70pR/9GcBABjGYIQxlGMMZwUhGMZoxjGUc45lACKFMZBJhTGYKUwlnGtOZwXu8zwd8yEd8zCd8ymd8zkxmMZsIIokimhhiiSOeOcxlHvP5gi/5iq/5hm/5ju/5gR/5iZ9ZwEIWsZglLGUZy1lBAlayitWsYS3rWM8GNrKJzWxhK9vYzg52sovd7GEv+9jPAQ5yiMMc4SjHOM4JTnKK05zhLOc4zwUuconLXOEq17jODW5yi9vc4S73uM8DHvKIxzzhKc94zgte8orX/Mpv/M4f/Mlf/M0//Mt/vAn8Lsj7CCIRiUlCUpKRnBSkJBWpSUNa0pGeDGQkE5nJQlaykZ0c5CQXuclDXvKRnwIUpBCFKUJRilGcEpSkFKUpQ1nKUZ4KVKQSlalCVapRnRrUpBa1qUNd6lGfBoE+sZ6G5kY0pglNaUZzWtCSVrSmDcG0pR3t6UBHOtGZLnSlW6B3P5ju5h70pBe96UNf+tGfAQxkEIMZwlCGMZwRjGQUoxnD2EDv/mAmmEMIZSKTCGMyU5hKOOO04wM9IYQykUmEMZkpTCWcaUxnBrPtRxBJFNHEEEsc8cxhpnZWoCeCSKKIJoZY4ohnDnOZx3wW2F/IIhazhKUsYzkr+IWVrGI1a1jLOtazgY1sYjNb2Mo2trODnexiN3vYyz72c4CDHOIwRzjKMY5zgpOc4jRnOMs5znOBi1ziMle4yjWuc4Ob3OI2d7jLPe7zgIc84jFPeMoznvOCl7ziNf8DL6f1Ew==
@@ -16,6 +17,11 @@
  <layer name="Paredes" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJzt00cKwkAUgOEnzKH0GHoMPYYeQ7f23rb23rb23o7hv5SAYRBHBX3wQQiT92eRiENETBLD+9/ZEMu1WO7bvZfdfFND9/l/43car/g/PtnQHKcScSmzDTf7PYYbXvb7DDf87A8o0fsOn5wg+0P3jQfCnIkgihjiSCCJFNLIIIsc8iigiBLKGo0KZ6qooY4GmmihjQ666KGPAYYYYYyJRmPKmRnmWGCJFdbYYIsd9jjgiBPOuOCKG1sGLW4=
+  </data>
+ </layer>
+ <layer name="Clinetes" width="25" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztzclRQkEARdHe/ChBQU1BwYEUBHFIAUGRFJghBRCnFARB2XlyoFdUv6qzfTeEtH1YLgshzwGHFChyxDEn2e6NUx9nlChzzgWXXFGJ0Lj2UaXGDXVuueOehwiNho9HmrR44pk2L3QiNLo+evQZMGTEmAnTCI2ZjzmvLHjjnQ8++YrQ+PaxZMUPazb88sc2QiMtLS3O/gEELCsS
   </data>
  </layer>
  <objectgroup name="Puertas">
