@@ -96,6 +96,20 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 
 	room->spawn();
 	room->setExplored(true);
+	if (!getBossRoom()->isExplored()) {
+		if (getRoom(Up) && getRoom(Up)->getType() == BossRoom) {
+			getRoom(Up)->setExplored(true);
+		}
+		if (getRoom(Down) && getRoom(Down)->getType() == BossRoom) {
+			getRoom(Down)->setExplored(true);
+		}
+		if (getRoom(Left) && getRoom(Left)->getType() == BossRoom) {
+			getRoom(Left)->setExplored(true);
+		}
+		if (getRoom(Right) && getRoom(Right)->getType() == BossRoom) {
+			getRoom(Right)->setExplored(true);
+		}
+	}
 	Message msg(ROOM_ENTER);
 	sendMessageCurrent(&msg);
 }
