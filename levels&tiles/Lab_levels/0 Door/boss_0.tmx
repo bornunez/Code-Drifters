@@ -11,32 +11,32 @@
  </layer>
  <layer name="Aire" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztw7EJAAAIA7D6/9O+0E2EBJIAAAAAALU5DAC8sBH8ACA=
+   eJztw7EJAAAIA7D6/9MeURyEBJIAAAAAAMAjcxygtIbYABk=
   </data>
  </layer>
  <layer name="Suelo" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztlkEKwzAMBEN+LNsXW358A9XCxNBj0UUDoo2Tw3hR5FxXURRFURTFf1n3t/wpi98WZff7fn9qPDXjOoMOtx1u8tlRcjSs7STfcbh61Ii1dmS+cZ2BwbMh2xbrA/5+PJuB8pVfR8+yb9U3er4n+SrTDS873LUf9bn6OYOODPVuKVvOCEeuupfB+uHU8V+ZjvudfQYWDhN5zvBRn0w4c75lwB6QsyNPzrIJ36x8J/Lj/OK5wD2o31fiPFtwUcaccwZHzeesflC/TvSnI+PzfOOszoDfDo7sNNM29qI1ZZ/lq/ddufE7QT1g2JcyzkBnhTLscOSZ7McesvItiqIoiqL4AKFZcQk=
+   eJztlsuOhSAQRG/8Y4QNysePyfRJjuTOks4sqIT4ALW6LLr789nY2NjY2NjYWIvr+B33M0oczxjleM/XZ7Rn9LgeWsfcalR9cwQ38xniWHSP+2fMtXh2NdrE9Y7RpJ81H7ousY53ZPAt4olWnF/B5dbRa5viuSKW1UAb+FV51r6t4lim61vrVgNNh3iViTvx2ANdXudehr5V2rCH0NY5gvxRNed/wFiN6w9OVeff9lUVd8e5GiU4dOnZgws+mf9503rnigx9rY05oKdzWRdf/OOcUhL4dunn/OW64BjwO57Irm9NPPGA85b/tWtfP955cCTpi1+pqdQv9wdzTwFHYrA/VsO9wy3tLunm/gB+7FOewRMZfL3fya3jeHugKK6iNe6BMvjyHTSs4jjXA8dQdPTzq+Ea4F6Gfo15PI4/zBtvZ9QL53v2jHtL5wtybxN/uN9JfK3tKY74oR7vesAe5Nq170ziy/fnemt9OXfPxnr38KvB/3VeaOLDsYofNbhPMWT0DxsbGxv/FT+6J8Xm
   </data>
  </layer>
  <layer name="Paredes" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztljsOgzAQBTf2SZI7B/JTOkTJwSB3yNYm3saLcZIZaSqk4VULIr/JOYh0Dvbhe7bW2Oy9devN6XueBaatGnuHAtnLXvausW6Y516v22bdzalAq7vV3qN6OYhc1Zt6Vx/qHEUW9RU/Pz/ttLfFrvWNarE7hrx06dL97y73jC5dujmsf9gWuwAAAAAWb/rLO6c=
+   eJztl0kKgDAQBCf5if7ZXbyJR1+kb3HAgyIaEDqDSxc0IWDSdZKJyDfJvEgeKYV/jyva2cIV6Xy8swPneD/atweHvvSl73d8R3Bi+yaa0olUmlrTaFq3fjvpOrvt7H5/diY18EXzR9/QzIAGMUuEZhIr3ztd9I3bFZr/0CC6Bn8dNIgu+tKXvnZd/J/F7aIvfd/sG3oforHsIoSQJ7EACrR3Iw==
   </data>
  </layer>
  <layer name="Decoracion3" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt1dEKgCAMhWH3alF6HULv/ygK3UiGGDSX8X8wEBQ5CG7OAWiJYp3gFIoca15vubzU+1/J28sy7y7P65jsfS0t0l/X8wD+JSj9a617gbt59MaM0roX49DPMBv6GQAAgJ0Eq5kP2g==
+   eJzt1zEKgDAMBdDmai7OInj/o3RwERGJi2nhPciWhE+2tAa82aM6wWlN5rjmzc5UqrzvFt/rmOCmo1giX/f+pz0AAAAwqj//Wb8zwBw63VgMVg==
   </data>
  </layer>
  <layer name="Decoracion2" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt17sOgCAMRuH2kUX7/k4khoHJyl85X8LAdhLCzQxAReFmx2Ncvrpo7vT5XE31XnXqveP+auK9AN4VRe7Wrp+p6mfriN5c9ObasfeLf0ckvL2qrRUAAAD+4wYWVw9e
+   eJzt1jsKwCAQhOHdI+fhscwNkhskZ4qNIIJ2i7vwf2AxjUyjjAiAiJKKbM05dXWjuUPn2Rv62sql36XjvFr/vu5ynqZfn715S7dPxxkAAE+S4Z612Mp1Z1nuLYu7ve/DHn1t0ddWlL71/92D9AUAIJofiLQX2Q==
   </data>
  </layer>
  <layer name="Decoracion" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztlUtOwlAUQN9rQUSZIF8/E/4oTNkDogsAZaJOFFgACgtQYYfqXjxNYEKYNLlt03BPckY3OfdO+mqMoijK4dK3xtziAO/w3vqbh82Q/SN8wEccW3/zsHll/xtOcIoz628eJtYxZs7+d/zABS537tk3d5xo7s2y95P9X/iNK1zjj2vML/65++dnEd2ryPEc8Xftl6DvfaH/tFGCoO+V7nu9XkA3e13pexP0kngk3LXee4yucDdPr4BF4W7We48xJ9yt02tgU7hboVfFmr4/gaL3xuM92/5zUniMaeGbT+idYka4W6JXxnPh7gW9S7wS7rbotfFauHtDr4PdmH1viqIoiqLEk3/L/iGi
+   eJztlklOAlEURX+V2KETRMVuYi/qlD2gsABBJ+rEbgF2C7DbhM4hwR3oDnBFnEq+yR+UCfKpRyq8k5xUFeHm3kk1xiiKogwv5cCYAzzEClaD+P+5v3ebSYIjumpYx2M86aK7l0y/uKDrEq/wGm9sd4Nj09nhXv+VSZogNOaWrju8xwd8tN1fHL+dHe+cf9jruEwYJr83R8cTXc/4gq/4Zje1Of44e1ucf9rruMyMwF5FUZQ0cib4zuwHg9h7Tuep9b8MYq9PZ5QtCW6Ounz2ZsiO4pjA5iD6/sERj65ZsnM4L7A3F33/YN6ja4PsJm4J7F2lYw3X9ZmUKMO2Nw3Ps9/3yzhO4KTA5iwdUzjt0VUgu4CLAnuX6FjGFY+ubbI7WBTYu0vHHu6n7H5TFEXplQ4oVCfg
   </data>
  </layer>
  <layer name="Sombras" width="44" height="40">
@@ -48,8 +48,8 @@
  <objectgroup name="Entradas"/>
  <objectgroup name="Spawners" offsetx="16" offsety="24"/>
  <objectgroup name="Inicio" offsetx="17" offsety="56">
-  <object id="36" name="Start" gid="255" x="285" y="309" width="16" height="16"/>
-  <object id="37" name="Boss" gid="255" x="281" y="198" width="16" height="16"/>
+  <object id="36" name="Start" gid="255" x="326.333" y="441.667" width="16" height="16"/>
+  <object id="37" name="Boss" gid="255" x="322.333" y="262.667" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Animados"/>
 </map>

@@ -175,6 +175,12 @@ void Game::handleEvents()
 	}
 }
 
+void Game::flushEvents()
+{
+	while (SDL_PollEvent(&event)) {
+	}
+}
+
 int Game::getWinW() {//Pide el ancho de la ventana
 	return winWidth;
 }
@@ -231,6 +237,18 @@ void Game::pause(GameState* state)
 {
 	PauseState* pauseState = new PauseState(state);
 	stateMachine->pushState(pauseState);
+}
+
+void Game::gameOver()
+{
+	GameOverState* go = new GameOverState();
+	stateMachine->pushState(go);
+}
+
+void Game::restart()
+{
+	quitToMenu();
+	startGame();
 }
 
 void Game::final()

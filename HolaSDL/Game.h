@@ -56,6 +56,7 @@ public:
 	LevelParser* getLvlParser() { return levP; }
 	void run();
 	void handleEvents();
+	void flushEvents();
 
 	//Gets y sets
 	const int getWorldWidth() const { return worldWidth; }
@@ -74,6 +75,8 @@ public:
 	void quitState();
 	void quitToMenu();
 	void pause(GameState* state);
+	void gameOver();
+	void restart();
 	void final();
 };
 

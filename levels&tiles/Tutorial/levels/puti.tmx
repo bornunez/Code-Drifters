@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="16" tileheight="16" nextobjectid="62">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="16" tileheight="16" nextobjectid="66">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/puti.tsx"/>
  <tileset firstgid="757" source="../../tileset/putiSinPuertas.tsx"/>
  <tileset firstgid="1257" source="../../tileset/clientes.tsx"/>
  <layer name="Suelo" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="Aire" width="25" height="20">
@@ -21,7 +21,7 @@
  </layer>
  <layer name="Clinetes" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJztzclRQkEARdHe/ChBQU1BwYEUBHFIAUGRFJghBRCnFARB2XlyoFdUv6qzfTeEtH1YLgshzwGHFChyxDEn2e6NUx9nlChzzgWXXFGJ0Lj2UaXGDXVuueOehwiNho9HmrR44pk2L3QiNLo+evQZMGTEmAnTCI2ZjzmvLHjjnQ8++YrQ+PaxZMUPazb88sc2QiMtLS3O/gEELCsS
+   eJztzzsOgkAURuFpZpkgjz0oIHvgpXsQBLZAAMVduA1bT4ENHcmFwsxJvkz334xSpn/K0krZOMCBCw++lrtxZOuEACEinBEL3kjYSpEhR4ELroI3bmyVqHBHjQatwI1u3uh5B4x44IkJL8F/LHtvuP3rs8MNk8m0ri+jSBdJ
   </data>
  </layer>
  <objectgroup name="Puertas">
@@ -42,5 +42,12 @@
   <object id="53" name="MadamP" x="138" y="41" width="16" height="16"/>
   <object id="54" name="BlackLove" x="47" y="160" width="16" height="48"/>
   <object id="61" name="SafeSex" x="336" y="160" width="16" height="32"/>
+  <object id="62" name="Stripper" gid="1346" x="256" y="0" width="16" height="16"/>
+  <object id="63" name="Clientes" gid="1346" x="224" y="48" width="16" height="16"/>
+  <object id="65" name="Tuto_Text" x="32" y="80" width="48" height="64">
+   <properties>
+    <property name="Text" value="shop"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

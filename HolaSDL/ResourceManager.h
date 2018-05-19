@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 109;
+const int NUM_TEXTURES = 111;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 8;
@@ -40,6 +40,8 @@ enum TextureId {
 	GirlSmoking,
 	BlackLove,
 	SafeSex,
+	Stripper,
+	Clients,
 
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
@@ -130,6 +132,8 @@ private:
 		{"Puti\\ProstitutaSmokingLove.png",1,34},
 		{ "Puti\\BlackLove1.png",1,3 },
 		{ "Puti\\SafeSex.png",1,2 },
+		{"Puti\\Stripper.png",1,17},
+		{ "Puti\\clientes.png",1,24 },
 
 		//HUD
 		{"Interfaz\\Barra.png", 1, 1},
