@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 107;
+const int NUM_TEXTURES = 110;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 8;
@@ -32,7 +32,7 @@ typedef struct {
 
 //Aqui se pone el nombre que se le va a dar  a la textura como argumento en el getTexture
 enum TextureId {
-	MCBullet, MCGun, GunnerBullet, BossBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
+	ImFin, MCBullet, MCGun, GunnerBullet, BossBullet, HookChain, HookChainFail, HookHead, Blood, GunnerBulletExplosion, StunParticle,
 	
 	//TIENDA
 	Madam_P_Idle,
@@ -40,6 +40,8 @@ enum TextureId {
 	GirlSmoking,
 	BlackLove,
 	SafeSex,
+	Stripper,
+	Clients,
 
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
@@ -111,6 +113,7 @@ class ResourceManager
 private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{
+		{ "ImFin.png", 1, 20 },
 		{ "MCBullet.png", 1, 4 },
 		{"GunRight.png",1,1},
 		{ "GunnerBullet.png", 1, 5 },
@@ -128,6 +131,8 @@ private:
 		{"Puti\\ProstitutaSmokingLove.png",1,34},
 		{ "Puti\\BlackLove1.png",1,3 },
 		{ "Puti\\SafeSex.png",1,2 },
+		{"Puti\\Stripper.png",1,17},
+		{ "Puti\\clientes.png",1,24 },
 
 		//HUD
 		{"Interfaz\\Barra.png", 1, 1},
@@ -192,7 +197,6 @@ private:
 		{ "Interfaz\\Minimapa\\ClosedRight.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedDown.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedLeft.png",1,1 },
-
 			//Props
 		{ "Props\\burbujas1.png", 1, 6 },
 		{ "Props\\burbujas2.png", 1, 6 },

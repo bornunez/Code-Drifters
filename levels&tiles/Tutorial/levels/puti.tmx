@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="16" tileheight="16" nextobjectid="62">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="25" height="20" tilewidth="16" tileheight="16" nextobjectid="64">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/puti.tsx"/>
  <tileset firstgid="757" source="../../tileset/putiSinPuertas.tsx"/>
@@ -21,7 +21,7 @@
  </layer>
  <layer name="Clinetes" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJztzclRQkEARdHe/ChBQU1BwYEUBHFIAUGRFJghBRCnFARB2XlyoFdUv6qzfTeEtH1YLgshzwGHFChyxDEn2e6NUx9nlChzzgWXXFGJ0Lj2UaXGDXVuueOehwiNho9HmrR44pk2L3QiNLo+evQZMGTEmAnTCI2ZjzmvLHjjnQ8++YrQ+PaxZMUPazb88sc2QiMtLS3O/gEELCsS
+   eJztzzsOgkAURuFpZpkgjz0oIHvgpXsQBLZAAMVduA1bT4ENHcmFwsxJvkz334xSpn/K0krZOMCBCw++lrtxZOuEACEinBEL3kjYSpEhR4ELroI3bmyVqHBHjQatwI1u3uh5B4x44IkJL8F/LHtvuP3rs8MNk8m0ri+jSBdJ
   </data>
  </layer>
  <objectgroup name="Puertas">
@@ -42,5 +42,7 @@
   <object id="53" name="MadamP" x="138" y="41" width="16" height="16"/>
   <object id="54" name="BlackLove" x="47" y="160" width="16" height="48"/>
   <object id="61" name="SafeSex" x="336" y="160" width="16" height="32"/>
+  <object id="62" name="Stripper" gid="1346" x="256" y="0" width="16" height="16"/>
+  <object id="63" name="Clientes" gid="1346" x="224" y="48" width="16" height="16"/>
  </objectgroup>
 </map>

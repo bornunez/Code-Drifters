@@ -432,6 +432,7 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="AcidDeathComponent.cpp" />
+    <ClCompile Include="Final.cpp" />
     <ClCompile Include="Wheel.cpp">
       <Filter>Bosses\WheelEnemy</Filter>
     </ClCompile>
@@ -866,6 +867,7 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="AcidDeathComponent.h" />
+    <ClInclude Include="Final.h" />
     <ClInclude Include="RenderWheel.h" />
     <ClInclude Include="Wave.h">
       <Filter>Bosses\Wave</Filter>
