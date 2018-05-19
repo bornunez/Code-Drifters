@@ -6,6 +6,7 @@
 #include "MainCharacter.h"
 #include "Enemy.h"
 #include "Random.h"
+#include "ParticlesManager.h"
 TurretAnimationComponent::TurretAnimationComponent(Enemy* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
@@ -79,7 +80,6 @@ void TurretAnimationComponent::receiveMessage(Message * msg)
 		gameObject->changeCurrentAnimation("BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
-	
 	}
 	
 }

@@ -36,7 +36,12 @@
  </objectgroup>
  <layer name="Aire" width="21" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1VELgjAQAOA5LahHIZ/qIUktqJfUzH5pP7cT7ugYm5un9NTBMeTm1y1PVOofP4vIk1JTWpP0Irgv1UqdtZvMoVZAlpBbvs9hxrCn8ph3qDW4L4Pc0F40NVwnkCtcywCT2zvuopkyp5hoDlEzl8ycOS3kA7KDfAaaQ5BBZo3/zWuCYTN5n5dEblEcDfOwgJkaZ7/NNGPLM5L2GYGxZt6cPmPDovnrmbkPNLXFas2ZQ/PqMc0zUl/W+UVzhfe4Vm41+E70rllGs9LfzJjBrVHHYtJZXGuQZZgnw6HrQvK+otng86O1w3VSf4b5dpRDZ8xmusI3Y6Pm0t84329Kaj5T0M8HaRUTlw==
+   eJxjYBgFdAOMBDC5ZpIrR45baOEHQnaNmjlq5qiZo2aOmjlozJyBQ1qGhXwzcQEdSsykdh1HyE5y5AiZSYZ7AOvgAUM=
+  </data>
+ </layer>
+ <layer name="Acido" width="21" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztk9ELgjAQxtemQT0O8qkektSCeinN9P//wzphRx9j06n1EPjBxzHu/O3ObUIsWvRbaSnEWfrzKeUyck7e9tSxFNUUA8w75UpTl5A3Vq2kdUSOTcwDmMjeObgaONlIZqcHcFkpcCryk1yTX4FMZOA+3b9pRzBcTOzzEk1nsY4W8/AFprZmv81kKscZTe1zRYw18Ob0qSwW378GmPtApnSwKs+duw4w7Rm5r777G5tvfBFZpXkTTQ+vUyE/ToCBrBAOimfxxTEs1sni8Dqb8V5Lc34caxOn9LfoP/QGhv4SVQ==
   </data>
  </layer>
  <layer name="Decoracion2" width="21" height="30">
@@ -76,7 +81,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="41" name="Spawner" gid="240" x="112" y="256" width="16" height="16">
+  <object id="41" name="Spawner" gid="240" x="64" y="288" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>

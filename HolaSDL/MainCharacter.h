@@ -30,7 +30,7 @@ private:
 	float currentBullets;
 	float reloadTime;
 
-	int money = 1000;
+	int money = 0;
 	bool lifeStealEnabled = false;
 	float lifeStealPercentual = 10.0; //percentage of the damage done that is healed
 
