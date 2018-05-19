@@ -4,7 +4,7 @@
 
 Final::Final()
 {
-	//tex = ResourceManager::getInstance()->getTexture(TextureId::ImFin);
+	tex = ResourceManager::getInstance()->getTexture(TextureId::ImFin);
 }
 
 
