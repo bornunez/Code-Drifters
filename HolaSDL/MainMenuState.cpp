@@ -10,7 +10,6 @@ MainMenuState::MainMenuState()
 	font = new Font("..\\images\\Polentical Neon Regular.ttf", 100);
 	font2 = new Font("..\\images\\Polentical Neon Bold.ttf", 100);
 	background = new Texture(game->getRenderer(), "..\\images\\Intro\\intro.png");
-	openText = new Texture(game->getRenderer());
 	op1Tex = new Texture(game->getRenderer());
 	op2Tex = new Texture(game->getRenderer());
 	op3Tex = new Texture(game->getRenderer());
@@ -19,12 +18,7 @@ MainMenuState::MainMenuState()
 	op2Tex->loadFromText("TUTORIAL", *font2, white);
 	op3Tex->loadFromText("CREDITS", *font2, white);
 	op4Tex->loadFromText("EXIT", *font2, white);
-	c.a = 255;
-	c.b = 200;
-	c.g = 50;
-	c.r = 200;
 	bckgrndRect = RECT(0, 0, 1040, 720);
-	textRect = RECT(320, 555, 450, 70);
 
 	op1Rect = RECT(100, 350, 30 * 8, 70);
 	op2Rect = RECT(100, 430, 30 * 8, 70);
@@ -40,7 +34,6 @@ MainMenuState::~MainMenuState()
 	delete font;
 	delete font2;
 	delete background;
-	delete openText;
 	delete op1Tex;
 	delete op2Tex;
 	delete op3Tex;
@@ -49,11 +42,7 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::handleEvent(SDL_Event & e)
 {
-	if (!flag && (e.type == SDL_KEYDOWN || e.type == SDL_MOUSEBUTTONDOWN))
-	{
-		flag = true;
-	}
-	else if(flag && e.type == SDL_KEYDOWN) 
+if(e.type == SDL_KEYDOWN) 
 	{
 		if (e.key.keysym.sym == SDLK_w || e.key.keysym.sym == SDLK_UP) 
 		{
@@ -107,7 +96,7 @@ void MainMenuState::handleEvent(SDL_Event & e)
 			}
 		}
 	}
-	else if (flag && e.type == SDL_MOUSEBUTTONDOWN) 
+	else if (e.type == SDL_MOUSEBUTTONDOWN) 
 	{
 		SDL_GetMouseState(&mouse.x, &mouse.y);
 		if (SDL_PointInRect(&mouse, &op1Rect) || SDL_PointInRect(&mouse, &op2Rect) || SDL_PointInRect(&mouse, &op3Rect) || SDL_PointInRect(&mouse, &op4Rect)) 
@@ -132,37 +121,7 @@ void MainMenuState::handleEvent(SDL_Event & e)
 
 void MainMenuState::update()
 {
-	if (!flag) {
-		openText->loadFromText("Press any Key to continue", *font, c);
-		if (!alfaUp)
-		{
-			c.r -= 4 * Time::getInstance()->DeltaTime;
-			c.b -= 4 * Time::getInstance()->DeltaTime;
-			c.g-= 1 * Time::getInstance()->DeltaTime;
-			if (c.r <= 0)
-			{
-				c.b = 0;
-				c.g = 0;
-				c.r = 0;
-				alfaUp = true;
-			}
-		}
-		else
-		{
-			c.r += 4 * Time::getInstance()->DeltaTime*40;
-			c.b += 4 * Time::getInstance()->DeltaTime*40;
-			c.g+= 1 * Time::getInstance()->DeltaTime*24;
-			if (c.r >= 200)
-			{
-				c.b = 200;
-				c.g = 50;
-				c.r = 200;
-				alfaUp = false;
-			}
-		}
-	}
-	else 
-	{
+
 		SDL_GetMouseState(&mouse.x, &mouse.y);
 		if (SDL_PointInRect(&mouse, &op1Rect)&& selectedOp!=1)
 		{			
@@ -185,7 +144,6 @@ void MainMenuState::update()
 			changeColors();
 		}
 		
-	}
 	for (GameObject* o: gameObjects) 
 	{
 		o->update();
@@ -196,16 +154,10 @@ void MainMenuState::render()
 {
 	SDL_RenderClear(Game::getGame()->getRenderer());
 	background->render(bckgrndRect);
-	if (!flag) {
-		openText->render(textRect);
-	}
-	else 
-	{
 		op1Tex->render(op1Rect);
 		op2Tex->render(op2Rect);
 		op3Tex->render(op3Rect);
 		op4Tex->render(op4Rect);
-	}
 	for (GameObject* o : gameObjects) 
 	{
 		o->render();
@@ -218,22 +170,22 @@ void MainMenuState::playState(Game* game,bool tutorial)
 	{
 		game->startGame(true);
 	}
-	//game->startGame(tutorial);
-	//game -> playIntro();
-	ifstream ifile;
-	ifile.open("..\\levels&tiles\\Tutorial\\intro_seen");
-	if (ifile.is_open()) {
-		ifile.close();
-		game->startGame(false);
-	}
-	else 
-	{
-		ofstream ofile;
-		ofile.open("..\\levels&tiles\\Tutorial\\intro_seen");
-		if (ofile.is_open()) {
-			ofile.close();
+	else {
+		ifstream ifile;
+		ifile.open("..\\levels&tiles\\Tutorial\\intro_seen");
+		if (ifile.is_open()) {
+			ifile.close();
+			game->startGame(false);
 		}
-		game->playIntro();
+		else
+		{
+			ofstream ofile;
+			ofile.open("..\\levels&tiles\\Tutorial\\intro_seen");
+			if (ofile.is_open()) {
+				ofile.close();
+			}
+			game->playIntro();
+		}
 	}
 }
 

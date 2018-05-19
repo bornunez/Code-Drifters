@@ -5,9 +5,10 @@
 
 Shop::Shop(ShopState* shopState)
 {
+	string eng = Game::getGame()->getLanguage() == English ? "_eng" : "";
 	//lecture of different trees from file
 	for (int i = 0; i < TREE_NUMBER; i++) {
-		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + ".txt", "..\\Arbol\\Textures\\"+ to_string(i+1) +".png", shopState);
+		Skills_[i] = new SkillTree(nullptr, "..\\Arbol\\" + to_string(i + 1) + eng + ".txt", "..\\Arbol\\Textures\\"+ to_string(i+1) +".png", shopState);
 		fondos_[i] = new Texture(Game::getGame()->getRenderer());
 	}
 	//lecture of textures
