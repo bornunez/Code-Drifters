@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt10EKgCAQRmGvWh2mblCdII/ZtAhCXMSUo4Pvwb8sPsSNIRBRC82yRbkarbJNuRrhLdsX7yAbX2zq3Lv/+L/S5bza87a4/7fXytirt4a5J6+3+4AXL14b7/Xt893gwevtfPHixYs37ZDFZBbWqPTmavVsiYi8dQL8mrt/
+   eJzt10EKgDAMBdFeVT2M3kC9relCcKEg0SYNmYG/VB6lm5ZCRD00yxblPFplm3Ie4W3bF+8gG19sSu7df/xf6+682vO2uP+n18qY1ethzuSNdh/w4sVr463fXt8NEbzRzhcvXrx4iYiInjoAF5eZ4A==
   </data>
  </layer>
  <layer name="Rotos de suelo" width="44" height="40">
@@ -13,12 +13,12 @@
  </layer>
  <layer name="Aire" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt2MEJACAMwMC6/9JuIFSaVjAHPrVBfBkhDVgN53euit5Kp8YXe+lZv/V2v+fO+61gL8telr0se1n2suxl2cuyl2Uvy16WvSzijysz+2bP5JKkpA05KwB3
+   eJzt0sENACAIwEDcf2k38EUBQy/hKw0xQmpwCt6vnIzeTK/Gib30rm291f+58r4Z7GXZy7KXZS/LXpa9LHtZ9rLsZdnL+rG3c+yd1StpvQtznQCw
   </data>
  </layer>
  <layer name="Paredes" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt10sOQEAURNGHFWAFWBlWgP0n2lDaZ1IVBreSN+17hkRcr0hXfnTVjelpdbrmo2uF3l58Tu/xziS+uw5evHjx4j2/s4rP7VUPL15HB6+3g9fbwevtdJH/aw0io6MzRv5tMouMjg5ebwevt4PX28Hr7SyR/xtuIuNbZzJ0GGPsb9sBOJWMaA==
+   eJztlzESQDAUBT9OgBPgZLiB+xeiNBHVe1LYnXnt3y2TiGeatLbSukLTG33aUGmjsHcWz9l73dnEK3nopZdeeum93znEc/eqoZdeh4der4der4der2eK/K+1iBodnjXyt8kuanR46PV66PV66PV6Sv8XNV95AADgX5z3a4NJ
   </data>
  </layer>
  <layer name="Sombras" width="44" height="40">
@@ -60,7 +60,7 @@
  <objectgroup name="Entradas"/>
  <objectgroup name="Spawners" offsetx="16" offsety="24"/>
  <objectgroup name="Inicio" offsetx="17" offsety="56">
-  <object id="36" name="Start" gid="255" x="324" y="422" width="16" height="16"/>
+  <object id="36" name="Start" gid="255" x="326" y="389" width="16" height="16"/>
   <object id="37" name="Boss" gid="255" x="325" y="288" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Animados"/>
