@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
-@import url("font-awesome.min.css");
-@import url("https://db.onlinewebfonts.com/c/196531a449d881bb67cfa96716aee25d?family=Polentical+Neon");
+@font-face {
+    font-family: myFirstFont;
+    src: url(fontawesome-webfont.ttf);
+}
+/*@import url("https://db.onlinewebfonts.com/c/196531a449d881bb67cfa96716aee25d?family=Polentical+Neon");*/
 
 /*
 	Big Picture by HTML5 UP
@@ -477,7 +480,7 @@
 /* Type */
 
 	body, input, textarea, select {
-		font-family: "Polentical Neon";
+		font-family: "myFirstFont";
 		font-weight: 300;
 		font-size: 18pt;
 		line-height: 1.75em;
