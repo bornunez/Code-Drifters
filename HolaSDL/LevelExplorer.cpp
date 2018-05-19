@@ -26,5 +26,7 @@ void LevelExplorer::handleEvents(SDL_Event & e)
 			LevelManager::getInstance()->changeRoom(LevelManager::getInstance()->getShopRoom());
 		else if (e.key.keysym.sym == SDLK_8)
 			PlayState::getInstance()->nextLevel();
+		else if (e.key.keysym.sym == SDLK_z) 
+			PlayState::getInstance()->getMainCharacter()->changeMoney(1000);
 	}
 }
