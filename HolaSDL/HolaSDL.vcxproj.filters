@@ -446,6 +446,7 @@
       <Filter>Bosses\Wave</Filter>
     </ClCompile>
     <ClCompile Include="IntroState.cpp" />
+    <ClCompile Include="HealInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -877,6 +878,7 @@
       <Filter>Bosses\Wave</Filter>
     </ClInclude>
     <ClInclude Include="IntroState.h" />
+    <ClInclude Include="HealInput.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
