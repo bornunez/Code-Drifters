@@ -278,7 +278,8 @@ void CollisionsManager::playerCollisions()
 					if (CollisionHandler::RectCollide(bossHurtboxes[i], mcHitboxes[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 
 						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
-				
+						if (mc->isLifeStealEnable())
+							mc->addHP(damage * mc->getLifeSteal() / 200);
 						MCAttackDamage msg(damage);
 						boss->sendMessage(&msg);
 						hit = true;

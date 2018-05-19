@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="44" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="39">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="44" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="39">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="625" source="../../tileset/tileset16.tsx"/>
@@ -21,7 +21,7 @@
  </layer>
  <layer name="Paredes" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztl0kKgDAQBCf5if7ZXbyJR1+kb3HAgyIaEDqDSxc0IWDSdZKJyDfJvEgeKYV/jyva2cIV6Xy8swPneD/atweHvvSl73d8R3Bi+yaa0olUmlrTaFq3fjvpOrvt7H5/diY18EXzR9/QzIAGMUuEZhIr3ztd9I3bFZr/0CC6Bn8dNIgu+tKXvnZd/J/F7aIvfd/sG3oforHsIoSQJ7EACrR3Iw==
+   eJztl00KgzAQhWdyE72z9afirrj0RHoWB7pokTYgfTMQ+z54hIDJ+1YyEbkmTRK5OaVN5biinSNckc7HOydwjvejfR/g0Je+9L2O7wKOt29l6VSktwyWu2XU57errZu+zr7vP52pA3zR/KNvbmZAg5glcjNJlO+ZLvr6duXmPzSIrjl9DxpEF33pS9+4Lv7PfLvoS9+SfXPvQzSuXeoUL0pyJYT8zA68wXdO
   </data>
  </layer>
  <layer name="Decoracion3" width="44" height="40">

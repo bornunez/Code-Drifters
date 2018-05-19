@@ -281,7 +281,7 @@ void ResourceManager::unmuteMusic()
 void ResourceManager::muteSoundEffect()
 {
 	for (int i = 0; i < numOfSoundEffects; i++) {
-		if (soundEffects[i] != nullptr && soundEffects[i] != NULL) {
+		if (soundEffects[i] != nullptr) {
 			soundEffects[i]->mute();
 		
 		}
@@ -291,7 +291,7 @@ void ResourceManager::muteSoundEffect()
 void ResourceManager::unmuteSoundEffect()
 {
 	for (int i = 0; i < numOfSoundEffects; i++) {
-		if (soundEffects[i] != nullptr && soundEffects[i] != NULL) {
+		if (soundEffects[i] != nullptr) {
 			soundEffects[i]->unMute();
 		}
 	}
