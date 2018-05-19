@@ -253,13 +253,13 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 	if (objName == "Turret")
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(GunnerBullet)));
 	else if (objName == "Tienda") {
-		string text = "PRESS E TO ENTER THE SHOP";
+		string text = Game::getGame()->getLanguage() == English ? "PRESS E TO ENTER THE SHOP" : "PULSA E PARA IR A LA TIENDA";
 		obj->addComponent(new PressToInteract(obj,text));
 		//obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
 		obj->addComponent(new ShopInput(obj));
 		}
 	else if (objName == "Heal") {
-		string text = "PRESS E TO HEAL 25% (10$)";
+		string text = Game::getGame()->getLanguage() == English ? "PRESS E TO HEAL 25% (10$)" : "PULSA E PARA CURARTE 25% (10$)";
 		obj->addComponent(new PressToInteract(obj,text));
 		//obj->addComponent(new SkeletonRendered(obj,PlayState::getInstance()->getCamera()));
 		obj->addComponent(new HealInput(obj));
@@ -283,13 +283,22 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Clients), 0.0, 200));
 	}
 	else if (objName == "Tuto_Text" && PlayState::getInstance()->isTutorial()) {
+
 		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
-		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
+		string file = p->Attribute("value");
+
+		file = Game::getGame()->appendLanguage(file);
+		obj->addComponent(new TextTrigger(obj,file));
 		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
+
 	}
 	else if (objName == "Boss_Text") {
 		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
-		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
+		string file = p->Attribute("value");
+
+		file = Game::getGame()->appendLanguage(file);
+
+		obj->addComponent(new TextTrigger(obj,file));
 		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
 	}
 	else if (objName == "Burbujas1")
