@@ -417,20 +417,31 @@ void UpdateBoss3::fase7()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("ENTRA");
-		//boss->getTransform()->overlapCollision.active = false;
-		//boss->getCurrentAnimation()->startAnimation();
+		posProta = prota->getCenterPos();
+		direccion = boss->getCenterPos() - posProta;
+		vel = direccion.magnitude() / tiempoFase7;
+		if (vel < 300) vel = 300;
+		direccion.normalize();
+		boss->changeCurrentAnimation("SWORD_DASH_INIT");
+		boss->getCurrentAnimation()->startAnimation();
 	}
+	if (boss->getCurrentAnimation()->isFinished() && boss->getCurrentAnimation()->getName() == "SwordDashIni")
+	{
+		boss->changeCurrentAnimation("SWORD_DASH_LOOP");
+		boss->getCurrentAnimation()->startAnimation();
+		
+	}
+	boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*vel*1.25f);
 }
 
 void UpdateBoss3::fase8()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("ENTRA");
-		//boss->getCurrentAnimation()->startAnimation();
+		boss->changeCurrentAnimation("SWORD_DASH_END");
+		boss->getCurrentAnimation()->startAnimation();
 		fasesPast = 1;
-		boss->getTransform()->overlapCollision.active = false;
+		//boss->getTransform()->overlapCollision.active = false;
 
 		boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel, 4);
 	}

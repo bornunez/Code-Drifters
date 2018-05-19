@@ -19,6 +19,7 @@
 #include "StalkerComponent.h"
 #include "StunComponent.h"
 #include "SkeletonRenderer.h"
+#include "AcidDeathComponent.h"
 
 EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 {
@@ -37,7 +38,7 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 
 	loadAnimations();
 	facing = RIGHT;
-	setCollisionsLayers({ "Paredes","Aire" });
+	setCollisionsLayers({ "Paredes","Aire", "Acido" });
 	this->addComponent(new KnockbackComponent(this, 1000));
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new DamageableEnemyComponent(this, getMC(),.2));
@@ -45,6 +46,7 @@ EnemyStalker::EnemyStalker(MainCharacter* mc) :	Enemy(mc)
 	this->addComponent(new StalkerComponent(this, getMC(), 4, .5, 1, 1.2));
 	this->addComponent(new StalkerAnimationComponent(this, getMC(), animations, .2, .5));
 	this->addComponent(new StunComponent(this, 0));
+	addComponent(new AcidDeathComponent(this));
 	//addComponent(new SkeletonRendered(this,playState->getCamera()));
 	//addComponent(new BoxRenderer(this, playState->getCamera()));*/
 

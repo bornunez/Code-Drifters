@@ -104,6 +104,7 @@ void MCAnimationComponent::receiveMessage(Message* msg) {
 		break;
 	case ATTACKCHARGING:
 		handleAnimationChargingAttack();
+		gameObject->getCurrentAnimation()->startAnimation();
 		break;
 	case RUN_LEFT:
 		gameObject->changeCurrentAnimation("RUN_LEFT");
@@ -261,7 +262,7 @@ void MCAnimationComponent::handleAnimationStates()
 		gameObject->sendMessage(&msg);
 	}
 	if (mc->getMCState() == MCState::ChargingAttack) {
-		handleAnimationChargingAttack();
+		//handleAnimationChargingAttack();
 	}
 	
 }

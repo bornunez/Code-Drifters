@@ -12,6 +12,7 @@ private:
 	void bulletCollisions();
 	void playerCollisions();
 	void enemyCollisions();
+	void acidCollisions(Enemy* e);
 	void hookCollisions();
 	void enemyAttackCollision();
 	bool overlapCollisions(GameObject* o);
