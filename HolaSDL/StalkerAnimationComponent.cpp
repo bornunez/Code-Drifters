@@ -4,6 +4,7 @@
 #include "PlayState.h"
 #include "Camera.h"
 #include "EnemyStalker.h"
+#include"ResourceManager.h"
 
 StalkerAnimationComponent::StalkerAnimationComponent(EnemyStalker* o, GameObject* target,std::map<const char*, Animation*> anim, float hTime, float delayTime) : RenderComponent(o)
 {
@@ -45,6 +46,7 @@ void StalkerAnimationComponent::receiveMessage(Message* msg)
 		case STALKER_ATTACK:
 			gameObject->changeCurrentAnimation("ATTACK");
 			gameObject->getCurrentAnimation()->startAnimation();
+			ResourceManager::getInstance()->getSoundEffect(StalkerCharge)->play();
 			break;
 		case HURT:
 			gameObject->changeCurrentAnimation("HURT");

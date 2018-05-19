@@ -40,7 +40,7 @@
   </data>
  </layer>
  <objectgroup name="Animados">
-  <object id="31" name="Tuto_Text" x="192" y="144" width="187" height="50">
+  <object id="31" name="Tuto_Text" x="192" y="80" width="187" height="114">
    <properties>
     <property name="Text" value="stalker_attack"/>
    </properties>

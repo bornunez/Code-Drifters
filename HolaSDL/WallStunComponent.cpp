@@ -1,5 +1,6 @@
 #include "WallStunComponent.h"
 #include "Enemy.h"
+#include"ResourceManager.h"
 
 WallStunComponent::WallStunComponent(Enemy * o, float time) : UpdateComponent(o)
 {
@@ -31,6 +32,7 @@ void WallStunComponent::receiveMessage(Message * msg)
 		if (!enemy->isStunned() && enemy->enemyState == EnemyState::Attack) {
 			stunTimer.restart();
 			enemy->setStun(true);
+			ResourceManager::getInstance()->getSoundEffect(ChargerCrash)->play();
 		}
 	}
 	default:

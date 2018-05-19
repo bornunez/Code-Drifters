@@ -31,7 +31,7 @@
  </layer>
  <layer name="Aire" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJzNl91ygyAQhYXU/t05GTW5tCnaXqdp+/5P1k0GpscVFASjO3NmQUP4WFZcs0ybuLPGbOo+2E5m2QMpJz2SnqX/WK+5AlgKmluRWlJHOq7I0jCWw4osbzR3SapI9QZYFouLT26DFUvGZQYLxuVzDovrGQ9kaXQ8TFw+QllsbDNZeL4ExyUhC8+XtViE5ojK3QmWHZzpObSfoJ9rhpbtUep82cNa+bpLx7Wl4nKCtSq2bsWuVQvH5Uz/dyF9a2/aP9C/AFOpY1LPeTdOsPjm7hn2sVqCxdYfMX6+JGHhsfE0fr5E5wuf/57v6YQshWZIdu5GsGwpLryui87dCJYm9bkbwcL36Mr0kvq8C2AxMak119W/xvAI8IE1A7JgjRf9/SaG34KuNnJ0oJq9Nys2lntTj9yYRZ9lL901AbYxTzrZ36NW9usOPt527yCzQa6c5LBOGGvjNfTvWgr6yuJ79YalZviS/7WCq22rK/hvbWO5N/XIr4VldW3M/gBT6SaW
+   eJzNlttuwyAMhgNbd7qLqkF7mXQ023XXbe//ZIPK1hyXnDCsQbJskhC+/DjgqoKm/tnG2tT9SGt1VR297fTCgQVYas/QeduvgKUBljXoEtbIrogluy5zcjvS6hK6CFiCLh8pLEP/eCJLA7q8L2WJsQlZ2lRdCrBgvtyaRfn5X1Nzd4Llzr9v4+0BPMaPpL+B+cO+78B3BfJlC/MY8Bhb0ufXTCFdDuRbHftux66Zwrqc/PvO3r7AY/xN+mfChLliU87GCZa5uXsi62hKsMT6I61la5SFhWszs9VMF3G+8PkFuoj/IwELnomoi3jfFbCsSZc2938kYGly77sCFr5Ggek59363gAU1scAV/IuERxE/k0Wx9UHDPp7vT0u5CEuoGe7Ju4ZiytERs+zcNGws91iPXJhVn2Wrh2sCGtM86XR/jY66X3fw8bF7O11d5cpBX9cJYzG9Rv0bmCN9F/G9eiNSM3zqv1phKI7VFfzZ2FjusR75ibDc3FbWfgET4CRg
   </data>
  </layer>
  <layer name="Decoracion2" width="35" height="33">
@@ -44,7 +44,7 @@
   <object id="26" name="Right" x="512" y="288" width="32" height="144"/>
  </objectgroup>
  <objectgroup name="Animados">
-  <object id="31" name="Tuto_Text" x="189" y="52" width="32" height="144">
+  <object id="31" name="Tuto_Text" x="208" y="48" width="32" height="144">
    <properties>
     <property name="Text" value="gancho"/>
    </properties>

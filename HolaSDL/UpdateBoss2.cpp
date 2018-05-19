@@ -1,7 +1,7 @@
 #include "UpdateBoss2.h"
 #include "Boss2.h"
 #include "PlayState.h"
-
+#include"ResourceManager.h"
 
 UpdateBoss2::UpdateBoss2(Boss2* o, MainCharacter* prot) : UpdateComponent(o)
 {
@@ -159,6 +159,8 @@ void UpdateBoss2::update()
 	{
 		boss->getCurrentAnimation()->changeColor(100, 100, 100);
 		boss->setActive(false);
+		ResourceManager::getInstance()->getMusic(Button)->stop();
+		ResourceManager::getInstance()->getMusic(Level2)->play();
 		PlayState::getInstance()->nextLevel();
 	}
 }
