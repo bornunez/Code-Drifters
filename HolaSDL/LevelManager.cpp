@@ -96,6 +96,20 @@ void LevelManager::onRoomChange(Room* room, Room* prevRoom, Direction dir)
 
 	room->spawn();
 	room->setExplored(true);
+	if (!getBossRoom()->isExplored()) {
+		if (getRoom(Up) && getRoom(Up)->getType() == BossRoom) {
+			getRoom(Up)->setExplored(true);
+		}
+		if (getRoom(Down) && getRoom(Down)->getType() == BossRoom) {
+			getRoom(Down)->setExplored(true);
+		}
+		if (getRoom(Left) && getRoom(Left)->getType() == BossRoom) {
+			getRoom(Left)->setExplored(true);
+		}
+		if (getRoom(Right) && getRoom(Right)->getType() == BossRoom) {
+			getRoom(Right)->setExplored(true);
+		}
+	}
 	Message msg(ROOM_ENTER);
 	sendMessageCurrent(&msg);
 }
@@ -253,14 +267,16 @@ void LevelManager::newMap()
 	roomX = currentRoom->getX(); roomY = currentRoom->getY();
 	currentRoom->setExplored(true);
 	
-	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
+	//level->getFirstRoom()->addCharacter(mainCharacter);//Se aï¿½ade el personaje a la primera sala
 }
 
 void LevelManager::nextLevel()
 {
 	//Desactiva el Boss del nivel tras matarlo
-	EnemyManager::getInstance()->getActiveBoss()->setInvincibility(true);
-	EnemyManager::getInstance()->getActiveBoss()->getTransform()->overlapCollision.active = false;
+	if (EnemyManager::getInstance()->getActiveBoss() != nullptr) {
+		EnemyManager::getInstance()->getActiveBoss()->setInvincibility(true);
+		EnemyManager::getInstance()->getActiveBoss()->getTransform()->overlapCollision.active = false;
+	}
 
 	delete dungeon;
 	level++;

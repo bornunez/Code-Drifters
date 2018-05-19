@@ -177,8 +177,8 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 	e->Attributes.life += LevelManager::getInstance()->getLevelNumber()*e->Attributes.maxLife/3;
 	if (e->Attributes.maxLife != e->Attributes.life)
 		e->Attributes.maxLife = e->Attributes.life;
-	e->Attributes.minDrop += LevelManager::getInstance()->getLevelNumber();
-	e->Attributes.maxDrop += LevelManager::getInstance()->getLevelNumber();
+	e->Attributes.minDrop += e->Attributes.minDrop != 0 ? LevelManager::getInstance()->getLevelNumber() : 0;
+	e->Attributes.maxDrop += e->Attributes.maxDrop!=0 ? LevelManager::getInstance()->getLevelNumber() : 0;
 	e->Attributes.meleeDmg += LevelManager::getInstance()->getLevelNumber()*e->Attributes.meleeDmg;
 	e->Attributes.rangedDmg += LevelManager::getInstance()->getLevelNumber()*e->Attributes.rangedDmg;
 

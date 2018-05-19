@@ -5,12 +5,8 @@
 #include "Timer.h"
 #include "Time.h"
 #include "Vector2D.h"
-#include "Bullet.h"
 #include "ResourceManager.h"
-#include "MCBulletComponent.h"
-#include "MCBulletRenderComponent.h"
 #include "BoxRenderer.h"
-#include "DamageableBossComponent.h"
 
 using namespace std;
 Wheel::Wheel(Transform t) : Enemy(prota)

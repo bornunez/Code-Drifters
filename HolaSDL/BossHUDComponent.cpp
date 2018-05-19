@@ -22,8 +22,8 @@ BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 	else if (boss->getBossType() == 2) {
 		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
 		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
-		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
-		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
+		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(BotonBarra));
+		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(BotonBorde));
 	}
 	else if (boss->getBossType() == 3) {
 		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures

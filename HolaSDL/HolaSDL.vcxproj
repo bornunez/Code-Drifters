@@ -160,6 +160,8 @@
     <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WallStunComponent.cpp" />
+    <ClCompile Include="Wave.cpp" />
+    <ClCompile Include="WaveAnimationComponent.cpp" />
     <ClCompile Include="Wheel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +320,8 @@
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />
+    <ClInclude Include="Wave.h" />
+    <ClInclude Include="WaveAnimationComponent.h" />
     <ClInclude Include="Wheel.h" />
   </ItemGroup>
   <ItemGroup>

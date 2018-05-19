@@ -511,9 +511,9 @@ void UpdateBoss3::RondaWheels2()
 	Vector2D pos = boss->getCenterPos();
 	for (int i = 0; i < 4; i++) {
 		//Izquierda
-		boss->createWheel(pos.getX() - (180 + 100*i), pos.getY() - 50, velWheel *(1+(i*.5)), 5);
+		boss->createWave(pos.getX() - (180 + 100*i), pos.getY() - 50);
 		//Derecha
-		boss->createWheel(pos.getX() + (112 + 100*i), pos.getY() - 50, velWheel *(1+(i*.5)), 7);
+		boss->createWave(pos.getX() + (112 + 100*i), pos.getY() - 50);
 
 	}
 }

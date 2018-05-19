@@ -363,13 +363,9 @@
     <ClCompile Include="DamageableBossComponent.cpp">
       <Filter>Bosses</Filter>
     </ClCompile>
-    <ClCompile Include="Wheel.cpp">
-      <Filter>Bosses\WheelEnemy</Filter>
-    </ClCompile>
     <ClCompile Include="UpdateWheel.cpp">
       <Filter>Bosses\WheelEnemy</Filter>
     </ClCompile>
-    <ClCompile Include="RenderWheel.cpp" />
     <ClCompile Include="EnemyBomb.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
@@ -436,7 +432,22 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="AcidDeathComponent.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="Final.cpp" />
+=======
+    <ClCompile Include="Wheel.cpp">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWheel.cpp">
+      <Filter>Bosses\WheelEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Wave.cpp">
+      <Filter>Bosses\Wave</Filter>
+    </ClCompile>
+    <ClCompile Include="WaveAnimationComponent.cpp">
+      <Filter>Bosses\Wave</Filter>
+    </ClCompile>
+>>>>>>> 2d29be86b704c934b5bc7b5a17d387c86d468e9b
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -781,7 +792,6 @@
     <ClInclude Include="UpdateWheel.h">
       <Filter>Bosses\WheelEnemy</Filter>
     </ClInclude>
-    <ClInclude Include="RenderWheel.h" />
     <ClInclude Include="EnemyBomb.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
@@ -860,7 +870,17 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="AcidDeathComponent.h" />
+<<<<<<< HEAD
     <ClInclude Include="Final.h" />
+=======
+    <ClInclude Include="RenderWheel.h" />
+    <ClInclude Include="Wave.h">
+      <Filter>Bosses\Wave</Filter>
+    </ClInclude>
+    <ClInclude Include="WaveAnimationComponent.h">
+      <Filter>Bosses\Wave</Filter>
+    </ClInclude>
+>>>>>>> 2d29be86b704c934b5bc7b5a17d387c86d468e9b
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -952,6 +972,9 @@
     </Filter>
     <Filter Include="Bosses\Boss3">
       <UniqueIdentifier>{eac12731-2770-41b4-aaf9-13e804e0133c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bosses\Wave">
+      <UniqueIdentifier>{ae306718-d2d7-415e-b011-444d250ab7b5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
