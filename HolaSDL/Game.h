@@ -87,6 +87,7 @@ public:
 	void pushState(GameState* state);
 	void quitState();
 	void quitToMenu();
+	void menuCredits();
 	void pause(GameState* state);
 	void gameOver();
 	void restart();

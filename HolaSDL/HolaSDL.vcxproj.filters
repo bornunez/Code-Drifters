@@ -447,6 +447,7 @@
     </ClCompile>
     <ClCompile Include="IntroState.cpp" />
     <ClCompile Include="HealInput.cpp" />
+    <ClCompile Include="CreditsState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -879,6 +880,7 @@
     </ClInclude>
     <ClInclude Include="IntroState.h" />
     <ClInclude Include="HealInput.h" />
+    <ClInclude Include="CreditsState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
