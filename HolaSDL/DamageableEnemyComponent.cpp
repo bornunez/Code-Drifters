@@ -22,13 +22,13 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 void DamageableEnemyComponent::receiveMessage(Message* msg)
 {
 	if (msg->id == MC_ATTACK_DAMAGE) {
-		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);		
-		attacked = true;
 		if (enemy->isStunned()) {
 			Message msg(STUN_OFF);
 			enemy->sendMessage(&msg);
 			enemy->setStun(false);
 		}
+		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);
+		attacked = true;
 	}
 
 	if (msg->id == MC_BULLET_COLLISION) {

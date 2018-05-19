@@ -93,7 +93,7 @@ void PlayState::handleEvent(SDL_Event & e)
 		{
 			game->startDialogue("1");
 		}
-		if (e.key.keysym.sym == SDLK_m)
+		if (e.key.keysym.sym == SDLK_ESCAPE)
 		{
 			game->pause(this);
 		}
