@@ -3,7 +3,7 @@
 #include "Tileset.h"
 #include "tinyxml2.h"
 #include "Game.h"
-
+#include "Music.h"
 using namespace tinyxml2;
 
 //Inicializacion de instance
@@ -258,4 +258,41 @@ SoundEffect*  ResourceManager::getSoundEffect(SoundEffectId i) const {
 		return soundEffects[i];
 	else
 		return nullptr;
+}
+
+void ResourceManager::muteMusic()
+{
+	for (int i = 0; i < numOfMusic; i++) {
+		if (music[i] != nullptr) {
+			music[i]->mute();
+		}
+	}
+}
+
+void ResourceManager::unmuteMusic()
+{
+	for (int i = 0; i < numOfMusic; i++) {
+		if (music[i] != nullptr) {
+			music[i]->unMute();
+		}
+	}
+}
+
+void ResourceManager::muteSoundEffect()
+{
+	for (int i = 0; i < numOfSoundEffects; i++) {
+		if (soundEffects[i] != nullptr && soundEffects[i] != NULL) {
+			soundEffects[i]->mute();
+		
+		}
+	}
+}
+
+void ResourceManager::unmuteSoundEffect()
+{
+	for (int i = 0; i < numOfSoundEffects; i++) {
+		if (soundEffects[i] != nullptr && soundEffects[i] != NULL) {
+			soundEffects[i]->unMute();
+		}
+	}
 }
