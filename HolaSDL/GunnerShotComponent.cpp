@@ -149,6 +149,7 @@ void GunnerShotComponent::shoot() {
 			bulletTransform.speed = 1000.0;
 
 			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::GunnerBullet);
+			ResourceManager::getInstance()->getSoundEffect(GunnerShot)->play();
 
 		//	Bullet* auxBullet = new Bullet(ResourceManager::getInstance()->getTexture(BulletSprite), bulletTransform, true);
 

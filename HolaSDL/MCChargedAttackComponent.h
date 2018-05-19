@@ -10,10 +10,9 @@ class MCChargedAttackComponent :
 {
 private:
 	MainCharacter* mc;
-	float chargeTime;
-	Timer* chargeHold;
+	Timer chargeTime;
 public:
-	MCChargedAttackComponent(MainCharacter* mc, float chargeTime);
+	MCChargedAttackComponent(MainCharacter* mc);
 	virtual ~MCChargedAttackComponent();
 	void update();
 	virtual void receiveMessage(Message* msg);

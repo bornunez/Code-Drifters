@@ -435,6 +435,7 @@
     <ClCompile Include="BossBombComponent.cpp">
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
+    <ClCompile Include="AcidDeathComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -857,6 +858,7 @@
     <ClInclude Include="BossBombComponent.h">
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
+    <ClInclude Include="AcidDeathComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

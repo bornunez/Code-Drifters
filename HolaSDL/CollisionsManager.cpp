@@ -279,9 +279,32 @@ void CollisionsManager::enemyCollisions()
 			if (!e->isDead()) {
 				overlapCollisions(e);
 				layerCollisions(e);
+				if (e->getEnemyState() != EnemyState::Hooked) {
+					acidCollisions(e);
+				}
 			}
 		}
 	}
+}
+
+void CollisionsManager::acidCollisions(Enemy* e)
+{
+	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
+	vector<string> collisionsLayer = { "Acido" };
+	bool collision = false;
+
+	vector<string>::iterator it;
+	for (it = collisionsLayer.begin(); it != collisionsLayer.end() && !collision; it++) {
+		TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer(*it));
+		if (tl != nullptr) {
+			if (CollisionHandler::Collide(e->getTransform(), tl)) {//Si colisiona el gancho con las paredes cambia a MOVE_MC
+				collision = true;
+				Message msg(ACID_DEATH);
+				e->sendMessage(&msg);
+			}
+		}
+	}
+
 }
 
 void CollisionsManager::hookCollisions()
@@ -308,6 +331,7 @@ void CollisionsManager::hookCollisions()
 							}
 							else {
 								//METER SONIDO DE GANCHO FALLO BOLUDO
+								ResourceManager::getInstance()->getSoundEffect(HookMiss)->playChannel(7, 0);
 								Message msg(HOOK_STOP);
 								mc->sendMessage(&msg);
 							}
@@ -405,7 +429,8 @@ void CollisionsManager::enemyAttackCollision() {
 						if (CollisionHandler::RectCollide(enemyHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
 							hit = true;
 							//Mandar mensaje de collision stalker / player
-							Message msg(STALKER_ATTACK);
+							float damage = e->getMeleeDmg();
+							EnemyAttackMessage msg(damage);
 							mc->sendMessage(&msg);
 							Vector2D empuje = mc->getCenterPos() - e->getCenterPos();
 							empuje.normalize();

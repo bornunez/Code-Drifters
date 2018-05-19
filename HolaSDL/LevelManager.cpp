@@ -258,6 +258,10 @@ void LevelManager::newMap()
 
 void LevelManager::nextLevel()
 {
+	//Desactiva el Boss del nivel tras matarlo
+	EnemyManager::getInstance()->getActiveBoss()->setInvincibility(true);
+	EnemyManager::getInstance()->getActiveBoss()->getTransform()->overlapCollision.active = false;
+
 	delete dungeon;
 	level++;
 	if (level <= maxLevel) {

@@ -93,6 +93,8 @@ enum SoundEffectId {
 	EnemyStuned,
 	HookThrow, HookHit, HookMiss,
 
+	StalkerCharge, GunnerShot, ChargerCrash, BombSound,
+
 	DogAttack1, DogAttack2,
 	ButtonExplosion
 };
@@ -106,7 +108,7 @@ class ResourceManager
 private:
 	//Aqui se añaden las texturas con estoso args {path, numRows, numCols}
 	const TextureAtributes TEXTURE_ATRIBUTES[NUM_TEXTURES]{
-		{ "MCBullet.png", 1, 1 },
+		{ "MCBullet.png", 1, 4 },
 		{"GunRight.png",1,1},
 		{ "GunnerBullet.png", 1, 5 },
 		{ "BossBullet.png", 1, 4},
@@ -255,6 +257,12 @@ private:
 		"..\\music\\Sonidos\\HookThrow.wav",
 		"..\\music\\Sonidos\\HookHit.wav",
 		"..\\music\\Sonidos\\HookMiss.wav",
+
+		"..\\music\\Sonidos\\StalkerCharge.wav",
+		"..\\music\\Sonidos\\GunnerShot.wav",
+		"..\\music\\Sonidos\\ChargerCrash.wav",
+		"..\\music\\Sonidos\\Bomb.wav",
+
 		"..\\music\\Sonidos\\PerroRugido1.wav",
 		"..\\music\\Sonidos\\PerroRugido2.wav",
 	    "..\\music\\Sonidos\\BotonOut.wav"};

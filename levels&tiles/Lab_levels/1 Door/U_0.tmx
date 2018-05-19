@@ -5,7 +5,7 @@
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlN1qwzAMRp3YMBL7qvQZ9v6PuIT5wJnqZaSw3jQCEddW9enTX0qX/CXTpqXr9ELcvOnav/lFmFPQuWPv3D+6nvF12/TedZIv/Nr/6H0/f3Y9g3vv2OYRv/jPaYwL9lncESZcOWfZ1fRdZ+c9hzO98BturJm5RL7779bvlnC/6osSH35HuHB13PjOAaP2tyKdO0aTTZZtPcBtOqP4oL7MMDEl4YFTxWGR/VGefSZHrm+Rr1G/mX9RPN4zS8iNa1kHd44B9X9dA/LFnpkDbjnAdm8ZczRbtnNuOTfhkhN60VjEuYbc5fQzVjgTdxMOscS+cq3ofTDJlWvtWOgr926TLe/gRoGL94Tnv8kHcS/iRg/Pwb7oPyOBM3NEP4HVxBU+VbbE4ju4uKYjcXzk2fWM70t6rC2z8YzQf+YEvne2Z4x9GHfDM0JuqZ37jfyB/Z/CjFFj76FLLrnkfeQLXZ8Iqw==
+   eJztlVtqxDAMRZ3YUBz7q8wauv8ldkJ94FR1UzLQ+ZkIRBxb0dXVw0npkr9kuWsZujwRN991G8/8JMwl6Dqwd+5vQ8/4er/rbegiX/i1/9n5vv4Yegb3NrDNIz7xn9McF+yzuDNMuLLOsmvpq87Oew5reuE33Fgzc4l89/c+9mrY3/REiQ+/M1y4Om5854DRxlmRrgOjyybLth3gdq1RfFBfZrjqHTxwmjhU2R/l2Wty5PoW+Zr1m/kXxeN7pobcuJZtsucYUH/rGpAv7pk14JYDbPeWMWezZTvnlnUXLjmhF41FnFvIXU7fY4UzcXfhEEvsK9eK3geTXLnWjsV9Re922XIObvyPwMX3hOe/ywdx48c9vAb7om9m/y44M0f0U5UfuMKnyZZYvAcX13Qmjo88u57xvKaftWU2HhH6z5zA953tGeM+jHfDI0JuqZ37jfyB/Z/CjFFj30OXXHLJ68gnc3MIrg==
   </data>
  </layer>
  <layer name="Aire" width="30" height="30">

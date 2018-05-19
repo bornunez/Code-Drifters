@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="35" height="33" tilewidth="16" tileheight="16" nextobjectid="32">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="35" height="33" tilewidth="16" tileheight="16" infinite="0" nextobjectid="32">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -31,7 +31,12 @@
  </layer>
  <layer name="Aire" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJzNlttuwyAMhgNbd7qLqkF7mXQ023XXbe//ZIPK1hyXnDCsQbJskhC+/DjgqoKm/tnG2tT9SGt1VR297fTCgQVYas/QeduvgKUBljXoEtbIrogluy5zcjvS6hK6CFiCLh8pLEP/eCJLA7q8L2WJsQlZ2lRdCrBgvtyaRfn5X1Nzd4Llzr9v4+0BPMaPpL+B+cO+78B3BfJlC/MY8Bhb0ufXTCFdDuRbHftux66Zwrqc/PvO3r7AY/xN+mfChLliU87GCZa5uXsi62hKsMT6I61la5SFhWszs9VMF3G+8PkFuoj/IwELnomoi3jfFbCsSZc2938kYGly77sCFr5Ggek59363gAU1scAV/IuERxE/k0Wx9UHDPp7vT0u5CEuoGe7Ju4ZiytERs+zcNGws91iPXJhVn2Wrh2sCGtM86XR/jY66X3fw8bF7O11d5cpBX9cJYzG9Rv0bmCN9F/G9eiNSM3zqv1phKI7VFfzZ2FjusR75ibDc3FbWfgET4CRg
+   eJzt1NEKQBEQRVH+/6e9EE0HJZkpe5eu8jArdaVUy4/Xqt35zbCczcKiz362zP7x1xYbFh0WHRYdFp2d7W2xd+MZFh0WHRZdRIv3u9sM7Rvl3Y1gGfdY+vxx772CVQAhZACQ
+  </data>
+ </layer>
+ <layer name="Acido" width="35" height="33">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJACAMBMHDGpL+WxVBX8afmAg7cPhdjISbrEk+l220VOlZHVaopcq/cCNaaNl5O8+CZbVETRVaojerJbpVlhc3AgAA+EEHrtQJMg==
   </data>
  </layer>
  <layer name="Decoracion2" width="35" height="33">

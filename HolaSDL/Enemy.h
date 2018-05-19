@@ -51,6 +51,8 @@ public:
 	void death();
 	MainCharacter* getMC();
 	EnemyType getType() { return type; }
+	float getMeleeDmg() { return Attributes.meleeDmg; }
+	float getRangedDmg() { return Attributes.rangedDmg; }
 	float getLife() { return Attributes.life; }
 	float getMaxLife() { return Attributes.maxLife; }
 	void setLife(int life) { Attributes.life = life; };

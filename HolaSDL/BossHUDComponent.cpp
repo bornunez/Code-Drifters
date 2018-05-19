@@ -34,7 +34,7 @@ BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 	//el resto de texturas de los demas hudobjects
 
 	bossBack->destRect.x = Game::getGame()->getWinW() / 8;
-	bossBack->destRect.y = Game::getGame()->getWinH() * 3 / 5;
+	bossBack->destRect.y = Game::getGame()->getWinH() * 5 / 8;
 	bossBack->destRect.w = Game::getGame()->getWinW() * 3 / 4;
 	bossBack->destRect.h = Game::getGame()->getWinH() / 2;
 
