@@ -37,7 +37,7 @@ private:
 		{10,100,0,10,8,10,33,false},
 		{10,100,0,10,0,0,0,false},
 		{10,100,0,10,0,0,0,false},
-		{75,100,5,10,7,8,100,true} };
+		{200,150,5,10,7,8,100,true} };
 	//Donde van a estal almacenados todos los enemigos del juego
 	list<Enemy*> inactives;
 	list<Enemy*> actives;
