@@ -70,6 +70,8 @@ public:
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();
+	void playIntro();
+	void endIntro();
 	void pushState(GameState* state);
 	void quitState();
 	void quitToMenu();

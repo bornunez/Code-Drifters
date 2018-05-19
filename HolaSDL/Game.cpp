@@ -21,7 +21,7 @@
 #include "GameOverState.h"
 #include "PauseState.h"
 #include "Final.h"
-
+#include "IntroState.h"
 Game* Game::game = nullptr;
 
 Game::Game()
@@ -201,6 +201,18 @@ void Game::startDialogue(string filename)
 {
 	DialogsState* ds = new DialogsState(stateMachine->currentState(), filename);
 	stateMachine->pushState(ds);
+}
+
+void Game::playIntro()
+{
+	IntroState* is = new IntroState();
+	pushState(is);
+}
+
+void Game::endIntro()
+{
+	stateMachine->popState();
+	startGame();
 }
 
 void Game::endDialogue() 
