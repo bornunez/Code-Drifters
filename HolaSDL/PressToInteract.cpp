@@ -6,12 +6,12 @@
 #include "Font.h"
 #include "Game.h"
 
-PressToInteract::PressToInteract(GameObject* o) : RenderComponent(o)
+PressToInteract::PressToInteract(GameObject* o,string text) : RenderComponent(o)
 {
 	Game* g = Game::getGame();
 	font = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
 	pressTex = new Texture(g->getRenderer());
-	pressTex->loadFromText("PRESS E TO ENTER THE SHOP", *font, { COLOR(0x7e7effff) });
+	pressTex->loadFromText(text, *font, { COLOR(0x7e7effff) });
 	dest.h = pressTex->getHeight() * g->getScale(); dest.w = pressTex->getWidth() * g->getScale();
 }
 

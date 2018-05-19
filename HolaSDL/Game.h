@@ -18,6 +18,8 @@ class PlayState;
 class GameState;
 
 using namespace std;
+
+enum Language{ Spanish, English};
 class Game
 {
 private:
@@ -31,7 +33,8 @@ private:
 	SDL_Event event;
 	//Info de ventana
 	int winX, winY;
-	bool fullScreen;
+	bool fullScreen=false;
+	bool mute = false;
 	const int winWidth = 1020;
 	const int winHeight = 720;
 	//Info del juego
@@ -44,7 +47,7 @@ private:
 	PlayState* playState;
 
 	LevelParser* levP;
-
+	Language language = English;
 
 	Game();
 	~Game();
@@ -57,7 +60,9 @@ public:
 	void run();
 	void handleEvents();
 	void flushEvents();
-
+	void saveConfig();
+	void loadConfig();
+	void setWindow();
 	//Gets y sets
 	const int getWorldWidth() const { return worldWidth; }
 	const int getWorldHeight() const { return worldHeight; }
@@ -68,6 +73,10 @@ public:
 	static Game* getGame();
 
 	void startGame(bool tutorial);
+	void setMute();
+	Language getLanguage() { return language; }
+	void setLanguage(Language lang) { language = lang; }
+
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();

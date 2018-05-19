@@ -357,4 +357,8 @@ public:
 	string getLevelPath() { return LEVEL_PATH; };
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;
+	void muteMusic();
+	void unmuteMusic();
+	void muteSoundEffect();
+	void unmuteSoundEffect();
 };

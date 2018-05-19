@@ -31,7 +31,7 @@ private:
 
 	vector<EnemyParams> eParams = { 
 	//Vida, velocidad, daño melee, daño distancia, mindrop, maxdrop, dropBotiquin, enganchable
-		{300,350,10,0,5,7, 10,true}, //Stalker
+		{250,350,10,0,5,7, 10,true}, //Stalker
 		{200,100,5,10,7,8, 10,true}, //Gunner
 		{75,200,15,0,7,8, 100,true}, //Ninja 
 		{500,125,10,0,8,10, 30,false}, //Charger
