@@ -1,7 +1,7 @@
 #include "UpdateBoss3.h"
 #include "Boss3.h"
 #include "EnemyManager.h"
-
+#include "Game.h"
 
 UpdateBoss3::UpdateBoss3(Boss3* o, MainCharacter* prot) : UpdateComponent(o)
 {
@@ -218,6 +218,7 @@ void UpdateBoss3::fase1()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
+		Game::getGame()->final();
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getCurrentAnimation()->startAnimation();
 		Transform auxTrans;

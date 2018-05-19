@@ -186,7 +186,6 @@ private:
 		{ "Interfaz\\Minimapa\\ClosedRight.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedDown.png",1,1 },
 		{ "Interfaz\\Minimapa\\ClosedLeft.png",1,1 },
-
 			//Props
 		{ "Props\\burbujas1.png", 1, 6 },
 		{ "Props\\burbujas2.png", 1, 6 },

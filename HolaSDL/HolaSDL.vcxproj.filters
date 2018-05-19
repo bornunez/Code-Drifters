@@ -436,6 +436,7 @@
       <Filter>Enemigos\Source</Filter>
     </ClCompile>
     <ClCompile Include="AcidDeathComponent.cpp" />
+    <ClCompile Include="Final.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -859,6 +860,7 @@
       <Filter>Enemigos\Header</Filter>
     </ClInclude>
     <ClInclude Include="AcidDeathComponent.h" />
+    <ClInclude Include="Final.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

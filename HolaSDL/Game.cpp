@@ -20,6 +20,7 @@
 #include "DialogsState.h"
 #include "GameOverState.h"
 #include "PauseState.h"
+#include "Final.h"
 
 Game* Game::game = nullptr;
 
@@ -230,6 +231,12 @@ void Game::pause(GameState* state)
 {
 	PauseState* pauseState = new PauseState(state);
 	stateMachine->pushState(pauseState);
+}
+
+void Game::final()
+{
+	Final* fin = new Final();
+	stateMachine->pushState(fin);
 }
 
 
