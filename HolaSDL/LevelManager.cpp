@@ -253,7 +253,7 @@ void LevelManager::newMap()
 	roomX = currentRoom->getX(); roomY = currentRoom->getY();
 	currentRoom->setExplored(true);
 	
-	//level->getFirstRoom()->addCharacter(mainCharacter);//Se añade el personaje a la primera sala
+	//level->getFirstRoom()->addCharacter(mainCharacter);//Se aï¿½ade el personaje a la primera sala
 }
 
 void LevelManager::nextLevel()

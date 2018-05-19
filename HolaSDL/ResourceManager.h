@@ -11,7 +11,7 @@ class Tileset;
 const int NUM_TEXTURES = 105;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
-const int NUM_ENEMYTILESET = 7;
+const int NUM_ENEMYTILESET = 8;
 const int NUM_BOSS1TILESET = 1;
 const int NUM_BOSS2TILESET = 1;
 const int NUM_BOSS3TILESET = 1;
@@ -290,7 +290,8 @@ private:
 		"Charger.tsx" , 
 		"Wheel.tsx",
 		"Bomber.tsx",
-		"Bomb.tsx"
+		"Bomb.tsx",
+		"Wave.tsx"
 	};
 	vector<Tileset*> enemyTilesets;
 	vector<Tileset*> boss1Tilesets;
