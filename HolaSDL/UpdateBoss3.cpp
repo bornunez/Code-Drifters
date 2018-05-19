@@ -482,6 +482,11 @@ void UpdateBoss3::fase9()
 		//RondaWaves(200, 8);
 		//RondaWaves2(5, 3);
 	}
+	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 1)
+	{
+		boss->createWave(1000, 1000);
+		fasesPast = 2;
+	}
 }
 void UpdateBoss3::RondaWaves(float distancia, int waves)
 {

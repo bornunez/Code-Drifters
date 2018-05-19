@@ -274,7 +274,7 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 	else if (objName == "Clientes") {
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Clients), 0.0, 200));
 	}
-	else if (objName == "Tuto_Text") {
+	else if (objName == "Tuto_Text" && PlayState::getInstance()->isTutorial()) {
 		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
 		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
 		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));

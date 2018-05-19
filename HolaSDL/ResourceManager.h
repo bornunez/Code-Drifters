@@ -99,7 +99,7 @@ enum SoundEffectId {
 
 	StalkerCharge, GunnerShot, ChargerCrash, BombSound,
 
-	DogAttack1, DogAttack2,
+	DogAttack1, DogAttack2, DogDeath,
 	ButtonExplosion,
 	SwordSlash
 };
@@ -278,6 +278,7 @@ private:
 
 		"..\\music\\Sonidos\\PerroRugido1.wav",
 		"..\\music\\Sonidos\\PerroRugido2.wav",
+		"..\\music\\Sonidos\\DogDeath.wav",
 	    "..\\music\\Sonidos\\BotonMuere.wav",
 		"..\\music\\Sonidos\\SwordSlash.wav"};
 

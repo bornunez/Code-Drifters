@@ -111,17 +111,17 @@ void UpdateWheel::fase2()
 	else if (dir == 8) direccion = Vector2D(-1, 0);
 
 	float auxVel = vel;
-	if (dir == 5 && (wheel->getCenterPos().getY() >= boss->getCenterPos().getY() + posInic-40))
+	if (dir == 5 && (wheel->getCenterPos().getY() >= boss->getCenterPos().getY() + posInic-60))
 	{
 		dir = 6;
 		//auxVel = abs(wheel->getCenterPos().getX() - boss->getCenterPos().getX()) * 2/((1/vel)*100);
 	}
-	if (dir == 6 && (wheel->getCenterPos().getX() >= boss->getCenterPos().getX() + posInic))
+	if (dir == 6 && (wheel->getCenterPos().getX() >= boss->getCenterPos().getX() + posInic-10))
 	{
 		dir = 7;
 		//auxVel = abs(wheel->getCenterPos().getY() - boss->getCenterPos().getY()) * 2 / ((1 / vel) * 100);
 	}
-	if (dir == 7 && (wheel->getCenterPos().getY() <= boss->getCenterPos().getY() - posInic-40))
+	if (dir == 7 && (wheel->getCenterPos().getY() <= boss->getCenterPos().getY() - posInic))
 	{
 		dir = 8;
 		//auxVel = abs(wheel->getCenterPos().getX() - boss->getCenterPos().getX()) * 2 / ((1 / vel) * 100);

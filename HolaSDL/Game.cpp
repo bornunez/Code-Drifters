@@ -89,6 +89,14 @@ void Game::run()
 
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Neon Blade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
+
+	SDL_SetRelativeMouseMode(SDL_TRUE);
+
+	/*SDL_DisplayMode current;
+	int display = SDL_GetCurrentDisplayMode(0, &current);
+
+	window = SDL_CreateWindow("Neon Blade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, current.w, current.h, SDL_WINDOW_SHOWN);*/
+
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	SDL_Surface* icon = IMG_Load("..\\images\\bladeIcon.png");
 	SDL_SetWindowIcon(window, icon);

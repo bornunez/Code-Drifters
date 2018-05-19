@@ -31,14 +31,14 @@ private:
 
 	vector<EnemyParams> eParams = { 
 	//Vida, velocidad, daño melee, daño distancia, mindrop, maxdrop, dropBotiquin, enganchable
-		{100,350,10,0,5,7, 10,true}, //Stalker
-		{75,100,5,10,7,8, 10,true}, //Gunner
+		{300,350,10,0,5,7, 10,true}, //Stalker
+		{200,100,5,10,7,8, 10,true}, //Gunner
 		{75,200,15,0,7,8, 100,true}, //Ninja 
-		{200,125,10,0,8,10, 30,false}, //Charger
+		{500,125,10,0,8,10, 30,false}, //Charger
 		{10,100,0,10,8,10, 0,false}, //Turret
 		{10,100,0,10,0,0,0,false}, //Bomb
 		{10,100,0,10,0,0,0,false}, //BossBomb
-		{200,150,5,10,8,9, 20,true} }; //Bomber
+		{400,150,5,10,8,9, 20,true} }; //Bomber
 	//Donde van a estal almacenados todos los enemigos del juego
 	list<Enemy*> inactives;
 	list<Enemy*> actives;

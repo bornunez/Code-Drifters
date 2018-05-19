@@ -15,7 +15,9 @@ AcidDeathComponent::~AcidDeathComponent()
 void AcidDeathComponent::receiveMessage(Message * msg)
 {
 	if (msg->id == ACID_DEATH) {
-		enemy->death();
+		float damage = 999;
+		MCAttackDamage msg(damage);
+		enemy->sendMessage(&msg);
 	}
 }
 
