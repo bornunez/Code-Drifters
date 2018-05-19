@@ -62,7 +62,7 @@
   <object id="35" name="Left" gid="255" x="96" y="384" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="30" name="Spawner" gid="240" x="336" y="208" width="16" height="16">
+  <object id="30" name="Spawner" gid="240" x="352" y="176" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -71,7 +71,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="32" name="Spawner" gid="240" x="336" y="384" width="16" height="16">
+  <object id="32" name="Spawner" gid="240" x="432" y="384" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -80,7 +80,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="36" name="Spawner" gid="240" x="224" y="208" width="16" height="16">
+  <object id="36" name="Spawner" gid="240" x="208" y="208" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -89,7 +89,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="37" name="Spawner" gid="240" x="400" y="320" width="16" height="16">
+  <object id="37" name="Spawner" gid="240" x="432" y="336" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>

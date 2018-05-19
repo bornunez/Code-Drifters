@@ -187,8 +187,8 @@ void UpdateBoss3::faseTP()
 	}
 	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 0)
 	{
-		int randX = rand() % (1000) - 500;
-		int randY = rand() % (1000) - 500;
+		int randX = rand() % (700) - 350;
+		int randY = rand() % (700) - 350;
 		boss->getTransform()->position = Vector2D(posInic.getX() + randX, posInic.getY() + randY);
 		boss->getTransform()->overlapCollision.active = true;
 		boss->changeCurrentAnimation("APARECE");
@@ -218,7 +218,7 @@ void UpdateBoss3::fase1()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		Game::getGame()->final();
+		//Game::getGame()->final();
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getCurrentAnimation()->startAnimation();
 		Transform auxTrans;
@@ -260,8 +260,9 @@ void UpdateBoss3::fase3()
 		int auxDir = rand() % 3;
 		if (auxDir == 1) dirLucian = 1;
 		else if (auxDir == 2) dirLucian = -1;
-		boss->getTransform()->position = Vector2D(posInic.getX()+550 * dirLucian, 1000);
+		boss->getTransform()->position = Vector2D(posInic.getX()+430 * dirLucian, 1000);
 		boss->changeCurrentAnimation("WALL_SHOOT");
+		boss->getTransform()->overlapCollision.active = true;
 		//boss->getCurrentAnimation()->setTime(0.1);
 		boss->getCurrentAnimation()->startAnimation();
 		auxLucian = 0;
@@ -311,7 +312,7 @@ void UpdateBoss3::fase4()
 	{
 		//boss->changeCurrentAnimation("GIRA");
 		//boss->getCurrentAnimation()->startAnimation();
-		auxX = 600;
+		auxX = 430;
 		boss->getTransform()->position = Vector2D(posInic.getX()+auxX, 500);
 		boss->changeCurrentAnimation("CARGA");
 		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
@@ -479,42 +480,52 @@ void UpdateBoss3::fase9()
 		fasesPast0 = 1;
 		boss->changeCurrentAnimation("WAVE");
 		boss->getCurrentAnimation()->startAnimation();
+		//RondaWaves(200, 8);
+		//RondaWaves2(5, 3);
+	}
+	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 1)
+	{
+		//boss->createWave(1000, 1000);
+		RondaWaves(100, 6);
+		fasesPast = 2;
+	}
+	if (Tiempo->TimeSinceTimerCreation >= tiempoFase9 / 2.7 && fasesPast == 2)
+	{
+		RondaWaves(150, 12);
+		fasesPast = 3;
+	}
+	if (Tiempo->TimeSinceTimerCreation >= tiempoFase9 / 2 && fasesPast == 3)
+	{
+		RondaWaves(215, 24);
+		fasesPast = 4;
+	}
+	if (Tiempo->TimeSinceTimerCreation >= tiempoFase9 / 1.5 && fasesPast == 4)
+	{
+		RondaWaves(300, 24);
+		fasesPast = 5;
 	}
 }
-void UpdateBoss3::RondaWheels()
+void UpdateBoss3::RondaWaves(float distancia, int waves)
 {
-	/*dirWheel = Random::randomInt(0, 3);
-	int salto = Random::randomInt(0, 7);
-
-	switch (dirWheel) {
-	case 0:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625, 550 + 125*i, velWheel, dirWheel);
-		break;
-
-	case 1:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150*i, 550, velWheel, dirWheel);
-		break;
-
-	case 2:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(1675, 550 + 125*i , velWheel, dirWheel);
-		break;
-
-	case 3:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150*i, 1425, velWheel, dirWheel);
-		break;
-	}
-	*/
-}
-
-void UpdateBoss3::RondaWheels2()
-{
+	Vector2D aux(0, 1);
 	Vector2D pos = boss->getCenterPos();
-	for (int i = 0; i < 4; i++) {
-		//Izquierda
-		boss->createWave(pos.getX() - (180 + 100*i), pos.getY() - 50);
-		//Derecha
-		boss->createWave(pos.getX() + (112 + 100*i), pos.getY() - 50);
+	for (int i = 0; i < waves; i++) {
+		boss->createWave(pos.getX() -30 + aux.getX()*distancia, pos.getY() -30 + aux.getY()*distancia);
+		aux.set(0, 1);
+		aux.rotate((i+1)*(360 / waves));
+	}
+}
 
+void UpdateBoss3::RondaWaves2(int waves, int rows)
+{
+	Vector2D aux(0, 1);
+	Vector2D pos = boss->getCenterPos();
+	for (int i = 0; i < waves; i++) {
+		for (int j = 0; j < rows; j++) {
+			boss->createWave(pos.getX() + aux.getX() * ((j+1)*75), pos.getY() + aux.getY() * ((j + 1) * 75));
+		}
+		aux.set(0, 1);
+		aux.rotate((i + 1)*(360 / waves));
 	}
 }
 

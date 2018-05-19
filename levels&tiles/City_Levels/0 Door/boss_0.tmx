@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="44" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="39">
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="44" height="40" tilewidth="16" tileheight="16" infinite="0" nextobjectid="39">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="44" height="40">
   <data encoding="base64" compression="zlib">
@@ -18,7 +18,7 @@
  </layer>
  <layer name="Paredes" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztlzESQDAUBT9OgBPgZLiB+xeiNBHVe1LYnXnt3y2TiGeatLbSukLTG33aUGmjsHcWz9l73dnEK3nopZdeeum93znEc/eqoZdeh4der4der4der2eK/K+1iBodnjXyt8kuanR46PV66PV66PV6Sv8XNV95AADgX5z3a4NJ
+   eJzt10EOQDAQRuHBCXACnAw3cP+F2klrKpEZXfS9ZLb9vyUizzXh2kLXKaZcfbih0I2G3tnhvLzXO5vDxVt48eLFizd95zA+b69HePHmtvDahhdvbqsG7yTpf9ZiBXzZ+rKzSvpdslsBoyx28OrhxXuvRq/2/+LRXztERFRPJ1mygjo=
   </data>
  </layer>
  <layer name="Sombras" width="44" height="40">
@@ -33,7 +33,7 @@
  </layer>
  <layer name="Ventanas" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztmNltwzAMhjlUz/ee7x2hQCfoS68Beg3QIwP0msLyBLYniD1H/wD8YdmVgsCRjBrRD3xwQRMmRVGEUpGkpOHaAttgB+yCPbA/wH6h72LrAByCI3AMTsDpADu/FVu+er2AV/AG3sEMXIFrcANuwZ3DL7Z89foAn+ALfIMfcA8ewCN4As8Ov6RpK+R8GEOh5sPZSPmG0vmIsTJ95kt8Go+9UsZSprmU+qz171yZg0JtrryM+szHSFbjlFZOtdoahfUrrdwWPlyLSLu+Sn34nRjKNEZt5VWpfa55FJq7kb81LtWXvVSoT+7wDSHud6ax7V4orffsFa7DVT8j3bOQOXxCqZJub9i9wPozR7PkG1xjzDPIPa00p0K6PdqojfLNEfYWc/bNlHXFOrKHuZeVdGstls2lRtpeyqRde8i+qKWtg7HiGWnPGFXKajXj+tjPIWeFPTf7Z4QzjM+Y52dV2bNzsXecWZxjfN/v4SnINxdiqX8njB2Hd86h6t8JY4lxeOfcFPV/E8QS+23dvnP9zyCG2G+x++4/6dLDVOMkJSUlJW2WfgE8y779
+   eJztmNlthDAQhqeonO8531NCpFSQl1wF5CogVwG5qsBUAFQA1JF/pfmFIXi1AtvKKv6kX6yGETMexiMvIonEdDagTWgL2oZ2oN0J9jPrXkj2oH3oADqEjqDjCXb7WSFx1esJeoZeoFfoDbqALqEr6Bq6cfiFxFWvd+gD+oS+oG/oFrqD7qEH6NHhl1hffM6HGPiaDyeR8vXFacRYmV7zJT6tw16pYpFpLqVeG/2dq2qoUNtYXkZ96hjJapzSyqlRW6ti/Uort4UP1yLSra9SHz4nBJnGaKy8KrXXmkehuRv5XeNSfdlLhfrkI74+4PvONLbdC6V1n73CdYzVz0h/L2QjPr6opN8bdi+w/szRLHkG1xhyD/KdVppTIf0ebdVGXHOEvcWcXTNlLqwje5jvspJ+rcWyjdFK10uZdGv32ReNdHUwVjwj3R4jpaxWM66P/exzVthzc7hHOMN4Dbl/VsWenYt3x5nFOcb7wx5eB1xzIRTDM2HoODxzTmV4JgwF4/DM+V8Y/icIBfttbt+NfTMIAfstxveIv8K5Q7FiJRKJRCIxhx8fRMBO
   </data>
  </layer>
  <layer name="Decoracion de edificio" width="44" height="40">
@@ -60,8 +60,8 @@
  <objectgroup name="Entradas"/>
  <objectgroup name="Spawners" offsetx="16" offsety="24"/>
  <objectgroup name="Inicio" offsetx="17" offsety="56">
-  <object id="36" name="Start" gid="255" x="326" y="389" width="16" height="16"/>
-  <object id="37" name="Boss" gid="255" x="325" y="288" width="16" height="16"/>
+  <object id="36" name="Start" gid="255" x="329.333" y="388.333" width="16" height="16"/>
+  <object id="37" name="Boss" gid="255" x="327.667" y="325.333" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Animados"/>
 </map>

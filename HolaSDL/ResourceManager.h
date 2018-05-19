@@ -50,6 +50,7 @@ enum TextureId {
 
 	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
 	BotonBorde, BotonBarra,
+	FinalBossBorde,
 
 	//TEXTURAS DEL MINIMAPA
 	MinimapBorder, MinimapBase, //Borde
@@ -99,7 +100,7 @@ enum SoundEffectId {
 
 	StalkerCharge, GunnerShot, ChargerCrash, BombSound,
 
-	DogAttack1, DogAttack2,
+	DogAttack1, DogAttack2, DogDeath,
 	ButtonExplosion,
 	SwordSlash
 };
@@ -162,6 +163,8 @@ private:
 		//Second Boss
 		{"Interfaz\\BotonBorde.png", 1, 1},
 		{"Interfaz\\BotonRelleno.png", 1, 1},
+		//FinalBoss
+		{"Interfaz\\Boss3Borde.png", 1, 1},
 
 		//MINIMAPA
 		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},
@@ -278,6 +281,7 @@ private:
 
 		"..\\music\\Sonidos\\PerroRugido1.wav",
 		"..\\music\\Sonidos\\PerroRugido2.wav",
+		"..\\music\\Sonidos\\DogDeath.wav",
 	    "..\\music\\Sonidos\\BotonMuere.wav",
 		"..\\music\\Sonidos\\SwordSlash.wav"};
 
@@ -353,4 +357,8 @@ public:
 	string getLevelPath() { return LEVEL_PATH; };
 	Music* getMusic(MusicId i) const;
 	SoundEffect* getSoundEffect(SoundEffectId i) const;
+	void muteMusic();
+	void unmuteMusic();
+	void muteSoundEffect();
+	void unmuteSoundEffect();
 };

@@ -22,6 +22,7 @@
 #include "PauseState.h"
 #include "Final.h"
 #include "IntroState.h"
+#include <iostream>
 Game* Game::game = nullptr;
 
 Game::Game()
@@ -55,6 +56,7 @@ Game::~Game()
 
 void Game::endGame()//Termina el PlayState y resetea sus instancias.
 {
+	saveConfig();
 	delete mouseIcon;
 	delete levP;
 	//EnemyManager::ResetInstance();
@@ -89,6 +91,14 @@ void Game::run()
 
 	SDL_ShowCursor(SDL_DISABLE);
 	window = SDL_CreateWindow("Neon Blade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, winWidth, winHeight, SDL_WINDOW_SHOWN);
+
+	SDL_SetRelativeMouseMode(SDL_TRUE);
+
+	/*SDL_DisplayMode current;
+	int display = SDL_GetCurrentDisplayMode(0, &current);
+
+	window = SDL_CreateWindow("Neon Blade", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, current.w, current.h, SDL_WINDOW_SHOWN);*/
+
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	SDL_Surface* icon = IMG_Load("..\\images\\bladeIcon.png");
 	SDL_SetWindowIcon(window, icon);
@@ -100,6 +110,10 @@ void Game::run()
 
 	//Mouse Icon, maybe en playstate
 	mouseIcon = new MouseIcon("..\\images\\mouseIcon.png");
+
+	loadConfig();
+	setWindow();
+	setMute();
 	
 	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
@@ -149,15 +163,12 @@ void Game::handleEvents()
 				exit = true;
 			}*/
 			if (event.key.keysym.sym == SDLK_F11) {
-				
-				if (fullScreen) {
-					fullScreen = false;
-					SDL_SetWindowFullscreen(window, SDL_FALSE);					
-				}
-				else {
-					fullScreen = true;
-					SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-				}
+				fullScreen = !fullScreen;
+				setWindow();
+			}
+			else if (event.key.keysym.sym == SDLK_m) {
+				mute = !mute;
+				setMute();
 			}
 			/*else if (event.key.keysym.sym == SDLK_q) {
 				endGame();
@@ -165,7 +176,7 @@ void Game::handleEvents()
 		}
 		if (event.type == SDL_QUIT)
 		{
-			exit = true;
+			exit = true;			
 		}
 
 		else
@@ -181,6 +192,72 @@ void Game::flushEvents()
 	}
 }
 
+void Game::saveConfig()
+{
+	ofstream file;
+	file.open("..\\config\\config.txt");
+	if (fullScreen) {//La primera línea del txt define si se guardó en fullscreen
+		file << "fullscreenTrue" << endl;
+	}
+	else {
+		file << "fullscreenFalse" << endl;
+	}
+	if (mute) {
+		file << "musicFalse" << endl;
+	}
+	else file << "musicTrue" << endl;
+	file << (language == English) ? "ENG" : "ESP";
+	file.close();
+}
+
+void Game::loadConfig()
+{
+	ifstream file;
+	file.open("..\\config\\config.txt");
+	string fullscreenTxt;
+	file >> fullscreenTxt;
+	if (fullscreenTxt == "fullscreenTrue") {
+		fullScreen = true;
+	}
+	else {
+		fullScreen = false;
+	}
+	string musicTxt;
+	file >> musicTxt;
+	if (musicTxt == "musicTrue") {
+		mute = false;
+	}
+	else {
+		mute = true;
+	}
+	string lang;
+	file >> lang;
+	language = lang == "ENG" ? English : Spanish;
+	file.close();
+}
+
+void Game::setWindow()
+{
+	if (fullScreen) {
+		SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+	}
+	else {
+		SDL_SetWindowFullscreen(window, SDL_FALSE);
+	}
+}
+void Game::setMute()
+{
+	if (mute) {
+		ResourceManager::getInstance()->muteMusic();
+		ResourceManager::getInstance()->muteSoundEffect();
+	}
+	else {
+		ResourceManager::getInstance()->unmuteMusic();
+		ResourceManager::getInstance()->unmuteSoundEffect();
+	}
+}
+
+
 int Game::getWinW() {//Pide el ancho de la ventana
 	return winWidth;
 }
@@ -195,11 +272,11 @@ Game * Game::getGame()
 	return game;
 }
 
-void Game::startGame()
+void Game::startGame(bool tutorial)
 {
 	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
-	playState->loadState(true);
+	playState->loadState(tutorial);
 }
 
 
@@ -218,7 +295,7 @@ void Game::playIntro()
 void Game::endIntro()
 {
 	stateMachine->popState();
-	startGame();
+	startGame(PlayState::getInstance()->isTutorial());
 }
 
 void Game::endDialogue() 
@@ -260,7 +337,7 @@ void Game::gameOver()
 void Game::restart()
 {
 	quitToMenu();
-	startGame();
+	startGame(PlayState::getInstance()->isTutorial());
 }
 
 void Game::final()

@@ -30,7 +30,7 @@ EnemyTurret::EnemyTurret(MainCharacter* mc) :	Enemy(mc)
 	loadAnimations();
 
 	addComponent(new TurretShotComponent(this, getMC(), 500, 1));
-	addComponent(new TurretAnimationComponent(this, getMC(), animations));
+	addComponent(new TurretAnimationComponent(this, getMC(), animations, 4));
 	addComponent(new StunComponent(this, 4));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 }

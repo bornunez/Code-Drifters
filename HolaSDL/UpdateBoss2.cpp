@@ -50,7 +50,6 @@ void UpdateBoss2::update()
 		boss->allUpdates();
 		updateado = false;
 		boss->updateEnemies();
-		//cout << auxVelocidad;
 		if (faseAct == 0 && (Tiempo->TimeSinceTimerCreation < tiempoFase0) && !updateado)
 		{
 			fase0();
@@ -176,7 +175,6 @@ void UpdateBoss2::fase0()
 		boss->getCurrentAnimation()->startAnimation();
 		RondaWheels();
 		fasesPast = 1;
-		//static_cast<Boss2*>(boss)->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY());
 	}
 	else if (Tiempo->TimeSinceTimerCreation > tiempoFase0/4 && fasesPast == 1)
 	{
@@ -204,7 +202,7 @@ void UpdateBoss2::fase8()
 		fasesPast = 1;
 		boss->getTransform()->overlapCollision.active = false;
 
-		boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel, 4);
+		boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel*1.4f, 4);
 	}
 }
 void UpdateBoss2::fase9()
@@ -307,31 +305,31 @@ void UpdateBoss2::RondaWheels()
 
 	switch (dirWheel) {
 	case 0:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625, 550 + 125 * i, velWheel, dirWheel);
+		for (int i = 0; i < 8; i++) if (i != salto) boss->createWheel(posInic.getX()-360, posInic.getY()-425 + 117 * i, velWheel*0.83f, dirWheel);
 		break;
 
 	case 1:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150 * i, 550, velWheel, dirWheel);
+		for (int i = 0; i < 8; i++) if (i != salto) boss->createWheel(posInic.getX() - 360 + 125 * i, posInic.getY()-425, velWheel*0.83f, dirWheel);
 		break;
 
 	case 2:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(1675, 550 + 125 * i, velWheel, dirWheel);
+		for (int i = 0; i < 8; i++) if (i != salto) boss->createWheel(posInic.getX() + 510, posInic.getY() - 425 + 117 * i, velWheel*0.83f, dirWheel);
 		break;
 
 	case 3:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150 * i, 1425, velWheel, dirWheel);
+		for (int i = 0; i < 8; i++) if (i != salto) boss->createWheel(posInic.getX() - 360 + 125 * i, posInic.getY() + 415, velWheel*0.83f, dirWheel);
 		break;
 	}
 }
 
 void UpdateBoss2::RondaWheels2()
 {
-	Vector2D pos = boss->getCenterPos();
+	Vector2D pos = posInic;
 	for (int i = 0; i < 4; i++) {
 		//Izquierda
-		boss->createWheel(pos.getX() - (180 + 100 * i), pos.getY() - 50, velWheel *(1 + (i*.5)), 5);
+		boss->createWheel(pos.getX() - (80 + 95 * i), pos.getY() - 50, velWheel *(1 + (i*.5)), 5);
 		//Derecha
-		boss->createWheel(pos.getX() + (112 + 100 * i), pos.getY() - 50, velWheel *(1 + (i*.5)), 7);
+		boss->createWheel(pos.getX() + (240 + 95 * i), pos.getY() - 50, velWheel *(1 + (i*.5)), 7);
 
 	}
 }

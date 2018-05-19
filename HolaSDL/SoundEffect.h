@@ -12,6 +12,8 @@ public:
 	virtual ~SoundEffect();
 	bool load(std::string fileName);
 	void play(int repetirions = 0);
+	void mute();
+	void unMute();
 	void playChannel(int channel = -1, int rep = 0);
 	void pause();
 	void changeVolume(int volume);
