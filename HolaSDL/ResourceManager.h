@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 105;
+const int NUM_TEXTURES = 107;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 8;
@@ -47,6 +47,7 @@ enum TextureId {
 	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
 
 	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
+	BotonBorde, BotonBarra,
 
 	//TEXTURAS DEL MINIMAPA
 	MinimapBorder, MinimapBase, //Borde
@@ -80,7 +81,8 @@ enum MusicId {
 	Dog,
 	Button,
 	FinalBoss1,
-	FinalBoss2
+	FinalBoss2,
+	SadEnd
 };
 
 
@@ -96,7 +98,8 @@ enum SoundEffectId {
 	StalkerCharge, GunnerShot, ChargerCrash, BombSound,
 
 	DogAttack1, DogAttack2,
-	ButtonExplosion
+	ButtonExplosion,
+	SwordSlash
 };
 
 //IMPORTANTE//
@@ -150,6 +153,9 @@ private:
 		{"Interfaz\\PerroRelleno.png", 1, 1},
 		{"Interfaz\\PerroBack.png", 1, 1},
 		{"Interfaz\\PerroSegundoRelleno.png", 1, 1},
+		//Second Boss
+		{"Interfaz\\BotonBorde.png", 1, 1},
+		{"Interfaz\\BotonRelleno.png", 1, 1},
 
 		//MINIMAPA
 		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},
@@ -247,7 +253,8 @@ private:
 		"..\\music\\PERR.wav",
 		"..\\music\\Boton.wav",
 		"..\\music\\BossFinal_Parte1.wav",
-		"..\\music\\BossFinal_Parte2.wav"};
+		"..\\music\\BossFinal_Parte2.wav",
+		"..\\music\\SadEnd.wav"};
 
 	std::vector<std::string> ResourceManager::soundEffectFiles{
 		"..\\music\\Sonidos\cosa.wav",
@@ -265,7 +272,8 @@ private:
 
 		"..\\music\\Sonidos\\PerroRugido1.wav",
 		"..\\music\\Sonidos\\PerroRugido2.wav",
-	    "..\\music\\Sonidos\\BotonOut.wav"};
+	    "..\\music\\Sonidos\\BotonOut.wav",
+		"..\\music\\Sonidos\\SwordSlash.wav"};
 
 	int numOfMusic;
 	Music** music;
