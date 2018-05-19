@@ -51,11 +51,11 @@ SkillTree::SkillTree(SkillTree* parent, string source, string TextSource, ShopSt
 		}
 	}
 	archivo.close();
-	
+	string eng = Game::getGame()->getLanguage() == English ? "_eng" : "";
 	for (int i = 1; i <= numHijos; i++) {
 		//the names of the files of the sons are their ids
-		AddChild(new SkillTree(this,"..\\Arbol\\"+ to_string(skill.id)+to_string(i)+".txt",
-			"..\\Arbol\\Textures\\" + to_string(skill.id) + to_string(i) + ".png", shopState));
+		AddChild(new SkillTree(this,"..\\Arbol\\"+ to_string(skill.id)+to_string(i) + eng +".txt",
+			"..\\Arbol\\Textures\\" + to_string(skill.id) + to_string(i)  + ".png", shopState));
 	}
 
 	skill.HLineToFather = new Texture(Game::getGame()->getRenderer());
