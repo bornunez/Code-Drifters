@@ -29,7 +29,7 @@ BossHUDComponent::BossHUDComponent(MasterBoss* bossy) : RenderComponent(bossy)
 		bossBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroFondo));//cambiar las textures
 		bossBarBack = new HUDObject(ResourceManager::getInstance()->getTexture(PerroSecondFill));
 		bossBar = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBarra));
-		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(PerroBorde));
+		bossSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(FinalBossBorde));
 	}
 	//el resto de texturas de los demas hudobjects
 
