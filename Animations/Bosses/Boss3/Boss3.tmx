@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" infinite="0" nextobjectid="83">
+<map version="1.0" tiledversion="1.1.4" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" infinite="0" nextobjectid="89">
  <tileset firstgid="1" source="Boss3.tsx"/>
+ <layer name="WallShoot" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkRACAQxLBrjrf/gtgqIECace4qAAC4o6WeRppppf30CP52APxXAa4=
+  </data>
+ </layer>
+ <objectgroup name="WallShoot">
+  <object id="88" name="Hurtbox" type="5" x="1044" y="1419.25" width="22.25" height="48"/>
+  <object id="87" name="Hurtbox" type="4" x="980" y="1419.25" width="22.25" height="48"/>
+  <object id="86" name="Hurtbox" type="3" x="916" y="1419.25" width="22.25" height="48"/>
+  <object id="85" name="Hurtbox" type="2" x="852" y="1419.25" width="22.25" height="48"/>
+  <object id="84" name="Hurtbox" type="1" x="788" y="1419.25" width="22.25" height="48"/>
+  <object id="83" name="Hurtbox" type="0" x="724" y="1419.25" width="22.25" height="48"/>
+ </objectgroup>
+ <layer name="Appear" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzskJACAQBMGNyzP/rBwwBvFTBf3vKgAAuHZaaaaRempfj4CXDptvAWw=
+  </data>
+ </layer>
+ <layer name="Dissapear" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNADAMxDDPlXf/rXJbuAgJqFcVAAC/GWmmlXY66bYeAR0evOsBbA==
+  </data>
+ </layer>
  <layer name="Wave" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztzscJACAAwEC3sdf9hzNbCJKD/BOCJEmSXomUKFOhSo06DZq0aNN59CjpXxdJzwIX
@@ -29,7 +52,7 @@
   <object id="69" name="Hurtbox" type="3" x="1366" y="1232.25" width="23.25" height="44"/>
   <object id="68" name="Hurtbox" type="2" x="1298" y="1243.25" width="33.25" height="35"/>
   <object id="67" name="Hurtbox" type="1" x="1237" y="1247.25" width="36.25" height="28"/>
-  <object id="66" name="Hurtbox" type="0" x="1154" y="1244.25" width="50.75" height="26"/>
+  <object id="66" name="Hitbox" type="0" x="1154" y="1244.25" width="52.25" height="26"/>
  </objectgroup>
  <layer name="SwordDashLoop" width="30" height="30">
   <data encoding="base64" compression="zlib">
@@ -37,11 +60,11 @@
   </data>
  </layer>
  <objectgroup name="SwordDashLoop">
-  <object id="52" name="Hitbox" type="4" x="1090" y="1244.25" width="54.75" height="26"/>
-  <object id="51" name="Hitbox" type="3" x="1026" y="1244.25" width="56.75" height="26"/>
-  <object id="50" name="Hitbox" type="2" x="962" y="1244.25" width="56.75" height="26"/>
-  <object id="49" name="Hitbox" type="1" x="898" y="1244.25" width="59.25" height="26"/>
-  <object id="41" name="Hitbox" type="0" x="834" y="1244.25" width="57.75" height="26"/>
+  <object id="52" name="Hitbox" type="4" x="1090" y="1244.25" width="54.25" height="26"/>
+  <object id="51" name="Hitbox" type="3" x="1026" y="1244.25" width="54.25" height="26"/>
+  <object id="50" name="Hitbox" type="2" x="962" y="1244.25" width="54.25" height="26"/>
+  <object id="49" name="Hitbox" type="1" x="898" y="1244.25" width="54.25" height="26"/>
+  <object id="41" name="Hitbox" type="0" x="834" y="1244.25" width="55.25" height="26"/>
  </objectgroup>
  <layer name="SwordDashIni" width="30" height="30">
   <data encoding="base64" compression="zlib">

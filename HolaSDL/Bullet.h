@@ -9,6 +9,7 @@ class Bullet : public GameObject
 private:
 	BulletType type;
 	float angle;
+	float damage;
 public:
 	Bullet(Texture * tex, bool active, BulletType type);
 	Bullet(Texture * tex, Transform t, bool active, BulletType type);
@@ -16,6 +17,7 @@ public:
 	BulletType getType(){ return type; }
 	virtual ~Bullet();
 
+	float getDamage() { return damage; }
 	float getAngle() { return angle; }
 	void setAngle(float a) { angle = a; }
 };
