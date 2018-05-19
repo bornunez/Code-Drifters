@@ -283,14 +283,14 @@ void SkillTree::effect() {
 		character->setLifeStealEnable(true);
 		break;
 	case 1121:	//doubles life steal
-		character->setLifeSteal(2);
+		character->setLifeSteal(2);//multiplicator
 		break;
-	case 12:	//double life, divides hp
-		character->addMaxHP(-(character->getMaxHP() / 2));
-		character->addPercentualDamage(100);
+	case 12:	//adds 50% extra ad, reduces max hp to 75%
+		character->addMaxHP(-(character->getMaxHP() / 4));
+		character->addPercentualDamage(50);
 		break;
-	case 21:	//1 more second of stun
-		character->setStunTime(3.5);
+	case 21:	//50% more stun
+		character->setStunTime(character->getStunTime()*3/2);
 		break;
 	case 211:	//whenever you get hit having low bullets and hp, you get a free bullet
 		character->addComponent(new LastResortComponent(character));
