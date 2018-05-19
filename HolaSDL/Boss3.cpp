@@ -42,7 +42,7 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 	Attributes.meleeDmg = 25;
 	allUpdates();
 	loadAnimations();
-	this->changeCurrentAnimation("STATIC_UP");
+	this->changeCurrentAnimation("ABRE_BRAZOS");
 
 	updat = new UpdateBoss3(this, prota);
 	addComponent(updat);
