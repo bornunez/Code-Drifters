@@ -279,6 +279,11 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
 		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
 	}
+	else if (objName == "Boss_Text") {
+		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
+		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));
+		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
+	}
 	else if (objName == "Burbujas1")
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Burbujas1),0,300));
 	else if (objName == "Burbujas2")
