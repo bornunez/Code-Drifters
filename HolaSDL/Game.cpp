@@ -145,10 +145,10 @@ void Game::handleEvents()
 	while (SDL_PollEvent(&event) && !exit) {
 
 		if (event.type == SDL_KEYDOWN) {
-			if (event.key.keysym.sym == SDLK_ESCAPE) {
+		/*	if (event.key.keysym.sym == SDLK_ESCAPE) {
 				exit = true;
-			}
-			else if (event.key.keysym.sym == SDLK_F11) {
+			}*/
+			if (event.key.keysym.sym == SDLK_F11) {
 				
 				if (fullScreen) {
 					fullScreen = false;
@@ -159,9 +159,9 @@ void Game::handleEvents()
 					SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
 				}
 			}
-			else if (event.key.keysym.sym == SDLK_q) {
+			/*else if (event.key.keysym.sym == SDLK_q) {
 				endGame();
-			}
+			}*/
 		}
 		if (event.type == SDL_QUIT)
 		{
