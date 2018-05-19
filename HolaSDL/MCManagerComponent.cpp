@@ -98,8 +98,8 @@ void MCManagerComponent::receiveMessage(Message * msg)
 	case BOSS_BULLET_HIT:
 		HurtMC(20.0);
 		break;
-	case STALKER_ATTACK:
-		HurtMC(10.0);
+	case ENEMY_ATTACK:
+		HurtMC(static_cast<EnemyAttackMessage*>(msg)->damage);
 		break;
 	case BOSS1_ATTACK:
 		HurtMC(static_cast<BossAttack*>(msg)->damage);
