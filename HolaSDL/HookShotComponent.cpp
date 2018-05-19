@@ -36,10 +36,15 @@ void HookShotComponent::receiveMessage(Message* msg) {
 		//Cuando el gancho colisiona con la pared, el protagonista se mueve
 		hook->setHookStatus(HookStatus::MOVE_MC);
 		mc->removeCollisionLayer("Aire");
+		mc->removeCollisionLayer("Acido");
 		hook->setOriginPosition(mc->getCenterPos());
 		break;
 	case HOOK_STOP:
 		mc->addCollisionLayer("Aire");
+		mc->addCollisionLayer("Acido");
+		if (enemyHooked != nullptr) {
+			enemyHooked->addCollisionLayer("Acido");
+		}
 		stop();
 		break;
 	case HIT_WALL:
@@ -214,11 +219,13 @@ void HookShotComponent::contract()//Retrae la punta del gancho
 
 void HookShotComponent::moveEnemy()//Cambia la posición del enemigo según la posición del gancho
 {
+	enemyHooked->removeCollisionLayer("Acido");
 	Transform* eT = enemyHooked->getTransform();
 	eT->position.setX(hook->getCenterPos().getX() - eT->body.w/2);//"Sujeta" el enemy por el centro de su cuerpo
 	eT->position.setY(hook->getCenterPos().getY() - eT->body.h/2);
 	eT->body.x = eT->position.getX();
 	eT->body.y = eT->position.getY();
+	
 }
 
 void HookShotComponent::moveMC()//Mueve al personaje en dirección al gancho hasta que llega o choca con una pared

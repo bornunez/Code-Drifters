@@ -10,7 +10,7 @@
  </layer>
  <layer name="Aire" width="35" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1EEKgCAQheGhE2W5sTx0R8xIN6GSOc24eB/MxkB+BowIAKDPMeVn1g6LRmsZBVrytFpWyr8jDXvlmxWruHdS40mm5+qo7ST5u+dtR8LZY8IsscE2dnD3uDBbbPAd93zpee6Bk2+8n2sPWvf3MIVzyf9T4grno+0MQNoJLEgVzw==
+   eJztlUEOgCAMBBtfJMoF5dE+UYxwMZSIVJZDJ+mlJGWyCZRIURSljWPK14wWi4zmMgrqkgflslL+HSHYC2e2m8WdSQlPfXwuj1Imib993nokJH1MqCU62EoPaR8XaosOvmHOF59nDpL4yvlSOaDmt2CYfs//KeGYPiIzbmcgdom61N2JcuFKghMzxyA9
   </data>
  </layer>
  <layer name="Paredes" width="35" height="30">

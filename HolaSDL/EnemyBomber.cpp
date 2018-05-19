@@ -19,7 +19,7 @@
 #include "BomberAnimationComponent.h"
 #include "KnockbackComponent.h"
 #include "StunComponent.h"
-
+#include "AcidDeathComponent.h"
 
 
 EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
@@ -29,7 +29,7 @@ EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
 	loadAnimations();
 	
 
-	setCollisionsLayers({ "Paredes","Aire" });
+	setCollisionsLayers({ "Paredes","Aire", "Acido" });
 	this->addComponent(new BasicMovement(this));
 	this->addComponent(new BomberAnimationComponent(this, getMC(), animations, .2));
 	this->addComponent(new BomberShotComponent(this, getMC(), 200, 3));
@@ -38,6 +38,7 @@ EnemyBomber::EnemyBomber(MainCharacter* mc) :	Enemy(mc)
 	addComponent(new BoxRenderer(this, playState->getCamera()));
 	addComponent(new DamageableEnemyComponent(this, getMC(), .2));
 	addComponent(new StunComponent(this, 0));
+	addComponent(new AcidDeathComponent(this));
 }
 
 
