@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" nextobjectid="83">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" nextobjectid="89">
  <tileset firstgid="1" source="Boss3.tsx"/>
+ <layer name="WallShoot" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkRACAQxLBrjrf/gtgqIECace4qAAC4o6WeRppppf30CP52APxXAa4=
+  </data>
+ </layer>
+ <objectgroup name="WallShoot">
+  <object id="88" name="Hurtbox" type="5" x="1044" y="1419.25" width="22.25" height="48"/>
+  <object id="87" name="Hurtbox" type="4" x="980" y="1419.25" width="22.25" height="48"/>
+  <object id="86" name="Hurtbox" type="3" x="916" y="1419.25" width="22.25" height="48"/>
+  <object id="85" name="Hurtbox" type="2" x="852" y="1419.25" width="22.25" height="48"/>
+  <object id="84" name="Hurtbox" type="1" x="788" y="1419.25" width="22.25" height="48"/>
+  <object id="83" name="Hurtbox" type="0" x="724" y="1419.25" width="22.25" height="48"/>
+ </objectgroup>
+ <layer name="Appear" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzskJACAQBMGNyzP/rBwwBvFTBf3vKgAAuHZaaaaRempfj4CXDptvAWw=
+  </data>
+ </layer>
+ <layer name="Dissapear" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNADAMxDDPlXf/rXJbuAgJqFcVAAC/GWmmlXY66bYeAR0evOsBbA==
+  </data>
+ </layer>
  <layer name="Wave" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztzscJACAAwEC3sdf9hzNbCJKD/BOCJEmSXomUKFOhSo06DZq0aNN59CjpXxdJzwIX
