@@ -218,7 +218,7 @@ void UpdateBoss3::fase1()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		Game::getGame()->final();
+		//Game::getGame()->final();
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getCurrentAnimation()->startAnimation();
 		Transform auxTrans;
@@ -479,6 +479,11 @@ void UpdateBoss3::fase9()
 		fasesPast0 = 1;
 		boss->changeCurrentAnimation("WAVE");
 		boss->getCurrentAnimation()->startAnimation();
+	}
+	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 1)
+	{
+		boss->createWave(1000, 1000);
+		fasesPast = 2;
 	}
 }
 void UpdateBoss3::RondaWheels()
