@@ -53,6 +53,7 @@ void BombComponent::explode() {
 			BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::GunnerBullet);
 		}
 		eb->death();
+		ResourceManager::getInstance()->getSoundEffect(BombSound)->play();
 	}
 
 }

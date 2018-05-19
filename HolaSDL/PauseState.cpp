@@ -34,6 +34,13 @@ PauseState::PauseState(GameState* upper): UpperGameState(upper)
 
 PauseState::~PauseState()
 {
+	delete font;
+	delete font2;
+	delete op1Tex;
+	delete op2Tex;
+	delete op3Tex;
+	delete title1;
+	delete background;
 }
 
 void PauseState::handleEvent(SDL_Event & e)

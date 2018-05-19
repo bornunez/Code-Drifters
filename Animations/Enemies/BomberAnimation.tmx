@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="17" height="6" tilewidth="64" tileheight="64" nextobjectid="141">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="17" height="6" tilewidth="64" tileheight="64" infinite="0" nextobjectid="143">
  <tileset firstgid="1" source="Bomber.tsx"/>
  <layer name="StunLeft" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFtAJSFOgFAAewABs=
+   eJxjYBgFtAJSQCxNpl4ADZgANg==
   </data>
  </layer>
  <objectgroup name="StunLeft">
   <object id="121" name="Hurtbox" type="0" x="147" y="344" width="28" height="24"/>
+  <object id="141" name="Hurtbox" type="1" x="214" y="344" width="22" height="25"/>
  </objectgroup>
  <layer name="StunRight" width="17" height="6">
   <data encoding="base64" compression="zlib">
-   eJxjYBgF2IDyANsPABMYACQ=
+   eJxjYBgF2IAyEKsMoP0AJIgASA==
   </data>
  </layer>
  <objectgroup name="StunRight">
   <object id="120" name="Hurtbox" type="0" x="144" y="280" width="28" height="24"/>
+  <object id="142" name="Hurtbox" type="1" x="207" y="276" width="28" height="24"/>
  </objectgroup>
  <layer name="HurtLeft" width="17" height="6">
   <data encoding="base64" compression="zlib">

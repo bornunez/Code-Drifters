@@ -308,6 +308,7 @@ void CollisionsManager::hookCollisions()
 							}
 							else {
 								//METER SONIDO DE GANCHO FALLO BOLUDO
+								ResourceManager::getInstance()->getSoundEffect(HookMiss)->playChannel(7, 0);
 								Message msg(HOOK_STOP);
 								mc->sendMessage(&msg);
 							}
