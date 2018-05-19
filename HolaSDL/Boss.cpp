@@ -81,7 +81,7 @@ void Boss::loadAnimations()
 	Animation* attackFall = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-AttackFall", this, 0, -75, false, 0.1);
 	Animation* estatico = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-Static", this, 0, -75, true, 0.1);
 	Animation* attack = AnimationParser::parseAnimation(tileset, animationPath, "Boss1-NormalAttack", this, 0, 0, false, 0.1);
-
+	Animation* muere = AnimationParser::parseAnimation(tileset, animationPath, "Muere", this, 0, 0, false, 0.075);
 
 	//Nombres de animaciones
 	animations.emplace("DESVANECE", desvanece);
@@ -94,20 +94,21 @@ void Boss::loadAnimations()
 	animations.emplace("ATTACK_FALL", attackFall);
 	animations.emplace("STATIC", estatico);
 	animations.emplace("NORMAL_ATTACK", attack);
+	animations.emplace("MUERE", muere);
 }
 
 
 void Boss::death()
 {
+	ResourceManager::getInstance()->getSoundEffect(ButtonExplosion)->play();
+	changeCurrentAnimation("MUERE");
+	dead = true;
+	getCurrentAnimation()->startAnimation();
 	map<const char*, Animation*>::iterator it;
 	for (it = animations.begin(); it != animations.end(); it++)
 	{
-		it->second->changeColor(0, 0, 0);
+		it->second->changeColor(255, 100, 100);
 	}
-	setActive(false);
-	ResourceManager::getInstance()->getMusic(Dog)->stop();
-	ResourceManager::getInstance()->getMusic(Level1)->play();
-	PlayState::getInstance()->nextLevel();
 }
 
 void Boss::changeColor(int r, int g, int b)

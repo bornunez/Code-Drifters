@@ -82,6 +82,11 @@
   <object id="37" name="Hurtbox" type="11" x="3111.33" y="2618.67" width="55.3333" height="68"/>
   <object id="38" name="Hurtbox" type="12" x="3236" y="2620" width="62.6667" height="66"/>
  </objectgroup>
+ <layer name="Muere" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzskRgCAAwEAaFQEP8KL/p2kCPyYz+08IZmZmZmY2qgkRMxIyChas2LCjouHAiQs3HvSvp+03vdC3ByQ=
+  </data>
+ </layer>
  <layer name="Desvanece" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztzkkNACAQwMC1ghlu8C+HmiA86CT9N0KSJEm/ylSoUqNOgyYt2pSe3Um67QDWXgK8

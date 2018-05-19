@@ -141,6 +141,7 @@ void Boss2::createWheel(int posX, int posY, float velocidad, int dir)
 void Boss2::death()
 {
 	dead = true;
+	ResourceManager::getInstance()->getSoundEffect(ButtonExplosion)->play();
 	changeCurrentAnimation("MUERE");
 	changeColor(255, 255, 255);
 	for (int i = 0; i < wheels.size(); i++)
