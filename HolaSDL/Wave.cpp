@@ -23,12 +23,12 @@ Wave::Wave(MainCharacter* prot, int x, int y, int w, int h) : Enemy(prot)
 	transform.position.setY(y);
 	transform.body.w = w;
 	transform.body.h = h;
-	Attributes.meleeDmg = 10;
+	Attributes.meleeDmg = 20;
 	allUpdates();
 	loadAnimations();
 
 
-	rend = new WaveAnimationComponent(this, animations, 3);
+	rend = new WaveAnimationComponent(this, animations);
 	addComponent(rend);
 }
 
@@ -47,7 +47,7 @@ void Wave::loadAnimations()
 
 	//Animaciones
 	Animation* carga = AnimationParser::parseAnimation(tileset, animationPath, "Carga", this, 0, 0, false, 0.075);
-	Animation* explosion = AnimationParser::parseAnimation(tileset, animationPath, "Explosion", this, 0, 0, true, 0.05);
+	Animation* explosion = AnimationParser::parseAnimation(tileset, animationPath, "Explosion", this, 0, 0, false, 0.05);
 	
 
 	//Nombres de animaciones

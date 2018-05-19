@@ -6,12 +6,10 @@
 #include "Wave.h"
 #include"ResourceManager.h"
 
-WaveAnimationComponent::WaveAnimationComponent(Wave* o, std::map<const char*, Animation*> anim, float time) : RenderComponent(o)
+WaveAnimationComponent::WaveAnimationComponent(Wave* o, std::map<const char*, Animation*> anim) : RenderComponent(o)
 {
 	animations = anim;
 	this->ew = o;
-	this->time = time;
-	timer.restart();
 	gameObject->changeCurrentAnimation("CARGA");
 	gameObject->getCurrentAnimation()->startAnimation();
 
@@ -28,14 +26,13 @@ void WaveAnimationComponent::render()
 		if (gameObject->getCurrentAnimation()->isFinished()) {
 			gameObject->changeCurrentAnimation("EXPLOSION");
 			gameObject->getCurrentAnimation()->startAnimation();
-			timer.restart();
 		}
 	}
-	else {
-		timer.update();
-		if (timer.TimeSinceTimerCreation > time) {
+	else if (gameObject->getCurrentAnimation()->isFinished()) {
+		
 			ew->setActive(false);
-		}
+			ew->setInvisible(false);
+		
 	}
 	gameObject->getCurrentAnimation()->runAnimation();
 }
