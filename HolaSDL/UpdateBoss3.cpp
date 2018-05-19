@@ -218,7 +218,7 @@ void UpdateBoss3::fase1()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		Game::getGame()->final();
+		//Game::getGame()->final();
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getCurrentAnimation()->startAnimation();
 		Transform auxTrans;
@@ -479,42 +479,31 @@ void UpdateBoss3::fase9()
 		fasesPast0 = 1;
 		boss->changeCurrentAnimation("WAVE");
 		boss->getCurrentAnimation()->startAnimation();
+		//RondaWaves(200, 8);
+		//RondaWaves2(5, 3);
 	}
 }
-void UpdateBoss3::RondaWheels()
+void UpdateBoss3::RondaWaves(float distancia, int waves)
 {
-	/*dirWheel = Random::randomInt(0, 3);
-	int salto = Random::randomInt(0, 7);
-
-	switch (dirWheel) {
-	case 0:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625, 550 + 125*i, velWheel, dirWheel);
-		break;
-
-	case 1:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150*i, 550, velWheel, dirWheel);
-		break;
-
-	case 2:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(1675, 550 + 125*i , velWheel, dirWheel);
-		break;
-
-	case 3:
-		for (int i = 0; i < 7; i++) if (i != salto) boss->createWheel(625 + 150*i, 1425, velWheel, dirWheel);
-		break;
-	}
-	*/
-}
-
-void UpdateBoss3::RondaWheels2()
-{
+	Vector2D aux(0, 1);
 	Vector2D pos = boss->getCenterPos();
-	for (int i = 0; i < 4; i++) {
-		//Izquierda
-		boss->createWave(pos.getX() - (180 + 100*i), pos.getY() - 50);
-		//Derecha
-		boss->createWave(pos.getX() + (112 + 100*i), pos.getY() - 50);
+	for (int i = 0; i < waves; i++) {
+		boss->createWave(pos.getX() -30 + aux.getX()*distancia, pos.getY() -30 + aux.getY()*distancia);
+		aux.set(0, 1);
+		aux.rotate((i+1)*(360 / waves));
+	}
+}
 
+void UpdateBoss3::RondaWaves2(int waves, int rows)
+{
+	Vector2D aux(0, 1);
+	Vector2D pos = boss->getCenterPos();
+	for (int i = 0; i < waves; i++) {
+		for (int j = 0; j < rows; j++) {
+			boss->createWave(pos.getX() + aux.getX() * ((j+1)*75), pos.getY() + aux.getY() * ((j + 1) * 75));
+		}
+		aux.set(0, 1);
+		aux.rotate((i + 1)*(360 / waves));
 	}
 }
 

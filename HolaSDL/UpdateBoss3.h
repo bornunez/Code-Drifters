@@ -41,8 +41,8 @@ private:
 	void Hit();
 	bool hit = false;
 
-	void RondaWheels();
-	void RondaWheels2();
+	void RondaWaves(float distancia, int waves);
+	void RondaWaves2(int waves, int rows);
 
 	//TIEMPOS
 	float tiempoAct = 0;
