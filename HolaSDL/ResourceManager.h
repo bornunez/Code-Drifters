@@ -274,7 +274,7 @@ private:
 
 		"..\\music\\Sonidos\\PerroRugido1.wav",
 		"..\\music\\Sonidos\\PerroRugido2.wav",
-	    "..\\music\\Sonidos\\BotonOut.wav",
+	    "..\\music\\Sonidos\\BotonMuere.wav",
 		"..\\music\\Sonidos\\SwordSlash.wav"};
 
 	int numOfMusic;
