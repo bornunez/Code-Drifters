@@ -268,6 +268,12 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 	else if (objName == "MadamP") {
 		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Madam_P_Idle), 0.0, 200));
 	}
+	else if (objName == "Stripper") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Stripper), 0.0, 200));
+	}
+	else if (objName == "Clientes") {
+		obj->addComponent(new SimpleAnimationComponent(obj, ResourceManager::getInstance()->getTexture(Clients), 0.0, 200));
+	}
 	else if (objName == "Tuto_Text") {
 		XMLElement* p = e->FirstChildElement("properties")->FirstChildElement();
 		obj->addComponent(new TextTrigger(obj, p->Attribute("value")));

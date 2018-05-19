@@ -56,6 +56,7 @@ public:
 	LevelParser* getLvlParser() { return levP; }
 	void run();
 	void handleEvents();
+	void flushEvents();
 
 	//Gets y sets
 	const int getWorldWidth() const { return worldWidth; }

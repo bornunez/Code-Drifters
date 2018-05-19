@@ -25,7 +25,7 @@ void ShopState::handleEvent(SDL_Event & e)
 {
 	UpperGameState::handleEvent(e);
 	if (e.type == SDL_KEYDOWN) {
-		if (e.key.keysym.sym == SDLK_o) {
+		if (e.key.keysym.sym == SDLK_ESCAPE) {
 			game->quitState();
 		}
 	}

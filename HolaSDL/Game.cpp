@@ -175,6 +175,12 @@ void Game::handleEvents()
 	}
 }
 
+void Game::flushEvents()
+{
+	while (SDL_PollEvent(&event)) {
+	}
+}
+
 int Game::getWinW() {//Pide el ancho de la ventana
 	return winWidth;
 }
