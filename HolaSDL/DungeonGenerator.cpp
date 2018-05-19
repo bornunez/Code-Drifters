@@ -159,7 +159,7 @@ void DungeonGenerator::GenerateDungeon()//Crea la estructura de la mazmorra
 		i++;
 		system("cls");
 		std::cout << "Creating rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
-		RenderProgresBar(i, maxRooms_, "Creating Rooms...");
+		RenderProgresBar(i, maxRooms_, "Generating map... [ " + to_string(i) + " / " + to_string(maxRooms_) + " ]");
 	}
 	
 }
@@ -407,7 +407,8 @@ void DungeonGenerator::load() {//Cada sala carga su textura correspondiente
 		vr->load();
 		system("cls");
 		cout << "Loading rooms: [ " << i << " / " << maxRooms_ << " ]" << endl;
-		RenderProgresBar(i, maxRooms_, "Loading Rooms...");
+		//RenderProgresBar(i, maxRooms_, "Loading Rooms...");
+		RenderProgresBar(i, maxRooms_, "Loading Rooms... [ " + to_string(i) + " / " + to_string(maxRooms_) + " ]");
 		i++;
 	}
 }

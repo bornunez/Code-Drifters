@@ -100,40 +100,40 @@ void Boss3::changeColor(int r, int g, int b)
 
 void Boss3::updateEnemies()
 {
-	for (int i = 0; i < wheels.size(); i++)
+	for (int i = 0; i < waves.size(); i++)
 	{
-		if (wheels[i] != nullptr)
+		if (waves[i] != nullptr)
 		{
-			wheels[i]->update();
+			waves[i]->update();
 		}
 	}
 }
 
 void Boss3::renderEnemies()
 {
-	for (int i = 0; i < wheels.size(); i++)
+	for (int i = 0; i < waves.size(); i++)
 	{
-		if (wheels[i] != nullptr)
+		if (waves[i] != nullptr)
 		{
-			wheels[i]->render();
+			waves[i]->render();
 		}
 	}
 }
-void Boss3::createWheel(int posX, int posY, float velocidad, int dir)
+void Boss3::createWave(int posX, int posY)
 {
 	int i = 0;
 	bool pulled = false;
-	while (i < wheels.size() && !pulled)
+	while (i < waves.size() && !pulled)
 	{
-		if (!wheels[i]->isActive())
+		if (!waves[i]->isActive())
 		{
-			wheels[i] = new Wheel(prota, posX, posY, 50, 50, velocidad, dir);
+			waves[i] = new Wave(prota, posX, posY, 50, 50);
 			pulled = true;
 		}
 		i++;
 	}
-	if (i == wheels.size())
+	if (i == waves.size())
 	{
-		wheels.push_back(new Wheel(prota, posX, posY, 50, 50, velocidad, dir));
+		waves.push_back(new Wave(prota, posX, posY, 50, 50));
 	}
 }

@@ -27,13 +27,13 @@
  <objectgroup name="Animados">
   <object id="37" name="Tuto_Text" x="80" y="256" width="48" height="112">
    <properties>
-    <property name="Text" value="stalker_attack"/>
+    <property name="Text" value="pistol"/>
    </properties>
   </object>
  </objectgroup>
  <layer name="Aire" width="21" height="29">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIIRABhJw8xMDAwcTITVzSDBCUJA8ySZCLuRFDOVgOZpUtlMkDsliDCzlQQzQe7UIMLMqSSYSaw7WZkgmAOfWhLdqQpUowbE6kDMAjWfDYcdxLpThQlhLoiG8bHpJdadJkA1pkwIWhlqLjYzhaB2c+EyF0daMoKGAzb3KEHNVIOGDzt6GOFJn0o43GmM5B8zIDYHYgsSzMQbbrgAieUHsRgAF3ENFA==
+   eJxjYBgFo2BkAEkW6pupSQMzZWlgpu4wd6cVUJ8NC3ZaDmYmI2nYC6jPhwU7rceCUDeDBHcKMQHTIRMeBWSYqQQ0T5PKZoLcKUGEma0kmAlypwYRZk4lwUxi3cnKBMEc+NSS6E5VoBo1IFYHYhao+Ww47CDWnSpMCHNBNIyPTS+x7jQBqjFlQtDKUHOxmSkEtZsLl7k40pIRNBywuUcJaqYaNHzY0cMIT/pUwuFOY6h/VJHCy4IEM/GFmxHUTAw1JJYfxGIACUUSdA==
   </data>
  </layer>
  <layer name="Decoracion2" width="21" height="29">
@@ -43,7 +43,7 @@
  </layer>
  <layer name="Sombra" width="21" height="29">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAHgbCYQAAQ==
+   eJxjYBgFo2AU0Bs44sGD0UxqguFmphMD/rAnNz5INXcUjIJRMPQAAB6oC/I=
   </data>
  </layer>
  <objectgroup name="Puertas">

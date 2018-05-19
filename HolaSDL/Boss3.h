@@ -10,7 +10,7 @@
 #include "UpdateBoss3.h"
 #include "SkeletonRenderer.h"
 #include "PlayState.h"
-#include "Wheel.h"
+#include "Wave.h"
 class MainCharacter;
 class Timer;
 class Vector2D;
@@ -28,9 +28,9 @@ public:
 	virtual void changeColor(int r, int g, int b);
 	void updateEnemies();
 	void renderEnemies();
-	void createWheel(int posX, int posY, float velocidad, int dir);
-	vector<Wheel*> returnWheel() { return wheels; };
-	int returnWheelSize() { return wheels.size(); };
+	void createWave(int posX, int posY);
+	vector<Wave*> returnwave() { return waves; };
+	int returnWaveSize() { return waves.size(); };
 private:
 
 	RenderBoss3* rend;
@@ -39,7 +39,7 @@ private:
 	Vector2D posProta;
 	Timer* Time;
 	MainCharacter* prota;
-	vector<Wheel*> wheels;
+	vector<Wave*> waves;
 
 	//RenderBoss* rend;
 	//UpdateBoss* updat;
