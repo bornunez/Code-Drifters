@@ -206,6 +206,7 @@ void Game::saveConfig()
 		file << "musicFalse" << endl;
 	}
 	else file << "musicTrue" << endl;
+	file << (language == English) ? "ENG" : "ESP";
 	file.close();
 }
 
@@ -229,6 +230,9 @@ void Game::loadConfig()
 	else {
 		mute = true;
 	}
+	string lang;
+	file >> lang;
+	language = lang == "ENG" ? English : Spanish;
 	file.close();
 }
 

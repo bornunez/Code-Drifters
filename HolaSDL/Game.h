@@ -18,6 +18,8 @@ class PlayState;
 class GameState;
 
 using namespace std;
+
+enum Language{ Spanish, English};
 class Game
 {
 private:
@@ -45,7 +47,7 @@ private:
 	PlayState* playState;
 
 	LevelParser* levP;
-
+	Language language = English;
 
 	Game();
 	~Game();
@@ -72,6 +74,9 @@ public:
 
 	void startGame(bool tutorial);
 	void setMute();
+	Language getLanguage() { return language; }
+	void setLanguage(Language lang) { language = lang; }
+
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();

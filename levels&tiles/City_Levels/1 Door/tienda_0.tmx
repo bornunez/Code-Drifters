@@ -35,7 +35,6 @@
   <object id="48" name="Left" gid="255" x="48" y="112" width="16" height="16"/>
   <object id="49" name="Down" gid="255" x="176" y="240" width="16" height="16"/>
   <object id="50" name="Right" gid="255" x="320" y="224" width="16" height="16"/>
-  <object id="66" name="Heal" x="168.625" y="156.25" width="64.75" height="43.5"/>
  </objectgroup>
  <objectgroup name="Animados">
   <object id="51" name="Tienda" x="120.5" y="54.25" width="64.75" height="43.5"/>
@@ -45,5 +44,6 @@
   <object id="61" name="SafeSex" x="336" y="160" width="16" height="32"/>
   <object id="62" name="Stripper" gid="1346" x="256" y="0" width="16" height="16"/>
   <object id="63" name="Clientes" gid="1346" x="224" y="48" width="16" height="16"/>
+  <object id="66" name="Heal" x="168.625" y="156.25" width="64.75" height="43.5" visible="0"/>
  </objectgroup>
 </map>
