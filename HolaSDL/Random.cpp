@@ -4,6 +4,7 @@
 #include<time.h>
 #include<fstream>
 #include <string>
+#include "Game.h"
 
 
 Random::Random()
@@ -41,9 +42,10 @@ float Random::randomFloat(float min, float max, int decimales)
 string Random::fraseAleatoria()
 {
 	string frase;
+	string eng = Game::getGame()->getLanguage() == English ? "_eng" : "";
 	vector<string> frases;
 	ifstream archivo;
-	archivo.open("..\\FrasesAleatorias.txt");
+	archivo.open("..\\FrasesAleatorias" + eng + ".txt");
 	while (!archivo.eof())
 	{
 		getline(archivo, frase);

@@ -51,15 +51,16 @@ void ShopBox::actualiza(std::string descrip, int prc)
 	descriptionTex->loadFromText(description, *font);
 	if (prc == 0) 
 	{
-		price = "NO DISPONIBLE";
+		price = Game::getGame()->getLanguage() == English ? "NOT AVAILABLE" : "NO DISPONIBLE";
 	}
 	else if (prc == -1) 
 	{
-		price = "YA OBTENIDO";
+		price = Game::getGame()->getLanguage() == English ? "SOLD OUT" : "YA OBTENIDO";
 	}
 	else 
 	{
-		price= std::to_string(prc)+" CREDITS";
+		string aux = Game::getGame()->getLanguage() == English ? " CREDITS" : " CRÉDITOS";
+		price= std::to_string(prc)+ aux;
 	}
 	priceTex->loadFromText(price, *font);
 	adjustRects();
