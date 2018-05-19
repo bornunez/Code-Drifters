@@ -211,8 +211,8 @@ void MainMenuState::render()
 
 void MainMenuState::playState(Game* game)
 {
-	//game->startGame();
-	game -> playIntro();
+	game->startGame();
+	//game -> playIntro();
 }
 
 void MainMenuState::exitGame(Game* game)
