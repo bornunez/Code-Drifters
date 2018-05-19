@@ -45,6 +45,7 @@ enum MessageId {
 
 	//Death
 	MC_DEATH,
+	ACID_DEATH,
 
 	//GameObjects
 	HURT,
