@@ -21,7 +21,8 @@ DamageableEnemyComponent::~DamageableEnemyComponent()
 
 void DamageableEnemyComponent::receiveMessage(Message* msg)
 {
-	if (msg->id == MC_ATTACK_DAMAGE) {
+	switch (msg->id) {
+	case MC_ATTACK_DAMAGE:
 		if (enemy->isStunned()) {
 			Message msg(STUN_OFF);
 			enemy->sendMessage(&msg);
@@ -29,15 +30,15 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 		}
 		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
-	}
+		break;
 
-	if (msg->id == MC_BULLET_COLLISION) {
+	case MC_BULLET_COLLISION:
 		receiveDamage(MCAttackType::SHOT, static_cast<MCBulletStun*>(msg)->damage);
 		attacked = true;
-	}
+		break;
 
-	else if (msg->id == ULTIMATE) {
-		timerOn=true;
+	case ULTIMATE:
+		timerOn = true;
 		damage = static_cast<MCAttackDamage*>(msg)->damage;
 		damageTimer->restart();
 		if (enemy->isStunned()) {
@@ -45,6 +46,8 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 			enemy->sendMessage(&msg);
 			enemy->setStun(false);
 		}
+		break;
+
 	}
 }
 

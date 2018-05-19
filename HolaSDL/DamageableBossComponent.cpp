@@ -20,16 +20,25 @@ DamageableBossComponent::~DamageableBossComponent()
 
 void DamageableBossComponent::receiveMessage(Message* msg)
 {
-	if (msg->id == MC_ATTACK_DAMAGE) {
+	switch (msg->id) {
+	case MC_ATTACK_DAMAGE:
 		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
-	}
-	else if (msg->id == ULTIMATE) {
+		break;
+
+	case MC_BULLET_COLLISION:
+		receiveDamage(MCAttackType::SHOT, static_cast<MCBulletStun*>(msg)->damage);
+		attacked = true;
+		break;
+
+	case ULTIMATE:
 		timerOn = true;
 		damage = static_cast<MCAttackDamage*>(msg)->damage;
 		damageTimer->restart();
+		break;
 	}
 }
+
 
 void DamageableBossComponent::update()
 {

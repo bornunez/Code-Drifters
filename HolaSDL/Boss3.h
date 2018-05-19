@@ -43,7 +43,7 @@ private:
 
 	//RenderBoss* rend;
 	//UpdateBoss* updat;
-
+	bool epic = false; //half life change in music
 
 
 
