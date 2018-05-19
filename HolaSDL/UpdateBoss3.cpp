@@ -187,8 +187,8 @@ void UpdateBoss3::faseTP()
 	}
 	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 0)
 	{
-		int randX = rand() % (1000) - 500;
-		int randY = rand() % (1000) - 500;
+		int randX = rand() % (700) - 350;
+		int randY = rand() % (700) - 350;
 		boss->getTransform()->position = Vector2D(posInic.getX() + randX, posInic.getY() + randY);
 		boss->getTransform()->overlapCollision.active = true;
 		boss->changeCurrentAnimation("APARECE");
@@ -260,8 +260,9 @@ void UpdateBoss3::fase3()
 		int auxDir = rand() % 3;
 		if (auxDir == 1) dirLucian = 1;
 		else if (auxDir == 2) dirLucian = -1;
-		boss->getTransform()->position = Vector2D(posInic.getX()+550 * dirLucian, 1000);
+		boss->getTransform()->position = Vector2D(posInic.getX()+430 * dirLucian, 1000);
 		boss->changeCurrentAnimation("WALL_SHOOT");
+		boss->getTransform()->overlapCollision.active = true;
 		//boss->getCurrentAnimation()->setTime(0.1);
 		boss->getCurrentAnimation()->startAnimation();
 		auxLucian = 0;
@@ -311,7 +312,7 @@ void UpdateBoss3::fase4()
 	{
 		//boss->changeCurrentAnimation("GIRA");
 		//boss->getCurrentAnimation()->startAnimation();
-		auxX = 600;
+		auxX = 430;
 		boss->getTransform()->position = Vector2D(posInic.getX()+auxX, 500);
 		boss->changeCurrentAnimation("CARGA");
 		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
@@ -484,8 +485,24 @@ void UpdateBoss3::fase9()
 	}
 	if (boss->getCurrentAnimation()->isFinished() && fasesPast == 1)
 	{
-		boss->createWave(1000, 1000);
+		//boss->createWave(1000, 1000);
+		RondaWaves(100, 6);
 		fasesPast = 2;
+	}
+	if (Tiempo->TimeSinceTimerCreation >= tiempoFase9 / 2.7 && fasesPast == 2)
+	{
+		RondaWaves(150, 12);
+		fasesPast = 3;
+	}
+	if (Tiempo->TimeSinceTimerCreation >= tiempoFase9 / 2 && fasesPast == 3)
+	{
+		RondaWaves(215, 24);
+		fasesPast = 4;
+	}
+	if (Tiempo->TimeSinceTimerCreation >= tiempoFase9 / 1.5 && fasesPast == 4)
+	{
+		RondaWaves(300, 24);
+		fasesPast = 5;
 	}
 }
 void UpdateBoss3::RondaWaves(float distancia, int waves)

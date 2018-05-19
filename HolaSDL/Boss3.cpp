@@ -96,6 +96,11 @@ void Boss3::loadAnimations()
 void Boss3::changeColor(int r, int g, int b)
 {
 	updat->changeColor(255, 100, 100);
+	if (!epic && Attributes.life <= Attributes.maxHP / 2) {
+		ResourceManager::getInstance()->getMusic(FinalBoss1)->stop();
+		ResourceManager::getInstance()->getMusic(FinalBoss2)->play();
+		epic = true;
+	}
 }
 
 void Boss3::updateEnemies()

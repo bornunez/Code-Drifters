@@ -12,6 +12,8 @@ public:
 
 	bool load(std::string fileName);
 	void play(int repetitions = -1);
+	void mute();
+	void unMute();
 	void pause();
 	void close();
 	void stop();

@@ -31,7 +31,8 @@ private:
 	SDL_Event event;
 	//Info de ventana
 	int winX, winY;
-	bool fullScreen;
+	bool fullScreen=false;
+	bool mute = false;
 	const int winWidth = 1020;
 	const int winHeight = 720;
 	//Info del juego
@@ -57,7 +58,9 @@ public:
 	void run();
 	void handleEvents();
 	void flushEvents();
-
+	void saveConfig();
+	void loadConfig();
+	void setWindow();
 	//Gets y sets
 	const int getWorldWidth() const { return worldWidth; }
 	const int getWorldHeight() const { return worldHeight; }
@@ -68,6 +71,7 @@ public:
 	static Game* getGame();
 
 	void startGame(bool tutorial);
+	void setMute();
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();

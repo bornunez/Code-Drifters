@@ -117,6 +117,27 @@ void CollisionsManager::bulletCollisions()
 						}
 					}
 				}
+				if (!hit) {
+					//Colision con Boss activo
+					MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
+					if (boss != nullptr) {
+						if (!boss->getInvincibility()) {
+							vector<SDL_Rect> bossHurtboxes = boss->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+							SDL_Rect hitbox = t->body;
+							uint i = 0;
+							while (!hit && i < bossHurtboxes.size()) {//Itera sobre las hurtboxes del boss
+								if (CollisionHandler::RectCollide(bossHurtboxes[i], hitbox)) {//Comprueba la colisión de la hitbox dela bala con las hurtboxes del boss
+									hit = true;
+									//Mandar mensaje de collision bala / boss
+									MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), PlayState::getInstance()->getMainCharacter()->getAttackDamage(MCAttackType::SHOT));
+									boss->sendMessage(&msg);
+								}
+								i++;
+							}
+
+						}
+					}
+				}
 				break;
 			}
 			//COLISION CON JUGADOR
