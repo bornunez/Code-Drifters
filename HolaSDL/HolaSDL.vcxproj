@@ -83,6 +83,7 @@
     <ClCompile Include="HUDManager.cpp" />
     <ClCompile Include="HUDObject.cpp" />
     <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="IntroState.cpp" />
     <ClCompile Include="ItemManager.cpp" />
     <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
@@ -239,6 +240,7 @@
     <ClInclude Include="HookShotComponent.h" />
     <ClInclude Include="HUDManager.h" />
     <ClInclude Include="HUDObject.h" />
+    <ClInclude Include="IntroState.h" />
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LastResortComponent.h" />

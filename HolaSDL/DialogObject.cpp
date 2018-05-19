@@ -159,5 +159,9 @@ void DialogObject::handleEvents(SDL_Event & e)
 				game->endDialogue();
 			}
 		}
+		else if (e.key.keysym.sym == SDLK_ESCAPE) 
+		{
+			game->endDialogue();
+		}
 	}
 }

@@ -74,6 +74,11 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}
+	else if (particleName == ParticleType::Stun) {
+		newParticle = new Particle(ResourceManager::getInstance()->getTexture(StunParticle), ParticleType::Stun, x, y, true, time);
+		newParticle->setActive(true);
+		particles.push_back(newParticle);
+	}
 	return newParticle;
 }
 

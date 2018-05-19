@@ -7,7 +7,7 @@
 class TurretAnimationComponent : public RenderComponent
 {
 public:
-	TurretAnimationComponent(Enemy* o, GameObject* target, std::map<const char*, Animation*> anim);
+	TurretAnimationComponent(Enemy* o, GameObject* target, std::map<const char*, Animation*> anim, float extraStun);
 	virtual ~TurretAnimationComponent();
 	void render();
 	void receiveMessage(Message* msg);
@@ -16,6 +16,7 @@ public:
 private:
 	std::map<const char*, Animation*> animations;
 	GameObject* target;
+	float specificStun;
 	Timer* alertTimer;
 	Enemy* et;
 };

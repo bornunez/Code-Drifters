@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <layer name="Suelo" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt10sOQDAURuFuFYthB1gBdqlm0nRQfd2rPSf5Z1JfjMoYItLQbLdETqLVboucRHjLluId7MaATZ1794znlc7njf3eqfvilTL24tVgbtkrbcWLF69O7/Ps+79Bwhp6h0m5n+HFixevJu9hdzqr4XPfeQV6fdXw5gwv3j97qe1u62smtw==
+   eJzt10EKgDAMBdFeVT2M3kC9relCcKEg0SYNmYG/VB6lm5ZCRD00yxblPFplm3Ie4W3bF+8gG19sSu7df/xf6+682vO2uP+n18qY1ethzuSNdh/w4sVr463fXt8NEbzRzhcvXrx4iYiInjoAF5eZ4A==
   </data>
  </layer>
  <layer name="Rotos de suelo" width="44" height="40">
@@ -13,12 +13,12 @@
  </layer>
  <layer name="Aire" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt2FEKABAQBmHuf2k30KadnzJf7SuTeDGGdMEMrJ+cjt5Ou8YXe+m9futN3/Hk+VbYy7KXZS/LXpa9LHtZ9rLsZdnLspdlL6vS2/3HVeX/Q569rJP3dnuEW7PkAKU=
+   eJzt0sENACAIwEDcf2k38EUBQy/hKw0xQmpwCt6vnIzeTK/Gib30rm291f+58r4Z7GXZy7KXZS/LXpa9LHtZ9rLsZdnL+rG3c+yd1StpvQtznQCw
   </data>
  </layer>
  <layer name="Paredes" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt2MERQDAURdHQASpAZ0rQGR1QmdhhwiLyvjG5d+YtzT/bcO6+wq/8eJPf/GA8VvnVH2/xW194O4NdbzaR3v27wWChu3jx4sWbu3c0WEqvRXi14dWGVxtebXi14dWGV1su3tad/7v0El26u6G3ikWxd/Fq7+LV3sWrvfs3L+XXBh/Skrk=
+   eJztlzESQDAUBT9OgBPgZLiB+xeiNBHVe1LYnXnt3y2TiGeatLbSukLTG33aUGmjsHcWz9l73dnEK3nopZdeeum93znEc/eqoZdeh4der4der4der2eK/K+1iBodnjXyt8kuanR46PV66PV66PV6Sv8XNV95AADgX5z3a4NJ
   </data>
  </layer>
  <layer name="Sombras" width="44" height="40">
@@ -28,22 +28,22 @@
  </layer>
  <layer name="Puertas" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztzsEJgDAUBcEcFIwVqBUY+y/QV0JuX2EG9r6tAcD3LWlNW+ppr92ZdqQzXdUjk+400lM9AgAAAAA/9gI7RgDr
+   eJztwTEBAAAAwqD1T20JT6AAAAAAAACAlwEbgAAB
   </data>
  </layer>
  <layer name="Ventanas" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztmOlthDAQhaeonP9z/k8JkdJDrgJyFZCrgM1RBVABUAFQR95K88RAMNolxtJGftIno2Fkj4fxSFgkKmq6tsA22AG7YA/sT7BfjLzzqQNwCI7AMTgBpxPsY3P5lCsnz+AFvII38A4uwRW4Bjfg1uHHOTn6lCsnC/ABPsEX+AZ34B48gEfw5PDjnByjNkc++0MI+eoPZ4Hi9aXzgGslOmYjPo3DXiqhlGgshY61PmdKBXK1DcWVqk8VIlhdpzAx1WprFOavMLEtfbgXkXZ/pfpwnjmU6Bq1iatUe6Vx5Bp7Kr9zXKgvaylXn2zA14f4vRNd29ZCYd6zVriPofyl0j0LyYCPL5XSrQ1bC8w/Y0xH5uAe5zyD/KalxpRLt0YbtVGuPsLaYsyunvJXMY+sYX7LUrq5FmMbUiNtLSXS7t1nXdTS5iE166XSnjGqkNVyxv2xnn32Cts3+2eEPYzjnOdnVdneufx27FnsY3zfr+FNkKsvREVFRYUW/xH7zyHXXeeOiv+I/ee5Zdea444qaprs/dscd50u2fpd5w7Q3r+FrCNbv/EOMOo/6QdYRL8n
+   eJztmNltwzAMhjlUz/ee7x2hQCfoS68Beg3QIwP0msLyBLYniD1H/wD8YdmVgsCRjBrRD3xwQRMmRVGEUpGkpOHaAttgB+yCPbA/wH6h72LrAByCI3AMTsDpADu/FVu+er2AV/AG3sEMXIFrcANuwZ3DL7Z89foAn+ALfIMfcA8ewCN4As8Ov6RpK+R8GEOh5sPZSPmG0vmIsTJ95kt8Go+9UsZSprmU+qz171yZg0JtrryM+szHSFbjlFZOtdoahfUrrdwWPlyLSLu+Sn34nRjKNEZt5VWpfa55FJq7kb81LtWXvVSoT+7wDSHud6ax7V4orffsFa7DVT8j3bOQOXxCqZJub9i9wPozR7PkG1xjzDPIPa00p0K6PdqojfLNEfYWc/bNlHXFOrKHuZeVdGstls2lRtpeyqRde8i+qKWtg7HiGWnPGFXKajXj+tjPIWeFPTf7Z4QzjM+Y52dV2bNzsXecWZxjfN/v4SnINxdiqX8njB2Hd86h6t8JY4lxeOfcFPV/E8QS+23dvnP9zyCG2G+x++4/6dLDVOMkJSUlJW2WfgE8y779
   </data>
  </layer>
  <layer name="Decoracion de edificio" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztzUENAAAIxLAzjX8MIABIm+y9BAAAAAAAdquhz1/gtgZkjAST
+   eJztwTEBAAAAwqD1T20JT6AAAAAAAACAlwEbgAAB
   </data>
  </layer>
  <layer name="Cosas de encima" width="44" height="40">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAMA6DKnvy56FNISAA2XSEAAAAAAHsepEsLuQ==
+   eJztw7EJAAAIA7Ce7fnSH9xMIAnAT3McAAAAAABqAbN/CWE=
   </data>
  </layer>
  <layer name="Techo" width="44" height="40">
@@ -60,8 +60,8 @@
  <objectgroup name="Entradas"/>
  <objectgroup name="Spawners" offsetx="16" offsety="24"/>
  <objectgroup name="Inicio" offsetx="17" offsety="56">
-  <object id="36" name="Start" gid="255" x="378" y="496" width="16" height="16"/>
-  <object id="37" name="Boss" gid="255" x="375" y="323" width="16" height="16"/>
+  <object id="36" name="Start" gid="255" x="326" y="389" width="16" height="16"/>
+  <object id="37" name="Boss" gid="255" x="325" y="288" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Animados"/>
 </map>

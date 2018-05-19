@@ -445,6 +445,7 @@
     <ClCompile Include="WaveAnimationComponent.cpp">
       <Filter>Bosses\Wave</Filter>
     </ClCompile>
+    <ClCompile Include="IntroState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -875,6 +876,7 @@
     <ClInclude Include="WaveAnimationComponent.h">
       <Filter>Bosses\Wave</Filter>
     </ClInclude>
+    <ClInclude Include="IntroState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

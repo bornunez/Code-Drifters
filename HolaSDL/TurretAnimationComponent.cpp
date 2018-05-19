@@ -7,13 +7,15 @@
 #include "Enemy.h"
 #include "Random.h"
 #include "ParticlesManager.h"
-TurretAnimationComponent::TurretAnimationComponent(Enemy* o, GameObject* target,std::map<const char*, Animation*> anim) : RenderComponent(o)
+
+TurretAnimationComponent::TurretAnimationComponent(Enemy* o, GameObject* target,std::map<const char*, Animation*> anim, float extraStun) : RenderComponent(o)
 {
 	animations = anim;
 	this->target = target;
 	alertTimer = new Timer();
 	et = o;
-	
+	specificStun = extraStun;
+
 	gameObject->changeCurrentAnimation("WAITING");
 	gameObject->getCurrentAnimation()->startAnimation();
 }
@@ -33,7 +35,7 @@ void TurretAnimationComponent::render()
 void TurretAnimationComponent::receiveMessage(Message * msg)
 {
 	switch (msg->id) {
-	
+
 	case TURRET_IDLE:
 		gameObject->changeCurrentAnimation("WAITING");
 		gameObject->getCurrentAnimation()->startAnimation();
@@ -80,9 +82,16 @@ void TurretAnimationComponent::receiveMessage(Message * msg)
 		gameObject->changeCurrentAnimation("BOTRIGHT");
 		gameObject->getCurrentAnimation()->startAnimation();
 		break;
+	case MC_BULLET_COLLISION: {
+		if (!et->isDead()) {
+			if (!et->isStunned())
+				ParticlesManager::getInstance()->getParticle(ParticleType::Stun, gameObject->getTransform()->position.getX()-25, 
+					gameObject->getTransform()->position.getY()-10, static_cast<MCBulletStun*>(msg)->stunTime + specificStun);
+			}
+		}
 	}
-	
 }
+	
 
 void TurretAnimationComponent::handleAnimations()
 {

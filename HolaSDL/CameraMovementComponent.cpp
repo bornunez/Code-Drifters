@@ -25,7 +25,8 @@ void CameraMovementComponent::update()
 			mainCharacter->getTransform()->body.h / 2 -
 			gameObject->getTransform()->body.h / 2);
 	
-		if (gameObject->getTransform()->position.getX() < 0) {
+		//Límites del mapa
+		/*if (gameObject->getTransform()->position.getX() < 0) {
 			gameObject->getTransform()->position.setX(0);
 		}
 		if (gameObject->getTransform()->position.getY() < 0) {
@@ -36,7 +37,7 @@ void CameraMovementComponent::update()
 		}
 		if (gameObject->getTransform()->position.getY() > Game::getGame()->getWorldHeight()) {
 			gameObject->getTransform()->position.setY(Game::getGame()->getWorldHeight());
-		}
+		}*/
 
 	
 }
