@@ -100,7 +100,7 @@ void Boss::loadAnimations()
 
 void Boss::death()
 {
-	ResourceManager::getInstance()->getSoundEffect(ButtonExplosion)->play();
+	ResourceManager::getInstance()->getSoundEffect(DogDeath)->play();
 	changeCurrentAnimation("MUERE");
 	dead = true;
 	getCurrentAnimation()->startAnimation();
