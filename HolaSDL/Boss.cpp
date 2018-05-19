@@ -105,6 +105,8 @@ void Boss::death()
 		it->second->changeColor(0, 0, 0);
 	}
 	setActive(false);
+	ResourceManager::getInstance()->getMusic(Dog)->stop();
+	ResourceManager::getInstance()->getMusic(Level1)->play();
 	PlayState::getInstance()->nextLevel();
 }
 
