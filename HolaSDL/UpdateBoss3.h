@@ -78,7 +78,7 @@ private:
 	const float tiempoFase5 = 7.5;
 	const float tiempoFase6 = 1;
 	const float tiempoFase7 = 0.75;
-	const float tiempoFase8 = 7;
+	const float tiempoFase8 = 1;
 	const float tiempoFase9 = 8;
 
 	const float timeHit = 0.1f;
