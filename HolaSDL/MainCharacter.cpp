@@ -68,7 +68,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	addComponent(new DoorsCollision(this));
 	addComponent(new KnockbackComponent(this,1500));
 	//addComponent(new SkeletonRendered(this, playState->getCamera()));	
-	addComponent(new MCChargedAttackComponent(this, 1));
+	addComponent(new MCChargedAttackComponent(this));
 	addComponent(new MCUltimateInput(this));
 	addComponent(new MCUltimateCharge(this));
 	addComponent(new BasicMovement(this));
@@ -207,13 +207,13 @@ void MainCharacter::loadAnimations()
 	animations.emplace("SHOT_RIGHT", shotRight);
 	animations.emplace("SHOT_BOT", shotBot);
 
-	Animation*attackChargingTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingTop", this, 0, offsetY, true);
+	Animation*attackChargingTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingTop", this, 0, offsetY, false, 0.15);
 	Animation*attackChargedTop = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedTop", this, 0, offsetY, false);
 
-	Animation*attackChargingBot = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingBot", this, 0, offsetY, true);
+	Animation*attackChargingBot = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingBot", this, 0, offsetY, false, 0.15);
 	Animation*attackChargedBot = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedBot", this, 0, offsetY, false);
 
-	Animation*attackChargingRight = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingRight", this, 0, offsetY, true);
+	Animation*attackChargingRight = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargingRight", this, 0, offsetY, false, 0.15);
 	Animation*attackChargedRight = AnimationParser::parseAnimation(tileset, animationPath, "AttackChargedRight", this, 0, offsetY, false);
 
 	animations.emplace("ATTACKCHARGING_TOP", attackChargingTop);

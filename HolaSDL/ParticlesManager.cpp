@@ -54,9 +54,6 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 			else if (particleName == ParticleType::GunnerBulletExplosion) {
 				randomizeParticle(particle, 2);
 			}
-			else if (particleName == ParticleType::Stun) {
-				
-			}
 			return particle;
 		}
 	}
@@ -74,12 +71,6 @@ Particle * ParticlesManager::getParticle(ParticleType particleName, int x, int y
 	else if (particleName == ParticleType::GunnerBulletExplosion) {
 		newParticle = new Particle(ResourceManager::getInstance()->getTexture(GunnerBulletExplosion), ParticleType::GunnerBulletExplosion, x, y);
 		randomizeParticle(newParticle, 2);
-		newParticle->setActive(true);
-		particles.push_back(newParticle);
-	}
-	else if (particleName == ParticleType::Stun) {
-		newParticle = new Particle(ResourceManager::getInstance()->getTexture(StunParticle), ParticleType::Stun, x, y,true, time );
-		
 		newParticle->setActive(true);
 		particles.push_back(newParticle);
 	}

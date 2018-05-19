@@ -100,10 +100,10 @@ void EnemyGunner::loadAnimations()
 	animations.emplace("SHOT_BOTRIGHT", shotBotRight);
 	animations.emplace("SHOT_TOPRIGHT", shotTopRight);
 
-	Animation* stunRight1 = AnimationParser::parseAnimation(tileset, animationPath, "StunRight1", this, 0, 0, false, 0.15);
-	Animation* stunRight2 = AnimationParser::parseAnimation(tileset, animationPath, "StunRight2", this, 0, 0, false, 0.15);
-	Animation* stunLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft1", this, 0, 0, false, 0.15);
-	Animation* stunLeft2 = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft2", this, 0, 0, false, 0.15);
+	Animation* stunRight1 = AnimationParser::parseAnimation(tileset, animationPath, "StunRight1", this, 0, 0, true, 0.15);
+	Animation* stunRight2 = AnimationParser::parseAnimation(tileset, animationPath, "StunRight2", this, 0, 0, true, 0.15);
+	Animation* stunLeft1 = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft1", this, 0, 0, true, 0.15);
+	Animation* stunLeft2 = AnimationParser::parseAnimation(tileset, animationPath, "StunLeft2", this, 0, 0, true, 0.15);
 
 	animations.emplace("STUN_RIGHT1", stunRight1);
 	animations.emplace("STUN_RIGHT2", stunRight2);
