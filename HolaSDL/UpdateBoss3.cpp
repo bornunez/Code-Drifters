@@ -417,10 +417,16 @@ void UpdateBoss3::fase7()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//boss->changeCurrentAnimation("ENTRA");
-		//boss->getTransform()->overlapCollision.active = false;
+		posProta = prota->getCenterPos();
+		direccion = boss->getCenterPos() - posProta;
+		vel = direccion.magnitude() / tiempoFase7;
+		if (vel < 300) vel = 300;
+		direccion.normalize();
+		//boss->changeCurrentAnimation("SWORD_DASH");
 		//boss->getCurrentAnimation()->startAnimation();
 	}
+
+	boss->getTransform()->position.set(boss->getTransform()->position - direccion*Time::getInstance()->DeltaTime*vel);
 }
 
 void UpdateBoss3::fase8()
