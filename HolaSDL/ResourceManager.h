@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 105;
+const int NUM_TEXTURES = 107;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 7;
@@ -47,6 +47,7 @@ enum TextureId {
 	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
 
 	PerroBorde, PerroBarra, PerroFondo, PerroSecondFill,
+	BotonBorde, BotonBarra,
 
 	//TEXTURAS DEL MINIMAPA
 	MinimapBorder, MinimapBase, //Borde
@@ -150,6 +151,9 @@ private:
 		{"Interfaz\\PerroRelleno.png", 1, 1},
 		{"Interfaz\\PerroBack.png", 1, 1},
 		{"Interfaz\\PerroSegundoRelleno.png", 1, 1},
+		//Second Boss
+		{"Interfaz\\BotonBorde.png", 1, 1},
+		{"Interfaz\\BotonRelleno.png", 1, 1},
 
 		//MINIMAPA
 		{"Interfaz\\Minimapa\\MinimapBorde.png",1,1},
