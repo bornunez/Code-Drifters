@@ -70,8 +70,8 @@ public:
 	int getLvl() { return level; }
 	static Game* getGame();
 
+	void startGame(bool tutorial);
 	void setMute();
-	void startGame();
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();

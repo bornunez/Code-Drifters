@@ -92,7 +92,6 @@ void UpdateBoss::update()
 	}
 	else if (boss->getCurrentAnimation()->isFinished())
 	{
-		PlayState::getInstance()->nextLevel();
 		setActive(false);
 		ResourceManager::getInstance()->getMusic(Dog)->stop();
 		ResourceManager::getInstance()->getMusic(Level1)->play();

@@ -41,8 +41,8 @@ private:
 	void Hit();
 	bool hit = false;
 
-	void RondaWheels();
-	void RondaWheels2();
+	void RondaWaves(float distancia, int waves);
+	void RondaWaves2(int waves, int rows);
 
 	//TIEMPOS
 	float tiempoAct = 0;
@@ -54,7 +54,7 @@ private:
 	int fasesPast0 = 0;
 	float tiempoLucian = 4;
 	float auxLucian = 0;
-	float tiempoIntervalLucian = 0.4f;
+	float tiempoIntervalLucian = 0.45f;
 	float auxInterval = 0;
 	float auxTiempoGiro = 0.15f;
 	float auxTime;

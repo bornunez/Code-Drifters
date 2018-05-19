@@ -45,7 +45,7 @@ public:
 	virtual void update();
 	virtual void render();
 	void changeColors();
-	static void playState(Game* game);
+	static void playState(Game* game,bool tutorial);
 	static void exitGame(Game* game);
 };
 

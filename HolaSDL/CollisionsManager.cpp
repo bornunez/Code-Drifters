@@ -117,6 +117,27 @@ void CollisionsManager::bulletCollisions()
 						}
 					}
 				}
+				if (!hit) {
+					//Colision con Boss activo
+					MasterBoss* boss = EnemyManager::getInstance()->getActiveBoss();
+					if (boss != nullptr) {
+						if (!boss->getInvincibility()) {
+							vector<SDL_Rect> bossHurtboxes = boss->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+							SDL_Rect hitbox = t->body;
+							uint i = 0;
+							while (!hit && i < bossHurtboxes.size()) {//Itera sobre las hurtboxes del boss
+								if (CollisionHandler::RectCollide(bossHurtboxes[i], hitbox)) {//Comprueba la colisión de la hitbox dela bala con las hurtboxes del boss
+									hit = true;
+									//Mandar mensaje de collision bala / boss
+									MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), PlayState::getInstance()->getMainCharacter()->getAttackDamage(MCAttackType::SHOT));
+									boss->sendMessage(&msg);
+								}
+								i++;
+							}
+
+						}
+					}
+				}
 				break;
 			}
 			//COLISION CON JUGADOR
@@ -532,9 +553,43 @@ void CollisionsManager::bossCollisions()
 		if (!boss->isDead())
 			layerCollisions(boss);
 
-		if ( dynamic_cast<MasterBoss*>(boss)->getBossType() == 2  && dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
+		if (boss->getBossType() == 2  && dynamic_cast<Boss2*>(boss)->returnWheelSize() != 0)
 		{
 			vector<Wheel*> wheels = dynamic_cast<Boss2*>(boss)->returnWheel();
+			if (wheels.size() != 0)
+			{
+				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+				for (int i = 0; i < wheels.size(); i++)
+				{
+					if (!mc->getInvincibility()) {
+						bool hit = false;
+						vector<SDL_Rect> wheelsHitboxes = wheels[i]->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+						vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+						uint i = 0;
+
+						//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
+						for (uint i = 0; !hit && i < wheelsHitboxes.size(); i++) {
+							for (uint j = 0; !hit && j < mcHurtboxes.size(); j++) {
+								if (CollisionHandler::RectCollide(wheelsHitboxes[i], mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes()[j])) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+									hit = true;
+									//Mandar mensaje de collision stalker / player
+									WheelHit msg(wheels[0]->GetDamage());
+									mc->sendMessage(&msg);
+									Vector2D empuje = mc->getCenterPos() - wheels[i]->getCenterPos();
+									empuje.normalize();
+									KnockbackMessage msg1(empuje);
+									mc->sendMessage(&msg1);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		if (boss->getBossType() == 3 && dynamic_cast<Boss3*>(boss)->returnWaveSize() != 0)
+		{
+			vector<Wave*> wheels = dynamic_cast<Boss3*>(boss)->returnwave();
 			if (wheels.size() != 0)
 			{
 				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();

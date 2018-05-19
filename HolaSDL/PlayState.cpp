@@ -162,11 +162,15 @@ void PlayState::endState()
 void PlayState::loadState(bool tutorial)
 {
 	tuto = tutorial;
-	ifstream tuto_file;
-	tuto_file.open("..\\levels&tiles\\Tutorial\\tutorial_done");
-	if (tuto_file.is_open()) {
-		tuto = false;
-		tuto_file.close();
+	if (!tuto) {
+		ifstream tuto_file;
+		tuto_file.open("..\\levels&tiles\\Tutorial\\tutorial_done");
+		if (tuto_file.is_open()) {
+			tuto = false;
+			tuto_file.close();
+		}
+		else
+			tuto = true;
 	}
 	//Creamos el puntero, es todo lo que hace falta
 	camera = new Camera();

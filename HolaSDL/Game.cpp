@@ -268,12 +268,11 @@ Game * Game::getGame()
 	return game;
 }
 
-
-void Game::startGame()
+void Game::startGame(bool tutorial)
 {
 	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
-	playState->loadState(true);
+	playState->loadState(tutorial);
 }
 
 
@@ -292,7 +291,7 @@ void Game::playIntro()
 void Game::endIntro()
 {
 	stateMachine->popState();
-	startGame();
+	startGame(PlayState::getInstance()->isTutorial());
 }
 
 void Game::endDialogue() 
@@ -334,7 +333,7 @@ void Game::gameOver()
 void Game::restart()
 {
 	quitToMenu();
-	startGame();
+	startGame(PlayState::getInstance()->isTutorial());
 }
 
 void Game::final()
