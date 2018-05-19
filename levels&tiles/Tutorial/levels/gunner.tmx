@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="35" height="33" tilewidth="16" tileheight="16" infinite="0" nextobjectid="32">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="35" height="33" tilewidth="16" tileheight="16" nextobjectid="32">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -36,7 +36,7 @@
  </layer>
  <layer name="Acido" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJzt0cEJACAMBMHDGpL+WxVBX8afmAg7cPhdjISbrEk+l220VOlZHVaopcq/cCNaaNl5O8+CZbVETRVaojerJbpVlhc3AgAA+EEHrtQJMg==
+   eJztk8sKgzAQRcOgdS+oXftK97a2//9lXtHgoG5DhnIPXCbJYnJwjHP/QynOPSW1xUYLjxddLnBG91hysTSj0tB3sTYjCy4CBx/JJUPPHHkghRz783moVUSXtXe93xFS36zX2qgaw2VAz1HdrfdhHapXLjHe9Bs9P8iMfFXVZx3Sn5xS/buTXJ1/Bt4RIYQQQkgKFt8hC0M=
   </data>
  </layer>
  <layer name="Decoracion2" width="35" height="33">
