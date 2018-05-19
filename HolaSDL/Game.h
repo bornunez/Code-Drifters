@@ -75,6 +75,8 @@ public:
 	void quitState();
 	void quitToMenu();
 	void pause(GameState* state);
+	void gameOver();
+	void restart();
 	void final();
 };
 

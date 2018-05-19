@@ -239,6 +239,9 @@ void MCAnimationComponent::handleAnimationStates()
 			gameObject->changeCurrentAnimation("IDLE_BOT");
 		}
 	}
+	else if (mc->getMCState() == MCState::Death &&gameObject->getCurrentAnimation()->isFinished()) {
+		Game::getGame()->gameOver();
+	}
 	//RUN POSITIONS
 	if (mc->getMCState() == MCState::Run) {
 

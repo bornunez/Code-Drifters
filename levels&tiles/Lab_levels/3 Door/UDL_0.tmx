@@ -4,9 +4,10 @@
  <tileset firstgid="65" source="../../tileset/Decoracion.tsx"/>
  <tileset firstgid="129" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="497" source="../../tileset/city.tsx"/>
+ <tileset firstgid="753" source="../../tileset/City2.tsx"/>
  <layer name="Suelo" width="39" height="24">
   <data encoding="base64" compression="zlib">
-   eJzdVtEOwyAIZC0vav//e1czyChTtHY2bJdcNE7LeYgO4D+w7ERqvSHtXKn1hgAvzzz69hD0hl/QtlXGMznnqMY1r56N0jc3YiumZM/cKyhpioXxkrZF/FbTmNtE/Tigz8qR5V1rLvfzOViJSDERjueDfTijL8Knf638a21SVxLxat+YCa0vEBHe9VaqKb3n2fqkP/z+gOjzHthXztVd2pDiZQ2hY43WKpnXS3+tc2/FkXWaGrr0Oq0twjGudafJvrX/Vg1aGkfvi9YdonN6BWdquEen5etMbXq+5e83wLU08q7MRq4hfgO8gd8Tj//L+Y72qO1OPAGXvwON
+   eJzdVtEOwyAIZK0vav//e1czyChDtHY2bJdcNE7LeYgO4D+w7AzYekPeuWLrDRFennn07cHoDb+gbauMF1LOgxiXvHo2tG9uyFZMzp65V6BpSsq4pm1hv9U0ljZjPw3os3JkedeaS/1yDlZkwJgBjueDfDijL8Gnf638S21cV2bxat+YBU1fRAZ415tWU3LPs/Vxf+j9AdanPZCvlKu7/AsYr2iIHWukVs6ynvtrnXsrDq/T3NAl10ltCY5xrTuN9639t2rQ0jh6X7TuEJnTKzhTwz06LV9napPzLX+/AaqlkXdlNkoN0RvgDfSeePxfTne0R2134gmmBwOP
   </data>
  </layer>
  <layer name="Bordes" width="39" height="24">
@@ -19,14 +20,19 @@
    eJztl1sKgCAQRaUFuJeyn7T9r6clZIQw3TIdI8cPD1x8fMhh0KGUymMb7mkFdOlunY48WlrghRbcYr20FbcYmkSCVA+V9Mvt7xJ+XDfqiHupcJjV9S2Mfj35GOY5OXB9V1gvPtbHqdPzb78Yc+KcwzPUsSaHF9bsiVDH4IieE8TA/C+vJ0cL+xbiYM65FyVeFO73Jb0XtK44fvUqcQt+WFccv3qVutWidbea/4E7i/kuSw==
   </data>
  </layer>
+ <layer name="Acido" width="39" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20MH6AAAADgbw6gAAE=
+  </data>
+ </layer>
  <layer name="Paredes" width="39" height="24">
   <data encoding="base64" compression="zlib">
-   eJztlMEKgzAQRNePSXtKPakn65fU//+M5jIwDIaQNbWFZmAQ1mHz3CSadX1LIfnm9L3BmtojUD0mP5z28nGPUd5Fqk/Js9PoUWIMkuEei2Qnqq/JT6fRA4w5vigZ7rFJdqX6azDbh/qnUQ8w5vh4TpjzmfNaIzCCT8XnBhn4Cj4jPl2P9wkZ+Gq+o9lpRvm8/7Haf5revRwfM46NXOLTu1f6jpZueUa2k87x/YKO+Gr27dPSWXZ1dXX9q94H5DZA
+   eJztlEEKwjAURH+he71EdBW7qq5qTqL3P4bZDA5DQ0iaqmAGhsLv8PP6k9Ss61ty0adKnxusqT0c1X30pdK1fNxjknee6nP0tdLokWN0kuEeN8nOVF+i75VGDzCm+LxkuEeQ7EL1x2D2HMqfRj3AmOLjOWHOW85ricAIPhWfG2TgvfkOo9lxfPPperxPyMCf4IOCrc9OM8pX+x8r/afp3UvxMePUyDk+vXu572jplmckbHSK7xe0xleyb3tLZ9nV1dX1r3oBbyM2Zw==
   </data>
  </layer>
  <layer name="Decoracion" width="39" height="24">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFowAT6DIyMOgxkk7TA9gC7bFjJJ2mB/AF2uPHSDo9UMCRAN8TiJ2oZJcnkWLkAGq5EQaCCMg7EylGCxBFRbMI+RMGqBVPpABq+nOwgY8UYmoDYtMBKYBa7h0q6YBe+Z+eYDj6aRSMglEwNAAAOZkhXw==
+   eJxjYBgFowAT6DIyMOgxkk7TA9gC7bFjJJ2mB/AF2uPHSDo9UMCRAN8TiJ2oZJcnkWLkAJAb/zMDCRbqmBdEQN6ZSDFagCgqmkXInzBArXgiBVDTn4MNfKQQUxsQmw5IAdRy71BJB/TK//QEw9FPo2AUjIKhAQBJECJl
   </data>
  </layer>
  <layer name="Decoracion3" width="39" height="24">

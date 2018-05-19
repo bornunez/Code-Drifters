@@ -239,6 +239,18 @@ void Game::pause(GameState* state)
 	stateMachine->pushState(pauseState);
 }
 
+void Game::gameOver()
+{
+	GameOverState* go = new GameOverState();
+	stateMachine->pushState(go);
+}
+
+void Game::restart()
+{
+	quitToMenu();
+	startGame();
+}
+
 void Game::final()
 {
 	Final* fin = new Final();
