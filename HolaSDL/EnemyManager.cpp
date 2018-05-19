@@ -12,6 +12,8 @@
 #include "Map.h"
 #include "PlayState.h"
 
+#include"LevelManager.h"
+
 EnemyManager* EnemyManager::instance = nullptr;
 
 EnemyManager::EnemyManager()
@@ -171,6 +173,15 @@ void EnemyManager::spawn(int x, int y, EnemyType eType)
 		e = createEnemy(eType);
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->spawn(x, y);
+	//aumento de stats por nivel
+	e->Attributes.life += LevelManager::getInstance()->getLevelNumber()*e->Attributes.maxLife/3;
+	if (e->Attributes.maxLife != e->Attributes.life)
+		e->Attributes.maxLife = e->Attributes.life;
+	e->Attributes.minDrop += LevelManager::getInstance()->getLevelNumber();
+	e->Attributes.maxDrop += LevelManager::getInstance()->getLevelNumber();
+	e->Attributes.meleeDmg += LevelManager::getInstance()->getLevelNumber()*e->Attributes.meleeDmg;
+	e->Attributes.rangedDmg += LevelManager::getInstance()->getLevelNumber()*e->Attributes.rangedDmg;
+
 	actives.push_back(e);	
 }
 
@@ -185,6 +196,15 @@ void EnemyManager::spawn(Spawner * spawner)
 	//Lo spawneamos y lo añadimos a la lista de activos
 	e->setMovable(true);
 	e->spawn(spawner->getX(),spawner->getY(),spawner);
+	//aumento de stats por nivel
+	e->Attributes.life += (int)LevelManager::getInstance()->getLevelNumber() *e->Attributes.maxLife/3;
+	if (e->Attributes.maxLife != e->Attributes.life)
+		e->Attributes.maxLife = e->Attributes.life;
+	e->Attributes.minDrop += LevelManager::getInstance()->getLevelNumber();
+	e->Attributes.maxDrop += LevelManager::getInstance()->getLevelNumber();
+	e->Attributes.meleeDmg += LevelManager::getInstance()->getLevelNumber()*e->Attributes.meleeDmg;
+	e->Attributes.rangedDmg += LevelManager::getInstance()->getLevelNumber()*e->Attributes.rangedDmg;
+
 	actives.push_back(e);
 }
 void EnemyManager::spawnBoss(int x, int y)
