@@ -38,6 +38,14 @@ GameOverState::GameOverState()
 
 GameOverState::~GameOverState()
 {
+	delete font;
+	delete font2;
+	delete op1Tex;
+	delete op2Tex;
+	delete op3Tex;
+	delete title2;
+	delete title1;
+	delete deathChar;
 }
 
 void GameOverState::handleEvent(SDL_Event & e)
@@ -158,7 +166,7 @@ void GameOverState::render()
 
 void GameOverState::playState(Game* game)
 {
-	game->startGame();//Hay que cambiarlo
+	game->restart();
 }
 
 void GameOverState::exitGame(Game* game)
