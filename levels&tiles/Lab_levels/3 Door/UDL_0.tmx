@@ -56,7 +56,7 @@
   <object id="13" name="Down" gid="56" x="209" y="316" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="1" name="Spawn" gid="64" x="304" y="144" width="16" height="16">
+  <object id="1" name="Spawn" gid="64" x="301" y="129" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="true"/>
