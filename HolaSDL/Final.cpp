@@ -4,7 +4,7 @@
 
 Final::Final()
 {
-	tex = ResourceManager::getInstance()->getTexture(TextureId::ImFin);
+	tex = new Texture(game->getRenderer(), "..\\images\\ImFin.png", 1, 20);
 	tiempo = new Timer();
 	destRect = {70*game->getScale(), 30*game->getScale(), 200*game->getScale(), 200* game->getScale() };
 	ResourceManager::getInstance()->getMusic(SadEnd)->play();

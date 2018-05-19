@@ -74,8 +74,10 @@ public:
 
 	void startGame(bool tutorial);
 	void setMute();
+	bool getMute() { return mute; }
 	Language getLanguage() { return language; }
 	void setLanguage(Language lang) { language = lang; }
+	string appendLanguage(string file) { if (language == English)file.append("_eng"); return file; }
 
 	void endGame();
 	void startDialogue(string filename);
