@@ -36,6 +36,7 @@ private:
 	void fase7();
 	void fase8();
 	void fase9();
+	void fase10();
 	bool updateado = false;
 
 	void Hit();
@@ -80,7 +81,12 @@ private:
 	const float tiempoFase7 = 0.75;
 	const float tiempoFase8 = 1;
 	const float tiempoFase9 = 8;
+	const float tiempoFase10 = 6;
 
+	float auxTimeHeal = 0;
+	int vidaHeal = 1;
+	bool golpeado = false;
+	bool auxGolpeado = false;
 	const float timeHit = 0.1f;
 	float auxTimeHit = 0;
 	void auxShoot(Transform aux);

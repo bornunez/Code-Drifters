@@ -3,11 +3,10 @@
  <tileset firstgid="1" source="Boss3.tsx"/>
  <layer name="WallShoot" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztzrkRACAQxLBrjrf/gtgqIECace4qAAC4o6WeRppppf30CP52APxXAa4=
+   eJztzrkNADAMxDAvl2//hXJTOEVIQL2qAACgx0gzrbTTebsD37v5SAFk
   </data>
  </layer>
  <objectgroup name="WallShoot">
-  <object id="88" name="Hurtbox" type="5" x="1044" y="1419.25" width="22.25" height="48"/>
   <object id="87" name="Hurtbox" type="4" x="980" y="1419.25" width="22.25" height="48"/>
   <object id="86" name="Hurtbox" type="3" x="916" y="1419.25" width="22.25" height="48"/>
   <object id="85" name="Hurtbox" type="2" x="852" y="1419.25" width="22.25" height="48"/>
@@ -16,12 +15,12 @@
  </objectgroup>
  <layer name="Appear" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztzskJACAQBMGNyzP/rBwwBvFTBf3vKgAAuHZaaaaRempfj4CXDptvAWw=
+   eJztzskJACAQBMGNyysA8w/IAWMQP1XQ/64CAIBrp5VmGqmn9vUIeOkAxusBdw==
   </data>
  </layer>
  <layer name="Dissapear" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztzrkNADAMxDDPlXf/rXJbuAgJqFcVAAC/GWmmlXY66bYeAR0evOsBbA==
+   eJztzjkNADAQBLHDlQ9A+APKsrgitjT9VAEA8JuRZlppp5Nu6xHQ4QHokwF3
   </data>
  </layer>
  <layer name="Wave" width="30" height="30">
