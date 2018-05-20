@@ -3,13 +3,13 @@ FormanG MrGreeman
 Protagonista Haro
 8
 1
-¡¡Abuelo!! ¿Estás bien?
+¡Abuelo! ¿Estás bien?
 0
-He estado mejor...pero sobreviviré.
+He estado mejor... pero sobreviviré.
 1
 ¿¡Qué ha pasado!? ¿¡Dónde están nuestros hombres!?
 0
-Hemos sido atacados por sorpresa. Eran demasiados...nuestros hombres no han tenido ninguna oportinidad. Tu perro no ha sobrevivido...
+Hemos sido atacados por sorpresa. Eran demasiados...nuestros hombres no han tenido ninguna oportunidad. Tu perro no ha sobrevivido...
 1
 ¿!QUÉ!? No...no puede ser... ¿!Dónde puedo encontrar a esos malnacidos¡?
 0
@@ -17,4 +17,4 @@ Tienen un gran laboratorio de memEX al otro lado de la ciudad.
 1
 Les haré pagar por esto...
 0
-¡Espera Haro! Es peligroso...llévate esto. 
+¡Espera Haro! Es peligroso ir solo... llévate esto. 
