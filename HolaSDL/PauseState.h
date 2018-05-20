@@ -13,6 +13,11 @@ private:
 	Texture * background;
 	SDL_Rect bckgrndRect;
 
+	string op1;
+	string op2;
+	string op3;
+	string pause;
+
 	Texture* op1Tex;
 	Texture* op2Tex;
 	Texture* op3Tex;
