@@ -80,6 +80,7 @@ void Boss3::loadAnimations()
 	Animation* desaparece = AnimationParser::parseAnimation(tileset, animationPath, "Dissapear", this, 0, 0, false, 0.1);
 	Animation* wall = AnimationParser::parseAnimation(tileset, animationPath, "WallShoot", this, 0, 0, true, 0.1);
 	Animation* wave = AnimationParser::parseAnimation(tileset, animationPath, "Wave", this, 0, 0, false, 0.1);
+	Animation* heal = AnimationParser::parseAnimation(tileset, animationPath, "Heal", this, 0, 0, true, 0.1);
 	
 	//Nombres de animaciones
 	animations.emplace("ABRE_BRAZOS", abreBrazos);
@@ -91,6 +92,7 @@ void Boss3::loadAnimations()
 	animations.emplace("DESAPARECE", desaparece);
 	animations.emplace("WALL_SHOOT", wall);
 	animations.emplace("WAVE", wave);
+	animations.emplace("HEAL", heal);
 }
 
 void Boss3::changeColor(int r, int g, int b)
@@ -102,7 +104,6 @@ void Boss3::changeColor(int r, int g, int b)
 		epic = true;
 	}
 }
-
 void Boss3::updateEnemies()
 {
 	for (int i = 0; i < waves.size(); i++)
