@@ -14,16 +14,29 @@ MainMenuState::MainMenuState()
 	op2Tex = new Texture(game->getRenderer());
 	op3Tex = new Texture(game->getRenderer());
 	op4Tex = new Texture(game->getRenderer());
-	op1Tex->loadFromText("NEW GAME", *font2, white);
-	op2Tex->loadFromText("TUTORIAL", *font2, white);
-	op3Tex->loadFromText("CREDITS", *font2, white);
-	op4Tex->loadFromText("EXIT", *font2, white);
+	if (game->getLanguage() == Language::English)
+	{
+		op1 = "NEW GAME";
+		op3 = "CREDITS";
+		op4 = "EXIT";
+	}
+	else 
+	{
+		op1 = "NUEVO JUEGO";
+		op3 = "CREDITOS";
+		op4 = "SALIR";
+	}
+		op2 = "TUTORIAL";
+	op1Tex->loadFromText(op1, *font2, white);
+	op2Tex->loadFromText(op2, *font2, white);
+	op3Tex->loadFromText(op3, *font2, white);
+	op4Tex->loadFromText(op4, *font2, white);
 	bckgrndRect = RECT(0, 0, 1040, 720);
 
-	op1Rect = RECT(100, 350, 30 * 8, 70);
-	op2Rect = RECT(100, 430, 30 * 8, 70);
-	op3Rect = RECT(100, 500, 30 * 7, 70);
-	op4Rect = RECT(100, 580, 30 * 4, 70);
+	op1Rect = RECT(100, 370, 30 * op1.length(), 70);
+	op2Rect = RECT(100, 450, 30 * op2.length(), 70);
+	op3Rect = RECT(100, 530, 30 * op3.length(), 70);
+	op4Rect = RECT(100, 610, 30 * op4.length(), 70);
 	ResourceManager::getInstance()->getMusic(Menu)->play();
 
 }
@@ -202,31 +215,31 @@ void MainMenuState::changeColors()
 {
 	if (selectedOp == 1)
 	{
-		op1Tex->loadFromText("NEW GAME", *font2, blue);
-		op2Tex->loadFromText("TUTORIAL", *font2, white);
-		op3Tex->loadFromText("CREDITS", *font2, white);
-		op4Tex->loadFromText("EXIT", *font2, white);
+		op1Tex->loadFromText(op1, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
+		op4Tex->loadFromText(op4, *font2, white);
 	}
 	else if (selectedOp == 2)
 	{
-		op2Tex->loadFromText("TUTORIAL", *font2, blue);
-		op1Tex->loadFromText("NEW GAME", *font2, white);
-		op3Tex->loadFromText("CREDITS", *font2, white);
-		op4Tex->loadFromText("EXIT", *font2, white);
+		op2Tex->loadFromText(op2, *font2, blue);
+		op1Tex->loadFromText(op1, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
+		op4Tex->loadFromText(op4, *font2, white);
 	}
 	else if (selectedOp == 3)
 	{
-		op3Tex->loadFromText("CREDITS", *font2, blue);
-		op2Tex->loadFromText("TUTORIAL", *font2, white);
-		op1Tex->loadFromText("NEW GAME", *font2, white);
-		op4Tex->loadFromText("EXIT", *font2, white);
+		op3Tex->loadFromText(op3, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op1Tex->loadFromText(op1, *font2, white);
+		op4Tex->loadFromText(op4, *font2, white);
 	}
 	else if (selectedOp == 4)
 	{
-		op4Tex->loadFromText("EXIT", *font2, blue);
-		op2Tex->loadFromText("TUTORIAL", *font2, white);
-		op3Tex->loadFromText("CREDITS", *font2, white);
-		op1Tex->loadFromText("NEW GAME", *font2, white);
+		op4Tex->loadFromText(op4, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
+		op1Tex->loadFromText(op1, *font2, white);
 	}
 
 
