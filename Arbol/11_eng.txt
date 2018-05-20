@@ -1,1 +1,1 @@
-2 0 10 Attack power +
+2 0 20 Attack power +

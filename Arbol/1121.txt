@@ -1,1 +1,1 @@
-0 0 50 Aumento de la curación
+0 0 100 Aumento de la curación

@@ -1,1 +1,1 @@
-0 0 75 Attack power +++
+0 0 150 Attack power +++

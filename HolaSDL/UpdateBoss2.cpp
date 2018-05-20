@@ -202,7 +202,7 @@ void UpdateBoss2::fase8()
 		fasesPast = 1;
 		boss->getTransform()->overlapCollision.active = false;
 
-		boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel*1.4f, 4);
+		boss->createWheel(boss->getTransform()->position.getX() + 300, boss->getTransform()->position.getY(), velWheel*0.75, 4);
 	}
 }
 void UpdateBoss2::fase9()

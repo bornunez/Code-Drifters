@@ -1,1 +1,1 @@
-1 0 10 Aumento de stun
+1 0 15 Aumento de stun

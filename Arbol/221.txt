@@ -1,1 +1,1 @@
-0 0 40 Mas aumento de cargador
+0 0 50 Mas aumento de cargador

@@ -46,6 +46,11 @@ void Final::update()
 	}
 	for (int i = 0; i < 17; i++)
 	{
+		if (!luminoso)
+		{
+			tex->setColor(225, 225, 225);
+			luminoso = true;
+		}
 		if (tiempo->TimeSinceTimerCreation > 6 + (i*0.125f) && frame < 19)
 		{
 			frame = 2 + i;

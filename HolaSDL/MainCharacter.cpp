@@ -79,8 +79,8 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	currentBullets = maxBullets;
 
 	normalAttackDamage = 50;
-	chargedAttackDamage = 100;
-	ultimateAttackDamage = 200;
+	chargedAttackDamage = 200;
+	ultimateAttackDamage = 400;
 	shotAttackDamage = 20;
 	movable = true;
 	

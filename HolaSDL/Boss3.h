@@ -24,7 +24,7 @@ public:
 	Boss3(MainCharacter* prota, int x, int y, int w, int h);
 	virtual ~Boss3();
 
-	virtual void death() {};
+	virtual void death();
 	virtual void changeColor(int r, int g, int b);
 	void updateEnemies();
 	void renderEnemies();

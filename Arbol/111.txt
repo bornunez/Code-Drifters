@@ -1,1 +1,1 @@
-1 0 50 Gran aumento en el poder de ataque
+1 0 100 Gran aumento en el poder de ataque

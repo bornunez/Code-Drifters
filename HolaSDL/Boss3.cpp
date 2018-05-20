@@ -37,7 +37,7 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 4000;
+	Attributes.life = 6000;
 	Attributes.maxHP = Attributes.life;
 	Attributes.meleeDmg = 25;
 	allUpdates();
@@ -49,7 +49,7 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 	rend = new RenderBoss3(this);
 	addComponent(rend);
 	addComponent(new DamageableBossComponent(this, prota, 0.2));
-	addComponent(new SkeletonRendered(this, playState->getCamera()));
+	//addComponent(new SkeletonRendered(this, playState->getCamera()));
 
 	ResourceManager::getInstance()->getMusic(Level2)->stop();
 	ResourceManager::getInstance()->getMusic(FinalBoss1)->play();
@@ -141,4 +141,9 @@ void Boss3::createWave(int posX, int posY)
 	{
 		waves.push_back(new Wave(prota, posX, posY, 50, 50));
 	}
+}
+
+void Boss3::death()
+{
+	Game::getGame()->final();
 }

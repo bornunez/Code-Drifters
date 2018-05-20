@@ -1,1 +1,1 @@
-0 0 15 Double your attack, half your HP
+0 0 100 Double your attack, half your HP
