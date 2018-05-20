@@ -8,6 +8,16 @@ IntroState::IntroState()
 {
 	anim = new Texture(game->getRenderer(), "..\\images\\ImIntro.png", 1, 20);
 	destRect = RECT(0, 0, game->getWinW(), game->getWinH());
+	if (game->getLanguage() == Language::English)
+	{
+		rute = "intro1_eng";
+		rute2 = "intro2_eng";
+	}
+	else
+	{
+		rute = "intro1";
+		rute2 = "intro2";
+	}
 }
 
 
@@ -41,7 +51,7 @@ void IntroState::update()
 		}
 		if (time > 1.7)
 		{
-			game->startDialogue("intro1");
+			game->startDialogue(rute2);
 			dialog2 = true;
 			time = 0;
 		}
@@ -68,7 +78,7 @@ void IntroState::update()
 		}
 	}
 	if(!dialog1 && !dialog2){
-		game->startDialogue("intro1");
+		game->startDialogue(rute);
 		dialog1 = true;
 	}
 }

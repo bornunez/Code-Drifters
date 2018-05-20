@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="47" height="41" tilewidth="16" tileheight="16" infinite="0" nextobjectid="22">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="47" height="41" tilewidth="16" tileheight="16" nextobjectid="22">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
  <layer name="Suelo" width="47" height="41">
   <data encoding="base64" compression="zlib">
-   eJztzrENACAQAzH2n4BxWYCa5JFPut5r/dcun52dnZ2dvW12dnb2V/a0g33O7Fn7rbSNvXN2dnZ2dva22dnZ2ZP2CR3wv61G
+   eJztz8ENADAIAzH2n6DjMgaBOtL9nap7e+Gxs7Ozs7Onxc7Ozj5hnzaxZ8eeY9/ygZ2dnZ2dPS12dnZ29v/sG9ZLXqRe
   </data>
  </layer>
  <layer name="DecoracionSuelo" width="47" height="41">
@@ -16,7 +16,7 @@
  </layer>
  <layer name="Paredes" width="47" height="41">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <layer name="Decoracion" width="47" height="41">
@@ -40,10 +40,10 @@
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="19" name="Left" x="18" y="271" width="15" height="80"/>
+  <object id="19" name="Left" x="64" y="272" width="15" height="80"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="18" name="Left" x="122" y="291" width="20" height="32"/>
+  <object id="18" name="Left" x="128" y="288" width="20" height="32"/>
  </objectgroup>
  <objectgroup name="Spawners" offsetx="-60" offsety="33">
   <object id="20" name="Spawner" gid="240" x="523" y="199" width="16" height="16">

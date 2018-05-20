@@ -225,22 +225,8 @@ void MainMenuState::playState(Game* game,bool tutorial)
 		game->startGame(true);
 	}
 	else {
-		ifstream ifile;
-		ifile.open("..\\levels&tiles\\Tutorial\\intro_seen");
-		if (ifile.is_open()) {
-			ifile.close();
-			game->startGame(false);
-		}
-		else
-		{
-			ofstream ofile;
-			ofile.open("..\\levels&tiles\\Tutorial\\intro_seen");
-			if (ofile.is_open()) {
-				ofile.close();
-			}
 			game->playIntro();
 		}
-	}
 }
 
 void MainMenuState::exitGame(Game* game)
