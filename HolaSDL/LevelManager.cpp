@@ -248,7 +248,7 @@ bool LevelManager::getDoor(Direction dir)
 void LevelManager::init(bool tutorial)
 {
 	level = 0;
-	baseRooms = 10;
+	baseRooms = 6;
 	roomsPerLevel = 4;
 	newMap();
 }

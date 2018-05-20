@@ -1,7 +1,9 @@
 1
-FormanG Forman
-1
+FormanG Mr.Greeman
+2
 0
-Parece que los enemigos no paran de salir, yo creo que ya estas preparado para pelear por tu cuenta...
+Te veo en aprietos.... Por suerte para ti, la Neon Blade esconde un secreto. Desata todo su poder, y te sorprendera su resultado (R)
+0
+Por desgracia, necesitará un tiempo para reponerse, pero este disminuirá con el uso.
 
 

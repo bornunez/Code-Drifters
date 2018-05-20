@@ -23,6 +23,7 @@
 #include "Final.h"
 #include "IntroState.h"
 #include <iostream>
+#include "CreditsState.h"
 Game* Game::game = nullptr;
 
 Game::Game()
@@ -219,7 +220,7 @@ void Game::loadConfig()
 	if (fullscreenTxt == "fullscreenTrue") {
 		fullScreen = true;
 	}
-	else {
+	else { 
 		fullScreen = false;
 	}
 	string musicTxt;
@@ -320,6 +321,18 @@ void Game::quitToMenu()
 	PlayState::ResetInstance();
 	//EnemyManager::ResetInstance();
 	//BulletManager::ResetInstance();
+}
+
+void Game::menuCredits()
+{
+	CreditsState* cs = new CreditsState();
+	stateMachine->pushState(cs);
+}
+
+void Game::endCredits()
+{
+	quitToMenu();
+	menuCredits();
 }
 
 void Game::pause(GameState* state)
