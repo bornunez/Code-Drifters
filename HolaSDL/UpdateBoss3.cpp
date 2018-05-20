@@ -24,6 +24,7 @@ void UpdateBoss3::receiveMessage(Message * msg)
 	case HURT:
 		break;
 	case MC_ATTACK_DAMAGE:
+		golpeado = true;
 		break;
 	}
 }
@@ -160,7 +161,7 @@ void UpdateBoss3::update()
 	else if (faseAct == 8 && !updateado)
 	{
 		Tiempo->restart();
-		faseAct = 9;
+		faseAct = 10;
 		updateado = true;
 	}
 	if (faseAct == 9 && Tiempo->TimeSinceTimerCreation < tiempoFase9 && !updateado)
@@ -173,9 +174,20 @@ void UpdateBoss3::update()
 		faseAct = 0;
 		updateado = true;
 	}
+	if (faseAct == 10 && Tiempo->TimeSinceTimerCreation < tiempoFase10 && !updateado)
+	{
+		fase10();
+	}
+	else if (faseAct == 10 && !updateado)
+	{
+		Tiempo->restart();
+		faseAct = 9;
+		updateado = true;
+	}
 
 		if (hit) Hit();
 		Tiempo->update();
+		golpeado = false;
 	}
 }
 
@@ -510,6 +522,36 @@ void UpdateBoss3::fase9()
 		fasesPast = 5;
 	}
 }
+
+void UpdateBoss3::fase10()
+{
+	if (Tiempo->TimeSinceTimerCreation == 0)
+	{
+		boss->changeCurrentAnimation("HEAL");
+		boss->getCurrentAnimation()->startAnimation();
+	}
+	if (auxTimeHeal < 0.1f)
+	{
+		auxTimeHeal += Time::getInstance()->DeltaTime;
+	}
+	else if(boss->getLife() < boss->getMaxHP())
+		boss->setLife(boss->getLife()+vidaHeal);
+
+	if (golpeado || auxGolpeado == true)
+	{
+		auxGolpeado = true;
+		boss->changeCurrentAnimation("ABRE_BRAZOS");
+		auxTimeHeal += Time::getInstance()->DeltaTime;
+		if (auxTimeHeal >= 1)
+		{
+			Tiempo->restart();
+			faseAct = 9;
+			updateado = true;
+			auxGolpeado = false;
+		}
+	}
+}
+
 void UpdateBoss3::RondaWaves(float distancia, int waves)
 {
 	Vector2D aux(0, 1);
