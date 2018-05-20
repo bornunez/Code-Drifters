@@ -29,7 +29,7 @@ private:
 	void fase3();
 
 	const float tiempoFase1 = 2.5f;
-	const float tiempoFase2 = 4.85f;
+	const float tiempoFase2 = 2.425f;
 	const float tiempoFase3 = 1.25f;
 
 	//TIEMPOS

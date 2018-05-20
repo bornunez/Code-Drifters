@@ -50,7 +50,7 @@ private:
 	int faseAct = 0;
 	int fasesPast = 0;
 	bool giroDir = true;
-	const float tiempoFase0 = 20;
+	const float tiempoFase0 = 10;
 	const float tiempoFase1 = 2;
 	const float tiempoFase2 = 2;
 	const float tiempoFase3 = 1;

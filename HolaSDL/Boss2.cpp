@@ -37,7 +37,7 @@ Boss2::Boss2(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(2)
 
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 3000;
+	Attributes.life = 4000;
 	Attributes.maxHP = Attributes.life;
 	Attributes.meleeDmg = 8;
 	allUpdates();
