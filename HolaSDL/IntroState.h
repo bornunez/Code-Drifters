@@ -13,6 +13,8 @@ private:
 	float auxDegradado = 2;
 	SDL_Rect destRect;
 	SDL_Rect sourceRect;
+	string rute;
+	string rute2;
 public:
 	IntroState();
 	virtual ~IntroState();
