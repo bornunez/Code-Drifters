@@ -89,6 +89,7 @@ if(e.type == SDL_KEYDOWN)
 				playState(game, true);
 				break;
 			case 3:
+				game->menuCredits();
 				break;
 			case 4:
 				exitGame(game);
@@ -110,6 +111,7 @@ if(e.type == SDL_KEYDOWN)
 				playState(game, true);
 				break;
 			case 3:
+				game->menuCredits();
 				break;
 			case 4:
 				exitGame(game);
