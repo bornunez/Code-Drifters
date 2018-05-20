@@ -9,6 +9,7 @@
 #include "EnemyBomb.h"
 #include "EnemyBossBomb.h"
 #include "EnemyBomber.h"
+#include "Game.h"
 #include "Map.h"
 #include "PlayState.h"
 
@@ -209,6 +210,9 @@ void EnemyManager::spawn(Spawner * spawner)
 }
 void EnemyManager::spawnBoss(int x, int y)
 {
+	string textPath = "..\\dialogues\\perrete";
+	textPath = Game::getGame()->appendLanguage(textPath);
+	Game::getGame()->startDialogue(textPath);
 	if (actBoss1 == nullptr) {
 		actBoss1 = new Boss(mc, x, y, 128, 128);
 	}
@@ -216,12 +220,18 @@ void EnemyManager::spawnBoss(int x, int y)
 }
 void EnemyManager::spawnBoss2(int x, int y)
 {
+	string textPath = "..\\dialogues\\boton";
+	textPath = Game::getGame()->appendLanguage(textPath);
+	Game::getGame()->startDialogue(textPath);
 	if(actBoss2 == nullptr)
 		actBoss2= new Boss2(mc, x, y, 128, 128);
 	activeBoss = actBoss2;
 }
 void EnemyManager::spawnBoss3(int x, int y)
 {
+	string textPath = "..\\dialogues\\padre";
+	textPath = Game::getGame()->appendLanguage(textPath);
+	Game::getGame()->startDialogue(textPath);
 	if(actBoss3 == nullptr)
 		actBoss3 = new Boss3(mc, x, y, 128, 128);
 	
