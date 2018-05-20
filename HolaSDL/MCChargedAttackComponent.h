@@ -11,6 +11,7 @@ class MCChargedAttackComponent :
 private:
 	MainCharacter* mc;
 	Timer chargeTime;
+	float chargedAttack;
 public:
 	MCChargedAttackComponent(MainCharacter* mc);
 	virtual ~MCChargedAttackComponent();
