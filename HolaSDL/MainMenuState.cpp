@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "Time.h"
 #include <fstream>
-
+#include"ResourceManager.h"
 
 MainMenuState::MainMenuState()
 {
@@ -24,7 +24,7 @@ MainMenuState::MainMenuState()
 	op2Rect = RECT(100, 430, 30 * 8, 70);
 	op3Rect = RECT(100, 500, 30 * 7, 70);
 	op4Rect = RECT(100, 580, 30 * 4, 70);
-
+	ResourceManager::getInstance()->getMusic(Menu)->play();
 
 }
 
@@ -83,9 +83,11 @@ if(e.type == SDL_KEYDOWN)
 			switch (selectedOp)
 			{
 			case 1:
+				ResourceManager::getInstance()->getMusic(Menu)->stop();
 				playState(game, false);
 				break;
 			case 2:
+				ResourceManager::getInstance()->getMusic(Menu)->stop();
 				playState(game, true);
 				break;
 			case 3:
