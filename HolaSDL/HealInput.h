@@ -6,6 +6,7 @@ class HealInput :
 {
 protected:
 	MainCharacter * mc;
+	bool flag = false;
 public:
 	HealInput(GameObject * o);
 	virtual ~HealInput();
