@@ -14,6 +14,7 @@ Wheel::Wheel(Transform t) : Enemy(prota)
 	transform.position.setX(t.position.getX());
 	transform.position.setY(t.position.getY());
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
+	Attributes.hookable = false;
 }
 
 Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h, float velocidad, int dir) : Enemy(prot)
