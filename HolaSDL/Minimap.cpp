@@ -78,14 +78,14 @@ Minimap::Minimap(float scale, float rScale, int mWidth, int mHeight) : scale(sca
 		rm->getTexture(Normal_On),
 		rm->getTexture(Boss_On),
 		rm->getTexture(Shop_On),
-		rm->getTexture(Chest_On)
+		rm->getTexture(Normal_On)
 	};
 	offFills = {
 		rm->getTexture(First_Off),
 		rm->getTexture(Normal_Off),
 		rm->getTexture(Boss_Off),
 		rm->getTexture(Shop_Off),
-		rm->getTexture(Chest_Off)
+		rm->getTexture(Normal_Off)
 	};
 	openNormalOn = {
 		rm->getTexture(OpenUpNormalOn),

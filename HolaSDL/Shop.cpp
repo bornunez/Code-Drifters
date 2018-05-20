@@ -80,11 +80,11 @@ void Shop::render() {
 
 void Shop::handleEvents(SDL_Event& e) {
 	if (e.type == SDL_KEYDOWN) {
-		if (e.key.keysym.sym == SDLK_RIGHT) {
+		if (e.key.keysym.sym == SDLK_RIGHT || e.key.keysym.sym == SDLK_d) {
 			GoRight();
 			//cout << actual_tree << endl;
 		}
-		else if (e.key.keysym.sym == SDLK_LEFT) {
+		else if (e.key.keysym.sym == SDLK_LEFT || e.key.keysym.sym == SDLK_a) {
 			GoLeft();
 			//cout << actual_tree << endl;
 		}

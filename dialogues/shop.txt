@@ -2,12 +2,11 @@
 Phernelia MadamePhernelia
 10
 0
-Hola, bienvenido a mi local.
+Hola, Haro, he estado esperandote...
 0
-Ya me ha contado tu abuelo la situacion, asi que habla conmigo y te conseguire todo tipo de mejoras... A cambio de un precio, claro
+Tu abuelo ya me puso al dia de la situación , asi que habla conmigo cuando quieras y te conseguire todo tipo de mejoras... A cambio de un precio, claro
 0
 Hablo de los créditos, te los habras encontrado mientras venias hacia aqui.
-0
 Con estos te podre dar tres tipos de mejoras:
 0
 Mejoras de Espada: Esto mejorará tu combate cuerpo a cuerpo
@@ -15,6 +14,8 @@ Mejoras de Espada: Esto mejorará tu combate cuerpo a cuerpo
 Mejoras de Pisola: Estas mejorarán el combate a distancia, no debes Subestimarlas!
 0
 Y finalmente, seré capaz de obtener "potenciadores" que te haran mas fuerte fisicamente, y otras caracteristicas miscelaneas...
+0
+Además, Betty, la chica que hay ahi abajo fumando te podrá ayudar a restaurar energía, por un módico precio
 0
 (En la pantalla de la tienda te encontraras tres paneles. Estos se componene de un arbol de moejoras para cada una de las ramas.)
 0

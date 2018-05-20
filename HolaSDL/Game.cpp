@@ -219,7 +219,7 @@ void Game::loadConfig()
 	if (fullscreenTxt == "fullscreenTrue") {
 		fullScreen = true;
 	}
-	else {
+	else { 
 		fullScreen = false;
 	}
 	string musicTxt;
