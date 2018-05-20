@@ -77,4 +77,6 @@ void Final::render()
 
 Final::~Final()
 {
+	delete tex;
+	delete tiempo;
 }
