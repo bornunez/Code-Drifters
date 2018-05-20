@@ -98,6 +98,7 @@ enum SoundEffectId {
 	EnemyStuned,
 	HookThrow, HookHit, HookMiss,
 	ChargingAttack,
+	UltiSound,
 
 	StalkerCharge, GunnerShot, ChargerCrash, BombSound,
 
@@ -276,6 +277,7 @@ private:
 		"..\\music\\Sonidos\\HookHit.wav",
 		"..\\music\\Sonidos\\HookMiss.wav",
 		"..\\music\\Sonidos\\ChargeAttack.wav",
+		"..\\music\\Sonidos\\UltBuena.wav",
 
 		"..\\music\\Sonidos\\StalkerCharge.wav",
 		"..\\music\\Sonidos\\GunnerShot.wav",
