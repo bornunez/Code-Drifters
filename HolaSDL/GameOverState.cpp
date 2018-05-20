@@ -16,16 +16,28 @@ GameOverState::GameOverState()
 	title1 = new Texture(game->getRenderer());
 	title2 = new Texture(game->getRenderer());
 	deathChar = new Texture(game->getRenderer(), "..\\images\\Death.png");
-	op1Tex->loadFromText("RESTART", *font2, white);
-	op2Tex->loadFromText("MAIN MENU", *font2, white);
-	op3Tex->loadFromText("EXIT", *font2, white);
+	if (game->getLanguage() == Language::English)
+	{
+		op1 = "RESTART";
+		op2 = "MAIN MENU";
+		op3 = "EXIT";
+	}
+	else
+	{
+		op1 = "REINTENTAR";
+		op2 = "IR AL MENÚ";
+		op3 = "SALIR";
+	}
+	op1Tex->loadFromText(op1, *font2, white);
+	op2Tex->loadFromText(op2, *font2, white);
+	op3Tex->loadFromText(op3, *font2, white);
 
 	title1->loadFromText("GAME OVER", *font2, blue);
 	title2->loadFromText("GAME OVER", *font2, white);
 
-	op1Rect = RECT(450, 550, 30 * 7, 70);
-	op2Rect = RECT(125, 550, 30 * 8, 70);
-	op3Rect = RECT(750, 550, 30 * 4, 70);
+	op1Rect = RECT(450, 550, 25 * op2.length(), 70);
+	op2Rect = RECT(125, 550, 25 * op2.length(), 70);
+	op3Rect = RECT(750, 550, 25 * op3.length(), 70);
 
 	title1Rect = RECT(180, 80, 680, 170);
 	title2Rect = RECT(175, 75, 680, 170);
@@ -178,21 +190,21 @@ void GameOverState::changeColors()
 {
 	if (selectedOp == 1)
 	{
-		op1Tex->loadFromText("RESTART", *font2, blue);
-		op2Tex->loadFromText("MAIN MENU", *font2, white);
-		op3Tex->loadFromText("EXIT", *font2, white);
+		op1Tex->loadFromText(op1, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
 	}
 	else if (selectedOp == 2)
 	{
-		op2Tex->loadFromText("MAIN MENU", *font2, blue);
-		op1Tex->loadFromText("RESTART", *font2, white);
-		op3Tex->loadFromText("EXIT", *font2, white);
+		op2Tex->loadFromText(op2, *font2, blue);
+		op1Tex->loadFromText(op1, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
 	}
 	else if (selectedOp == 3)
 	{
-		op3Tex->loadFromText("EXIT", *font2, blue);
-		op2Tex->loadFromText("MAIN MENU", *font2, white);
-		op1Tex->loadFromText("RESTART", *font2, white);
+		op3Tex->loadFromText(op3, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op1Tex->loadFromText(op1, *font2, white);
 	}
 
 
