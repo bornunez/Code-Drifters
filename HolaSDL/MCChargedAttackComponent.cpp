@@ -6,7 +6,6 @@ MCChargedAttackComponent::MCChargedAttackComponent(MainCharacter * mc) : UpdateC
 {
 	this->mc = mc;
 	chargeTime.restart();
-	chargedAttack = mc->getAttackDamage(MCAttackType::CHARGED);
 }
 
 MCChargedAttackComponent::~MCChargedAttackComponent()
@@ -19,7 +18,7 @@ void MCChargedAttackComponent::update()
 		chargeTime.update();
 		if (chargeTime.TimeSinceTimerCreation > 0.2) {
 			if (mc->getMCState() != MCState::ChargingAttack && mc->getMCState() != MCState::FullCharge) {
-				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->play();
+				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->playChannel(7, 0);
 				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->changeVolume(100);
 				mc->setMCState(MCState::ChargingAttack);//Envía un mensaje para que empiece a cargar
 				Message msg(ATTACKCHARGING);
