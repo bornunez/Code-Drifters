@@ -279,7 +279,7 @@ void CollisionsManager::playerCollisions()
 
 						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
 						if (mc->isLifeStealEnable())
-							mc->addHP(damage * mc->getLifeSteal() / 300);
+							mc->addHP(damage * mc->getLifeSteal() / 400);
 						MCAttackDamage msg(damage);
 						boss->sendMessage(&msg);
 						hit = true;

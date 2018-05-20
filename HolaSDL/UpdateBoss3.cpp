@@ -278,8 +278,8 @@ void UpdateBoss3::fase3()
 		else if (auxDir == 2) dirLucian = -1;
 		boss->getTransform()->position = Vector2D(posInic.getX()+430 * dirLucian, 1000);
 		boss->changeCurrentAnimation("WALL_SHOOT");
-		if (dirLucian == 1) boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
-		else boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		if (dirLucian == 1) boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		else boss->getCurrentAnimation()->setFlip(SDL_FLIP_NONE);
 		boss->getTransform()->overlapCollision.active = true;
 		//boss->getCurrentAnimation()->setTime(0.1);
 		boss->getCurrentAnimation()->startAnimation();
