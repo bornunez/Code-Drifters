@@ -9,6 +9,8 @@ DialogObject::DialogObject(string filename )
 	boxRect = RECT(70, 470, 900, 250);
 	namesRect = RECT(150, 510, 150, 50);
 	pjRect = RECT(120, 270, 200, 200);
+	instruccionRect = RECT(700, 660, 20 * 11, 30);
+	instruccion = new Texture((game->getRenderer()));
 	for (int i = 0; i < 4; i++) 
 	{
 		SDL_Rect r = RECT(150, 550 + i * 25, 200, 40);
@@ -20,6 +22,13 @@ DialogObject::DialogObject(string filename )
 		lines.push_back(s);
 	}
 	font = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
+	if (game->getLanguage() == Language::English){
+		instruccion->loadFromText("Press Espace", *font);
+	}
+	else 
+	{
+		instruccion->loadFromText("Pulsa Espacio", *font);
+	}
 	box = new Texture(game->getRenderer(), "..\\images\\DialogoSinAnim.png");
 	read.open("..\\dialogues\\" + filename + ".txt");
 	read >> pjNum;
@@ -61,6 +70,7 @@ DialogObject::~DialogObject()
 	delete font;
 	delete box;
 	delete nameTex;
+	delete instruccion;
 	for (int i = 0; i < linesTex.size(); i++) 
 	{
 		delete linesTex[i];
@@ -122,6 +132,7 @@ void DialogObject::render()
 {
 	pjSprites[currentPj]->render(pjRect);
 	box->render(boxRect);
+	instruccion->render(instruccionRect);
 	nameTex->render(namesRect);
 	for (int i = 0; i < linesTex.size(); i++) 
 	{

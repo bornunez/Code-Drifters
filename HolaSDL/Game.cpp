@@ -316,6 +316,7 @@ void Game::quitState()
 
 void Game::quitToMenu()
 {
+	ResourceManager::getInstance()->getMusic(Menu)->play();
 	stateMachine->popState();
 	stateMachine->popState();
 	PlayState::ResetInstance();
