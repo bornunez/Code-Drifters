@@ -1,0 +1,22 @@
+2
+Empty *Desconocido*
+Protagonista Haro
+9
+0
+¡Eh Tú! ¿Como has conseguido llegar a este sitio?
+1
+¿Perdona? Quien ere... Mas importante, ¿Qué tiene este lugar de especial?
+0
+Cuenta la leyenda que, una vez, por estos mismos tiles ando el famoso "John el Arrinconado"
+1
+¿John qué?
+0 
+¿Cómo?¡No sabes quien es John el Arrinconado!
+0
+Las leyendas hablan de un justiciero que acechaba desde las esquinas, velando por aquellos perseguidos por Haro I de Saboya, el mayor tirano que piso estas tierras en otros tiempos...
+1
+Hum... Asi que Haro...
+0
+¿Decías algo?
+1
+No, pensaba para mi mismo, perdón.
