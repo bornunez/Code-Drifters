@@ -1,1 +1,1 @@
-1 0 20 Recarga rapida
+1 0 40 Recarga rapida

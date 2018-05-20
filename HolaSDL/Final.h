@@ -10,6 +10,7 @@ private:
 	bool sonado = false;
 	float degradado = 1;
 	float auxDegradado = 1;
+	bool luminoso = false;
 public:
 	Timer* tiempo;
 	Texture* tex;

@@ -29,7 +29,7 @@ Wheel::Wheel(MainCharacter* prot, int x, int y, int w, int h, float velocidad, i
 	this->changeCurrentAnimation("SALE");
 	this->getCurrentAnimation()->startAnimation();
 
-	updat = new UpdateWheel(this, prota, velocidad, dir);
+	updat = new UpdateWheel(this, prota, velocidad*2, dir);
 	addComponent(updat);
 	rend = new RenderWheel(this);
 	addComponent(rend);

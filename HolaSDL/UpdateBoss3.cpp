@@ -46,10 +46,12 @@ void UpdateBoss3::Hit()
 
 void UpdateBoss3::update()
 {
-	boss->allUpdates();
-	updateado = false;
-	boss->updateEnemies();
-	//cout << auxVelocidad;
+	if (!boss->isDead())
+	{
+		boss->allUpdates();
+		updateado = false;
+		boss->updateEnemies();
+		//cout << auxVelocidad;
 	if (faseAct == -1 && (Tiempo->TimeSinceTimerCreation < tiempoFaseTP) && !updateado && auxFasesTp < fasesTp)
 	{
 		faseTP();
@@ -172,8 +174,9 @@ void UpdateBoss3::update()
 		updateado = true;
 	}
 
-	if (hit) Hit();
-	Tiempo->update();
+		if (hit) Hit();
+		Tiempo->update();
+	}
 }
 
 void UpdateBoss3::faseTP()
@@ -220,7 +223,6 @@ void UpdateBoss3::fase1()
 {
 	if (Tiempo->TimeSinceTimerCreation == 0)
 	{
-		//Game::getGame()->final();
 		boss->changeCurrentAnimation("ABRE_BRAZOS");
 		boss->getCurrentAnimation()->startAnimation();
 		Transform auxTrans;
@@ -315,9 +317,10 @@ void UpdateBoss3::fase4()
 		//boss->changeCurrentAnimation("GIRA");
 		//boss->getCurrentAnimation()->startAnimation();
 		auxX = 430;
-		boss->getTransform()->position = Vector2D(posInic.getX()+auxX, 500);
+		boss->getTransform()->position = Vector2D(posInic.getX()+auxX, posInic.getY()-300);
 		boss->changeCurrentAnimation("CARGA");
 		boss->getCurrentAnimation()->setFlip(SDL_FLIP_HORIZONTAL);
+		para = false;
 	}
 	if (!para)
 	{
