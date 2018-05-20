@@ -38,8 +38,10 @@ DialogObject::DialogObject(string filename )
 	currentPhrase = 1;
 	read >> i;
 	currentPj = i;
+
 	nameTex = new Texture(game->getRenderer());
 	nameTex->loadFromText(names[currentPj], *font, { COLOR(0x34D6F6ff) });
+
 	read.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	getline(read, currentText);
 	divideText();
@@ -50,7 +52,6 @@ DialogObject::DialogObject(string filename )
 		linesTex.push_back(t);
 		linesTex[i]->loadFromText(lines[i], *font);
 	}
-
 
 }
 

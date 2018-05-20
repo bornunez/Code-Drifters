@@ -20,6 +20,10 @@ private:
 	SDL_Rect namesRect;
 	SDL_Rect pjRect;
 
+	SDL_Rect press;
+	float pressScale = 1;
+	float minScale = 0.75;
+
 	Font* font;
 
 	Texture* box;

@@ -4,6 +4,6 @@ FormanG Mr.Greeman
 0 
 Ahora que dispones de la espada, es momento de enseñarte las nociones basicas.
 0 
-Empezemos por lo basico: Explorar la ciudad.
+Empecemos por lo basico: Explorar la ciudad.
 0
 Prueba a ir a la siguiente zona, hacia abajo (Movimiento W,S,A,D)
