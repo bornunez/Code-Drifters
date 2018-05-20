@@ -12,7 +12,7 @@ private:
 	float auxDegradado = 1;
 	bool luminoso = false;
 public:
-	Timer* tiempo;
+	Timer tiempo;
 	Texture* tex;
 	int frame;
 	SDL_Rect destRect;
