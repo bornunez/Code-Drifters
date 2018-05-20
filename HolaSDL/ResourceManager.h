@@ -97,12 +97,14 @@ enum SoundEffectId {
 	MCSwordNormalAttack,
 	EnemyStuned,
 	HookThrow, HookHit, HookMiss,
+	ChargingAttack,
 
 	StalkerCharge, GunnerShot, ChargerCrash, BombSound,
 
 	DogAttack1, DogAttack2, DogDeath,
 	ButtonExplosion,
-	SwordSlash
+	SwordSlash,
+	FinalBossTeleport
 };
 
 //IMPORTANTE//
@@ -273,6 +275,7 @@ private:
 		"..\\music\\Sonidos\\HookThrow.wav",
 		"..\\music\\Sonidos\\HookHit.wav",
 		"..\\music\\Sonidos\\HookMiss.wav",
+		"..\\music\\Sonidos\\ChargeAttack.wav",
 
 		"..\\music\\Sonidos\\StalkerCharge.wav",
 		"..\\music\\Sonidos\\GunnerShot.wav",
@@ -283,7 +286,8 @@ private:
 		"..\\music\\Sonidos\\PerroRugido2.wav",
 		"..\\music\\Sonidos\\DogDeath.wav",
 	    "..\\music\\Sonidos\\BotonMuere.wav",
-		"..\\music\\Sonidos\\SwordSlash.wav"};
+		"..\\music\\Sonidos\\SwordSlash.wav",
+		"..\\music\\Sonidos\\Teleport.wav"};
 
 	int numOfMusic;
 	Music** music;

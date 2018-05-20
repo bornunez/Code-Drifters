@@ -2,6 +2,7 @@
 #include "Boss3.h"
 #include "EnemyManager.h"
 #include "Game.h"
+#include"ResourceManager.h"
 
 UpdateBoss3::UpdateBoss3(Boss3* o, MainCharacter* prot) : UpdateComponent(o)
 {
@@ -83,6 +84,7 @@ void UpdateBoss3::update()
 	else if (faseAct == 1 && !updateado)
 	{
 		boss->changeCurrentAnimation("DESAPARECE");
+		ResourceManager::getInstance()->getSoundEffect(FinalBossTeleport)->play();
 		boss->getCurrentAnimation()->startAnimation();
 		boss->getTransform()->overlapCollision.active = false;
 		Tiempo->restart();

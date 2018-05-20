@@ -45,6 +45,7 @@
     <ClCompile Include="CollisionsManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentContainer.cpp" />
+    <ClCompile Include="CreditsState.cpp" />
     <ClCompile Include="DamageableBossComponent.cpp" />
     <ClCompile Include="DamageableEnemyComponent.cpp" />
     <ClCompile Include="DecelerationComponent.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="CollisionsManager.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentContainer.h" />
+    <ClInclude Include="CreditsState.h" />
     <ClInclude Include="DamageableBossComponent.h" />
     <ClInclude Include="DamageableEnemyComponent.h" />
     <ClInclude Include="DecelerationComponent.h" />

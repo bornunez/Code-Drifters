@@ -1,5 +1,7 @@
 #include "MCChargedAttackComponent.h"
 #include "MainCharacter.h"
+#include"ResourceManager.h"
+
 MCChargedAttackComponent::MCChargedAttackComponent(MainCharacter * mc) : UpdateComponent(mc)
 {
 	this->mc = mc;
@@ -17,6 +19,8 @@ void MCChargedAttackComponent::update()
 		chargeTime.update();
 		if (chargeTime.TimeSinceTimerCreation > 0.2) {
 			if (mc->getMCState() != MCState::ChargingAttack) {
+				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->play();
+				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->changeVolume(100);
 				mc->setMCState(MCState::ChargingAttack);//Envía un mensaje para que empiece a cargar
 				Message msg(ATTACKCHARGING);
 				mc->sendMessage(&msg);
@@ -32,6 +36,7 @@ void MCChargedAttackComponent::update()
 				mc->sendMessage(&msg);
 			}
 			else {
+				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->changeVolume(0);
 				mc->setMCState(MCState::Idle);
 			}
 		}
