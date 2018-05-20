@@ -37,6 +37,9 @@ private:
 	void divideText();
 	void adjustRects();
 
+	Texture* instruccion;
+	SDL_Rect instruccionRect;
+
 public:
 	DialogObject(string filename);
 	virtual ~DialogObject();
