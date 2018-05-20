@@ -4,13 +4,13 @@ Protagonista Haro
 PadreSombra Silueta
 11
 1
-Finalmente te encuentro... Preparate para pagar por lo que hiciste.
+Finalmente te encuentro... Prepárate para pagar por lo que hiciste.
 2
 *Silencio*
 0
 *Beep* Enemigo detectado *Beep*
 1
-¡Tsk! Justo cuando creia que lo tenia...
+¡Tsk! Justo cuando creía que lo tenía...
 0
 *Beep Boop*
 1
@@ -18,11 +18,11 @@ No tiene pinta de querer ser amigos...
 0
 *Creeeeek*
 1
-Que te pasa, ¿ Has perdido una tuerca?
+Qué te pasa, ¿Has perdido una tuerca?
 0
 *Bip bip bip* *Beeep Beeep Beep* *Bip bip bip*
 1
-Te voy a hacer chatarra
+Te voy a hacer chatarra.
 0
 *FFFFFFFFSHHHHHHHHH*
 
