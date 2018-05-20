@@ -14,7 +14,12 @@ MainMenuState::MainMenuState()
 	op2Tex = new Texture(game->getRenderer());
 	op3Tex = new Texture(game->getRenderer());
 	op4Tex = new Texture(game->getRenderer());
-	if (game->getLanguage() == Language::English)
+	EspTex = new Texture(game->getRenderer());
+	BarraTex = new Texture(game->getRenderer());
+	EngTex = new Texture(game->getRenderer());
+
+	Language lang = game->getLanguage();
+	if (lang == Language::English)
 	{
 		op1 = "NEW GAME";
 		op3 = "CREDITS";
@@ -31,12 +36,26 @@ MainMenuState::MainMenuState()
 	op2Tex->loadFromText(op2, *font2, white);
 	op3Tex->loadFromText(op3, *font2, white);
 	op4Tex->loadFromText(op4, *font2, white);
+	EspTex->loadFromText("ESP", *font, (lang == Spanish)? white : black);
+	BarraTex->loadFromText("/", *font,white);
+	EngTex->loadFromText("ENG", *font, (lang == English) ? white : black);
+
 	bckgrndRect = RECT(0, 0, 1040, 720);
 
 	op1Rect = RECT(100, 370, 30 * op1.length(), 70);
 	op2Rect = RECT(100, 450, 30 * op2.length(), 70);
 	op3Rect = RECT(100, 530, 30 * op3.length(), 70);
 	op4Rect = RECT(100, 610, 30 * op4.length(), 70);
+
+	int langScale = 2;
+	EspRect.w = EspTex->getWidth() / langScale; EspRect.h = EspTex->getHeight() / langScale;
+	BarraRect.w = BarraTex->getWidth() / langScale; BarraRect.h = BarraTex->getHeight() / langScale;
+	EngRect.w = EngTex->getWidth() / langScale; EngRect.h = EngTex->getHeight() / langScale;
+	EngRect.x = game->getWinW() - EngRect.w - 20; 
+	BarraRect.x = EngRect.x - BarraRect.w; 
+	EspRect.x = BarraRect.x - EspRect.w;
+	EspRect.y = BarraRect.y = EngRect.y = game->getWinH() - EspRect.h - 20;
+
 	ResourceManager::getInstance()->getMusic(Menu)->play();
 
 }
@@ -51,6 +70,9 @@ MainMenuState::~MainMenuState()
 	delete op2Tex;
 	delete op3Tex;
 	delete op4Tex;
+	delete EspTex;
+	delete BarraTex;
+	delete EngTex;
 }
 
 void MainMenuState::handleEvent(SDL_Event & e)
@@ -133,6 +155,18 @@ if(e.type == SDL_KEYDOWN)
 				break;
 			}
 		}
+		if (SDL_PointInRect(&mouse, &EspRect)) {
+			if (game->getLanguage() == English) {
+				game->setLanguage(Spanish);
+				game->resetMenu();
+			}
+		}
+		if (SDL_PointInRect(&mouse, &EngRect)) {
+			if (game->getLanguage() == Spanish) {
+				game->setLanguage(English);
+				game->resetMenu();
+			}
+		}
 	}
 }
 
@@ -175,6 +209,9 @@ void MainMenuState::render()
 		op2Tex->render(op2Rect);
 		op3Tex->render(op3Rect);
 		op4Tex->render(op4Rect);
+		EspTex->render(EspRect);
+		BarraTex->render(BarraRect);
+		EngTex->render(EngRect); 
 	for (GameObject* o : gameObjects) 
 	{
 		o->render();

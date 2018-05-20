@@ -323,6 +323,12 @@ void Game::quitToMenu()
 	//EnemyManager::ResetInstance();
 	//BulletManager::ResetInstance();
 }
+void Game::resetMenu()
+{
+	stateMachine->popState();
+	stateMachine->pushState(new MainMenuState());
+}
+
 
 void Game::menuCredits()
 {

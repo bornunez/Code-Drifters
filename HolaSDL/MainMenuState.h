@@ -24,14 +24,21 @@ private:
 	Texture* op2Tex;
 	Texture* op3Tex;
 	Texture* op4Tex;
+	Texture* EspTex;
+	Texture* BarraTex;
+	Texture* EngTex;
 
 	SDL_Rect op1Rect;
 	SDL_Rect op2Rect; 
 	SDL_Rect op3Rect;
 	SDL_Rect op4Rect;
+	SDL_Rect EspRect;
+	SDL_Rect BarraRect;
+	SDL_Rect EngRect;
 
 	SDL_Color white = { COLOR(0xF615E0ff)};
 	SDL_Color blue = { COLOR(0x34D6F6ff) };
+	SDL_Color black = { COLOR(0x000000ff) };
 
 	SDL_Point mouse;
 	int selectedOp = 0;
