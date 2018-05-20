@@ -14,20 +14,34 @@ PauseState::PauseState(GameState* upper): UpperGameState(upper)
 	op3Tex = new Texture(game->getRenderer());
 	title1 = new Texture(game->getRenderer());
 //	title2 = new Texture(game->getRenderer());
+	if (game->getLanguage() == Language::English)
+	{
+		op1 = "RESUME";
+		op2 = "MAIN MENU";
+		op3 = "EXIT";
+		pause = "PAUSE";
+	}
+	else
+	{
+		op1 = "CONTINUAR";
+		op2 = "IR AL MENÚ";
+		op3 = "SALIR";
+		pause = "PAUSA";
+	}
 	background = new Texture(game->getRenderer(), "..\\Arbol\\Central.png");
-	op1Tex->loadFromText("RESUME", *font2, white);
-	op2Tex->loadFromText("MAIN MENU", *font2, white);
-	op3Tex->loadFromText("EXIT", *font2, white);
-	title1->loadFromText("PAUSE", *font2, white);
+	op1Tex->loadFromText(op1, *font2, white);
+	op2Tex->loadFromText(op2, *font2, white);
+	op3Tex->loadFromText(op3, *font2, white);
+	title1->loadFromText(pause, *font2, white);
 //	title2->loadFromText("PAUSE", *font2, blue);
 
 	bckgrndRect = RECT(345, 85, 350, 550);
 
-	op1Rect = RECT(418, 280, 30 * 7, 50);
-	op2Rect = RECT(405, 390, 30 * 8, 50);
-	op3Rect = RECT(465, 500, 30 * 4, 50);
+	op1Rect = RECT(525-(30 * op1.length())/2, 280, 30 * op1.length(), 50);
+	op2Rect = RECT(525 - (27 * op2.length()) / 2, 390, 27 * op2.length(), 50);
+	op3Rect = RECT(525 - (30 * op3.length()) / 2, 500, 30 * op3.length(), 50);
 
-	title1Rect = RECT(415, 130, 45*5, 70);
+	title1Rect = RECT(415, 130, 45* pause.length(), 70);
 //	title2Rect = RECT(393, 128, 45*5, 70);
 }
 
@@ -169,21 +183,21 @@ void PauseState::changeColors()
 {
 	if (selectedOp == 1)
 	{
-		op1Tex->loadFromText("RESUME", *font2, blue);
-		op2Tex->loadFromText("MAIN MENU", *font2, white);
-		op3Tex->loadFromText("EXIT", *font2, white);
+		op1Tex->loadFromText(op1, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
 	}
 	else if (selectedOp == 2)
 	{
-		op2Tex->loadFromText("MAIN MENU", *font2, blue);
-		op1Tex->loadFromText("RESUME", *font2, white);
-		op3Tex->loadFromText("EXIT", *font2, white);
+		op2Tex->loadFromText(op2, *font2, blue);
+		op1Tex->loadFromText(op1, *font2, white);
+		op3Tex->loadFromText(op3, *font2, white);
 	}
 	else if (selectedOp == 3)
 	{
-		op3Tex->loadFromText("EXIT", *font2, blue);
-		op2Tex->loadFromText("MAIN MENU", *font2, white);
-		op1Tex->loadFromText("RESUME", *font2, white);
+		op3Tex->loadFromText(op3, *font2, blue);
+		op2Tex->loadFromText(op2, *font2, white);
+		op1Tex->loadFromText(op1, *font2, white);
 	}
 
 

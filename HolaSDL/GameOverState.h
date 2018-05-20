@@ -11,6 +11,10 @@ private:
 	Font* font;
 	Font* font2;
 
+	string op1;
+	string op2;
+	string op3;
+
 	Texture* op1Tex;
 	Texture* op2Tex;
 	Texture* op3Tex;
