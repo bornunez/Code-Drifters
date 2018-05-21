@@ -70,7 +70,7 @@
   <object id="27" name="Down" gid="255" x="512" y="496" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="28" name="Spawner" gid="240" x="224" y="400" width="16" height="16">
+  <object id="28" name="Spawner" gid="240" x="223" y="400" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="false"/>
     <property name="Stalker" type="bool" value="true"/>
@@ -78,8 +78,8 @@
   </object>
   <object id="30" name="Spawner" gid="240" x="576" y="384" width="16" height="16">
    <properties>
-    <property name="Gunner" type="bool" value="false"/>
-    <property name="Stalker" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="false"/>
    </properties>
   </object>
   <object id="37" name="Spawner" gid="240" x="208" y="480" width="16" height="16">
