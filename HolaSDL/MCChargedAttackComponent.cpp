@@ -34,6 +34,8 @@ void MCChargedAttackComponent::update()
 				Message msg(ATTACKCHARGED);//Envía mensaje para que suelte el ataque
 				mc->setMCState(MCState::ChargedAttack);
 				mc->sendMessage(&msg);
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(40);
+				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
 			}
 			else {
 				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->changeVolume(0);
