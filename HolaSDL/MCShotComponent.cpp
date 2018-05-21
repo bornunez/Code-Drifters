@@ -53,7 +53,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 				bulletTransform.direction = aux - displayPosition;//Resta la posición del cursor al del personaje
 				bulletTransform.direction.normalize();//Halla el vector de dirección 
 				bulletTransform.velocity = bulletTransform.direction;
-				bulletTransform.speed = 1000.0;
+				bulletTransform.speed = 2000.0;
 
 				BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);
 

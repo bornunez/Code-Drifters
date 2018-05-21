@@ -1,6 +1,7 @@
-2
+3
 Empty *Unknown*
 Protagonista Haro
+Empty T0bi
 8
 0
 *Woof Woof*
@@ -10,11 +11,11 @@ Wha... What was that...?
 *Snif* *Snif*
 1
 That collar... No way, it can't be posible, they told me you were dead...
-0
+2
 *Beep* Initializating protocol 177013 *Beep*
 1
 No... what have they turned you into... You were such a good boy... the goodest of boys...
-0
+2
 *GRRRRRRRR*
 1
 I don't want to do this, why you...

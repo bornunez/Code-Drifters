@@ -38,9 +38,9 @@ MainMenuState::MainMenuState()
 	op2Tex->loadFromText(op2, *font2, white);
 	op3Tex->loadFromText(op3, *font2, white);
 	op4Tex->loadFromText(op4, *font2, white);
-	EspTex->loadFromText("ESP", *font, (lang == Spanish)? white : black);
+	EspTex->loadFromText("ESP ", *font, (lang == Spanish)? blue : white);
 	BarraTex->loadFromText("/", *font,white);
-	EngTex->loadFromText("ENG", *font, (lang == English) ? white : black);
+	EngTex->loadFromText(" ENG", *font, (lang == English) ? blue : white);
 
 	bckgrndRect = RECT(0, 0, 1040, 720);
 
