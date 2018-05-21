@@ -34,6 +34,7 @@ private:
 	//Info de ventana
 	int winX, winY;
 	bool fullScreen=false;
+	bool cheats = true;
 	bool mute = false;
 	const int winWidth = 1020;
 	const int winHeight = 720;
@@ -76,7 +77,9 @@ public:
 	void setMute();
 	bool getMute() { return mute; }
 	Language getLanguage() { return language; }
-	void setLanguage(Language lang) { language = lang; }
+	bool getCheats() { return cheats; }
+	void setCheats(bool activateCheats) { cheats = activateCheats; }
+ 	void setLanguage(Language lang) { language = lang; }
 	string appendLanguage(string file) { if (language == English)file.append("_eng"); return file; }
 
 	void endGame();
