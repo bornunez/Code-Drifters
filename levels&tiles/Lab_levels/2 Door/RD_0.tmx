@@ -3,6 +3,7 @@
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
+ <tileset firstgid="689" source="../../tileset/City2.tsx"/>
  <layer name="Suelo" width="35" height="30">
   <data encoding="base64" compression="zlib">
    eJztlVuOgzAMRcNDGhHyVXUNs/yucUDKEYcowFSl5aeWrGbA2Nc3154Qvva191lTeDt5N3k/+U/2V/PfJr9nb5SfWq5Zez+ff7O/iuWe8bjf8pea3QYW8JyBpYYDTjh3ihsnj2F9Z11x7nLMM1hKDbjnkpf575SfDcXzqF8czOSNytHkHDUscOL+qOe7gZchLPcD/qg6Y/6G2LF4Hw+wJJ1x8qKXJp/BaQzUHtXXoHj6S4rfuyOf4dd66ZW/pmnz1KsmPSVx0gjLUPBmbYyVZ8aF+1vfH7xG8UeeqBhj4V0Nj/VrHLU5d5zvhXMK+waf6Nv16ScWvLs3+Of+mZE+rHtDu0dYzI3nEg6tHeNDu56ZpFhr2/PyH26827yzkvLSH7rz7LRFfK9vnjE4SGHRLPXRPXfShmUevDv8jP6ONLJlpVasj6F4z46wVpjJswzdu3cw+X+U551dj/bONu4FLVjTcA+eTxvzjma8Tz9t1g8Y2DNXGLpgbtr98LcauvY+ucIe7VqvzPnjAkBzTe8WZvkqLMw1u6a/EIt3HuersGz5GfYHETYUWw==
@@ -13,9 +14,14 @@
    eJztlUEOgCAMBBtfJMoF5dE+UYxwMZSIVJZDJ+mlJGWyCZRIURSljWPK14wWi4zmMgrqkgflslL+HSHYC2e2m8WdSQlPfXwuj1Imib993nokJH1MqCU62EoPaR8XaosOvmHOF59nDpL4yvlSOaDmt2CYfs//KeGYPiIzbmcgdom61N2JcuFKghMzxyA9
   </data>
  </layer>
+ <layer name="Acido" width="35" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztkksKgDAMRAve/zLtEfytq7bitqCopzDFEYoHiC7mwZBlHpMYQwj5C7b62uDGiUcjmSSdpC5mi6mFx77sEiQzZo3sSi622B3QR4OMkkW5k4BbPD4RfWSfQ8nFFf8wFv3kW/WSU7GThH0D9j9eUfFH3nj0skq2Dz0ySfEvCCGEEEIuA8wyRw==
+  </data>
+ </layer>
  <layer name="Paredes" width="35" height="30">
   <data encoding="base64" compression="zlib">
-   eJztkkEKgzAQRZPDqCsrWrSr2vvfygQcsJ+JTmOgWfwHbyMh8zLoXB5NsAW7zLus95/5AEv1SMegzNCM5xaw3++4i3S8grMyB5VzqLa/7vBWy96kIzXDatyNtkf5Plx0NJkdb1C+p/YontFDB85IiWhn1uDnhxZ8aylG79wUfPrvLktLyY5caumIzP8OOMAWnZpaavlvCSGEEEIsbD62IUc=
+   eJztkkEOgjAQRYdwFmSFRA26Qu9/BvQE6h2cJk6iP1McShO7mJe8TVPa1wlEaTTsBmwTz7KeP+cWzNUjHb1yh2bYdwS79xlrkY4TOyj3oLIP1ebXfrzVMjfpiN1hNcxGm6Os9z86msSOEZT12BzFOTrowDtiItqeM3tZ0IJvzcWuItqzh+q7y9KSsyOVUjoCw8rvp5royt7q/7fcueHBPgtoyUlJLaX8t47jOI7jOBZea1AmsQ==
   </data>
  </layer>
  <layer name="Decoracion2" width="35" height="30">

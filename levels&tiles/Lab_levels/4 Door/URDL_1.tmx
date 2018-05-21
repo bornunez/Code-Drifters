@@ -4,6 +4,7 @@
  <tileset firstgid="65" source="../../tileset/Decoracion.tsx"/>
  <tileset firstgid="129" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="497" source="../../tileset/city.tsx"/>
+ <tileset firstgid="753" source="../../tileset/City2.tsx"/>
  <layer name="Suelo" width="34" height="32">
   <data encoding="base64" compression="zlib">
    eJztlk0OgyAQhQFdFOQcXXbZZe9/rEoCyaQZZf7QpvUlb4Pw5hvAqHOXJPLATWH1snramYuts2DQ+BsYNBw3Yn4ezFbmpVqnOQB7MD6aI1cWX2vnD8PMtDEenA2Hpl+4dxKOrfOPTAZObU2/FI6Z2Pvevmnei8BgcMSeOE7IGEXYuh4XtiaCOZBfK27/pfaEPLeQ5LxmdxwHx1a6OGw5fu2OcPNHsUjyRrBIcyxZ7sqM3r3JxJzHYI5IzHkqOXo8C3H9y4jDQu3/J53MUeqXb2g4meOf9AYZxwQd
@@ -14,9 +15,14 @@
    eJxjYBja4AMTJh4Fo2AUjCwwEHnfGIiNoLQJkjvoBYyg9loDsRWUtqGzO0ygdtvgkKeXO3DZDwP0cIcJYSV0SaeEwoJeYLDUxaPuQAWDqZ00mNwx6hZMMBjdMtja+qPuQAWDwR2DKX0QA9DdOlBuH6x5jFYAAI+2Kyk=
   </data>
  </layer>
+ <layer name="Acido" width="34" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztjkkKgDAQBAcm6gMUvasY//8zF0Q92YMB8wEjQhcU9K1LhBBCCLlZVGSDKzz0m4YJv86JKGxgBs/ELbPev6ZhPUXo2RO1WIN9VkHbuXtaykQtHX58UKOWGg6wh6N7vyOmDb/+g29CCCGE/JcL0GYMhQ==
+  </data>
+ </layer>
  <layer name="Paredes" width="34" height="32">
   <data encoding="base64" compression="zlib">
-   eJztl00OgjAQhcthxBW4AlfWE+gN9P7HsCROMnlM6ZSOlBi+5IWkaTuvPzCDc//JKajN0LlwbhzP+3RBvVLtCg98/AX6dax9CBqV6jPikwc+/gr9B9aeo1ERn69RisHJjR/zgeun2Hz9Wh/3DKGPDtY/zcfPWZqfE2snHo1zz2b+RB+DS59xCa8Q893Mnx763b7yLr6HBwe1Kc1BVkj5R5uDLJHyT409kXJhjT3xoFo+EL8THxM59dIvobNBUjWo9d2WfJCHVM1p6YXuCIfWnKo5rb1IPrBWXfJiBdbT5AHfc3znY3drLVi3jUIbgt8fCz+SD6zlYl4wV0nSgjE1Hgh+V2LaAs3/3BYs3WXS3vgASvtCuQ==
+   eJztl00KwjAQhZPDWFfVVePKegK9gYJ6AvX+YAoODK+TZtKmP0g/eBRCknlpps5ozH+y8SoStB24N67nc0qvnVJFDw98/R7mlWy88nJK7RLikwe+/gDzKzaeIqeIz88oxeCkxg/5wPNTbH5+rY9TgtBHCedv9uP3LO3PCY0TZ2vMxbaf6KMy8TsewtXHvNn2s4Z5x59qE36HKysp3H2ePbyeNt+efWrQy8d/e30y+pDqj7YG5USqP6l1eQwfzszzTmrQXD6QeiE+GlL6pTGhu0FiPWju3JZ8kIdYz5nTC+UIh84c6zlze5F8YK/a5SUX2E+TB/zO8ZsP5VZfsG9zwhiCvz85/Eg+sJcLecFaJUkLxtR4IHiuhDQFmv9zU9CVy6Sl8QVEtUU7
   </data>
  </layer>
  <layer name="Decoracion2" width="34" height="32">
