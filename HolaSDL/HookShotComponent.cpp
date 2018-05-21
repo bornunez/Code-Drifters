@@ -42,6 +42,7 @@ void HookShotComponent::receiveMessage(Message* msg) {
 		mc->addCollisionLayer("Aire");
 		if (enemyHooked != nullptr) {
 			enemyHooked->addCollisionLayer("Acido");
+			enemyHooked->enemyState = EnemyState::Idle;
 		}
 		stop();
 		break;
