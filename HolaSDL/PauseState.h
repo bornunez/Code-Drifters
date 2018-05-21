@@ -35,6 +35,10 @@ private:
 	SDL_Color white;
 	SDL_Color blue;
 
+	Texture* soundOff;
+	Texture* soundOn;
+	SDL_Rect muteRect;
+
 	SDL_Point mouse;
 	int selectedOp = 0;
 public:

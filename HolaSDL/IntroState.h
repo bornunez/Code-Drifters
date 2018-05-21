@@ -7,6 +7,7 @@ class IntroState :
 private:
 	bool dialog1 = false;
 	bool dialog2 = false;
+	bool tutorial_;
 	Texture* anim;
 	float time;
 	int frame=-1;
@@ -16,7 +17,7 @@ private:
 	string rute;
 	string rute2;
 public:
-	IntroState();
+	IntroState(bool tutorial);
 	virtual ~IntroState();
 	virtual void render();
 	virtual void update();

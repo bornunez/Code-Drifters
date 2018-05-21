@@ -167,10 +167,10 @@ void Game::handleEvents()
 				fullScreen = !fullScreen;
 				setWindow();
 			}
-			else if (event.key.keysym.sym == SDLK_m) {
+			/*else if (event.key.keysym.sym == SDLK_m) {
 				mute = !mute;
 				setMute();
-			}
+			}*/
 			/*else if (event.key.keysym.sym == SDLK_q) {
 				endGame();
 			}*/
@@ -251,6 +251,12 @@ void Game::setMute()
 	}
 }
 
+void Game::muteGame()
+{
+	mute = !mute;
+	setMute();
+}
+
 
 int Game::getWinW() {//Pide el ancho de la ventana
 	return winWidth;
@@ -280,16 +286,16 @@ void Game::startDialogue(string filename)
 	stateMachine->pushState(ds);
 }
 
-void Game::playIntro()
+void Game::playIntro(bool tutorial)
 {
-	IntroState* is = new IntroState();
+	IntroState* is = new IntroState(tutorial);
 	pushState(is);
 }
 
-void Game::endIntro()
+void Game::endIntro(bool tutorial)
 {
 	stateMachine->popState();
-	startGame(PlayState::getInstance()->isTutorial());
+	startGame(tutorial);
 }
 
 void Game::endDialogue() 
