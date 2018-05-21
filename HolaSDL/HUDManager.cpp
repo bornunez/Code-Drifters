@@ -204,6 +204,7 @@ void HUDManager::addBullet() {
 	bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletFondo)));
 	bulletSkeleton.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBorde)));
 	bullets_.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBarra)));
+	fullBullets.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletCargada)));
 
 	bulletBack.back()->destRect =
 		bulletSkeleton.back()->destRect =
