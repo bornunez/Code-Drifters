@@ -1,10 +1,12 @@
 1
 FormanG Mr.Greeman
-3
+4
 0
 Wait! Those turrets won't stop firing.
 0
 Fortunately, you are equiped with a high-quality gun, HWR-88, capable of putting those enemies to sleep (Right click).
+0
+You will also hurt them, but not as much as using my beloved sword
 0
 So, as long as you can hit them, you can get some rest.
 

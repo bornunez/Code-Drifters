@@ -4,11 +4,11 @@ Protagonista Haro
 PadreSombra Masked
 12
 1
-Finally, I got you... Prepare to pay for what you did.
+Finally, I reached you... Prepare to pay for what you did.
 2
 ...
 2
-You are nothing. Minions, take care of him
+You are nothing. Defense AI W1LL, take care of him!
 0
 *Beep* Enemy detected *Beep*
 1
@@ -22,7 +22,7 @@ It doesn't look very friendly...
 1
 What happens, Crink Crank?
 0
-*Bip bip bip* *Beeep Beeep Beep* *Bip bip bip*
+*Bip bip bip* *Beeep Beeep Beep* Charge at 100%. Procceding to obliterate enemies
 1
 I'm going to make you scraps.
 0
