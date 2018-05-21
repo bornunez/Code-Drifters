@@ -23,7 +23,7 @@ DialogObject::DialogObject(string filename )
 	}
 	font = new Font("..\\images\\Polentical Neon Bold.ttf", 50);
 	if (game->getLanguage() == Language::English){
-		instruccion->loadFromText("Press Espace", *font);
+		instruccion->loadFromText("Press Space", *font);
 	}
 	else 
 	{
