@@ -13,6 +13,8 @@ PauseState::PauseState(GameState* upper): UpperGameState(upper)
 	op2Tex = new Texture(game->getRenderer());
 	op3Tex = new Texture(game->getRenderer());
 	title1 = new Texture(game->getRenderer());
+	soundOn = new Texture(game->getRenderer(), "..\\images\\NoMuteIcon.png");
+	soundOff = new Texture(game->getRenderer(), "..\\images\\MuteIcon.png");
 //	title2 = new Texture(game->getRenderer());
 	if (game->getLanguage() == Language::English)
 	{
@@ -42,6 +44,7 @@ PauseState::PauseState(GameState* upper): UpperGameState(upper)
 	op3Rect = RECT(525 - (30 * op3.length()) / 2, 500, 30 * op3.length(), 50);
 
 	title1Rect = RECT(415, 130, 45* pause.length(), 70);
+	muteRect = RECT(645, 585, 50, 50);
 //	title2Rect = RECT(393, 128, 45*5, 70);
 }
 
@@ -55,6 +58,8 @@ PauseState::~PauseState()
 	delete op3Tex;
 	delete title1;
 	delete background;
+	delete soundOff;
+	delete soundOn;
 }
 
 void PauseState::handleEvent(SDL_Event & e)
@@ -129,6 +134,10 @@ void PauseState::handleEvent(SDL_Event & e)
 				break;
 			}
 		}
+		else if (SDL_PointInRect(&mouse, &muteRect)) 
+		{
+				game->muteGame();
+		}
 	}
 }
 
@@ -168,6 +177,14 @@ void PauseState::render()
 	op1Tex->render(op1Rect);
 	op2Tex->render(op2Rect);
 	op3Tex->render(op3Rect);
+	if (game->getMute()) 
+	{
+		soundOff->render(muteRect);
+	}
+	else
+	{
+		soundOn->render(muteRect);
+	}
 	for (GameObject* o : gameObjects)
 	{
 		o->render();

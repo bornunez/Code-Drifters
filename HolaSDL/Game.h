@@ -75,6 +75,7 @@ public:
 
 	void startGame(bool tutorial);
 	void setMute();
+	void muteGame();
 	bool getMute() { return mute; }
 	Language getLanguage() { return language; }
 	bool getCheats() { return cheats; }
@@ -85,8 +86,8 @@ public:
 	void endGame();
 	void startDialogue(string filename);
 	void endDialogue();
-	void playIntro();
-	void endIntro();
+	void playIntro(bool tutorial);
+	void endIntro(bool tutorial);
 	void pushState(GameState* state);
 	void quitState();
 	void quitToMenu();

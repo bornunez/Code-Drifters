@@ -43,6 +43,9 @@ private:
 	SDL_Point mouse;
 	int selectedOp = 0;
 
+	Texture* soundOff;
+	Texture* soundOn;
+	SDL_Rect muteRect;
 public:
 	MainMenuState();
 	virtual ~MainMenuState();

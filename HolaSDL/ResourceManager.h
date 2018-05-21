@@ -272,7 +272,7 @@ private:
 		"..\\music\\BossFinal_Parte1.wav",
 		"..\\music\\BossFinal_Parte2.wav",
 		"..\\music\\SadEnd.wav",
-		"..\\music\\Menu.wav"
+		"..\\music\\Menu.wav",
 		"..\\music\\Credits.wav" };
 
 	std::vector<std::string> ResourceManager::soundEffectFiles{
