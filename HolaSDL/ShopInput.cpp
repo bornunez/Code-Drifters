@@ -14,9 +14,9 @@ void ShopInput::handleEvents(SDL_Event & e)
 {
 	//Si el jugador esta dentro de nosotros ;) y pulsa la e, empezamos la secuencia	
 	if (CollisionHandler::RectCollide(gameObject->getTransform()->body, PlayState::getInstance()->getMainCharacter()->getTransform()->body)) {
-		if (e.key.keysym.sym == SDLK_e)
-		{
-			PlayState::getInstance()->openShop();
-		}
+			if (e.key.keysym.sym == SDLK_e)
+			{
+				PlayState::getInstance()->openShop();
+			}
 	}
 }

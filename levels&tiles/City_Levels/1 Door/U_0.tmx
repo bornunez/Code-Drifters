@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="40" height="46" tilewidth="16" tileheight="16" infinite="0" nextobjectid="24">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="40" height="46" tilewidth="16" tileheight="16" nextobjectid="26">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
  <layer name="Suelo" width="40" height="46">
   <data encoding="base64" compression="zlib">
-   eJztzrEJAAAIA0H3n8Bx7W1tFO/h2pCIX2WzLf9mffvX9wAAAAAAAK4reljCDg==
+   eJztzrEJAAAIA0H3n8Bx7a0tVO7h2pAI6U/ZbGv6X98DAAAAAAC4rgDjurru
   </data>
  </layer>
  <layer name="DecoracionSuelo" width="40" height="46">
@@ -34,19 +34,24 @@
    eJzt1TlPAkEAhuFJzBJPajz/i/w6RaD2QGvvGkWMpcpR41mDB7UCGt/CYmOYkGVhMonfmzzt7JfdSdYYpZRSSqnhW/3la9oXL+2Ll/bFS/vi9V/3pUNn/xWlcb4/28Yojfv79tsYJd/vn1JKKXetBcasI4MNZJFDPhjtc2z//0E22bGFbeyggF3sBcOfOUr77DjAIY5wjBOcerKvyI4znKOEC5RxGdrnItu+a3bc4BYVVFFD3fE+Ww123OEeD3jEE5492ddkRwsveMUb3tH2ZN8HOz7RQRc9fOHbk32TCWOmMI0ZzGIOyYTbfVcT/aXYMY8FLGIJy1hxvM/WD3JTVsY=
   </data>
  </layer>
+ <layer name="Acido" width="40" height="46">
+  <data encoding="base64" compression="zlib">
+   eJztlUsOgjAURZtixTivbEBwrAL79jv3uy6v6W2sCyDt4J7kpMCEk8dLMEYIIYQom0NlzBGe4Ble4LXKXfXjhpY7fMAnfMF3QX1TU1tjnA3nHC5t7qJ/1uhpYAs7uEpav92LzL0j3t/bcA7Us3ljQ/+MvblbIzs295xpx1bPs6Qd2HOmPWcZGx3n6pJdqJP7HGyTmTbc1ZbXns89zUk60yG5jns8FvT9p0b/JyGEEEIIIYQQYho+EAYagA==
+  </data>
+ </layer>
  <layer name="Aire" width="40" height="46">
   <data encoding="base64" compression="zlib">
    eJzt0rEJADAIRUGz/9JZIEIIFkHv4LfyCiMKrWS/OLXouzexL/vp11XfBwAAAAAAaGYDLc0AMw==
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="22" name="Up" x="318.667" y="17" width="63.6667" height="15.6667"/>
+  <object id="22" name="Up" x="320" y="64" width="63.6667" height="15.6667"/>
  </objectgroup>
  <objectgroup name="Entradas">
   <object id="23" name="Up" x="310.333" y="105.667" width="59" height="15"/>
  </objectgroup>
  <objectgroup name="Spawners" offsetx="-60" offsety="33">
-  <object id="20" name="Spawner" gid="240" x="451.667" y="277.667" width="16" height="16">
+  <object id="20" name="Spawner" gid="240" x="504.5" y="339.5" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -55,7 +60,25 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="21" name="Spawner" gid="240" x="347" y="329" width="16" height="16">
+  <object id="21" name="Spawner" gid="240" x="256" y="368" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="false"/>
+    <property name="Charger" type="bool" value="false"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="24" name="Spawner" gid="240" x="256" y="272" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="false"/>
+    <property name="Stalker" type="bool" value="false"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="25" name="Spawner" gid="240" x="544" y="192" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>

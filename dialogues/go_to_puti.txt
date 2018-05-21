@@ -1,8 +1,10 @@
 1
-FormanG Forman
-1
+FormanG Mr.Greeman
+2
 0
-Para vencer a nuestro némesis necesitaras armarte. A la derecha encontraras el Cyber-Lupanar de Madam Phernelia. Ella te ayudará a abastecerte para futuras peleas.
+Para vencer a nuestro némesis necesitaras armarte. 
+0
+A la derecha encontraras el Cyber-Lupanar de Madam Phernelia. Ella te ayudará a abastecerte para futuras peleas.
 
 
 

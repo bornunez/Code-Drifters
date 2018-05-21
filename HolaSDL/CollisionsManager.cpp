@@ -279,7 +279,7 @@ void CollisionsManager::playerCollisions()
 
 						float damage = mc->getAttackDamage(mc->getCurrentAttackType());//El valor de ataque del jugador
 						if (mc->isLifeStealEnable())
-							mc->addHP(damage * mc->getLifeSteal() / 300);
+							mc->addHP(damage * mc->getLifeSteal() / 400);
 						MCAttackDamage msg(damage);
 						boss->sendMessage(&msg);
 						hit = true;
@@ -560,12 +560,13 @@ void CollisionsManager::bossCollisions()
 			if (wheels.size() != 0)
 			{
 				MainCharacter* mc = PlayState::getInstance()->getMainCharacter();
+				Hook* hook = mc->getHook();
 				for (int i = 0; i < wheels.size(); i++)
 				{
+					vector<SDL_Rect> wheelsHitboxes = wheels[i]->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
+					vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
 					if (!mc->getInvincibility()) {
 						bool hit = false;
-						vector<SDL_Rect> wheelsHitboxes = wheels[i]->getCurrentAnimation()->getCurrentFrame()->getHitboxes();
-						vector<SDL_Rect> mcHurtboxes = mc->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
 						uint i = 0;
 
 						//Itera sobre las hitboxes del enemigo por cada HurtBox del MC
@@ -582,6 +583,24 @@ void CollisionsManager::bossCollisions()
 									mc->sendMessage(&msg1);
 								}
 							}
+						}
+					}
+					//Colisión con el gancho
+					if (hook->isActive()) {//Solo mira las colisiones si el gancho está activo
+						if (hook->getHookStatus() == HookStatus::EXTEND) {
+							bool hit = false;
+							vector<SDL_Rect> wheelsHurtboxes = wheels[i]->getCurrentAnimation()->getCurrentFrame()->getHurtboxes();
+							for (uint i = 0; !hit && i < wheelsHurtboxes.size(); i++) {
+								if (CollisionHandler::RectCollide(wheelsHurtboxes[i], hook->getTransform()->body)) {//Comprueba la colisión de las hitboxes de las espada con las hurtboxes del enemigo
+									hit = true;
+									ResourceManager::getInstance()->getSoundEffect(HookMiss)->playChannel(7, 0);
+									Message msg(HOOK_STOP);
+									mc->sendMessage(&msg);
+								}
+								
+							}
+							
+
 						}
 					}
 				}

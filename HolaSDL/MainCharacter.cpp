@@ -225,6 +225,16 @@ void MainCharacter::loadAnimations()
 	animations.emplace("ATTACKCHARGING_RIGHT", attackChargingRight);
 	animations.emplace("ATTACKCHARGED_RIGHT", attackChargedRight);
 
+	Animation*fullChargeTop = AnimationParser::parseAnimation(tileset, animationPath, "FullChargeTop", this, 0, offsetY, true);
+
+	Animation*fullChargeBot = AnimationParser::parseAnimation(tileset, animationPath, "FullChargeBot", this, 0, offsetY, true);
+
+	Animation*fullChargeRight = AnimationParser::parseAnimation(tileset, animationPath, "FullChargeRight", this, 0, offsetY, true);
+
+	animations.emplace("FULLCHARGE_TOP", fullChargeTop);
+	animations.emplace("FULLCHARGE_BOT", fullChargeBot);
+	animations.emplace("FULLCHARGE_RIGHT", fullChargeRight);
+
 	//Aquí se carga el Ultimate
 	tileset = ResourceManager::getInstance()->getProtaTileset(1);
 	animationPath = "../Animations/Protagonist/tileset/UltimateAnimation.tmx";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="48" height="44" tilewidth="16" tileheight="16" infinite="0" nextobjectid="45">
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="48" height="44" tilewidth="16" tileheight="16" nextobjectid="46">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -24,7 +24,9 @@
    eJztmTtOw0AQQNeyw6+MDCGUNHxquAFchByBAjoKOig4AhJcASjyoQKKJCDxPQHkBtDCi7LFmgQLr9cOFvOkJ6+9M7NjZSNbiVLpqXtKNbDp2eWfkXeOF5b5JpMYUmf2B8v+4DhnrNVm3MGu5fpX5F3jjYP+KxY596z7gI+W66fNFwaEfvS8jg1sYgsv9fU1XNfjd3I+/OGxGWPWccXOL2La2MEu3uKdvr6Bm3pcCpSaCIbHZoxZJy92M9Iln/3POhg9t5egzhRO40z6lpxxFDNX4Z7Lxn3PYxUX9Hl/qpRZZ/GE+ngcE7NEg4tG/8u4gqvZtSUIgpAbJ7wLno75fTBND3n0f0D9w5g1pH+7XFf8hR4EQRAEIQ+2eN7VCvzM+/4bmiAkoej7Xyge217UJDwR/4wvjvaszf7f96Im4ZX4N+wV9Dsn/30Jwv/lC9NlSo4=
   </data>
  </layer>
- <objectgroup name="Animados"/>
+ <objectgroup name="Animados">
+  <object id="45" name="Text_Box" x="224" y="32" width="16" height="16"/>
+ </objectgroup>
  <layer name="Decoracion2" width="48" height="44">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20ON6AAAAAAAAAAAL4NIQAAAQ==

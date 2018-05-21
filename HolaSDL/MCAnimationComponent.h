@@ -21,6 +21,7 @@ public:
 	void handleAnimationHurt();
 	void handleAnimationDeath();
 	void handleAnimationGun();
+	void handleFullCharge();
 	void handleAnimationChargingAttack();
 	void handleAnimationChargedAttack();
 	float handleGunAngle();
