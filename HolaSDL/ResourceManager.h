@@ -86,7 +86,8 @@ enum MusicId {
 	FinalBoss1,
 	FinalBoss2,
 	SadEnd,
-	Menu
+	Menu,
+	Credits
 };
 
 
@@ -268,7 +269,8 @@ private:
 		"..\\music\\BossFinal_Parte1.wav",
 		"..\\music\\BossFinal_Parte2.wav",
 		"..\\music\\SadEnd.wav",
-		"..\\music\\Menu.wav"};
+		"..\\music\\Menu.wav"
+		"..\\music\\Credits.wav" };
 
 	std::vector<std::string> ResourceManager::soundEffectFiles{
 		"..\\music\\Sonidos\cosa.wav",
