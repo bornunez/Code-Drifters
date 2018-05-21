@@ -285,7 +285,7 @@ void LevelManager::nextLevel()
 			ofile.close();
 		}
 	}
-
+	PlayState::getInstance()->getMainCharacter()->addHP(100);
 	delete dungeon;
 	level++;
 	if (level <= maxLevel) {

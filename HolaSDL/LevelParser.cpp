@@ -289,7 +289,7 @@ GameObject * LevelParser::stringToObject(string objName,XMLElement* e, int x, in
 
 		file = Game::getGame()->appendLanguage(file);
 		obj->addComponent(new TextTrigger(obj,file));
-		obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
+		//obj->addComponent(new SkeletonRendered(obj, PlayState::getInstance()->getCamera()));
 
 	}
 	else if (objName == "Boss_Text") {

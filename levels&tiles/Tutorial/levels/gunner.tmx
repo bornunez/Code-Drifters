@@ -6,17 +6,22 @@
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
  <layer name="Suelo" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJzt1kEKgDAMRNEcXnuAotID6D0VXJhFwWkTQ4Up/GXhLRKIyJivgC1XWbU1/C200PKBZQabAiy5sz9bENtIlgNsD7BE7REttNByW1YVLbS0WJLg90YtT4s1q0XvNC1P6H3xlnV2vaOFFlr8LCfbKCWy
+   eJzt1kEKgCAQQNE5fHUAyfAAdc+CilxEjTmKwR/4S+EtHBiRNicoG7dc1JTwNmDBUsDSK+sKWvyR+9ifLU+2liznLMrmCpZae4QFC5bd4qOwYEmxDKK/N+6ytFiUY4l3GsuV9r54K/fvWocFCxY7ywouPyrv
   </data>
  </layer>
  <layer name="DecoracionSuelo" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJztlWsOhCAMhLn/dXxcYNUbeJ9NEyZOui0igokbvj+6tkuHtpQQOp1O5z1M8bk79rFhTGaIz4/hO5H9KqPzrvdraWK8/GyXFV1DNIu2JeEDDaU5At4eocPTgPrMCZ+7LHF9gL2iPwD7lGjxcsAxsC5iDdE+hzxy6yQ51+cB35EPvUf5vSqfGnhzAPGAxNsM/5W+n521Guj4Vi+wj+iuoavGGqV1S51fa70lYYdtVLbc/e3O+5kmPU+HcPRMrV4uATWZ6Mk5KsX7r5dnnY8t/M7Au7EZPt9WLcS+K9/Wd2IIx+xDPGvmMDn5uXN2c+6a0l5udafW4IlZ/ma8/KRmdQt0D/Gd/UQNOf7qev0PX6ctZLM=
+   eJztlQEOgjAMRcu19RYeQY8w8AICN+A+umQ/NrUdowwSlZcYcC3rX9d1RAcHB//MtSG6NfvEOr3inBt7rERLl56TYW/XCGRwLZ1iD+n5EONd+gXy0Rrvcr2aJo6Vn3GxomVEzVFbn/GBBm+OgLVG6LA0YH/uGZ+19Gl+gLWiPgD38WixcsBjYF7ECsl+pzJK9ynmXJ4HjCMfco3x/yB8amD1AcQDMd6o+A9sfO6s1UDG12qB+0TdNXTVmMO7b7nzq83XZ+ywtcJWur7JeJ/TJPtpoHfN1KplD9iTjj15jrxY31p5lvkY6bMHgoszNoefb20von0SvtqdOKdlKeh9iKf1HA7Pj6VlzdktuWu8tbzVnVqDPXr5N2PlJ9ert0DWEL+z99hDHn8wvX6HJ+8lbCw=
+  </data>
+ </layer>
+ <layer name="Acido" width="35" height="33">
+  <data encoding="base64" compression="zlib">
+   eJztk8sKgzAQRcOgdS+oXftK97a2//9lXtHgoG5DhnIPXCbJYnJwjHP/QynOPSW1xUYLjxddLnBG91hysTSj0tB3sTYjCy4CBx/JJUPPHHkghRz783moVUSXtXe93xFS36zX2qgaw2VAz1HdrfdhHapXLjHe9Bs9P8iMfFXVZx3Sn5xS/buTXJ1/Bt4RIYQQQkgKFt8hC0M=
   </data>
  </layer>
  <layer name="Paredes" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJzt1DlPAkEYxvFJdjEKaO35gdRP5BFrOaSWQ2pPEs8oV6KiUQ5rYZFaAanl0PiHdrPJFjJjMW/yK7bYfZ6Z5F0h/uecGkKc4RwXhv35EleGu29te4QIIIgQwthBxOPu/Vty7nCPgmF/fsCjyy67ZEYRQxwJ7CHpsstfzj6ZBzjEEY5xgpSCLtdk3iCNDLLIIa+gyxOZzyiihDIqeFHQ5ZXMKmqwUMcbGgq6vJP5gSZaaOMTHQVdnHZ6zRRiHRvYxJY5/i5OOx0gO4gQwohI6OK001GyY4gjgaSELqOdNu3SyCCLHFISuox22rQrooQyKshL6OK005aCHXfa6Sr3UIOFOhoS7uWL3C566GOA72E/sptooY2OhC6TE0JMwQsf/JhGl+we+hjgR0KXWXLnMI8FLGJp2I+78cIHP2Yk/oeXOfcKViWcX48ePXr06NEzvvkF5Gd9xA==
+   eJzt1MlOwmAYheE/tBhlWquIN6BegXoB6hU5xLUCshZE1s6JY5QpcYwyuJZB1grIWgaNL2w0KUWN2rrolzyLNoRz+jdfhfifsysJsYd9HEjK60McSe+/HzIJMYwRk/K/FsxCLMIND7xYgs/8tS6n5JzhHBeS8voSVx+6jNJhDONtuiyT6UcAKwhiFaEvdvnNWSNzHRvYxBa2saNDl2MyTxBGBFHEENehyzWZN0ggiRTSuNWhyx2ZGWSRQx73KOjQ5YHMRxRRQhlPqOjQRW2np2UhZjCLOczLf99FbacXyXbDAy98GnRR22k/2QGsIIiQSpdO31E79xxt7qtNa6dlpTAiiCKGHZUunb6jLu4NfqNLa6dlpQSSSCGNuAbvSG2nc7+841bOx/bJGantdIZzyCKHPAo/PBcnPQY+6fJMbhU11NHAS7Mf2UWUUEZFg3fU3SVEDyywwgY7qmTXUEcDrxp06SW3D/1wYgCuZj/OxgIrbHBo+B2e4LknMaXB8xtjjDHGGGOMMX83b5pbgQA=
   </data>
  </layer>
  <layer name="Decoracion" width="35" height="33">
@@ -31,12 +36,7 @@
  </layer>
  <layer name="Aire" width="35" height="33">
   <data encoding="base64" compression="zlib">
-   eJzt1NEKQBEQRVH+/6e9EE0HJZkpe5eu8jArdaVUy4/Xqt35zbCczcKiz362zP7x1xYbFh0WHRYdFp2d7W2xd+MZFh0WHRZdRIv3u9sM7Rvl3Y1gGfdY+vxx772CVQAhZACQ
-  </data>
- </layer>
- <layer name="Acido" width="35" height="33">
-  <data encoding="base64" compression="zlib">
-   eJztk8sKgzAQRcOgdS+oXftK97a2//9lXtHgoG5DhnIPXCbJYnJwjHP/QynOPSW1xUYLjxddLnBG91hysTSj0tB3sTYjCy4CBx/JJUPPHHkghRz783moVUSXtXe93xFS36zX2qgaw2VAz1HdrfdhHapXLjHe9Bs9P8iMfFXVZx3Sn5xS/buTXJ1/Bt4RIYQQQkgKFt8hC0M=
+   eJzt1DEKACEMRFH3/pe2WTDIbIRFkin+B0GwyCvUMd6e4pV1Or8Zln+zsOgzJ0tl2Ruvtuw5Wzo9WHRYdFh0++xui8t/h0WH5TssOhdLvC8O/y4WbYl7LGt+3HcvsyYbGQCT
   </data>
  </layer>
  <layer name="Decoracion2" width="35" height="33">
@@ -45,8 +45,8 @@
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="22" name="Left" x="48" y="48" width="16" height="144"/>
-  <object id="26" name="Right" x="512" y="288" width="32" height="144"/>
+  <object id="22" name="Left" x="32" y="112" width="16" height="48"/>
+  <object id="26" name="Right" x="528" y="352" width="16" height="48"/>
  </objectgroup>
  <objectgroup name="Animados">
   <object id="31" name="Tuto_Text" x="208" y="48" width="32" height="144">

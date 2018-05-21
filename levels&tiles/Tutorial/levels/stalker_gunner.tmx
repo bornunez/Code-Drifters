@@ -16,7 +16,7 @@
  </layer>
  <layer name="Paredes" width="21" height="30">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMApGAT2BGTMDgzkzdc10A5rnTmUzw4DmhVPZzFFAWwAAcUMBug==
+   eJxjYBgFo2AUjALago3MDAybmKlr5kGgeYeobOYoGAX0AmbAtGtO5fTrBjTPncpmhgHNCx/NZ0MKAADvHASs
   </data>
  </layer>
  <layer name="Decoracion" width="21" height="30">
@@ -41,7 +41,7 @@
  </layer>
  <layer name="Acido" width="21" height="30">
   <data encoding="base64" compression="zlib">
-   eJztk9ELgjAQxtemQT0O8qkektSCeinN9P//wzphRx9j06n1EPjBxzHu/O3ObUIsWvRbaSnEWfrzKeUyck7e9tSxFNUUA8w75UpTl5A3Vq2kdUSOTcwDmMjeObgaONlIZqcHcFkpcCryk1yTX4FMZOA+3b9pRzBcTOzzEk1nsY4W8/AFprZmv81kKscZTe1zRYw18Ob0qSwW378GmPtApnSwKs+duw4w7Rm5r777G5tvfBFZpXkTTQ+vUyE/ToCBrBAOimfxxTEs1sni8Dqb8V5Lc34caxOn9LfoP/QGhv4SVQ==
+   eJztlE8LwjAMxWs3BT0OnBc9KG5T0IvbnPP7fzBTyMNQ2ro/ehD24JGVpD/SLZ1Skyb9VolW6qT9+QPlMnJOXgXqoIhqigDT5FPyhuvM89Kq1bSOyXOOudgTi9yCjf4M70ZeO7iJqEE91hW5Jt+t54b8YEYpuPLdgOHa00VgQCX38OzBcDFln+d4OAvaW8zdF5iJdfbrSGbk+EZD+5zxbIE3ps/IYmH+WsHcdmRqB6v2zNzlA9M+I/oKzS/unS9KVsV3og3wjAr9dioYktWFI4Wz+GIfFnS0OFhnI+4r/jeIDcch/U36D70ATKcUVQ==
   </data>
  </layer>
  <layer name="Decoracion2" width="21" height="30">
@@ -55,15 +55,15 @@
   </data>
  </layer>
  <objectgroup name="Puertas">
-  <object id="19" name="Up" x="128" y="80" width="96" height="32"/>
+  <object id="19" name="Up" x="128" y="80" width="96" height="16"/>
   <object id="33" name="Down" x="128" y="448" width="96" height="16"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="26" name="Up" gid="255" x="144" y="144" width="16" height="16" visible="0"/>
+  <object id="26" name="Up" gid="255" x="144" y="128" width="16" height="16"/>
   <object id="40" name="Down" gid="255" x="144" y="416" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">
-  <object id="34" name="Spawner" gid="240" x="240" y="176" width="16" height="16">
+  <object id="34" name="Spawner" gid="240" x="208" y="208" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -81,7 +81,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="41" name="Spawner" gid="240" x="128" y="192" width="16" height="16">
+  <object id="41" name="Spawner" gid="240" x="96" y="208" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
@@ -90,7 +90,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="47" name="Spawner" gid="240" x="192" y="192" width="16" height="16">
+  <object id="47" name="Spawner" gid="240" x="144" y="272" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>

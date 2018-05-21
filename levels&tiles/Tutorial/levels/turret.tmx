@@ -6,7 +6,7 @@
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
  <layer name="Suelo" width="24" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjEQwgwAeNX9kmk9IH7F4OJrfSiHGZv5UJDwDjU8qnkbAfErxQJiPDJaSiJeQaD6paWQK1NxJo+YPa/OJTT/4ALHlF7mA1uYPRgAAfX7BFw==
+   eJxjYBgFo2AUjEQwgwAeNX9kmk9IH7F4OJrfSiHGZf5UKJ6BxCYHTyNgPqV4oMyHgaUk4iUkmk9qGpkCNXfSqPnD2nxi0w8+QGz5RS6gtfmDEQAAAOK/WA==
   </data>
  </layer>
  <layer name="DecoracionSuelo" width="24" height="34">
@@ -38,7 +38,7 @@
  </objectgroup>
  <layer name="Aire" width="24" height="34">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUUBtIstDWfE0amy9LY/N1R93PYAU0w4YFOy2HzXxG0rAX0AwfFuy0HgtUHZr5M0hwvxATMJ0z4VFAoflKQLM1aWg+yP0ShMxHw60kmA9yvwYx5iOBqSSYT7T7yQTkuJ8UQE74kwKIcj8+PgEAcr8aEHPhsoNC85Wg5oMwGxCzAzEHsl0Umm8MNMsEiFWhGGSPBRXNhwEjqPkYcUEl83GCgTAfH8amn1Q9xLoFlxi5gFL30QgAAHjkDLY=
+   eJxjYBgFo2AUUBtIstDWfE0amy9LY/N1R93PYAU0w4YFOy2HzXxG0rAX0AwfFuy0HgtUHZr5M0hwvxATMJ0z4VFAoflKQLM1aWg+yP0ShMxHw60kmA9yvwax5kPBVBLMJ8n9ZABy3E8KICf8SQFEuR8fnwAAuV8NiLlw2UGh+UpQ80GYDYjZgZgD2S4KzTcGmmUCxKpQDLLHgormw4AR1HyMuKCS+TjBQJiPD2PTT6oeYt2CS4xcQKn7aAQAh3UMuQ==
   </data>
  </layer>
  <layer name="Decoracion2" width="24" height="34">
