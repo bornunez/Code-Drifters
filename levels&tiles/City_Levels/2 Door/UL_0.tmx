@@ -78,7 +78,7 @@
     <property name="Stalker" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="34" name="Spawner" gid="240" x="560" y="384" width="16" height="16">
+  <object id="34" name="Spawner" gid="240" x="560" y="368" width="16" height="16">
    <properties>
     <property name="Gunner" type="bool" value="true"/>
     <property name="Stalker" type="bool" value="false"/>

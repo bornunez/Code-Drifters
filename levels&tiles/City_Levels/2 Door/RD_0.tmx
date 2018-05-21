@@ -36,7 +36,12 @@
  </layer>
  <layer name="Aire" width="47" height="47">
   <data encoding="base64" compression="zlib">
-   eJztls9OwkAQxpctiHqDpK0eIWmrR4gi8uJ60ate9A18FeOumUk+S/8gu9OC7pdM2tKG/nbmm+mqgVLqmOPQFdj7UWDvR4G9HwX2fhTYtzTVSl1pV7gWCbHPDPflkbJPDHdu4kyS35H9IVLqMdr+3XomNRGbOJfid2R/MdyvFewTYk+If2RibOLU5zqE8j43jAWxp1CDwqePhPI+I05mTuk6l54/nvyeQMQU9vz6QNjr8o69GkPO7XnWRf/uoLq8L8HnCfBnUAuvfcvykHerBeQ7J+6bUg2c+taxV58M93MNu9UUenZDnFwT9s/JvjVwZH8z3O8N7AtiLO8PmD8HX41pHeNd+6GDfSTPy3JuZ+Ad7GOuU2stOmBn3+D+IALf4zGBZ5O2fhBm15BL/kYNYQYxc0aRwz3+ntXWQJBdw/sz8Ia9vjWxgpzjHMVa8LovOmTX9M5C/5zzGcwbqyWsrygx89Her/wWC7BH4FvuwZhm+6aKYV95ZtdQf9zHrH0yszyxD6AHudbsVRHu75c2xA6y/hiBL7nP7PmdJLeq4P0FewSc2JPWI/eSzCwH9nlpHvPs89qPTXJgX5AvVjRDRP1RpQ72BGIK7P3oj7J/DJX6HPYJ16KmvO8T0v8vGYE9sP8n9gOILzD4L1E=
+   eJzt08EJgDAQRNGVpP929KJXvWgHtiKmADFgDJPV/2Gv4TEQ68zM87Uedk3YNWHXhF0Tdk3YNRXa+2A2hFq4TIX2ObkXp3Z2fzEvu1/F7pq87F74V8fknpza1+TenNqlYdeEXRN2Tdg1YdeEXRN2TR+179HsiEpcprvdn1zt92sedux/sjdwJ2clE2c=
+  </data>
+ </layer>
+ <layer name="Acido" width="47" height="47">
+  <data encoding="base64" compression="zlib">
+   eJztlkFrwzAMhTN3XdbdGoizHVOwsx1Ttq7r//9hs0EP3nxrC4nM9EDEIYF8lp7kNI3JZDKZTCbT/epc07y7tSlu05i43ypl3yfumGJXIX/2zJCiT/FSGf9e2L3wb1O0KZ4r2MchMU7CPlANpgp8NAonmAe5jxXMn05y7sk3vaw/KmAfiBk5z+ugvH+P5HNP/IFqoblvZ8p3FO7Pogaa+7ajnr0IJ2oC/zwprcEsjOX/Afgj+aqVfbSK+gHzssztSN7hPkadNNQCvuH/gw35nq+e3vUr94OjXOKMeqQZBOYgEekZzrM1auDo+4G8ke+/Upwo5zxHuRbY9+uC7E6+Obm/cz7QvMk60v6mghnX/Hyps3hDvkUP9jLbLwvm71o5qj//x5wVMz9QD6LW8KpW7uyPLfkSfZbX38q5wck9mT3yo5QZOhTzGLNPcz9Cs/jiJDNEqz9MJpPJZDL9T/0C7Egb6w==
   </data>
  </layer>
  <layer name="Sombra" width="47" height="47">
@@ -80,7 +85,7 @@
     <property name="Turret" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="33" name="Spawner" gid="240" x="448" y="464" width="16" height="16">
+  <object id="33" name="Spawner" gid="240" x="432" y="480" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="false"/>
     <property name="Charger" type="bool" value="false"/>
