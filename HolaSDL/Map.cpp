@@ -85,6 +85,7 @@ Layer * Map::GetLayer(string LayerID)
 		if (l->getLayerID() == LayerID)
 			return l;
 	}
+	return nullptr;
 }
 
 void Map::spawn()

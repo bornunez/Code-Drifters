@@ -62,7 +62,7 @@
   <object id="27" name="Down" x="240" y="640" width="64" height="16"/>
  </objectgroup>
  <objectgroup name="Entradas">
-  <object id="29" name="Down" gid="255" x="256" y="651" width="16" height="16"/>
+  <object id="29" name="Down" gid="255" x="256" y="608" width="16" height="16"/>
   <object id="30" name="Up" gid="255" x="256" y="128" width="16" height="16"/>
  </objectgroup>
  <objectgroup name="Spawners">

@@ -36,12 +36,10 @@ void HookShotComponent::receiveMessage(Message* msg) {
 		//Cuando el gancho colisiona con la pared, el protagonista se mueve
 		hook->setHookStatus(HookStatus::MOVE_MC);
 		mc->removeCollisionLayer("Aire");
-		mc->removeCollisionLayer("Acido");
 		hook->setOriginPosition(mc->getCenterPos());
 		break;
 	case HOOK_STOP:
 		mc->addCollisionLayer("Aire");
-		mc->addCollisionLayer("Acido");
 		if (enemyHooked != nullptr) {
 			enemyHooked->addCollisionLayer("Acido");
 		}

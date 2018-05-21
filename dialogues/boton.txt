@@ -2,21 +2,23 @@
 Empty *Robot*
 Protagonista Haro
 PadreSombra Silueta
-11
+12
 1
 Finalmente te encuentro... Prepárate para pagar por lo que hiciste.
 2
-*Silencio*
+...
+2
+No eres nada. Minions, encargaos de el!
 0
 *Beep* Enemigo detectado *Beep*
 1
 ¡Tsk! Justo cuando creía que lo tenía...
 0
-*Beep Boop*
+*Beep Boop* Calentando láseres
 1
 No tiene pinta de querer ser amigos...
 0
-*Creeeeek*
+*Creeeeek* Inicializando cuchillas letales
 1
 Qué te pasa, ¿Has perdido una tuerca?
 0
