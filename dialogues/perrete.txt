@@ -1,6 +1,7 @@
-2
+3
 Empty *Desconocido*
 Protagonista Haro
+Empty T0bi
 8
 0
 *Woof Woof*
@@ -10,11 +11,11 @@ Protagonista Haro
 *Snif* *Snif*
 1
 Ese collar... No es posible, me dijeron que estaba muerto...
-0
+2
 *Beep* Iniciando protocolo 177013 *Beep*
 1
 No... En qué te han convertido...
-0
+2
 *GRRRRRRRR*
 1
 No quiero hacer esto... Entre todos, ¿por qué tú?

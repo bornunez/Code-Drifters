@@ -182,7 +182,6 @@ void GunnerShotComponent::update() {
 		else {
 			restartTimer();
 		}
-		cout << eg->isStunned() << " " << (eg->getEnemyState() == EnemyState::Hooked) << endl;
 		handleAnimation();
 	}
 }
