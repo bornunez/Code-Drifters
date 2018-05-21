@@ -11,6 +11,7 @@ private:
 
 	std::vector<HUDObject*> bulletSkeleton;
 	std::vector<HUDObject*> bullets_;
+	std::vector<HUDObject*> fullBullets;
 	std::vector<HUDObject*> bulletBack;
 
 	HUDObject* lifeSkeleton;
@@ -19,6 +20,7 @@ private:
 
 	HUDObject* ultSkeleton;
 	HUDObject* ultBar;
+	HUDObject* fullUlt;
 	HUDObject* ultBack;
 
 	Font* moneyFont = nullptr;

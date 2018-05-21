@@ -43,6 +43,7 @@ void HUDManager::init(MainCharacter* MC) {
 	lifeBack = new HUDObject(ResourceManager::getInstance()->getTexture(LifeFondo));
 	ultSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(UltBorde));
 	ultBar = new HUDObject(ResourceManager::getInstance()->getTexture(UltBarra));
+	//fullUlt = new HUDObject();
 	ultBack = new HUDObject(ResourceManager::getInstance()->getTexture(UltFondo));
 	for (int i = 0; i < character->getMaxBullets(); i++) {
 		bulletSkeleton.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBorde)));
