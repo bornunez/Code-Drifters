@@ -24,12 +24,14 @@ HUDManager::~HUDManager()
 	delete ultSkeleton,
 	delete ultBack;
 	delete ultBar;
+	delete fullUlt;
 	delete moneyFont;
 	delete moneyTex;
 
 	for (int i = 0; i < character->getMaxBullets(); i++) {
 		delete bulletBack[i];
 		delete bullets_[i];
+		delete fullBullets[i];
 		delete bulletSkeleton[i];
 	}
 }
@@ -43,10 +45,12 @@ void HUDManager::init(MainCharacter* MC) {
 	lifeBack = new HUDObject(ResourceManager::getInstance()->getTexture(LifeFondo));
 	ultSkeleton = new HUDObject(ResourceManager::getInstance()->getTexture(UltBorde));
 	ultBar = new HUDObject(ResourceManager::getInstance()->getTexture(UltBarra));
+	fullUlt = new HUDObject(ResourceManager::getInstance()->getTexture(UltCargada));
 	ultBack = new HUDObject(ResourceManager::getInstance()->getTexture(UltFondo));
 	for (int i = 0; i < character->getMaxBullets(); i++) {
 		bulletSkeleton.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBorde)));
 		bullets_.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletBarra)));
+		fullBullets.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletCargada)));
 		bulletBack.push_back(new HUDObject(ResourceManager::getInstance()->getTexture(HUDBulletFondo)));
 	}
 
@@ -110,7 +114,10 @@ void HUDManager::init(MainCharacter* MC) {
 void HUDManager::render() {
 	for (int i = 0; i < bullets_.size(); i++) {
 		bulletBack[i]->getTexture()->render(bulletBack[i]->destRect, &bulletBack[i]->srcRect);
-		bullets_[i]->getTexture()->render(bullets_[i]->destRect, &bullets_[i]->srcRect);
+		if (bullets_[i]->destRect.h != bulletBack[i]->destRect.w)
+			bullets_[i]->getTexture()->render(bullets_[i]->destRect, &bullets_[i]->srcRect);
+		else
+			fullBullets[i]->getTexture()->render(bullets_[i]->destRect, &bullets_[i]->srcRect);
 		bulletSkeleton[i]->getTexture()->render(bulletSkeleton[i]->destRect, &bulletSkeleton[i]->srcRect);
 	}
 	lifeBack->getTexture()->render(lifeBack->destRect, &lifeBack->srcRect);
@@ -118,7 +125,10 @@ void HUDManager::render() {
 	lifeSkeleton->getTexture()->render(lifeSkeleton->destRect, &lifeSkeleton->srcRect);
 
 	ultBack->getTexture()->render(ultBack->destRect, &ultBack->srcRect);
-	ultBar->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
+	if (ultBar->destRect.h != ultBack->destRect.h)
+		ultBar->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
+	else
+		fullUlt->getTexture()->render(ultBar->destRect, &ultBar->srcRect);
 	ultSkeleton->getTexture()->render(ultSkeleton->destRect, &ultSkeleton->srcRect);
 
 	moneyTex->render(moneyDestRect);
