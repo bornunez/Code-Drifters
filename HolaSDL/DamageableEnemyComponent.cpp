@@ -30,11 +30,11 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 		}
 		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
+		gameObject->setInvincibility(true);
 		break;
 
 	case MC_BULLET_COLLISION:
 		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
-		attacked = true;
 		break;
 
 	case ULTIMATE:
@@ -55,7 +55,7 @@ void DamageableEnemyComponent::update()
 {
 	if (timerOn) {
 		damageTimer->update();
-		if (damageTimer->TimeSinceTimerCreation > 1) {//El timer es para cuadrar la animación con el ataque
+		if (damageTimer->TimeSinceTimerCreation > 1) {//El timer es para cuadrar la animación de la ulti con el ataque
 			damageTimer->restart();
 			timerOn = false;
 			receiveDamage(damage);
@@ -87,8 +87,7 @@ void DamageableEnemyComponent::receiveDamage(float damage)
 		enemy->death();
 	}
 	else {
-		Message msg(HURT);
-		gameObject->setInvincibility(true);
+		Message msg(HURT);		
 		gameObject->sendMessage(&msg);
 	}
 }

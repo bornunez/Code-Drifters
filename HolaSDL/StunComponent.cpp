@@ -35,15 +35,14 @@ void StunComponent::receiveMessage(Message * msg)
 	{
 	case MC_BULLET_COLLISION: {
 		if (!enemy->isDead()) {
-			if (!enemy->isStunned()) {
-				stunTime = static_cast<MCBulletStun*>(msg)->stunTime + specificTime;
-				stunTimer.restart();
-				Message msg(GUN_STUN);
-				enemy->sendMessage(&msg);
-				enemy->setStun(true);
-				ResourceManager::getInstance()->getSoundEffect(EnemyStuned)->play();
+			stunTime = static_cast<MCBulletStun*>(msg)->stunTime + specificTime;
+			stunTimer.restart();
+			Message msg(GUN_STUN);
+			enemy->sendMessage(&msg);
+			enemy->setStun(true);
+			ResourceManager::getInstance()->getSoundEffect(EnemyStuned)->play();
 				
-			}
+			
 		}
 	}
 	default:

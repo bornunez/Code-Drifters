@@ -24,11 +24,11 @@ void DamageableBossComponent::receiveMessage(Message* msg)
 	case MC_ATTACK_DAMAGE:
 		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
+		gameObject->setInvincibility(true);
 		break;
 
 	case MC_BULLET_COLLISION:
 		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
-		attacked = true;
 		break;
 
 	case ULTIMATE:
@@ -78,8 +78,7 @@ void DamageableBossComponent::receiveDamage(float damage)
 		boss->death();
 	}
 	else {
-		Message msg(HURT);
-		gameObject->setInvincibility(true);
+		Message msg(HURT);		
 		gameObject->sendMessage(&msg);
 	}
 }
