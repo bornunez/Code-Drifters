@@ -128,6 +128,12 @@ void GunnerShotComponent::updateGunPosition()
 	gunPosition = aux;
 }
 
+void GunnerShotComponent::restartTimer()
+{
+	lastShotTime->restart();
+	shotAnimationTime->restart();
+}
+
 
 void GunnerShotComponent::shoot() {
 	Transform* gunnerT = gameObject->getTransform();
@@ -169,9 +175,12 @@ void GunnerShotComponent::shoot() {
 
 void GunnerShotComponent::update() {
 	if (!gameObject->isDead()) {
-		if (!eg->isStunned() && !eg->isHooked()){
+		if (!eg->isStunned() && eg->getEnemyState()!=EnemyState::Hooked){
 			shoot();
 			lastShotTime->update();
+		}
+		else {
+			restartTimer();
 		}
 		handleAnimation();
 	}

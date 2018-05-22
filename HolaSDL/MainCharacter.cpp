@@ -53,7 +53,7 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	//setMaxVelocity(0.5);
 
 	addComponent(new MCManagerComponent(this));
-	setCollisionsLayers({ "Paredes","Aire", "Acido" });
+	setCollisionsLayers({ "Paredes","Aire"});
 	addComponent(new MCGunPosition(this));
 	addComponent(new ReloadComponent(this));
 	addComponent(new MCShotComponent(this));

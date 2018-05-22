@@ -167,10 +167,10 @@ void Game::handleEvents()
 				fullScreen = !fullScreen;
 				setWindow();
 			}
-			else if (event.key.keysym.sym == SDLK_m) {
+			/*else if (event.key.keysym.sym == SDLK_m) {
 				mute = !mute;
 				setMute();
-			}
+			}*/
 			/*else if (event.key.keysym.sym == SDLK_q) {
 				endGame();
 			}*/
@@ -197,17 +197,12 @@ void Game::saveConfig()
 {
 	ofstream file;
 	file.open("..\\config\\config.txt");
-	if (fullScreen) {//La primera línea del txt define si se guardó en fullscreen
-		file << "fullscreenTrue" << endl;
-	}
-	else {
-		file << "fullscreenFalse" << endl;
-	}
-	if (mute) {
-		file << "musicFalse" << endl;
-	}
-	else file << "musicTrue" << endl;
+
+	file << ((fullScreen) ? "fullscreenTrue" : "fullscreenFalse") << endl;
+	file << ((mute) ? "musicFalse" : "musicTrue") << endl;
 	file << ((language == English) ? "ENG" : "ESP") << endl;
+	file << ((cheats) ? "cheatsTrue" : "cheatsFalse") << endl;
+
 	file.close();
 }
 
@@ -215,25 +210,23 @@ void Game::loadConfig()
 {
 	ifstream file;
 	file.open("..\\config\\config.txt");
+
 	string fullscreenTxt;
 	file >> fullscreenTxt;
-	if (fullscreenTxt == "fullscreenTrue") {
-		fullScreen = true;
-	}
-	else { 
-		fullScreen = false;
-	}
+	fullScreen = fullscreenTxt == "fullscreenTrue" ? true : false;
+
 	string musicTxt;
 	file >> musicTxt;
-	if (musicTxt == "musicTrue") {
-		mute = false;
-	}
-	else {
-		mute = true;
-	}
+	mute = musicTxt == "musicTrue" ? false : true;
+	
 	string lang;
 	file >> lang;
 	language = lang == "ENG" ? English : Spanish;
+
+	string cheatsTxt;
+	file >> cheatsTxt;
+	cheats = cheatsTxt == "cheatsTrue" ? true : false;
+
 	file.close();
 }
 
@@ -256,6 +249,12 @@ void Game::setMute()
 		ResourceManager::getInstance()->unmuteMusic();
 		ResourceManager::getInstance()->unmuteSoundEffect();
 	}
+}
+
+void Game::muteGame()
+{
+	mute = !mute;
+	setMute();
 }
 
 
@@ -287,16 +286,16 @@ void Game::startDialogue(string filename)
 	stateMachine->pushState(ds);
 }
 
-void Game::playIntro()
+void Game::playIntro(bool tutorial)
 {
-	IntroState* is = new IntroState();
+	IntroState* is = new IntroState(tutorial);
 	pushState(is);
 }
 
-void Game::endIntro()
+void Game::endIntro(bool tutorial)
 {
 	stateMachine->popState();
-	startGame(PlayState::getInstance()->isTutorial());
+	startGame(tutorial);
 }
 
 void Game::endDialogue() 

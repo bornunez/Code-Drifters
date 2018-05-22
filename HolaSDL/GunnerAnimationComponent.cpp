@@ -126,7 +126,7 @@ void GunnerAnimationComponent::handleAnimations()
 
 
 			Transform* gunnerT = gameObject->getTransform();
-			if (eg->enemyState != EnemyState::Shoot && eg->enemyState != EnemyState::Hurt) {
+			if (eg->enemyState != EnemyState::Shoot && eg->enemyState != EnemyState::Hurt && eg->enemyState != EnemyState::Hooked) {
 				if (gunnerT->velocity.getX() != 0 && gunnerT->velocity.getY() != 0) {
 					eg->enemyState = EnemyState::Run;
 				}

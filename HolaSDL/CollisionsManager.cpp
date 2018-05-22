@@ -23,7 +23,6 @@ CollisionsManager* CollisionsManager::instance = nullptr;
 CollisionsManager::CollisionsManager()
 {
 
-
 }
 
 CollisionsManager::~CollisionsManager()
@@ -289,6 +288,22 @@ void CollisionsManager::playerCollisions()
 		}
 	}
 	overlapCollisions(mc);
+
+	//ACID COLLISION
+	Room* currRoom = LevelManager::getInstance()->getCurrentRoom();
+	TileLayer* tl = static_cast<TileLayer*>(currRoom->getMap()->GetLayer("Acido"));
+	Ticks.update();
+	if (!(mc->getHook()->getHookStatus() == HookStatus::MOVE_MC)) {
+		if (Ticks.TimeSinceTimerCreation > 0.5 && tl != nullptr) {
+			if (CollisionHandler::Collide(mc->getTransform(), tl)) {
+				float damage = 5;
+				EnemyAttackMessage msg(damage);
+				mc->sendMessage(&msg);
+				Ticks.restart();
+			}
+		}
+	}
+
 	layerCollisions(mc);
 
 }

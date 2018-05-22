@@ -17,6 +17,8 @@ MainMenuState::MainMenuState()
 	EspTex = new Texture(game->getRenderer());
 	BarraTex = new Texture(game->getRenderer());
 	EngTex = new Texture(game->getRenderer());
+	soundOn = new Texture(game->getRenderer(), "..\\images\\NoMuteIcon.png");
+	soundOff = new Texture(game->getRenderer(), "..\\images\\MuteIcon.png");
 
 	Language lang = game->getLanguage();
 	if (lang == Language::English)
@@ -36,9 +38,9 @@ MainMenuState::MainMenuState()
 	op2Tex->loadFromText(op2, *font2, white);
 	op3Tex->loadFromText(op3, *font2, white);
 	op4Tex->loadFromText(op4, *font2, white);
-	EspTex->loadFromText("ESP", *font, (lang == Spanish)? white : black);
+	EspTex->loadFromText("ESP ", *font, (lang == Spanish)? blue : white);
 	BarraTex->loadFromText("/", *font,white);
-	EngTex->loadFromText("ENG", *font, (lang == English) ? white : black);
+	EngTex->loadFromText(" ENG", *font, (lang == English) ? blue : white);
 
 	bckgrndRect = RECT(0, 0, 1040, 720);
 
@@ -46,6 +48,9 @@ MainMenuState::MainMenuState()
 	op2Rect = RECT(100, 450, 30 * op2.length(), 70);
 	op3Rect = RECT(100, 530, 30 * op3.length(), 70);
 	op4Rect = RECT(100, 610, 30 * op4.length(), 70);
+
+	muteRect = RECT(0, 670, 50, 50);
+
 
 	int langScale = 2;
 	EspRect.w = EspTex->getWidth() / langScale; EspRect.h = EspTex->getHeight() / langScale;
@@ -73,6 +78,8 @@ MainMenuState::~MainMenuState()
 	delete EspTex;
 	delete BarraTex;
 	delete EngTex;
+	delete soundOff;
+	delete soundOn;
 }
 
 void MainMenuState::handleEvent(SDL_Event & e)
@@ -155,17 +162,21 @@ if(e.type == SDL_KEYDOWN)
 				break;
 			}
 		}
-		if (SDL_PointInRect(&mouse, &EspRect)) {
+		else if (SDL_PointInRect(&mouse, &EspRect)) {
 			if (game->getLanguage() == English) {
 				game->setLanguage(Spanish);
 				game->resetMenu();
 			}
 		}
-		if (SDL_PointInRect(&mouse, &EngRect)) {
+		else if (SDL_PointInRect(&mouse, &EngRect)) {
 			if (game->getLanguage() == Spanish) {
 				game->setLanguage(English);
 				game->resetMenu();
 			}
+		}
+		else if (SDL_PointInRect(&mouse, &muteRect))
+		{
+			game->muteGame();
 		}
 	}
 }
@@ -212,21 +223,24 @@ void MainMenuState::render()
 		EspTex->render(EspRect);
 		BarraTex->render(BarraRect);
 		EngTex->render(EngRect); 
+		if (game->getMute())
+		{
+			soundOff->render(muteRect);
+		}
+		else
+		{
+			soundOn->render(muteRect);
+		}
 	for (GameObject* o : gameObjects) 
 	{
 		o->render();
 	}
+
 }
 
 void MainMenuState::playState(Game* game,bool tutorial)
 {
-	if (tutorial) 
-	{
-		game->startGame(true);
-	}
-	else {
-			game->playIntro();
-		}
+		game->playIntro(tutorial);
 }
 
 void MainMenuState::exitGame(Game* game)

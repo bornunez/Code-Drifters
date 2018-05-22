@@ -186,7 +186,7 @@ void MCAnimationComponent::render()//Renderiza la animación actual, (siempre tie
 			handleAnimationGun();
 		}
 		gunTimer->update();
-		if (gunTimer->TimeSinceTimerCreation > 0.5) {
+		if (gunTimer->TimeSinceTimerCreation > 0.15) {
 			gunTimer->restart();
 			mc->setMCState(MCState::Idle);
 		}

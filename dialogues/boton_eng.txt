@@ -1,28 +1,29 @@
 3
-Empty *Robot*
+Empty W1LL
 Protagonista Haro
-PadreSombra Shadow
-11
+PadreSombra Masked
+12
 1
-Finally, I got you... Prepare to pay for what you did.
+Finally, I reached you... Prepare to pay for what you did.
 2
-*Stares*
+...
+2
+You are nothing. Defense AI W1LL, take care of him!
 0
-*Beep* Enemigo detected *Beep*
+*Beep* Enemy detected *Beep*
 1
 Tsk! Just when I thought I got him...
 0
-*Beep Boop*
+*Beep Boop* Heating up lasers
 1
 It doesn't look very friendly...
 0
-*Creeeeek*
+*Creeeeek* Initializating death blades...
 1
-What happens crink crank?
+What happens, Crink Crank?
 0
-*Bip bip bip* *Beeep Beeep Beep* *Bip bip bip*
+*Bip bip bip* *Beeep Beeep Beep* Charge at 100%. Procceding to obliterate enemies
 1
 I'm going to make you scraps.
 0
 *FFFFFFFFSHHHHHHHHH*
-

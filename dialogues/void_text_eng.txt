@@ -1,7 +1,9 @@
 1
 FormanG Mr.Greeman
-2
+3
 0 
 Now that you've got the sword, it's time for some basic training.
 0 
-First things first, let's walk arround the city.  You can start by going to the area below, we will continue there. (Move - W,S,A,D )
+First things first, let's walk arround the city.  
+0
+You can start by going to the area below, we will continue there. (Move - W,S,A,D )

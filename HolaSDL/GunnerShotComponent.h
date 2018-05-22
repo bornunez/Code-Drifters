@@ -13,6 +13,7 @@ public:
 	void receiveMessage(Message * msg);
 	void handleAnimation();
 	void updateGunPosition();
+	void restartTimer();
 private:
 	GameObject* targetObject;
 	Enemy* eg;

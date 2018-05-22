@@ -34,8 +34,10 @@ void TileLayer::render(Camera* camera)
 				while (tileS < tileSets.size() && (tileID - firstGids[tileS]) >= tileSets[tileS]->getTileCount())
 					tileS++;
 				tileID -= firstGids[tileS];
-				SDL_Rect* srcRect = tileSets[tileS]->getTileRect(tileID);
-				tileSets[tileS]->getTexture()->render(destRect, srcRect);
+				if (tileID >= 0) {
+					SDL_Rect* srcRect = tileSets[tileS]->getTileRect(tileID);
+					tileSets[tileS]->getTexture()->render(destRect, srcRect);
+				}
 			}
 		}
 	}

@@ -1,3 +1,4 @@
 fullscreenFalse
-musicTrue
-ESP
+musicFalse
+ENG
+cheatsFalse

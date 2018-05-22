@@ -4,7 +4,7 @@ Phernelia MadamePhernelia
 0
 Hola, Haro, he estado esperándote...
 0
-Tu abuelo ya me puso al dia de la situación , asi que habla conmigo cuando quieras y te conseguiré todo tipo de mejoras... A cambio de un precio, claro.
+Tu abuelo ya me puso al dia de la situación , asi que ven conmigo cuando quieras y te conseguiré todo tipo de mejoras... A cambio de un precio, claro.
 0
 Hablo de los créditos, te los habrás encontrado mientras venías hacia aquí. Con estos te podré dar tres tipos de mejoras:
 0
@@ -14,9 +14,9 @@ Mejoras de Pisola: Estas mejorarán el combate a distancia, ¡no debes subestimarl
 0
 Y finalmente, seré capaz de obtener "potenciadores" que te harán más fuerte fisicamente, y otras características misceláneas...
 0
-Además, Betty, la chica que hay ahí abajo fumando te podrá ayudar a restaurar energía, por un módico precio.
+Además, Betty, la chica que hay ahí abajo fumando te podrá ayudar a restaurar fuerzas, por un módico precio.
 0
-(En la pantalla de la tienda te encontrarás tres paneles. Estos se componen de un árbol de mejoras para cada una de las ramas.)
+(En la pantalla de la tienda te encontrarás tres paneles. Estos se componen de un árbol de mejoras para cada uno de los tipos de mejora.)
 0
 (Puedes cambiar entre ellas con las flechas de dirección)
 0

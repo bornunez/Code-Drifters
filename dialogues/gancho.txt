@@ -1,9 +1,12 @@
-1
+2
 FormanG Mr.Greeman
-3
+Protagonista Haro
+4
 0 
-Espero que te hayas llevado el gancho de casa (Quién no sale de casa con él).
+Espero que te hayas llevado el gancho de casa .
+1
+(Quién no sale de casa con él).
 0
-Puedes usarlo para atraer a esos desgraciados o para engancharte a las paredes. Como Spiderman (I dont feel so good)
+Puedes usarlo para atraer a esos desgraciados o para engancharte a las paredes. Como Spiderman
 0
-Prueba a travesar el charco de Ácido (Espacio).
+Prueba a atravesar el charco de Ácido (Espacio).

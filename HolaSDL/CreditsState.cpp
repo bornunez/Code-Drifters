@@ -1,15 +1,16 @@
 #include "CreditsState.h"
 #include "Game.h"
 #include "Texture.h"
-
+#include "ResourceManager.h"
 
 
 CreditsState::CreditsState()
 {
+	ResourceManager::getInstance()->getMusic(Credits)->play();
+
 	credits = new Texture(game->getRenderer(), "..\\images\\Creditos\\Creditos.png");
 	rect = RECT(0, 0, game->getWinW(), 2550);
 }
-
 
 CreditsState::~CreditsState()
 {

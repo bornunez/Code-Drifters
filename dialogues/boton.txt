@@ -1,26 +1,28 @@
 3
-Empty *Robot*
+Empty W1LL
 Protagonista Haro
 PadreSombra Silueta
-11
+12
 1
 Finalmente te encuentro... Prepárate para pagar por lo que hiciste.
 2
-*Silencio*
+...
+2
+No eres nada. ¡IA de defensa W1LL, encárgate de el!
 0
 *Beep* Enemigo detectado *Beep*
 1
-¡Tsk! Justo cuando creía que lo tenía...
+¡Tch! Justo cuando creía que lo tenía...
 0
-*Beep Boop*
+*Beep Boop* Calentando láseres
 1
-No tiene pinta de querer ser amigos...
+No tiene pinta de querer hacer amigos...
 0
-*Creeeeek*
+*Creeeeek* Inicializando cuchillas letales
 1
 Qué te pasa, ¿Has perdido una tuerca?
 0
-*Bip bip bip* *Beeep Beeep Beep* *Bip bip bip*
+*Bip bip bip* *Beeep Beeep Beep* Carga al 100%. Protocolo de aniquilación de enemigos activado
 1
 Te voy a hacer chatarra.
 0

@@ -8,7 +8,7 @@
 class Tileset;
 
 // CONSTANTES
-const int NUM_TEXTURES = 112;
+const int NUM_TEXTURES = 114;
 const int NUM_TILESET = 1;
 const int NUM_PROTATILESET = 2;
 const int NUM_ENEMYTILESET = 8;
@@ -45,6 +45,7 @@ enum TextureId {
 
 	//TEXTURAS DEL HUD
 	LifeBarra, LifeBorde, LifeFondo, UltBorde, UltBarra, UltFondo, HUDBulletBarra, HUDBulletFondo, HUDBulletBorde,
+	HUDBulletCargada, UltCargada,
 	EnemyHUDBorde, EnemyHUDBarra, EnemyHUDFondo,
 	LoadingScreenBG, LoadbarBarra,LoadBarFondo,
 
@@ -86,7 +87,8 @@ enum MusicId {
 	FinalBoss1,
 	FinalBoss2,
 	SadEnd,
-	Menu
+	Menu,
+	Credits
 };
 
 
@@ -150,6 +152,8 @@ private:
 		{"Interfaz\\BalaBarra2.png", 1, 1},
 		{"Interfaz\\BalaFondo2.png", 1, 1},
 		{"Interfaz\\BalaBorde2.png", 1, 1},
+		{"Interfaz\\BalaBarraCargada2.png", 1, 1},
+		{"Interfaz\\UltCargada.png", 1, 1},
 		{"Interfaz\\EnemigoBorde.png", 1, 1},
 		{"Interfaz\\EnemigoRelleno.png", 1, 1},
 		{"Interfaz\\EnemigoFondo.png", 1, 1},
@@ -268,7 +272,8 @@ private:
 		"..\\music\\BossFinal_Parte1.wav",
 		"..\\music\\BossFinal_Parte2.wav",
 		"..\\music\\SadEnd.wav",
-		"..\\music\\Menu.wav"};
+		"..\\music\\Menu.wav",
+		"..\\music\\Credits.wav" };
 
 	std::vector<std::string> ResourceManager::soundEffectFiles{
 		"..\\music\\Sonidos\cosa.wav",

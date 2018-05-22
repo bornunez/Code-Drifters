@@ -67,7 +67,7 @@
     <property name="Turret" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="33" name="Spawner" gid="240" x="384" y="448" width="16" height="16">
+  <object id="33" name="Spawner" gid="240" x="384" y="432" width="16" height="16">
    <properties>
     <property name="Bomber" type="bool" value="true"/>
     <property name="Charger" type="bool" value="true"/>

@@ -2,6 +2,7 @@
 //#include "checkML.h"
 #include "GameObject.h"
 #include "MainCharacter.h"
+#include "Timer.h"
 //
 class CollisionsManager : public GameObject
 {
@@ -18,6 +19,8 @@ private:
 	bool overlapCollisions(GameObject* o);
 	void bossCollisions();
 	void coinCollision();
+
+	Timer Ticks;
 public:
 	virtual ~CollisionsManager();
 	static CollisionsManager* getInstance();

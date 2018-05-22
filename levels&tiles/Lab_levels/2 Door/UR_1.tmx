@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="34" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="19">
+ <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
+ <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
+ <tileset firstgid="433" source="../../tileset/city.tsx"/>
+ <tileset firstgid="689" source="../../tileset/City2.tsx"/>
+ <layer name="Suelo" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztltFqwzAMRZU6MJL4afQb9gV73P9/1xLmw05UDzpaFgYRiLqOa11dXSmN+L82rT6vvqxeD8QxrD42Hw7EUeKLj9L8CBuSXxqWjZuX5o/c/br6tfmgu4njeL3n2/qt+SM4rg2L88yfxCvRxwGWR3H0MMAF66JzW7/Msa9TSWu0dC+OXHPnmvnYvte2N6X9WZ84eLn3J21nDDkvYrke8DHFd03APjecnCk6u6R45irjqFrj3Ek+zBAwhuITl5hFeCfFWNq6h8OcsIZT62PU3T39mp9R+MinyjHm9BS3Wlg6e8aEm0PXDD6Ze6x9j3GMsa9r7lPXqejOzIXPuRas0be1i8EhWnds8phjz3WJPXY4IY+quGCzTt/j1lxreg0McGutGBs6dW9UneW5e3yzjw4Oc+K55XlUdQ95oSf3yCWdH/Wbe96JvZ7y7KjiwjXmLNi8R26//Y9i/NTFesjPp7jVBr33DEPfzhk8fue4p5nf8PpMoxbU3vqFb7D8pdHTaMRz8rTTTjvtKPsE30sJzw==
+  </data>
+ </layer>
+ <layer name="Acido" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt0cEJgDAUg+FC9x9GK7iAdYCiLmBPTtGIHUGay/9BzgnvhQAAGC1F94Jvw2HcMal7UbKyGXbM6lyVq+e9RTXsKOo8lb33P6af3OZ+AADwvwaf/hEh
+  </data>
+ </layer>
+ <layer name="Aire" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztldEKgCAMRaUvyuzF9KP7xFgI6TJkZBpyD/gk2z1DVKVk7NN9AQDGJ3fX5/YaJ/wN6uUR85e3EB4p8Ljye/7Za5/YBHLwD3u6Qb4pOBD2Axfqt0T5ruDAXbSqc37UbxPk81ob6qQufP5aeGHvN/OX4L11cDJCx9rY4OQyjgCAdhyOGhlB
+  </data>
+ </layer>
+ <layer name="Paredes" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlEsOgjAQQGs4C7hCVspKPAsn1Rvo0t9hHGJqJtj5tehqXvIWhKTzaFpCKKcGG3C9wFp4Pc7ULOl9TkMHbgS5jqawIzb04BbcMUod1v3ExIbYwZnT0Yb3XnZMQ21oyO3okRTtrGEv+KsO/K2pORKajmndATwoOnIatB0aLA3UP8Z616kOLdQc7p6n7npux7EK4VTxs/A5m541Z9PacYaGi9CRulvS2cRo9y02z787NpRi6aD+KePqvx1X8AbewQf4LB//YVhwLcdxHMdxvnkBH3YzFQ==
+  </data>
+ </layer>
+ <layer name="Decoracion" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzrsNwjAYRWFngAzFCOxEEJAMQAgNSEg80qQDwgAQGIDXMJzCRUAuAMlyc4/0ydLf+Bqjvm0eeoBNO95bYObwT1WLUr4bYIgRUmSBdoyRY4IC00A7llhhjQ1Ke+9ExvR4E4e+hx1b7LBHjYO9dyMPn30UtxxxQoMzLv6/d3bFDXc88Ay0QymllFK/9wILBCD+
+  </data>
+ </layer>
+ <layer name="Decoracion3" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztzLsNABAAQEHD+8xhELtRKJQKkZC75LUvBPhDW7opjtIoH/6Wwz/gbXUGALCrA723BZA=
+  </data>
+ </layer>
+ <layer name="Decoracion2" width="34" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt010KABAQhVFbtyRN9ocHJeWnMKjv1G0e5zY1xqDHTkSjQ0kUdo46JDt7rNwz9/AxrsgprY5STfzn9q+/5OQPAQAAQEcAHcsSkA==
+  </data>
+ </layer>
+ <objectgroup name="Puertas">
+  <object id="9" name="Up" x="207" y="19" width="65.5" height="15.5"/>
+  <object id="18" name="Right" x="508" y="144" width="21" height="79"/>
+ </objectgroup>
+ <objectgroup name="Entradas">
+  <object id="16" name="Up" gid="687" x="225.5" y="80.5" width="16" height="16"/>
+  <object id="17" name="Right" gid="687" x="451" y="190" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Spawners">
+  <object id="14" name="Spawner" gid="672" x="88.5" y="141.5" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="15" name="Spawner" gid="672" x="172" y="298" width="16" height="16">
+   <properties>
+    <property name="Bomber" type="bool" value="true"/>
+    <property name="Charger" type="bool" value="true"/>
+    <property name="Gunner" type="bool" value="true"/>
+    <property name="Stalker" type="bool" value="true"/>
+    <property name="Turret" type="bool" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

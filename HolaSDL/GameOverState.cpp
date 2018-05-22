@@ -1,11 +1,11 @@
 #include "GameOverState.h"
 #include "Game.h"
 #include "Time.h"
-
+#include "ResourceManager.h"
 
 GameOverState::GameOverState()
 {
-
+	ResourceManager::getInstance()->getMusic(SadEnd)->play();
 	blue = { COLOR(0xFE1B0AFF) };
 	white = { COLOR(0x990606FF) };
 	font = new Font("..\\images\\Polentical Neon Regular.ttf", 100);

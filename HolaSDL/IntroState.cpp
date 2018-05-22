@@ -4,7 +4,7 @@
 
 
 
-IntroState::IntroState()
+IntroState::IntroState(bool tutorial): tutorial_(tutorial)
 {
 	anim = new Texture(game->getRenderer(), "..\\images\\ImIntro.png", 1, 20);
 	destRect = RECT(0, 0, game->getWinW(), game->getWinH());
@@ -74,7 +74,7 @@ void IntroState::update()
 		}
 		else if (frame == 19 && time>1.7)
 		{
-			game->endIntro();
+			game->endIntro(tutorial_);
 		}
 	}
 	if(!dialog1 && !dialog2){
@@ -89,7 +89,7 @@ void IntroState::handleEvent(SDL_Event & e)
 	{
 		if (e.key.keysym.sym == SDLK_ESCAPE)
 		{
-			game->endIntro();
+			game->endIntro(tutorial_);
 		}
 	}
 }
