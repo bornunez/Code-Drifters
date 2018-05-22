@@ -22,12 +22,12 @@ void DamageableBossComponent::receiveMessage(Message* msg)
 {
 	switch (msg->id) {
 	case MC_ATTACK_DAMAGE:
-		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);
+		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
 		break;
 
 	case MC_BULLET_COLLISION:
-		receiveDamage(MCAttackType::SHOT, static_cast<MCBulletStun*>(msg)->damage);
+		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
 		attacked = true;
 		break;
 
@@ -47,7 +47,7 @@ void DamageableBossComponent::update()
 		if (damageTimer->TimeSinceTimerCreation > 1) {//El timer es para cuadrar la animación con el ataque
 			damageTimer->restart();
 			timerOn = false;
-			receiveDamage(MCAttackType::NORMAL, damage);
+			receiveDamage(damage);
 			attacked = true;
 		}
 	}
@@ -66,7 +66,7 @@ void DamageableBossComponent::update()
 	}
 }
 
-void DamageableBossComponent::receiveDamage(MCAttackType attackType, float damage)
+void DamageableBossComponent::receiveDamage(float damage)
 {
 	float dmg = damage;//El daño se calcula restando el ataque del jugador con la defensa del enemigo
 	int life = boss->getLife();

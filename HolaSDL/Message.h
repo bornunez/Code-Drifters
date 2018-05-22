@@ -158,6 +158,10 @@ struct EnemyBulletMessage : Message {
 	EnemyBulletMessage(float dmg) : Message(ENEMY_BULLET_COLLISION ), damage(dmg){}
 	float damage;
 };
+struct BossBulletMessage : Message {
+	BossBulletMessage(float dmg) : Message(BOSS_BULLET_HIT), damage(dmg) {}
+	float damage;
+};
 
 struct BossAttack : Message
 {

@@ -109,7 +109,7 @@ void CollisionsManager::bulletCollisions()
 								//Mandar mensaje de collision bala / enemigo
 								//Habria que cambiar el 1000 por el tiempo del arma
 								//MCBulletStun msg(2.5);
-								MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), PlayState::getInstance()->getMainCharacter()->getAttackDamage(MCAttackType::SHOT));
+								MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), b->getDamage());
 								e->sendMessage(&msg);
 							}
 							i++;
@@ -128,7 +128,7 @@ void CollisionsManager::bulletCollisions()
 								if (CollisionHandler::RectCollide(bossHurtboxes[i], hitbox)) {//Comprueba la colisión de la hitbox dela bala con las hurtboxes del boss
 									hit = true;
 									//Mandar mensaje de collision bala / boss
-									MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), PlayState::getInstance()->getMainCharacter()->getAttackDamage(MCAttackType::SHOT));
+									MCBulletStun msg(PlayState::getInstance()->getMainCharacter()->getStunTime(), b->getDamage());
 									boss->sendMessage(&msg);
 								}
 								i++;
@@ -153,7 +153,7 @@ void CollisionsManager::bulletCollisions()
 						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de la hitbox de la bala con la hurtbox del MC
 							hit = true;
 							//Mandar mensaje de collision bala / player
-							Message msg(ENEMY_BULLET_COLLISION);
+							EnemyBulletMessage msg(b->getDamage());
 							mc->sendMessage(&msg);
 							Vector2D empuje = Vector2D(b->getTransform()->direction.getX(), b->getTransform()->direction.getY());
 							empuje.normalize();
@@ -180,7 +180,7 @@ void CollisionsManager::bulletCollisions()
 						if (CollisionHandler::RectCollide(hurtBoxes[i], hitbox)) {//Comprueba la colisión de la hitbox de la bala con la hurtbox del MC
 							hit = true;
 							//Mandar mensaje de collision bala / player
-							Message msg(BOSS_BULLET_HIT);
+							BossBulletMessage msg(b->getDamage());
 							mc->sendMessage(&msg);
 							Vector2D empuje = Vector2D(b->getTransform()->direction.getX(), b->getTransform()->direction.getY());
 							empuje.normalize();

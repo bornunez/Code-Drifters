@@ -11,7 +11,7 @@ class PlayState;
 class MCAnimationComponent;
 
 enum class MCState { Idle, Run, Attack, ChargingAttack, ChargedAttack, Shot, HookShot, Dash, Hurt, Heal, DashEnd, Death , Ultimate, FullCharge};
-enum class MCAttackType{NORMAL,CHARGED,ULTIMATE,SHOT};
+enum class MCAttackType{NORMAL,CHARGED,ULTIMATE};
 class MainCharacter : public GameObject
 {
 private:
@@ -21,7 +21,7 @@ private:
 	float gunStunTime = 2.5; //default stun time
 	float velocity;
 	float maxVelocity;
-	float normalAttackDamage, chargedAttackDamage, ultimateAttackDamage, shotAttackDamage;
+	float normalAttackDamage, chargedAttackDamage, ultimateAttackDamage;
 	MCState mcState = MCState::Idle;
 
 	bool charging = false;//Booleano si determina si se está pulsando el botón para cargar el ataque

@@ -93,10 +93,10 @@ void MCManagerComponent::receiveMessage(Message * msg)
 		mc->setMCState(MCState::HookShot);
 		break;
 	case ENEMY_BULLET_COLLISION:
-		HurtMC(5.0);
+		HurtMC(static_cast<EnemyBulletMessage*>(msg)->damage);
 		break;
 	case BOSS_BULLET_HIT:
-		HurtMC(20.0);
+		HurtMC(static_cast<BossBulletMessage*>(msg)->damage);
 		break;
 	case ENEMY_ATTACK:
 		HurtMC(static_cast<EnemyAttackMessage*>(msg)->damage);

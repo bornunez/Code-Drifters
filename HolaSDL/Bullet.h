@@ -17,6 +17,7 @@ public:
 	BulletType getType(){ return type; }
 	virtual ~Bullet();
 
+	void setDamage(float dmg) { damage = dmg; }
 	float getDamage() { return damage; }
 	float getAngle() { return angle; }
 	void setAngle(float a) { angle = a; }
