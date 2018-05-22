@@ -1,5 +1,6 @@
 #pragma once
 //#include "checkML.h"
+#include "Time.h"
 class Timer
 {
 public:
@@ -7,6 +8,7 @@ public:
 	~Timer();
 	float TimeSinceGameInit = 0;
 	float TimeSinceTimerCreation = 0;
+	float lastTime = 0;
 	void update();
 	void restart();
 
