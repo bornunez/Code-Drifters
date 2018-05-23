@@ -6,6 +6,7 @@
 
 class BulletManager : public GameObject {
 private:
+	float MCBulletDamage = 20;
 	Bullet * getBullet(BulletType bulletType);
 	virtual void receive(Message* msg);
 	std::vector<Bullet*> bullets;
@@ -29,4 +30,9 @@ public:
 	std::vector<Bullet*>& getBullets();
 	void shoot(GameObject* owner, Vector2D position, Vector2D velocity, BulletType bulletType);
 	void shoot(GameObject* owner, Transform bulletTransform, BulletType bulletType);
+
+	void setMCBulletDmg(float dmg)
+	{
+		MCBulletDamage = dmg;
+	}
 };

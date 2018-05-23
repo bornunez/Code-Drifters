@@ -90,7 +90,7 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 	switch (bulletType) {
 	case BulletType::MCBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(MCBullet), true, bulletType);
-		newBullet->setDamage(20);
+		newBullet->setDamage(MCBulletDamage);
 		break;
 	case BulletType::GunnerBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);

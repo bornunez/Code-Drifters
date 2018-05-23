@@ -1,1 +1,1 @@
-1 0 35 Mayor capacidad de cargador
+1 0 20 Mayor capacidad de cargador

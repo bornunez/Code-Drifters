@@ -29,6 +29,7 @@ private:
 	int maxBullets;
 	float currentBullets;
 	float reloadTime;
+	bool tripleShot = false;
 
 	int money = 0;
 	bool lifeStealEnabled = false;
@@ -60,6 +61,8 @@ public:
 	void setMaxVelocity(float vel);
 	void setGunPosition(Vector2D pos);
 	void setMCState(MCState state) { this->mcState = state; };
+	void setTripleShot(bool bul) { tripleShot = bul; };
+	bool getTripleShot() { return tripleShot; };
 
 	void setCurrentBullets(float current);
 	void setReloadTime(float newReloadTime);

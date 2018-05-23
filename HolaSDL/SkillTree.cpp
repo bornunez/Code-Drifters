@@ -289,11 +289,14 @@ void SkillTree::effect() {
 		character->addMaxHP(-(character->getMaxHP() / 4));
 		character->addPercentualDamage(50);
 		break;
-	case 21:	//50% more stun
+	case 21:	//50% more stun and more dmg
 		character->setStunTime(character->getStunTime()*3/2);
+		BulletManager::getInstance()->setMCBulletDmg(100);
 		break;
 	case 211:	//whenever you get hit having low bullets and hp, you get a free bullet
-		character->addComponent(new LastResortComponent(character));
+		//character->addComponent(new LastResortComponent(character));
+		character->setTripleShot(true);
+		BulletManager::getInstance()->setMCBulletDmg(150);
 		break;
 	case 221: //both add 1 bullet
 	case 22:
@@ -309,20 +312,17 @@ void SkillTree::effect() {
 		break;
 	case 32:	//add a bonus 10% max HP
 		character->addMaxHP(character->getMaxHP()*10 / 100);
-		cout << character->getMaxHP() << endl;
 		break;
 	case 321:	//add a bonus 33% max HP
 		character->addMaxHP(character->getMaxHP() / 3);
-		cout << character->getMaxHP() << endl;
 		break;
 	case 3211:	//add a bonus to reach double of initial max HP (calculated)
 		character->addMaxHP(((character->getMaxHP() * (60.0 / 44.0)) - character->getMaxHP()));
-		cout << character->getMaxHP() << endl;
-	case 33:	//25% ult cdr
-		character->setUltiBonusCD(25);
+	case 33:	//30% ult cdr
+		character->setUltiBonusCD(30);
 		break;
-	case 331:	//50% ult damage
-		character->setUltiDmg(character->getUltiDmg() * 1.5);
+	case 331:	//75% ult damage
+		character->setUltiDmg(character->getUltiDmg() * 1.75);
 		break;
 	default:
 		break;

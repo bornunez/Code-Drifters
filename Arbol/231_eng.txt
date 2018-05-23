@@ -1,1 +1,1 @@
-0 0 75 Reload ++
+0 0 60 Reload ++
