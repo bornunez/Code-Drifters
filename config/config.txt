@@ -1,4 +1,4 @@
-fullscreenTrue
+fullscreenFalse
 musicTrue
 ENG
 cheatsFalse

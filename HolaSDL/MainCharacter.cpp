@@ -81,7 +81,6 @@ MainCharacter::MainCharacter(Texture * tex, int x, int y, int w, int h)
 	normalAttackDamage = 50;
 	chargedAttackDamage = 200;
 	ultimateAttackDamage = 400;
-	shotAttackDamage = 20;
 	movable = true;
 	
 }
@@ -290,8 +289,6 @@ float MainCharacter::getAttackDamage(MCAttackType attackType)
 		return chargedAttackDamage;
 	case MCAttackType::ULTIMATE:
 		return ultimateAttackDamage;
-	case MCAttackType::SHOT:
-		return shotAttackDamage;
 	default:
 		return 0.0f;
 	}
@@ -325,8 +322,6 @@ MCAttackType MainCharacter::getCurrentAttackType()
 		return MCAttackType::CHARGED;
 	case MCState::Ultimate:
 		return MCAttackType::ULTIMATE;
-	case MCState::Shot:
-		return MCAttackType::SHOT;
 	default:
 		return MCAttackType::NORMAL;
 	}

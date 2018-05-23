@@ -22,14 +22,18 @@ void ChargerDamageableEnemyComponent::receiveMessage(Message* msg)
 {
 	if (msg->id == MC_ATTACK_DAMAGE) {
 		if (enemy->isStunned()) {
-			receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);
+			receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		}
 		attacked = true;
+		gameObject->setInvincibility(true);
 	}
 	else if (msg->id == ULTIMATE) {
 		timerOn = true;
 		damage = static_cast<MCAttackDamage*>(msg)->damage;
 		damageTimer->restart();
+	}
+	else if (msg->id == MC_BULLET_COLLISION) {
+		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
 	}
 }
 
@@ -40,7 +44,7 @@ void ChargerDamageableEnemyComponent::update()
 		if (damageTimer->TimeSinceTimerCreation > 1) {//El timer es para cuadrar la animación con el ataque
 			damageTimer->restart();
 			timerOn = false;
-			receiveDamage(MCAttackType::NORMAL, damage);
+			receiveDamage(damage);
 			attacked = true;
 		}
 	}
@@ -55,12 +59,13 @@ void ChargerDamageableEnemyComponent::update()
 	}
 	else {
 		gameObject->setInvincibility(false);
+
 		attackedTimer->restart();
 	}
 }
 
 
-void ChargerDamageableEnemyComponent::receiveDamage(MCAttackType attackType, float damage)
+void ChargerDamageableEnemyComponent::receiveDamage(float damage)
 {	
 	float dmg = damage;//El daño se calcula restando el ataque del jugador con la defensa del enemigo
 	int life = enemy->getLife();
@@ -70,9 +75,10 @@ void ChargerDamageableEnemyComponent::receiveDamage(MCAttackType attackType, flo
 		enemy->death();
 	}
 	else {
+		
 		Message msg(HURT);
-		gameObject->setInvincibility(true);
-		gameObject->sendMessage(&msg);	
+		//gameObject->setInvincibility(true);
+		gameObject->sendMessage(&msg);
 	}
 	
 }

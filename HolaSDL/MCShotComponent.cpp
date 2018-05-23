@@ -57,6 +57,14 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 				BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);
 
+				/*bulletTransform.direction.rotate(15);
+				bulletTransform.velocity.rotate(15);
+				BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);
+
+				bulletTransform.direction.rotate(-30);
+				bulletTransform.velocity.rotate(-30);
+				BulletManager::getInstance()->shoot(this->gameObject, bulletTransform, BulletType::MCBullet);*/
+
 				currentBullets -= 1;
 				mc->setCurrentBullets(currentBullets); //Le resta balas al personaje
 				Message msg(MC_SHOT);

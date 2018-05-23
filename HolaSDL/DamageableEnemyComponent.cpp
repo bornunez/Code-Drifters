@@ -28,13 +28,13 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 			enemy->sendMessage(&msg);
 			enemy->setStun(false);
 		}
-		receiveDamage(MCAttackType::NORMAL, static_cast<MCAttackDamage*>(msg)->damage);
+		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
+		gameObject->setInvincibility(true);
 		break;
 
 	case MC_BULLET_COLLISION:
-		receiveDamage(MCAttackType::SHOT, static_cast<MCBulletStun*>(msg)->damage);
-		attacked = true;
+		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
 		break;
 
 	case ULTIMATE:
@@ -55,10 +55,10 @@ void DamageableEnemyComponent::update()
 {
 	if (timerOn) {
 		damageTimer->update();
-		if (damageTimer->TimeSinceTimerCreation > 1) {//El timer es para cuadrar la animación con el ataque
+		if (damageTimer->TimeSinceTimerCreation > 1) {//El timer es para cuadrar la animación de la ulti con el ataque
 			damageTimer->restart();
 			timerOn = false;
-			receiveDamage(MCAttackType::NORMAL, damage);
+			receiveDamage(damage);
 			attacked = true;
 		}
 	}
@@ -77,7 +77,7 @@ void DamageableEnemyComponent::update()
 	}
 }
 
-void DamageableEnemyComponent::receiveDamage(MCAttackType attackType, float damage)
+void DamageableEnemyComponent::receiveDamage(float damage)
 {	
 	float dmg = damage;
 	int life = enemy->getLife();
@@ -87,8 +87,7 @@ void DamageableEnemyComponent::receiveDamage(MCAttackType attackType, float dama
 		enemy->death();
 	}
 	else {
-		Message msg(HURT);
-		gameObject->setInvincibility(true);
+		Message msg(HURT);	
 		gameObject->sendMessage(&msg);
 	}
 }
