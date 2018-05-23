@@ -87,7 +87,7 @@ void DamageableEnemyComponent::receiveDamage(float damage)
 		enemy->death();
 	}
 	else {
-		Message msg(HURT);		
+		Message msg(HURT);	
 		gameObject->sendMessage(&msg);
 	}
 }

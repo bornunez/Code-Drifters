@@ -4,7 +4,7 @@
 #include "MainCharacter.h"
 class Enemy;
 
-class ChargerDamageableEnemyComponent : virtual public UpdateComponent
+class ChargerDamageableEnemyComponent : public UpdateComponent
 {
 public:
 	ChargerDamageableEnemyComponent(Enemy* o, MainCharacter* mc, float invincibleTime);

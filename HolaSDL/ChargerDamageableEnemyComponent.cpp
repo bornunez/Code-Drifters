@@ -32,7 +32,7 @@ void ChargerDamageableEnemyComponent::receiveMessage(Message* msg)
 		damage = static_cast<MCAttackDamage*>(msg)->damage;
 		damageTimer->restart();
 	}
-	else if (MC_BULLET_COLLISION) {
+	else if (msg->id == MC_BULLET_COLLISION) {
 		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
 	}
 }
@@ -59,6 +59,7 @@ void ChargerDamageableEnemyComponent::update()
 	}
 	else {
 		gameObject->setInvincibility(false);
+
 		attackedTimer->restart();
 	}
 }
@@ -74,9 +75,10 @@ void ChargerDamageableEnemyComponent::receiveDamage(float damage)
 		enemy->death();
 	}
 	else {
+		
 		Message msg(HURT);
-	
-		gameObject->sendMessage(&msg);	
+		//gameObject->setInvincibility(true);
+		gameObject->sendMessage(&msg);
 	}
 	
 }
