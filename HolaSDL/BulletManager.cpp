@@ -67,6 +67,20 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 	for (Bullet* bullet : bullets) {
 		if (!bullet->isActive() && bullet->getType() == bulletType) {
 			bullet->setActive(true);
+			switch (bulletType) {
+			case BulletType::MCBullet:
+				bullet->setDamage(20);
+				break;
+			case BulletType::GunnerBullet:
+				bullet->setDamage(5);
+				break;
+			case BulletType::BossBullet:
+				bullet->setDamage(5);
+				break;
+			case BulletType::BombBullet:
+				bullet->setDamage(5);
+				break;
+			}
 			return bullet;
 		}
 	}
@@ -76,15 +90,19 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 	switch (bulletType) {
 	case BulletType::MCBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(MCBullet), true, bulletType);
+		newBullet->setDamage(20);
 		break;
 	case BulletType::GunnerBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);
+		newBullet->setDamage(20);
 		break;
 	case BulletType::BossBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BossBullet), true, bulletType);
+		newBullet->setDamage(20);
 		break;
 	case BulletType::BombBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BombBullet), true, bulletType);
+		newBullet->setDamage(20);
 		break;
 	}
 
