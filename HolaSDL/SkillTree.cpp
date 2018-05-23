@@ -274,16 +274,16 @@ void SkillTree::effect() {
 		character->addPercentualDamage((100.0/3.0));
 		break;
 	case 111:
-		character->addPercentualDamage(50);
+		character->addPercentualDamage(40);
 		break;
 	case 1111:
-		character->addPercentualDamage(50);
+		character->addPercentualDamage(43);
 		break;
 	case 112:
 		character->setLifeStealEnable(true);
 		break;
 	case 1121:	//doubles life steal
-		character->setLifeSteal(2);//multiplicator
+		character->setLifeSteal(5/3);//multiplicator
 		break;
 	case 12:	//adds 50% extra ad, reduces max hp to 75%
 		character->addMaxHP(-(character->getMaxHP() / 4));

@@ -32,7 +32,7 @@ private:
 
 	int money = 0;
 	bool lifeStealEnabled = false;
-	float lifeStealPercentual = 4.0; //percentage of the damage done that is healed
+	float lifeStealPercentual = 3.0; //percentage of the damage done that is healed
 
 	float ultiCharge = 90;//[0,100]
 	float UltiBonusCD = 1; //[ultiCharge / ultiBonus], which leads to bonus in range (0, 1]
