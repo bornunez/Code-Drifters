@@ -291,12 +291,12 @@ void SkillTree::effect() {
 		break;
 	case 21:	//50% more stun and more dmg
 		character->setStunTime(character->getStunTime()*3/2);
-		BulletManager::getInstance()->setMCBulletDmg(100);
+		BulletManager::getInstance()->setMCBulletDmg(50);
 		break;
 	case 211:	//whenever you get hit having low bullets and hp, you get a free bullet
 		//character->addComponent(new LastResortComponent(character));
 		character->setTripleShot(true);
-		BulletManager::getInstance()->setMCBulletDmg(150);
+		BulletManager::getInstance()->setMCBulletDmg(75);
 		break;
 	case 221: //both add 1 bullet
 	case 22:

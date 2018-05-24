@@ -69,7 +69,7 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 			bullet->setActive(true);
 			switch (bulletType) {
 			case BulletType::MCBullet:
-				bullet->setDamage(20);
+				bullet->setDamage(MCBulletDamage);
 				break;
 			case BulletType::GunnerBullet:
 				bullet->setDamage(5);
