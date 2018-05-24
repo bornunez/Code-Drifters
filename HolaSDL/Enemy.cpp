@@ -34,6 +34,7 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	transform.body.x = x; transform.body.y = y;
 	updatePreviousPosition();	
 	updateBody();
+	allUpdates();
 
 	//Y ponemos sus valores por defecto
 	EnemyParams params = EnemyManager::getInstance()->getParams(type);
