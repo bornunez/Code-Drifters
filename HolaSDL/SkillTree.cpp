@@ -296,7 +296,7 @@ void SkillTree::effect() {
 	case 211:	//whenever you get hit having low bullets and hp, you get a free bullet
 		//character->addComponent(new LastResortComponent(character));
 		character->setTripleShot(true);
-		BulletManager::getInstance()->setMCBulletDmg(75);
+		BulletManager::getInstance()->setMCBulletDmg(70);
 		break;
 	case 221: //both add 1 bullet
 	case 22:

@@ -1,1 +1,1 @@
-0 0 100 Triple Lethal Shot
+0 0 125 Triple Lethal Shot

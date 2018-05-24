@@ -72,13 +72,13 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 				bullet->setDamage(MCBulletDamage);
 				break;
 			case BulletType::GunnerBullet:
-				bullet->setDamage(5);
+				bullet->setDamage(10);
 				break;
 			case BulletType::BossBullet:
-				bullet->setDamage(5);
+				bullet->setDamage(15);
 				break;
 			case BulletType::BombBullet:
-				bullet->setDamage(5);
+				bullet->setDamage(10);
 				break;
 			}
 			return bullet;
@@ -94,15 +94,15 @@ Bullet * BulletManager::getBullet(BulletType bulletType)
 		break;
 	case BulletType::GunnerBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(GunnerBullet), true, bulletType);
-		newBullet->setDamage(20);
+		newBullet->setDamage(10);
 		break;
 	case BulletType::BossBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BossBullet), true, bulletType);
-		newBullet->setDamage(20);
+		newBullet->setDamage(15);
 		break;
 	case BulletType::BombBullet:
 		newBullet = new Bullet(ResourceManager::getInstance()->getTexture(BombBullet), true, bulletType);
-		newBullet->setDamage(20);
+		newBullet->setDamage(10);
 		break;
 	}
 
