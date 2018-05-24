@@ -1,30 +1,38 @@
 3
-MaskedFather Gio
 Protagonista Haro
-Father Gio-Sama
-11
+MaskedFather HombreEnmascarado
+Father Gio
+15
 0
-*Woof Woof*
+At least, the final room...
 1
-Eres tu Perez Reverte??
+It seems I've underestimated you, Haro, I never thought you'd get here.
 0
-*Agita la cola y mira hacia arriba* *Wooooof*
+You! You're the one in charge here, right?! Why did you attack my family ?!
 1
-*Le tira en la cama, agarrando su mano fuertemente y se acerca a su oido* Como te follaba con la poya
-0
-*Se sonroja* Ba-Baka, no es como que me guste
-1
-Rrraaaaaawwwwrrrr *owo*
-0
-*Se quita la mascara*
+Your family? No...
 2
-YA ME CANSE DE SER BUENA ONDA
-1
-REEEEEEEEEEEEEEEEE
+Our family.
+0
+That face ... Wait! You are Gio! You betrayed our family our family years ago!
 2
-ODIAME POR SER OTAKU, ADELANTE, ESTAS EN TU DERECHO, ABLA AMIS ESPALDAS Y AZ DE MI VIDA UN INFIERNO, LO AGUANTARE CON UNA SONRIDSA EN LA CARA
+Betrayal? Ha! I took control of all the other memEX networks ... exactly what Father Forman asked me to do.
+0
+Father ... Forman? My grandfather?
 2
-INSULTA AL ANIME, A ALGUN AMIGO TAMBIEN OTAKU, Y EL INFIERNO TE PARECERA UN HOTEL CONPARADO CONMIGO :V
+Forman Greeman is my father, Haro ... do you know what that means?
+0
+No… NO! It' cant be, you're lying!
+2
+I am your father, Haro.
+0
+SHUT UP!
+2
+My son, you have shown that you are strong ... Join me, together we will be unstoppable.
+0
+NEVER!
+2
+Then your stubbornness will be your grave. Say good bye!
 
 
 

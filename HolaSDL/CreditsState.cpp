@@ -36,6 +36,7 @@ void CreditsState::update()
 	}
 	else 
 	{
+		ResourceManager::getInstance()->getMusic(Menu)->play();
 		game->endDialogue();
 	}
 
@@ -48,6 +49,7 @@ void CreditsState::handleEvent(SDL_Event & e)
 	{
 		if (e.key.keysym.sym == SDLK_ESCAPE)
 		{
+			ResourceManager::getInstance()->getMusic(Menu)->play();
 			game->endDialogue();
 		}
 	}
