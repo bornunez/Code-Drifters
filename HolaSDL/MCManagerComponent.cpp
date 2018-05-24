@@ -147,5 +147,6 @@ void MCManagerComponent::HurtMC(float dmg) {
 		Message msg(MC_DEATH);
 		//Envia a todos los componentes del MC el msg de muerte
 		this->gameObject->sendMessage(&msg);
+		mc->setMCState(MCState::Death);
 	}
 }
