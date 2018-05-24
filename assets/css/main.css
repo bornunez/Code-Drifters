@@ -602,7 +602,7 @@
 	p 
 	{
 		position: relative;
-		top: 5.5em;
+		top: 1.5em;
 		font-size: 1.4em;
 		color: #E929EF;
 	}
@@ -2120,7 +2120,7 @@
 /* One */
 
 	#one {
-		background: url("../../images/one.jpg");
+		background: url("../../images/one.png");
 		background-size: cover;
 		background-attachment: fixed;
 		background-position: center center;
