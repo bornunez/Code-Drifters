@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="48" height="48" tilewidth="16" tileheight="16" infinite="0" nextobjectid="47">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="48" height="48" tilewidth="16" tileheight="16" nextobjectid="47">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
  <tileset firstgid="1137" source="../../tileset/Buildings.tsx"/>
  <layer name="Aire" width="48" height="48">
   <data encoding="base64" compression="zlib">
-   eJzt11sOgCAMBVHc/6ZdgSDYevuYSfplAscQExzDoWsyGXpy4l/vazWe61f3Rw2/Nvza8GvDrw2/tg7+6FXzv72bRmnnPh09/Nrwa8v4Lc+8Wfwnz6JU3R/9HfBrw68ts7/D/yN+v/Brw6+ti/90Tj1W+3z1r/bwXNuymT9DFfw/nf0Nmg0BKw==
+   eJzt11sKwCAMBVG7/013BY2gSW8eM+BXwZwihbpWQI+xKvTlxL+f67Ui9/fy3xTpzxp+bfi14deGXxt+bRP82evmr3a/8/6PV4ZfG35tFb9ly1vFf/IsS9392d8Bvzb82ir7J9wf8ceFXxt+bVP8p+vU4zXn1r+bEbm3Z5a/Qh38P539C1NQASE=
   </data>
  </layer>
  <layer name="Suelo" width="48" height="48">

@@ -32,7 +32,7 @@ void ChargerDamageableEnemyComponent::receiveMessage(Message* msg)
 		damage = static_cast<MCAttackDamage*>(msg)->damage;
 		damageTimer->restart();
 	}
-	else if (msg->id == MC_BULLET_COLLISION) {
+	else if (msg->id == MC_BULLET_COLLISION && enemy->isStunned()) {
 		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
 	}
 }

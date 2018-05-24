@@ -1,4 +1,4 @@
-fullscreenFalse
+fullscreenTrue
 musicTrue
-ENG
+ESP
 cheatsFalse

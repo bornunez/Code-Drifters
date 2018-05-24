@@ -37,9 +37,9 @@ Boss3::Boss3(MainCharacter* prot, int x, int y, int w, int h) : MasterBoss(3)
 
 	prota = prot;
 	posInic = Vector2D(transform.position.getX(), transform.position.getY());
-	Attributes.life = 6000;
+	Attributes.life = 7000;
 	Attributes.maxHP = Attributes.life;
-	Attributes.meleeDmg = 25;
+	Attributes.meleeDmg = 20;
 	allUpdates();
 	loadAnimations();
 	this->changeCurrentAnimation("ABRE_BRAZOS");

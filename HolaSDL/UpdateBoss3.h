@@ -75,7 +75,7 @@ private:
 	const float tiempoFase1 = 2;
 	const float tiempoFase2 = 2;
 	const float tiempoFase3 = 6;
-	const float tiempoFase4 = 17.5;
+	const float tiempoFase4 = 15;
 	const float tiempoFase5 = 7.5;
 	const float tiempoFase6 = 1;
 	const float tiempoFase7 = 0.75;

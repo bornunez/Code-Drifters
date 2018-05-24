@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="right-down" width="35" height="30" tilewidth="16" tileheight="16" infinite="0" nextobjectid="19">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="35" height="30" tilewidth="16" tileheight="16" nextobjectid="19">
  <tileset firstgid="1" source="../../tileset/tileset16.tsx"/>
  <tileset firstgid="65" source="../../tileset/LabProps.tsx"/>
  <tileset firstgid="433" source="../../tileset/city.tsx"/>
  <tileset firstgid="689" source="../../tileset/City2.tsx"/>
  <layer name="Suelo" width="35" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlVuOgzAMRcNDGhHyVXUNs/yucUDKEYcowFSl5aeWrGbA2Nc3154Qvva191lTeDt5N3k/+U/2V/PfJr9nb5SfWq5Zez+ff7O/iuWe8bjf8pea3QYW8JyBpYYDTjh3ihsnj2F9Z11x7nLMM1hKDbjnkpf575SfDcXzqF8czOSNytHkHDUscOL+qOe7gZchLPcD/qg6Y/6G2LF4Hw+wJJ1x8qKXJp/BaQzUHtXXoHj6S4rfuyOf4dd66ZW/pmnz1KsmPSVx0gjLUPBmbYyVZ8aF+1vfH7xG8UeeqBhj4V0Nj/VrHLU5d5zvhXMK+waf6Nv16ScWvLs3+Of+mZE+rHtDu0dYzI3nEg6tHeNDu56ZpFhr2/PyH26827yzkvLSH7rz7LRFfK9vnjE4SGHRLPXRPXfShmUevDv8jP6ONLJlpVasj6F4z46wVpjJswzdu3cw+X+U551dj/bONu4FLVjTcA+eTxvzjma8Tz9t1g8Y2DNXGLpgbtr98LcauvY+ucIe7VqvzPnjAkBzTe8WZvkqLMw1u6a/EIt3HuersGz5GfYHETYUWw==
+   eJztle1qwzAMRZ0PGHH8a/QZ9v6PuBR86Klwk3VNGygViHqJIl1dX2kpfexjz7MueL/4sPi4+Ff1R/N/L36q3ik/tVyz9f58/qn+KJZTxeN+4y81hxtYwLMHlhYOOOE8KG5ePKfrOxvCeagx92CJGnDPkZfz36U+m8LzrF8czOTNytHVHC0scOL+qOe7gZcpXe4H/Fl15voNsXN4nzewFJ1x8qKXrp7BaQzUntXXpHj6K4pfuyOf4dd6GZW/pWnzNKomPRVx0gnLFHizNubGM+PC/a3vD16z+CNPVoyx8K6Fx/o1jtacO873wrmkdYNP9O369JMD7+4N/rl/ZmRM172h3S0s5sZzCYfWjvGhXc9MUay17Xn5Czfebd5ZRXnpD915dvoQP+qbewwOSrpolvronjvp02UevDv8jP62NHLLolasjym8Z0dYK8zkXobu3TuY/D/K886uR3t7G/eCFqxpuAfPq415RzPep6826wcM7JkjDF0wN/16+FMNXXufHGXW63922J7m3cIsH2XMNbvmKN2mdL3zOL+j/QIpbwoL
   </data>
  </layer>
  <layer name="Aire" width="35" height="30">
