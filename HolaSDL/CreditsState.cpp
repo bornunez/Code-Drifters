@@ -25,7 +25,7 @@ void CreditsState::render()
 
 void CreditsState::update()
 {
-	if (time < 43.5) {
+	if (time < 46.5) {
 		time += Time::getInstance()->DeltaTime;
 		rect.y = 450 - time * 50;
 	}
