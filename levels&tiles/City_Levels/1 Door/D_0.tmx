@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" nextobjectid="42">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="44" height="36" tilewidth="16" tileheight="16" nextobjectid="42">
  <tileset firstgid="1" source="../../tileset/city.tsx"/>
  <tileset firstgid="257" source="../../tileset/City2.tsx"/>
  <tileset firstgid="769" source="../../tileset/CityProps.tsx"/>
@@ -15,12 +15,12 @@
  </layer>
  <layer name="Aire" width="44" height="36">
   <data encoding="base64" compression="zlib">
-   eJzt2E0KwjAQBeBYAroWbO2iCwtqu+hSUesF/Ln/eXyCS2OHpjNmYB48skiZfqRdxTmL5Q+ZCcyX7BTeX9uZcx6do4uMOC9kFPDWMOZoga4p3oh3TTFjCeMW3aONIu8OPX3zSv/jA/sbGFdoGXu21ER668/5tkq87xxgPSryisa8vDEvb8zLG/PyJiFv6QkPJeRtlXkrZd5OmfcM7wW9BtbeEzyC3hs8d/QZWB+JeUkxL2/MyxuKV/rOjPuOLSYhb6rR6B3xzV+siQkc
+   eJzt2MsJgDAMgOFYuoQHB/DgUcHHAj72n8csUA21iQnND6EX0Y/WUwE874cagfdLTglvyZ6MGr3c36rNK/2PS+4vpQq9YwCYQhHNexXur2ju5c29vLmXN/dm10bCQ4q8vTFvZ8w7GPPO6F1wtsS6RoJH0Luj58C5EuupzEvKvby5lzeKV/rOjPuO7Uspr9YsejPO/Aa6XQab
   </data>
  </layer>
  <layer name="Acido" width="44" height="36">
   <data encoding="base64" compression="zlib">
-   eJztzskJwFAMQ0Hzs/aR9Z61/8oiyMW4gRjyBoR0lBkAAAAA4M+qYlYrjetW6cLuy9dPX4N+jMrkelaWsNckfzf92JXD9alcYd9J/gIAAGTxAC68BGc=
+   eJzt1j0LwjAUheEQW+1aQbSjrcZ2rv34/7/MI2QInQSH5sL7wCF3PEPCjXMALGi9cy+l93s3+U2tng/lZqTvWT2vSmOobzDU9x7v72Ck7/e9XQy9NwAA/nXQziuUMjmPymkzV5nsxi7+NZ/JGeJ/I51z2eWjeryVKTlnZdnMayZ9AQAAcvEBC+gGrA==
   </data>
  </layer>
  <layer name="Paredes" width="44" height="36">
