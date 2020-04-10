@@ -1,6 +1,7 @@
 #pragma once
 //#include "checkML.h"
 #include <vector>
+#include <string>
 #include "sdl_includes.h"
 class Room;
 class Game;

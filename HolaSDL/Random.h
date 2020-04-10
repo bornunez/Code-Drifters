@@ -1,6 +1,7 @@
 #pragma once
 //#include "checkML.h"
 #include <vector>
+#include <string>
 
 using namespace std;
 class Random
