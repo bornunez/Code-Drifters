@@ -576,7 +576,7 @@ ProyectosSDL/README.txt
 
 *.vcxproj
 
-*.vcxproj.filters
+#*.vcxproj.filters
 
 *.sln
 
