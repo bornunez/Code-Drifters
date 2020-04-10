@@ -451,17 +451,22 @@
     <ClCompile Include="Usabilidad\Tracker.cpp">
       <Filter>Usabilidad</Filter>
     </ClCompile>
-    <ClCompile Include="Usabilidad\TrackerEvent.cpp">
-      <Filter>Usabilidad</Filter>
-    </ClCompile>
     <ClCompile Include="Usabilidad\Persistence\IPersistence.cpp">
       <Filter>Usabilidad\Persistence</Filter>
     </ClCompile>
     <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp">
       <Filter>Usabilidad\Serializer</Filter>
     </ClCompile>
-    <ClCompile Include="JSONSerializer.cpp" />
-    <ClCompile Include="FilePersistance.cpp" />
+    <ClCompile Include="Usabilidad\Persistence\FilePersistance.cpp">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\Serializer\JSONSerializer.cpp">
+      <Filter>Usabilidad\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp">
+      <Filter>Usabilidad\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressionEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -898,17 +903,22 @@
     <ClInclude Include="Usabilidad\Tracker.h">
       <Filter>Usabilidad</Filter>
     </ClInclude>
-    <ClInclude Include="Usabilidad\TrackerEvent.h">
-      <Filter>Usabilidad</Filter>
-    </ClInclude>
     <ClInclude Include="Usabilidad\Persistence\IPersistence.h">
       <Filter>Usabilidad\Persistence</Filter>
     </ClInclude>
     <ClInclude Include="Usabilidad\Serializer\ISerializer.h">
       <Filter>Usabilidad\Serializer</Filter>
     </ClInclude>
-    <ClInclude Include="JSONSerializer.h" />
-    <ClInclude Include="FilePersistance.h" />
+    <ClInclude Include="Usabilidad\Persistence\FilePersistance.h">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Serializer\JSONSerializer.h">
+      <Filter>Usabilidad\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Event\TrackerEvent.h">
+      <Filter>Usabilidad\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressionEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -1012,6 +1022,9 @@
     </Filter>
     <Filter Include="Usabilidad\Serializer">
       <UniqueIdentifier>{a472e5e7-38fa-423e-80e4-c512b3e64bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Usabilidad\Event">
+      <UniqueIdentifier>{73129b5d-83b9-4c41-8251-a7e312418ea9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

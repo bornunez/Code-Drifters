@@ -64,7 +64,6 @@
     <ClCompile Include="EnemyTurret.cpp" />
     <ClCompile Include="ExampleEnemy.cpp" />
     <ClCompile Include="ExampleRender.cpp" />
-    <ClCompile Include="FilePersistance.cpp" />
     <ClCompile Include="Final.cpp" />
     <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -89,7 +88,6 @@
     <ClCompile Include="IntroState.cpp" />
     <ClCompile Include="ItemManager.cpp" />
     <ClCompile Include="ItemObject.cpp" />
-    <ClCompile Include="JSONSerializer.cpp" />
     <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="LastResortComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
@@ -126,6 +124,7 @@
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="PressToInteract.cpp" />
+    <ClCompile Include="ProgressionEvent.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="ReloadComponent.cpp" />
     <ClCompile Include="RenderBoss.cpp" />
@@ -163,10 +162,12 @@
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="UpdateWheel.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
+    <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp" />
+    <ClCompile Include="Usabilidad\Persistence\FilePersistance.cpp" />
     <ClCompile Include="Usabilidad\Persistence\IPersistence.cpp" />
     <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp" />
+    <ClCompile Include="Usabilidad\Serializer\JSONSerializer.cpp" />
     <ClCompile Include="Usabilidad\Tracker.cpp" />
-    <ClCompile Include="Usabilidad\TrackerEvent.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WallStunComponent.cpp" />
     <ClCompile Include="Wave.cpp" />
@@ -230,7 +231,6 @@
     <ClInclude Include="EnemyTurret.h" />
     <ClInclude Include="ExampleEnemy.h" />
     <ClInclude Include="ExampleRender.h" />
-    <ClInclude Include="FilePersistance.h" />
     <ClInclude Include="Final.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="Game.h" />
@@ -253,7 +253,6 @@
     <ClInclude Include="HUDObject.h" />
     <ClInclude Include="IntroState.h" />
     <ClInclude Include="ItemObject.h" />
-    <ClInclude Include="JSONSerializer.h" />
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LastResortComponent.h" />
     <ClInclude Include="LevelExplorer.h" />
@@ -292,6 +291,7 @@
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="PressToInteract.h" />
+    <ClInclude Include="ProgressionEvent.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="ReloadComponent.h" />
     <ClInclude Include="RenderBoss.h" />
@@ -332,10 +332,12 @@
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="UpdateWheel.h" />
     <ClInclude Include="UpperGameState.h" />
+    <ClInclude Include="Usabilidad\Event\TrackerEvent.h" />
+    <ClInclude Include="Usabilidad\Persistence\FilePersistance.h" />
     <ClInclude Include="Usabilidad\Persistence\IPersistence.h" />
     <ClInclude Include="Usabilidad\Serializer\ISerializer.h" />
+    <ClInclude Include="Usabilidad\Serializer\JSONSerializer.h" />
     <ClInclude Include="Usabilidad\Tracker.h" />
-    <ClInclude Include="Usabilidad\TrackerEvent.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />
     <ClInclude Include="Wave.h" />
