@@ -1,5 +1,6 @@
 #pragma once
 #include "IPersistence.h"
+#include "../Serializer/ISerializer.h"
 #include <fstream>
 
 class FilePersistence : public IPersistence
@@ -11,7 +12,7 @@ private:
 
 public:
 
-	FilePersistence(string path) : path(path) {	}
+	FilePersistence(ISerializer* serializer, string path) : IPersistence(serializer),  path(path) {	}
 
 	void Init();
 	void End();

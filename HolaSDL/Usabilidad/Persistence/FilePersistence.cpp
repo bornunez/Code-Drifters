@@ -21,7 +21,7 @@ void FilePersistence::End()
 void FilePersistence::Send(TrackerEvent e)
 {
 	if (file.is_open()) {
-		file << e.ToJson() <<endl;
+		file << serializer->Serialize(e) <<endl;
 	}
 }
 

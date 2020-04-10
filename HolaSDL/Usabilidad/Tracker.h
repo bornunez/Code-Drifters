@@ -3,6 +3,7 @@
 #include "Event/TrackerEvent.h"
 #include "Persistence/IPersistence.h"
 #include "Serializer/ISerializer.h"
+#include "Serializer/JSONSerializer.h"
 #include "Persistence/FilePersistence.h"
 #include "Event/AttackEvent.h"
 #include <ctime>
@@ -24,7 +25,8 @@ private:
 public:
 
 	void Init() {
-		persistenceObject = new FilePersistence("ablublibla");
+		serializerObject = new JSONSerializer();
+		persistenceObject = new FilePersistence(serializerObject, "trackFile");
 	}
 	void End() {
 		delete persistenceObject;
