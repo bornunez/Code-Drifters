@@ -457,9 +457,6 @@
     <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp">
       <Filter>Usabilidad\Serializer</Filter>
     </ClCompile>
-    <ClCompile Include="Usabilidad\Persistence\FilePersistance.cpp">
-      <Filter>Usabilidad\Persistence</Filter>
-    </ClCompile>
     <ClCompile Include="Usabilidad\Serializer\JSONSerializer.cpp">
       <Filter>Usabilidad\Serializer</Filter>
     </ClCompile>
@@ -469,7 +466,12 @@
     <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp">
       <Filter>Usabilidad\Event</Filter>
     </ClCompile>
-    <ClCompile Include="AttackEvent.cpp" />
+    <ClCompile Include="Usabilidad\Event\AttackEvent.cpp">
+      <Filter>Usabilidad\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -912,9 +914,6 @@
     <ClInclude Include="Usabilidad\Serializer\ISerializer.h">
       <Filter>Usabilidad\Serializer</Filter>
     </ClInclude>
-    <ClInclude Include="Usabilidad\Persistence\FilePersistance.h">
-      <Filter>Usabilidad\Persistence</Filter>
-    </ClInclude>
     <ClInclude Include="Usabilidad\Serializer\JSONSerializer.h">
       <Filter>Usabilidad\Serializer</Filter>
     </ClInclude>
@@ -924,7 +923,12 @@
     <ClInclude Include="Usabilidad\Event\ProgressionEvent.h">
       <Filter>Usabilidad\Event</Filter>
     </ClInclude>
-    <ClInclude Include="AttackEvent.h" />
+    <ClInclude Include="Usabilidad\Event\AttackEvent.h">
+      <Filter>Usabilidad\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Persistence\FilePersistence.h">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

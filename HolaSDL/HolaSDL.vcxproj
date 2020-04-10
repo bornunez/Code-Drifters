@@ -15,7 +15,6 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationFrame.cpp" />
     <ClCompile Include="AnimationParser.cpp" />
-    <ClCompile Include="AttackEvent.cpp" />
     <ClCompile Include="BasicMovement.cpp" />
     <ClCompile Include="BombAnimationComponent.cpp" />
     <ClCompile Include="BombComponent.cpp" />
@@ -162,9 +161,10 @@
     <ClCompile Include="UpdateComponent.cpp" />
     <ClCompile Include="UpdateWheel.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
+    <ClCompile Include="Usabilidad\Event\AttackEvent.cpp" />
     <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp" />
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp" />
-    <ClCompile Include="Usabilidad\Persistence\FilePersistance.cpp" />
+    <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp" />
     <ClCompile Include="Usabilidad\Persistence\IPersistence.cpp" />
     <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp" />
     <ClCompile Include="Usabilidad\Serializer\JSONSerializer.cpp" />
@@ -180,7 +180,6 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationFrame.h" />
     <ClInclude Include="AnimationParser.h" />
-    <ClInclude Include="AttackEvent.h" />
     <ClInclude Include="BasicMovement.h" />
     <ClInclude Include="BasicObject.h" />
     <ClInclude Include="BombAnimationComponent.h" />
@@ -333,9 +332,10 @@
     <ClInclude Include="UpdateComponent.h" />
     <ClInclude Include="UpdateWheel.h" />
     <ClInclude Include="UpperGameState.h" />
+    <ClInclude Include="Usabilidad\Event\AttackEvent.h" />
     <ClInclude Include="Usabilidad\Event\ProgressionEvent.h" />
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h" />
-    <ClInclude Include="Usabilidad\Persistence\FilePersistance.h" />
+    <ClInclude Include="Usabilidad\Persistence\FilePersistence.h" />
     <ClInclude Include="Usabilidad\Persistence\IPersistence.h" />
     <ClInclude Include="Usabilidad\Serializer\ISerializer.h" />
     <ClInclude Include="Usabilidad\Serializer\JSONSerializer.h" />
