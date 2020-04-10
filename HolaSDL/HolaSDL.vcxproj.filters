@@ -466,7 +466,10 @@
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp">
       <Filter>Usabilidad\Event</Filter>
     </ClCompile>
-    <ClCompile Include="ProgressionEvent.cpp" />
+    <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp">
+      <Filter>Usabilidad\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="AttackEvent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -918,7 +921,10 @@
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h">
       <Filter>Usabilidad\Event</Filter>
     </ClInclude>
-    <ClInclude Include="ProgressionEvent.h" />
+    <ClInclude Include="Usabilidad\Event\ProgressionEvent.h">
+      <Filter>Usabilidad\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
