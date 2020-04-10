@@ -448,6 +448,20 @@
     <ClCompile Include="IntroState.cpp" />
     <ClCompile Include="HealInput.cpp" />
     <ClCompile Include="CreditsState.cpp" />
+    <ClCompile Include="Usabilidad\Tracker.cpp">
+      <Filter>Usabilidad</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\TrackerEvent.cpp">
+      <Filter>Usabilidad</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\Persistence\IPersistence.cpp">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp">
+      <Filter>Usabilidad\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONSerializer.cpp" />
+    <ClCompile Include="FilePersistance.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -881,6 +895,20 @@
     <ClInclude Include="IntroState.h" />
     <ClInclude Include="HealInput.h" />
     <ClInclude Include="CreditsState.h" />
+    <ClInclude Include="Usabilidad\Tracker.h">
+      <Filter>Usabilidad</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\TrackerEvent.h">
+      <Filter>Usabilidad</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Persistence\IPersistence.h">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Serializer\ISerializer.h">
+      <Filter>Usabilidad\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONSerializer.h" />
+    <ClInclude Include="FilePersistance.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">
@@ -975,6 +1003,15 @@
     </Filter>
     <Filter Include="Bosses\Wave">
       <UniqueIdentifier>{ae306718-d2d7-415e-b011-444d250ab7b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Usabilidad">
+      <UniqueIdentifier>{a946b976-6de4-4568-af08-55251e937804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Usabilidad\Persistence">
+      <UniqueIdentifier>{5976ad91-4b0a-4f81-870c-c4c9a5ee58de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Usabilidad\Serializer">
+      <UniqueIdentifier>{a472e5e7-38fa-423e-80e4-c512b3e64bea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
