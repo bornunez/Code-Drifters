@@ -27,6 +27,14 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 			Message msg(STUN_OFF);
 			enemy->sendMessage(&msg);
 			enemy->setStun(false);
+
+			//TELEMETRIA
+			//Evento COMBO (STUN-ESPADA)
+		}
+		//TELEMETRIA
+		if (enemy->isComboHooked())
+		{
+			//Evento COMBO (HOOK-ESPADA)
 		}
 		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
@@ -35,6 +43,12 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 
 	case MC_BULLET_COLLISION:
 		receiveDamage(static_cast<MCBulletStun*>(msg)->damage);
+
+		//TELEMETRIA
+		if (enemy->isComboHooked())
+		{
+			//Evento COMBO (HOOK-ESPADA)
+		}
 		break;
 
 	case ULTIMATE:
@@ -45,6 +59,9 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 			Message msg(STUN_OFF);
 			enemy->sendMessage(&msg);
 			enemy->setStun(false);
+
+			//TELEMETRIA
+			//Evento COMBO (STUN-ULTI)
 		}
 		break;
 

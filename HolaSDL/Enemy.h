@@ -2,6 +2,7 @@
 //#include "checkML.h"
 #include "GameObject.h"
 #include <string>
+class Timer;
 class MainCharacter;
 class Game;
 class PlayState;
@@ -49,6 +50,7 @@ public:
 	virtual void update();
 	void onDestroy();
 	void death();
+	void hookCombo();
 	MainCharacter* getMC();
 	EnemyType getType() { return type; }
 	float getMeleeDmg() { return Attributes.meleeDmg; }
@@ -60,6 +62,14 @@ public:
 	bool isStunned() { return Attributes.stunned; }
 	bool isHooked() { return (this->enemyState==EnemyState::Hooked); }
 	bool isHookable() { return Attributes.hookable; }
+
+	//TELEMETRIA
+	bool hooked = false;
+	float hookComboTime = 1;
+	bool isComboHooked() { return hooked; };
+	Timer* timer;
+
+
 	EnemyState enemyState;		//PROTECTED
 	EnemyState getEnemyState() { return this->enemyState; }
 	double baseSpeed;

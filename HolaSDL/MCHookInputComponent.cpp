@@ -61,6 +61,9 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 				
 
 				mc->shootHook(gunPosition, hookDirection);
+
+				//TELEMETRIA
+				//Evento HOOK
 			}
 		}
 	}

@@ -181,7 +181,13 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 				//Poniendo aqui First haces ataques sin pausa
 				comboAttack = CD;
 				attackCD->restart();
-			}			
+
+				//***TELEMETRIA
+				//***Evento COMBO (3 ESPADAZOS)
+			}
+			//TELEMETRIA
+			//Evento ESPADA
+
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
 		}

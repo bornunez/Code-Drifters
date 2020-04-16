@@ -31,6 +31,9 @@ void MCUltimateInput::handleEvents(SDL_Event & e)
 				mc->setMCState(MCState::Ultimate);
 				mc->sendMessage(&ulti);
 				mc->setUltiCharge(0);
+
+				//TELEMETRIA
+				//Evento ULTI
 			}
 		}
 	}
