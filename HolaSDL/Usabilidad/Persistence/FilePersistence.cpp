@@ -1,11 +1,32 @@
 #include "FilePersistence.h"
+#include <filesystem> // or #include <filesystem>
+
 
 #include <iostream>
+#include <windows.h>
+#include <stdio.h>
 
 using namespace std;
 
+
+
+void CreateFolder(const char* path)
+{
+	if (!CreateDirectory(path, NULL))
+	{
+		return;
+	}
+}
+
+
 void FilePersistence::Init()
 {
+
+
+
+	CreateFolder("../Tracker");
+
+
 	file.open(path);
 
 	if (!file.is_open())

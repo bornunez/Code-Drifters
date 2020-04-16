@@ -11,6 +11,8 @@ public:
 	AttackEvent(time_t time, ATTACK_TYPE type) : TrackerEvent(time, ATTACK ) {
 		this->type = type;
 	}
+	string ToJson() {
 
+	}
 };
 
