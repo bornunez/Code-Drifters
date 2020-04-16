@@ -65,7 +65,7 @@ public:
 
 	//TELEMETRIA
 	bool hooked = false;
-	float hookComboTime = 0.5f;
+	float hookComboTime = 1;
 	bool isComboHooked() { return hooked; };
 	Timer* timer;
 

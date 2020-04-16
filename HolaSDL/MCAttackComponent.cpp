@@ -182,8 +182,8 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 				comboAttack = CD;
 				attackCD->restart();
 
-				//TELEMETRIA
-				//Evento COMBO (3 ESPADAZOS)
+				//***TELEMETRIA
+				//***Evento COMBO (3 ESPADAZOS)
 			}
 			//TELEMETRIA
 			//Evento ESPADA
