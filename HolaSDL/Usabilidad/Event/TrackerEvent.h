@@ -1,8 +1,10 @@
 #pragma once
 #include <ctime>
 #include <string>
+#include "../Serializer/json.hpp"
 
 using namespace std;
+using namespace nlohmann;
 
 enum EventType { START, END, ATTACK };
 
@@ -17,8 +19,13 @@ public:
 		this->time = time;
 	}
 
-	virtual string ToJson() {
-		return "";
+	virtual json ToJson() {
+		json jo;
+
+		jo["TIME"] = time;
+		jo["TYPE"] = eventType;
+
+		return jo;
 	}
 
 	virtual string ToXML() {

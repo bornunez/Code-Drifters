@@ -22,8 +22,6 @@ void CreateFolder(const char* path)
 void FilePersistence::Init()
 {
 
-
-
 	CreateFolder("../Tracker");
 
 

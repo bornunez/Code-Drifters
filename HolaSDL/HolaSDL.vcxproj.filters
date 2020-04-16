@@ -929,6 +929,9 @@
     <ClInclude Include="Usabilidad\Persistence\FilePersistence.h">
       <Filter>Usabilidad\Persistence</Filter>
     </ClInclude>
+    <ClInclude Include="Usabilidad\Serializer\json.hpp">
+      <Filter>Usabilidad\Serializer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

@@ -2,5 +2,9 @@
 
 string JSONSerializer::Serialize(TrackerEvent e)
 {
-	return e.ToJson();
+	json jo = e.ToJson();
+
+	std::string s = jo.dump();
+
+	return s;
 }

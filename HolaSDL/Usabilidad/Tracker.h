@@ -60,7 +60,7 @@ public:
 	void TrackEvent(TrackerEvent e) {
 		persistenceObject->Send(e);
 	}
-	static AttackEvent Attack(ATTACK_TYPE type) {
+	static AttackEvent GenerateAtackEvent(ATTACK_TYPE type) {
 		AttackEvent e(getTime(), type);
 		return e;
 	}

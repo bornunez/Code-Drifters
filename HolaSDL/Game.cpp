@@ -117,6 +117,8 @@ void Game::run()
 	setWindow();
 	setMute();
 	Tracker::getInstance()->Init();
+
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(SWORD));
 	
 	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
