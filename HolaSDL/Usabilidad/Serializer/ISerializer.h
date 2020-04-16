@@ -1,5 +1,8 @@
 #pragma once
 #include "../Event/TrackerEvent.h"
+#include <string>
+
+using namespace std;
 
 class ISerializer
 {

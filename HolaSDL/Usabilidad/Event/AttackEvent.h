@@ -1,7 +1,7 @@
 #pragma once
 #include "TrackerEvent.h"
 
-enum ATTACK_TYPE {	SWORD,GUN, ULTIMATE, CHARGED, HOOK };
+enum ATTACK_TYPE {	SWORD,GUN, CHARGED, HOOK };
 
 class AttackEvent : public TrackerEvent
 {

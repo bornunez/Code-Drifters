@@ -1,5 +1,6 @@
 #pragma once
 #include <ctime>
+#include <string>
 
 using namespace std;
 
@@ -16,11 +17,11 @@ public:
 		this->time = time;
 	}
 
-	string ToJson() {
+	virtual string ToJson() {
 		return "";
 	}
 
-	string ToXML() {
+	virtual string ToXML() {
 		return "";
 	}
 };

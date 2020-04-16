@@ -23,6 +23,7 @@
 #include "Final.h"
 #include "IntroState.h"
 #include <iostream>
+#include "Usabilidad/Tracker.h"
 #include "CreditsState.h"
 Game* Game::game = nullptr;
 
@@ -115,6 +116,7 @@ void Game::run()
 	loadConfig();
 	setWindow();
 	setMute();
+	Tracker::getInstance()->Init();
 	
 	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
@@ -152,6 +154,7 @@ void Game::run()
 		SDL_RenderPresent(this->getRenderer());
 	}
 	//Sale del juego liberando la memoria ocupada.
+	Tracker::getInstance()->End();
 	ResetInstance();
 }
 
