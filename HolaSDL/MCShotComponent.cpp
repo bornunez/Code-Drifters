@@ -74,6 +74,9 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 				ResourceManager::getInstance()->getSoundEffect(MCGunShot)->changeVolume(50);
 				ResourceManager::getInstance()->getSoundEffect(MCGunShot)->play();
+
+				//TELEMETRIA
+				//Evento DISPARO
 			}
 		}
 	}

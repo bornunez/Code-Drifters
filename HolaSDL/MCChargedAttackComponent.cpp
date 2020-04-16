@@ -40,6 +40,9 @@ void MCChargedAttackComponent::update()
 			if (mc->getMCState() == MCState::ChargingAttack) {
 				ResourceManager::getInstance()->getSoundEffect(ChargingAttack)->changeVolume(0);
 				mc->setMCState(MCState::Idle);
+
+				//TELEMETRIA
+				//Evento CARGADO (LOST)
 			}
 			else if (mc->getMCState() == MCState::FullCharge) {
 				Message msg(ATTACKCHARGED);//Envía mensaje para que suelte el ataque
@@ -47,6 +50,9 @@ void MCChargedAttackComponent::update()
 				mc->sendMessage(&msg);
 				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->changeVolume(100);
 				ResourceManager::getInstance()->getSoundEffect(MCSwordNormalAttack)->play();
+
+				//TELEMETRIA
+				//Evento CARGADO (FULL)
 			}
 			chargeTime.restart();
 		}

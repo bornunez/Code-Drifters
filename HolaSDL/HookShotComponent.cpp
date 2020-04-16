@@ -43,6 +43,9 @@ void HookShotComponent::receiveMessage(Message* msg) {
 		if (enemyHooked != nullptr) {
 			enemyHooked->addCollisionLayer("Acido");
 			enemyHooked->enemyState = EnemyState::Idle;
+
+			//TELEMETRIA
+			enemyHooked->hookCombo();
 		}
 		stop();
 		break;

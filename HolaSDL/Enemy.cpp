@@ -10,6 +10,7 @@
 #include "Map.h"
 #include "ItemManager.h"
 #include "CoinManager.h"
+#include "Timer.h"
 
 #include"EnemyHUDComponent.h"
 
@@ -50,6 +51,9 @@ void Enemy::spawn(int x, int y, Spawner* spawner)
 	setDeath(false);
 	Message msg(ENEMY_SPAWN);
 	sendMessage(&msg);
+
+	//TELEMETRIA
+	timer = new Timer();
 }
 
 void Enemy::render() {
@@ -60,6 +64,10 @@ void Enemy::update()
 {
 	GameObject::update();
 	//hud->update();
+
+	//TELEMETRIA
+	if (hooked && timer->TimeSinceTimerCreation < hookComboTime) timer->update();
+	else hooked = false;
 }
 
 MainCharacter* Enemy::getMC() {
@@ -93,5 +101,13 @@ void Enemy::death()
 	Message msg(ENEMY_DEATH);
 	sendMessage(&msg);
 	mainCharacter->sendMessage(&msg);
+}
+
+
+//TELEMETRIA
+void Enemy::hookCombo()
+{
+	hooked = true;
+	timer->restart();
 }
 
