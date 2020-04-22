@@ -6,7 +6,7 @@
 using namespace std;
 using namespace nlohmann;
 
-enum EventType { START, END, ATTACK };
+enum EventType {SESSION_START, SESSION_END, ATTACK,COMBO,GAME_START,GAME_END,PLAYER_KILLED };
 
 class TrackerEvent
 {
