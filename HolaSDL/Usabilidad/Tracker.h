@@ -6,6 +6,7 @@
 #include "Serializer/JSONSerializer.h"
 #include "Persistence/FilePersistence.h"
 #include "Event/AttackEvent.h"
+#include "Event/ComboEvent.h"
 #include <ctime>
 #include <iostream>
 #include <iomanip>
@@ -62,6 +63,10 @@ public:
 	}
 	static AttackEvent GenerateAtackEvent(ATTACK_TYPE type) {
 		AttackEvent e(getTime(), type);
+		return e;
+	}
+	static ComboEvent GenerateComboEvent(COMBO_TYPE type) {
+		ComboEvent e(getTime(), type);
 		return e;
 	}
 

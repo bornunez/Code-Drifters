@@ -1,7 +1,7 @@
 #include "DamageableEnemyComponent.h"
 #include "GameObject.h"
 #include "Enemy.h"
-
+#include "Usabilidad/Tracker.h"
 
 DamageableEnemyComponent::DamageableEnemyComponent(Enemy* o, MainCharacter* mc, float invincibleTime) : UpdateComponent(o)
 {
@@ -30,11 +30,13 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 
 			//TELEMETRIA
 			//Evento COMBO (STUN-ESPADA)
+			Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateComboEvent(GUN_SWORD));
 		}
 		//TELEMETRIA
 		if (enemy->isComboHooked())
 		{
 			//Evento COMBO (HOOK-ESPADA)
+			Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateComboEvent(HOOK_SWORD));
 		}
 		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
@@ -48,6 +50,7 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 		if (enemy->isComboHooked())
 		{
 			//Evento COMBO (HOOK-ESPADA)
+			Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateComboEvent(HOOK_GUN));
 		}
 		break;
 

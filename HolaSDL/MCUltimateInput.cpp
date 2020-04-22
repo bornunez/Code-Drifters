@@ -2,6 +2,7 @@
 #include "MainCharacter.h"
 #include "EnemyManager.h"
 #include "ResourceManager.h"
+#include "Usabilidad/Tracker.h"
 
 MCUltimateInput::MCUltimateInput(MainCharacter* o) : InputComponent(o), mc(o)
 {
@@ -34,6 +35,7 @@ void MCUltimateInput::handleEvents(SDL_Event & e)
 
 				//TELEMETRIA
 				//Evento ULTI
+				Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(ULTI));
 			}
 		}
 	}

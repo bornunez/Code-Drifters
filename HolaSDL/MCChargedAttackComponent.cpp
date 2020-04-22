@@ -1,6 +1,7 @@
 #include "MCChargedAttackComponent.h"
 #include "MainCharacter.h"
 #include"ResourceManager.h"
+#include "Usabilidad/Tracker.h"
 
 MCChargedAttackComponent::MCChargedAttackComponent(MainCharacter * mc) : UpdateComponent(mc)
 {
@@ -53,6 +54,7 @@ void MCChargedAttackComponent::update()
 
 				//TELEMETRIA
 				//Evento CARGADO (FULL)
+				Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(CHARGED));
 			}
 			chargeTime.restart();
 		}

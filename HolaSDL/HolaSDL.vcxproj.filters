@@ -472,6 +472,9 @@
     <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp">
       <Filter>Usabilidad\Persistence</Filter>
     </ClCompile>
+    <ClCompile Include="Usabilidad\Event\ComboEvent.cpp">
+      <Filter>Usabilidad\Event</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -931,6 +934,9 @@
     </ClInclude>
     <ClInclude Include="Usabilidad\Serializer\json.hpp">
       <Filter>Usabilidad\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Event\ComboEvent.h">
+      <Filter>Usabilidad\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

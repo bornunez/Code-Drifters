@@ -4,6 +4,7 @@
 #include "PlayState.h"
 #include "Camera.h"
 #include "Hook.h"
+#include "Usabilidad/Tracker.h"
 MCHookInputComponent::MCHookInputComponent(MainCharacter * mc) : InputComponent(mc)
 {
 	this->mc = mc;
@@ -64,6 +65,7 @@ void MCHookInputComponent::handleEvents(SDL_Event & e)
 
 				//TELEMETRIA
 				//Evento HOOK
+				Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(HOOK));
 			}
 		}
 	}

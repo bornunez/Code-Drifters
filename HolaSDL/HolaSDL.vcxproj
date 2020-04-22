@@ -162,6 +162,7 @@
     <ClCompile Include="UpdateWheel.cpp" />
     <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Usabilidad\Event\AttackEvent.cpp" />
+    <ClCompile Include="Usabilidad\Event\ComboEvent.cpp" />
     <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp" />
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp" />
     <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp" />
@@ -333,6 +334,7 @@
     <ClInclude Include="UpdateWheel.h" />
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Usabilidad\Event\AttackEvent.h" />
+    <ClInclude Include="Usabilidad\Event\ComboEvent.h" />
     <ClInclude Include="Usabilidad\Event\ProgressionEvent.h" />
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h" />
     <ClInclude Include="Usabilidad\Persistence\FilePersistence.h" />

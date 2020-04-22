@@ -16,6 +16,7 @@
 #include "EnemyGunner.h"
 #include "CollisionHandler.h"
 #include "Time.h"
+#include "Usabilidad/Tracker.h"
 
 MCAttackComponent::MCAttackComponent(MainCharacter * mc) : InputComponent(mc)
 {
@@ -187,6 +188,7 @@ void MCAttackComponent::handleEvents(SDL_Event & e)
 			}
 			//TELEMETRIA
 			//Evento ESPADA
+			Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(SWORD));
 
 			//Se envia el mensaje 
 			gameObject->sendMessage(&msg);
