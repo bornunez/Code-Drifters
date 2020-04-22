@@ -7,6 +7,7 @@
 #include "Persistence/FilePersistence.h"
 #include "Event/AttackEvent.h"
 #include "Event/ComboEvent.h"
+#include "Event/LevelEvent.h"
 #include <ctime>
 #include <iostream>
 #include <iomanip>
@@ -67,6 +68,10 @@ public:
 	}
 	static ComboEvent GenerateComboEvent(COMBO_TYPE type) {
 		ComboEvent e(getTime(), type);
+		return e;
+	}
+	static LevelEvent GenerateLevelEvent(LEVEL_EVENT_TYPE type,int levelNum) {
+		LevelEvent e(getTime(), type, levelNum);
 		return e;
 	}
 

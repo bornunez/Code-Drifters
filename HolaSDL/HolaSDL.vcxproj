@@ -91,6 +91,7 @@
     <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="LastResortComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
+    <ClCompile Include="LevelEvent.cpp" />
     <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="LevelParser.cpp" />
@@ -257,6 +258,7 @@
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LastResortComponent.h" />
+    <ClInclude Include="LevelEvent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Managers.h" />
