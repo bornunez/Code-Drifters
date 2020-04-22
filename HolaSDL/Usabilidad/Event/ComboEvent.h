@@ -1,7 +1,7 @@
 #pragma once
 #include "TrackerEvent.h"
 
-enum COMBO_TYPE { GUN_SWORD, GUN_ULTI, HOOK_SWORD, HOOK_GUN, TRIPLE_SWORD};
+enum COMBO_TYPE { GUN_SWORD, HOOK_SWORD, HOOK_GUN, TRIPLE_SWORD};
 
 class ComboEvent : public TrackerEvent
 {
