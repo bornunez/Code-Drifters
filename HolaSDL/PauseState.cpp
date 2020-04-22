@@ -1,5 +1,6 @@
 #include "PauseState.h"
 #include "Game.h"
+#include "Usabilidad/Tracker.h"
 
 
 
@@ -111,6 +112,7 @@ void PauseState::handleEvent(SDL_Event & e)
 				game->quitToMenu();
 				break;
 			case 3:
+				
 				exitGame(game);
 				break;
 			}
@@ -193,6 +195,7 @@ void PauseState::render()
 
 void PauseState::exitGame(Game* game)
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(GAME_END));
 	game->exit = true;
 }
 

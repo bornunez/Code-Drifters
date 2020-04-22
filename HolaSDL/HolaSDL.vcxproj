@@ -91,7 +91,6 @@
     <ClCompile Include="KnockbackComponent.cpp" />
     <ClCompile Include="LastResortComponent.cpp" />
     <ClCompile Include="Layer.cpp" />
-    <ClCompile Include="LevelEvent.cpp" />
     <ClCompile Include="LevelExplorer.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="LevelParser.cpp" />
@@ -164,6 +163,7 @@
     <ClCompile Include="UpperGameState.cpp" />
     <ClCompile Include="Usabilidad\Event\AttackEvent.cpp" />
     <ClCompile Include="Usabilidad\Event\ComboEvent.cpp" />
+    <ClCompile Include="Usabilidad\Event\LevelEvent.cpp" />
     <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp" />
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp" />
     <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp" />
@@ -258,7 +258,6 @@
     <ClInclude Include="ItemObject.h" />
     <ClInclude Include="KnockbackComponent.h" />
     <ClInclude Include="LastResortComponent.h" />
-    <ClInclude Include="LevelEvent.h" />
     <ClInclude Include="LevelExplorer.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="Managers.h" />
@@ -337,6 +336,7 @@
     <ClInclude Include="UpperGameState.h" />
     <ClInclude Include="Usabilidad\Event\AttackEvent.h" />
     <ClInclude Include="Usabilidad\Event\ComboEvent.h" />
+    <ClInclude Include="Usabilidad\Event\LevelEvent.h" />
     <ClInclude Include="Usabilidad\Event\ProgressionEvent.h" />
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h" />
     <ClInclude Include="Usabilidad\Persistence\FilePersistence.h" />

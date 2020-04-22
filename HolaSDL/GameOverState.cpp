@@ -178,6 +178,7 @@ void GameOverState::render()
 
 void GameOverState::playState(Game* game)
 {
+
 	game->restart();
 }
 

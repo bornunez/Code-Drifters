@@ -37,10 +37,12 @@ void FilePersistence::End()
 		file.close();
 }
 
-void FilePersistence::Send(TrackerEvent e)
+void FilePersistence::Send(TrackerEvent* e)
 {
 	if (file.is_open()) {
-		file << serializer->Serialize(e) <<endl;
+		string s = serializer->Serialize(e);
+		cout << s << endl;
+		file << s <<endl;
 	}
 }
 

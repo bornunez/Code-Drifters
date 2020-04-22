@@ -118,7 +118,7 @@ void Game::run()
 	setMute();
 	Tracker::getInstance()->Init();
 
-	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(SWORD));
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(SESSION_START));
 	
 	//Esto deber?a ir en el playState, est? puesto de prueba. Crea un personaje y una c?mara, le asigna una sala al personaje
 
@@ -156,6 +156,7 @@ void Game::run()
 		SDL_RenderPresent(this->getRenderer());
 	}
 	//Sale del juego liberando la memoria ocupada.
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(SESSION_END));
 	Tracker::getInstance()->End();
 	ResetInstance();
 }
@@ -279,6 +280,7 @@ Game * Game::getGame()
 
 void Game::startGame(bool tutorial)
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(GAME_START));
 	playState = PlayState::getInstance();
 	stateMachine->pushState(playState);
 	playState->loadState(tutorial);
@@ -320,6 +322,7 @@ void Game::quitState()
 
 void Game::quitToMenu()
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(GAME_END));
 	ResourceManager::getInstance()->getMusic(Menu)->play();
 	stateMachine->popState();
 	stateMachine->popState();
@@ -354,18 +357,21 @@ void Game::pause(GameState* state)
 
 void Game::gameOver()
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(GAME_END));
 	GameOverState* go = new GameOverState();
 	stateMachine->pushState(go);
 }
 
 void Game::restart()
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(GAME_END));
 	quitToMenu();
 	startGame(PlayState::getInstance()->isTutorial());
 }
 
 void Game::final()
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(GAME_END));
 	Final* fin = new Final();
 	stateMachine->pushState(fin);
 }

@@ -5,6 +5,6 @@ class JSONSerializer : public ISerializer
 {
 
 public:
-	string Serialize(TrackerEvent e);
+	string Serialize(TrackerEvent* e);
 };
 

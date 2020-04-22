@@ -475,7 +475,9 @@
     <ClCompile Include="Usabilidad\Event\ComboEvent.cpp">
       <Filter>Usabilidad\Event</Filter>
     </ClCompile>
-    <ClCompile Include="LevelEvent.cpp" />
+    <ClCompile Include="Usabilidad\Event\LevelEvent.cpp">
+      <Filter>Usabilidad\Event</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -939,7 +941,9 @@
     <ClInclude Include="Usabilidad\Event\ComboEvent.h">
       <Filter>Usabilidad\Event</Filter>
     </ClInclude>
-    <ClInclude Include="LevelEvent.h" />
+    <ClInclude Include="Usabilidad\Event\LevelEvent.h">
+      <Filter>Usabilidad\Event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Prota">

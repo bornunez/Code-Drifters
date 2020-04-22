@@ -12,6 +12,7 @@
 #include "Message.h"
 #include <iostream>
 #include <fstream>
+#include "Usabilidad/Tracker.h"
 
 LevelManager* LevelManager::instance = nullptr;
 
@@ -255,6 +256,7 @@ void LevelManager::init(bool tutorial)
 
 void LevelManager::newMap()
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateLevelEvent(LEVEL_START, level));
 	if (level <= 0) {
 		dungeon = new DungeonGenerator(4, 4, 7);
 		dungeon->CreateMapFromFile();
@@ -273,6 +275,7 @@ void LevelManager::newMap()
 
 void LevelManager::nextLevel()
 {
+	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateLevelEvent(LEVEL_END, level));
 	//Desactiva el Boss del nivel tras matarlo
 	if (EnemyManager::getInstance()->getActiveBoss() != nullptr) {
 		EnemyManager::getInstance()->getActiveBoss()->setInvincibility(true);

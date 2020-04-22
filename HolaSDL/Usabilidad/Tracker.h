@@ -28,13 +28,23 @@ private:
 	static std::time_t getTime() {
 		return std::time(nullptr);
 	}
-	string getTimeString() {
+	string getDateString() {
 		auto t = std::time(nullptr);
 		struct tm buf;
 		localtime_s(&buf,&t);
 
 		std::ostringstream oss;
 		oss << std::put_time(&buf, "%d-%m-%Y %H-%M-%S");
+		return oss.str();
+
+	}
+	string getTimeString() {
+		auto t = std::time(nullptr);
+		struct tm buf;
+		localtime_s(&buf, &t);
+
+		std::ostringstream oss;
+		oss << std::put_time(&buf, "%H:%M:%S");
 		return oss.str();
 
 	}
@@ -47,7 +57,7 @@ public:
 
 	void Init() {
 		serializerObject = new JSONSerializer();
-		GAME_ID = getTimeString();
+		GAME_ID = getDateString();
 		
 		persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
 		persistenceObject->Init();
@@ -59,19 +69,24 @@ public:
 		delete persistenceObject;
 		delete serializerObject;
 	}
-	void TrackEvent(TrackerEvent e) {
+	void TrackEvent(TrackerEvent* e) {
 		persistenceObject->Send(e);
+		delete e;
 	}
-	static AttackEvent GenerateAtackEvent(ATTACK_TYPE type) {
-		AttackEvent e(getTime(), type);
+	static TrackerEvent* GenerateTrackerEvent(EventType type) {
+		TrackerEvent* e = new TrackerEvent(getTime(), type);
 		return e;
 	}
-	static ComboEvent GenerateComboEvent(COMBO_TYPE type) {
-		ComboEvent e(getTime(), type);
+	static AttackEvent* GenerateAtackEvent(ATTACK_TYPE type) {
+		AttackEvent* e = new AttackEvent(getTime(), type);
 		return e;
 	}
-	static LevelEvent GenerateLevelEvent(LEVEL_EVENT_TYPE type,int levelNum) {
-		LevelEvent e(getTime(), type, levelNum);
+	static ComboEvent* GenerateComboEvent(COMBO_TYPE type) {
+		ComboEvent* e = new ComboEvent(getTime(), type);
+		return e;
+	}
+	static LevelEvent* GenerateLevelEvent(LEVEL_EVENT_TYPE type,int levelNum) {
+		LevelEvent* e = new LevelEvent(getTime(), type, levelNum);
 		return e;
 	}
 

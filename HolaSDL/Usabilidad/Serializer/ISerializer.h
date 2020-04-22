@@ -9,7 +9,7 @@ class ISerializer
 
 public:
 
-	virtual string Serialize(TrackerEvent e) = 0;
+	virtual string Serialize(TrackerEvent* e) = 0;
 
 };
 

@@ -17,7 +17,7 @@ public:
 	void Init();
 	void End();
 
-	virtual void Send(TrackerEvent e);
+	virtual void Send(TrackerEvent* e);
 	virtual void Flush();
 };
 

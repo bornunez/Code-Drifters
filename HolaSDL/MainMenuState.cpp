@@ -3,6 +3,7 @@
 #include "Time.h"
 #include <fstream>
 #include"ResourceManager.h"
+#include "Usabilidad/Tracker.h"
 
 MainMenuState::MainMenuState()
 {
@@ -240,7 +241,7 @@ void MainMenuState::render()
 
 void MainMenuState::playState(Game* game,bool tutorial)
 {
-		game->playIntro(tutorial);
+	game->playIntro(tutorial);
 }
 
 void MainMenuState::exitGame(Game* game)

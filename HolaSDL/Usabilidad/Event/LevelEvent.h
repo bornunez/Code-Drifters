@@ -1,7 +1,7 @@
 #pragma once
 #include "TrackerEvent.h"
 
-enum LEVEL_EVENT_TYPE { LEVEL_START, LEVEL_END };
+enum LEVEL_EVENT_TYPE { LEVEL_START, LEVEL_END ,LEVEL_EVENT_SIZE};
 
 class LevelEvent : public TrackerEvent
 {
@@ -9,6 +9,7 @@ class LevelEvent : public TrackerEvent
 private:
 	LEVEL_EVENT_TYPE type;
 	int levelNum;
+	string levelEventString[LEVEL_EVENT_SIZE] = { "LEVEL_START","LEVEL_END" };
 
 public:
 
@@ -18,7 +19,11 @@ public:
 	}
 
 	virtual json ToJson() {
-		json jo = TrackerEvent::ToJson();
+
+		jo["NUM_LEVEL"] = levelNum;
+		jo["LEVEL_EVENT_TYPE"] = levelEventString[type];
+
+		TrackerEvent::ToJson();
 		return jo;
 	}
 

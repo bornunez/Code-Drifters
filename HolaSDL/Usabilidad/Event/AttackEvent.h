@@ -1,21 +1,22 @@
 #pragma once
 #include "TrackerEvent.h"
 
-enum ATTACK_TYPE {	SWORD,GUN, CHARGED, HOOK,ULTI };
+enum ATTACK_TYPE {	SWORD,GUN, CHARGED, HOOK,ULTI,ATTACK_TYPE_SIZE };
 
 class AttackEvent : public TrackerEvent
 {
 	ATTACK_TYPE type;
+	string attackTypeStrings[ATTACK_TYPE_SIZE] = { "SWORD","GUN", "CHARGED", "HOOK","ULTI" };
 
 public:
 	AttackEvent(time_t time, ATTACK_TYPE type) : TrackerEvent(time, ATTACK ) {
 		this->type = type;
 	}
-	json ToJson() {
-		json jo = TrackerEvent::ToJson();
+	virtual json ToJson() {
 
-		jo["ATTACK_TYPE"] = type;
+		jo["ATTACK_TYPE"] = attackTypeStrings[type];
 
+		TrackerEvent::ToJson();
 		return jo;
 	}
 };
