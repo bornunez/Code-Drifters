@@ -37,6 +37,7 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 		{
 			//Evento COMBO (HOOK-ESPADA)
 			Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateComboEvent(HOOK_SWORD));
+			enemy->resetHookCombo();
 		}
 		receiveDamage(static_cast<MCAttackDamage*>(msg)->damage);
 		attacked = true;
@@ -49,8 +50,9 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 		//TELEMETRIA
 		if (enemy->isComboHooked())
 		{
-			//Evento COMBO (HOOK-ESPADA)
+			//Evento COMBO (HOOK-GUN)
 			Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateComboEvent(HOOK_GUN));
+			enemy->resetHookCombo();
 		}
 		break;
 
@@ -64,7 +66,8 @@ void DamageableEnemyComponent::receiveMessage(Message* msg)
 			enemy->setStun(false);
 
 			//TELEMETRIA
-			//Evento COMBO (STUN-ULTI)
+			//Evento COMBO (GUN-ULTI)
+			//Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateComboEvent(GUN_ULTI));
 		}
 		break;
 

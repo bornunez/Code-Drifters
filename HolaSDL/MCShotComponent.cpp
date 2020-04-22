@@ -11,6 +11,7 @@
 #include "PlayState.h"
 #include <iostream>
 #include "BulletManager.h"
+#include "Usabilidad/Tracker.h"
 
 
 MCShotComponent::MCShotComponent(MainCharacter * o) : InputComponent(o), mc(o)
@@ -77,6 +78,7 @@ void MCShotComponent::handleEvents(SDL_Event & e)
 
 				//TELEMETRIA
 				//Evento DISPARO
+				Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateAtackEvent(GUN));
 			}
 		}
 	}
