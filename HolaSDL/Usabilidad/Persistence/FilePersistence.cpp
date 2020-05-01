@@ -44,6 +44,7 @@ void FilePersistence::Send(TrackerEvent* e)
 		cout << s << endl;
 		file << s <<endl;
 	}
+	delete e;
 }
 
 void FilePersistence::Flush()

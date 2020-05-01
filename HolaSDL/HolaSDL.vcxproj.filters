@@ -478,6 +478,9 @@
     <ClCompile Include="Usabilidad\Event\LevelEvent.cpp">
       <Filter>Usabilidad\Event</Filter>
     </ClCompile>
+    <ClCompile Include="Usabilidad\Persistence\ServerPersistence.cpp">
+      <Filter>Usabilidad\Persistence</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChaseComponent.h">
@@ -943,6 +946,9 @@
     </ClInclude>
     <ClInclude Include="Usabilidad\Event\LevelEvent.h">
       <Filter>Usabilidad\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Persistence\ServerPersistence.h">
+      <Filter>Usabilidad\Persistence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

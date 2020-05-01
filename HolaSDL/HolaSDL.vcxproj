@@ -168,6 +168,7 @@
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp" />
     <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp" />
     <ClCompile Include="Usabilidad\Persistence\IPersistence.cpp" />
+    <ClCompile Include="Usabilidad\Persistence\ServerPersistence.cpp" />
     <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp" />
     <ClCompile Include="Usabilidad\Serializer\JSONSerializer.cpp" />
     <ClCompile Include="Usabilidad\Tracker.cpp" />
@@ -341,6 +342,7 @@
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h" />
     <ClInclude Include="Usabilidad\Persistence\FilePersistence.h" />
     <ClInclude Include="Usabilidad\Persistence\IPersistence.h" />
+    <ClInclude Include="Usabilidad\Persistence\ServerPersistence.h" />
     <ClInclude Include="Usabilidad\Serializer\ISerializer.h" />
     <ClInclude Include="Usabilidad\Serializer\json.hpp" />
     <ClInclude Include="Usabilidad\Serializer\JSONSerializer.h" />

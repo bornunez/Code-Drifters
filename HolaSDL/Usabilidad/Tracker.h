@@ -5,6 +5,7 @@
 #include "Serializer/ISerializer.h"
 #include "Serializer/JSONSerializer.h"
 #include "Persistence/FilePersistence.h"
+#include "Persistence/ServerPersistence.h"
 #include "Event/AttackEvent.h"
 #include "Event/ComboEvent.h"
 #include "Event/LevelEvent.h"
@@ -59,7 +60,8 @@ public:
 		serializerObject = new JSONSerializer();
 		GAME_ID = getDateString();
 		
-		persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
+		//persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
+		persistenceObject = new ServerPersistence(serializerObject,5);
 		persistenceObject->Init();
 		std::cout << "Game ID: " << GAME_ID << std::endl;
 	}
@@ -71,7 +73,7 @@ public:
 	}
 	void TrackEvent(TrackerEvent* e) {
 		persistenceObject->Send(e);
-		delete e;
+		
 	}
 	static TrackerEvent* GenerateTrackerEvent(EventType type) {
 		TrackerEvent* e = new TrackerEvent(getTime(), type);
