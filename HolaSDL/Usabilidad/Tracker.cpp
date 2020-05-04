@@ -25,10 +25,10 @@ string Tracker::getTimeString()
 
 }
 
-void Tracker::Init()
+void Tracker::Init(string machineID)
 {
 	serializerObject = new JSONSerializer();
-	GAME_ID = getDateString();
+	GAME_ID = machineID+"_"+getDateString();
 
 	//persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
 	persistenceObject = new ServerPersistence(serializerObject, 5);

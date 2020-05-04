@@ -13,20 +13,11 @@ private:
 
 public:
 
-	LevelEvent(time_t time, LEVEL_EVENT_TYPE type, int levelNum) : TrackerEvent(time, LEVEL);
+	LevelEvent(time_t time, LEVEL_EVENT_TYPE type, int levelNum);
 
-	virtual json ToJson() {
+	virtual json ToJson();
 
-		jo["NUM_LEVEL"] = levelNum;
-		jo["LEVEL_EVENT_TYPE"] = levelEventString[type];
-
-		TrackerEvent::ToJson();
-		return jo;
-	}
-
-	virtual string ToXML() {
-		return "";
-	}
+	virtual string ToXML();
 
 };
 
