@@ -13,10 +13,7 @@ private:
 
 public:
 
-	LevelEvent(time_t time, LEVEL_EVENT_TYPE type, int levelNum) : TrackerEvent(time, LEVEL) {
-		this->type = type;
-		this->levelNum = levelNum;
-	}
+	LevelEvent(time_t time, LEVEL_EVENT_TYPE type, int levelNum) : TrackerEvent(time, LEVEL);
 
 	virtual json ToJson() {
 

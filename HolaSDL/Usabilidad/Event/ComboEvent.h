@@ -11,12 +11,6 @@ public:
 	ComboEvent(time_t time, COMBO_TYPE type) : TrackerEvent(time, COMBO) {
 		this->type = type;
 	}
-	json ToJson() {
-
-		jo["COMBO_TYPE"] = comboString[type];
-
-		TrackerEvent::ToJson();
-		return jo;
-	}
+	json ToJson();
 };
 

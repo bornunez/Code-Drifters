@@ -29,26 +29,8 @@ private:
 	static std::time_t getTime() {
 		return std::time(nullptr);
 	}
-	string getDateString() {
-		auto t = std::time(nullptr);
-		struct tm buf;
-		localtime_s(&buf,&t);
-
-		std::ostringstream oss;
-		oss << std::put_time(&buf, "%d-%m-%Y %H-%M-%S");
-		return oss.str();
-
-	}
-	string getTimeString() {
-		auto t = std::time(nullptr);
-		struct tm buf;
-		localtime_s(&buf, &t);
-
-		std::ostringstream oss;
-		oss << std::put_time(&buf, "%H:%M:%S");
-		return oss.str();
-
-	}
+	string getDateString();
+	string getTimeString();
 
 public:
 
@@ -56,41 +38,13 @@ public:
 
 	}
 
-	void Init() {
-		serializerObject = new JSONSerializer();
-		GAME_ID = getDateString();
-		
-		//persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
-		persistenceObject = new ServerPersistence(serializerObject,5);
-		persistenceObject->Init();
-		std::cout << "Game ID: " << GAME_ID << std::endl;
-	}
-	void End() {
-		persistenceObject->End();
-
-		delete persistenceObject;
-		delete serializerObject;
-	}
-	void TrackEvent(TrackerEvent* e) {
-		persistenceObject->Send(e);
-		
-	}
-	static TrackerEvent* GenerateTrackerEvent(EventType type) {
-		TrackerEvent* e = new TrackerEvent(getTime(), type);
-		return e;
-	}
-	static AttackEvent* GenerateAtackEvent(ATTACK_TYPE type) {
-		AttackEvent* e = new AttackEvent(getTime(), type);
-		return e;
-	}
-	static ComboEvent* GenerateComboEvent(COMBO_TYPE type) {
-		ComboEvent* e = new ComboEvent(getTime(), type);
-		return e;
-	}
-	static LevelEvent* GenerateLevelEvent(LEVEL_EVENT_TYPE type,int levelNum) {
-		LevelEvent* e = new LevelEvent(getTime(), type, levelNum);
-		return e;
-	}
+	void Init();
+	void End();
+	void TrackEvent(TrackerEvent* e);
+	static TrackerEvent* GenerateTrackerEvent(EventType type);
+	static AttackEvent* GenerateAtackEvent(ATTACK_TYPE type);
+	static ComboEvent* GenerateComboEvent(COMBO_TYPE type);
+	static LevelEvent* GenerateLevelEvent(LEVEL_EVENT_TYPE type, int levelNum);
 
 	static Tracker* getInstance() {
 		if (instance == nullptr)

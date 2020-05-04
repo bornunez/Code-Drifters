@@ -12,12 +12,6 @@ public:
 	AttackEvent(time_t time, ATTACK_TYPE type) : TrackerEvent(time, ATTACK ) {
 		this->type = type;
 	}
-	virtual json ToJson() {
-
-		jo["ATTACK_TYPE"] = attackTypeStrings[type];
-
-		TrackerEvent::ToJson();
-		return jo;
-	}
+	virtual json ToJson();
 };
 
