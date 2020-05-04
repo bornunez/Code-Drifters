@@ -164,13 +164,13 @@
     <ClCompile Include="Usabilidad\Event\AttackEvent.cpp" />
     <ClCompile Include="Usabilidad\Event\ComboEvent.cpp" />
     <ClCompile Include="Usabilidad\Event\LevelEvent.cpp" />
-    <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp" />
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp" />
     <ClCompile Include="Usabilidad\Persistence\FilePersistence.cpp" />
     <ClCompile Include="Usabilidad\Persistence\IPersistence.cpp" />
     <ClCompile Include="Usabilidad\Persistence\ServerPersistence.cpp" />
     <ClCompile Include="Usabilidad\Serializer\ISerializer.cpp" />
     <ClCompile Include="Usabilidad\Serializer\JSONSerializer.cpp" />
+    <ClCompile Include="Usabilidad\Serializer\XMLSerializer.cpp" />
     <ClCompile Include="Usabilidad\Tracker.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="WallStunComponent.cpp" />
@@ -338,7 +338,6 @@
     <ClInclude Include="Usabilidad\Event\AttackEvent.h" />
     <ClInclude Include="Usabilidad\Event\ComboEvent.h" />
     <ClInclude Include="Usabilidad\Event\LevelEvent.h" />
-    <ClInclude Include="Usabilidad\Event\ProgressionEvent.h" />
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h" />
     <ClInclude Include="Usabilidad\Persistence\FilePersistence.h" />
     <ClInclude Include="Usabilidad\Persistence\IPersistence.h" />
@@ -346,6 +345,7 @@
     <ClInclude Include="Usabilidad\Serializer\ISerializer.h" />
     <ClInclude Include="Usabilidad\Serializer\json.hpp" />
     <ClInclude Include="Usabilidad\Serializer\JSONSerializer.h" />
+    <ClInclude Include="Usabilidad\Serializer\XMLSerializer.h" />
     <ClInclude Include="Usabilidad\Tracker.h" />
     <ClInclude Include="Vector2D.h" />
     <ClInclude Include="WallStunComponent.h" />

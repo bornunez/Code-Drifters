@@ -5,6 +5,7 @@
 #include <sstream>
 #include <string>
 #include "../Serializer/json.hpp"
+#include "../../tinyxml2.h"
 
 using namespace std;
 using namespace nlohmann;
@@ -19,33 +20,12 @@ protected:
 	std::time_t time;
 	json jo;
 
-	string getTimeString() {
-		auto t = time;
-		struct tm buf;
-		localtime_s(&buf, &t);
-
-		std::ostringstream oss;
-		oss << std::put_time(&buf, "%H:%M:%S");
-		return oss.str();
-
-	}
+	string getTimeString();
 
 public:
-	TrackerEvent(time_t time, EventType eventType) {
-		this->eventType = eventType;
-		this->time = time;
-	}
+	TrackerEvent(time_t time, EventType eventType);
 
-	virtual json ToJson() {
-
-		jo["TIME"] = getTimeString();
-		jo["TYPE"] =typeStrings[eventType];
-
-		return jo;
-	}
-
-	virtual string ToXML() {
-		return "";
-	}
+	virtual json ToJson();
+	virtual string ToXML();
 };
 

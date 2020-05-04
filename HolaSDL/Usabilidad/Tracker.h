@@ -46,10 +46,6 @@ public:
 	static ComboEvent* GenerateComboEvent(COMBO_TYPE type);
 	static LevelEvent* GenerateLevelEvent(LEVEL_EVENT_TYPE type, int levelNum);
 
-	static Tracker* getInstance() {
-		if (instance == nullptr)
-			instance = new Tracker();
-		return instance;
-	}
+	static Tracker* getInstance();
 };
 

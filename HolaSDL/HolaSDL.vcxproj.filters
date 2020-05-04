@@ -463,9 +463,6 @@
     <ClCompile Include="Usabilidad\Event\TrackerEvent.cpp">
       <Filter>Usabilidad\Event</Filter>
     </ClCompile>
-    <ClCompile Include="Usabilidad\Event\ProgressionEvent .cpp">
-      <Filter>Usabilidad\Event</Filter>
-    </ClCompile>
     <ClCompile Include="Usabilidad\Event\AttackEvent.cpp">
       <Filter>Usabilidad\Event</Filter>
     </ClCompile>
@@ -480,6 +477,9 @@
     </ClCompile>
     <ClCompile Include="Usabilidad\Persistence\ServerPersistence.cpp">
       <Filter>Usabilidad\Persistence</Filter>
+    </ClCompile>
+    <ClCompile Include="Usabilidad\Serializer\XMLSerializer.cpp">
+      <Filter>Usabilidad\Serializer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -929,9 +929,6 @@
     <ClInclude Include="Usabilidad\Event\TrackerEvent.h">
       <Filter>Usabilidad\Event</Filter>
     </ClInclude>
-    <ClInclude Include="Usabilidad\Event\ProgressionEvent.h">
-      <Filter>Usabilidad\Event</Filter>
-    </ClInclude>
     <ClInclude Include="Usabilidad\Event\AttackEvent.h">
       <Filter>Usabilidad\Event</Filter>
     </ClInclude>
@@ -949,6 +946,9 @@
     </ClInclude>
     <ClInclude Include="Usabilidad\Persistence\ServerPersistence.h">
       <Filter>Usabilidad\Persistence</Filter>
+    </ClInclude>
+    <ClInclude Include="Usabilidad\Serializer\XMLSerializer.h">
+      <Filter>Usabilidad\Serializer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
