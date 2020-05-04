@@ -2,6 +2,39 @@
 
 Tracker* Tracker::instance = nullptr;
 
+void Tracker::SetSerializer()
+{
+	switch (serializerType)
+	{
+	case JSON:
+		serializerObject = new JSONSerializer();
+		break;
+	case XML:
+		serializerObject = new XMLSerializer();
+		break;
+	default:
+		break;
+	}
+}
+
+void Tracker::SetPersistance()
+{
+	switch (persistenceType)
+	{
+	case FILE_PERSISTANCE:
+		persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
+		break;
+	case SERVER_PERSISTANCE:
+		persistenceObject = new ServerPersistence(serializerObject, SERVER_FLUSH_TIME);
+		break;
+	}
+}
+
+std::time_t Tracker::getTime()
+{
+	return std::time(nullptr);
+}
+
 string Tracker::getDateString()
 {
 	auto t = std::time(nullptr);
@@ -27,11 +60,12 @@ string Tracker::getTimeString()
 
 void Tracker::Init(string machineID)
 {
-	serializerObject = new JSONSerializer();
 	GAME_ID = machineID+"_"+getDateString();
+	
+	//Primero creamos las cosas en funcion de las opciones
+	SetSerializer();
+	SetPersistance();
 
-	//persistenceObject = new FilePersistence(serializerObject, "../Tracker/" + GAME_ID + ".log");
-	persistenceObject = new ServerPersistence(serializerObject, 5);
 	persistenceObject->Init();
 	std::cout << "Game ID: " << GAME_ID << std::endl;
 }

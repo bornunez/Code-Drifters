@@ -36,6 +36,7 @@ void ServerPersistence::Init()
 void ServerPersistence::End()
 {
 	exit = true;
+	flushThread.join();
 }
 
 void ServerPersistence::Send(TrackerEvent* e)
