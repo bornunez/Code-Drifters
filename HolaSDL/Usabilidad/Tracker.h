@@ -38,7 +38,7 @@ public:
 
 	}
 
-	void Init();
+	void Init(string machineId);
 	void End();
 	void TrackEvent(TrackerEvent* e);
 	static TrackerEvent* GenerateTrackerEvent(EventType type);

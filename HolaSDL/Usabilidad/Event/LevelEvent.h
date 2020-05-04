@@ -14,6 +14,7 @@ private:
 public:
 
 	LevelEvent(time_t time, LEVEL_EVENT_TYPE type, int levelNum);
+
 	virtual json ToJson();
 
 	virtual string ToXML();

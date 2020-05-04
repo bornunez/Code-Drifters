@@ -116,7 +116,6 @@ void Game::run()
 	loadConfig();
 	setWindow();
 	setMute();
-	Tracker::getInstance()->Init();
 
 	Tracker::getInstance()->TrackEvent(Tracker::getInstance()->GenerateTrackerEvent(SESSION_START));
 	
